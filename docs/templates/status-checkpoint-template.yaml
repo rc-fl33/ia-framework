@@ -1,0 +1,65 @@
+# ─── Engagement Checkpoint ───
+# Universal _status.yaml schema for skill checkpoint/resume
+#
+# Written by phase prompts, read by 00-workflow.md for resume detection.
+# Lives in each engagement's output directory (e.g., skills/career/output/{dir}/_status.yaml)
+#
+# KEY DISTINCTION:
+#   STATUS.md  = skill level, tracks readiness (does the skill work?)
+#   _status.yaml = engagement level, tracks work-in-progress (where did the user stop?)
+
+engagement_id: "{skill}-{identifier}-{YYYY-MM-DD}"
+skill: "{skill-name}"
+created_at: "{ISO-8601}"
+updated_at: "{ISO-8601}"
+session_id: "{session-id}"
+
+# ─── Workflow State ───
+total_phases: 5
+current_phase: 2
+workflow_status: "in_progress"  # in_progress | completed | blocked | paused
+
+# ─── Phase Tracking ───
+phases:
+  - phase: 1
+    name: "{PHASE_NAME}"
+    status: "complete"          # pending | in_progress | complete | blocked
+    started_at: "{ISO-8601}"
+    completed_at: "{ISO-8601}"
+    gate_result: "passed"       # passed | failed | skipped
+    gate_details: {}            # skill-specific gate context
+    deliverables:               # files produced by this phase
+      - "filename.md"
+  - phase: 2
+    name: "{PHASE_NAME}"
+    status: "in_progress"
+    started_at: "{ISO-8601}"
+    completed_at: null
+    gate_result: null
+    gate_details: {}
+    deliverables: []
+
+# ─── Context ───
+user_context:
+  goal: "{what the user is trying to accomplish}"
+
+decisions:
+  - timestamp: "{ISO-8601}"
+    phase: 1
+    decision: "{key decision made}"
+
+blockers: []
+
+next_actions:
+  - "{what to do next}"
+
+# ─── Skill Extensions ───
+# Each skill defines its own metadata fields. See docs/schemas/status-metadata-schemas.yaml
+skill_metadata: {}
+
+# ─── Session History ───
+# Appended by session-end hook (Phase 2 enhancement) or manually by phase prompts
+session_history:
+  - session_id: "{session-id}"
+    started_at: "{ISO-8601}"
+    phases_completed: [1]

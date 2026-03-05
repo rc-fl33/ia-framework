@@ -1,0 +1,22 @@
+{
+  "name": "@ia-framework/tool-mermaid",
+  "version": "1.0.0",
+  "description": "Mermaid diagram rendering tool — SVG, PNG, PDF, and syntax validation",
+  "private": true,
+  "dependencies": {
+    "mermaid": "^11.4.1",
+    "@mermaid-js/mermaid-cli": "^11.4.2"
+  },
+  "devDependencies": {
+    "bun-types": "^1.1.0"
+  },
+  "scripts": {
+    "validate": "bun scripts/validate.ts",
+    "render": "bun scripts/render.ts"
+  },
+  "notes": [
+    "mermaid: core library for in-process SVG rendering",
+    "@mermaid-js/mermaid-cli: CLI wrapper for PNG/PDF via headless Chromium",
+    "Install into framework root: bun add mermaid @mermaid-js/mermaid-cli"
+  ]
+}

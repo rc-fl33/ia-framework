@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://intelligenceadjacent.com/schemas/skill-frontmatter.schema.json",
+  "title": "IA Framework Skill Frontmatter",
+  "description": "JSON Schema for validating SKILL.md frontmatter in IA Framework",
+  "type": "object",
+  "required": [
+    "name",
+    "description",
+    "agent",
+    "version",
+    "classification",
+    "last_updated"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique skill identifier matching the folder name",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 2,
+      "maxLength": 50
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of skill functionality",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "agent": {
+      "type": "string",
+      "description": "Primary agent responsible for executing this skill",
+      "enum": [
+        "base",
+        "advisor",
+        "developer",
+        "researcher",
+        "writer",
+        "security",
+        "engineer",
+        "legal",
+        "none"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "description": "Execution mode - single-agent or multi-agent orchestration (optional)",
+      "enum": [
+        "single-agent",
+        "multi-agent"
+      ]
+    },
+    "agents": {
+      "type": "array",
+      "description": "List of agents used in multi-agent workflows (optional, requires mode: multi-agent)",
+      "items": {
+        "type": "string",
+        "enum": [
+          "base",
+          "advisor",
+          "developer",
+          "researcher",
+          "writer",
+          "security",
+          "engineer",
+          "legal"
+        ]
+      }
+    },
+    "version": {
+      "type": "number",
+      "description": "Skill version number (semantic versioning major.minor)",
+      "minimum": 0.1,
+      "multipleOf": 0.1
+    },
+    "classification": {
+      "type": "string",
+      "description": "Whether skill is public or private",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "last_updated": {
+      "description": "Date of last update (YYYY-MM-DD format or Date object)",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "effort_default": {
+      "type": "string",
+      "description": "Default effort level for skill execution (optional)",
+      "enum": [
+        "QUICK",
+        "STANDARD",
+        "EXTENDED",
+        "LONG-TERM"
+      ]
+    },
+    "env_required": {
+      "type": "boolean",
+      "description": "Whether this skill requires .env credentials (optional)"
+    },
+    "env_keys": {
+      "type": "array",
+      "description": "List of required .env keys for this skill (optional)",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z_]+$"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Other skills required by this skill (optional)",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Categorization tags for skill discovery (optional)",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 30
+      }
+    }
+  },
+  "additionalProperties": false
+}

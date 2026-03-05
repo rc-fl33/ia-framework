@@ -1,0 +1,30 @@
+# Findings Report Engagement Metadata
+# Standalone findings report - no executive summary or scope
+
+project_name: "[Project Name]"
+project_version: "1.0.0"
+
+client_name: "[Client Company Name]"
+client_contact: "[Client Contact]"
+client_email: "[email@domain.com]"
+
+engagement_id: "FINDINGS-$(date +%Y)-001"
+engagement_type: "Findings Report"
+assessment_type: "Security Assessment"
+
+classification: "Confidential"
+draft: false
+start_date: "$(date +%Y-%m-%d)"
+end_date: "$(date +%Y-%m-%d)"
+report_date: "$(date +%Y-%m-%d)"
+report_version: "1.0"
+
+reviewer_name: "[Your Name]"
+reviewer_org: "Your Organization"
+reviewer_contact: "[email@domain.com]"
+
+scope_in:
+  - "[Target] | [Type] | [Description]"
+
+scope_out:
+  - "[Out of scope item]"

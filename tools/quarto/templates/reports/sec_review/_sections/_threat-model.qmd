@@ -1,0 +1,16 @@
+# Threat Model
+
+## Threat Categories
+
+| Category | Threats Identified |
+|----------|-------------------|
+| Spoofing | |
+| Tampering | |
+| Repudiation | |
+| Information Disclosure | |
+| Denial of Service | |
+| Elevation of Privilege | |
+
+## Attack Surface
+
+[Attack surface description]

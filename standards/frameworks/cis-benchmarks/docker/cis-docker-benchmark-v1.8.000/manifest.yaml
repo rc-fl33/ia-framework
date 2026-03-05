@@ -1,0 +1,15 @@
+name: CIS Docker Benchmark v1.8.0
+version: 1.8.0
+type: benchmark
+provider: cis
+framework_id: cis-docker-benchmark
+category: benchmark
+framework_category: hardening
+skills:
+- harden
+- pentest
+pages: 300
+published: '2025-12-12'
+controls_count: 1009
+enrichment_status:
+  tier: complete

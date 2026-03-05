@@ -1,0 +1,87 @@
+framework:
+  name: "Federal Risk and Authorization Management Program (FedRAMP)"
+  version: "Rev 5"
+  base_standard: "NIST SP 800-53 Rev 5"
+  release_date: "2024-09-24"
+  source_repository: "https://github.com/GSA/fedramp-automation"
+  release_tag: "fedramp-2.0.0-oscal-1.0.4"
+  official_url: "https://www.fedramp.gov/"
+  last_verified: "2026-01-14"
+
+contents:
+  format: "OSCAL (Open Security Controls Assessment Language)"
+  oscal_version: "1.0.4"
+
+  baselines:
+    description: "FedRAMP security control baselines for cloud services"
+    impact_levels:
+      - name: "HIGH"
+        description: "High impact systems - significant adverse effect on operations"
+        files:
+          - baselines/json/FedRAMP_rev5_HIGH-baseline_profile.json
+          - baselines/yaml/FedRAMP_rev5_HIGH-baseline_profile.yaml
+          - baselines/xml/FedRAMP_rev5_HIGH-baseline_profile.xml
+
+      - name: "MODERATE"
+        description: "Moderate impact systems - serious adverse effect on operations"
+        files:
+          - baselines/json/FedRAMP_rev5_MODERATE-baseline_profile.json
+          - baselines/yaml/FedRAMP_rev5_MODERATE-baseline_profile.yaml
+          - baselines/xml/FedRAMP_rev5_MODERATE-baseline_profile.xml
+
+      - name: "LOW"
+        description: "Low impact systems - limited adverse effect on operations"
+        files:
+          - baselines/json/FedRAMP_rev5_LOW-baseline_profile.json
+          - baselines/yaml/FedRAMP_rev5_LOW-baseline_profile.yaml
+          - baselines/xml/FedRAMP_rev5_LOW-baseline_profile.xml
+
+      - name: "LI-SaaS"
+        description: "Low Impact Software as a Service - tailored for low-risk SaaS"
+        files:
+          - baselines/json/FedRAMP_rev5_LI-SaaS-baseline_profile.json
+          - baselines/yaml/FedRAMP_rev5_LI-SaaS-baseline_profile.yaml
+          - baselines/xml/FedRAMP_rev5_LI-SaaS-baseline_profile.xml
+
+  templates:
+    description: "OSCAL templates for FedRAMP authorization packages"
+    items:
+      - name: "System Security Plan (SSP)"
+        path: templates/ssp/
+      - name: "Security Assessment Plan (SAP)"
+        path: templates/sap/
+      - name: "Security Assessment Report (SAR)"
+        path: templates/sar/
+      - name: "Plan of Action and Milestones (POA&M)"
+        path: templates/poam/
+
+  resources:
+    description: "Supporting resources for FedRAMP OSCAL content"
+    items:
+      - name: "FedRAMP Extensions"
+        description: "FedRAMP-specific OSCAL extensions"
+        path: resources/json/FedRAMP_extensions.json
+      - name: "FedRAMP Values"
+        description: "Acceptable values for FedRAMP content"
+        path: resources/json/fedramp_values.json
+      - name: "FedRAMP Threats"
+        description: "Threat catalog for risk assessment"
+        path: resources/json/fedramp_threats.json
+      - name: "Information Types"
+        description: "NIST SP 800-60 information types"
+        path: resources/json/information-types.json
+
+notes:
+  - "FedRAMP baselines are aligned with NIST SP 800-53 Rev 5"
+  - "OSCAL format enables machine-readable security documentation"
+  - "OMB M-24-15 modernized FedRAMP requirements in 2024"
+  - "FedRAMP 20x introduced new assessment paths in 2025"
+  - "Repository was archived on Jul 1, 2025 - check for updated sources"
+
+related_documents:
+  - title: "OMB M-24-15: Modernizing FedRAMP"
+    url: "https://www.whitehouse.gov/wp-content/uploads/2024/07/M-24-15-Modernizing-the-Federal-Risk-and-Authorization-Management-Program.pdf"
+  - title: "FedRAMP CSP Authorization Playbook"
+    url: "https://www.fedramp.gov/resources/documents/CSP_Authorization_Playbook.pdf"
+  - title: "FedRAMP Continuous Monitoring Playbook"
+    url: "https://www.fedramp.gov/resources/documents/Continuous_Monitoring_Playbook.pdf"

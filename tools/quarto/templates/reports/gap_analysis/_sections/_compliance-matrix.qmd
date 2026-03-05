@@ -1,0 +1,5 @@
+# Compliance Matrix
+
+| Control ID | Control Description | Status | Gap | Remediation |
+|------------|---------------------|--------|-----|-------------|
+| [Control] | [Description] | [Compliant/Gap] | [Gap Description] | [Remediation] |

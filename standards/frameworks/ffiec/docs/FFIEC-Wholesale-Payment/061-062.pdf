@@ -1,0 +1,489 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 2
+/Kids [ 4 0 R 16 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents [ 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 11 0 R
+/Fabc15 12 0 R
+/Fabc6 13 0 R
+/Fabc9 15 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/TextRect [ 70 670 499.02 720 ]
+/Length 507
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 20 Tf
+1 0 0 1 70 694 Tm
+(Appendix E: Federal Reserve Board Payment) Tj
+0.2 0 Td
+(Appendix E: Federal Reserve Board Payment) Tj
+0.2 0 Td
+(Appendix E: Federal Reserve Board Payment) Tj
+0.2 0 Td
+(Appendix E: Federal Reserve Board Payment) Tj
+-0.6 -20 Td
+(System Risk Policy: Daylight Overdrafts) Tj
+0.2 0 Td
+(System Risk Policy: Daylight Overdrafts) Tj
+0.2 0 Td
+(System Risk Policy: Daylight Overdrafts) Tj
+0.2 0 Td
+(System Risk Policy: Daylight Overdrafts) Tj
+ET
+Q
+
+endstream
+endobj
+6 0 obj
+<<
+/TextRect [ 70 152 542 658 ]
+/Length 4328
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+0.55891 Tw
+1 0 0 1 70 638.4 Tm
+(Similar to financial institutions offering retail payment services to customers, the Federal) Tj
+2.50433 Tw
+0 -12 Td
+(Reserve Banks are exposed to credit risk when they process payments for financial) Tj
+1.78044 Tw
+0 -12 Td
+(institutions holding reserve accounts. The Federal Reserve Banks guarantee payment) Tj
+1.73833 Tw
+0 -12 Td
+(finality for financial institutions using their systems for Fedwire Funds, NSS, and ACH) Tj
+0.00633 Tw
+0 -12 Td
+(credit originations. Due to this payment guarantee, the Federal Reserve Banks may incur) Tj
+0 Tw
+0 -12 Td
+(losses when institutions fail with overdrafts in their accounts.) Tj
+1.98582 Tw
+0 -22 Td
+(An integral component of the Federal Reserve's Payments System Risk \(PSR\) policy) Tj
+2.42433 Tw
+0 -12 Td
+(controls and reduces the use of Federal Reserve Banks' daylight overdrafts and the) Tj
+1.92145 Tw
+0 -12 Td
+(Federal Reserve Banks' associated credit risk.) Tj
+/Fabc6 8.4 Tf
+255.84727 0 Td
+3.6 Ts
+( [17] ) Tj
+/Fabc6 12 Tf
+22.49091 0 Td
+0 Ts
+(The PSR policy addresses daylight) Tj
+3.08431 Tw
+-278.33818 -12 Td
+(overdrafts that occur in accounts at Federal Reserve Banks as well as at financial) Tj
+3.3148 Tw
+0 -12 Td
+(institutions. A daylight overdraft occurs when an institution's Federal Reserve Bank) Tj
+0 Tw
+0 -12 Td
+(account is in a negative position during the business day.) Tj
+0.20171 Tw
+0 -22 Td
+(To control daylight overdrafts, the PSR policy establishes limits, or net debit caps, on the) Tj
+2.00733 Tw
+0 -12 Td
+(amount of Federal Reserve Bank daylight credit that a depository institution may use) Tj
+1.07938 Tw
+0 -12 Td
+(during a single day and over a two-week reserve maintenance period. These limits are) Tj
+2.00764 Tw
+0 -12 Td
+(sufficiently flexible to reflect the overall financial condition and operational capacity of) Tj
+1.03673 Tw
+0 -12 Td
+(each institution using Federal Reserve Bank payment services. The policy also permits) Tj
+1.95815 Tw
+0 -12 Td
+(the Federal Reserve Banks to protect themselves from the risk of loss by unilaterally) Tj
+3.167 Tw
+0 -12 Td
+(reducing net debit caps, imposing collateralization or clearing-balance requirements,) Tj
+0.85455 Tw
+0 -12 Td
+(rejecting or delaying certain transactions until sufficient balances exist, or prohibiting an) Tj
+0 Tw
+0 -12 Td
+(institution from using Federal Reserve Bank payment services.) Tj
+1.89633 Tw
+0 -22 Td
+(The PSR policy established daylight overdraft fees to provide a financial incentive for) Tj
+0.52 Tw
+0 -12 Td
+(institutions to control their use of Federal Reserve Bank intraday credit and to recognize) Tj
+3.28533 Tw
+0 -12 Td
+(the risks inherent in the provision of intraday credit. Daylight overdraft fees induce) Tj
+3.5368 Tw
+0 -12 Td
+(financial institutions to make business decisions concerning the amount of Federal) Tj
+2.18347 Tw
+0 -12 Td
+(Reserve Bank intraday credit they are willing to use based on the cost of using that) Tj
+1.34109 Tw
+0 -12 Td
+(credit. The daylight overdraft measurement method, which incorporates a set of nearly) Tj
+1.78633 Tw
+0 -12 Td
+(real time transaction posting rules, also supports institutions in controlling their use of) Tj
+0 Tw
+0 -12 Td
+(Federal Reserve Bank intraday credit.) Tj
+2.31418 Tw
+0 -22 Td
+(The Federal Reserve Banks use the Account Balance Monitoring System \(ABMS\) to) Tj
+1.83091 Tw
+0 -12 Td
+(monitor financial institution accounts intraday. For a limited number of institutions, the) Tj
+0.06031 Tw
+0 -12 Td
+(system is also used to prevent those institutions from incurring daylight overdrafts in their) Tj
+3.50533 Tw
+0 -12 Td
+(Federal Reserve Bank accounts beyond a certain threshold \(often set to zero\) for) Tj
+2.19745 Tw
+0 -12 Td
+(Fedwire Funds, NSS, and ACH credit origination transactions. In this situation, credit) Tj
+0.72123 Tw
+0 -12 Td
+(ACH transactions are required to be prefunded, including those settled on behalf of any) Tj
+0.88 Tw
+0 -12 Td
+(respondents. If there are insufficient funds available in the account, the batch will reject) Tj
+2.98427 Tw
+0 -12 Td
+(and a notice will be sent to the ACH sending point and to the settlement financial) Tj
+0 Tw
+0 -12 Td
+(institution.) Tj
+/Fabc6 8.4 Tf
+53.976 0 Td
+3.6 Ts
+( [18]) Tj
+ET
+Q
+
+endstream
+endobj
+7 0 obj
+<<
+/Length 102
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc15 10 Tf
+1 0 0 1 392.28 752 Tm
+(Wholesale Payment Systems Booklet) Tj
+ET
+Q
+
+endstream
+endobj
+8 0 obj
+<<
+/Length 48
+>>
+stream
+BX
+q
+0 0 0 RG
+70 750 m
+542 750 l
+S
+Q
+EX
+
+endstream
+endobj
+9 0 obj
+<<
+/Length 76
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc15 10 Tf
+1 0 0 1 505.62 22 Tm
+(Page E-1) Tj
+ET
+Q
+
+endstream
+endobj
+10 0 obj
+<<
+/Length 46
+>>
+stream
+BX
+q
+0 0 0 RG
+70 35 m
+542 35 l
+S
+Q
+EX
+
+endstream
+endobj
+11 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+12 0 obj
+<<
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/BaseFont /ArialMT
+/Encoding /WinAnsiEncoding
+/FirstChar 1
+/FontDescriptor 14 0 R
+/LastChar 255
+/Subtype /TrueType
+/Type /Font
+/Widths [ 0 0 0 0 0 0 0 0 277 277 277 277 277 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 277 277 354 556 556 889 666 190 333 333 389 583 277 333 277 277 556 556 556 556 556 556 556 556 556 556 277 277 583 583 583 556 1015 666 666 722 722 666 610 777 722 277 500 666 556 833 722 777 666 777 722 666 610 722 666 943 666 666 610 277 277 277 469 556 333 556 556 500 556 556 277 556 556 222 222 500 222 833 556 556 556 556 333 500 277 556 500 722 500 500 500 333 259 333 583 350 556 350 222 556 333 1000 556 556 333 1000 666 333 1000 350 610 350 350 222 222 333 333 350 556 1000 333 1000 500 333 943 350 500 666 277 333 556 556 556 556 259 556 333 736 370 556 583 333 736 552 399 548 333 333 333 576 537 333 333 333 365 556 833 833 833 610 666 666 666 666 666 666 1000 722 666 666 666 666 277 277 277 277 722 722 777 777 777 777 777 583 777 722 722 722 722 666 666 610 556 556 556 556 556 556 889 500 556 556 556 556 277 277 277 277 556 556 556 556 556 556 556 548 610 556 556 556 556 500 556 500 ]
+>>
+endobj
+14 0 obj
+<<
+/Ascent 905
+/CapHeight 716
+/Descent -212
+/Flags 32
+/FontBBox [ -664 -324 2000 1005 ]
+/FontName /ArialMT
+/ItalicAngle 0
+/StemV 80
+/Type /FontDescriptor
+>>
+endobj
+15 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+16 0 obj
+<<
+/Contents [ 17 0 R 18 0 R 7 0 R 8 0 R 19 0 R 10 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 11 0 R
+/Fabc15 12 0 R
+/Fabc6 13 0 R
+/Fabc9 15 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+17 0 obj
+<<
+/TextRect [ 70 690 455.68 720 ]
+/Length 264
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 20 Tf
+1 0 0 1 70 694 Tm
+(Appendix F: Payment System Resiliency) Tj
+0.2 0 Td
+(Appendix F: Payment System Resiliency) Tj
+0.2 0 Td
+(Appendix F: Payment System Resiliency) Tj
+0.2 0 Td
+(Appendix F: Payment System Resiliency) Tj
+ET
+Q
+
+endstream
+endobj
+18 0 obj
+<<
+/TextRect [ 70 316 542 678 ]
+/Length 1853
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+2.04433 Tw
+1 0 0 1 70 658.4 Tm
+(The "Interagency Paper on Sound Practices to Strengthen the Resilience of the U.S.) Tj
+3.90578 Tw
+0 -12 Td
+(Financial System" identifies sound practices focusing on minimizing the immediate) Tj
+3.70836 Tw
+0 -12 Td
+(systemic effects of a wide-scale disruption to critical financial markets. The sound) Tj
+4.0672 Tw
+0 -12 Td
+(practices focus on the appropriate back-up capacities necessary for recovery and) Tj
+3.874 Tw
+0 -12 Td
+(resumption of clearance and settlement activities for material open transactions in) Tj
+0 Tw
+0 -12 Td
+(wholesale financial markets.) Tj
+/Fabc6 8.4 Tf
+149.988 0 Td
+3.6 Ts
+( [19]) Tj
+/Fabc6 12 Tf
+0.05933 Tw
+-149.988 -22 Td
+0 Ts
+(The agencies, in promoting resiliency, have identified four broad sound practices for core) Tj
+3.28073 Tw
+0 -12 Td
+(clearing and settlement organizations and firms that play significant roles in critical) Tj
+0 Tw
+0 -12 Td
+(financial markets. The practices involve:) Tj
+9 -44 Td
+(\225) Tj
+12 0 Td
+(Identifying clearing and settlement activities in support of critical financial markets.\240) Tj
+5.5415 Tw
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Determining appropriate recovery and resumption objectives for clearing and) Tj
+0 Tw
+0 -12 Td
+(settlement activities in support of critical markets.\240) Tj
+3.875 Tw
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Maintaining sufficient geographically dispersed resources to meet recovery and) Tj
+0 Tw
+0 -12 Td
+(resumption objectives.\240) Tj
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Routinely using or testing recovery and resumption arrangements.) Tj
+4.1716 Tw
+-21 -44 Td
+(The sound practices discussed in this paper supplement the agencies' respective) Tj
+0 Tw
+0 -12 Td
+(policies and other guidance on business continuity planning.) Tj
+0 -44 Td
+(\240) Tj
+ET
+Q
+
+endstream
+endobj
+19 0 obj
+<<
+/Length 76
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc15 10 Tf
+1 0 0 1 506.17 22 Tm
+(Page F-1) Tj
+ET
+Q
+
+endstream
+endobj
+xref
+0 20
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000120 00000 n 
+0000000169 00000 n 
+0000000428 00000 n 
+0000001018 00000 n 
+0000005427 00000 n 
+0000005580 00000 n 
+0000005678 00000 n 
+0000005804 00000 n 
+0000005901 00000 n 
+0000006004 00000 n 
+0000006104 00000 n 
+0000007240 00000 n 
+0000007413 00000 n 
+0000007511 00000 n 
+0000007774 00000 n 
+0000008122 00000 n 
+0000010057 00000 n 
+trailer
+<<
+/Size 20
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+10184
+%%EOF

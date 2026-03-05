@@ -1,0 +1,89 @@
+# AIUC-1 AI Unified Controls Metadata
+# AI Use Case Standard for Enterprise AI Risk Management
+
+framework:
+  name: "AIUC-1 AI Unified Controls"
+  short_name: "AIUC-1"
+  version: "1.0"
+  release_date: "2025-12-19"
+  official_url: "https://www.aiuc-1.com/"
+  download_url: "https://raw.githubusercontent.com/aiuc-1/aiuc-1-standard/main/data/aiuc-1-standards.json"
+
+  description: |
+    Enterprise AI agent standard with 51 requirements across 6 principles for
+    managing AI risk. Operationalizes EU AI Act, ISO 42001, NIST AI RMF,
+    OWASP LLM Top 10, MITRE ATLAS, and CSA AICM into a unified control
+    framework. Designed for mid-market companies deploying AI agents, covering
+    data privacy, security, safety, reliability, accountability, and societal
+    impact. Includes 39 mandatory and 12 optional requirements with defined
+    assessment frequencies (quarterly, semi-annual, annual).
+
+  # Source documents in docs/
+  source_documents:
+    - name: "aiuc-1-standards.json"
+      description: "Complete standard in JSON format from GitHub"
+      format: json
+      splitting_required: false
+      original_deleted: false
+
+  # Control families (6 principles)
+  control_families:
+    - id: "A"
+      name: "Data & Privacy"
+      controls: 7
+      description: "Safeguarding customer information against leakage, IP exposure, and unauthorized training use"
+    - id: "B"
+      name: "Security"
+      controls: 9
+      description: "Defending against adversarial testing, prompt injection, and jailbreak attempts"
+    - id: "C"
+      name: "Safety"
+      controls: 12
+      description: "Mitigating harmful outputs and protecting brand reputation through testing and monitoring"
+    - id: "D"
+      name: "Reliability"
+      controls: 4
+      description: "Preventing hallucinations and unauthorized tool calls that cause customer harm"
+    - id: "E"
+      name: "Accountability"
+      controls: 17
+      description: "Enforcing governance through approval processes and failure planning"
+    - id: "F"
+      name: "Society"
+      controls: 2
+      description: "Preventing AI-enabled societal harms including cyber exploitation and catastrophic risks"
+
+  controls_count: 51  # 39 mandatory + 12 optional
+
+  # Verification
+  last_verified: "2026-02-13"
+  verified_by: "Direct download from GitHub repository"
+  status: current
+
+  # Related frameworks
+  related:
+    - iso-42001      # AI management system
+    - nist-ai-rmf    # AI risk management
+    - owasp-llm      # LLM security top 10
+    - mitre-atlas    # Adversarial threat landscape
+    - eu-ai-act      # European AI regulation
+    - csa-aicm       # Cloud security alliance AI controls
+
+# Acquisition instructions
+acquisition:
+  method: "curl"
+  command: 'curl -o aiuc-1-standards.json "https://raw.githubusercontent.com/aiuc-1/aiuc-1-standard/main/data/aiuc-1-standards.json"'
+  requires_account: false
+  post_processing: |
+    No splitting required. JSON format is directly consumable.
+
+# Certification
+certification:
+  first_auditor: "Schellman"
+  description: "First accredited auditor for AIUC-1 certification"
+
+# Update schedule
+maintenance:
+  check_frequency: "quarterly"
+  last_check: "2026-02-13"
+  next_check: "2026-05-13"

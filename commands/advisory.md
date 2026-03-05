@@ -1,0 +1,1 @@
+../skills/advisory/commands/advisory.md

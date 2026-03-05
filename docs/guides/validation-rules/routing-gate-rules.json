@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "Validation rules for routing gates in CLAUDE.md, agents/*.md, and skills/*/SKILL.md",
+  "rules": {
+    "routing_gate": {
+      "description": "Rules for validating routing gate presence and structure",
+      "required_elements": [
+        "blockquote_formatting",
+        "emoji_attention_marker",
+        "identity_check",
+        "delegation_code_example",
+        "prohibition_list",
+        "stop_command"
+      ],
+      "visual_pattern": {
+        "description": "Visual attention-grabbing elements",
+        "blockquote": {
+          "required": true,
+          "pattern": "^>\\s+",
+          "description": "Lines must start with '> ' (blockquote)"
+        },
+        "emoji": {
+          "required": true,
+          "character": "⛔",
+          "description": "Must contain ⛔ emoji"
+        },
+        "position": {
+          "min_line": 0,
+          "max_line": 60,
+          "description": "Routing gate must appear before first --- separator (typically 20-60 lines)"
+        }
+      },
+      "language_force": {
+        "description": "Strong command language to increase compliance",
+        "required_phrases": [
+          {
+            "phrase": "STOP",
+            "case_sensitive": true,
+            "description": "Must contain STOP command in uppercase"
+          },
+          {
+            "phrase": "DELEGATE",
+            "case_sensitive": true,
+            "description": "Must contain DELEGATE command in uppercase"
+          },
+          {
+            "phrase": "DO NOT",
+            "case_sensitive": true,
+            "description": "Must contain prohibition language"
+          }
+        ],
+        "identity_check_pattern": {
+          "framework": "You are BASE CLAUDE",
+          "agent": "You are the .+ agent",
+          "skill": "If you are NOT the .+ agent",
+          "description": "Identity verification statement"
+        }
+      },
+      "delegation_code": {
+        "description": "Explicit code examples for delegation",
+        "required": true,
+        "syntax_pattern": "Task\\(subagent_type=",
+        "description_pattern": "Must include Task() delegation examples"
+      },
+      "structural_elements": {
+        "framework": {
+          "required": [
+            "intent_enrichment_step",
+            "routing_decision_tree",
+            "available_agents_list",
+            "prohibition_list",
+            "permission_list"
+          ],
+          "intent_enrichment": {
+            "pattern": "enrichUserIntent|intent enrichment",
+            "description": "Must reference intent enrichment layer"
+          },
+          "routing_tree": {
+            "pattern": "decision tree|routing",
+            "description": "Must include routing decision logic"
+          },
+          "agents_list": {
+            "pattern": "Available agents:",
+            "description": "Must list available agents"
+          }
+        },
+        "agent": {
+          "required": [
+            "domain_statement",
+            "identity_verification",
+            "task_list",
+            "not_task_list",
+            "skills_list"
+          ],
+          "domain": {
+            "pattern": "Domain:",
+            "description": "Must state agent domain"
+          },
+          "identity_verification": {
+            "pattern": "Does this request match my domain|Verify identity",
+            "description": "Must include identity check logic"
+          }
+        },
+        "skill": {
+          "required": [
+            "required_agent_statement",
+            "identity_check_conditional",
+            "delegation_example",
+            "prohibition_list"
+          ],
+          "required_agent": {
+            "pattern": "This skill requires the .+ agent",
+            "description": "Must state required agent"
+          },
+          "identity_check": {
+            "pattern": "If you are NOT the .+ agent",
+            "description": "Must have conditional identity check"
+          }
+        }
+      }
+    }
+  },
+  "validation_levels": {
+    "error": {
+      "description": "Critical failures that prevent gate from functioning",
+      "rules": [
+        "blockquote_formatting",
+        "emoji_attention_marker",
+        "identity_check",
+        "delegation_code_example",
+        "stop_command"
+      ]
+    },
+    "warning": {
+      "description": "Issues that reduce effectiveness but don't break functionality",
+      "rules": [
+        "prohibition_list",
+        "position_out_of_range"
+      ]
+    },
+    "info": {
+      "description": "Style suggestions for improvement",
+      "rules": [
+        "language_style",
+        "code_example_clarity"
+      ]
+    }
+  },
+  "exemptions": {
+    "description": "Files exempt from routing gate requirements",
+    "files": [
+      "README.md",
+      "TEMPLATE.md",
+      "*-TEMPLATE.md"
+    ]
+  },
+  "metadata": {
+    "created": "2026-01-22",
+    "author": "IA Framework",
+    "purpose": "Validate routing gates for agent/skill delegation",
+    "standard": "docs/GENERATIVE-ROUTING-GATES-STANDARD.md"
+  }
+}

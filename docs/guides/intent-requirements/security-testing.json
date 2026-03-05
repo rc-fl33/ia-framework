@@ -1,0 +1,48 @@
+{
+  "intent": "security-testing",
+  "agent": "security",
+  "skill": "security",
+  "triggers": [
+    "pentest",
+    "penetration test",
+    "security test",
+    "vulnerability scan",
+    "vuln scan",
+    "security assessment",
+    "test security",
+    "security audit",
+    "segmentation test"
+  ],
+  "required_context": [
+    "target_system",
+    "test_type",
+    "scope",
+    "engagement_mode",
+    "authorization_status"
+  ],
+  "optional_context": [
+    "specific_vulnerabilities_to_test",
+    "compliance_framework",
+    "testing_tools",
+    "output_format",
+    "severity_threshold"
+  ],
+  "workflow_phases": [
+    "engagement_init",
+    "reconnaissance",
+    "vulnerability_assessment",
+    "exploitation",
+    "documentation"
+  ],
+  "quality_gates": {
+    "authorization_verified": true,
+    "scope_documented": true,
+    "findings_with_severity": true,
+    "remediation_guidance": true,
+    "cvss_scoring": true
+  },
+  "default_output": "skills/pentest/output/pentests/",
+  "cost_estimate": "sonnet",
+  "typical_duration": "extended",
+  "enrichment_template": "User wants security testing.\n\nEXPLICIT REQUIREMENTS:\n- Target: {{target_or_needs_clarification}}\n- Test type: {{pentest|vuln_scan|segmentation_test}}\n- Scope: {{scope_or_needs_definition}}\n- Authorization: {{verified_or_needs_confirmation}}\n- Engagement mode: {{director|mentor|demo}}\n- Methodology: OWASP, NIST, relevant framework\n- Output: skills/pentest/output/pentests/{{engagement_id}}/\n- Documentation: Findings with CVSS scores, remediation guidance\n\nSAFETY:\n- MUST verify authorization before testing\n- MUST stay within defined scope\n- MUST document all findings\n\nINSTRUCTION: Initialize engagement BEFORE delegating to security agent.\n\nDelegation code:\n1. Run: bun run tools/pentest/init-engagement.ts --target {{target}} --mode {{mode}}\n2. Task(subagent_type=\"security\", prompt=\"Execute security testing workflow. Engagement: {{engagement_id}}\")  "
+}

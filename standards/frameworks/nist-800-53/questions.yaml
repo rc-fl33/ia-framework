@@ -1,0 +1,1218 @@
+# NIST SP 800-53 Rev 5 Control-Tagged Questions
+# Version: 1.0
+# Reference: NIST Special Publication 800-53 Revision 5
+# Control Family: Native NIST 800-53 Rev 5
+# Purpose: Comprehensive control assessment for federal and non-federal systems
+
+framework: nist-800-53
+version: "Rev 5"
+total_questions: 40
+industry_focus:
+  - federal_government
+  - contractors
+  - critical_infrastructure
+  - healthcare
+  - financial
+
+# Control Families (20 families, 1189 controls with enhancements)
+control_families:
+  - id: AC
+    name: Access Control
+    control_family: AC
+  - id: AT
+    name: Awareness and Training
+    control_family: AT
+  - id: AU
+    name: Audit and Accountability
+    control_family: AU
+  - id: CA
+    name: Assessment, Authorization, and Monitoring
+    control_family: CA
+  - id: CM
+    name: Configuration Management
+    control_family: CM
+  - id: CP
+    name: Contingency Planning
+    control_family: CP
+  - id: IA
+    name: Identification and Authentication
+    control_family: IA
+  - id: IR
+    name: Incident Response
+    control_family: IR
+  - id: MA
+    name: Maintenance
+    control_family: MA
+  - id: MP
+    name: Media Protection
+    control_family: MP
+  - id: PE
+    name: Physical and Environmental Protection
+    control_family: PE
+  - id: PL
+    name: Planning
+    control_family: PL
+  - id: PM
+    name: Program Management
+    control_family: PM
+  - id: PS
+    name: Personnel Security
+    control_family: PS
+  - id: PT
+    name: PII Processing and Transparency
+    control_family: PT
+  - id: RA
+    name: Risk Assessment
+    control_family: RA
+  - id: SA
+    name: System and Services Acquisition
+    control_family: SA
+  - id: SC
+    name: System and Communications Protection
+    control_family: SC
+  - id: SI
+    name: System and Information Integrity
+    control_family: SI
+  - id: SR
+    name: Supply Chain Risk Management
+    control_family: SR
+
+# Baseline mapping (controls required per impact level)
+baselines:
+  low: "FedRAMP Low, basic federal systems"
+  moderate: "FedRAMP Moderate, most federal systems"
+  high: "FedRAMP High, critical/sensitive systems"
+
+questions:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # AC - ACCESS CONTROL
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-AC-001
+    text: "How does the organization manage user access accounts throughout their lifecycle?"
+    category: access_control
+    control_family: AC
+    controls:
+      nist-800-53: "AC-2, AC-2(1), AC-2(2), AC-2(3), AC-2(4)"
+      nist-csf: "PR.AA-02, PR.AA-05"
+      iso-27001: "A.8.2"
+      fedramp: "AC-2"
+      soc2: "CC6.1, CC6.2"
+      pci-dss: "8.1, 8.2"
+      cis-v8: "5.1, 5.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Account management policy
+      - User provisioning procedures
+      - Access request forms
+      - Periodic review records
+      - Termination procedures
+    scoring:
+      full: "Documented account lifecycle with automated workflows and regular reviews"
+      partial: "Account management exists but manual and inconsistent"
+      none: "No formal account management process"
+    sub_questions:
+      - "Are accounts reviewed at least annually?"
+      - "Is account creation documented and approved?"
+      - "Are inactive accounts disabled within defined timeframes?"
+      - "Are temporary/emergency accounts time-limited?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-AC-002
+    text: "How is least privilege implemented across system access?"
+    category: access_control
+    control_family: AC
+    controls:
+      nist-800-53: "AC-6, AC-6(1), AC-6(2), AC-6(5), AC-6(9), AC-6(10)"
+      nist-csf: "PR.AA-05"
+      iso-27001: "A.8.2, A.8.3"
+      fedramp: "AC-6"
+      soc2: "CC6.1"
+      pci-dss: "7.1, 7.2"
+      hipaa: "§164.312(a)(1)"
+      cis-v8: "6.1, 6.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Least privilege policy
+      - Role-based access matrix
+      - Privileged account inventory
+      - Access justification records
+    scoring:
+      full: "Role-based access with documented justification and logging"
+      partial: "Some access controls but least privilege not consistently applied"
+      none: "No least privilege implementation"
+    sub_questions:
+      - "Are privileges limited to functions required for job duties?"
+      - "Are privileged accounts separate from regular accounts?"
+      - "Is privileged access logged and audited?"
+      - "Are privileges reviewed and adjusted when roles change?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-AC-003
+    text: "How does the organization control remote access to information systems?"
+    category: access_control
+    control_family: AC
+    controls:
+      nist-800-53: "AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(4)"
+      nist-csf: "PR.AA-01, PR.DS-02"
+      iso-27001: "A.8.5"
+      fedramp: "AC-17"
+      soc2: "CC6.1, CC6.6"
+      pci-dss: "8.3"
+      cis-v8: "6.5, 6.6"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Remote access policy
+      - VPN configuration
+      - Encryption standards
+      - Remote session management
+    scoring:
+      full: "Encrypted remote access with MFA and session controls"
+      partial: "Remote access controlled but encryption or MFA incomplete"
+      none: "No controlled remote access"
+    sub_questions:
+      - "Is remote access encrypted (VPN, TLS)?"
+      - "Is multi-factor authentication required for remote access?"
+      - "Are remote sessions monitored and logged?"
+      - "Are remote access methods documented and authorized?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-AC-004
+    text: "How are information flow and access restrictions between system boundaries enforced?"
+    category: access_control
+    control_family: AC
+    controls:
+      nist-800-53: "AC-4, AC-4(4), SC-7, SC-7(4), SC-7(5)"
+      nist-csf: "PR.DS-05"
+      iso-27001: "A.8.22"
+      fedramp: "AC-4, SC-7"
+      soc2: "CC6.6"
+      pci-dss: "1.2, 1.3"
+      cis-v8: "12.1, 12.2"
+    baseline: [moderate, high]
+    evidence_required:
+      - Information flow policy
+      - Network diagrams
+      - Boundary protection documentation
+      - Data flow diagrams
+    scoring:
+      full: "Documented information flow with boundary controls and monitoring"
+      partial: "Some boundary controls but not comprehensive"
+      none: "No information flow controls"
+    sub_questions:
+      - "Are network boundaries clearly defined and documented?"
+      - "Are data flows between boundaries controlled?"
+      - "Is traffic filtered at boundaries?"
+      - "Are deny-all, permit-by-exception policies enforced?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # AT - AWARENESS AND TRAINING
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-AT-001
+    text: "Does the organization provide security awareness training to all users?"
+    category: awareness_training
+    control_family: AT
+    controls:
+      nist-800-53: "AT-2, AT-2(1), AT-2(2), AT-2(3)"
+      nist-csf: "PR.AT-01, PR.AT-02"
+      iso-27001: "A.6.3"
+      fedramp: "AT-2"
+      soc2: "CC1.4"
+      hipaa: "§164.308(a)(5)"
+      pci-dss: "12.6"
+      cis-v8: "14.1, 14.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Training program documentation
+      - Training materials
+      - Completion records
+      - Refresher training schedule
+    scoring:
+      full: "Comprehensive awareness program with regular updates and tracking"
+      partial: "Training exists but not comprehensive or tracked"
+      none: "No formal security awareness training"
+    sub_questions:
+      - "Is training provided upon hire and annually?"
+      - "Does training cover current threats (phishing, social engineering)?"
+      - "Is training completion tracked and enforced?"
+      - "Are simulated attacks (phishing tests) conducted?"
+    risk_weight: MEDIUM
+
+  - id: Q-800-53-AT-002
+    text: "Is role-based security training provided to users with specialized security responsibilities?"
+    category: awareness_training
+    control_family: AT
+    controls:
+      nist-800-53: "AT-3, AT-3(1), AT-3(2)"
+      nist-csf: "PR.AT-02"
+      iso-27001: "A.6.3"
+      fedramp: "AT-3"
+      soc2: "CC1.4"
+      cis-v8: "14.4"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Role-based training curriculum
+      - Specialized training records
+      - Certification requirements
+    scoring:
+      full: "Role-specific training with practical exercises and certifications"
+      partial: "Some role-based training but not comprehensive"
+      none: "No specialized security training"
+    sub_questions:
+      - "Do administrators receive specialized training?"
+      - "Do developers receive secure coding training?"
+      - "Is training tailored to specific job functions?"
+      - "Are certifications required for specialized roles?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # AU - AUDIT AND ACCOUNTABILITY
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-AU-001
+    text: "What audit events are captured and retained for system components?"
+    category: audit_accountability
+    control_family: AU
+    controls:
+      nist-800-53: "AU-2, AU-3, AU-3(1), AU-11"
+      nist-csf: "DE.CM-03"
+      iso-27001: "A.8.15"
+      fedramp: "AU-2, AU-3"
+      soc2: "CC7.1"
+      hipaa: "§164.312(b)"
+      pci-dss: "10.2"
+      cis-v8: "8.2, 8.5"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Audit event list
+      - Log content requirements
+      - Retention policy
+      - Log storage documentation
+    scoring:
+      full: "Comprehensive audit logging with defined retention and content standards"
+      partial: "Some audit logging but coverage or retention incomplete"
+      none: "No formal audit logging"
+    sub_questions:
+      - "Are all security-relevant events logged?"
+      - "Do logs include who, what, when, where, outcome?"
+      - "How long are logs retained?"
+      - "Are audit records protected from modification?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-AU-002
+    text: "How are audit logs reviewed, analyzed, and reported?"
+    category: audit_accountability
+    control_family: AU
+    controls:
+      nist-800-53: "AU-6, AU-6(1), AU-6(3), AU-6(5), AU-6(6)"
+      nist-csf: "DE.AE-02, DE.AE-03"
+      iso-27001: "A.8.15"
+      fedramp: "AU-6"
+      soc2: "CC4.1, CC7.2"
+      pci-dss: "10.4, 10.6"
+      cis-v8: "8.11"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Log review procedures
+      - Analysis tools (SIEM)
+      - Alert thresholds
+      - Reporting procedures
+    scoring:
+      full: "Automated log analysis with alerting and regular review"
+      partial: "Logs reviewed but not consistently or automatically"
+      none: "Logs not reviewed"
+    sub_questions:
+      - "Is log analysis automated (SIEM, log management)?"
+      - "Are anomalies and indicators of compromise detected?"
+      - "How frequently are logs reviewed?"
+      - "Are log analysis findings reported to management?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CA - ASSESSMENT, AUTHORIZATION, AND MONITORING
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-CA-001
+    text: "How are security controls assessed for effectiveness?"
+    category: assessment_authorization
+    control_family: CA
+    controls:
+      nist-800-53: "CA-2, CA-2(1), CA-2(2)"
+      nist-csf: "ID.IM-03"
+      iso-27001: "A.5.35"
+      fedramp: "CA-2"
+      soc2: "CC4.1"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Assessment plan
+      - Assessment reports
+      - Control test procedures
+      - Assessor qualifications
+    scoring:
+      full: "Regular independent assessments with documented methodology"
+      partial: "Some assessments but not comprehensive or independent"
+      none: "No formal control assessments"
+    sub_questions:
+      - "Are controls assessed at least annually?"
+      - "Are assessments performed by independent parties?"
+      - "Is assessment methodology documented?"
+      - "Are assessment findings tracked to remediation?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-CA-002
+    text: "How is the system's authorization to operate managed?"
+    category: assessment_authorization
+    control_family: CA
+    controls:
+      nist-800-53: "CA-6, CA-6(1)"
+      nist-csf: "GV.OV-02"
+      fedramp: "CA-6"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Authorization documentation (ATO)
+      - Security authorization package
+      - Authorizing official designation
+      - Authorization renewal records
+    scoring:
+      full: "Current authorization with documented risk acceptance"
+      partial: "Authorization exists but outdated or incomplete"
+      none: "No formal authorization"
+    sub_questions:
+      - "Is there a current Authority to Operate (ATO)?"
+      - "Who is the designated authorizing official?"
+      - "Are significant changes re-authorized?"
+      - "Is authorization renewed at required intervals?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CM - CONFIGURATION MANAGEMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-CM-001
+    text: "How is a baseline configuration established and maintained?"
+    category: configuration_management
+    control_family: CM
+    controls:
+      nist-800-53: "CM-2, CM-2(1), CM-2(2), CM-2(3)"
+      nist-csf: "PR.IP-01"
+      iso-27001: "A.8.9"
+      fedramp: "CM-2"
+      soc2: "CC8.1"
+      pci-dss: "2.2"
+      cis-v8: "4.1, 4.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Baseline configuration documentation
+      - Configuration standards (CIS benchmarks, STIGs)
+      - Deviation documentation
+      - Baseline review records
+    scoring:
+      full: "Documented baselines with automated enforcement and deviation tracking"
+      partial: "Baselines exist but not consistently maintained"
+      none: "No baseline configurations"
+    sub_questions:
+      - "Are baseline configurations documented for all system types?"
+      - "Are security configuration guides (CIS, DISA STIGs) used?"
+      - "How are deviations from baseline documented and approved?"
+      - "Are baselines reviewed and updated regularly?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-CM-002
+    text: "How are configuration changes controlled and documented?"
+    category: configuration_management
+    control_family: CM
+    controls:
+      nist-800-53: "CM-3, CM-3(1), CM-3(2), CM-3(4), CM-4"
+      nist-csf: "PR.IP-03"
+      iso-27001: "A.8.32"
+      fedramp: "CM-3, CM-4"
+      soc2: "CC8.1"
+      pci-dss: "6.4"
+      cis-v8: "2.5"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Change management policy
+      - Change request records
+      - Impact analysis documentation
+      - Approval records
+    scoring:
+      full: "Formal change control with impact analysis and approval workflow"
+      partial: "Change process exists but not consistently followed"
+      none: "No formal change control"
+    sub_questions:
+      - "Are changes analyzed for security impact?"
+      - "Are changes approved before implementation?"
+      - "Is there a change advisory board or equivalent?"
+      - "Are emergency changes documented and reviewed?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-CM-003
+    text: "How is a system inventory maintained?"
+    category: configuration_management
+    control_family: CM
+    controls:
+      nist-800-53: "CM-8, CM-8(1), CM-8(3)"
+      nist-csf: "ID.AM-01, ID.AM-02"
+      iso-27001: "A.5.9"
+      fedramp: "CM-8"
+      soc2: "CC6.1"
+      pci-dss: "2.4"
+      cis-v8: "1.1, 1.2, 2.1"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - System inventory
+      - Software inventory
+      - Component tracking
+      - Inventory update procedures
+    scoring:
+      full: "Automated inventory with complete hardware/software tracking"
+      partial: "Inventory exists but not comprehensive or current"
+      none: "No system inventory"
+    sub_questions:
+      - "Is there a complete inventory of hardware assets?"
+      - "Is there a complete inventory of software?"
+      - "Is inventory automatically updated?"
+      - "Are unauthorized components detected?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CP - CONTINGENCY PLANNING
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-CP-001
+    text: "Does the organization have a comprehensive contingency plan?"
+    category: contingency_planning
+    control_family: CP
+    controls:
+      nist-800-53: "CP-1, CP-2, CP-2(1), CP-2(3), CP-2(8)"
+      nist-csf: "PR.IP-09, RC.RP-01"
+      iso-27001: "A.5.29, A.5.30"
+      fedramp: "CP-2"
+      soc2: "CC9.1"
+      hipaa: "§164.308(a)(7)"
+      pci-dss: "12.10"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Contingency plan
+      - Business impact analysis
+      - Recovery priorities
+      - Contact lists
+    scoring:
+      full: "Comprehensive plan with BIA, priorities, and procedures"
+      partial: "Plan exists but incomplete or outdated"
+      none: "No contingency plan"
+    sub_questions:
+      - "Is there a documented contingency plan?"
+      - "Is a business impact analysis performed?"
+      - "Are recovery time objectives (RTO) defined?"
+      - "Are recovery point objectives (RPO) defined?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-CP-002
+    text: "Are contingency plans tested and updated regularly?"
+    category: contingency_planning
+    control_family: CP
+    controls:
+      nist-800-53: "CP-4, CP-4(1), CP-4(2)"
+      nist-csf: "PR.IP-10"
+      iso-27001: "A.5.30"
+      fedramp: "CP-4"
+      soc2: "A1.3"
+      hipaa: "§164.308(a)(7)"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Test plans and results
+      - Lessons learned
+      - Plan updates
+      - Test schedules
+    scoring:
+      full: "Annual testing with documented results and plan updates"
+      partial: "Some testing but not comprehensive or regular"
+      none: "Plans not tested"
+    sub_questions:
+      - "Are plans tested at least annually?"
+      - "Do tests include full recovery exercises?"
+      - "Are lessons learned incorporated?"
+      - "Are plan updates made based on test results?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-CP-003
+    text: "How does the organization manage system backups?"
+    category: contingency_planning
+    control_family: CP
+    controls:
+      nist-800-53: "CP-9, CP-9(1), CP-9(2), CP-9(3), CP-9(8)"
+      nist-csf: "PR.DS-11"
+      iso-27001: "A.8.13"
+      fedramp: "CP-9"
+      soc2: "A1.2"
+      hipaa: "§164.308(a)(7)(ii)"
+      pci-dss: "9.5"
+      cis-v8: "11.1, 11.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Backup policy
+      - Backup schedules
+      - Backup verification records
+      - Restoration test records
+    scoring:
+      full: "Automated backups with verification, encryption, and tested restoration"
+      partial: "Backups performed but not verified or tested"
+      none: "No formal backup process"
+    sub_questions:
+      - "Are backups performed on defined schedules?"
+      - "Are backups stored at separate locations?"
+      - "Are backups encrypted?"
+      - "Is restoration tested regularly?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # IA - IDENTIFICATION AND AUTHENTICATION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-IA-001
+    text: "How are users uniquely identified and authenticated?"
+    category: identification_authentication
+    control_family: IA
+    controls:
+      nist-800-53: "IA-2, IA-2(1), IA-2(2), IA-2(5), IA-2(8)"
+      nist-csf: "PR.AA-01, PR.AA-03"
+      iso-27001: "A.8.5"
+      fedramp: "IA-2"
+      soc2: "CC6.1"
+      hipaa: "§164.312(d)"
+      pci-dss: "8.2, 8.3"
+      cis-v8: "6.3, 6.4"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Authentication policy
+      - MFA implementation documentation
+      - Authenticator management
+      - Session controls
+    scoring:
+      full: "Unique IDs with MFA for all privileged and remote access"
+      partial: "User identification exists but MFA incomplete"
+      none: "No formal identification/authentication controls"
+    sub_questions:
+      - "Are all users assigned unique identifiers?"
+      - "Is multi-factor authentication implemented?"
+      - "Is MFA required for privileged access?"
+      - "Is MFA required for remote access?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-IA-002
+    text: "How are authenticators (passwords, tokens, certificates) managed?"
+    category: identification_authentication
+    control_family: IA
+    controls:
+      nist-800-53: "IA-5, IA-5(1), IA-5(2), IA-5(6)"
+      nist-csf: "PR.AA-03"
+      iso-27001: "A.8.5"
+      fedramp: "IA-5"
+      soc2: "CC6.1"
+      pci-dss: "8.2, 8.4"
+      cis-v8: "6.5"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Authenticator policy
+      - Password requirements
+      - Certificate management
+      - Authenticator lifecycle procedures
+    scoring:
+      full: "Comprehensive authenticator management with strength requirements"
+      partial: "Some authenticator controls but incomplete"
+      none: "No authenticator management"
+    sub_questions:
+      - "Are password complexity requirements enforced?"
+      - "Is password minimum length at least 12 characters?"
+      - "Are certificates properly managed and renewed?"
+      - "Are default passwords changed?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # IR - INCIDENT RESPONSE
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-IR-001
+    text: "Does the organization have a documented incident response capability?"
+    category: incident_response
+    control_family: IR
+    controls:
+      nist-800-53: "IR-1, IR-4, IR-4(1), IR-4(4)"
+      nist-csf: "RS.MA-01, RS.MA-02"
+      iso-27001: "A.5.24, A.5.25"
+      fedramp: "IR-4"
+      soc2: "CC7.3"
+      hipaa: "§164.308(a)(6)"
+      pci-dss: "12.10"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Incident response plan
+      - Incident classification matrix
+      - Response procedures
+      - Contact lists
+    scoring:
+      full: "Documented IR capability with automated detection and correlation"
+      partial: "IR procedures exist but not comprehensive"
+      none: "No formal incident response"
+    sub_questions:
+      - "Is there a documented incident response plan?"
+      - "Are incidents classified by severity?"
+      - "Are response procedures defined for each classification?"
+      - "Is there 24/7 incident response capability?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-IR-002
+    text: "How are incidents reported internally and externally?"
+    category: incident_response
+    control_family: IR
+    controls:
+      nist-800-53: "IR-6, IR-6(1), IR-6(2)"
+      nist-csf: "RS.CO-02, RS.CO-03"
+      iso-27001: "A.5.26"
+      fedramp: "IR-6"
+      hipaa: "§164.308(a)(6)"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Incident reporting procedures
+      - Reporting timelines
+      - External reporting requirements (CISA, regulators)
+      - Reporting records
+    scoring:
+      full: "Documented reporting with defined timelines and regulatory compliance"
+      partial: "Reporting occurs but procedures not formalized"
+      none: "No formal incident reporting"
+    sub_questions:
+      - "Are incident reporting timelines defined?"
+      - "Is there automated incident alerting?"
+      - "Are regulatory reporting requirements addressed?"
+      - "Is there a defined external reporting process (CISA, law enforcement)?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MA - MAINTENANCE
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-MA-001
+    text: "How is system maintenance performed and documented?"
+    category: maintenance
+    control_family: MA
+    controls:
+      nist-800-53: "MA-2, MA-2(1), MA-2(2)"
+      nist-csf: "PR.MA-01"
+      iso-27001: "A.8.9"
+      fedramp: "MA-2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Maintenance policy
+      - Maintenance schedules
+      - Maintenance records
+      - Approval documentation
+    scoring:
+      full: "Scheduled maintenance with documentation and approval"
+      partial: "Maintenance performed but not consistently documented"
+      none: "No formal maintenance process"
+    sub_questions:
+      - "Is maintenance scheduled and approved?"
+      - "Are maintenance records maintained?"
+      - "Are security-relevant changes tracked during maintenance?"
+      - "Is remote maintenance controlled?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MP - MEDIA PROTECTION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-MP-001
+    text: "How does the organization protect and control media containing sensitive information?"
+    category: media_protection
+    control_family: MP
+    controls:
+      nist-800-53: "MP-2, MP-3, MP-4, MP-5, MP-6"
+      nist-csf: "PR.DS-03"
+      iso-27001: "A.8.10"
+      fedramp: "MP-2, MP-4, MP-6"
+      soc2: "CC6.7"
+      hipaa: "§164.310(d)"
+      pci-dss: "9.5, 9.6"
+      cis-v8: "3.9"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Media handling policy
+      - Media inventory
+      - Sanitization procedures
+      - Destruction records
+    scoring:
+      full: "Media protection throughout lifecycle with documented sanitization"
+      partial: "Some media controls but not comprehensive"
+      none: "No formal media protection"
+    sub_questions:
+      - "Is media access restricted and controlled?"
+      - "Is media marked with sensitivity classification?"
+      - "Are sanitization methods documented (NIST 800-88)?"
+      - "Are destruction records maintained?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PE - PHYSICAL AND ENVIRONMENTAL PROTECTION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-PE-001
+    text: "How is physical access to facilities and systems controlled?"
+    category: physical_environmental
+    control_family: PE
+    controls:
+      nist-800-53: "PE-2, PE-3, PE-3(1), PE-6, PE-6(1)"
+      nist-csf: "PR.AC-02"
+      iso-27001: "A.7.1, A.7.2"
+      fedramp: "PE-2, PE-3, PE-6"
+      soc2: "CC6.4, CC6.5"
+      hipaa: "§164.310(a), §164.310(c)"
+      pci-dss: "9.1, 9.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Physical access policy
+      - Access control systems
+      - Access logs
+      - Visitor management procedures
+    scoring:
+      full: "Controlled physical access with logging, monitoring, and visitor management"
+      partial: "Some physical controls but not comprehensive"
+      none: "No formal physical access controls"
+    sub_questions:
+      - "Are physical access authorizations documented?"
+      - "Are access points controlled (badges, guards)?"
+      - "Are access logs maintained and reviewed?"
+      - "Is visitor access logged and escorted?"
+    risk_weight: MEDIUM
+
+  - id: Q-800-53-PE-002
+    text: "Are environmental controls in place to protect systems?"
+    category: physical_environmental
+    control_family: PE
+    controls:
+      nist-800-53: "PE-10, PE-11, PE-12, PE-13, PE-14, PE-15"
+      nist-csf: "PR.IR-01"
+      iso-27001: "A.7.5, A.7.8, A.7.9"
+      fedramp: "PE-10, PE-13, PE-14"
+      soc2: "A1.1"
+    baseline: [moderate, high]
+    evidence_required:
+      - Environmental control documentation
+      - Emergency procedures
+      - HVAC specifications
+      - Fire suppression systems
+    scoring:
+      full: "Comprehensive environmental controls with emergency procedures"
+      partial: "Some environmental controls but gaps exist"
+      none: "No environmental protection"
+    sub_questions:
+      - "Are emergency shutoff switches in place?"
+      - "Is emergency power (UPS, generators) available?"
+      - "Is fire detection and suppression deployed?"
+      - "Are temperature and humidity controlled?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PL - PLANNING
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-PL-001
+    text: "Does the organization have a documented system security plan?"
+    category: planning
+    control_family: PL
+    controls:
+      nist-800-53: "PL-2, PL-2(3)"
+      nist-csf: "GV.PO-01"
+      iso-27001: "A.5.1"
+      fedramp: "PL-2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - System Security Plan (SSP)
+      - Plan approval records
+      - Update history
+    scoring:
+      full: "Current SSP with complete control documentation and approval"
+      partial: "SSP exists but outdated or incomplete"
+      none: "No system security plan"
+    sub_questions:
+      - "Is there a documented System Security Plan?"
+      - "Does it describe the system architecture and boundaries?"
+      - "Are all controls documented in the SSP?"
+      - "Is the SSP reviewed and updated regularly?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PM - PROGRAM MANAGEMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-PM-001
+    text: "Is there an organization-wide information security program?"
+    category: program_management
+    control_family: PM
+    controls:
+      nist-800-53: "PM-1, PM-2, PM-3"
+      nist-csf: "GV.OC-01, GV.RM-01"
+      iso-27001: "A.5.1, A.5.2"
+      fedramp: "PM-1"
+      soc2: "CC1.1, CC1.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Information security program charter
+      - Senior official designation
+      - Program resources
+      - Program metrics
+    scoring:
+      full: "Documented program with executive sponsorship and resources"
+      partial: "Some program elements but not comprehensive"
+      none: "No formal security program"
+    sub_questions:
+      - "Is there a designated senior information security officer?"
+      - "Are security responsibilities defined across the organization?"
+      - "Are adequate resources allocated to security?"
+      - "Are security metrics tracked and reported?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PS - PERSONNEL SECURITY
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-PS-001
+    text: "How are personnel screened before being granted access?"
+    category: personnel_security
+    control_family: PS
+    controls:
+      nist-800-53: "PS-2, PS-3, PS-3(1), PS-3(3)"
+      nist-csf: "PR.AA-02"
+      iso-27001: "A.6.1"
+      fedramp: "PS-3"
+      soc2: "CC1.4"
+      pci-dss: "12.7"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Screening policy
+      - Background check requirements
+      - Rescreening schedule
+      - Screening records
+    scoring:
+      full: "Risk-based screening with periodic rescreening"
+      partial: "Background checks performed but not risk-based"
+      none: "No formal personnel screening"
+    sub_questions:
+      - "Are background checks performed before access?"
+      - "Is screening commensurate with risk level?"
+      - "Are personnel rescreened periodically?"
+      - "Are screening criteria documented?"
+    risk_weight: MEDIUM
+
+  - id: Q-800-53-PS-002
+    text: "How is access managed when personnel terminate or transfer?"
+    category: personnel_security
+    control_family: PS
+    controls:
+      nist-800-53: "PS-4, PS-4(2), PS-5"
+      nist-csf: "PR.AA-02, PR.AA-05"
+      iso-27001: "A.6.5"
+      fedramp: "PS-4, PS-5"
+      soc2: "CC6.2"
+      hipaa: "§164.308(a)(3)"
+      cis-v8: "5.3"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Termination procedures
+      - Transfer procedures
+      - Exit checklist
+      - Access revocation records
+    scoring:
+      full: "Same-day access revocation with documented procedures"
+      partial: "Access revoked but not timely or documented"
+      none: "No formal termination procedures"
+    sub_questions:
+      - "Is access disabled on the same day as termination?"
+      - "Are credentials and badges recovered?"
+      - "Is access modified for role transfers?"
+      - "Are exit interviews conducted?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PT - PII PROCESSING AND TRANSPARENCY
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-PT-001
+    text: "How does the organization ensure transparency in PII processing?"
+    category: pii_transparency
+    control_family: PT
+    controls:
+      nist-800-53: "PT-1, PT-2, PT-3, PT-4, PT-5"
+      nist-csf: "GV.PO-01"
+      iso-27001: "A.5.34"
+      gdpr: "Art. 5, Art. 13, Art. 14"
+      soc2: "P1.1, P2.1"
+      hipaa: "§164.520"
+    baseline: [moderate, high]
+    evidence_required:
+      - Privacy notice
+      - Data processing purposes
+      - Consent mechanisms
+      - Data subject rights procedures
+    scoring:
+      full: "Clear privacy notice with documented processing purposes"
+      partial: "Some transparency but not comprehensive"
+      none: "No privacy transparency"
+    sub_questions:
+      - "Is PII processing purpose documented?"
+      - "Are individuals notified of PII collection?"
+      - "Is consent obtained where required?"
+      - "Can individuals access and correct their PII?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # RA - RISK ASSESSMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-RA-001
+    text: "How does the organization assess security and privacy risks?"
+    category: risk_assessment
+    control_family: RA
+    controls:
+      nist-800-53: "RA-1, RA-2, RA-3, RA-3(1)"
+      nist-csf: "ID.RA-01, ID.RA-03, ID.RA-04, ID.RA-05"
+      iso-27001: "A.5.7, A.5.8"
+      fedramp: "RA-3"
+      soc2: "CC3.2"
+      cis-v8: "3.1"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Risk assessment methodology
+      - Risk register
+      - Assessment results
+      - Risk treatment plans
+    scoring:
+      full: "Documented risk assessment with regular updates and treatment plans"
+      partial: "Risk assessment performed but not comprehensive"
+      none: "No formal risk assessment"
+    sub_questions:
+      - "Is there a documented risk assessment methodology?"
+      - "Is a risk register maintained?"
+      - "Are assessments performed at least annually?"
+      - "Are risks prioritized and treatment plans developed?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-RA-002
+    text: "How does the organization identify and manage vulnerabilities?"
+    category: risk_assessment
+    control_family: RA
+    controls:
+      nist-800-53: "RA-5, RA-5(1), RA-5(2), RA-5(3), RA-5(5)"
+      nist-csf: "ID.RA-01, DE.CM-08"
+      iso-27001: "A.8.8"
+      fedramp: "RA-5"
+      soc2: "CC7.1"
+      pci-dss: "11.2, 11.3"
+      cis-v8: "7.1, 7.2, 7.5"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Vulnerability scanning policy
+      - Scan results
+      - Remediation tracking
+      - Penetration test results
+    scoring:
+      full: "Continuous vulnerability scanning with prioritized remediation"
+      partial: "Scanning performed but remediation inconsistent"
+      none: "No vulnerability management"
+    sub_questions:
+      - "Are vulnerability scans performed regularly (at least monthly)?"
+      - "Are critical/high vulnerabilities remediated within defined timeframes?"
+      - "Is there a defined remediation SLA?"
+      - "Are penetration tests performed annually?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SA - SYSTEM AND SERVICES ACQUISITION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-SA-001
+    text: "How does the organization incorporate security in the system development lifecycle?"
+    category: system_acquisition
+    control_family: SA
+    controls:
+      nist-800-53: "SA-3, SA-8, SA-15, SA-15(1)"
+      nist-csf: "PR.IP-02"
+      iso-27001: "A.8.25, A.8.26, A.8.27"
+      fedramp: "SA-3"
+      soc2: "CC5.2"
+      pci-dss: "6.2, 6.5"
+      cis-v8: "16.1"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - SDLC documentation
+      - Security requirements
+      - Design documentation
+      - Security testing requirements
+    scoring:
+      full: "Security integrated into all SDLC phases"
+      partial: "Some security in SDLC but not comprehensive"
+      none: "No security in development lifecycle"
+    sub_questions:
+      - "Are security requirements defined early in development?"
+      - "Is secure coding training required for developers?"
+      - "Is security testing performed before deployment?"
+      - "Are third-party components assessed for security?"
+    risk_weight: MEDIUM
+
+  - id: Q-800-53-SA-002
+    text: "How does the organization manage external service providers?"
+    category: system_acquisition
+    control_family: SA
+    controls:
+      nist-800-53: "SA-9, SA-9(1), SA-9(2), SA-9(3)"
+      nist-csf: "GV.SC-01, GV.SC-04, GV.SC-06"
+      iso-27001: "A.5.19, A.5.20, A.5.21"
+      fedramp: "SA-9"
+      soc2: "CC9.2"
+      pci-dss: "12.8"
+      cis-v8: "15.1, 15.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Vendor management policy
+      - Security requirements in contracts
+      - Vendor assessments
+      - Monitoring records
+    scoring:
+      full: "Comprehensive vendor management with security requirements and monitoring"
+      partial: "Some vendor oversight but not systematic"
+      none: "No vendor security management"
+    sub_questions:
+      - "Are security requirements included in contracts?"
+      - "Are vendors assessed for security before engagement?"
+      - "Are vendor security controls monitored?"
+      - "Are vendor SOC reports obtained and reviewed?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SC - SYSTEM AND COMMUNICATIONS PROTECTION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-SC-001
+    text: "How is data protected at rest and in transit?"
+    category: system_communications
+    control_family: SC
+    controls:
+      nist-800-53: "SC-8, SC-8(1), SC-13, SC-28, SC-28(1)"
+      nist-csf: "PR.DS-01, PR.DS-02"
+      iso-27001: "A.8.10, A.8.11, A.8.24"
+      fedramp: "SC-8, SC-13, SC-28"
+      soc2: "CC6.6, CC6.7"
+      hipaa: "§164.312(a)(2)(iv), §164.312(e)"
+      pci-dss: "3.4, 4.1"
+      cis-v8: "3.6, 3.10"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Encryption policy
+      - Encryption standards
+      - Key management procedures
+      - Certificate management
+    scoring:
+      full: "FIPS-validated encryption at rest and in transit with key management"
+      partial: "Some encryption but not comprehensive or compliant"
+      none: "No data encryption"
+    sub_questions:
+      - "Is encryption at rest implemented (AES-256)?"
+      - "Is encryption in transit implemented (TLS 1.2+)?"
+      - "Is FIPS 140-2/3 validated cryptography used?"
+      - "Is key management documented and controlled?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SI - SYSTEM AND INFORMATION INTEGRITY
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-SI-001
+    text: "How does the organization address security flaws through patches and updates?"
+    category: system_integrity
+    control_family: SI
+    controls:
+      nist-800-53: "SI-2, SI-2(1), SI-2(2), SI-2(3)"
+      nist-csf: "PR.IP-12"
+      iso-27001: "A.8.8"
+      fedramp: "SI-2"
+      soc2: "CC7.1"
+      pci-dss: "6.3"
+      cis-v8: "7.3, 7.4"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Patch management policy
+      - Patch schedules
+      - Deployment records
+      - Exception documentation
+    scoring:
+      full: "Automated patch management with timely deployment and tracking"
+      partial: "Patching occurs but not timely or comprehensive"
+      none: "No formal patch management"
+    sub_questions:
+      - "Are critical patches applied within 30 days?"
+      - "Is patch status monitored and reported?"
+      - "Is patching automated where possible?"
+      - "Are exceptions documented and risk-accepted?"
+    risk_weight: HIGH
+
+  - id: Q-800-53-SI-002
+    text: "How does the organization protect against malicious code?"
+    category: system_integrity
+    control_family: SI
+    controls:
+      nist-800-53: "SI-3, SI-3(1), SI-3(2), SI-3(7)"
+      nist-csf: "DE.CM-04"
+      iso-27001: "A.8.7"
+      fedramp: "SI-3"
+      soc2: "CC6.8"
+      pci-dss: "5.1, 5.2"
+      cis-v8: "10.1, 10.2"
+    baseline: [low, moderate, high]
+    evidence_required:
+      - Anti-malware policy
+      - Deployment records
+      - Signature update logs
+      - Incident records
+    scoring:
+      full: "Comprehensive anti-malware with real-time protection and updates"
+      partial: "Anti-malware deployed but coverage incomplete"
+      none: "No malware protection"
+    sub_questions:
+      - "Is anti-malware deployed on all endpoints?"
+      - "Are signatures updated automatically?"
+      - "Is real-time scanning enabled?"
+      - "Are malware events logged and investigated?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SR - SUPPLY CHAIN RISK MANAGEMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-800-53-SR-001
+    text: "How does the organization manage supply chain risks?"
+    category: supply_chain
+    control_family: SR
+    controls:
+      nist-800-53: "SR-1, SR-2, SR-3, SR-5, SR-6"
+      nist-csf: "GV.SC-01, GV.SC-02, GV.SC-03, GV.SC-04"
+      iso-27001: "A.5.19, A.5.21"
+      fedramp: "SR-2, SR-3"
+    baseline: [moderate, high]
+    evidence_required:
+      - Supply chain risk management policy
+      - Supplier assessments
+      - Critical supplier list
+      - Risk treatment plans
+    scoring:
+      full: "Documented supply chain risk program with supplier assessments"
+      partial: "Some supply chain oversight but not comprehensive"
+      none: "No supply chain risk management"
+    sub_questions:
+      - "Is there a supply chain risk management policy?"
+      - "Are critical suppliers identified and assessed?"
+      - "Are software supply chain risks assessed (SBOM)?"
+      - "Are counterfeit/tampered components prevented?"
+    risk_weight: HIGH

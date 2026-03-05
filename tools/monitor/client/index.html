@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>△ Intelligence Adjacent</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/themes.css">
+  <link rel="stylesheet" href="/styles/base.css">
+
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <style>
+    #export-menu button:hover { background: var(--bg-hover, rgba(255,255,255,0.08)) !important; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
+
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+
+  <!-- Mermaid diagram renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+</head>
+<body>
+  <div id="app" class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-logo">
+        <span style="font-size: 1.5rem; color: #3bff00; font-weight: bold;">△</span>
+        <span>Intelligence Adjacent</span>
+      </div>
+
+      <div class="header-actions">
+        <div class="status-connected" id="connection-status">
+          <span class="status-dot"></span>
+          <span>Connected</span>
+        </div>
+
+        <div class="font-size-picker">
+          <select id="font-size-select">
+            <option value="small">Font: Small</option>
+            <option value="medium" selected>Font: Medium</option>
+            <option value="large">Font: Large</option>
+            <option value="xlarge">Font: X-Large</option>
+          </select>
+        </div>
+
+        <div class="theme-picker">
+          <select id="theme-select">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="dracula">Dracula</option>
+            <option value="nord">Nord</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main body (sidebar + resizer + content) -->
+    <div class="app-body">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+      <!-- File Browser -->
+      <section class="sidebar-section file-browser-section">
+        <h3 class="sidebar-section-title">Files</h3>
+        <div class="file-tree" id="file-tree">
+          <!-- File tree populated by JavaScript -->
+        </div>
+      </section>
+    </aside>
+
+    <!-- Sidebar Resizer -->
+    <div class="sidebar-resizer" id="sidebar-resizer"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-top">
+        <!-- Tab Bar -->
+        <div class="tab-bar" id="tab-bar">
+          <div class="tab active" data-tab="timeline">
+            <span>Activity</span>
+          </div>
+          <div class="tab-actions" style="margin-left: auto; display: flex; gap: 0.5rem; padding: 0.5rem; border-left: 1px solid var(--border-color);">
+            <button class="btn-icon" id="btn-close-other-tabs" title="Close other tabs" style="display: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <button class="btn-icon" id="btn-close-all-tabs" title="Close all file tabs" style="display: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Content Panels -->
+        <div class="editor-container" id="panel-timeline">
+          <div class="timeline" id="timeline">
+            <div class="timeline-empty">Waiting for events...</div>
+          </div>
+        </div>
+
+        <div class="editor-container hidden" id="panel-editor">
+          <div class="editor-toolbar">
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex: 1; min-width: 0;">
+              <span class="editor-path" id="editor-path">No file open</span>
+              <button class="btn btn-secondary btn-sm" id="btn-copy-path" title="Copy file path" style="display: none;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-secondary" id="btn-toggle-mode">Edit</button>
+              <button class="btn btn-secondary" id="btn-export-svg" title="Export Mermaid diagram as SVG" style="display: none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                SVG
+              </button>
+              <button class="btn btn-secondary" id="btn-open-mermaid" title="Open in Mermaid Live Editor" style="display: none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Editor
+              </button>
+              <div id="export-dropdown" style="position:relative; display:none;">
+                <button class="btn btn-secondary" id="btn-export-toggle" style="display:flex;align-items:center;gap:0.3rem;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Export ▾
+                </button>
+                <div id="export-menu" style="display:none;position:absolute;right:0;top:calc(100% + 4px);background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:4px;min-width:130px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,0.25);">
+                  <button id="btn-export-pdf" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">PDF (Quarto)</button>
+                  <button id="btn-export-html" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">HTML</button>
+                  <button id="btn-export-docx" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">Word</button>
+                </div>
+              </div>
+              <button class="btn btn-danger" id="btn-delete" title="Delete file">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <line x1="10" y1="11" x2="10" y2="17"></line>
+                  <line x1="14" y1="11" x2="14" y2="17"></line>
+                </svg>
+                Delete
+              </button>
+              <button class="btn btn-primary" id="btn-save">Save (Ctrl+S)</button>
+            </div>
+          </div>
+          <!-- Markdown preview/edit -->
+          <div id="editor-preview" style="flex: 1; overflow: auto; padding: 1rem; display: none;" class="markdown-preview"></div>
+          <div id="editor-mount" style="flex: 1; overflow: hidden;"></div>
+
+          <!-- PDF viewer -->
+          <iframe id="pdf-viewer" style="flex: 1; width: 100%; height: 100%; border: none; display: none;"></iframe>
+
+          <!-- Code/text editor — edit mode textarea with line numbers -->
+          <div id="code-editor" class="code-editor-container" style="display: none;">
+            <div class="code-editor-gutter" id="code-editor-gutter"></div>
+            <textarea id="code-editor-textarea" class="code-editor-textarea" spellcheck="false"></textarea>
+          </div>
+
+          <!-- Code viewer (read-only with syntax highlighting) -->
+          <div id="code-viewer" style="flex: 1; overflow: auto; display: none;">
+            <pre><code id="code-viewer-content" class="language-javascript"></code></pre>
+          </div>
+
+          <!-- Text viewer (plain text, read-only) -->
+          <div id="text-viewer" style="flex: 1; overflow: auto; padding: 1rem; display: none;">
+            <pre id="text-viewer-content" style="margin: 0; font-family: Menlo, Monaco, monospace; font-size: 0.875rem;"></pre>
+          </div>
+
+          <!-- Mermaid editor — split view: editor left, preview right -->
+          <div id="mermaid-editor" class="mermaid-split" style="display: none;">
+            <div class="mermaid-editor-pane">
+              <textarea id="mermaid-textarea" class="mermaid-textarea" spellcheck="false"
+                placeholder="Enter Mermaid diagram syntax here..."></textarea>
+              <div id="mermaid-error" class="mermaid-error" style="display: none;"></div>
+            </div>
+            <div class="mermaid-resizer" id="mermaid-resizer"></div>
+            <div class="mermaid-preview-pane" id="mermaid-preview-pane">
+              <div id="mermaid-output" class="mermaid-output"></div>
+            </div>
+          </div>
+
+          <!-- Image viewer -->
+          <div id="image-viewer" style="flex: 1; overflow: auto; padding: 1rem; display: none; text-align: center;">
+            <img id="image-viewer-content" style="max-width: 100%; height: auto;" />
+          </div>
+        </div>
+      </div>
+    </main>
+    </div> <!-- end app-body -->
+  </div> <!-- end app-container -->
+
+  <script src="/app.js"></script>
+</body>
+</html>

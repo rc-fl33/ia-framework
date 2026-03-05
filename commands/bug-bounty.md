@@ -1,0 +1,1 @@
+../skills/bug-bounty/commands/bug-bounty.md

@@ -1,0 +1,16 @@
+name: CIS Ubuntu Linux 24.04 LTS Benchmark v1.0.0
+version: 1.0.0
+type: benchmark
+provider: cis
+platform: linux
+framework_id: cis-ubuntu-2404-benchmark
+category: benchmark
+framework_category: hardening
+skills:
+- harden
+- pentest
+pages: 1078
+published: '2025-12-12'
+controls_count: 2912
+enrichment_status:
+  tier: complete

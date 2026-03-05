@@ -1,0 +1,5 @@
+# Test Coverage Matrix
+
+| Requirement | Test Case | Status | Result |
+|-------------|-----------|--------|--------|
+| REQ-001 | TC001 | Complete | Pass |

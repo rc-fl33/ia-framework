@@ -1,0 +1,9 @@
+# Findings
+
+## Finding Index
+
+| ID | Title | Severity | Status |
+|----|-------|----------|--------|
+| F001 | Example Finding | Medium | Open |
+
+{{< include _sections/_findings/_f001-medium.qmd >}}

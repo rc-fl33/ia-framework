@@ -1,0 +1,50 @@
+{
+  "intent": "compliance-assessment",
+  "agent": "advisor",
+  "skill": "compliance",
+  "triggers": [
+    "compliance",
+    "audit",
+    "assessment",
+    "framework",
+    "NIST",
+    "ISO",
+    "PCI",
+    "HIPAA",
+    "SOC 2",
+    "controls",
+    "gap analysis"
+  ],
+  "required_context": [
+    "framework",
+    "organization_context",
+    "assessment_scope",
+    "assessment_type"
+  ],
+  "optional_context": [
+    "specific_controls",
+    "compliance_deadline",
+    "previous_assessments",
+    "remediation_focus",
+    "output_format"
+  ],
+  "workflow_phases": [
+    "framework_selection",
+    "scope_definition",
+    "gap_analysis",
+    "risk_assessment",
+    "remediation_roadmap"
+  ],
+  "quality_gates": {
+    "framework_appropriate": true,
+    "scope_documented": true,
+    "findings_with_severity": true,
+    "remediation_prioritized": true,
+    "timeline_realistic": true,
+    "cost_estimates_included": false
+  },
+  "default_output": "private/output/compliance/assessments/",
+  "cost_estimate": "haiku",
+  "typical_duration": "extended",
+  "enrichment_template": "User wants compliance assessment.\n\nEXPLICIT REQUIREMENTS:\n- Framework: {{framework_or_needs_clarification}}\n  Options: NIST CSF, NIST 800-53, ISO 27001, PCI DSS, HIPAA, SOC 2\n- Organization: {{context_or_needs_collection}}\n- Scope: {{systems_processes_or_full_org}}\n- Assessment type: {{gap_analysis|full_audit|specific_controls}}\n- Output: private/output/compliance/assessments/{{framework}}-{{date}}/\n\nWORKFLOW:\n1. Confirm framework selection and scope\n2. Collect organizational context\n3. Map current state to framework controls\n4. Identify gaps with severity ratings\n5. Generate remediation roadmap with priorities\n6. Estimate effort and timeline\n\nQUALITY:\n- Framework-aligned findings\n- Prioritized by risk/impact\n- Actionable remediation steps\n- Realistic timelines\n\nINSTRUCTION: Delegate to advisor agent with framework context.\n\nDelegation code:\nTask(subagent_type=\"advisor\", prompt=\"Execute compliance assessment. Framework: {{framework}}\")"
+}

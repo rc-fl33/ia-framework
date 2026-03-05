@@ -1,0 +1,24 @@
+{
+  "name": "ia-monitor-dashboard",
+  "version": "1.0.0",
+  "description": "Real-time monitoring dashboard for IA Framework",
+  "type": "module",
+  "scripts": {
+    "start": "bun run scripts/server.ts",
+    "export-pdf": "bun run scripts/export-pdf.ts",
+    "export-docx": "bun run scripts/export-docx.ts",
+    "postinstall": "bash postinstall-verify.sh",
+    "_postinstall-note": "Workaround for bun 1.3.5 corrupting puppeteer-core [insert key] -> [insert key]"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-web-links": "^0.12.0",
+    "@xterm/xterm": "^6.0.0",
+    "docx": "^8.5.0",
+    "marked": "^11.1.1",
+    "puppeteer": "^21.9.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

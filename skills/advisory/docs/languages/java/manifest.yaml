@@ -1,0 +1,38 @@
+language:
+  name: "Java"
+  aliases: ["java"]
+  file_extensions: [".java"]
+  frameworks:
+    - Spring Boot
+    - Spring MVC
+    - Jakarta EE
+    - Quarkus
+    - Micronaut
+  version_current: "21 LTS"
+  version_minimum_secure: "17 LTS"  # Use LTS versions only
+
+detection:
+  file_patterns:
+    - "*.java"
+    - "pom.xml"
+    - "build.gradle"
+  shebang: ""
+  package_files:
+    - "pom.xml"
+    - "build.gradle"
+    - "build.gradle.kts"
+
+resources:
+  official_security: "https://docs.oracle.com/javase/tutorial/security/"
+  package_advisories: "https://nvd.nist.gov/"
+  style_guide: "https://google.github.io/styleguide/javaguide.html"
+  cert_standard: "https://wiki.sei.cmu.edu/confluence/display/java/SEI+CERT+Oracle+Coding+Standard+for+Java"
+
+owasp_asvs_applicable: true
+cwe_top25_applicable: [20, 22, 78, 79, 89, 119, 200, 287, 327, 502, 798, 862, 918]
+
+pattern_count: 16
+framework_coverage: ["spring_boot", "spring_security", "jakarta_ee"]
+
+last_updated: "2026-01-18"
+status: "complete"

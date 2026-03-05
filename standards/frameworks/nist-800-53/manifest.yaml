@@ -1,0 +1,54 @@
+name: NIST SP 800-53 Security and Privacy Controls
+type: controls
+version: Rev 5
+full_name: "Security and Privacy Controls for Information Systems and Organizations"
+provider: nist
+skills:
+  - compliance
+  - hardening
+industries:
+  - government
+  - defense
+  - critical_infrastructure
+  - healthcare
+  - financial
+native_categories:
+  - AC   # Access Control
+  - AT   # Awareness and Training
+  - AU   # Audit and Accountability
+  - CA   # Assessment, Authorization, and Monitoring
+  - CM   # Configuration Management
+  - CP   # Contingency Planning
+  - IA   # Identification and Authentication
+  - IR   # Incident Response
+  - MA   # Maintenance
+  - MP   # Media Protection
+  - PE   # Physical and Environmental Protection
+  - PL   # Planning
+  - PM   # Program Management
+  - PS   # Personnel Security
+  - PT   # PII Processing and Transparency
+  - RA   # Risk Assessment
+  - SA   # System and Services Acquisition
+  - SC   # System and Communications Protection
+  - SI   # System and Information Integrity
+  - SR   # Supply Chain Risk Management
+source_url: https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+published: 2026-01-14
+pages: 492
+chunks: 50
+questions_count: 40
+control_families: 20
+total_controls: 1189
+enrichment_status:
+  tier: 2
+  framework_category: security
+  controls: complete
+  questions: complete
+  questions_framework_count: 4
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+  next_check: 2027-02-25

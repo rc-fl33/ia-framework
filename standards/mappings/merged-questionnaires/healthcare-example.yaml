@@ -1,0 +1,941 @@
+generated: 2026-01-14T02:12:52.536Z
+frameworks:
+  - nist-csf
+  - hipaa
+  - pci-dss
+total_questions: 23
+phases:
+  GOVERN:
+    - id: M-001
+      text: What budget and resource constraints exist for security?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+        - hipaa
+      source_questions:
+        - Q-NIST-020
+        - Q-HIPAA-002
+      controls:
+        nist-csf: GV.RM-02, GV.RM-01, PR.IP-01
+        nist-800-53: PM-3, PM-9, RA-3
+        iso-27001: A.5.1, A.5.7
+        hipaa: §164.308(a)(1)(ii)(B)
+      evidence_required:
+        - Security budget documentation
+        - Resource allocation plans
+        - Risk treatment plan
+        - Control implementation evidence
+        - Residual risk acceptance
+      scoring:
+        full: Defined security budget with executive support
+        partial: Budget exists but limited or unclear
+        none: No dedicated security budget
+      sub_questions:
+        - Annual security budget?
+        - Staffing limitations?
+        - Tool/technology constraints?
+        - Executive support level?
+        - How are identified risks prioritized?
+        - What controls were implemented?
+        - Is residual risk formally accepted?
+      risk_weight: HIGH
+    - id: M-002
+      text: What regulatory requirements apply to your organization?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-003
+      controls:
+        nist-csf: GV.OC-01, GV.OC-03
+        nist-800-53: PM-1, PM-9
+        iso-27001: A.5.31
+        hipaa: §164.308(a)(1)
+        pci-dss: "12.1"
+        soc2: CC2.1
+      evidence_required:
+        - Regulatory mapping document
+        - Compliance attestations
+        - Audit reports
+      scoring:
+        full: Complete regulatory mapping with compliance documentation
+        partial: Known regulations but incomplete documentation
+        none: No regulatory mapping or compliance tracking
+      sub_questions:
+        - Industry-specific (HIPAA, PCI-DSS, FFIEC)?
+        - Geographic (GDPR, CCPA, state regulations)?
+        - Contractual (SOC 2, customer requirements)?
+      risk_weight: HIGH
+    - id: M-003
+      text: How is your security team structured?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+        - hipaa
+      source_questions:
+        - Q-NIST-005
+        - Q-HIPAA-003
+      controls:
+        nist-csf: GV.RR-01, GV.RR-02
+        nist-800-53: PM-2
+        iso-27001: A.5.2, A.5.3
+        hipaa: §164.308(a)(2)
+        pci-dss: "12.5"
+        cis-v8: "14.1"
+      evidence_required:
+        - Security org chart
+        - Role definitions
+        - Staffing levels
+        - Security Official designation letter
+        - Job description
+        - Reporting structure
+      scoring:
+        full: Dedicated security team with defined roles and responsibilities
+        partial: Security function exists but roles unclear
+        none: No dedicated security function
+      sub_questions:
+        - Dedicated security staff or shared responsibility?
+        - CISO or equivalent leadership?
+        - Security awareness training program?
+        - Who is the designated Security Official?
+        - What are their specific HIPAA responsibilities?
+        - Do they have adequate authority and resources?
+      risk_weight: MEDIUM
+    - id: M-004
+      text: What security policies and procedures are documented?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+        - pci-dss
+      source_questions:
+        - Q-NIST-013
+        - Q-PCI-019
+      controls:
+        nist-csf: GV.PO-01, GV.PO-02
+        nist-800-53: PL-1, PL-2
+        iso-27001: A.5.1, A.5.2
+        hipaa: §164.316
+        pci-dss: 12.1, 12.2
+        cis-v8: "14.1"
+      evidence_required:
+        - Policy inventory
+        - Procedure documentation
+        - Review/approval records
+        - Security policy
+        - Review records
+        - Executive approval
+      scoring:
+        full: Comprehensive policy library with regular reviews
+        partial: Some policies exist but incomplete or outdated
+        none: No documented policies
+      sub_questions:
+        - Information security policy?
+        - Acceptable use policy?
+        - Incident response policy?
+        - Policy review frequency?
+        - Does the policy address all PCI DSS requirements?
+        - Is it reviewed at least annually?
+        - Is there executive-level approval?
+      risk_weight: MEDIUM
+    - id: M-005
+      text: Which compliance frameworks does your organization follow?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-012
+      controls:
+        nist-csf: GV.OC-01, GV.OC-03
+        nist-800-53: PM-1
+        iso-27001: A.5.1
+        hipaa: §164.308(a)(1)
+        pci-dss: "12.1"
+        soc2: CC1.1
+      evidence_required:
+        - Compliance matrix
+        - Framework documentation
+        - Gap analysis reports
+      scoring:
+        full: Formal framework adoption with documented compliance
+        partial: Framework referenced but not formally implemented
+        none: No formal framework adoption
+      sub_questions:
+        - Certifications held (ISO 27001, SOC 2)?
+        - Framework mapping completed?
+        - Control effectiveness measured?
+      risk_weight: MEDIUM
+    - id: M-006
+      text: When was your last security audit and what were the findings?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-014
+      controls:
+        nist-csf: GV.AS-01
+        nist-800-53: CA-2, CA-7
+        iso-27001: A.5.35, A.5.36
+        hipaa: §164.308(a)(8)
+        pci-dss: 11.3, 12.11
+        soc2: CC4.1
+      evidence_required:
+        - Audit reports
+        - Remediation tracking
+        - Audit schedule
+      scoring:
+        full: Regular audits with tracked remediation
+        partial: Audits conducted but findings not fully addressed
+        none: No recent audits or unknown status
+      sub_questions:
+        - Internal vs external audit?
+        - Penetration testing results?
+        - Findings remediation status?
+      risk_weight: MEDIUM
+    - id: M-007
+      text: How will you measure the success of security improvements?
+      category: governance_policies
+      phase: GOVERN
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-022
+      controls:
+        nist-csf: GV.RM-04
+        nist-800-53: PM-6
+        iso-27001: A.5.36
+        soc2: CC4.1
+      evidence_required:
+        - KPI definitions
+        - Metrics dashboard
+        - Reporting cadence
+      scoring:
+        full: Defined KPIs with baseline and target metrics
+        partial: Some metrics tracked but not comprehensive
+        none: No formal success metrics defined
+      sub_questions:
+        - Risk reduction metrics?
+        - Compliance score targets?
+        - Incident response time goals?
+        - Security awareness metrics?
+      risk_weight: LOW
+  IDENTIFY:
+    - id: M-008
+      text: Have there been any recent security incidents?
+      category: risk_management
+      phase: IDENTIFY
+      source_frameworks:
+        - nist-csf
+        - hipaa
+      source_questions:
+        - Q-NIST-007
+        - Q-HIPAA-001
+      controls:
+        nist-csf: ID.RA-01, ID.RA-04, ID.RA-01, ID.RA-02
+        nist-800-53: IR-5, IR-6, RA-3
+        iso-27001: A.5.24, A.5.27, A.5.7
+        hipaa: §164.308(a)(6), §164.308(a)(1)(ii)(A)
+        pci-dss: 12.10.6
+        cis-v8: "17.1"
+      evidence_required:
+        - Incident reports
+        - Post-incident reviews
+        - Remediation tracking
+        - Risk analysis report
+        - ePHI inventory
+        - Threat and vulnerability assessment
+      scoring:
+        full: Incident history documented with lessons learned
+        partial: Some incidents tracked but incomplete documentation
+        none: No incident tracking or unknown history
+      sub_questions:
+        - Data breaches or unauthorized access?
+        - Malware infections or ransomware?
+        - Phishing or social engineering attacks?
+        - Insider threats?
+        - When was the last risk analysis conducted?
+        - Does it cover all systems with ePHI?
+        - Are threats and vulnerabilities documented?
+      risk_weight: HIGH
+    - id: M-009
+      text: What are your organization's most critical assets and sensitive data?
+      category: asset_management
+      phase: IDENTIFY
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-002
+      controls:
+        nist-csf: ID.AM-01, ID.AM-02, ID.AM-05
+        nist-800-53: CM-8, RA-2
+        iso-27001: A.5.9, A.5.10
+        hipaa: §164.308(a)(1)(ii)(A)
+        pci-dss: 2.4, 12.5.1
+        cis-v8: 1.1, 1.2
+      evidence_required:
+        - Asset inventory
+        - Data classification policy
+        - Critical system documentation
+      scoring:
+        full: Complete asset inventory with data classification
+        partial: Partial inventory or incomplete classification
+        none: No formal asset inventory or data classification
+      sub_questions:
+        - Crown jewels (trade secrets, IP, customer data)?
+        - Systems that would halt operations if compromised?
+        - Data subject to regulatory protection?
+      risk_weight: HIGH
+    - id: M-010
+      text: What are your biggest security concerns right now?
+      category: risk_management
+      phase: IDENTIFY
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-019
+      controls:
+        nist-csf: ID.RA-01, ID.RA-02
+        nist-800-53: RA-3
+        iso-27001: A.5.7
+        hipaa: §164.308(a)(1)(ii)(A)
+        pci-dss: "12.2"
+        cis-v8: "1.1"
+      evidence_required:
+        - Risk register
+        - Threat assessment
+        - Vulnerability reports
+      scoring:
+        full: Documented risk concerns with prioritization
+        partial: General concerns identified but not formalized
+        none: No formal risk identification
+      sub_questions:
+        - Ransomware/malware threats?
+        - Insider threats?
+        - Third-party/supply chain risks?
+        - Compliance gaps?
+      risk_weight: HIGH
+    - id: M-011
+      text: What industry does your organization operate in, and what is your primary
+        business model?
+      category: organization_overview
+      phase: IDENTIFY
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-001
+      controls:
+        nist-csf: ID.AM-01
+        nist-800-53: PM-11
+        iso-27001: A.5.9
+        hipaa: §164.308(a)(1)(ii)(A)
+        pci-dss: 12.5.1
+        cis-v8: "1.1"
+      evidence_required:
+        - Organization chart
+        - Business registration
+        - Industry classification documents
+      scoring:
+        full: Clear industry identification with documented business model
+        partial: Industry known but business model unclear
+        none: Unable to identify industry or business model
+      sub_questions:
+        - Primary products or services?
+        - Customer types (B2B, B2C, government)?
+        - Geographic presence?
+      risk_weight: MEDIUM
+    - id: M-012
+      text: What is your cloud versus on-premise infrastructure mix?
+      category: technical_infrastructure
+      phase: IDENTIFY
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-009
+      controls:
+        nist-csf: ID.AM-03, ID.AM-04
+        nist-800-53: CM-8, SA-9
+        iso-27001: A.5.23
+        hipaa: §164.308(b)(1)
+        pci-dss: "12.8"
+        cis-v8: "15.1"
+      evidence_required:
+        - Cloud inventory
+        - Shared responsibility documentation
+        - Third-party risk assessments
+      scoring:
+        full: Clear understanding of cloud/on-prem with security controls
+        partial: Cloud used but security controls unclear
+        none: Unknown or undocumented cloud usage
+      sub_questions:
+        - IaaS, PaaS, SaaS breakdown?
+        - Cloud providers (AWS, Azure, GCP)?
+        - Hybrid connectivity?
+      risk_weight: MEDIUM
+    - id: M-013
+      text: What is your timeline expectation for security improvements?
+      category: risk_management
+      phase: IDENTIFY
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-021
+      controls:
+        nist-csf: GV.RM-01
+        nist-800-53: PM-9
+        iso-27001: A.5.1
+      evidence_required:
+        - Security roadmap
+        - Project timelines
+        - Milestone documentation
+      scoring:
+        full: Defined timeline with milestones and accountability
+        partial: General timeline but no formal milestones
+        none: No defined timeline for improvements
+      sub_questions:
+        - Quick wins needed (30 days)?
+        - Medium-term goals (90 days)?
+        - Long-term transformation?
+        - Regulatory deadlines?
+      risk_weight: LOW
+  PROTECT:
+    - id: M-014
+      text: What security controls are currently in place?
+      category: security_posture
+      phase: PROTECT
+      source_frameworks:
+        - nist-csf
+        - hipaa
+        - pci-dss
+      source_questions:
+        - Q-NIST-004
+        - Q-HIPAA-006
+        - Q-HIPAA-009
+        - Q-HIPAA-010
+        - Q-HIPAA-011
+        - Q-HIPAA-012
+        - Q-HIPAA-013
+        - Q-HIPAA-015
+        - Q-HIPAA-016
+        - Q-HIPAA-017
+        - Q-HIPAA-018
+        - Q-PCI-001
+        - Q-PCI-002
+        - Q-PCI-003
+        - Q-PCI-007
+        - Q-PCI-008
+        - Q-PCI-009
+        - Q-PCI-010
+        - Q-PCI-013
+        - Q-PCI-014
+        - Q-PCI-015
+        - Q-PCI-017
+        - Q-PCI-018
+      controls:
+        nist-csf: PR.AC-01, PR.DS-01, PR.PT-01, PR.AT-01, PR.AT-02, PR.AC-02, PR.AC-03,
+          PR.DS-05, PR.DS-03, PR.DS-05, PR.AA-01, PR.AC-01, PR.DS-06, PR.AA-01,
+          PR.AA-03, PR.DS-02, PR.AC-05, PR.DS-05, PR.IP-01, PR.DS-01, DE.CM-04,
+          PR.IP-12, PR.DS-07, PR.AC-04, PR.AA-05, DE.CM-01, DE.CM-03, DE.CM-08,
+          ID.RA-01, PR.DS-06, DE.CM-09
+        nist-800-53: AC-1, SC-1, AT-2, AT-3, PE-2, PE-3, PE-18, SC-10, MP-2, MP-6, AC-2,
+          AC-3, SI-7, IA-2, SC-8, SC-28, SC-7, CM-2, CM-6, SI-3, SI-2, SA-3,
+          SA-11, AC-2, AC-6, AU-2, AU-6, CA-8, RA-5
+        iso-27001: A.5.1, A.6.3, A.7.1, A.7.2, A.8.1, A.8.10, A.8.2, A.8.9, A.8.5,
+          A.8.11, A.8.22, A.8.7, A.8.8, A.8.25, A.8.29, A.8.2, A.8.3, A.8.15
+        hipaa: §164.308(a)(1)(ii)(B), §164.308(a)(5), §164.310(a)(1), §164.310(b),
+          §164.310(c), §164.310(d)(1), §164.310(d)(2)(i), §164.312(a)(1),
+          §164.312(c)(1), §164.312(d), §164.312(e)(1), §164.312(a)(2)(iv),
+          §164.308(a)(3), §164.312(b)
+        pci-dss: 1.1, 2.1, 12.6, 9.1, 9.6, 9.5, 9.7, 9.8, 7.1, 8.1, 11.5, 8.3, 4.1, 3.4,
+          1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 5.1, 5.2, 5.3, 6.3, 6.2, 6.5, 7.1, 7.2,
+          9.1, 9.2, 9.4, 9.5, 10.1, 10.2, 11.3, 11.4
+        cis-v8: 4.1, 6.3, 10.1, 7.1, 16.1
+      evidence_required:
+        - Security control matrix
+        - Configuration standards
+        - Control effectiveness assessments
+        - Training program documentation
+        - Training completion records
+        - Training content/curriculum
+        - Facility access procedures
+        - Access control logs
+        - Visitor management procedures
+        - Workstation use policy
+        - Workstation security procedures
+        - Physical security measures
+        - Media handling policy
+        - Media disposal procedures
+        - Media movement logs
+        - Media destruction policy
+        - Destruction certificates
+        - Sanitization procedures
+        - Access control policy
+        - Unique user identification
+        - Emergency access procedures
+        - Integrity monitoring tools
+        - Change detection procedures
+        - Data validation controls
+        - Authentication policy
+        - MFA implementation
+        - Password policy
+        - Encryption policy
+        - TLS/SSL configuration
+        - Secure email procedures
+        - Encryption at rest policy
+        - Key management procedures
+        - Encrypted storage inventory
+        - Firewall rule documentation
+        - Network diagrams
+        - Change management logs
+        - Network segmentation documentation
+        - CDE boundary definition
+        - Penetration test results
+        - Hardening baselines
+        - System inventory
+        - Anti-malware deployment records
+        - Signature update logs
+        - Scan results
+        - Patch management policy
+        - Patch deployment records
+        - Critical patch timelines
+        - Secure SDLC documentation
+        - Code review procedures
+        - Training records
+        - Role-based access matrix
+        - Access approval records
+        - Physical access procedures
+        - Access logs
+        - Visitor management
+        - Media destruction records
+        - Classification procedures
+        - Logging policy
+        - Log retention records
+        - SIEM/log management documentation
+        - Vulnerability scan results
+        - Penetration test reports
+        - Remediation tracking
+        - FIM configuration
+        - Alert procedures
+        - Change review records
+      scoring:
+        full: Documented controls with effectiveness monitoring
+        partial: Controls exist but not documented or measured
+        none: No formal security controls
+      sub_questions:
+        - Technical controls (firewalls, IDS, encryption)?
+        - Administrative controls (policies, procedures)?
+        - Physical controls (access badges, cameras)?
+        - Is HIPAA-specific training provided?
+        - How often is training required?
+        - Is training completion tracked and enforced?
+        - How is facility access controlled?
+        - Are access attempts logged?
+        - How are visitors managed?
+        - Physical location and access restrictions?
+        - Screen lock and auto-logoff?
+        - Clean desk policy?
+        - How is media disposal handled?
+        - Are media movements tracked?
+        - Is encryption used for portable media?
+        - What sanitization methods are used?
+        - Is destruction verified and documented?
+        - Is a vendor used for destruction?
+        - Are unique user IDs assigned?
+        - Is emergency access procedure documented?
+        - Is automatic logoff implemented?
+        - Electronic mechanisms to confirm ePHI integrity?
+        - Is authentication of ePHI possible?
+        - How are unauthorized changes detected?
+        - Is multi-factor authentication used?
+        - What authentication methods are implemented?
+        - Is authentication required for all ePHI access?
+        - What encryption protocols are used (TLS versions)?
+        - Is ePHI encrypted in email?
+        - Are all transmission paths identified?
+        - What encryption methods are used?
+        - How are encryption keys managed?
+        - Are backups encrypted?
+        - Are firewall rules documented and justified?
+        - Is there a formal change management process?
+        - Are rules reviewed at least every six months?
+        - Is the CDE clearly defined and documented?
+        - Is segmentation validated through penetration testing?
+        - Are wireless networks isolated from the CDE?
+        - Are vendor defaults changed before deployment?
+        - Are unnecessary services and protocols disabled?
+        - Is there a hardening baseline for each system type?
+        - Is anti-malware deployed on all applicable systems?
+        - Are signatures kept current (automatic updates)?
+        - Are periodic scans performed?
+        - Are critical/high patches installed within 30 days?
+        - Is there a patch prioritization process?
+        - Are patch deployment records maintained?
+        - Are developers trained on secure coding?
+        - Is code reviewed for security before production?
+        - Is production separated from dev/test?
+        - Is access based on job function (least privilege)?
+        - Are access rights formally approved?
+        - Is there a default deny-all policy?
+        - Are facilities with CHD access-controlled?
+        - Are visitor badges used and logged?
+        - Is video surveillance in place for sensitive areas?
+        - Is media classified and securely stored?
+        - Is media securely destroyed when no longer needed?
+        - Is electronic media cryptographically erased?
+        - Are all access attempts logged?
+        - Do logs include user, timestamp, action, and outcome?
+        - Are logs centralized and protected?
+        - Are internal/external vulnerability scans performed quarterly?
+        - Are penetration tests performed annually?
+        - Are high/critical findings remediated promptly?
+        - Is file integrity monitoring deployed on critical systems?
+        - Are critical file changes alerted?
+        - How are alerts reviewed and responded to?
+      risk_weight: HIGH
+    - id: M-015
+      text: How do you manage authentication and access control?
+      category: access_control
+      phase: PROTECT
+      source_frameworks:
+        - nist-csf
+        - hipaa
+        - pci-dss
+      source_questions:
+        - Q-NIST-010
+        - Q-HIPAA-004
+        - Q-HIPAA-005
+        - Q-PCI-011
+        - Q-PCI-012
+      controls:
+        nist-csf: PR.AA-01, PR.AA-03, PR.AA-05, PR.AA-01, PR.AA-05, PR.AA-02
+        nist-800-53: IA-2, AC-2, AC-6, AC-2, PS-4, IA-2, IA-5
+        iso-27001: A.8.2, A.8.3, A.8.5, A.6.5
+        hipaa: §164.312(d), §164.308(a)(3), §164.308(a)(3)(ii)(C)
+        pci-dss: 7.1, 8.3, 8.2, 8.3, 8.6
+        cis-v8: 5.1, 6.1, 6.3
+      evidence_required:
+        - Access control policy
+        - MFA implementation documentation
+        - Privileged access inventory
+        - Access authorization procedures
+        - Role-based access matrix
+        - Workforce clearance procedures
+        - Termination procedures
+        - Access revocation logs
+        - Exit interview checklist
+        - User ID management procedures
+        - MFA implementation evidence
+        - Password policy
+        - Service account inventory
+        - Account management procedures
+        - Credential rotation records
+      scoring:
+        full: MFA enforced with least privilege and PAM
+        partial: Some MFA or access controls but incomplete
+        none: No MFA or formal access control
+      sub_questions:
+        - MFA implementation (where, what methods)?
+        - Privileged access management?
+        - Service account governance?
+        - Access review process?
+        - How is access authorized and provisioned?
+        - Is minimum necessary access enforced?
+        - How are access privileges reviewed?
+        - How quickly is access revoked upon termination?
+        - Are physical access credentials collected?
+        - Are remote access credentials disabled?
+        - Are unique user IDs assigned to each person?
+        - Is multi-factor authentication implemented for CDE access?
+        - Are passwords minimum 12 characters with complexity?
+        - Are service accounts inventoried?
+        - Do they follow least privilege?
+        - Are credentials rotated regularly?
+      risk_weight: HIGH
+    - id: M-016
+      text: What security tools and technologies are currently deployed?
+      category: security_posture
+      phase: PROTECT
+      source_frameworks:
+        - nist-csf
+        - hipaa
+      source_questions:
+        - Q-NIST-006
+        - Q-HIPAA-014
+      controls:
+        nist-csf: PR.PT-01, DE.CM-01, DE.CM-01, DE.CM-03
+        nist-800-53: SI-3, SI-4, AU-2, AU-6
+        iso-27001: A.8.7, A.8.15
+        hipaa: §164.312(b)
+        pci-dss: 5.1, 10.1, 10.1, 10.2
+        cis-v8: "10.1"
+      evidence_required:
+        - Security tool inventory
+        - Tool configuration documentation
+        - Vendor contracts
+        - Audit logging policy
+        - Log retention procedures
+        - Log review procedures
+      scoring:
+        full: Comprehensive security stack with documented configurations
+        partial: Basic tools deployed but incomplete coverage
+        none: Minimal or no security tools
+      sub_questions:
+        - Endpoint protection (AV, EDR)?
+        - Network security (firewall, IDS/IPS)?
+        - Identity management (SSO, MFA, PAM)?
+        - SIEM or log management?
+        - What activities are logged?
+        - How long are logs retained?
+        - How often are logs reviewed?
+      risk_weight: HIGH
+    - id: M-017
+      text: How is data stored, transmitted, and backed up?
+      category: data_protection
+      phase: PROTECT
+      source_frameworks:
+        - nist-csf
+        - pci-dss
+      source_questions:
+        - Q-NIST-011
+        - Q-PCI-004
+        - Q-PCI-005
+        - Q-PCI-006
+      controls:
+        nist-csf: PR.DS-01, PR.DS-02, PR.DS-11
+        nist-800-53: SC-28, SC-8, CP-9
+        iso-27001: A.8.10, A.8.11, A.8.13
+        hipaa: §164.312(a)(2)(iv), §164.312(e)
+        pci-dss: 3.4, 4.1, 9.5, 3.1, 3.2, 3.4, 3.5, 4.1, 4.2
+        cis-v8: 3.1, 3.6, 11.1
+      evidence_required:
+        - Data flow diagrams
+        - Encryption standards
+        - Backup procedures
+        - Data retention policy
+        - Cardholder data inventory
+        - Encryption documentation
+        - Key management procedures
+        - Masking/truncation standards
+        - Certificate management
+        - Transmission security documentation
+      scoring:
+        full: Encryption at rest and in transit with tested backups
+        partial: Some encryption or backups but incomplete
+        none: No encryption or backup procedures
+      sub_questions:
+        - Encryption at rest (databases, file systems)?
+        - Encryption in transit (TLS versions)?
+        - Backup frequency and testing?
+        - Offsite/air-gapped backups?
+        - Do you know where all cardholder data is stored?
+        - Is retention limited to business need only?
+        - Is sensitive authentication data stored after authorization?
+        - Is the PAN rendered unreadable wherever stored?
+        - What methods are used (encryption, truncation, tokenization, hashing)?
+        - Is there documented key management?
+        - What TLS versions are used?
+        - Are weak ciphers disabled?
+        - Is PAN never sent via end-user messaging (email, chat)?
+      risk_weight: HIGH
+    - id: M-018
+      text: Describe your network architecture and segmentation.
+      category: technical_infrastructure
+      phase: PROTECT
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-008
+      controls:
+        nist-csf: PR.AC-05, PR.DS-05
+        nist-800-53: SC-7, AC-4
+        iso-27001: A.8.22
+        hipaa: §164.312(e)
+        pci-dss: 1.3, 1.4
+        cis-v8: 12.1, 12.2
+      evidence_required:
+        - Network diagrams
+        - Segmentation documentation
+        - Firewall rules
+      scoring:
+        full: Documented network architecture with proper segmentation
+        partial: Network exists but segmentation incomplete
+        none: Flat network with no segmentation
+      sub_questions:
+        - Network zones (DMZ, internal, restricted)?
+        - Microsegmentation for critical assets?
+        - Remote access architecture?
+      risk_weight: HIGH
+  DETECT:
+    - id: M-019
+      text: How often are logs reviewed and anomalies investigated?
+      category: monitoring_detection
+      phase: DETECT
+      source_frameworks:
+        - pci-dss
+      source_questions:
+        - Q-PCI-016
+      controls:
+        pci-dss: "10.4"
+        nist-csf: DE.AE-02, DE.AE-03
+        nist-800-53: AU-6
+        iso-27001: A.8.15
+      evidence_required:
+        - Log review procedures
+        - Review records
+        - Investigation documentation
+      scoring:
+        full: Daily automated review with documented exception handling
+        partial: Periodic review but not daily
+        none: Logs not reviewed
+      sub_questions:
+        - Are security logs reviewed at least daily?
+        - Is automated log analysis in place?
+        - How are anomalies investigated?
+      risk_weight: HIGH
+  RESPOND:
+    - id: M-020
+      text: Do you have a documented incident response plan?
+      category: incident_response
+      phase: RESPOND
+      source_frameworks:
+        - nist-csf
+        - hipaa
+        - pci-dss
+      source_questions:
+        - Q-NIST-015
+        - Q-HIPAA-007
+        - Q-PCI-020
+      controls:
+        nist-csf: RS.MA-01, RS.MA-02
+        nist-800-53: IR-1, IR-8, IR-1, IR-6, IR-1, IR-4
+        iso-27001: A.5.24, A.5.26
+        hipaa: §164.308(a)(6)
+        pci-dss: "12.10"
+        cis-v8: 17.1, 17.4
+      evidence_required:
+        - Incident response plan
+        - Contact lists
+        - Escalation procedures
+        - Breach notification procedures
+        - Incident tracking logs
+        - Contact list
+        - Test records
+      scoring:
+        full: Documented IR plan with defined roles and tested procedures
+        partial: IR plan exists but not tested or incomplete
+        none: No formal incident response plan
+      sub_questions:
+        - IR team composition and roles?
+        - Communication procedures?
+        - Escalation criteria?
+        - External party coordination (legal, PR, forensics)?
+        - How are security incidents identified and reported?
+        - Is there a breach notification process?
+        - Are incidents documented and analyzed?
+        - Is there a documented incident response plan?
+        - Does it cover suspected breaches and PCI compromise?
+        - Is the plan tested at least annually?
+        - Are roles and responsibilities defined?
+      risk_weight: HIGH
+  RECOVER:
+    - id: M-021
+      text: What is your disaster recovery capability?
+      category: disaster_recovery
+      phase: RECOVER
+      source_frameworks:
+        - nist-csf
+        - hipaa
+      source_questions:
+        - Q-NIST-016
+        - Q-HIPAA-008
+      controls:
+        nist-csf: RC.RP-01, RC.RP-02
+        nist-800-53: CP-2, CP-10, CP-1, CP-2
+        iso-27001: A.5.29, A.5.30
+        hipaa: §164.308(a)(7)
+        pci-dss: 12.10.1
+        cis-v8: 11.1, 11.3
+      evidence_required:
+        - DR plan
+        - RTO/RPO documentation
+        - DR test results
+        - Contingency plan
+        - Data backup procedures
+        - Disaster recovery procedures
+        - Emergency mode operations plan
+      scoring:
+        full: Documented DR plan with tested RTO/RPO
+        partial: DR plan exists but not regularly tested
+        none: No formal disaster recovery plan
+      sub_questions:
+        - Recovery Time Objective (RTO)?
+        - Recovery Point Objective (RPO)?
+        - DR site (hot, warm, cold)?
+        - Last DR test and results?
+        - Data backup and recovery procedures?
+        - Disaster recovery plan?
+        - Emergency mode operations plan?
+        - Testing and revision procedures?
+      risk_weight: HIGH
+    - id: M-022
+      text: How often are backups tested for successful restoration?
+      category: disaster_recovery
+      phase: RECOVER
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-018
+      controls:
+        nist-csf: PR.DS-11, RC.RP-01
+        nist-800-53: CP-9, CP-10
+        iso-27001: A.8.13
+        hipaa: §164.308(a)(7)(ii)(A)
+        pci-dss: 9.5.1
+        cis-v8: 11.2, 11.5
+      evidence_required:
+        - Backup test logs
+        - Restoration procedures
+        - Test results documentation
+      scoring:
+        full: Regular backup testing with documented success
+        partial: Occasional testing with inconsistent results
+        none: Backups not tested or unknown status
+      sub_questions:
+        - Backup restoration testing frequency?
+        - Full vs partial restoration tests?
+        - Air-gapped or immutable backups?
+        - Last successful restoration test?
+      risk_weight: HIGH
+    - id: M-023
+      text: How is business continuity planning managed?
+      category: business_continuity
+      phase: RECOVER
+      source_frameworks:
+        - nist-csf
+      source_questions:
+        - Q-NIST-017
+      controls:
+        nist-csf: RC.RP-03, RC.RP-04
+        nist-800-53: CP-1, CP-4
+        iso-27001: A.5.29, A.5.30
+        hipaa: §164.308(a)(7)
+        pci-dss: 12.10.1
+        cis-v8: "11.1"
+      evidence_required:
+        - BCP documentation
+        - Business impact analysis
+        - Continuity test results
+      scoring:
+        full: Comprehensive BCP with regular testing and updates
+        partial: BCP exists but outdated or untested
+        none: No formal business continuity planning
+      sub_questions:
+        - Business impact analysis completed?
+        - Critical business functions identified?
+        - Alternate processing sites?
+        - BCP testing frequency?
+      risk_weight: MEDIUM

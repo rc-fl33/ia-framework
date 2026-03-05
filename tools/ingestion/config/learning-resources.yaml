@@ -1,0 +1,49 @@
+# Learning Resources Configuration
+# Used by skills/mentorship/scripts/ingest-resources.ts
+
+skillName: Mentorship
+skillPath: "skills/mentorship"
+itemType: "resource"
+
+frameworks:
+  oscp-prep:
+    name: "OSCP Preparation"
+    repo: "https://github.com/secops/OSCP"
+    outputDir: "docs/github/oscp-preparation"
+    description: "OffSec Certified Professional exam preparation resources"
+    category: "certification"
+
+  ceh-prep:
+    name: "CEH Preparation"
+    repo: "https://github.com/Samsar4/CEH-Certification-Notes"
+    outputDir: "docs/github/ceh-preparation"
+    description: "Certified Ethical Hacker exam preparation notes"
+    category: "certification"
+
+  cissp-prep:
+    name: "CISSP Preparation"
+    repo: "https://github.com/Security-Knowledge-Framework/skf-flask"
+    outputDir: "docs/github/cissp-preparation"
+    description: "Certified Information Systems Security Professional resources"
+    category: "certification"
+
+  security-roadmap:
+    name: "Cybersecurity Roadmap"
+    repo: "https://github.com/sundowndev/CyberSecurityStudyGuide"
+    outputDir: "docs/github/cybersecurity-roadmap"
+    description: "Comprehensive cybersecurity learning roadmap"
+    category: "roadmap"
+
+  devops-roadmap:
+    name: "DevOps Roadmap"
+    repo: "https://github.com/milanm/DevOps-Roadmap"
+    outputDir: "docs/github/devops-roadmap"
+    description: "DevOps engineer learning roadmap"
+    category: "roadmap"
+
+  awesome-security:
+    name: "Awesome Security"
+    repo: "https://github.com/sbilly/awesome-security"
+    outputDir: "docs/github/awesome-security"
+    description: "Curated list of awesome security resources and tools"
+    category: "learning"

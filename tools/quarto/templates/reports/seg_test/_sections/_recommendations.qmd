@@ -1,0 +1,26 @@
+# Recommendations
+
+| Priority | Severity | Response Time |
+|----------|----------|---------------|
+| P0 | Critical | Immediately |
+| P1 | High | Within 30 days |
+| P2 | Medium | Within 90 days |
+| P3 | Low | Backlog |
+
+## Prioritized Recommendations
+
+### P0 — Critical
+
+- [ ] Finding F001: [Title] — [Action]
+
+### P1 — High
+
+*No high-priority findings identified.*
+
+### P2 — Medium
+
+*No medium-priority findings identified.*
+
+### P3 — Low
+
+*No low-priority findings identified.*

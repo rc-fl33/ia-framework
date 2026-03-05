@@ -1,0 +1,91 @@
+framework: iso-27006
+version: "2015"
+source: "ISO/IEC 27006:2015+Amd1:2020"
+description: "Requirements for bodies providing ISMS and PIMS certification"
+notes: "This standard specifies requirements for the competence, consistency, and impartiality of bodies providing information security management system (ISMS) certification and privacy information management system (PIMS) certification."
+controls:
+  # Section 5: Requirements for the body providing ISMS certification
+  - id: "5.1"
+    title: "General requirements"
+    description: "General requirements for bodies providing ISMS certification. Covers the fundamental principles and eligibility for certification body operations."
+    type: "control"
+    section: "5"
+
+  - id: "5.2"
+    title: "Structural requirements"
+    description: "Requirements regarding the organizational structure, legal entity, and governance of the certification body."
+    type: "control"
+    section: "5"
+
+  - id: "5.3"
+    title: "Resource requirements"
+    description: "Requirements for the resources including personnel, infrastructure, and financial stability necessary to provide certification services."
+    type: "control"
+    section: "5"
+
+  - id: "5.4"
+    title: "Competence requirements"
+    description: "Requirements for the competence of personnel involved in the certification process, including knowledge, skills, and experience criteria."
+    type: "control"
+    section: "5"
+
+  - id: "5.5"
+    title: "Information requirements"
+    description: "Requirements for information management, including documentation, records, and confidentiality of information obtained during certification activities."
+    type: "control"
+    section: "5"
+
+  - id: "5.6"
+    title: "Process requirements"
+    description: "Requirements for the certification process including application review, audit planning, on-site audits, certification decision, and surveillance activities."
+    type: "control"
+    section: "5"
+
+  - id: "5.7"
+    title: "Management system requirements for the certification body"
+    description: "Requirements for the certification body's own management system including policies, procedures, and internal audit processes to ensure consistent operation."
+    type: "control"
+    section: "5"
+
+  # Annex A: Requirements for bodies providing PIMS certification
+  - id: "A.1"
+    title: "General"
+    description: "General requirements for bodies providing privacy information management system (PIMS) certification in accordance with ISO/IEC 27701."
+    type: "control"
+    section: "Annex A"
+
+  - id: "A.2"
+    title: "Structural requirements"
+    description: "Requirements regarding the organizational structure, legal entity, and governance of the certification body providing PIMS certification."
+    type: "control"
+    section: "Annex A"
+
+  - id: "A.3"
+    title: "Resource requirements"
+    description: "Requirements for the resources including personnel, infrastructure, and financial stability necessary to provide PIMS certification services."
+    type: "control"
+    section: "Annex A"
+
+  - id: "A.4"
+    title: "Competence requirements"
+    description: "Requirements for the competence of personnel involved in PIMS certification, including knowledge of privacy principles, relevant privacy regulations, and information security management."
+    type: "control"
+    section: "Annex A"
+
+  - id: "A.5"
+    title: "Information requirements"
+    description: "Requirements for information management in PIMS certification, including documentation, records, and confidentiality of information obtained during certification activities."
+    type: "control"
+    section: "Annex A"
+
+  - id: "A.6"
+    title: "Process requirements"
+    description: "Requirements for the PIMS certification process including application review, audit planning, on-site audits, certification decision, and surveillance activities specific to privacy information management."
+    type: "control"
+    section: "Annex A"
+
+  - id: "A.7"
+    title: "Management system requirements"
+    description: "Requirements for the certification body's own management system when providing PIMS certification, including policies, procedures, and internal audit processes."
+    type: "control"
+    section: "Annex A"

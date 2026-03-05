@@ -1,0 +1,14 @@
+{
+  "framework_name": "nist.cswp.29",
+  "skill": "cybersecurity-advisory",
+  "source_dir": "frameworks",
+  "migrated_at": "2025-11-27T11:35:11.888931",
+  "chunk_count": 4,
+  "chunks": [
+    "NIST.CSWP.29_pages_1-10.pdf",
+    "NIST.CSWP.29_pages_11-20.pdf",
+    "NIST.CSWP.29_pages_21-30.pdf",
+    "NIST.CSWP.29_pages_31-32.pdf"
+  ],
+  "is_split": true
+}

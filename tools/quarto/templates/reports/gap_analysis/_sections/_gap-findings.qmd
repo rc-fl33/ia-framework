@@ -1,0 +1,11 @@
+# Gap Findings
+
+## Framework: [Framework Name]
+
+### Critical Gaps
+
+- [Gap description]
+
+### Moderate Gaps
+
+- [Gap description]

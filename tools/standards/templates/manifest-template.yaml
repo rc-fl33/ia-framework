@@ -1,0 +1,29 @@
+# Framework Manifest Template
+# Usage: Copy this file to standards/frameworks/{provider}/{id}/manifest.yaml
+# Replace all {PLACEHOLDER} values and remove this comment block.
+
+name: "{FULL_NAME}"                         # e.g., "ISO/IEC 27001:2022 Information Security"
+type: "{TYPE}"                              # standard | framework | regulation | controls
+version: "{VERSION}"                        # e.g., "2022", "4.0.1", "Rev 5"
+full_name: "{FULL_LEGAL_NAME}"              # Complete official title
+provider: "{PROVIDER}"                      # iso | nist | eu | aicpa | hhs | pci-ssc | gsa | cis
+skills:
+  - compliance
+industries:
+  - "{INDUSTRY_1}"                          # e.g., technology | healthcare | finance | all
+native_categories:
+  - "{CAT_ID}"                              # Framework-specific categories (e.g., "A.5", "CC1")
+source_url: "{SOURCE_URL}"                  # Official standard URL
+published: "{YYYY-MM-DD}"                   # Date this record was created/verified
+
+enrichment_status:
+  tier: 0                                   # 0–4; update as enrichment progresses
+  controls: pending                         # complete | partial | pending
+  questions: pending                        # complete | partial | pending
+  questions_framework_count: 0             # Avg external framework mappings per question
+  crosswalk: pending                        # complete | partial | pending
+  implementation_steps: pending             # complete | partial | pending
+  last_verified: "{YYYY-MM-DD}"
+  verified_by:
+    - "{SOURCE_URL_OR_DOCUMENT}"
+  next_check: "{YYYY-MM-DD}"               # Typically 1 year after last_verified

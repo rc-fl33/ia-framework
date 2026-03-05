@@ -1,0 +1,58 @@
+# HIPAA Security Rule Metadata
+# Used for version tracking and currency checks
+
+framework:
+  name: "Health Insurance Portability and Accountability Act - Security Rule"
+  short_name: "HIPAA"
+  version: "45 CFR Part 164"
+  release_date: "2013-01-25"  # Omnibus Rule
+  official_url: "https://www.hhs.gov/hipaa/"
+  download_url: "https://www.hhs.gov/hipaa/for-professionals/security/"
+
+  # Source documents in reference/
+  source_documents:
+    - name: "HIPAA-Security-Rule"
+      description: "45 CFR Part 164 Security Standards"
+
+  # Framework structure
+  safeguard_categories:
+    - id: "administrative"
+      name: "Administrative Safeguards"
+      section: "§164.308"
+      description: "Policies, procedures, workforce security"
+    - id: "physical"
+      name: "Physical Safeguards"
+      section: "§164.310"
+      description: "Facility access, workstation security"
+    - id: "technical"
+      name: "Technical Safeguards"
+      section: "§164.312"
+      description: "Access control, audit, integrity, transmission"
+
+  controls_count: 45  # Approximate standards and specifications
+
+  # Verification
+  last_verified: "2026-01-14"
+  verified_by: "Local PDF comparison"
+  status: current
+
+  # Security testing requirements
+  security_requirements:
+    - section: "§164.308(a)(1)(ii)(A)"
+      name: "Risk Analysis"
+      description: "Conduct accurate and thorough assessment of risks"
+    - section: "§164.308(a)(8)"
+      name: "Evaluation"
+      description: "Periodic technical and nontechnical evaluation"
+
+# Acquisition instructions
+acquisition:
+  method: "curl"
+  requires_account: false
+  command: 'curl -o hipaa-security-rule.pdf "https://www.hhs.gov/sites/default/files/hipaa-simplification-201303.pdf"'
+
+# Update schedule
+maintenance:
+  check_frequency: "annually"  # Regulations change less frequently
+  last_check: "2026-01-14"
+  next_check: "2027-01-14"

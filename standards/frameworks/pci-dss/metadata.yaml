@@ -1,0 +1,209 @@
+# PCI DSS Metadata
+# Used for version tracking and currency checks
+
+framework:
+  name: "Payment Card Industry Data Security Standard"
+  short_name: "PCI DSS"
+  version: "4.0.1"
+  release_date: "2024-06-01"
+  official_url: "https://www.pcisecuritystandards.org/"
+  download_url: "https://www.pcisecuritystandards.org/document_library/"
+
+  # Source documents in reference/
+  source_documents:
+    - name: "PCI-DSS-v4.0.1"
+      description: "Full standard document"
+
+  # Framework structure (12 Requirements)
+  requirements:
+    - id: "1"
+      name: "Install and Maintain Network Security Controls"
+    - id: "2"
+      name: "Apply Secure Configurations"
+    - id: "3"
+      name: "Protect Stored Account Data"
+    - id: "4"
+      name: "Protect Cardholder Data with Strong Cryptography"
+    - id: "5"
+      name: "Protect Against Malicious Software"
+    - id: "6"
+      name: "Develop and Maintain Secure Systems"
+    - id: "7"
+      name: "Restrict Access to System Components"
+    - id: "8"
+      name: "Identify Users and Authenticate Access"
+    - id: "9"
+      name: "Restrict Physical Access"
+    - id: "10"
+      name: "Log and Monitor Access"
+    - id: "11"
+      name: "Test Security Regularly"
+    - id: "12"
+      name: "Support Information Security with Policies"
+
+  controls_count: 250  # Approximate requirements/sub-requirements
+
+  # Verification
+  last_verified: "2026-01-14"
+  verified_by: "Local PDF comparison"
+  status: current
+
+  # Pentest requirements (for cross-reference with security skill)
+  pentest_requirements:
+    - requirement: "11.3"
+      description: "External and internal penetration testing"
+    - requirement: "11.4"
+      description: "Intrusion detection/prevention systems"
+
+# Acquisition instructions
+acquisition:
+  method: "manual"
+  requires_account: true
+  instructions: |
+    1. Create account at https://www.pcisecuritystandards.org/
+    2. Navigate to Document Library
+    3. Download PCI DSS v4.0.1
+    4. Place in frameworks/pci-dss/reference/
+
+# Update schedule
+maintenance:
+  check_frequency: "quarterly"
+  last_check: "2026-01-14"
+  next_check: "2026-04-14"
+
+# Per-requirement enrichment status
+# Schema versions:
+#   v1 (training_data)  — original enrichment: control_type, implementation_steps,
+#                         tools_and_approaches, common_pitfalls, effort_estimate,
+#                         maturity_levels, key_evidence, test_scenarios, gap_examples
+#   v2 (pdf_grounded)   — re-enrichment from PDF: source_reference, customized_approach_objective,
+#                         testing_procedures, guidance (purpose/good_practice/definitions/
+#                         examples/further_information), applicability_notes (when present)
+#   baseline            — basic fields only (id, title, description, page): no enrichment
+#   not_started         — not yet in controls.yaml
+#
+# Status values: pdf_grounded | training_data | mixed | baseline | not_started
+# mixed = some controls pdf_grounded, others not (partial re-enrichment)
+enrichment:
+  schema_v2_fields:
+    - source_reference
+    - customized_approach_objective
+    - testing_procedures
+    - guidance
+  schema_v1_fields:
+    - control_type
+    - implementation_steps
+    - tools_and_approaches
+    - common_pitfalls
+    - effort_estimate
+    - maturity_levels
+    - key_evidence
+    - test_scenarios
+    - gap_examples
+
+  requirements:
+    "1":
+      title: "Install and Maintain Network Security Controls"
+      controls: 19
+      status: pdf_grounded
+      schema: v2
+      pdf_pages: "38-60"
+      commit: "707479de"
+      rewrite_needed: false
+    "2":
+      title: "Apply Secure Configurations to All System Components"
+      controls: 11
+      status: pdf_grounded
+      schema: v2
+      pdf_pages: "61-73"
+      commit: "c1090e70"
+      rewrite_needed: false
+    "3":
+      title: "Protect Stored Account Data"
+      controls: 28
+      status: mixed
+      schema: v1_and_baseline
+      pdf_pages: "75-109"
+      commit: null
+      rewrite_needed: true
+      notes: "3.1.1-3.7.5 have v1 training-data fields; 3.7.6-3.7.9 are baseline only"
+    "4":
+      title: "Protect Cardholder Data with Strong Cryptography During Transmission"
+      controls: 6
+      status: baseline
+      schema: baseline
+      pdf_pages: "110-115"
+      commit: null
+      rewrite_needed: true
+      notes: "All 6 controls are baseline only (no enrichment)"
+    "5":
+      title: "Protect All Systems and Networks from Malicious Software"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "116-126"
+      commit: null
+      rewrite_needed: false
+    "6":
+      title: "Develop and Maintain Secure Systems and Software"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "127-151"
+      commit: null
+      rewrite_needed: false
+    "7":
+      title: "Restrict Access to System Components and Cardholder Data by Business Need to Know"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "152-162"
+      commit: null
+      rewrite_needed: false
+    "8":
+      title: "Identify Users and Authenticate Access to System Components"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "163-191"
+      commit: null
+      rewrite_needed: false
+    "9":
+      title: "Restrict Physical Access to Cardholder Data"
+      controls: 27
+      status: training_data
+      schema: v1
+      pdf_pages: "210-240"
+      commit: null
+      rewrite_needed: true
+      notes: "All 27 controls have v1 training-data fields (hallucinations detected in audit)"
+    "10":
+      title: "Log and Monitor All Access to System Components and Cardholder Data"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "241-264"
+      commit: null
+      rewrite_needed: false
+    "11":
+      title: "Test Security of Systems and Networks Regularly"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "265-291"
+      commit: null
+      rewrite_needed: false
+    "12":
+      title: "Support Information Security with Organizational Policies and Programs"
+      controls: 0
+      status: not_started
+      schema: null
+      pdf_pages: "292-351"
+      commit: null
+      rewrite_needed: false
+
+  summary:
+    pdf_grounded: 2       # Req 1, 2
+    needs_rewrite: 3      # Req 3, 4, 9
+    not_started: 7        # Req 5-8, 10-12
+    last_updated: "2026-02-18"

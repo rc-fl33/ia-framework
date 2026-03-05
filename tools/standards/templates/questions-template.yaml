@@ -1,0 +1,50 @@
+# Questions Template
+# Usage: Copy to standards/frameworks/{provider}/{id}/questions.yaml
+# Replace all {PLACEHOLDER} values and remove this comment block.
+# Minimum 20 questions for T2. Need ≥5 external framework mappings per question for T3.
+
+framework: "{FRAMEWORK_ID}"                 # e.g., "iso-27001", "nist-csf"
+version: "{VERSION}"
+total_questions: 0                          # Update after populating questions list
+industry_focus:
+  - "{INDUSTRY}"                            # e.g., technology | healthcare | all
+
+# Framework clause/domain structure
+clauses:
+  - id: "{CLAUSE_ID}"                       # e.g., "4", "A.5", "CC1"
+    name: "{CLAUSE_NAME}"
+    phase: GOVERN                           # GOVERN|IDENTIFY|PROTECT|DETECT|RESPOND|RECOVER
+
+questions:
+  - id: Q-{FRAMEWORK_UPPER}-{CAT}-{NNN}     # e.g., Q-ISO27001-5-001
+    text: "{FULL_QUESTION_TEXT}"
+    category: "{CATEGORY_SLUG}"             # e.g., governance, access_control, monitoring
+    phase: "{NIST_PHASE}"                   # GOVERN|IDENTIFY|PROTECT|DETECT|RESPOND|RECOVER
+    native_category: "{NATIVE_CAT_ID}"      # Framework's own category ID
+    domain: "{DOMAIN}"                      # governance|asset_management|access_control|
+                                            # data_protection|monitoring|incident_response|
+                                            # business_continuity
+    controls:
+      # This framework (always required)
+      "{FRAMEWORK_ID}": "{CONTROL_IDS}"     # e.g., "4.1, 4.2"
+      # External framework mappings (need ≥5 for T3)
+      nist-csf: "{NIST_CSF_CONTROL}"        # e.g., "GV.PO-01"
+      iso-27001: "{ISO27001_CONTROL}"       # e.g., "A.5.1"
+      nist-800-53: "{NIST80053_CONTROL}"    # e.g., "PM-1"
+      soc2: "{SOC2_CONTROL}"               # e.g., "CC1.1"
+      hipaa: "{HIPAA_CONTROL}"             # e.g., "§164.308(a)(1)"
+      pci-dss: "{PCIDSS_CONTROL}"          # e.g., "12.1.1"
+      cis-v8: "{CISV8_CONTROL}"            # e.g., "17.1"
+    evidence_required:
+      - "{EVIDENCE_TYPE_1}"
+      - "{EVIDENCE_TYPE_2}"
+    scoring:
+      full: "{FULL_COMPLIANCE_DESCRIPTION}"
+      partial: "{PARTIAL_COMPLIANCE_DESCRIPTION}"
+      none: "{NON_COMPLIANCE_DESCRIPTION}"
+    sub_questions:
+      - "{SUB_QUESTION_1}"
+      - "{SUB_QUESTION_2}"
+    risk_weight: MEDIUM                     # HIGH | MEDIUM | LOW
+    industry_tags:
+      - all                                 # or specific industries

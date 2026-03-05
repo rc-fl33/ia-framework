@@ -1,0 +1,1401 @@
+framework: iso-27001
+version: "2022"
+description: >
+  ISO/IEC 27001:2022 Information Security Management System cross-framework control mappings.
+  Maps Annex A controls (A.5-A.8) to NIST CSF 2.0, NIST SP 800-53 Rev 5, PCI-DSS v4.0.1,
+  HIPAA Security Rule, SOC 2 Trust Service Criteria, AIUC-1, and CIS Controls v8.
+last_updated: 2026-02-22
+
+# Mapping methodology:
+# - confidence: high = direct equivalence, same intent and scope
+# - confidence: medium = similar intent, minor scope differences
+# - confidence: low = related but different scope or approach
+# NIST CSF 2.0 uses GV/ID/PR/DE/RS/RC function prefix notation
+# NIST 800-53 Rev 5 control families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI, SR
+# PCI-DSS v4.0.1 requirements 1-12
+# HIPAA Security Rule: 164.308 (Administrative), 164.310 (Physical), 164.312 (Technical)
+# SOC 2 Trust Service Criteria: CC1-CC9, A1 (Availability), C1 (Confidentiality), PI1 (Processing Integrity), P1-P8 (Privacy)
+
+mappings:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # A.5 - ORGANIZATIONAL CONTROLS (37 controls)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.5.1
+    title: Policies for information security
+    external_mappings:
+      nist-csf:
+        - GV.PO-01
+        - GV.PO-02
+      nist-800-53:
+        - PL-1
+        - PL-2
+        - PM-1
+      pci-dss:
+        - "12.1"
+        - "12.2"
+      hipaa:
+        - "164.308(a)(1)(i)"
+      soc2:
+        - CC1.3
+        - CC5.3
+      aiuc-1:
+        - E001
+        - E010
+      cis-v8:
+        - "1.1"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A mapping documentation
+      - crosswalk.yaml GOV-POLICY entry
+    notes: Information security policy suite maps to governance controls across all frameworks
+
+  - control: A.5.2
+    title: Information security roles and responsibilities
+    external_mappings:
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-02
+        - GV.RR-03
+      nist-800-53:
+        - PM-2
+        - PL-4
+        - AC-1
+      soc2:
+        - CC1.3
+        - CC1.4
+      aiuc-1:
+        - E004
+      cis-v8:
+        - "14.9"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Clause 5.3 requirements
+    notes: Roles and responsibilities maps to GRC ownership across all major frameworks
+
+  - control: A.5.3
+    title: Segregation of duties
+    external_mappings:
+      nist-csf:
+        - PR.AA-05
+      nist-800-53:
+        - AC-5
+        - AC-6
+      pci-dss:
+        - "7.1"
+      soc2:
+        - CC6.3
+      cis-v8:
+        - "5.4"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.3 control description
+    notes: SoD maps to access control and least privilege controls
+
+  - control: A.5.5
+    title: Contact with authorities
+    external_mappings:
+      nist-csf:
+        - RS.CO-04
+        - GV.OC-04
+      nist-800-53:
+        - IR-6
+        - PM-15
+    confidence: medium
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.5 control description
+    notes: Authority contact maps to incident response communication requirements
+
+  - control: A.5.7
+    title: Threat intelligence
+    external_mappings:
+      nist-csf:
+        - ID.RA-02
+        - ID.RA-06
+      nist-800-53:
+        - RA-3
+        - PM-16
+        - SI-5
+      cis-v8:
+        - "13.1"
+        - "13.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.7 -- new control in 2022 version
+    notes: New 2022 control; maps to threat intelligence and risk assessment functions
+
+  - control: A.5.8
+    title: Information security in project management
+    external_mappings:
+      nist-csf:
+        - GV.OC-05
+      nist-800-53:
+        - SA-3
+        - SA-4
+      soc2:
+        - CC8.1
+    confidence: medium
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.8 control description
+    notes: Security in project management maps to system development and acquisition controls
+
+  - control: A.5.9
+    title: Inventory of information and other associated assets
+    external_mappings:
+      nist-csf:
+        - ID.AM-01
+        - ID.AM-02
+        - ID.AM-03
+      nist-800-53:
+        - CM-8
+        - PM-5
+      pci-dss:
+        - "2.4"
+      hipaa:
+        - "164.310(d)(1)"
+      soc2:
+        - CC6.1
+      aiuc-1:
+        - E011
+      cis-v8:
+        - "1.1"
+        - "1.2"
+        - "2.1"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ASSET-INVENTORY entry
+    notes: Asset inventory is foundational to all frameworks; direct equivalence
+
+  - control: A.5.10
+    title: Acceptable use of information and other associated assets
+    external_mappings:
+      nist-csf:
+        - GV.PO-01
+      nist-800-53:
+        - PL-4
+      soc2:
+        - CC1.1
+      aiuc-1:
+        - E010
+      cis-v8:
+        - "4.1"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.10 control description
+    notes: AUP maps to policy governance controls
+
+  - control: A.5.12
+    title: Classification of information
+    external_mappings:
+      nist-csf:
+        - ID.AM-05
+        - ID.AM-07
+      nist-800-53:
+        - RA-2
+        - MP-3
+      pci-dss:
+        - "3.1"
+      hipaa:
+        - "164.308(a)(1)(ii)(A)"
+      soc2:
+        - CC6.1
+        - C1.1
+      cis-v8:
+        - "3.2"
+        - "3.7"
+    confidence: high
+    evidence:
+      - crosswalk.yaml DATA-CLASSIFICATION entry
+    notes: Data classification maps to information protection controls across all frameworks
+
+  - control: A.5.14
+    title: Information transfer
+    external_mappings:
+      nist-csf:
+        - PR.DS-02
+        - PR.DS-05
+      nist-800-53:
+        - SA-9
+        - SC-8
+      pci-dss:
+        - "4.1"
+        - "4.2"
+      hipaa:
+        - "164.312(e)(1)"
+      soc2:
+        - CC2.3
+        - CC6.7
+      cis-v8:
+        - "3.10"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.14 control description
+    notes: Information transfer controls map to data in transit protection
+
+  - control: A.5.15
+    title: Access control
+    external_mappings:
+      nist-csf:
+        - PR.AA-01
+        - PR.AA-05
+      nist-800-53:
+        - AC-1
+        - AC-2
+        - AC-3
+      pci-dss:
+        - "7.1"
+        - "7.2"
+      hipaa:
+        - "164.312(a)(1)"
+      soc2:
+        - CC6.1
+        - CC6.2
+      aiuc-1:
+        - E010
+      cis-v8:
+        - "5.1"
+        - "6.1"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ACCESS-LEAST-PRIVILEGE entry
+    notes: Policy-level access control requirement; foundational across all frameworks
+
+  - control: A.5.16
+    title: Identity management
+    external_mappings:
+      nist-csf:
+        - PR.AA-01
+        - PR.AA-02
+      nist-800-53:
+        - IA-1
+        - IA-2
+        - IA-4
+      pci-dss:
+        - "8.1"
+        - "8.2"
+      hipaa:
+        - "164.312(a)(2)(i)"
+      soc2:
+        - CC6.1
+        - CC6.2
+      cis-v8:
+        - "5.1"
+        - "5.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.16 control description
+    notes: Identity lifecycle management maps directly to IAM controls
+
+  - control: A.5.17
+    title: Authentication information
+    external_mappings:
+      nist-csf:
+        - PR.AA-03
+      nist-800-53:
+        - IA-5
+        - IA-11
+      pci-dss:
+        - "8.2.3"
+        - "8.3"
+      hipaa:
+        - "164.308(a)(5)(ii)(D)"
+      soc2:
+        - CC6.1
+      cis-v8:
+        - "5.2"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ACCESS-PASSWORD-POLICY entry
+    notes: Authentication information management maps to credential controls
+
+  - control: A.5.18
+    title: Access rights
+    external_mappings:
+      nist-csf:
+        - PR.AA-05
+        - PR.AA-06
+      nist-800-53:
+        - AC-2
+        - AC-6
+      pci-dss:
+        - "7.1"
+        - "7.2.5"
+      soc2:
+        - CC6.2
+        - CC6.3
+      cis-v8:
+        - "5.3"
+        - "5.4"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.18 control description
+    notes: Access rights provisioning/review/removal maps to account management lifecycle
+
+  - control: A.5.19
+    title: Information security in supplier relationships
+    external_mappings:
+      nist-csf:
+        - GV.SC-01
+        - GV.SC-04
+        - GV.SC-06
+      nist-800-53:
+        - SA-9
+        - SR-1
+        - SR-2
+      pci-dss:
+        - "12.8"
+      hipaa:
+        - "164.308(b)(1)"
+      soc2:
+        - CC9.2
+      cis-v8:
+        - "15.1"
+        - "15.2"
+    confidence: high
+    evidence:
+      - crosswalk.yaml GOV-VENDOR-MGMT entry
+    notes: Supplier security maps to supply chain risk management controls
+
+  - control: A.5.20
+    title: Addressing information security within supplier agreements
+    external_mappings:
+      nist-csf:
+        - GV.SC-07
+        - GV.SC-08
+      nist-800-53:
+        - SA-9
+        - SR-3
+      pci-dss:
+        - "12.8.2"
+        - "12.8.3"
+      hipaa:
+        - "164.308(b)(3)"
+      soc2:
+        - CC9.2
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.20 control description
+    notes: Supplier agreements map to supply chain contractual controls
+
+  - control: A.5.23
+    title: Information security for use of cloud services
+    external_mappings:
+      nist-csf:
+        - GV.SC-04
+        - GV.SC-09
+      nist-800-53:
+        - SA-9
+        - SR-4
+      soc2:
+        - CC9.2
+      aiuc-1:
+        - E005
+        - E006
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.23 -- new control in 2022 version
+    notes: New 2022 control; cloud services management maps to supply chain and deployment controls
+
+  - control: A.5.24
+    title: Information security incident management planning and preparation
+    external_mappings:
+      nist-csf:
+        - RS.MA-01
+        - RS.MA-03
+      nist-800-53:
+        - IR-1
+        - IR-4
+      pci-dss:
+        - "12.10.1"
+        - "12.10.2"
+      hipaa:
+        - "164.308(a)(6)(i)"
+      soc2:
+        - CC7.4
+        - CC7.5
+      aiuc-1:
+        - E001
+        - E002
+      cis-v8:
+        - "17.1"
+    confidence: high
+    evidence:
+      - crosswalk.yaml IR-PLAN entry
+    notes: Incident management planning maps directly to incident response controls
+
+  - control: A.5.26
+    title: Response to information security incidents
+    external_mappings:
+      nist-csf:
+        - RS.MA-02
+        - RS.MA-04
+        - RS.AN-03
+      nist-800-53:
+        - IR-4
+        - IR-5
+      pci-dss:
+        - "12.10.4"
+        - "12.10.6"
+      hipaa:
+        - "164.308(a)(6)(ii)"
+      soc2:
+        - CC7.4
+      cis-v8:
+        - "17.4"
+    confidence: high
+    evidence:
+      - crosswalk.yaml IR-TESTING entry
+    notes: Incident response maps to response process controls
+
+  - control: A.5.27
+    title: Learning from information security incidents
+    external_mappings:
+      nist-csf:
+        - RS.AN-05
+        - RS.MI-03
+      nist-800-53:
+        - IR-4
+        - IR-8
+      soc2:
+        - CC7.4
+      cis-v8:
+        - "17.5"
+    confidence: medium
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.27 control description
+    notes: Lessons learned integration maps to incident improvement controls
+
+  - control: A.5.29
+    title: Information security during disruption
+    external_mappings:
+      nist-csf:
+        - PR.IR-01
+        - RC.RP-01
+      nist-800-53:
+        - CP-1
+        - CP-2
+        - CP-4
+      pci-dss:
+        - "12.3.4"
+      hipaa:
+        - "164.308(a)(7)(i)"
+      soc2:
+        - CC9.1
+        - A1.3
+      cis-v8:
+        - "11.1"
+    confidence: high
+    evidence:
+      - crosswalk.yaml BC-PLAN entry
+    notes: BCM security maps to continuity planning controls
+
+  - control: A.5.30
+    title: ICT readiness for business continuity
+    external_mappings:
+      nist-csf:
+        - RC.RP-02
+        - RC.RP-03
+      nist-800-53:
+        - CP-2
+        - CP-7
+        - CP-8
+      pci-dss:
+        - "12.3.4"
+      hipaa:
+        - "164.308(a)(7)(ii)(D)"
+      soc2:
+        - A1.2
+        - A1.3
+      cis-v8:
+        - "11.2"
+    confidence: high
+    evidence:
+      - crosswalk.yaml BC-RTO-RPO entry
+    notes: ICT continuity maps to recovery objectives and testing controls
+
+  - control: A.5.31
+    title: Legal, statutory, regulatory and contractual requirements
+    external_mappings:
+      nist-csf:
+        - GV.OC-03
+        - GV.OC-04
+      nist-800-53:
+        - PL-4
+        - PM-9
+      soc2:
+        - CC1.1
+      aiuc-1:
+        - E012
+    confidence: medium
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.31 control description
+    notes: Legal requirements management maps to compliance governance controls
+
+  - control: A.5.34
+    title: Privacy and protection of personal identifiable information
+    external_mappings:
+      nist-csf:
+        - GV.OC-03
+        - PR.DS-01
+      nist-800-53:
+        - PT-1
+        - PT-2
+        - PT-3
+      pci-dss:
+        - "3.1"
+      hipaa:
+        - "164.502"
+        - "164.514"
+      soc2:
+        - P1.1
+        - P2.1
+        - P3.1
+      cis-v8:
+        - "3.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.5.34 control description
+    notes: PII protection maps to privacy controls; strongest HIPAA and GDPR alignment
+
+  - control: A.5.35
+    title: Independent review of information security
+    external_mappings:
+      nist-csf:
+        - GV.OC-05
+        - ID.IM-03
+      nist-800-53:
+        - CA-2
+        - CA-7
+      soc2:
+        - CC4.1
+        - CC4.2
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Clause 9.2 internal audit requirement
+    notes: Independent review maps to audit and assessment controls
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # A.6 - PEOPLE CONTROLS (8 controls)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.6.1
+    title: Screening
+    external_mappings:
+      nist-csf:
+        - GV.RR-02
+        - PR.AA-02
+      nist-800-53:
+        - PS-3
+        - PS-4
+      pci-dss:
+        - "12.7"
+      soc2:
+        - CC1.4
+      cis-v8:
+        - "5.1"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.6.1 control description
+    notes: Pre-employment screening maps to personnel security controls
+
+  - control: A.6.2
+    title: Terms and conditions of employment
+    external_mappings:
+      nist-csf:
+        - GV.RR-02
+        - PR.AT-01
+      nist-800-53:
+        - PS-6
+        - PL-4
+      soc2:
+        - CC1.4
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.6.2 control description
+    notes: Employment terms map to personnel security and policy acknowledgment
+
+  - control: A.6.3
+    title: Information security awareness, education and training
+    external_mappings:
+      nist-csf:
+        - PR.AT-01
+        - PR.AT-02
+      nist-800-53:
+        - AT-2
+        - AT-3
+        - AT-4
+      pci-dss:
+        - "12.6"
+        - "12.6.1"
+        - "12.6.2"
+      hipaa:
+        - "164.308(a)(5)"
+      soc2:
+        - CC1.4
+        - CC2.2
+      aiuc-1:
+        - E010
+      cis-v8:
+        - "14.1"
+        - "14.2"
+        - "14.3"
+    confidence: high
+    evidence:
+      - crosswalk.yaml GOV-TRAINING entry
+    notes: Security awareness training maps to awareness controls; highest cross-framework coverage
+
+  - control: A.6.5
+    title: Responsibilities after termination or change of employment
+    external_mappings:
+      nist-csf:
+        - PR.AA-02
+        - PR.AA-06
+      nist-800-53:
+        - PS-4
+        - PS-5
+        - AC-2
+      pci-dss:
+        - "8.2.6"
+      soc2:
+        - CC6.2
+        - CC6.3
+      cis-v8:
+        - "5.3"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.6.5 control description
+    notes: Termination access revocation maps to account management lifecycle controls
+
+  - control: A.6.7
+    title: Remote working
+    external_mappings:
+      nist-csf:
+        - PR.DS-02
+        - PR.AA-05
+      nist-800-53:
+        - AC-17
+        - SC-8
+      soc2:
+        - CC6.6
+      cis-v8:
+        - "6.6"
+        - "4.3"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.6.7 control description
+    notes: Remote working controls map to remote access and endpoint security controls
+
+  - control: A.6.8
+    title: Information security event reporting
+    external_mappings:
+      nist-csf:
+        - DE.AE-05
+        - RS.CO-02
+      nist-800-53:
+        - IR-6
+        - IR-9
+      soc2:
+        - CC7.3
+      cis-v8:
+        - "17.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.6.8 control description
+    notes: Event reporting mechanism maps to incident detection and communication
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # A.7 - PHYSICAL CONTROLS (14 controls)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.7.1
+    title: Physical security perimeters
+    external_mappings:
+      nist-csf:
+        - PR.AA-02
+        - PR.IR-01
+      nist-800-53:
+        - PE-2
+        - PE-3
+      pci-dss:
+        - "9.1"
+        - "9.1.1"
+      hipaa:
+        - "164.310(a)(1)"
+      soc2:
+        - CC6.4
+      cis-v8:
+        - "10.1"
+    confidence: high
+    evidence:
+      - crosswalk.yaml PHYSICAL-ACCESS entry
+    notes: Physical perimeters map to physical access controls across all frameworks
+
+  - control: A.7.2
+    title: Physical entry
+    external_mappings:
+      nist-csf:
+        - PR.AA-02
+      nist-800-53:
+        - PE-3
+        - PE-4
+      pci-dss:
+        - "9.1.2"
+        - "9.1.3"
+      hipaa:
+        - "164.310(a)(2)(ii)"
+      soc2:
+        - CC6.4
+      cis-v8:
+        - "10.1"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.7.2 control description
+    notes: Physical entry controls map to facility access management
+
+  - control: A.7.4
+    title: Physical security monitoring
+    external_mappings:
+      nist-csf:
+        - DE.CM-02
+        - PR.AA-02
+      nist-800-53:
+        - PE-6
+        - IR-4
+      pci-dss:
+        - "9.1.2"
+        - "9.4.5"
+      soc2:
+        - CC6.4
+        - CC7.1
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.7.4 control description
+    notes: Physical monitoring maps to surveillance and detection controls
+
+  - control: A.7.5
+    title: Protecting against physical and environmental threats
+    external_mappings:
+      nist-csf:
+        - PR.IR-01
+        - PR.IR-02
+      nist-800-53:
+        - PE-10
+        - PE-11
+        - PE-13
+        - PE-14
+      soc2:
+        - A1.1
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.7.5 control description
+    notes: Environmental protection maps to physical and environmental safeguards
+
+  - control: A.7.9
+    title: Security of assets off-premises
+    external_mappings:
+      nist-csf:
+        - PR.DS-01
+        - PR.DS-02
+      nist-800-53:
+        - MP-5
+        - SC-28
+      pci-dss:
+        - "9.5"
+      soc2:
+        - CC6.7
+      cis-v8:
+        - "4.3"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.7.9 control description
+    notes: Off-premises asset protection maps to mobile device and data protection controls
+
+  - control: A.7.10
+    title: Storage media
+    external_mappings:
+      nist-csf:
+        - PR.DS-03
+        - PR.DS-05
+      nist-800-53:
+        - MP-4
+        - MP-5
+        - MP-6
+      pci-dss:
+        - "9.4"
+        - "9.4.3"
+      hipaa:
+        - "164.310(d)(1)"
+        - "164.310(d)(2)"
+      soc2:
+        - CC6.5
+        - CC6.7
+      cis-v8:
+        - "3.9"
+    confidence: high
+    evidence:
+      - crosswalk.yaml PHYSICAL-MEDIA entry
+    notes: Storage media lifecycle maps to media protection controls
+
+  - control: A.7.14
+    title: Secure disposal or re-use of equipment
+    external_mappings:
+      nist-csf:
+        - PR.DS-03
+      nist-800-53:
+        - MP-6
+        - SI-12
+      pci-dss:
+        - "9.4.6"
+        - "9.4.7"
+      hipaa:
+        - "164.310(d)(2)(i)"
+      soc2:
+        - CC6.5
+      cis-v8:
+        - "3.9"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.7.14 control description
+    notes: Secure disposal maps to media sanitization controls
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # A.8 - TECHNOLOGICAL CONTROLS (34 controls)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.8.1
+    title: User endpoint devices
+    external_mappings:
+      nist-csf:
+        - PR.DS-01
+        - PR.AA-05
+      nist-800-53:
+        - CM-8
+        - SC-28
+        - MP-2
+      pci-dss:
+        - "12.3"
+      soc2:
+        - CC6.6
+      cis-v8:
+        - "4.1"
+        - "4.2"
+        - "4.3"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ASSET-CONFIGURATION entry
+    notes: Endpoint device management maps to mobile device and endpoint protection controls
+
+  - control: A.8.2
+    title: Privileged access rights
+    external_mappings:
+      nist-csf:
+        - PR.AA-05
+        - PR.AA-06
+      nist-800-53:
+        - AC-2
+        - AC-6
+      pci-dss:
+        - "7.2.3"
+        - "8.6"
+      hipaa:
+        - "164.312(a)(2)(i)"
+      soc2:
+        - CC6.3
+      aiuc-1:
+        - B006
+        - B007
+      cis-v8:
+        - "5.4"
+        - "5.5"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ACCESS-PRIVILEGED-ACCOUNT entry
+    notes: Privileged access management maps directly across all frameworks
+
+  - control: A.8.3
+    title: Information access restriction
+    external_mappings:
+      nist-csf:
+        - PR.AA-05
+      nist-800-53:
+        - AC-3
+        - AC-6
+      pci-dss:
+        - "7.1"
+        - "7.2"
+      hipaa:
+        - "164.312(a)(1)"
+      soc2:
+        - CC6.1
+        - CC6.3
+      cis-v8:
+        - "6.8"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ACCESS-LEAST-PRIVILEGE entry
+    notes: Information access restriction maps to least privilege enforcement
+
+  - control: A.8.5
+    title: Secure authentication
+    external_mappings:
+      nist-csf:
+        - PR.AA-01
+        - PR.AA-03
+      nist-800-53:
+        - IA-2
+        - IA-5
+        - IA-12
+      pci-dss:
+        - "8.2.3"
+        - "8.3.1"
+        - "8.3.6"
+      hipaa:
+        - "164.312(d)"
+      soc2:
+        - CC6.1
+      aiuc-1:
+        - B007
+      cis-v8:
+        - "6.3"
+        - "6.4"
+        - "6.5"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ACCESS-MFA entry
+      - crosswalk.yaml ACCESS-PASSWORD-POLICY entry
+    notes: Secure authentication maps to identity and authentication controls; MFA is primary control
+
+  - control: A.8.7
+    title: Protection against malware
+    external_mappings:
+      nist-csf:
+        - DE.CM-04
+        - PR.DS-07
+      nist-800-53:
+        - SI-3
+        - SI-16
+      pci-dss:
+        - "5.1"
+        - "5.2"
+        - "5.3"
+      soc2:
+        - CC6.8
+      cis-v8:
+        - "10.1"
+        - "10.2"
+        - "10.7"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.7 control description
+    notes: Malware protection maps to anti-malware and endpoint detection controls
+
+  - control: A.8.8
+    title: Management of technical vulnerabilities
+    external_mappings:
+      nist-csf:
+        - ID.RA-01
+        - PR.PS-01
+        - PR.PS-02
+      nist-800-53:
+        - RA-5
+        - SI-2
+        - SI-5
+      pci-dss:
+        - "6.3"
+        - "11.3.1"
+        - "11.4.1"
+      hipaa:
+        - "164.308(a)(1)(ii)(B)"
+      soc2:
+        - CC7.1
+      cis-v8:
+        - "7.1"
+        - "7.4"
+        - "18.3"
+    confidence: high
+    evidence:
+      - crosswalk.yaml VULN-SCANNING entry
+      - crosswalk.yaml VULN-PATCHING entry
+      - crosswalk.yaml VULN-PENTEST entry
+    notes: Vulnerability management maps directly across all frameworks; pentest is medium confidence
+
+  - control: A.8.9
+    title: Configuration management
+    external_mappings:
+      nist-csf:
+        - PR.PS-01
+        - PR.PS-04
+      nist-800-53:
+        - CM-2
+        - CM-3
+        - CM-6
+        - CM-7
+      pci-dss:
+        - "2.2"
+        - "2.2.1"
+      soc2:
+        - CC6.6
+        - CC8.1
+      cis-v8:
+        - "4.1"
+        - "4.2"
+    confidence: high
+    evidence:
+      - crosswalk.yaml ASSET-CONFIGURATION entry
+    notes: Configuration management maps to secure baseline and change control requirements
+
+  - control: A.8.10
+    title: Information deletion
+    external_mappings:
+      nist-csf:
+        - PR.DS-03
+        - PR.DS-11
+      nist-800-53:
+        - MP-6
+        - SI-12
+      pci-dss:
+        - "3.2"
+      hipaa:
+        - "164.310(d)(2)"
+      soc2:
+        - CC6.5
+      cis-v8:
+        - "3.4"
+    confidence: high
+    evidence:
+      - crosswalk.yaml DATA-RETENTION entry
+    notes: Data deletion maps to media sanitization and data retention controls
+
+  - control: A.8.12
+    title: Data leakage prevention
+    external_mappings:
+      nist-csf:
+        - PR.DS-05
+      nist-800-53:
+        - AC-4
+        - SC-7
+      pci-dss:
+        - "12.3.2"
+      soc2:
+        - CC6.7
+        - C1.2
+      aiuc-1:
+        - A004
+        - A006
+      cis-v8:
+        - "3.7"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.12 -- new control in 2022 version
+    notes: New 2022 control; DLP maps to data exfiltration prevention and information flow controls
+
+  - control: A.8.13
+    title: Information backup
+    external_mappings:
+      nist-csf:
+        - PR.IR-04
+        - PR.DS-11
+      nist-800-53:
+        - CP-9
+        - CP-10
+      pci-dss:
+        - "9.5.1"
+      hipaa:
+        - "164.308(a)(7)(ii)(A)"
+      soc2:
+        - CC9.1
+        - A1.2
+      cis-v8:
+        - "11.2"
+        - "11.3"
+    confidence: high
+    evidence:
+      - crosswalk.yaml BC-BACKUP entry
+    notes: Backup maps to continuity and data protection controls
+
+  - control: A.8.15
+    title: Logging
+    external_mappings:
+      nist-csf:
+        - DE.CM-01
+        - DE.CM-03
+      nist-800-53:
+        - AU-2
+        - AU-3
+        - AU-6
+        - AU-9
+        - AU-11
+      pci-dss:
+        - "10.1"
+        - "10.2"
+        - "10.3"
+        - "10.5"
+        - "10.7"
+      hipaa:
+        - "164.312(b)"
+      soc2:
+        - CC7.2
+        - CC7.3
+      cis-v8:
+        - "8.2"
+        - "8.5"
+        - "8.10"
+        - "8.11"
+    confidence: high
+    evidence:
+      - crosswalk.yaml LOG-CENTRALIZED entry
+      - crosswalk.yaml LOG-INTEGRITY entry
+      - crosswalk.yaml LOG-RETENTION entry
+    notes: Logging maps to audit log controls; strongest cross-framework coverage in A.8
+
+  - control: A.8.16
+    title: Monitoring activities
+    external_mappings:
+      nist-csf:
+        - DE.CM-01
+        - DE.CM-06
+        - DE.AE-02
+      nist-800-53:
+        - AU-6
+        - CA-7
+        - SI-4
+      pci-dss:
+        - "10.6"
+        - "11.5"
+      hipaa:
+        - "164.312(b)"
+      soc2:
+        - CC7.1
+        - CC7.2
+      cis-v8:
+        - "8.5"
+        - "8.6"
+        - "8.7"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.16 control description
+    notes: Monitoring activities maps to continuous monitoring and anomaly detection
+
+  - control: A.8.17
+    title: Clock synchronization
+    external_mappings:
+      nist-csf:
+        - DE.CM-01
+      nist-800-53:
+        - AU-8
+      pci-dss:
+        - "10.4"
+        - "10.4.1"
+      soc2:
+        - CC7.1
+      cis-v8:
+        - "8.4"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.17 control description
+    notes: Clock synchronization is critical for forensic log correlation; maps to audit requirements
+
+  - control: A.8.20
+    title: Networks security
+    external_mappings:
+      nist-csf:
+        - PR.IR-01
+        - PR.IR-02
+      nist-800-53:
+        - SC-7
+        - SC-8
+        - SC-20
+      pci-dss:
+        - "1.1"
+        - "1.2"
+        - "1.3"
+      hipaa:
+        - "164.312(e)(1)"
+      soc2:
+        - CC6.6
+      cis-v8:
+        - "12.1"
+        - "12.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.20 control description
+    notes: Network security maps to network protection and boundary controls
+
+  - control: A.8.22
+    title: Segregation of networks
+    external_mappings:
+      nist-csf:
+        - PR.IR-02
+      nist-800-53:
+        - SC-7
+        - AC-4
+      pci-dss:
+        - "1.3"
+        - "1.3.1"
+        - "1.3.2"
+      soc2:
+        - CC6.6
+      cis-v8:
+        - "12.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.22 control description
+    notes: Network segregation is a critical PCI-DSS CDE requirement; maps to boundary controls
+
+  - control: A.8.24
+    title: Use of cryptography
+    external_mappings:
+      nist-csf:
+        - PR.DS-01
+        - PR.DS-02
+      nist-800-53:
+        - SC-8
+        - SC-13
+        - SC-28
+      pci-dss:
+        - "3.4"
+        - "3.5"
+        - "4.1"
+        - "4.2"
+      hipaa:
+        - "164.312(a)(2)(iv)"
+        - "164.312(e)(2)(ii)"
+      soc2:
+        - CC6.7
+      cis-v8:
+        - "3.10"
+        - "3.11"
+    confidence: high
+    evidence:
+      - crosswalk.yaml DATA-ENCRYPT-REST entry
+      - crosswalk.yaml DATA-ENCRYPT-TRANSIT entry
+    notes: Cryptography policy maps to encryption at rest and in transit controls
+
+  - control: A.8.25
+    title: Secure development life cycle
+    external_mappings:
+      nist-csf:
+        - PR.PS-03
+        - PR.DS-07
+      nist-800-53:
+        - SA-3
+        - SA-8
+        - SA-11
+      pci-dss:
+        - "6.1"
+        - "6.2"
+        - "6.5"
+      soc2:
+        - CC8.1
+      cis-v8:
+        - "16.1"
+        - "16.2"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.25 control description
+    notes: Secure SDLC maps to software development security controls
+
+  - control: A.8.28
+    title: Secure coding
+    external_mappings:
+      nist-csf:
+        - PR.PS-03
+      nist-800-53:
+        - SA-11
+        - SA-15
+      pci-dss:
+        - "6.2.4"
+        - "6.3.2"
+      soc2:
+        - CC8.1
+      cis-v8:
+        - "16.3"
+        - "16.4"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.28 control description
+    notes: Secure coding maps to application development security requirements
+
+  - control: A.8.29
+    title: Security testing in development and acceptance
+    external_mappings:
+      nist-csf:
+        - DE.CM-08
+        - ID.RA-03
+      nist-800-53:
+        - SA-11
+        - CA-8
+        - RA-5
+      pci-dss:
+        - "6.3.3"
+        - "11.3"
+        - "11.4"
+      soc2:
+        - CC7.1
+      cis-v8:
+        - "16.7"
+        - "18.3"
+    confidence: high
+    evidence:
+      - crosswalk.yaml VULN-PENTEST entry
+    notes: Security testing in development maps to SAST/DAST and penetration testing controls
+
+  - control: A.8.31
+    title: Separation of development, test and production environments
+    external_mappings:
+      nist-csf:
+        - PR.DS-07
+      nist-800-53:
+        - CM-2
+        - SA-3
+      pci-dss:
+        - "6.4"
+        - "6.4.1"
+        - "6.4.2"
+      soc2:
+        - CC8.1
+      cis-v8:
+        - "16.9"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.31 control description
+    notes: Environment separation maps to change management and data protection controls
+
+  - control: A.8.32
+    title: Change management
+    external_mappings:
+      nist-csf:
+        - PR.PS-03
+        - PR.PS-04
+      nist-800-53:
+        - CM-3
+        - CM-4
+        - CM-5
+      pci-dss:
+        - "6.4"
+        - "6.5"
+      soc2:
+        - CC8.1
+      cis-v8:
+        - "4.5"
+    confidence: high
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.32 control description
+    notes: Change management maps to configuration change control requirements
+
+  - control: A.8.34
+    title: Protection of information systems during audit testing
+    external_mappings:
+      nist-csf:
+        - PR.DS-01
+      nist-800-53:
+        - AU-14
+        - CA-8
+      pci-dss:
+        - "11.3"
+        - "11.4"
+    confidence: medium
+    evidence:
+      - ISO/IEC 27001:2022 Annex A.8.34 control description
+    notes: Audit testing protection maps to assessment coordination and operational protection

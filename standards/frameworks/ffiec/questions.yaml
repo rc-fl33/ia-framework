@@ -1,0 +1,627 @@
+# FFIEC IT Examination Handbook Control-Tagged Questions
+# Version: 1.0
+# Reference: FFIEC IT Examination Handbook Series
+# Phase Alignment: NIST CSF 2.0
+# Industry Focus: Financial Institutions (Banks, Credit Unions)
+
+framework: ffiec
+version: "2024"
+total_questions: 25
+industry_focus:
+  - banking
+  - credit_unions
+  - financial_services
+  - fintech
+
+# FFIEC IT Examination Handbook Booklets
+examination_handbooks:
+  - id: InfoSec
+    name: Information Security
+    phase: PROTECT
+
+  - id: Audit
+    name: Audit
+    phase: IDENTIFY
+
+  - id: BCP
+    name: Business Continuity
+    phase: RECOVER
+
+  - id: Mgmt
+    name: Management
+    phase: GOVERN
+
+  - id: OutSvc
+    name: Outsourcing Technology Services
+    phase: GOVERN
+
+  - id: DevAcq
+    name: Development and Acquisition
+    phase: PROTECT
+
+  - id: ArcInf
+    name: Architecture, Infrastructure, and Operations
+    phase: PROTECT
+
+  - id: RetPay
+    name: Retail Payment Systems
+    phase: PROTECT
+
+  - id: WholePay
+    name: Wholesale Payment Systems
+    phase: PROTECT
+
+  - id: SupTech
+    name: Supervision of Technology Service Providers
+    phase: GOVERN
+
+questions:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MANAGEMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-MGT-001
+    text: "Does the Board of Directors provide oversight of IT and information security?"
+    category: management
+    phase: GOVERN
+    controls:
+      ffiec: "Management - Board and Senior Management"
+      nist-csf: "GV.OV-01, GV.OV-02"
+      nist-800-53: "PM-1, PM-2"
+      soc2: "CC1.2, CC1.3"
+    evidence_required:
+      - Board meeting minutes
+      - IT committee charter
+      - Risk appetite statements
+      - Security reports to board
+    scoring:
+      full: "Active board oversight with regular IT/security reporting"
+      partial: "Board involvement but limited security focus"
+      none: "No board oversight of IT security"
+    sub_questions:
+      - "Does the board approve IT strategic plans?"
+      - "Are IT risks reported to the board regularly?"
+      - "Is there an IT committee or designated oversight?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-MGT-002
+    text: "Is there an enterprise-wide IT risk management program?"
+    category: management
+    phase: IDENTIFY
+    controls:
+      ffiec: "Management - Risk Management"
+      nist-csf: "GV.RM-01, ID.RA-01"
+      nist-800-53: "RA-1, RA-3"
+      soc2: "CC3.1, CC3.2"
+    evidence_required:
+      - IT risk management policy
+      - Risk assessment methodology
+      - Risk register
+      - Risk appetite framework
+    scoring:
+      full: "Comprehensive risk management integrated with enterprise risk"
+      partial: "IT risk assessment exists but not integrated"
+      none: "No IT risk management program"
+    sub_questions:
+      - "Is IT risk part of enterprise risk management?"
+      - "Are risk assessments performed regularly?"
+      - "Are risk ratings and treatments documented?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # INFORMATION SECURITY
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-IS-001
+    text: "Is there an information security program that addresses regulatory requirements?"
+    category: information_security
+    phase: GOVERN
+    controls:
+      ffiec: "Information Security - Program"
+      nist-csf: "GV.PO-01, GV.OC-03"
+      nist-800-53: "PM-1"
+      soc2: "CC1.1"
+      glba: "Safeguards Rule"
+    evidence_required:
+      - Information security program charter
+      - Security policies
+      - Compliance mapping
+      - Program effectiveness measures
+    scoring:
+      full: "Comprehensive program addressing GLBA and regulatory requirements"
+      partial: "Security program exists but regulatory mapping incomplete"
+      none: "No formal security program"
+    sub_questions:
+      - "Does the program address GLBA Safeguards Rule?"
+      - "Are policies comprehensive and current?"
+      - "Is the program reviewed and updated annually?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-IS-002
+    text: "How is access to customer information and systems controlled?"
+    category: information_security
+    phase: PROTECT
+    controls:
+      ffiec: "Information Security - Access Controls"
+      nist-csf: "PR.AA-01, PR.AA-05"
+      nist-800-53: "AC-2, AC-3, AC-6"
+      soc2: "CC6.1, CC6.2"
+      glba: "Safeguards Rule 314.4(c)"
+    evidence_required:
+      - Access control policy
+      - User provisioning procedures
+      - Access review records
+      - Privileged access management
+    scoring:
+      full: "Comprehensive access controls with regular reviews"
+      partial: "Access controls exist but reviews inconsistent"
+      none: "No formal access controls"
+    sub_questions:
+      - "Are access rights based on least privilege?"
+      - "Are access reviews performed at least annually?"
+      - "Is privileged access properly controlled?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-IS-003
+    text: "What authentication mechanisms are used to protect systems and data?"
+    category: information_security
+    phase: PROTECT
+    controls:
+      ffiec: "Information Security - Authentication"
+      ffiec-auth: "Authentication and Access to Financial Institution Services"
+      nist-csf: "PR.AA-03"
+      nist-800-53: "IA-2, IA-5"
+      soc2: "CC6.1"
+    evidence_required:
+      - Authentication policy
+      - MFA implementation
+      - Customer authentication methods
+      - Administrative authentication
+    scoring:
+      full: "Risk-layered authentication with MFA for high-risk transactions"
+      partial: "Authentication exists but not risk-based"
+      none: "Weak authentication controls"
+    sub_questions:
+      - "Is multi-factor authentication implemented?"
+      - "Are customer authentication controls appropriate for transaction risk?"
+      - "Are out-of-band authentication methods used for high-risk activities?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-IS-004
+    text: "How is network security managed to protect customer information?"
+    category: information_security
+    phase: PROTECT
+    controls:
+      ffiec: "Information Security - Network Security"
+      nist-csf: "PR.DS-05"
+      nist-800-53: "SC-7, AC-4"
+      soc2: "CC6.6"
+      pci-dss: "1.1, 1.2"
+    evidence_required:
+      - Network architecture documentation
+      - Firewall configurations
+      - Intrusion detection/prevention
+      - Network segmentation
+    scoring:
+      full: "Defense-in-depth with segmentation and monitoring"
+      partial: "Basic network security but limited segmentation"
+      none: "No formal network security controls"
+    sub_questions:
+      - "Are networks properly segmented?"
+      - "Are firewalls and IDS/IPS deployed?"
+      - "Is network traffic monitored?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-IS-005
+    text: "How is customer information protected from unauthorized disclosure?"
+    category: information_security
+    phase: PROTECT
+    controls:
+      ffiec: "Information Security - Data Protection"
+      nist-csf: "PR.DS-01, PR.DS-02"
+      nist-800-53: "SC-8, SC-28"
+      soc2: "CC6.6, CC6.7"
+      glba: "Safeguards Rule 314.4(c)"
+    evidence_required:
+      - Data classification scheme
+      - Encryption standards
+      - Key management procedures
+      - Data loss prevention
+    scoring:
+      full: "Data classified with encryption at rest and in transit"
+      partial: "Some data protection but not comprehensive"
+      none: "No data protection controls"
+    sub_questions:
+      - "Is customer information classified?"
+      - "Is encryption used for sensitive data at rest?"
+      - "Is encryption used for data in transit?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-IS-006
+    text: "How are security incidents detected and responded to?"
+    category: information_security
+    phase: RESPOND
+    controls:
+      ffiec: "Information Security - Incident Response"
+      nist-csf: "DE.AE-02, RS.MA-01"
+      nist-800-53: "IR-1, IR-4, IR-6"
+      soc2: "CC7.3, CC7.4"
+    evidence_required:
+      - Incident response plan
+      - Detection capabilities
+      - Response procedures
+      - Notification procedures
+    scoring:
+      full: "Comprehensive detection with tested incident response"
+      partial: "Some incident response but not comprehensive"
+      none: "No formal incident response"
+    sub_questions:
+      - "Is there a documented incident response plan?"
+      - "Are security events detected and logged?"
+      - "Are response and notification procedures documented?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # AUDIT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-AUD-001
+    text: "Is there an independent IT audit function?"
+    category: audit
+    phase: IDENTIFY
+    controls:
+      ffiec: "Audit - Independence and Objectivity"
+      nist-csf: "ID.IM-03"
+      nist-800-53: "CA-2"
+      soc2: "CC4.1"
+    evidence_required:
+      - Audit charter
+      - Independence documentation
+      - Audit plan
+      - Audit reports
+    scoring:
+      full: "Independent audit function with risk-based audit plan"
+      partial: "Audit performed but independence questionable"
+      none: "No IT audit function"
+    sub_questions:
+      - "Is the IT audit function independent?"
+      - "Is a risk-based IT audit plan in place?"
+      - "Are audit findings reported to the board?"
+    risk_weight: MEDIUM
+
+  - id: Q-FFIEC-AUD-002
+    text: "Are penetration tests and vulnerability assessments performed?"
+    category: audit
+    phase: IDENTIFY
+    controls:
+      ffiec: "Audit - Testing"
+      nist-csf: "DE.CM-08"
+      nist-800-53: "CA-8, RA-5"
+      soc2: "CC7.1"
+      pci-dss: "11.2, 11.3"
+    evidence_required:
+      - Penetration test reports
+      - Vulnerability scan results
+      - Remediation tracking
+      - Testing schedule
+    scoring:
+      full: "Regular testing with timely remediation"
+      partial: "Testing performed but remediation slow"
+      none: "No security testing"
+    sub_questions:
+      - "Are penetration tests performed annually?"
+      - "Are vulnerability scans performed regularly?"
+      - "Are findings remediated in a timely manner?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # BUSINESS CONTINUITY
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-BCP-001
+    text: "Is there a comprehensive business continuity program?"
+    category: business_continuity
+    phase: RECOVER
+    controls:
+      ffiec: "Business Continuity - Program"
+      nist-csf: "PR.IP-09, RC.RP-01"
+      nist-800-53: "CP-1, CP-2"
+      soc2: "CC9.1, A1.2"
+    evidence_required:
+      - BCP program documentation
+      - Business impact analysis
+      - Recovery strategies
+      - Recovery time objectives
+    scoring:
+      full: "Comprehensive BCP with documented RTOs/RPOs"
+      partial: "BCP exists but BIA or RTOs incomplete"
+      none: "No formal business continuity program"
+    sub_questions:
+      - "Is a business impact analysis performed?"
+      - "Are recovery time objectives defined?"
+      - "Are recovery strategies documented?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-BCP-002
+    text: "Is the business continuity plan tested regularly?"
+    category: business_continuity
+    phase: RECOVER
+    controls:
+      ffiec: "Business Continuity - Testing"
+      nist-csf: "PR.IP-10"
+      nist-800-53: "CP-4"
+      soc2: "A1.3"
+    evidence_required:
+      - Test plans and schedules
+      - Test results
+      - Lessons learned
+      - Plan updates
+    scoring:
+      full: "Annual testing with lessons learned and plan updates"
+      partial: "Testing performed but not comprehensive"
+      none: "Plans not tested"
+    sub_questions:
+      - "Are BCP tests performed at least annually?"
+      - "Are tests comprehensive (full failover)?"
+      - "Are lessons learned incorporated?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-BCP-003
+    text: "How is resilience to cyber incidents addressed in continuity planning?"
+    category: business_continuity
+    phase: RECOVER
+    controls:
+      ffiec: "Business Continuity - Cyber Resilience"
+      nist-csf: "RC.RP-02"
+      nist-800-53: "CP-10, IR-4"
+    evidence_required:
+      - Cyber resilience planning
+      - Destructive malware scenarios
+      - Recovery procedures for cyber incidents
+    scoring:
+      full: "Cyber resilience integrated into BCP with tested scenarios"
+      partial: "Some cyber considerations but not comprehensive"
+      none: "No cyber resilience planning"
+    sub_questions:
+      - "Are cyber incidents included in BCP scenarios?"
+      - "Is recovery from destructive malware planned?"
+      - "Are immutable backups maintained?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # OUTSOURCING
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-OUT-001
+    text: "How does the institution manage third-party technology service providers?"
+    category: outsourcing
+    phase: GOVERN
+    controls:
+      ffiec: "Outsourcing - Vendor Management"
+      nist-csf: "GV.SC-01, GV.SC-04"
+      nist-800-53: "SA-9, SR-1"
+      soc2: "CC9.2"
+    evidence_required:
+      - Vendor management policy
+      - Due diligence procedures
+      - Contract requirements
+      - Ongoing monitoring
+    scoring:
+      full: "Comprehensive vendor management with due diligence and monitoring"
+      partial: "Vendor management exists but monitoring limited"
+      none: "No formal vendor management"
+    sub_questions:
+      - "Is due diligence performed before engaging vendors?"
+      - "Are contracts comprehensive (security requirements, audit rights)?"
+      - "Is vendor performance monitored?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-OUT-002
+    text: "Are adequate controls in place for cloud computing services?"
+    category: outsourcing
+    phase: PROTECT
+    controls:
+      ffiec: "Outsourcing - Cloud Computing"
+      nist-csf: "GV.SC-04, PR.DS-01"
+      nist-800-53: "SA-9"
+      soc2: "CC6.1"
+    evidence_required:
+      - Cloud security assessment
+      - Shared responsibility documentation
+      - Data location controls
+      - Exit strategy
+    scoring:
+      full: "Cloud risks assessed with documented controls and exit strategy"
+      partial: "Cloud used but controls not comprehensive"
+      none: "No cloud controls"
+    sub_questions:
+      - "Is cloud security risk assessed?"
+      - "Are data location and sovereignty requirements met?"
+      - "Is there an exit strategy for cloud services?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # DEVELOPMENT AND ACQUISITION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-DEV-001
+    text: "Is there a secure systems development lifecycle (SDLC)?"
+    category: development
+    phase: PROTECT
+    controls:
+      ffiec: "Development and Acquisition - SDLC"
+      nist-csf: "PR.IP-02"
+      nist-800-53: "SA-3, SA-11"
+      soc2: "CC8.1"
+      pci-dss: "6.3, 6.5"
+    evidence_required:
+      - SDLC documentation
+      - Security requirements
+      - Code review procedures
+      - Security testing
+    scoring:
+      full: "Security integrated throughout SDLC with testing"
+      partial: "Some security in SDLC but not comprehensive"
+      none: "No secure SDLC"
+    sub_questions:
+      - "Are security requirements defined early in development?"
+      - "Is code reviewed for security before deployment?"
+      - "Is security testing performed?"
+    risk_weight: MEDIUM
+
+  - id: Q-FFIEC-DEV-002
+    text: "How is change management controlled?"
+    category: development
+    phase: PROTECT
+    controls:
+      ffiec: "Development and Acquisition - Change Management"
+      nist-csf: "PR.IP-03"
+      nist-800-53: "CM-3"
+      soc2: "CC8.1"
+      pci-dss: "6.4"
+    evidence_required:
+      - Change management policy
+      - Change request records
+      - Approval documentation
+      - Testing records
+    scoring:
+      full: "Formal change management with testing and approval"
+      partial: "Change process exists but not consistently followed"
+      none: "No formal change management"
+    sub_questions:
+      - "Is there a formal change management process?"
+      - "Are changes tested before production?"
+      - "Are changes approved and documented?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # ARCHITECTURE AND OPERATIONS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-OPS-001
+    text: "How are IT operations monitored and managed?"
+    category: operations
+    phase: DETECT
+    controls:
+      ffiec: "Architecture, Infrastructure, and Operations"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "SI-4"
+      soc2: "CC7.1"
+    evidence_required:
+      - Operations monitoring
+      - Performance management
+      - Capacity planning
+      - Problem management
+    scoring:
+      full: "Comprehensive monitoring with proactive management"
+      partial: "Monitoring exists but reactive"
+      none: "No formal operations management"
+    sub_questions:
+      - "Are systems monitored for performance and availability?"
+      - "Is capacity planning performed?"
+      - "Is there a problem management process?"
+    risk_weight: MEDIUM
+
+  - id: Q-FFIEC-OPS-002
+    text: "How is patch and vulnerability management performed?"
+    category: operations
+    phase: PROTECT
+    controls:
+      ffiec: "Architecture, Infrastructure, and Operations - Patching"
+      nist-csf: "PR.IP-12"
+      nist-800-53: "SI-2, RA-5"
+      soc2: "CC7.1"
+      pci-dss: "6.3"
+    evidence_required:
+      - Patch management policy
+      - Patch schedules
+      - Vulnerability scan results
+      - Remediation tracking
+    scoring:
+      full: "Timely patching with vulnerability management"
+      partial: "Patching performed but not timely"
+      none: "No patch management"
+    sub_questions:
+      - "Are patches applied in a timely manner?"
+      - "Are vulnerability scans performed regularly?"
+      - "Are vulnerabilities remediated based on risk?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CUSTOMER INFORMATION SECURITY (GLBA)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-GLBA-001
+    text: "Does the institution comply with GLBA Safeguards Rule requirements?"
+    category: regulatory_compliance
+    phase: GOVERN
+    controls:
+      ffiec: "Information Security - GLBA"
+      glba: "Safeguards Rule 314.3, 314.4"
+      nist-csf: "GV.OC-03"
+    evidence_required:
+      - Information security program
+      - Risk assessments
+      - Safeguards documentation
+      - Oversight procedures
+    scoring:
+      full: "Comprehensive program meeting GLBA requirements"
+      partial: "Program exists but gaps in GLBA compliance"
+      none: "No GLBA-compliant security program"
+    sub_questions:
+      - "Is a written information security program in place?"
+      - "Are customer information safeguards implemented?"
+      - "Is the program overseen by a qualified individual?"
+      - "Are service providers overseen?"
+    risk_weight: HIGH
+
+  - id: Q-FFIEC-GLBA-002
+    text: "Is customer information destruction properly managed?"
+    category: regulatory_compliance
+    phase: PROTECT
+    controls:
+      ffiec: "Information Security - Disposal"
+      glba: "Safeguards Rule 314.4(c)(6)"
+      nist-csf: "PR.DS-03"
+      nist-800-53: "MP-6"
+    evidence_required:
+      - Disposal policy
+      - Destruction procedures
+      - Destruction records
+      - Vendor destruction oversight
+    scoring:
+      full: "Secure disposal with documented destruction"
+      partial: "Disposal procedures exist but not comprehensive"
+      none: "No secure disposal program"
+    sub_questions:
+      - "Is customer information securely destroyed?"
+      - "Are disposal methods appropriate for media type?"
+      - "Are destruction records maintained?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CYBERSECURITY ASSESSMENT TOOL (CAT)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-FFIEC-CAT-001
+    text: "Has the institution completed the FFIEC Cybersecurity Assessment Tool?"
+    category: cybersecurity
+    phase: IDENTIFY
+    controls:
+      ffiec: "Cybersecurity Assessment Tool"
+      nist-csf: "ID.GV-01, ID.GV-02"
+    evidence_required:
+      - Inherent risk profile
+      - Cybersecurity maturity assessment
+      - Gap analysis
+      - Action plans
+    scoring:
+      full: "CAT completed with maturity aligned to risk"
+      partial: "CAT completed but maturity gaps identified"
+      none: "CAT not completed"
+    sub_questions:
+      - "Is the inherent risk profile completed?"
+      - "Is cybersecurity maturity assessed?"
+      - "Is maturity aligned with inherent risk?"
+      - "Are gaps addressed with action plans?"
+    risk_weight: MEDIUM

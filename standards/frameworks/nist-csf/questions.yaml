@@ -1,0 +1,594 @@
+# NIST CSF 2.0 Control-Tagged Questions
+# Version: 1.0
+# Based on: 22-question structured risk assessment methodology
+# Phase Alignment: NIST CSF 2.0 (GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER)
+
+framework: nist-csf
+version: "2.0"
+total_questions: 22
+
+categories:
+  - name: Organization Overview
+    phase: IDENTIFY
+    question_range: Q01-Q03
+
+  - name: Current Security Posture
+    phase: PROTECT
+    question_range: Q04-Q07
+
+  - name: Technical Infrastructure
+    phase: PROTECT
+    question_range: Q08-Q11
+
+  - name: Compliance & Governance
+    phase: GOVERN
+    question_range: Q12-Q14
+
+  - name: Incident Response & Recovery
+    phase: RESPOND
+    question_range: Q15-Q18
+
+  - name: Risk Priorities
+    phase: IDENTIFY
+    question_range: Q19-Q22
+
+questions:
+  # Category 1: Organization Overview (IDENTIFY)
+  - id: Q-NIST-001
+    text: "What industry does your organization operate in, and what is your primary business model?"
+    category: organization_overview
+    phase: IDENTIFY
+    controls:
+      nist-csf: "ID.AM-01"
+      nist-800-53: "PM-11"
+      iso-27001: "A.5.9"
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      pci-dss: "12.5.1"
+      cis-v8: "1.1"
+    evidence_required:
+      - Organization chart
+      - Business registration
+      - Industry classification documents
+    scoring:
+      full: "Clear industry identification with documented business model"
+      partial: "Industry known but business model unclear"
+      none: "Unable to identify industry or business model"
+    sub_questions:
+      - "Primary products or services?"
+      - "Customer types (B2B, B2C, government)?"
+      - "Geographic presence?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-002
+    text: "What are your organization's most critical assets and sensitive data?"
+    category: asset_management
+    phase: IDENTIFY
+    controls:
+      nist-csf: "ID.AM-01, ID.AM-02, ID.AM-05"
+      nist-800-53: "CM-8, RA-2"
+      iso-27001: "A.5.9, A.5.10"
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      pci-dss: "2.4, 12.5.1"
+      cis-v8: "1.1, 1.2"
+    evidence_required:
+      - Asset inventory
+      - Data classification policy
+      - Critical system documentation
+    scoring:
+      full: "Complete asset inventory with data classification"
+      partial: "Partial inventory or incomplete classification"
+      none: "No formal asset inventory or data classification"
+    sub_questions:
+      - "Crown jewels (trade secrets, IP, customer data)?"
+      - "Systems that would halt operations if compromised?"
+      - "Data subject to regulatory protection?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-003
+    text: "What regulatory requirements apply to your organization?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.OC-01, GV.OC-03"
+      nist-800-53: "PM-1, PM-9"
+      iso-27001: "A.5.31"
+      hipaa: "§164.308(a)(1)"
+      pci-dss: "12.1"
+      soc2: "CC2.1"
+    evidence_required:
+      - Regulatory mapping document
+      - Compliance attestations
+      - Audit reports
+    scoring:
+      full: "Complete regulatory mapping with compliance documentation"
+      partial: "Known regulations but incomplete documentation"
+      none: "No regulatory mapping or compliance tracking"
+    sub_questions:
+      - "Industry-specific (HIPAA, PCI-DSS, FFIEC)?"
+      - "Geographic (GDPR, CCPA, state regulations)?"
+      - "Contractual (SOC 2, customer requirements)?"
+    risk_weight: HIGH
+
+  # Category 2: Current Security Posture (PROTECT)
+  - id: Q-NIST-004
+    text: "What security controls are currently in place?"
+    category: security_posture
+    phase: PROTECT
+    controls:
+      nist-csf: "PR.AC-01, PR.DS-01, PR.PT-01"
+      nist-800-53: "AC-1, SC-1"
+      iso-27001: "A.5.1"
+      hipaa: "§164.308(a)(1)(ii)(B)"
+      pci-dss: "1.1, 2.1"
+      cis-v8: "4.1"
+    evidence_required:
+      - Security control matrix
+      - Configuration standards
+      - Control effectiveness assessments
+    scoring:
+      full: "Documented controls with effectiveness monitoring"
+      partial: "Controls exist but not documented or measured"
+      none: "No formal security controls"
+    sub_questions:
+      - "Technical controls (firewalls, IDS, encryption)?"
+      - "Administrative controls (policies, procedures)?"
+      - "Physical controls (access badges, cameras)?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-005
+    text: "How is your security team structured?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.RR-01, GV.RR-02"
+      nist-800-53: "PM-2"
+      iso-27001: "A.5.2, A.5.3"
+      hipaa: "§164.308(a)(2)"
+      pci-dss: "12.5"
+      cis-v8: "14.1"
+    evidence_required:
+      - Security org chart
+      - Role definitions
+      - Staffing levels
+    scoring:
+      full: "Dedicated security team with defined roles and responsibilities"
+      partial: "Security function exists but roles unclear"
+      none: "No dedicated security function"
+    sub_questions:
+      - "Dedicated security staff or shared responsibility?"
+      - "CISO or equivalent leadership?"
+      - "Security awareness training program?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-006
+    text: "What security tools and technologies are currently deployed?"
+    category: security_posture
+    phase: PROTECT
+    controls:
+      nist-csf: "PR.PT-01, DE.CM-01"
+      nist-800-53: "SI-3, SI-4"
+      iso-27001: "A.8.7"
+      hipaa: "§164.312(b)"
+      pci-dss: "5.1, 10.1"
+      cis-v8: "10.1"
+    evidence_required:
+      - Security tool inventory
+      - Tool configuration documentation
+      - Vendor contracts
+    scoring:
+      full: "Comprehensive security stack with documented configurations"
+      partial: "Basic tools deployed but incomplete coverage"
+      none: "Minimal or no security tools"
+    sub_questions:
+      - "Endpoint protection (AV, EDR)?"
+      - "Network security (firewall, IDS/IPS)?"
+      - "Identity management (SSO, MFA, PAM)?"
+      - "SIEM or log management?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-007
+    text: "Have there been any recent security incidents?"
+    category: risk_management
+    phase: IDENTIFY
+    controls:
+      nist-csf: "ID.RA-01, ID.RA-04"
+      nist-800-53: "IR-5, IR-6"
+      iso-27001: "A.5.24, A.5.27"
+      hipaa: "§164.308(a)(6)"
+      pci-dss: "12.10.6"
+      cis-v8: "17.1"
+    evidence_required:
+      - Incident reports
+      - Post-incident reviews
+      - Remediation tracking
+    scoring:
+      full: "Incident history documented with lessons learned"
+      partial: "Some incidents tracked but incomplete documentation"
+      none: "No incident tracking or unknown history"
+    sub_questions:
+      - "Data breaches or unauthorized access?"
+      - "Malware infections or ransomware?"
+      - "Phishing or social engineering attacks?"
+      - "Insider threats?"
+    risk_weight: HIGH
+
+  # Category 3: Technical Infrastructure (PROTECT)
+  - id: Q-NIST-008
+    text: "Describe your network architecture and segmentation."
+    category: technical_infrastructure
+    phase: PROTECT
+    controls:
+      nist-csf: "PR.AC-05, PR.DS-05"
+      nist-800-53: "SC-7, AC-4"
+      iso-27001: "A.8.22"
+      hipaa: "§164.312(e)"
+      pci-dss: "1.3, 1.4"
+      cis-v8: "12.1, 12.2"
+    evidence_required:
+      - Network diagrams
+      - Segmentation documentation
+      - Firewall rules
+    scoring:
+      full: "Documented network architecture with proper segmentation"
+      partial: "Network exists but segmentation incomplete"
+      none: "Flat network with no segmentation"
+    sub_questions:
+      - "Network zones (DMZ, internal, restricted)?"
+      - "Microsegmentation for critical assets?"
+      - "Remote access architecture?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-009
+    text: "What is your cloud versus on-premise infrastructure mix?"
+    category: technical_infrastructure
+    phase: IDENTIFY
+    controls:
+      nist-csf: "ID.AM-03, ID.AM-04"
+      nist-800-53: "CM-8, SA-9"
+      iso-27001: "A.5.23"
+      hipaa: "§164.308(b)(1)"
+      pci-dss: "12.8"
+      cis-v8: "15.1"
+    evidence_required:
+      - Cloud inventory
+      - Shared responsibility documentation
+      - Third-party risk assessments
+    scoring:
+      full: "Clear understanding of cloud/on-prem with security controls"
+      partial: "Cloud used but security controls unclear"
+      none: "Unknown or undocumented cloud usage"
+    sub_questions:
+      - "IaaS, PaaS, SaaS breakdown?"
+      - "Cloud providers (AWS, Azure, GCP)?"
+      - "Hybrid connectivity?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-010
+    text: "How do you manage authentication and access control?"
+    category: access_control
+    phase: PROTECT
+    controls:
+      nist-csf: "PR.AA-01, PR.AA-03, PR.AA-05"
+      nist-800-53: "IA-2, AC-2, AC-6"
+      iso-27001: "A.8.2, A.8.3, A.8.5"
+      hipaa: "§164.312(d)"
+      pci-dss: "7.1, 8.3"
+      cis-v8: "5.1, 6.1, 6.3"
+    evidence_required:
+      - Access control policy
+      - MFA implementation documentation
+      - Privileged access inventory
+    scoring:
+      full: "MFA enforced with least privilege and PAM"
+      partial: "Some MFA or access controls but incomplete"
+      none: "No MFA or formal access control"
+    sub_questions:
+      - "MFA implementation (where, what methods)?"
+      - "Privileged access management?"
+      - "Service account governance?"
+      - "Access review process?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-011
+    text: "How is data stored, transmitted, and backed up?"
+    category: data_protection
+    phase: PROTECT
+    controls:
+      nist-csf: "PR.DS-01, PR.DS-02, PR.DS-11"
+      nist-800-53: "SC-28, SC-8, CP-9"
+      iso-27001: "A.8.10, A.8.11, A.8.13"
+      hipaa: "§164.312(a)(2)(iv), §164.312(e)"
+      pci-dss: "3.4, 4.1, 9.5"
+      cis-v8: "3.1, 3.6, 11.1"
+    evidence_required:
+      - Data flow diagrams
+      - Encryption standards
+      - Backup procedures
+    scoring:
+      full: "Encryption at rest and in transit with tested backups"
+      partial: "Some encryption or backups but incomplete"
+      none: "No encryption or backup procedures"
+    sub_questions:
+      - "Encryption at rest (databases, file systems)?"
+      - "Encryption in transit (TLS versions)?"
+      - "Backup frequency and testing?"
+      - "Offsite/air-gapped backups?"
+    risk_weight: HIGH
+
+  # Category 4: Compliance & Governance (GOVERN)
+  - id: Q-NIST-012
+    text: "Which compliance frameworks does your organization follow?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.OC-01, GV.OC-03"
+      nist-800-53: "PM-1"
+      iso-27001: "A.5.1"
+      hipaa: "§164.308(a)(1)"
+      pci-dss: "12.1"
+      soc2: "CC1.1"
+    evidence_required:
+      - Compliance matrix
+      - Framework documentation
+      - Gap analysis reports
+    scoring:
+      full: "Formal framework adoption with documented compliance"
+      partial: "Framework referenced but not formally implemented"
+      none: "No formal framework adoption"
+    sub_questions:
+      - "Certifications held (ISO 27001, SOC 2)?"
+      - "Framework mapping completed?"
+      - "Control effectiveness measured?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-013
+    text: "What security policies and procedures are documented?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.PO-01, GV.PO-02"
+      nist-800-53: "PL-1, PL-2"
+      iso-27001: "A.5.1, A.5.2"
+      hipaa: "§164.316"
+      pci-dss: "12.1, 12.2"
+      cis-v8: "14.1"
+    evidence_required:
+      - Policy inventory
+      - Procedure documentation
+      - Review/approval records
+    scoring:
+      full: "Comprehensive policy library with regular reviews"
+      partial: "Some policies exist but incomplete or outdated"
+      none: "No documented policies"
+    sub_questions:
+      - "Information security policy?"
+      - "Acceptable use policy?"
+      - "Incident response policy?"
+      - "Policy review frequency?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-014
+    text: "When was your last security audit and what were the findings?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.AS-01"
+      nist-800-53: "CA-2, CA-7"
+      iso-27001: "A.5.35, A.5.36"
+      hipaa: "§164.308(a)(8)"
+      pci-dss: "11.3, 12.11"
+      soc2: "CC4.1"
+    evidence_required:
+      - Audit reports
+      - Remediation tracking
+      - Audit schedule
+    scoring:
+      full: "Regular audits with tracked remediation"
+      partial: "Audits conducted but findings not fully addressed"
+      none: "No recent audits or unknown status"
+    sub_questions:
+      - "Internal vs external audit?"
+      - "Penetration testing results?"
+      - "Findings remediation status?"
+    risk_weight: MEDIUM
+
+  # Category 5: Incident Response & Recovery (RESPOND/RECOVER)
+  - id: Q-NIST-015
+    text: "Do you have a documented incident response plan?"
+    category: incident_response
+    phase: RESPOND
+    controls:
+      nist-csf: "RS.MA-01, RS.MA-02"
+      nist-800-53: "IR-1, IR-8"
+      iso-27001: "A.5.24, A.5.26"
+      hipaa: "§164.308(a)(6)"
+      pci-dss: "12.10"
+      cis-v8: "17.1, 17.4"
+    evidence_required:
+      - Incident response plan
+      - Contact lists
+      - Escalation procedures
+    scoring:
+      full: "Documented IR plan with defined roles and tested procedures"
+      partial: "IR plan exists but not tested or incomplete"
+      none: "No formal incident response plan"
+    sub_questions:
+      - "IR team composition and roles?"
+      - "Communication procedures?"
+      - "Escalation criteria?"
+      - "External party coordination (legal, PR, forensics)?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-016
+    text: "What is your disaster recovery capability?"
+    category: disaster_recovery
+    phase: RECOVER
+    controls:
+      nist-csf: "RC.RP-01, RC.RP-02"
+      nist-800-53: "CP-2, CP-10"
+      iso-27001: "A.5.29, A.5.30"
+      hipaa: "§164.308(a)(7)"
+      pci-dss: "12.10.1"
+      cis-v8: "11.1, 11.3"
+    evidence_required:
+      - DR plan
+      - RTO/RPO documentation
+      - DR test results
+    scoring:
+      full: "Documented DR plan with tested RTO/RPO"
+      partial: "DR plan exists but not regularly tested"
+      none: "No formal disaster recovery plan"
+    sub_questions:
+      - "Recovery Time Objective (RTO)?"
+      - "Recovery Point Objective (RPO)?"
+      - "DR site (hot, warm, cold)?"
+      - "Last DR test and results?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-017
+    text: "How is business continuity planning managed?"
+    category: business_continuity
+    phase: RECOVER
+    controls:
+      nist-csf: "RC.RP-03, RC.RP-04"
+      nist-800-53: "CP-1, CP-4"
+      iso-27001: "A.5.29, A.5.30"
+      hipaa: "§164.308(a)(7)"
+      pci-dss: "12.10.1"
+      cis-v8: "11.1"
+    evidence_required:
+      - BCP documentation
+      - Business impact analysis
+      - Continuity test results
+    scoring:
+      full: "Comprehensive BCP with regular testing and updates"
+      partial: "BCP exists but outdated or untested"
+      none: "No formal business continuity planning"
+    sub_questions:
+      - "Business impact analysis completed?"
+      - "Critical business functions identified?"
+      - "Alternate processing sites?"
+      - "BCP testing frequency?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-018
+    text: "How often are backups tested for successful restoration?"
+    category: disaster_recovery
+    phase: RECOVER
+    controls:
+      nist-csf: "PR.DS-11, RC.RP-01"
+      nist-800-53: "CP-9, CP-10"
+      iso-27001: "A.8.13"
+      hipaa: "§164.308(a)(7)(ii)(A)"
+      pci-dss: "9.5.1"
+      cis-v8: "11.2, 11.5"
+    evidence_required:
+      - Backup test logs
+      - Restoration procedures
+      - Test results documentation
+    scoring:
+      full: "Regular backup testing with documented success"
+      partial: "Occasional testing with inconsistent results"
+      none: "Backups not tested or unknown status"
+    sub_questions:
+      - "Backup restoration testing frequency?"
+      - "Full vs partial restoration tests?"
+      - "Air-gapped or immutable backups?"
+      - "Last successful restoration test?"
+    risk_weight: HIGH
+
+  # Category 6: Risk Priorities (IDENTIFY)
+  - id: Q-NIST-019
+    text: "What are your biggest security concerns right now?"
+    category: risk_management
+    phase: IDENTIFY
+    controls:
+      nist-csf: "ID.RA-01, ID.RA-02"
+      nist-800-53: "RA-3"
+      iso-27001: "A.5.7"
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      pci-dss: "12.2"
+      cis-v8: "1.1"
+    evidence_required:
+      - Risk register
+      - Threat assessment
+      - Vulnerability reports
+    scoring:
+      full: "Documented risk concerns with prioritization"
+      partial: "General concerns identified but not formalized"
+      none: "No formal risk identification"
+    sub_questions:
+      - "Ransomware/malware threats?"
+      - "Insider threats?"
+      - "Third-party/supply chain risks?"
+      - "Compliance gaps?"
+    risk_weight: HIGH
+
+  - id: Q-NIST-020
+    text: "What budget and resource constraints exist for security?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.RM-02"
+      nist-800-53: "PM-3"
+      iso-27001: "A.5.1"
+    evidence_required:
+      - Security budget documentation
+      - Resource allocation plans
+    scoring:
+      full: "Defined security budget with executive support"
+      partial: "Budget exists but limited or unclear"
+      none: "No dedicated security budget"
+    sub_questions:
+      - "Annual security budget?"
+      - "Staffing limitations?"
+      - "Tool/technology constraints?"
+      - "Executive support level?"
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-021
+    text: "What is your timeline expectation for security improvements?"
+    category: risk_management
+    phase: IDENTIFY
+    controls:
+      nist-csf: "GV.RM-01"
+      nist-800-53: "PM-9"
+      iso-27001: "A.5.1"
+    evidence_required:
+      - Security roadmap
+      - Project timelines
+      - Milestone documentation
+    scoring:
+      full: "Defined timeline with milestones and accountability"
+      partial: "General timeline but no formal milestones"
+      none: "No defined timeline for improvements"
+    sub_questions:
+      - "Quick wins needed (30 days)?"
+      - "Medium-term goals (90 days)?"
+      - "Long-term transformation?"
+      - "Regulatory deadlines?"
+    risk_weight: LOW
+
+  - id: Q-NIST-022
+    text: "How will you measure the success of security improvements?"
+    category: governance_policies
+    phase: GOVERN
+    controls:
+      nist-csf: "GV.RM-04"
+      nist-800-53: "PM-6"
+      iso-27001: "A.5.36"
+      soc2: "CC4.1"
+    evidence_required:
+      - KPI definitions
+      - Metrics dashboard
+      - Reporting cadence
+    scoring:
+      full: "Defined KPIs with baseline and target metrics"
+      partial: "Some metrics tracked but not comprehensive"
+      none: "No formal success metrics defined"
+    sub_questions:
+      - "Risk reduction metrics?"
+      - "Compliance score targets?"
+      - "Incident response time goals?"
+      - "Security awareness metrics?"
+    risk_weight: LOW

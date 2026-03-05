@@ -1,0 +1,38 @@
+name: FFIEC IT Examination Handbook
+type: framework
+full_name: "Federal Financial Institutions Examination Council IT Examination Handbook"
+provider: ffiec
+skills:
+  - compliance
+industries:
+  - banking
+  - credit_unions
+  - financial_services
+  - fintech
+native_categories:
+  - Management
+  - Information-Security
+  - Architecture-Infrastructure
+  - Development-Acquisition
+  - Business-Continuity
+  - Outsourcing-Services
+  - Retail-Payment
+  - Wholesale-Payment
+  - Audit
+  - Supervision-Technology
+source_url: https://ithandbook.ffiec.gov/
+published: 2026-01-14
+questions_count: 25
+handbooks: 10
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: partial
+  questions: complete
+  questions_framework_count: 3
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://ithandbook.ffiec.gov/
+  next_check: 2027-02-25

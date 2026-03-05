@@ -1,0 +1,15 @@
+name: CIS Google Kubernetes Engine (GKE) Benchmark v1.8.0 PDF
+version: 1.8.0
+type: benchmark
+provider: cis
+framework_id: cis-gke-benchmark
+category: benchmark
+framework_category: hardening
+skills:
+- harden
+- pentest
+pages: 222
+published: '2025-12-12'
+controls_count: 605
+enrichment_status:
+  tier: complete

@@ -1,0 +1,99 @@
+# NIST AI Risk Management Framework 1.0 Metadata
+# Document: NIST AI 100-1 (January 2023)
+
+framework:
+  name: "NIST AI Risk Management Framework"
+  short_name: "NIST AI RMF"
+  version: "1.0"
+  release_date: "2023-01-26"
+  publisher: "National Institute of Standards and Technology (NIST)"
+  official_url: "https://airc.nist.gov/"
+  download_url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+  document_number: "NIST AI 100-1"
+
+  description: |
+    The NIST AI Risk Management Framework (AI RMF 1.0) is a voluntary framework
+    designed to help organizations manage risks related to AI systems throughout
+    their lifecycle. It provides guidance for incorporating trustworthiness
+    considerations into the design, development, use, and evaluation of AI products
+    and services. The AI RMF Core has 4 functions (GOVERN, MAP, MEASURE, MANAGE),
+    19 categories, and 72 subcategories.
+
+    GOVERN is a cross-cutting function intended to be infused throughout the other
+    three functions. The framework is technology-neutral, sector-agnostic, and
+    voluntary, intended for use by organizations of any size or sector.
+
+  # Acquisition
+  source_documents:
+    - name: "NIST.AI.100-1.pdf"
+      description: "NIST AI Risk Management Framework 1.0 — official document"
+      format: pdf
+      url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+    - name: "AI RMF Playbook"
+      description: "Suggested actions for each subcategory"
+      format: pdf
+      url: "https://airc.nist.gov/docs/AI_RMF_Playbook.pdf"
+    - name: "AI RMF Core (online)"
+      description: "HTML rendering of the Core subcategories"
+      format: html
+      url: "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+
+  # Framework structure
+  structure:
+    functions: 4
+    categories: 19
+    subcategories: 72
+    function_list:
+      - id: GV
+        name: GOVERN
+        categories: 6
+        subcategories: 19
+      - id: MP
+        name: MAP
+        categories: 5
+        subcategories: 18
+      - id: MR
+        name: MEASURE
+        categories: 4
+        subcategories: 22
+      - id: MG
+        name: MANAGE
+        categories: 4
+        subcategories: 13
+
+  # Applicable industries
+  industries:
+    - all
+    - technology
+    - ai_ml
+    - healthcare_ai
+    - financial_services
+    - government
+    - critical_infrastructure
+    - autonomous_systems
+
+  # Related frameworks
+  related:
+    - iso-42001      # AI Management System (certifiable)
+    - eu-ai-act      # European AI regulation
+    - aiuc-1         # AI Unified Controls (operationalizes AI RMF)
+    - iso-27001      # Information Security Management
+    - nist-csf       # NIST Cybersecurity Framework (structural sibling)
+    - nist-800-53    # Security and Privacy Controls
+
+# Acquisition instructions
+acquisition:
+  method: "public download"
+  url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+  requires_account: false
+  post_processing: "PDF requires text extraction for structured use"
+
+# Update schedule
+maintenance:
+  check_frequency: "annual"
+  last_check: "2026-02-25"
+  next_check: "2027-02-25"
+  notes: >
+    AI RMF 1.0 published January 2023. Monitor airc.nist.gov for updates,
+    profiles, and crosswalks. NIST AI 600-1 (Generative AI Profile, 2024)
+    extends this framework with 200+ LLM-specific actions.

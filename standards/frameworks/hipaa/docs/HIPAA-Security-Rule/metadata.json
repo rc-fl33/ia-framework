@@ -1,0 +1,22 @@
+{
+  "framework_name": "hipaa-simplification-201303",
+  "skill": "cybersecurity-advisory",
+  "source_dir": "frameworks",
+  "migrated_at": "2025-11-27T11:35:11.875549",
+  "chunk_count": 12,
+  "chunks": [
+    "hipaa-simplification-201303_pages_1-10.pdf",
+    "hipaa-simplification-201303_pages_11-20.pdf",
+    "hipaa-simplification-201303_pages_21-30.pdf",
+    "hipaa-simplification-201303_pages_31-40.pdf",
+    "hipaa-simplification-201303_pages_41-50.pdf",
+    "hipaa-simplification-201303_pages_51-60.pdf",
+    "hipaa-simplification-201303_pages_61-70.pdf",
+    "hipaa-simplification-201303_pages_71-80.pdf",
+    "hipaa-simplification-201303_pages_81-90.pdf",
+    "hipaa-simplification-201303_pages_91-100.pdf",
+    "hipaa-simplification-201303_pages_101-110.pdf",
+    "hipaa-simplification-201303_pages_111-115.pdf"
+  ],
+  "is_split": true
+}

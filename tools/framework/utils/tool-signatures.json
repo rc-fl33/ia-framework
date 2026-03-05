@@ -1,0 +1,82 @@
+[
+  {
+    "name": "AskUserQuestion",
+    "usage": "Collect user input with structured questions and options",
+    "parameters": [
+      {
+        "name": "questions",
+        "required": true,
+        "type": "array of question objects"
+      }
+    ],
+    "example": "AskUserQuestion({\n  questions: [{\n    question: \"What engagement mode?\",\n    header: \"Mode\",\n    options: [\n      { label: \"Director\", description: \"Full pentest\" },\n      { label: \"Demo\", description: \"Quick test\" }\n    ],\n    multiSelect: false\n  }]\n})"
+  },
+  {
+    "name": "Bash",
+    "usage": "Execute bash commands",
+    "parameters": [
+      {
+        "name": "command",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "example": "Bash({\n  command: \"bun run tools/pentest/init-engagement.ts --engagement-dir output/pentests/example --mode director --audit-enabled\",\n  description: \"Initialize security engagement\"\n})"
+  },
+  {
+    "name": "Task",
+    "usage": "Spawn a specialized agent for complex tasks",
+    "parameters": [
+      {
+        "name": "subagent_type",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "prompt",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "example": "Task({\n  subagent_type: \"security\",\n  prompt: \"Execute pentest workflow for engagement at output/pentests/example-2026-01\",\n  description: \"Run security testing\"\n})"
+  },
+  {
+    "name": "Read",
+    "usage": "Read file contents",
+    "parameters": [
+      {
+        "name": "file_path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "example": "Read({ file_path: \"/path/to/file.md\" })"
+  },
+  {
+    "name": "Write",
+    "usage": "Write file contents (creates new file)",
+    "parameters": [
+      {
+        "name": "file_path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "content",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "example": "Write({ file_path: \"/path/to/file.md\", content: \"# New file\" })"
+  }
+]

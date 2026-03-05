@@ -1,0 +1,241 @@
+# Industry to Framework Mapping
+# Used by /compliance command to auto-suggest applicable frameworks
+#
+# Priority levels:
+#   required - Legally mandated or industry-required
+#   recommended - Industry best practice, often expected
+#   optional - Nice to have, adds value
+#
+# Last Updated: 2026-01-14
+
+industries:
+
+  healthcare:
+    display_name: "Healthcare & Medical"
+    description: "Hospitals, clinics, medical device manufacturers, health IT"
+    frameworks:
+      required:
+        - hipaa           # HIPAA Security Rule (US healthcare)
+      recommended:
+        - nist-csf        # Risk management framework
+        - iso-27001       # Information security management
+        - soc2            # Service organization controls
+      optional:
+        - iso-13485       # Medical device quality (if manufacturing)
+        - iso-42001       # AI management (if using AI in healthcare)
+        - aiuc-1          # If deploying AI agents
+
+  financial:
+    display_name: "Financial Services & Banking"
+    description: "Banks, credit unions, payment processors, fintech"
+    frameworks:
+      required:
+        - pci-dss         # Payment card handling
+        - ffiec           # Banking IT examination (US)
+      recommended:
+        - nist-csf        # Risk management
+        - soc2            # Service organization controls
+        - iso-27001       # Information security
+      optional:
+        - gdpr            # If serving EU customers
+        - ccpa            # If serving California customers
+        - aiuc-1          # If deploying AI agents
+
+  retail:
+    display_name: "Retail & E-commerce"
+    description: "Online stores, point-of-sale, payment processing"
+    frameworks:
+      required:
+        - pci-dss         # Payment card handling
+      recommended:
+        - nist-csf        # Risk management
+        - cis-controls    # Security controls
+      optional:
+        - gdpr            # If serving EU customers
+        - ccpa            # If serving California customers
+        - soc2            # If providing services to other businesses
+
+  government:
+    display_name: "Government & Public Sector"
+    description: "Federal, state, local government agencies"
+    frameworks:
+      required:
+        - nist-csf        # NIST Cybersecurity Framework
+        - fedramp         # Federal cloud authorization (US)
+      recommended:
+        - nist-800-53     # Security and privacy controls
+        - cis-controls    # Security controls
+      optional:
+        - iso-27001       # International alignment
+        - cmmc            # DoD contractor requirements
+
+  defense:
+    display_name: "Defense & Aerospace"
+    description: "DoD contractors, defense industrial base"
+    frameworks:
+      required:
+        - cmmc            # Cybersecurity Maturity Model Certification
+        - nist-800-171    # Protecting CUI
+      recommended:
+        - nist-csf        # Risk management
+        - iso-27001       # Information security
+      optional:
+        - fedramp         # If providing cloud services
+        - soc2            # Service organization controls
+
+  technology:
+    display_name: "Technology & SaaS"
+    description: "Software companies, cloud providers, tech startups"
+    frameworks:
+      required: []        # No universal requirement
+      recommended:
+        - soc2            # Expected by enterprise customers
+        - nist-csf        # Risk management
+        - iso-27001       # International standard
+        - aiuc-1          # AI agent security standard
+      optional:
+        - pci-dss         # If handling payments
+        - gdpr            # If serving EU customers
+        - iso-42001       # If providing AI services
+
+  manufacturing:
+    display_name: "Manufacturing & Industrial"
+    description: "Factories, industrial control systems, supply chain"
+    frameworks:
+      required:
+        - iso-9001        # Quality management
+      recommended:
+        - nist-csf        # Cybersecurity for ICS/OT
+        - cis-controls    # Security controls
+      optional:
+        - iso-27001       # Information security
+        - iso-13485       # Medical device manufacturing
+        - iso-42001       # AI in manufacturing
+
+  eu_operations:
+    display_name: "EU Operations"
+    description: "Any organization operating in or serving EU customers"
+    frameworks:
+      required:
+        - gdpr            # EU data protection
+      recommended:
+        - dsa             # Digital Services Act (if platform)
+        - iso-27001       # Information security
+      optional:
+        - nist-csf        # International standard
+
+  insurance:
+    display_name: "Insurance"
+    description: "Insurance providers, underwriters, brokers"
+    frameworks:
+      required:
+        - soc2            # Service organization controls
+      recommended:
+        - nist-csf        # Risk management
+        - iso-27001       # Information security
+        - cis-controls    # Security controls
+      optional:
+        - pci-dss         # If processing payments
+        - hipaa           # If handling health data
+
+  education:
+    display_name: "Education & Research"
+    description: "Universities, schools, research institutions"
+    frameworks:
+      required: []        # Varies by jurisdiction
+      recommended:
+        - nist-csf        # Risk management
+        - cis-controls    # Security controls
+      optional:
+        - gdpr            # If serving EU students
+        - hipaa           # If handling health data
+        - fedramp         # If federal funding/contracts
+
+  ai_ml:
+    display_name: "AI & Machine Learning"
+    description: "AI companies, ML platforms, LLM providers, AI agent developers"
+    frameworks:
+      required: []
+      recommended:
+        - aiuc-1          # Defacto AI agent standard
+        - iso-42001       # AI management system
+        - nist-csf        # Risk management
+      optional:
+        - soc2            # Service organization controls
+        - gdpr            # If serving EU customers
+        - iso-27001       # Information security
+
+  legal:
+    display_name: "Legal Services"
+    description: "Law firms, legal tech, court systems"
+    frameworks:
+      required: []        # Varies by jurisdiction
+      recommended:
+        - iso-27001       # Information security
+        - soc2            # Service organization controls
+        - nist-csf        # Risk management
+      optional:
+        - gdpr            # If serving EU clients
+        - hipaa           # If handling health-related cases
+
+# Framework metadata references
+framework_details:
+  nist-csf:
+    full_name: "NIST Cybersecurity Framework"
+    version: "2.0"
+    jurisdiction: "US (international adoption)"
+
+  pci-dss:
+    full_name: "Payment Card Industry Data Security Standard"
+    version: "4.0.1"
+    jurisdiction: "Global (payment card handling)"
+
+  hipaa:
+    full_name: "Health Insurance Portability and Accountability Act"
+    version: "Security Rule"
+    jurisdiction: "US (healthcare)"
+
+  gdpr:
+    full_name: "General Data Protection Regulation"
+    version: "2016/679"
+    jurisdiction: "EU (data protection)"
+
+  ffiec:
+    full_name: "Federal Financial Institutions Examination Council"
+    version: "IT Examination Handbook"
+    jurisdiction: "US (banking)"
+
+  cis-controls:
+    full_name: "CIS Critical Security Controls"
+    version: "8.1"
+    jurisdiction: "Global (best practice)"
+
+  iso-27001:
+    full_name: "ISO/IEC 27001 Information Security Management"
+    version: "2022"
+    jurisdiction: "International"
+
+  soc2:
+    full_name: "Service Organization Control 2"
+    version: "Type II"
+    jurisdiction: "US (AICPA)"
+
+  fedramp:
+    full_name: "Federal Risk and Authorization Management Program"
+    version: "Rev 5"
+    jurisdiction: "US (federal cloud)"
+
+  cmmc:
+    full_name: "Cybersecurity Maturity Model Certification"
+    version: "2.0"
+    jurisdiction: "US (DoD contractors)"
+
+  dsa:
+    full_name: "Digital Services Act"
+    version: "2022/2065"
+    jurisdiction: "EU (digital platforms)"
+
+  aiuc-1:
+    full_name: "AI Unified Controls"
+    version: "1.0"
+    jurisdiction: "Global (AI agent standard)"

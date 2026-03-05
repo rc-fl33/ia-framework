@@ -1,0 +1,45 @@
+---
+title: "Security Advisory"
+subtitle: "[CLIENT NAME] — [ENGAGEMENT TYPE]"
+date: today
+author: "Intelligence Adjacent Framework"
+appendix-style: default
+format:
+  html:
+    theme:
+      - cosmo
+      - ../../../private/brand/assets/theme-light.scss
+    css: ../../../private/brand/assets/styles.css
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    code-fold: show
+    code-tools: true
+    self-contained: true
+  pdf:
+    documentclass: report
+    papersize: letter
+    geometry:
+      - margin=1in
+      - top=1.25in
+      - bottom=1.25in
+    fontsize: 11pt
+    pdf-engine: typst
+    toc: true
+    toc-depth: 3
+    number-sections: true
+execute:
+  echo: false
+  warning: false
+---
+
+{{< include _sections/_cover.qmd >}}
+
+{{< include _sections/_executive-summary.qmd >}}
+
+{{< include _sections/_findings.qmd >}}
+
+{{< include _sections/_recommendations.qmd >}}
+
+{{< include _sections/_appendices.qmd >}}

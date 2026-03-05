@@ -1,0 +1,82 @@
+# FFIEC IT Examination Handbook Metadata
+# Used for version tracking and currency checks
+
+framework:
+  name: "Federal Financial Institutions Examination Council IT Examination Handbook"
+  short_name: "FFIEC"
+  version: "Various (see handbooks)"
+  official_url: "https://ithandbook.ffiec.gov/"
+  download_url: "https://ithandbook.ffiec.gov/it-booklets.aspx"
+
+  # Source documents in reference/
+  handbooks:
+    - id: "architecture"
+      name: "Architecture, Infrastructure, and Operations"
+      source: "FFIEC-Architecture-Infrastructure"
+      updated: "2021-06"
+    - id: "audit"
+      name: "Audit"
+      source: "FFIEC-Audit"
+      updated: "2023-04"
+    - id: "bcp"
+      name: "Business Continuity Management"
+      source: "FFIEC-Business-Continuity"
+      updated: "2019-11"
+    - id: "development"
+      name: "Development and Acquisition"
+      source: "FFIEC-Development-Acquisition"
+      updated: "2023-06"
+    - id: "infosec"
+      name: "Information Security"
+      source: "FFIEC-Information-Security"
+      updated: "2023-09"
+    - id: "management"
+      name: "Management"
+      source: "FFIEC-Management"
+      updated: "2023-08"
+    - id: "outsourcing"
+      name: "Outsourcing Technology Services"
+      source: "FFIEC-Outsourcing-Services"
+      updated: "2023-04"
+    - id: "retail"
+      name: "Retail Payment Systems"
+      source: "FFIEC-Retail-Payment"
+      updated: "2021-04"
+    - id: "supervision"
+      name: "Supervision of Technology Service Providers"
+      source: "FFIEC-Supervision-Technology"
+      updated: "2023-10"
+    - id: "wholesale"
+      name: "Wholesale Payment Systems"
+      source: "FFIEC-Wholesale-Payment"
+      updated: "2021-07"
+
+  # Verification
+  last_verified: "2026-01-14"
+  verified_by: "Local PDF comparison"
+  status: current
+
+  # Applicable institutions
+  regulated_entities:
+    - "National banks"
+    - "State member banks"
+    - "State nonmember banks"
+    - "Savings associations"
+    - "Credit unions"
+    - "Bank holding companies"
+    - "Savings and loan holding companies"
+
+# Acquisition instructions
+acquisition:
+  method: "curl"
+  requires_account: false
+  instructions: |
+    All handbooks available at https://ithandbook.ffiec.gov/it-booklets.aspx
+    Download each handbook PDF individually
+
+# Update schedule
+maintenance:
+  check_frequency: "quarterly"
+  last_check: "2026-01-14"
+  next_check: "2026-04-14"
+  note: "FFIEC updates handbooks individually - check each handbook date"

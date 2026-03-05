@@ -1,0 +1,2439 @@
+framework: mitre-atlas
+version: "5.1.0"
+description: MITRE ATLAS adversarial AI/ML threat framework cross-framework mappings
+last_updated: 2026-02-25
+coverage_pct: 85
+mappings:
+
+  # ── AI Model Access (AML.TA0000) ──────────────────────────────────────────
+
+  - control: "AML.T0040"
+    title: AI Model Inference API Access
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "AC-3"
+        - "AC-17"
+        - "SC-28"
+        - "AU-12"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Model inference API access control is foundational to AI security
+      - Rate limiting and authentication requirements appear across all major AI security frameworks
+    notes: AML.T0040 inference API access maps to access control, monitoring, and model security requirements
+
+  - control: "AML.T0047"
+    title: AI-Enabled Product or Service
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "GOVERN 1.2"
+      nist-800-53:
+        - "AC-3"
+        - "SC-7"
+        - "AU-2"
+      owasp-llm:
+        - "LLM02"
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "A.6.1.4"
+      aiuc-1:
+        - "D001"
+        - "E001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - Indirect model access through products/services requires monitoring for information leakage
+    notes: Metadata and log information from AI products may reveal model internals
+
+  - control: "AML.T0041"
+    title: Physical Environment Access
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 2.3"
+      nist-800-53:
+        - "PE-3"
+        - "PE-6"
+        - "SC-8"
+      owasp-llm:
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Physical access to sensor systems can corrupt AI model inputs
+    notes: Physical environment access affects AI systems relying on real-world data collection
+
+  - control: "AML.T0044"
+    title: Full AI Model Access
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MEASURE 2.5"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "AC-3"
+        - "SC-28"
+        - "MP-4"
+        - "AU-12"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+        - "A.8.4"
+      aiuc-1:
+        - "D001"
+        - "D002"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Full white-box model access requires strict access control and data protection measures
+    notes: White-box access enables the most effective adversarial attacks; model IP protection is critical
+
+  # ── AI Attack Staging (AML.TA0001) ────────────────────────────────────────
+
+  - control: "AML.T0005"
+    title: Create Proxy AI Model
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MANAGE 2.4"
+        - "MAP 5.2"
+      nist-800-53:
+        - "AC-3"
+        - "SC-28"
+        - "AU-12"
+        - "SI-4"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Proxy model creation requires access to inference APIs or model artifacts
+      - Rate limiting and query monitoring are the primary defenses
+
+  - control: "AML.T0042"
+    title: Verify Attack
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SI-4"
+        - "AU-12"
+        - "RA-5"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "8.3"
+        - "A.9.3"
+      aiuc-1:
+        - "D001"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Attack verification via API access requires monitoring for unusual query patterns
+
+  - control: "AML.T0043"
+    title: Craft Adversarial Data
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SI-3"
+        - "SI-10"
+        - "RA-5"
+      owasp-llm:
+        - "LLM01"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D005"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Adversarial data crafting is the primary staging technique for evasion attacks
+
+  - control: "AML.T0018"
+    title: Manipulate AI Model
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.4"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-7"
+        - "CM-3"
+        - "SA-10"
+        - "AU-12"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+        - "A.9.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Model manipulation via weight poisoning or architecture modification requires integrity controls
+
+  - control: "AML.T0088"
+    title: Generate Deepfakes
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 5.2"
+        - "MEASURE 2.7"
+      nist-800-53:
+        - "SI-12"
+        - "IA-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM07"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D005"
+        - "E007"
+      eu-ai-act:
+        - "Art-50"
+        - "Art-9"
+    confidence: high
+    evidence:
+      - AI-generated synthetic media requires provenance and detection controls
+
+  # ── Reconnaissance (AML.TA0002) ───────────────────────────────────────────
+
+  - control: "AML.T0000"
+    title: Search Open Technical Databases
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.5"
+      nist-800-53:
+        - "PL-8"
+        - "SA-1"
+        - "SC-7"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - Public AI research disclosure can enable targeted adversarial attacks
+
+  - control: "AML.T0001"
+    title: Search Open AI Vulnerability Analysis
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "RA-3"
+        - "SA-1"
+        - "PM-16"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Adversary use of published vulnerability research requires proactive patch management
+
+  - control: "AML.T0003"
+    title: Search Victim-Owned Websites
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.5"
+      nist-800-53:
+        - "PL-8"
+        - "SC-7"
+        - "SA-1"
+      owasp-llm:
+        - "LLM10"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - Website reconnaissance enables adversaries to map AI systems and personnel
+
+  - control: "AML.T0004"
+    title: Search Application Repositories
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.5"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "CM-8"
+      owasp-llm:
+        - "LLM10"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - App store reconnaissance reveals AI component usage patterns
+
+  - control: "AML.T0006"
+    title: Active Scanning
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-4"
+        - "SC-7"
+        - "AU-12"
+      owasp-llm:
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+    confidence: high
+    evidence:
+      - Active scanning of AI APIs and services requires detection and blocking controls
+
+  - control: "AML.T0064"
+    title: Gather RAG-Indexed Targets
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "AC-3"
+        - "SC-7"
+        - "AU-12"
+      owasp-llm:
+        - "LLM10"
+        - "LLM07"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: high
+    evidence:
+      - RAG data source visibility enables targeted poisoning attacks
+
+  - control: "AML.T0087"
+    title: Gather Victim Identity Information
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "GOVERN 1.2"
+      nist-800-53:
+        - "RA-3"
+        - "PM-16"
+        - "SC-7"
+      owasp-llm:
+        - "LLM10"
+        - "LLM07"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: medium
+    evidence:
+      - Identity information gathering enables deepfake impersonation attacks
+
+  - control: "AML.T0095"
+    title: Search Open Websites/Domains
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.5"
+      nist-800-53:
+        - "PL-8"
+        - "SA-1"
+        - "SC-7"
+      owasp-llm:
+        - "LLM10"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - OSINT on public websites supports targeting of AI systems and personnel
+
+  # ── Resource Development (AML.TA0003) ─────────────────────────────────────
+
+  - control: "AML.T0002"
+    title: Acquire Public AI Artifacts
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "CM-8"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "E001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Public AI artifact acquisition supports proxy model creation and attack staging
+
+  - control: "AML.T0016"
+    title: Obtain Capabilities
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.2"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "RA-5"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "8.2"
+        - "A.6.1.4"
+      aiuc-1:
+        - "E001"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Adversarial AI attack tool acquisition is a key resource development step
+
+  - control: "AML.T0017"
+    title: Develop Capabilities
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.2"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "RA-5"
+        - "SI-3"
+        - "SA-11"
+      owasp-llm:
+        - "LLM09"
+        - "LLM01"
+      iso-42001:
+        - "8.2"
+        - "A.9.3"
+      aiuc-1:
+        - "D005"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Custom adversarial attack development requires threat intelligence and red team exercises
+
+  - control: "AML.T0008"
+    title: Acquire Infrastructure
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SA-12"
+        - "SC-7"
+        - "CM-8"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "8.2"
+        - "A.6.1.4"
+      aiuc-1:
+        - "E001"
+        - "D001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Adversary infrastructure acquisition enables offline staging of attacks
+
+  - control: "AML.T0019"
+    title: Publish Poisoned Datasets
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "SI-7"
+        - "CM-8"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - Poisoned public datasets create supply chain risk for organizations ingesting open data
+
+  - control: "AML.T0020"
+    title: Poison Training Data
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SI-7"
+        - "SI-10"
+        - "CM-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - Training data poisoning is the primary supply-chain attack vector for AI models
+
+  - control: "AML.T0021"
+    title: Establish Accounts
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 1.5"
+      nist-800-53:
+        - "AC-2"
+        - "IA-2"
+        - "AU-12"
+      owasp-llm:
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Adversary account establishment for AI services enables sustained access
+
+  - control: "AML.T0058"
+    title: Publish Poisoned Models
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "SI-7"
+        - "CM-8"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - Poisoned model publication to registries creates model supply chain risk
+
+  - control: "AML.T0060"
+    title: Publish Hallucinated Entities
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 5.2"
+        - "MEASURE 2.7"
+      nist-800-53:
+        - "SI-12"
+        - "SC-7"
+        - "SA-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM08"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D005"
+        - "E007"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: medium
+    evidence:
+      - LLM hallucination-based attacks require output validation and dependency management
+
+  - control: "AML.T0065"
+    title: LLM Prompt Crafting
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.2"
+        - "MEASURE 2.6"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SI-10"
+        - "SI-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D005"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Adversarial prompt development is the staging phase for LLM injection attacks
+
+  - control: "AML.T0066"
+    title: Retrieval Content Crafting
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.2"
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SI-10"
+        - "SI-7"
+        - "CM-3"
+      owasp-llm:
+        - "LLM01"
+        - "LLM07"
+      iso-42001:
+        - "A.8.4"
+        - "A.9.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - RAG-targeted content crafting requires content validation controls on ingested data
+
+  - control: "AML.T0079"
+    title: Stage Capabilities
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.2"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "CM-8"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "8.2"
+        - "A.6.1.4"
+      aiuc-1:
+        - "E001"
+        - "D001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-53"
+    confidence: medium
+    evidence:
+      - Capability staging via public registries creates supply chain risk
+
+  # ── Initial Access (AML.TA0004) ───────────────────────────────────────────
+
+  - control: "AML.T0010"
+    title: AI Supply Chain Compromise
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "GOVERN 1.7"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SA-12"
+        - "SR-3"
+        - "SI-7"
+        - "CM-8"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - Supply chain compromise is ranked as high severity across all AI security frameworks
+
+  - control: "AML.T0012"
+    title: Valid Accounts
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "AC-2"
+        - "IA-2"
+        - "AC-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Credential-based AI system access requires strong authentication and audit logging
+
+  - control: "AML.T0015"
+    title: Evade AI Model
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SI-3"
+        - "SI-4"
+        - "RA-5"
+      owasp-llm:
+        - "LLM01"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D005"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Model evasion attacks require adversarial robustness testing and detection
+
+  - control: "AML.T0049"
+    title: Exploit Public-Facing Application
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-2"
+        - "SC-7"
+        - "SI-10"
+        - "RA-5"
+      owasp-llm:
+        - "LLM01"
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Public-facing application vulnerabilities are primary AI system entry points
+
+  - control: "AML.T0052"
+    title: Phishing
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 5.2"
+        - "MEASURE 2.7"
+      nist-800-53:
+        - "AT-2"
+        - "SI-3"
+        - "IA-2"
+      owasp-llm:
+        - "LLM09"
+        - "LLM07"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D005"
+        - "E007"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: high
+    evidence:
+      - AI-enabled phishing (deepfakes, LLM-generated spear phishing) is a growing threat
+
+  - control: "AML.T0078"
+    title: Drive-by Compromise
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-3"
+        - "SC-7"
+        - "SI-10"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Web-based prompt injection via browsing is a key LLM agent attack vector
+
+  - control: "AML.T0093"
+    title: Prompt Infiltration via Public-Facing Application
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SI-10"
+        - "SI-7"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Indirect prompt injection via public inputs is a critical LLM vulnerability
+
+  # ── Execution (AML.TA0005) ─────────────────────────────────────────────────
+
+  - control: "AML.T0011"
+    title: User Execution
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "CM-7"
+        - "SI-3"
+        - "SA-10"
+        - "AU-12"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Unsafe AI artifact execution requires artifact validation and sandboxing
+
+  - control: "AML.T0050"
+    title: Command and Scripting Interpreter
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "CM-7"
+        - "SI-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Script interpreter abuse is applicable when AI agents have code execution capabilities
+
+  - control: "AML.T0051"
+    title: LLM Prompt Injection
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-10"
+        - "SI-3"
+        - "AU-12"
+        - "SC-7"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - LLM prompt injection is ranked as the top LLM vulnerability across all frameworks
+
+  - control: "AML.T0053"
+    title: AI Agent Tool Invocation
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "AC-3"
+        - "AU-12"
+        - "CM-7"
+        - "SI-10"
+      owasp-llm:
+        - "LLM01"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - AI agent tool invocation abuse requires least-privilege and human-in-the-loop controls
+
+  # ── Persistence (AML.TA0006) ───────────────────────────────────────────────
+
+  - control: "AML.T0020_persistence"
+    title: Poison Training Data (Persistence)
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SI-7"
+        - "SI-10"
+        - "CM-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - Training data poisoning creates persistent model vulnerabilities that survive retraining
+
+  - control: "AML.T0061"
+    title: LLM Prompt Self-Replication
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-10"
+        - "SI-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Self-replicating prompts represent a worm-like persistence mechanism in LLM systems
+
+  - control: "AML.T0070"
+    title: RAG Poisoning
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SI-7"
+        - "SI-10"
+        - "AC-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM07"
+        - "LLM04"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - RAG database poisoning provides persistent malicious influence on LLM outputs
+
+  - control: "AML.T0080"
+    title: AI Agent Context Poisoning
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-10"
+        - "SI-7"
+        - "AC-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM07"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Agent memory and context manipulation enables persistent adversarial behavior
+
+  - control: "AML.T0081"
+    title: Modify AI Agent Configuration
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MANAGE 2.4"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "CM-3"
+        - "CM-7"
+        - "SI-7"
+        - "AU-12"
+      owasp-llm:
+        - "LLM07"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - AI agent configuration modification requires change management and integrity controls
+
+  - control: "AML.T0093_persistence"
+    title: Prompt Infiltration via Public-Facing Application (Persistence)
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SI-10"
+        - "SI-7"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Persistent prompt infiltration allows attacks to affect multiple users over time
+
+  # ── Defense Evasion (AML.TA0007) ──────────────────────────────────────────
+
+  - control: "AML.T0015_defense"
+    title: Evade AI Model (Defense Evasion)
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SI-3"
+        - "SI-4"
+        - "RA-5"
+      owasp-llm:
+        - "LLM01"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D005"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Adversarial evasion of AI security controls (e.g., malware detectors) requires robust training
+
+  - control: "AML.T0054"
+    title: LLM Jailbreak
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SI-10"
+        - "SI-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - LLM jailbreaking bypasses safety controls and is among the most common LLM attacks
+
+  - control: "AML.T0067"
+    title: LLM Trusted Output Components Manipulation
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.7"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SI-12"
+        - "AU-12"
+        - "SI-10"
+      owasp-llm:
+        - "LLM09"
+        - "LLM08"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D005"
+        - "E007"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: medium
+    evidence:
+      - Trusted output manipulation (e.g., fake citations) enables social engineering via LLM
+
+  - control: "AML.T0068"
+    title: LLM Prompt Obfuscation
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-10"
+        - "AU-12"
+        - "SI-3"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Hidden text and prompt obfuscation are common techniques to evade LLM content filters
+
+  - control: "AML.T0071"
+    title: False RAG Entry Injection
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MAP 5.1"
+        - "MEASURE 2.5"
+      nist-800-53:
+        - "SI-10"
+        - "SI-7"
+        - "CM-3"
+      owasp-llm:
+        - "LLM07"
+        - "LLM01"
+      iso-42001:
+        - "A.8.4"
+        - "A.9.3"
+      aiuc-1:
+        - "D003"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Embedded fake RAG documents bypass document-level monitoring and content filters
+
+  - control: "AML.T0073"
+    title: Impersonation
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 5.2"
+        - "MEASURE 2.7"
+      nist-800-53:
+        - "IA-3"
+        - "SI-12"
+        - "AT-2"
+      owasp-llm:
+        - "LLM09"
+        - "LLM07"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D005"
+        - "E007"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: high
+    evidence:
+      - AI impersonation attacks on model registries and software repositories enable supply chain compromise
+
+  - control: "AML.T0074"
+    title: Masquerading
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.2"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SI-7"
+        - "CM-8"
+        - "AU-12"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: medium
+    evidence:
+      - Masquerading of AI artifacts enables malware delivery through trusted supply chains
+
+  - control: "AML.T0076"
+    title: Corrupt AI Model
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.4"
+        - "MEASURE 2.5"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-7"
+        - "SA-10"
+        - "CM-3"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Corrupt model files can evade model scanners while still executing malicious code
+
+  - control: "AML.T0092"
+    title: Manipulate User LLM Chat History
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "AU-9"
+        - "AU-12"
+        - "SI-7"
+      owasp-llm:
+        - "LLM07"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Chat history manipulation covers adversary tracks and hides persistent behavior changes
+
+  - control: "AML.T0094"
+    title: Delay Execution of LLM Instructions
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-10"
+        - "AU-12"
+        - "SI-3"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Time-delayed instruction execution evades detection by deferring adversarial behavior
+
+  # ── Discovery (AML.TA0008) ─────────────────────────────────────────────────
+
+  - control: "AML.T0013"
+    title: Discover AI Model Ontology
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-4"
+        - "AU-12"
+        - "AC-3"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: high
+    evidence:
+      - Model ontology discovery enables targeted adversarial example crafting
+
+  - control: "AML.T0014"
+    title: Discover AI Model Family
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-4"
+        - "AU-12"
+        - "SC-28"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: high
+    evidence:
+      - Model family discovery allows transfer of existing attacks to victim systems
+
+  - control: "AML.T0007"
+    title: Discover AI Artifacts
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "CM-8"
+        - "SI-4"
+        - "AU-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: high
+    evidence:
+      - Internal AI artifact discovery enables adversaries to target training pipelines and model stores
+
+  - control: "AML.T0062"
+    title: Discover LLM Hallucinations
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.7"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SI-4"
+        - "AU-12"
+        - "SI-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM08"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D005"
+        - "E007"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-50"
+    confidence: high
+    evidence:
+      - Hallucination discovery enables creation of adversary-controlled entities (packages, URLs)
+
+  - control: "AML.T0063"
+    title: Discover AI Model Outputs
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "AU-12"
+        - "SI-4"
+        - "SC-28"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - Exposed model outputs (confidence scores) enable model extraction and evasion
+
+  - control: "AML.T0069"
+    title: Discover LLM System Information
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "SI-4"
+        - "AU-12"
+        - "SC-7"
+      owasp-llm:
+        - "LLM07"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: high
+    evidence:
+      - LLM system prompt and configuration discovery enables targeted jailbreak and injection attacks
+
+  - control: "AML.T0075"
+    title: Cloud Service Discovery
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "CM-8"
+        - "SI-4"
+        - "AC-3"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - Cloud AI service discovery enables identification of attack targets and exposed APIs
+
+  - control: "AML.T0084"
+    title: Discover AI Agent Configuration
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 1.5"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "CM-8"
+        - "SI-4"
+        - "AC-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM07"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: high
+    evidence:
+      - AI agent configuration discovery reveals tools and capabilities available for abuse
+
+  - control: "AML.T0089"
+    title: Process Discovery
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.5"
+        - "GOVERN 1.7"
+      nist-800-53:
+        - "CM-8"
+        - "SI-4"
+        - "AU-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM10"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.2"
+      aiuc-1:
+        - "D001"
+        - "E002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+    confidence: medium
+    evidence:
+      - Process discovery identifies AI software stack for targeted exploitation
+
+  # ── Collection (AML.TA0009) ───────────────────────────────────────────────
+
+  - control: "AML.T0035"
+    title: AI Artifact Collection
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "AC-3"
+        - "SC-28"
+        - "AU-12"
+        - "MP-4"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - AI artifact collection (models, datasets) for exfiltration requires access controls and DLP
+
+  - control: "AML.T0036"
+    title: Data from Information Repositories
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "AC-3"
+        - "SC-28"
+        - "AU-12"
+      owasp-llm:
+        - "LLM02"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Information repository access for AI training data requires access controls and monitoring
+
+  - control: "AML.T0037"
+    title: Data from Local System
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "AC-3"
+        - "SC-28"
+        - "AU-12"
+        - "MP-4"
+      owasp-llm:
+        - "LLM09"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Local system data collection including SSH keys requires endpoint protection
+
+  - control: "AML.T0085"
+    title: Data from AI Services
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "AC-3"
+        - "AU-12"
+        - "SC-28"
+        - "CM-7"
+      owasp-llm:
+        - "LLM02"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - AI agents with broad data access require strict tool permissions and usage monitoring
+
+  # ── Exfiltration (AML.TA0010) ─────────────────────────────────────────────
+
+  - control: "AML.T0024"
+    title: Exfiltration via AI Inference API
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MANAGE 2.4"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SC-28"
+        - "AU-12"
+        - "AC-3"
+        - "SC-7"
+      owasp-llm:
+        - "LLM02"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Model extraction via inference API is a well-documented attack requiring rate limiting and output obfuscation
+
+  - control: "AML.T0025"
+    title: Exfiltration via Cyber Means
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SC-7"
+        - "SC-28"
+        - "AU-12"
+        - "MP-4"
+      owasp-llm:
+        - "LLM09"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Traditional cyber exfiltration of AI artifacts requires DLP and network monitoring
+
+  - control: "AML.T0056"
+    title: Extract LLM System Prompt
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MEASURE 2.6"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SC-28"
+        - "SI-10"
+        - "AU-12"
+      owasp-llm:
+        - "LLM07"
+        - "LLM01"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - System prompt extraction exposes competitive IP and enables more effective jailbreaks
+
+  - control: "AML.T0057"
+    title: LLM Data Leakage
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MANAGE 2.2"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SC-28"
+        - "SI-12"
+        - "AU-12"
+        - "AC-3"
+      owasp-llm:
+        - "LLM02"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D003"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - LLM data leakage of PII and proprietary data requires output monitoring and DLP
+
+  - control: "AML.T0077"
+    title: LLM Response Rendering
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MANAGE 2.2"
+      nist-800-53:
+        - "SC-28"
+        - "SI-12"
+        - "AU-12"
+      owasp-llm:
+        - "LLM02"
+        - "LLM07"
+      iso-42001:
+        - "A.9.3"
+        - "8.5"
+      aiuc-1:
+        - "D001"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Hidden rendered content for exfiltration requires content security policy controls
+
+  - control: "AML.T0086"
+    title: Exfiltration via AI Agent Tool Invocation
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "AC-3"
+        - "AU-12"
+        - "CM-7"
+        - "SC-28"
+      owasp-llm:
+        - "LLM01"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Agent-based exfiltration (email, document creation) requires write-operation approval workflows
+
+  # ── Impact (AML.TA0011) ───────────────────────────────────────────────────
+
+  - control: "AML.T0029"
+    title: Denial of AI Service
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+        - "MAP 5.2"
+      nist-800-53:
+        - "SC-5"
+        - "SC-7"
+        - "AU-12"
+        - "SI-4"
+      owasp-llm:
+        - "LLM10"
+        - "LLM04"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - AI DoS via sponge examples and query flooding requires compute monitoring and rate limiting
+
+  - control: "AML.T0046"
+    title: Spamming AI System with Chaff Data
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SI-4"
+        - "SC-5"
+        - "AU-12"
+      owasp-llm:
+        - "LLM10"
+        - "LLM04"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Chaff data flooding wastes analyst time and degrades AI system utility
+
+  - control: "AML.T0031"
+    title: Erode AI Model Integrity
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-4"
+        - "SI-7"
+        - "AU-12"
+        - "RA-5"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D005"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Gradual model integrity erosion requires continuous performance monitoring and alerting
+
+  - control: "AML.T0034"
+    title: Cost Harvesting
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+      nist-800-53:
+        - "SC-5"
+        - "SI-4"
+        - "AU-12"
+      owasp-llm:
+        - "LLM10"
+        - "LLM04"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Sponge examples and expensive query attacks increase operational costs
+
+  - control: "AML.T0048"
+    title: External Harms
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 5.2"
+        - "MANAGE 4.1"
+      nist-800-53:
+        - "IR-8"
+        - "PM-12"
+        - "PM-16"
+      owasp-llm:
+        - "LLM09"
+        - "LLM07"
+      iso-42001:
+        - "8.5"
+        - "A.9.4"
+      aiuc-1:
+        - "E007"
+        - "E008"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-72"
+    confidence: high
+    evidence:
+      - AI-enabled external harms (financial, reputational, societal) require risk assessment and harm monitoring
+
+  - control: "AML.T0059"
+    title: Erode Dataset Integrity
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.5"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SI-7"
+        - "SI-10"
+        - "CM-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM04"
+        - "LLM09"
+      iso-42001:
+        - "A.8.4"
+        - "8.3"
+      aiuc-1:
+        - "D003"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - Dataset integrity erosion reduces AI system reliability and erodes organizational trust
+
+  # ── Privilege Escalation (AML.TA0012) ─────────────────────────────────────
+
+  - control: "AML.T0053_priv"
+    title: AI Agent Tool Invocation (Privilege Escalation)
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "AC-3"
+        - "AC-6"
+        - "AU-12"
+        - "CM-7"
+      owasp-llm:
+        - "LLM01"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Agent tool invocation for privilege escalation requires least-privilege tool permissions
+
+  - control: "AML.T0054_priv"
+    title: LLM Jailbreak (Privilege Escalation)
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 2.2"
+        - "MEASURE 2.6"
+        - "MAP 5.2"
+      nist-800-53:
+        - "AC-3"
+        - "AC-6"
+        - "SI-10"
+        - "AU-12"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42001:
+        - "A.9.3"
+        - "8.4"
+      aiuc-1:
+        - "D004"
+        - "D005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Jailbreaking for privilege escalation enables access to capabilities beyond intended user scope
+
+  # ── Credential Access (AML.TA0013) ────────────────────────────────────────
+
+  - control: "AML.T0055"
+    title: Unsecured Credentials
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "IA-5"
+        - "SC-28"
+        - "CM-7"
+        - "AU-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Credential exposure in AI environments requires secrets management and scanning
+
+  - control: "AML.T0082"
+    title: RAG Credential Harvesting
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "IA-5"
+        - "SC-28"
+        - "AC-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM07"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Credentials inadvertently ingested into RAG databases create significant exposure risk
+
+  - control: "AML.T0083"
+    title: Credentials from AI Agent Configuration
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+        - "MANAGE 2.4"
+      nist-800-53:
+        - "IA-5"
+        - "SC-28"
+        - "CM-3"
+        - "AU-12"
+      owasp-llm:
+        - "LLM07"
+        - "LLM09"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - AI agent configuration files frequently contain API keys and connection strings in plaintext
+
+  - control: "AML.T0090"
+    title: OS Credential Dumping
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "IA-5"
+        - "SC-28"
+        - "AU-12"
+        - "AC-3"
+      owasp-llm:
+        - "LLM09"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - OS credential dumping for AI service lateral movement requires endpoint detection
+
+  # ── Command and Control (AML.TA0014) ──────────────────────────────────────
+
+  - control: "AML.T0072"
+    title: Reverse Shell
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "SC-7"
+        - "SI-4"
+        - "AU-12"
+        - "CM-7"
+      owasp-llm:
+        - "LLM09"
+        - "LLM01"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D004"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Reverse shell establishment via AI agent code execution requires network egress controls
+
+  # ── Lateral Movement (AML.TA0015) ─────────────────────────────────────────
+
+  - control: "AML.T0091"
+    title: Use Alternate Authentication Material
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MAP 5.1"
+      nist-800-53:
+        - "IA-5"
+        - "AC-3"
+        - "AC-17"
+        - "AU-12"
+      owasp-llm:
+        - "LLM09"
+        - "LLM06"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+      aiuc-1:
+        - "D001"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: medium
+    evidence:
+      - Application access tokens used as alternate authentication for AI services require token lifecycle management

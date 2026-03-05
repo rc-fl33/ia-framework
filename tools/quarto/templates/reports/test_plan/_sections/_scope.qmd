@@ -1,0 +1,34 @@
+# Scope and Methodology
+
+## Codebase Overview
+
+| Attribute | Value |
+|-----------|-------|
+| Repository | https://github.com/org/repo |
+| Version | 1.0.0 |
+| Primary Language | [Language] |
+| Frameworks | [Frameworks] |
+
+## In-Scope Paths
+
+| Path | Type | Description |
+|------|------|-------------|
+| [Target] | [Type] | [Description] |
+
+## Out-of-Scope
+
+- [Out of scope item]
+
+## Analysis Methodology
+
+| Phase | Focus |
+|-------|-------|
+| 1 — Reconnaissance | Information gathering, asset discovery |
+| 2 — Vulnerability Analysis | Pattern matching, CVE lookup |
+| 3 — Exploitation | Proof of concept development |
+| 4 — Reporting | Documentation and remediation guidance |
+
+## Compliance Frameworks
+
+- [Framework 1]
+- [Framework 2]

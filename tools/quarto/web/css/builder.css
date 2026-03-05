@@ -1,0 +1,220 @@
+/* Template Builder Styles */
+
+:root {
+  --primary: #1F3B5C;
+  --secondary: #4A90E2;
+  --success: #16A34A;
+  --warning: #EA580C;
+  --danger: #DC2626;
+  --info: #2563EB;
+  --light: #F8FAFC;
+  --dark: #1A202C;
+  --border: #E5E7EB;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--light);
+}
+
+/* Header Navigation */
+.header-nav { display: flex; gap: 16px; margin-left: auto; }
+.header-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; padding: 4px 8px; border-radius: 4px; transition: all 0.2s; }
+.header-nav a:hover { color: #fff; background: rgba(255,255,255,0.1); }
+.header-nav a.active { color: #fff; background: rgba(255,255,255,0.2); }
+
+/* Sidebar */
+.sidebar {
+  min-height: 100vh;
+  border-right: 1px solid var(--border);
+}
+
+.sidebar .list-group-item {
+  border: none;
+  border-radius: 0.375rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar .list-group-item:hover {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.sidebar .list-group-item.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  padding: 1.5rem;
+}
+
+/* Section List */
+.section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #F9FAFB;
+  border: 1px solid #D1D5DB;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+  cursor: grab;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+}
+
+.section-item:hover {
+  background: #FFFFFF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: #9CA3AF;
+}
+
+.section-item:active {
+  cursor: grabbing;
+}
+
+.section-item.dragging {
+  opacity: 0.5;
+  transform: scale(1.02);
+}
+
+.section-item .drag-handle {
+  color: #6B7280;
+  margin-right: 0.75rem;
+  cursor: grab;
+  font-size: 16px;
+}
+
+.section-item .drag-handle:hover {
+  color: #374151;
+}
+
+.section-item .section-info {
+  flex: 1;
+}
+
+.section-item .section-name {
+  font-weight: 500;
+  margin-bottom: 0.125rem;
+}
+
+.section-item .section-desc {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.section-item .section-toggle {
+  margin-right: 0.75rem;
+}
+
+.section-item .btn-remove {
+  color: var(--danger);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.section-item:hover .btn-remove {
+  opacity: 1;
+}
+
+/* Required badge */
+.badge-required {
+  background-color: var(--primary);
+  font-size: 0.625rem;
+  padding: 0.25em 0.5em;
+}
+
+/* Config Preview */
+#config-preview {
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  background-color: white;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: #162d4a;
+  border-color: #162d4a;
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Toast */
+.toast {
+  min-width: 300px;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Drag and Drop Styles */
+.section-list.drag-over .section-item {
+  border-top: 2px solid var(--secondary);
+}
+
+/* Empty State */
+#empty-state {
+  color: #9CA3AF;
+}
+
+#empty-state i {
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}

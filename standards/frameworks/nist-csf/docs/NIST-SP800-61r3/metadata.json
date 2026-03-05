@@ -1,0 +1,15 @@
+{
+  "framework_name": "nist.sp.800-61r3",
+  "skill": "cybersecurity-advisory",
+  "source_dir": "frameworks",
+  "migrated_at": "2025-11-27T11:35:11.913990",
+  "chunk_count": 5,
+  "chunks": [
+    "NIST.SP.800-61r3_pages_1-10.pdf",
+    "NIST.SP.800-61r3_pages_11-20.pdf",
+    "NIST.SP.800-61r3_pages_21-30.pdf",
+    "NIST.SP.800-61r3_pages_31-40.pdf",
+    "NIST.SP.800-61r3_pages_41-48.pdf"
+  ],
+  "is_split": true
+}

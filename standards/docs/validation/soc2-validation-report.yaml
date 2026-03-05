@@ -1,0 +1,32 @@
+framework: soc2
+checks:
+  - name: manifest_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/soc2/manifest.yaml
+  - name: controls_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/soc2/controls.yaml
+  - name: questions_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/soc2/questions.yaml
+  - name: crosswalk_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/soc2.yaml
+  - name: question_count
+    status: pass
+    detail: 33 questions (need ≥20 for T2)
+  - name: question_coverage
+    status: warn
+    detail: 10 controls not in any question
+  - name: framework_depth
+    status: fail
+    detail: Avg 3.8 external framework mappings per question (need ≥5 for T3)
+  - name: cardinality
+    status: warn
+    detail: total_questions=30, actual=33
+  - name: required_fields
+    status: pass
+    detail: All questions have required fields
+errors: 1
+warnings: 2
+tier_achieved: 1

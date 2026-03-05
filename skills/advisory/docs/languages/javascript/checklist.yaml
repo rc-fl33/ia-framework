@@ -1,0 +1,449 @@
+# JavaScript/Node.js Code Review Security Checklist
+# Based on: OWASP ASVS Level 2, CWE Top 25, Node.js Security Best Practices
+
+checklist:
+  client_side_security:
+    required: true
+    items:
+      - id: CLIENT-01
+        check: "No use of innerHTML, outerHTML, or document.write with user input"
+        severity: CRITICAL
+        cwe: 79
+        patterns_to_check: ["JS-79-001"]
+        references:
+          - "OWASP ASVS V5.3.3"
+
+      - id: CLIENT-02
+        check: "No use of eval(), Function(), or setTimeout/setInterval with strings"
+        severity: CRITICAL
+        cwe: 95
+
+      - id: CLIENT-03
+        check: "textContent or innerText used instead of innerHTML for plain text"
+        severity: HIGH
+        cwe: 79
+
+      - id: CLIENT-04
+        check: "DOMPurify or similar sanitizer used if HTML rendering required"
+        severity: CRITICAL
+        cwe: 79
+        patterns_to_check: ["JS-79-001"]
+
+      - id: CLIENT-05
+        check: "No inline event handlers (onclick, onerror) with user data"
+        severity: HIGH
+        cwe: 79
+
+      - id: CLIENT-06
+        check: "Content Security Policy (CSP) configured"
+        severity: HIGH
+        owasp_asvs: "V14.4.1"
+
+      - id: CLIENT-07
+        check: "No sensitive data in localStorage or sessionStorage"
+        severity: MEDIUM
+        cwe: 922
+
+  input_validation:
+    required: true
+    items:
+      - id: INPUT-01
+        check: "All user input type-checked (typeof validation)"
+        severity: HIGH
+        cwe: 20
+        patterns_to_check: ["JS-943-001"]
+
+      - id: INPUT-02
+        check: "JSON.parse wrapped in try-catch with validation"
+        severity: HIGH
+        cwe: 20
+
+      - id: INPUT-03
+        check: "Regular expressions tested for ReDoS vulnerabilities"
+        severity: MEDIUM
+        cwe: 1333
+        patterns_to_check: ["JS-1333-001"]
+
+      - id: INPUT-04
+        check: "File upload size and type restrictions enforced"
+        severity: HIGH
+        cwe: 434
+
+      - id: INPUT-05
+        check: "URL validation prevents open redirects"
+        severity: MEDIUM
+        cwe: 601
+        patterns_to_check: ["JS-601-001"]
+
+  authentication:
+    required: true
+    items:
+      - id: AUTH-01
+        check: "JWT tokens validated with specific algorithms (no 'none')"
+        severity: CRITICAL
+        cwe: 327
+        patterns_to_check: ["JS-327-001"]
+        references:
+          - "OWASP ASVS V2.2.1"
+
+      - id: AUTH-02
+        check: "JWT secrets are strong (256+ bits) and from environment"
+        severity: CRITICAL
+        cwe: 327
+        patterns_to_check: ["JS-327-002"]
+
+      - id: AUTH-03
+        check: "JWT tokens have expiration (expiresIn set)"
+        severity: HIGH
+        owasp_asvs: "V3.2.3"
+
+      - id: AUTH-04
+        check: "Password hashing uses bcrypt with salt rounds ≥ 10"
+        severity: CRITICAL
+        cwe: 327
+
+      - id: AUTH-05
+        check: "No hardcoded API keys or credentials"
+        severity: CRITICAL
+        cwe: 798
+        patterns_to_check: ["JS-798-001"]
+
+      - id: AUTH-06
+        check: "OAuth2/OpenID Connect properly implemented"
+        severity: HIGH
+        owasp_asvs: "V2.8.1"
+
+  session_management:
+    required: true
+    items:
+      - id: SESSION-01
+        check: "Session cookies have secure, httpOnly, and sameSite flags"
+        severity: HIGH
+        owasp_asvs: "V3.4.1"
+
+      - id: SESSION-02
+        check: "Session tokens have sufficient entropy (crypto.randomBytes)"
+        severity: HIGH
+        cwe: 330
+        patterns_to_check: ["JS-330-001"]
+
+      - id: SESSION-03
+        check: "Sessions invalidated on logout"
+        severity: MEDIUM
+        owasp_asvs: "V3.3.1"
+
+      - id: SESSION-04
+        check: "Session timeout configured appropriately"
+        severity: MEDIUM
+        owasp_asvs: "V3.3.3"
+
+  authorization:
+    required: true
+    items:
+      - id: AUTHZ-01
+        check: "Authorization middleware on all protected routes"
+        severity: CRITICAL
+        cwe: 306
+        patterns_to_check: ["JS-306-001"]
+        references:
+          - "OWASP ASVS V4.1.1"
+
+      - id: AUTHZ-02
+        check: "Resource ownership verified before operations"
+        severity: CRITICAL
+        cwe: 862
+
+      - id: AUTHZ-03
+        check: "Role-based access control (RBAC) properly implemented"
+        severity: HIGH
+        owasp_asvs: "V4.1.3"
+
+      - id: AUTHZ-04
+        check: "CSRF protection on state-changing operations"
+        severity: HIGH
+        cwe: 352
+        patterns_to_check: ["JS-352-001"]
+
+  database_security:
+    required: true
+    items:
+      - id: DB-01
+        check: "SQL queries use parameterized statements (no string concatenation)"
+        severity: CRITICAL
+        cwe: 89
+        patterns_to_check: ["JS-89-001"]
+
+      - id: DB-02
+        check: "MongoDB queries validate input types (prevent NoSQL injection)"
+        severity: CRITICAL
+        cwe: 943
+        patterns_to_check: ["JS-943-001"]
+
+      - id: DB-03
+        check: "ORM/ODM used correctly (Sequelize, Mongoose)"
+        severity: HIGH
+
+      - id: DB-04
+        check: "Database credentials from environment variables only"
+        severity: CRITICAL
+        cwe: 798
+
+      - id: DB-05
+        check: "Database connections use TLS/SSL in production"
+        severity: HIGH
+        owasp_asvs: "V9.1.2"
+
+  command_execution:
+    required: true
+    items:
+      - id: CMD-01
+        check: "No use of child_process.exec with user input"
+        severity: CRITICAL
+        cwe: 78
+        patterns_to_check: ["JS-78-001"]
+
+      - id: CMD-02
+        check: "execFile or spawn used instead of exec"
+        severity: HIGH
+        cwe: 78
+
+      - id: CMD-03
+        check: "Command arguments passed as array (not concatenated string)"
+        severity: CRITICAL
+        cwe: 78
+
+  file_operations:
+    required: true
+    items:
+      - id: FILE-01
+        check: "File paths validated to prevent path traversal"
+        severity: HIGH
+        cwe: 22
+        patterns_to_check: ["JS-22-001"]
+
+      - id: FILE-02
+        check: "path.resolve used and checked against base directory"
+        severity: HIGH
+        cwe: 22
+
+      - id: FILE-03
+        check: "File upload validation (size, type, content)"
+        severity: HIGH
+        cwe: 434
+
+      - id: FILE-04
+        check: "Uploaded files stored outside web root"
+        severity: MEDIUM
+        owasp_asvs: "V12.3.1"
+
+  network_security:
+    required: true
+    items:
+      - id: NET-01
+        check: "SSRF protection on outbound HTTP requests"
+        severity: HIGH
+        cwe: 918
+        patterns_to_check: ["JS-918-001"]
+
+      - id: NET-02
+        check: "URL hostname validated against whitelist"
+        severity: HIGH
+        cwe: 918
+
+      - id: NET-03
+        check: "Timeout configured on all HTTP requests"
+        severity: MEDIUM
+
+      - id: NET-04
+        check: "Certificate validation enabled (rejectUnauthorized: true)"
+        severity: HIGH
+        owasp_asvs: "V9.1.3"
+
+  error_handling:
+    required: true
+    items:
+      - id: ERR-01
+        check: "No stack traces exposed to users"
+        severity: HIGH
+        cwe: 200
+        patterns_to_check: ["JS-200-001"]
+
+      - id: ERR-02
+        check: "Error details logged server-side only"
+        severity: MEDIUM
+        owasp_asvs: "V7.4.1"
+
+      - id: ERR-03
+        check: "Generic error messages returned to clients"
+        severity: MEDIUM
+        owasp_asvs: "V7.4.1"
+
+      - id: ERR-04
+        check: "Unhandled promise rejections caught"
+        severity: MEDIUM
+
+  logging:
+    required: true
+    items:
+      - id: LOG-01
+        check: "Security events logged (auth failures, access violations)"
+        severity: HIGH
+        owasp_asvs: "V7.1.1"
+
+      - id: LOG-02
+        check: "No sensitive data in logs (passwords, tokens, credit cards)"
+        severity: HIGH
+        owasp_asvs: "V7.1.3"
+
+      - id: LOG-03
+        check: "Logs include timestamp, user ID, and action"
+        severity: MEDIUM
+        owasp_asvs: "V7.1.2"
+
+      - id: LOG-04
+        check: "Log injection prevented (sanitize user input in logs)"
+        severity: MEDIUM
+        cwe: 117
+
+  dependencies:
+    required: true
+    items:
+      - id: DEP-01
+        check: "package.json has exact versions (not ^ or ~)"
+        severity: MEDIUM
+
+      - id: DEP-02
+        check: "npm audit or snyk run regularly (no critical vulnerabilities)"
+        severity: CRITICAL
+        owasp_asvs: "V14.2.2"
+
+      - id: DEP-03
+        check: "Unused dependencies removed"
+        severity: LOW
+
+      - id: DEP-04
+        check: "Dependencies from trusted sources (npm, verified repos)"
+        severity: HIGH
+        owasp_asvs: "V14.2.3"
+
+      - id: DEP-05
+        check: "Lockfile (package-lock.json, yarn.lock) committed"
+        severity: MEDIUM
+
+  prototype_pollution:
+    required: true
+    items:
+      - id: PROTO-01
+        check: "No unsafe Object.assign or spread with user input"
+        severity: HIGH
+        cwe: 1321
+        patterns_to_check: ["JS-1321-001"]
+
+      - id: PROTO-02
+        check: "__proto__, constructor, prototype keys filtered"
+        severity: HIGH
+        cwe: 1321
+
+      - id: PROTO-03
+        check: "Use Object.create(null) for dictionaries"
+        severity: MEDIUM
+
+  framework_specific:
+    react:
+      - id: REACT-01
+        check: "No dangerouslySetInnerHTML without DOMPurify"
+        severity: CRITICAL
+        cwe: 79
+        patterns_to_check: ["JS-79-002"]
+
+      - id: REACT-02
+        check: "User input in href validated (prevent javascript: URIs)"
+        severity: HIGH
+        cwe: 79
+
+      - id: REACT-03
+        check: "Keys in lists use stable IDs (not array index)"
+        severity: LOW
+
+      - id: REACT-04
+        check: "useEffect cleanup functions prevent memory leaks"
+        severity: LOW
+
+      - id: REACT-05
+        check: "Sensitive operations use useCallback with proper dependencies"
+        severity: MEDIUM
+
+    express:
+      - id: EXP-01
+        check: "Helmet middleware configured"
+        severity: HIGH
+        owasp_asvs: "V14.4.1"
+
+      - id: EXP-02
+        check: "express-rate-limit configured on API routes"
+        severity: MEDIUM
+
+      - id: EXP-03
+        check: "Body parser limits set (prevent large payload DoS)"
+        severity: MEDIUM
+
+      - id: EXP-04
+        check: "CORS configured restrictively (not allow all origins)"
+        severity: HIGH
+        owasp_asvs: "V14.5.3"
+
+      - id: EXP-05
+        check: "express-validator used for input validation"
+        severity: HIGH
+
+      - id: EXP-06
+        check: "No trust proxy unless behind reverse proxy"
+        severity: MEDIUM
+
+      - id: EXP-07
+        check: "Session middleware configured securely"
+        severity: HIGH
+
+    nextjs:
+      - id: NEXT-01
+        check: "getServerSideProps validates and sanitizes input"
+        severity: HIGH
+
+      - id: NEXT-02
+        check: "API routes have authentication/authorization"
+        severity: CRITICAL
+        patterns_to_check: ["JS-306-001"]
+
+      - id: NEXT-03
+        check: "Environment variables not exposed to client (.env.local)"
+        severity: CRITICAL
+        cwe: 798
+
+      - id: NEXT-04
+        check: "Security headers configured in next.config.js"
+        severity: HIGH
+
+    vue:
+      - id: VUE-01
+        check: "No v-html directive with user input"
+        severity: CRITICAL
+        cwe: 79
+
+      - id: VUE-02
+        check: "v-bind:href validated (prevent javascript: URIs)"
+        severity: HIGH
+        cwe: 79
+
+      - id: VUE-03
+        check: "Template expressions don't execute user code"
+        severity: HIGH
+
+metadata:
+  total_checks: 75+
+  critical_checks: 18
+  high_checks: 30
+  framework_coverage: ["react", "express", "nextjs", "vue"]
+  environments: ["browser", "nodejs"]
+  owasp_asvs_level: 2
+  last_updated: "2026-01-17"
+  status: "complete"

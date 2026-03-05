@@ -1,0 +1,1 @@
+../skills/ghost/commands/ghost-research.md

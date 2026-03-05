@@ -1,0 +1,9 @@
+# Scan Methodology
+
+## Scanner Configuration
+
+| Setting | Value |
+|---------|-------|
+| Scanner | [Tool Name] |
+| Version | [Version] |
+| Scan Type | [Full/Partial] |

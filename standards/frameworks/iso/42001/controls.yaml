@@ -1,0 +1,237 @@
+framework: iso-42001
+version: "2023"
+source: "ISO/IEC 42001:2023"
+controls:
+  # A.2 Policies (Section 5.2)
+  - id: "A.2.1"
+    title: "Identification and traceability"
+    description: "The organization should define and document the requirements for the identification of AI systems, datasets and AI models throughout the AI system lifecycle."
+    category: "policies"
+    type: "control"
+
+  - id: "A.2.2"
+    title: "AI policy"
+    description: "The organization shall document a policy for the development or use of AI systems in accordance with the organization's AI objectives and this document."
+    category: "policies"
+    type: "control"
+
+  - id: "A.2.3"
+    title: "AI system purpose and intended outcome"
+    description: "The organization shall define and document the purpose and intended outcome(s) of the AI system."
+    category: "policies"
+    type: "control"
+
+  # A.3 Risk Management (Section 5.3)
+  - id: "A.3.1"
+    title: "Responsible AI principles"
+    description: "The organization shall define, document and communicate responsible AI principles and objectives that are consistent with its AI policy."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.2"
+    title: "Human agency and oversight"
+    description: "The organization shall define and implement processes to provide appropriate human agency and oversight of AI systems."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.3"
+    title: "Transparency"
+    description: "The organization shall provide appropriate and adequate information to relevant interested parties to enable them to understand AI systems and their outputs in accordance with the AI policy and applicable legal and regulatory requirements."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.4"
+    title: "Fairness and non-discrimination"
+    description: "The organization shall define and implement processes to support fairness and avoid unfair bias in AI systems."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.5"
+    title: "Beneficial AI"
+    description: "The organization should define and implement processes to assess whether AI systems are designed and developed to achieve their intended beneficial outcomes."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.6"
+    title: "Protection of privacy"
+    description: "The organization shall define and implement processes to protect privacy in AI systems."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.7"
+    title: "Safety and security"
+    description: "The organization shall define and implement processes to protect the safety and security of AI systems."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.8"
+    title: "Monitoring and review of AI system performance"
+    description: "The organization shall monitor the AI system performance and review the AI system outputs against its intended outcome(s)."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.9"
+    title: "Incident management"
+    description: "The organization shall define and apply processes for the identification, recording, categorization, analysis and reporting of AI system related incidents."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.10"
+    title: "Risk management"
+    description: "The organization shall identify, analyze, evaluate and treat AI system related risks in accordance with the organization's risk management framework."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.11"
+    title: "AI system impact assessment"
+    description: "The organization shall conduct AI system impact assessments in accordance with the applicable legal and regulatory requirements and the organization's AI policy."
+    category: "risk-management"
+    type: "control"
+
+  - id: "A.3.12"
+    title: "Data governance"
+    description: "The organization shall define and implement data governance practices for the acquisition, collection, processing, storage, retention and deletion of data for AI systems."
+    category: "risk-management"
+    type: "control"
+
+  # A.4 People (Section 5.4)
+  - id: "A.4.1"
+    title: "Roles and responsibilities"
+    description: "The organization shall define and document the roles and responsibilities of personnel involved in the AI system lifecycle."
+    category: "people"
+    type: "control"
+
+  - id: "A.4.2"
+    title: "Competence"
+    description: "Personnel with roles and responsibilities related to the AI system lifecycle shall have the necessary competence."
+    category: "people"
+    type: "control"
+
+  - id: "A.4.3"
+    title: "Awareness and training"
+    description: "The organization shall ensure that personnel are aware of their roles and responsibilities related to the AI system lifecycle."
+    category: "people"
+    type: "control"
+
+  # A.5 AI System Lifecycle (Section 5.5)
+  - id: "A.5.1"
+    title: "AI system requirements"
+    description: "The organization shall define and document the requirements for AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  - id: "A.5.2"
+    title: "AI system design and development"
+    description: "The organization shall define and implement processes for the design and development of AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  - id: "A.5.3"
+    title: "AI system testing"
+    description: "The organization shall define and implement processes for testing AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  - id: "A.5.4"
+    title: "AI system deployment"
+    description: "The organization shall define and implement processes for the deployment of AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  - id: "A.5.5"
+    title: "AI system operation"
+    description: "The organization shall define and implement processes for the operation of AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  - id: "A.5.6"
+    title: "AI system maintenance"
+    description: "The organization shall define and implement processes for the maintenance of AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  - id: "A.5.7"
+    title: "AI system retirement"
+    description: "The organization shall define and implement processes for the retirement of AI systems."
+    category: "ai-system-lifecycle"
+    type: "control"
+
+  # A.6 Supporting Processes (Section 5.6)
+  - id: "A.6.1"
+    title: "Information provision"
+    description: "The organization shall provide relevant interested parties with appropriate information about the AI system."
+    category: "supporting-processes"
+    type: "control"
+
+  - id: "A.6.2"
+    title: "Record keeping"
+    description: "The organization shall maintain records of information related to the AI system lifecycle."
+    category: "supporting-processes"
+    type: "control"
+
+  - id: "A.6.3"
+    title: "Communication"
+    description: "The organization shall define and implement processes for internal and external communication related to AI systems."
+    category: "supporting-processes"
+    type: "control"
+
+  - id: "A.6.4"
+    title: "Complaint handling"
+    description: "The organization shall define and implement processes for receiving, handling and responding to complaints related to AI systems."
+    category: "supporting-processes"
+    type: "control"
+
+  # A.7 Configuration Management (Section 5.7)
+  - id: "A.7.1"
+    title: "AI system configuration management"
+    description: "The organization shall define and implement processes for the configuration management of AI systems."
+    category: "configuration-management"
+    type: "control"
+
+  - id: "A.7.2"
+    title: "AI system change management"
+    description: "The organization shall define and implement processes for the change management of AI systems."
+    category: "configuration-management"
+    type: "control"
+
+  - id: "A.7.3"
+    title: "AI system version control"
+    description: "The organization shall define and implement processes for the version control of AI systems."
+    category: "configuration-management"
+    type: "control"
+
+  - id: "A.7.4"
+    title: "AI system logging"
+    description: "The organization shall define and implement processes for the logging of AI system activities."
+    category: "configuration-management"
+    type: "control"
+
+  # A.8 Security and Safety (Section 5.8)
+  - id: "A.8.1"
+    title: "AI system security"
+    description: "The organization shall define and implement processes for the security of AI systems."
+    category: "security-safety"
+    type: "control"
+
+  - id: "A.8.2"
+    title: "AI system access control"
+    description: "The organization shall define and implement processes for the access control of AI systems."
+    category: "security-safety"
+    type: "control"
+
+  - id: "A.8.3"
+    title: "AI system vulnerability management"
+    description: "The organization shall define and implement processes for the vulnerability management of AI systems."
+    category: "security-safety"
+    type: "control"
+
+metadata:
+  total_controls: 35
+  categories:
+    - policies (3)
+    - risk-management (12)
+    - people (3)
+    - ai-system-lifecycle (7)
+    - supporting-processes (4)
+    - configuration-management (4)
+    - security-safety (3)

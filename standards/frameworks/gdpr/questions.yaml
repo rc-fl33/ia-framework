@@ -1,0 +1,724 @@
+# GDPR Control-Tagged Questions
+# Version: 1.0
+# Reference: General Data Protection Regulation (EU) 2016/679
+# Phase Alignment: NIST CSF 2.0
+# Industry Focus: All organizations processing EU personal data
+
+framework: gdpr
+version: "2016/679"
+total_questions: 30
+industry_focus:
+  - technology
+  - healthcare
+  - finance
+  - retail
+  - professional_services
+  - any_eu_data_processor
+
+# GDPR Chapter Structure
+chapters:
+  - id: "I"
+    name: General Provisions
+    articles: "1-4"
+    phase: GOVERN
+
+  - id: "II"
+    name: Principles
+    articles: "5-11"
+    phase: GOVERN
+
+  - id: "III"
+    name: Rights of the Data Subject
+    articles: "12-23"
+    phase: GOVERN
+
+  - id: "IV"
+    name: Controller and Processor
+    articles: "24-43"
+    phase: PROTECT
+
+  - id: "V"
+    name: Transfers to Third Countries
+    articles: "44-49"
+    phase: PROTECT
+
+  - id: "VI"
+    name: Independent Supervisory Authorities
+    articles: "51-59"
+    phase: GOVERN
+
+  - id: "VII"
+    name: Cooperation and Consistency
+    articles: "60-76"
+    phase: GOVERN
+
+  - id: "VIII"
+    name: Remedies, Liability, and Penalties
+    articles: "77-84"
+    phase: RESPOND
+
+questions:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER I & II - GENERAL PROVISIONS AND PRINCIPLES
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-GDPR-ART5-001
+    text: "Is personal data processed lawfully, fairly, and in a transparent manner?"
+    category: principles
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 5(1)(a), Art. 6"
+      iso-27001: "A.5.34"
+      nist-800-53: "PT-2, PT-5"
+      soc2: "P1.1, P2.1"
+    evidence_required:
+      - Lawful basis documentation
+      - Privacy notice
+      - Transparency measures
+      - Fair processing assessment
+    scoring:
+      full: "Documented lawful basis with transparent processing and fair practices"
+      partial: "Some lawful basis documented but transparency incomplete"
+      none: "No documented lawful basis or transparency"
+    sub_questions:
+      - "Is there a documented lawful basis for each processing activity?"
+      - "Are data subjects informed about processing?"
+      - "Is processing fair to data subjects?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART5-002
+    text: "Is personal data collected for specified, explicit, and legitimate purposes only?"
+    category: principles
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 5(1)(b)"
+      iso-27001: "A.5.34"
+      nist-800-53: "PT-3"
+      soc2: "P3.1"
+    evidence_required:
+      - Purpose specification documentation
+      - Processing records
+      - Compatibility assessments
+    scoring:
+      full: "Clear purpose specification with compatibility assessments"
+      partial: "Purposes documented but compatibility not assessed"
+      none: "No purpose limitation"
+    sub_questions:
+      - "Are processing purposes clearly defined?"
+      - "Is further processing compatible with original purposes?"
+      - "Are purposes communicated to data subjects?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART5-003
+    text: "Is personal data adequate, relevant, and limited to what is necessary (data minimization)?"
+    category: principles
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 5(1)(c)"
+      iso-27001: "A.5.34"
+      nist-800-53: "PT-2"
+      soc2: "P3.2"
+    evidence_required:
+      - Data minimization assessments
+      - Data inventory
+      - Necessity justification
+    scoring:
+      full: "Data minimization enforced with documented necessity"
+      partial: "Some minimization but not consistently applied"
+      none: "No data minimization"
+    sub_questions:
+      - "Is only necessary data collected?"
+      - "Are data fields regularly reviewed for necessity?"
+      - "Is excessive data collection avoided?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART5-004
+    text: "Is personal data accurate and kept up to date?"
+    category: principles
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 5(1)(d)"
+      iso-27001: "A.5.34"
+      soc2: "P8.1"
+    evidence_required:
+      - Data quality procedures
+      - Update mechanisms
+      - Correction procedures
+    scoring:
+      full: "Data quality program with update and correction mechanisms"
+      partial: "Some quality measures but not systematic"
+      none: "No data accuracy controls"
+    sub_questions:
+      - "Are procedures in place to ensure accuracy?"
+      - "Can inaccurate data be corrected promptly?"
+      - "Is data regularly reviewed for accuracy?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART5-005
+    text: "Is personal data kept no longer than necessary (storage limitation)?"
+    category: principles
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 5(1)(e)"
+      iso-27001: "A.5.34, A.8.10"
+      nist-800-53: "PT-3"
+      soc2: "P4.1, P4.3"
+    evidence_required:
+      - Retention schedule
+      - Deletion procedures
+      - Retention review records
+    scoring:
+      full: "Documented retention with automated deletion"
+      partial: "Retention defined but deletion not systematic"
+      none: "No storage limitation"
+    sub_questions:
+      - "Are retention periods defined for all data types?"
+      - "Is data deleted when no longer needed?"
+      - "Are retention periods reviewed regularly?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART5-006
+    text: "Is personal data processed with appropriate security (integrity and confidentiality)?"
+    category: principles
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 5(1)(f), Art. 32"
+      iso-27001: "A.8.10, A.8.24"
+      nist-800-53: "SC-8, SC-13, SC-28"
+      soc2: "CC6.6, P7.1"
+      pci-dss: "3.4, 4.1"
+      hipaa: "§164.312(a)(2)(iv)"
+    evidence_required:
+      - Security measures documentation
+      - Encryption standards
+      - Access controls
+      - Security testing records
+    scoring:
+      full: "Comprehensive security with encryption and access controls"
+      partial: "Some security measures but incomplete"
+      none: "No appropriate security"
+    sub_questions:
+      - "Is personal data encrypted at rest and in transit?"
+      - "Are access controls implemented?"
+      - "Are security measures regularly tested?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART5-007
+    text: "Can the organization demonstrate compliance (accountability)?"
+    category: principles
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 5(2), Art. 24"
+      iso-27001: "A.5.35"
+      nist-800-53: "PM-1"
+    evidence_required:
+      - Compliance documentation
+      - Processing records
+      - Audit trails
+      - Training records
+    scoring:
+      full: "Comprehensive accountability documentation and evidence"
+      partial: "Some documentation but incomplete"
+      none: "Cannot demonstrate compliance"
+    sub_questions:
+      - "Is processing activity documented?"
+      - "Can compliance be evidenced?"
+      - "Are staff trained on requirements?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LAWFUL BASIS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-GDPR-ART6-001
+    text: "How is consent obtained and managed for processing?"
+    category: lawful_basis
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 6(1)(a), Art. 7, Art. 8"
+      iso-27001: "A.5.34"
+      soc2: "P2.1"
+    evidence_required:
+      - Consent mechanisms
+      - Consent records
+      - Withdrawal procedures
+      - Child consent procedures (if applicable)
+    scoring:
+      full: "Clear consent with withdrawal mechanism and records"
+      partial: "Consent obtained but management incomplete"
+      none: "No proper consent management"
+    sub_questions:
+      - "Is consent freely given, specific, informed, and unambiguous?"
+      - "Can consent be withdrawn easily?"
+      - "Are consent records maintained?"
+      - "Is parental consent obtained for children?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART6-002
+    text: "How are legitimate interests assessed and balanced against data subject rights?"
+    category: lawful_basis
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 6(1)(f)"
+    evidence_required:
+      - Legitimate interest assessments (LIA)
+      - Balancing tests
+      - Documentation of interests
+    scoring:
+      full: "Documented LIA with balancing test for each processing"
+      partial: "Some LIA performed but not comprehensive"
+      none: "No legitimate interest assessment"
+    sub_questions:
+      - "Are legitimate interest assessments performed?"
+      - "Are data subject interests balanced against controller interests?"
+      - "Is the LIA documented?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III - RIGHTS OF DATA SUBJECTS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-GDPR-ART12-001
+    text: "Is information provided to data subjects in a clear, transparent manner?"
+    category: data_subject_rights
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 12, Art. 13, Art. 14"
+      iso-27001: "A.5.34"
+      soc2: "P1.1"
+    evidence_required:
+      - Privacy notice
+      - Communication templates
+      - Accessibility measures
+    scoring:
+      full: "Clear, accessible privacy information in plain language"
+      partial: "Privacy information exists but not easily accessible"
+      none: "No transparent communication"
+    sub_questions:
+      - "Is privacy information concise and accessible?"
+      - "Is information provided at collection time?"
+      - "Is information provided for indirect collection?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART15-001
+    text: "How are data subject access requests (DSARs) handled?"
+    category: data_subject_rights
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 15"
+      iso-27001: "A.5.34"
+      soc2: "P5.1"
+    evidence_required:
+      - DSAR procedures
+      - Response templates
+      - Response tracking
+      - Timelines documentation
+    scoring:
+      full: "Documented DSAR process with timely response"
+      partial: "DSAR process exists but response times inconsistent"
+      none: "No DSAR process"
+    sub_questions:
+      - "Can data subjects request access to their data?"
+      - "Are requests responded to within one month?"
+      - "Is a copy of data provided free of charge?"
+      - "Is the process documented?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART16-001
+    text: "How are rectification and completion requests handled?"
+    category: data_subject_rights
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 16"
+      iso-27001: "A.5.34"
+      soc2: "P5.2"
+    evidence_required:
+      - Rectification procedures
+      - Correction records
+      - Notification to recipients
+    scoring:
+      full: "Documented rectification process with recipient notification"
+      partial: "Corrections made but process not formalized"
+      none: "No rectification process"
+    sub_questions:
+      - "Can data subjects request correction of inaccurate data?"
+      - "Can incomplete data be completed?"
+      - "Are recipients notified of corrections?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART17-001
+    text: "How are erasure requests (right to be forgotten) handled?"
+    category: data_subject_rights
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 17"
+      iso-27001: "A.5.34, A.8.10"
+      soc2: "P4.2"
+    evidence_required:
+      - Erasure procedures
+      - Erasure records
+      - Exception documentation
+      - Notification to recipients
+    scoring:
+      full: "Documented erasure process with exception handling"
+      partial: "Erasure performed but not systematic"
+      none: "No erasure capability"
+    sub_questions:
+      - "Can data subjects request deletion of their data?"
+      - "Are legal exceptions properly identified?"
+      - "Are recipients notified of erasure?"
+      - "Is erasure performed without undue delay?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART18-001
+    text: "How are restriction of processing requests handled?"
+    category: data_subject_rights
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 18"
+      iso-27001: "A.5.34"
+    evidence_required:
+      - Restriction procedures
+      - Technical marking capability
+      - Notification procedures
+    scoring:
+      full: "Restriction capability with proper marking and notification"
+      partial: "Some restriction capability but incomplete"
+      none: "No restriction capability"
+    sub_questions:
+      - "Can processing be restricted upon request?"
+      - "Is restricted data properly marked?"
+      - "Is consent obtained before lifting restriction?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART20-001
+    text: "How is data portability supported?"
+    category: data_subject_rights
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 20"
+      soc2: "P5.1"
+    evidence_required:
+      - Portability procedures
+      - Export formats
+      - Direct transmission capability
+    scoring:
+      full: "Data portability with machine-readable format and direct transfer"
+      partial: "Export capability but not interoperable format"
+      none: "No portability capability"
+    sub_questions:
+      - "Can data be provided in machine-readable format?"
+      - "Can data be transmitted directly to another controller?"
+      - "Is the format commonly used and interoperable?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART21-001
+    text: "How are objection requests handled?"
+    category: data_subject_rights
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 21"
+    evidence_required:
+      - Objection procedures
+      - Assessment documentation
+      - Direct marketing opt-out
+    scoring:
+      full: "Documented objection process with grounds assessment"
+      partial: "Objections handled but not systematically"
+      none: "No objection process"
+    sub_questions:
+      - "Can data subjects object to processing?"
+      - "Is direct marketing objection immediately honored?"
+      - "Are compelling grounds properly assessed?"
+    risk_weight: MEDIUM
+
+  - id: Q-GDPR-ART22-001
+    text: "How is automated decision-making and profiling managed?"
+    category: data_subject_rights
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 22"
+    evidence_required:
+      - Automated decision inventory
+      - Safeguards documentation
+      - Human intervention procedures
+    scoring:
+      full: "Documented automated decisions with safeguards and intervention"
+      partial: "Some automated decision controls but incomplete"
+      none: "No automated decision controls"
+    sub_questions:
+      - "Are automated decisions identified?"
+      - "Is human intervention available?"
+      - "Can decisions be contested?"
+      - "Is meaningful information provided about logic?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER IV - CONTROLLER AND PROCESSOR
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-GDPR-ART25-001
+    text: "Is data protection by design and by default implemented?"
+    category: controller_processor
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 25"
+      iso-27001: "A.8.25"
+      nist-800-53: "SA-8"
+    evidence_required:
+      - Privacy by design procedures
+      - Default privacy settings
+      - Design documentation
+    scoring:
+      full: "Privacy integrated into design with privacy-friendly defaults"
+      partial: "Some privacy design but not systematic"
+      none: "No privacy by design"
+    sub_questions:
+      - "Is privacy considered at design phase?"
+      - "Are privacy-protective defaults implemented?"
+      - "Is data minimization built into systems?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART28-001
+    text: "How are processors governed and managed?"
+    category: controller_processor
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 28"
+      iso-27001: "A.5.19, A.5.20"
+      nist-800-53: "SA-9"
+      soc2: "CC9.2"
+    evidence_required:
+      - Data processing agreements
+      - Processor due diligence
+      - Sub-processor controls
+      - Processor instructions
+    scoring:
+      full: "Comprehensive DPAs with due diligence and sub-processor controls"
+      partial: "Some processor controls but agreements incomplete"
+      none: "No processor management"
+    sub_questions:
+      - "Are data processing agreements in place?"
+      - "Is processor due diligence performed?"
+      - "Are sub-processors authorized and controlled?"
+      - "Are written instructions documented?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART30-001
+    text: "Are records of processing activities maintained?"
+    category: controller_processor
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 30"
+      iso-27001: "A.5.34"
+      nist-800-53: "PT-1"
+    evidence_required:
+      - Records of processing activities (ROPA)
+      - Data flows
+      - Processing purposes
+      - Retention periods
+    scoring:
+      full: "Complete ROPA with all required elements"
+      partial: "Some records but incomplete"
+      none: "No records of processing"
+    sub_questions:
+      - "Are processing activities documented?"
+      - "Do records include purposes, categories, recipients?"
+      - "Are international transfers documented?"
+      - "Are records available to supervisory authority?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART32-001
+    text: "What technical and organizational measures ensure appropriate security?"
+    category: controller_processor
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 32"
+      iso-27001: "A.8.24"
+      nist-800-53: "SC-8, SC-13"
+      soc2: "CC6.6, CC6.7"
+      hipaa: "§164.312(e)"
+    evidence_required:
+      - Security measures documentation
+      - Risk assessment
+      - Encryption implementation
+      - Resilience measures
+      - Testing records
+    scoring:
+      full: "Risk-based security with encryption, resilience, and testing"
+      partial: "Some security measures but not risk-based"
+      none: "Inadequate security measures"
+    sub_questions:
+      - "Is pseudonymization/encryption applied?"
+      - "Are confidentiality, integrity, availability ensured?"
+      - "Can systems be restored after incidents?"
+      - "Are security measures regularly tested?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART33-001
+    text: "How are personal data breaches notified to the supervisory authority?"
+    category: controller_processor
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 33"
+      iso-27001: "A.5.26"
+      nist-800-53: "IR-6"
+      hipaa: "§164.408"
+    evidence_required:
+      - Breach notification procedures
+      - 72-hour timeline compliance
+      - Notification templates
+      - Breach records
+    scoring:
+      full: "Documented breach notification within 72 hours"
+      partial: "Notification process exists but timelines not met"
+      none: "No breach notification process"
+    sub_questions:
+      - "Is breach notification procedure documented?"
+      - "Can notification be made within 72 hours?"
+      - "Are breach records maintained?"
+      - "Is risk assessment performed for each breach?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART34-001
+    text: "How are data subjects notified of high-risk breaches?"
+    category: controller_processor
+    phase: RESPOND
+    controls:
+      gdpr: "Art. 34"
+      iso-27001: "A.5.26"
+    evidence_required:
+      - Data subject notification procedures
+      - High-risk assessment criteria
+      - Communication templates
+    scoring:
+      full: "Documented high-risk breach notification to data subjects"
+      partial: "Some notification capability but criteria unclear"
+      none: "No data subject notification process"
+    sub_questions:
+      - "Is high-risk breach notification documented?"
+      - "Is notification provided without undue delay?"
+      - "Is information clear and plain language?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART35-001
+    text: "When and how are Data Protection Impact Assessments (DPIAs) performed?"
+    category: controller_processor
+    phase: IDENTIFY
+    controls:
+      gdpr: "Art. 35, Art. 36"
+      iso-27001: "A.5.34"
+      nist-800-53: "RA-3"
+    evidence_required:
+      - DPIA procedures
+      - DPIA records
+      - High-risk processing criteria
+      - Prior consultation records
+    scoring:
+      full: "Systematic DPIA for high-risk processing with consultation"
+      partial: "Some DPIA performed but not systematic"
+      none: "No DPIA process"
+    sub_questions:
+      - "Are DPIAs performed for high-risk processing?"
+      - "Does DPIA include necessity/proportionality assessment?"
+      - "Is prior consultation sought when risks cannot be mitigated?"
+      - "Are DPIAs reviewed and updated?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART37-001
+    text: "Has a Data Protection Officer (DPO) been appointed where required?"
+    category: controller_processor
+    phase: GOVERN
+    controls:
+      gdpr: "Art. 37, Art. 38, Art. 39"
+    evidence_required:
+      - DPO appointment documentation
+      - DPO contact details
+      - DPO independence assurance
+      - DPO tasks documentation
+    scoring:
+      full: "DPO appointed with proper resources and independence"
+      partial: "DPO appointed but role not properly supported"
+      none: "No DPO where required"
+    sub_questions:
+      - "Is a DPO required for your processing?"
+      - "Does DPO have proper expertise and resources?"
+      - "Is DPO independent and reports to highest management?"
+      - "Are DPO contact details published?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER V - INTERNATIONAL TRANSFERS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-GDPR-ART44-001
+    text: "How are international data transfers legitimized?"
+    category: international_transfers
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 44, Art. 45, Art. 46, Art. 47, Art. 49"
+      iso-27001: "A.5.34"
+    evidence_required:
+      - Transfer impact assessments
+      - Adequacy decisions
+      - Standard contractual clauses
+      - Binding corporate rules (if applicable)
+      - Derogation justification
+    scoring:
+      full: "Documented transfer mechanisms with impact assessments"
+      partial: "Some transfer mechanisms but not comprehensive"
+      none: "No legitimate transfer mechanism"
+    sub_questions:
+      - "Are international transfers identified?"
+      - "Is there an adequacy decision or appropriate safeguards?"
+      - "Are SCCs or BCRs in place?"
+      - "Are transfer impact assessments performed?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SPECIAL CATEGORIES OF DATA
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-GDPR-ART9-001
+    text: "How is special category (sensitive) personal data protected?"
+    category: special_categories
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 9"
+      iso-27001: "A.5.34"
+      hipaa: "§164.502"
+    evidence_required:
+      - Special category data inventory
+      - Legal basis documentation
+      - Enhanced security measures
+      - Explicit consent records (if applicable)
+    scoring:
+      full: "Special category data identified with appropriate legal basis"
+      partial: "Some special category controls but incomplete"
+      none: "No special category data protection"
+    sub_questions:
+      - "Is special category data identified?"
+      - "Is there appropriate legal basis (Art. 9(2))?"
+      - "Are enhanced security measures applied?"
+      - "Is explicit consent obtained where required?"
+    risk_weight: HIGH
+
+  - id: Q-GDPR-ART10-001
+    text: "How is data relating to criminal convictions and offences handled?"
+    category: special_categories
+    phase: PROTECT
+    controls:
+      gdpr: "Art. 10"
+    evidence_required:
+      - Criminal data processing justification
+      - Legal basis under member state law
+      - Enhanced security measures
+    scoring:
+      full: "Criminal data processed only under official authority/legal basis"
+      partial: "Some controls but legal basis unclear"
+      none: "No criminal data controls"
+    sub_questions:
+      - "Is criminal data processing under official authority?"
+      - "Is there member state law authorization?"
+      - "Are comprehensive safeguards in place?"
+    risk_weight: MEDIUM

@@ -1,0 +1,1 @@
+../skills/harden/commands/harden.md

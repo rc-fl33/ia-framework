@@ -1,0 +1,71 @@
+framework: iso-42006
+version: "2025"
+source: "ISO/IEC 42006:2025"
+controls:
+  # Clause 5: Leadership
+  - id: "5.1"
+    title: "Leadership and Commitment"
+    description: "Top management shall demonstrate leadership and commitment with respect to the AI management system by ensuring the establishment of the AI MS policy and objectives, ensuring integration of the AI MS requirements into the organization's business processes, providing resources for the establishment, implementation, maintenance and continual improvement of the AI MS, communicating the importance of conforming to the requirements of the AI MS, ensuring that the AI MS achieves its intended outcome(s), directing and supporting persons to contribute to the effectiveness of the AI MS, promoting continual improvement, supporting other relevant management roles to demonstrate their leadership as it applies to their areas of responsibility."
+    type: "control"
+
+  - id: "5.2"
+    title: "AI Policy"
+    description: "Top management shall establish, implement and maintain an AI policy that is appropriate to the purpose and context of the organization, provides a framework for setting AI objectives, includes commitments to satisfy applicable requirements and to continually improve the AI MS, includes commitments relevant to the responsible development, deployment, use and/or provision of AI systems, and is available and maintained as documented information."
+    type: "control"
+
+  - id: "5.3"
+    title: "Organizational Roles, Responsibilities and Authorities"
+    description: "Top management shall ensure that the responsibilities and authorities for relevant roles are assigned and communicated within the organization. Top management shall appoint a specific member of management who, irrespective of other responsibilities, has overall responsibility for ensuring that the AI MS conforms to the requirements of this document, and for reporting on the performance of the AI MS to top management."
+    type: "control"
+
+  # Clause 6: Context of the Organization
+  - id: "6.1"
+    title: "Understanding the Organization and its Context"
+    description: "The organization shall determine external and internal issues that are relevant to its purpose and that affect the ability to achieve the intended outcome(s) of its AI MS. The organization shall monitor and review the information about these external and internal issues."
+    type: "control"
+
+  - id: "6.2"
+    title: "Understanding the Needs and Expectations of Interested Parties"
+    description: "Due to their impact or potential impact on the organization's ability to consistently provide AI systems and related services that meet requirements, the organization shall determine interested parties that are relevant to the AI MS. The organization shall monitor and review the information about these interested parties and their relevant requirements."
+    type: "control"
+
+  - id: "6.3"
+    title: "Determining the Scope of the AI MS"
+    description: "The organization shall determine the boundaries and applicability of the AI MS to establish its scope. The scope shall be available and maintained as documented information. The AI MS shall include external and internal issues, requirements of interested parties, and AI systems within the intended scope."
+    type: "control"
+
+  - id: "6.4"
+    title: "AI Management System and its Environment"
+    description: "The organization shall establish, implement, maintain and continually improve an AI MS, including the processes needed and their interactions, in accordance with the requirements of this document. The organization shall manage the processes needed to implement the AI MS and the organization shall determine the sequence and interaction of these processes."
+    type: "control"
+
+  # Clause 8: Support
+  - id: "8.1"
+    title: "Resources"
+    description: "The organization shall determine and provide the resources needed for the establishment, implementation, maintenance and continual improvement of the AI MS. The organization shall consider resources for the AI system(s) such as computational resources, data resources, tools and infrastructure to support the responsible development, deployment, use and/or provision of AI systems."
+    type: "control"
+
+  - id: "8.2"
+    title: "Competence"
+    description: "The organization shall ensure that persons doing work under its control are competent on the basis of appropriate education, training or experience. The organization shall take actions to acquire the necessary competence, and evaluate the effectiveness of the actions taken."
+    type: "control"
+
+  - id: "8.3"
+    title: "Awareness"
+    description: "The organization shall ensure that persons doing work under its control are aware of the AI MS policy, relevant objectives, their contribution to the effectiveness of the AI MS, and the implications of not conforming to requirements."
+    type: "control"
+
+  - id: "8.4"
+    title: "Communication"
+    description: "The organization shall determine relevant internal and external communications related to the AI MS, including on what it will communicate, when to communicate, with whom to communicate, how to communicate, and who is responsible."
+    type: "control"
+
+  - id: "8.5"
+    title: "Documented Information"
+    description: "The organization's AI MS shall include documented information required by this document and determined by the organization as necessary for the effectiveness of the AI MS. The organization shall ensure appropriate documented information is available for use, where and when needed, is adequately protected, and is retained (and protected) for as long as needed."
+    type: "control"
+
+  - id: "8.6"
+    title: "Manifestation of the AI MS"
+    description: "The organization shall manifest its AI MS by means of establishing, implementing, maintaining and continuously improving a set of documented information that includes the AI policy, AI objectives, the scope of the AI MS, processes and procedures for the AI MS, and other documents necessary for the effective implementation of the AI MS."
+    type: "control"

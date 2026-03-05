@@ -1,0 +1,11 @@
+# Security Practices Assessment
+
+## Current Controls
+
+| Control Domain | Implementation Status | Notes |
+|-----------------|----------------------|-------|
+| Access Control | [Implemented/Partial/Missing] | |
+| Authentication | [Implemented/Partial/Missing] | |
+| Encryption | [Implemented/Partial/Missing] | |
+| Logging | [Implemented/Partial/Missing] | |
+| Input Validation | [Implemented/Partial/Missing] | |

@@ -1,0 +1,187 @@
+# Security Frameworks Configuration
+# Used by tools/bug-bounty/ingest-frameworks.ts
+
+skillName: Pentest
+skillPath: "skills/pentest"
+itemType: "framework"
+
+frameworks:
+  # OWASP Top 10 Variants
+  owasp-top10-web:
+    name: "OWASP Top 10 - Web Applications"
+    repo: "https://github.com/OWASP/Top10"
+    outputDir: "reference/github/owasp/top10-web"
+    description: "OWASP Top 10 Web Application Security Risks"
+    category: "advisory"
+
+  owasp-top10-api:
+    name: "OWASP Top 10 - API"
+    repo: "https://github.com/OWASP/API-Security"
+    outputDir: "reference/github/owasp/top10-api"
+    description: "OWASP Top 10 API Security Risks"
+    category: "advisory"
+
+  owasp-top10-mobile:
+    name: "OWASP Top 10 - Mobile"
+    repo: "https://github.com/OWASP/owasp-mastg"
+    outputDir: "reference/github/owasp/top10-mobile"
+    description: "OWASP Top 10 Mobile Application Security Risks"
+    category: "advisory"
+
+  owasp-top10-iot:
+    name: "OWASP Top 10 - IoT"
+    repo: "https://github.com/OWASP/IoT-Top-10"
+    outputDir: "reference/github/owasp/top10-iot"
+    description: "OWASP Top 10 IoT Security Risks"
+    category: "advisory"
+
+  owasp-top10-llm:
+    name: "OWASP Top 10 - LLM"
+    repo: "https://github.com/OWASP/Top10-for-Large-Language-Model-Applications"
+    outputDir: "reference/github/owasp/top10-llm"
+    description: "OWASP Top 10 for Large Language Model Applications"
+    category: "advisory"
+
+  owasp-top10-cicd:
+    name: "OWASP Top 10 - CI/CD"
+    repo: "https://github.com/OWASP/top-10-ci-cd-security-risks"
+    outputDir: "reference/github/owasp/top10-cicd"
+    description: "OWASP Top 10 CI/CD Security Risks"
+    category: "advisory"
+
+  # OWASP Testing & Assessment
+  owasp-asvs:
+    name: "OWASP ASVS"
+    repo: "https://github.com/OWASP/ASVS"
+    outputDir: "reference/github/owasp/asvs"
+    description: "OWASP Application Security Verification Standard"
+    category: "assessment"
+
+  owasp-mastg:
+    name: "OWASP MASTG"
+    repo: "https://github.com/OWASP/owasp-mastg"
+    outputDir: "reference/github/owasp/mastg"
+    description: "OWASP Mobile Application Security Testing Guide"
+    category: "testing"
+
+  owasp-samm:
+    name: "OWASP SAMM"
+    repo: "https://github.com/OWASP/samm"
+    outputDir: "reference/github/owasp/samm"
+    description: "OWASP Software Assurance Maturity Model"
+    category: "assessment"
+
+  owasp-testing-guide:
+    name: "OWASP Testing Guide"
+    repo: "https://github.com/OWASP/owasp-testing-guide-v4"
+    outputDir: "reference/github/owasp/testing-guide"
+    description: "OWASP Web Application Security Testing Guide"
+    category: "testing"
+
+  owasp-secure-coding:
+    name: "OWASP Secure Coding Practices"
+    repo: "https://github.com/OWASP/secure-coding-practices"
+    outputDir: "reference/github/owasp/secure-coding"
+    description: "OWASP Secure Coding Practices - Quick Reference Guide"
+    category: "advisory"
+
+  owasp-risk-rating:
+    name: "OWASP Risk Rating Methodology"
+    repo: "https://github.com/OWASP/Risk-Rating-Methodology"
+    outputDir: "reference/github/owasp/risk-rating"
+    description: "OWASP Risk Rating Methodology for vulnerability assessment"
+    category: "assessment"
+
+  # MITRE Frameworks
+  mitre-attack-enterprise:
+    name: "MITRE ATT&CK - Enterprise"
+    repo: "https://github.com/mitre/cti"
+    outputDir: "reference/github/mitre/attack-enterprise"
+    description: "MITRE ATT&CK Framework - Enterprise (Windows, macOS, Linux, Cloud)"
+    category: "research"
+
+  mitre-attack-mobile:
+    name: "MITRE ATT&CK - Mobile"
+    repo: "https://github.com/mitre/cti"
+    outputDir: "reference/github/mitre/attack-mobile"
+    description: "MITRE ATT&CK Framework - Mobile (iOS, Android)"
+    category: "research"
+
+  mitre-attack-ics:
+    name: "MITRE ATT&CK - ICS"
+    repo: "https://github.com/mitre/cti"
+    outputDir: "reference/github/mitre/attack-ics"
+    description: "MITRE ATT&CK Framework - ICS/OT (Industrial Control Systems)"
+    category: "research"
+
+  mitre-atlas:
+    name: "MITRE ATLAS"
+    repo: "https://github.com/mitre-atlas/atlas-data"
+    outputDir: "reference/github/mitre/atlas"
+    description: "MITRE ATLAS - Adversarial Threat Landscape for AI Systems"
+    category: "research"
+
+  mitre-capec:
+    name: "MITRE CAPEC"
+    repo: "https://github.com/mitre/cti"
+    outputDir: "reference/github/mitre/capec"
+    description: "MITRE CAPEC - Common Attack Pattern Expression and Enumeration"
+    category: "research"
+
+  # NIST & Standards
+  nist-sp-800-115:
+    name: "NIST SP 800-115"
+    repo: "https://github.com/usnistgov/800-115"
+    outputDir: "reference/github/nist/sp-800-115"
+    description: "NIST SP 800-115 Technical Security Testing and Assessment"
+    category: "testing"
+
+  nist-sp-800-40:
+    name: "NIST SP 800-40"
+    repo: "https://github.com/usnistgov/sp800-40"
+    outputDir: "reference/github/nist/sp-800-40"
+    description: "NIST SP 800-40 Guide to Software Vulnerability Management"
+    category: "advisory"
+
+  nist-sp-800-53:
+    name: "NIST SP 800-53"
+    repo: "https://github.com/usnistgov/SP800-53"
+    outputDir: "reference/github/nist/sp-800-53"
+    description: "NIST SP 800-53 Security and Privacy Controls for Information Systems"
+    category: "assessment"
+
+  # Additional Security Resources
+  cwe-top25:
+    name: "CWE Top 25"
+    repo: "https://github.com/mitre/cwe-data"
+    outputDir: "reference/github/mitre/cwe-top25"
+    description: "CWE Top 25 Most Dangerous Software Weaknesses"
+    category: "advisory"
+
+  cvss:
+    name: "CVSS - Common Vulnerability Scoring System"
+    repo: "https://github.com/CVEProject/cvss"
+    outputDir: "reference/github/cvss"
+    description: "CVSS v3.1 Scoring Methodology and Calculator"
+    category: "assessment"
+
+  cisa-vulnerabilities:
+    name: "CISA Known Exploited Vulnerabilities"
+    repo: "https://github.com/CISA/known-exploited-vulnerabilities"
+    outputDir: "reference/github/cisa/kev"
+    description: "CISA Known Exploited Vulnerabilities Catalog"
+    category: "advisory"
+
+  osint-tools:
+    name: "OSINT Security Tools"
+    repo: "https://github.com/jivoi/offsec_tools"
+    outputDir: "reference/github/osint/tools"
+    description: "Curated list of OSINT and security testing tools"
+    category: "research"
+
+  payload-all-things:
+    name: "PayloadsAllTheThings"
+    repo: "https://github.com/swisskyrepo/PayloadsAllTheThings"
+    outputDir: "reference/github/payloads/all-things"
+    description: "Payloads for web application testing and exploitation"
+    category: "testing"

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  caido:
+    image: caido/caido:latest
+    container_name: caido
+    restart: unless-stopped
+
+    ports:
+      - "7000:8080"  # Web UI on port 7000
+
+    volumes:
+      # Persistent data storage
+      - /opt/pentest-data/caido:/home/caido/.local/share/caido
+
+    environment:
+      # UI domain allowlist (optional)
+      # Add your domain if exposing to internet
+      # - CAIDO_UI_DOMAIN=caido.yourdomain.com
+      - TZ=America/Chicago
+
+    networks:
+      - security-tools
+
+    labels:
+      - "com.ia-framework.tool=caido"
+      - "com.ia-framework.category=web-proxy"
+      - "com.ia-framework.domain=web,api"
+
+networks:
+  security-tools:
+    driver: bridge

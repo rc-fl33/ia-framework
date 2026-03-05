@@ -1,0 +1,239 @@
+/**
+ * Observability Dashboard - Theme Definitions
+ *
+ * 4 built-in themes with WCAG 2.1 AA contrast compliance.
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   Theme: Terminal Dark (Default)
+   Inspired by Windows Terminal Campbell and VS Code Dark+
+   ═══════════════════════════════════════════════════════════════ */
+:root,
+[data-theme="dark"] {
+  /* Backgrounds - Pure black/charcoal */
+  --bg-primary: #0C0C0C;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #252525;
+  --bg-hover: #2D2D2D;
+  --bg-active: #383838;
+
+  /* Text - Clean white/grey (no blue tint) */
+  --text-primary: #E0E0E0;
+  --text-secondary: #CCCCCC;
+  --text-muted: #767676;
+  --text-inverse: #0C0C0C;
+
+  /* Accent colors */
+  --accent-primary: #61AFEF;
+  --accent-secondary: #C678DD;
+  --accent-success: #98C379;
+  --accent-warning: #E5C07B;
+  --accent-error: #E06C75;
+  --accent-info: #56B6C2;
+
+  /* Borders */
+  --border-color: #333333;
+  --border-subtle: #262626;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.7);
+
+  /* Scrollbar */
+  --scrollbar-track: #0C0C0C;
+  --scrollbar-thumb: #3E3E3E;
+  --scrollbar-thumb-hover: #4E4E4E;
+
+  /* Code/Editor */
+  --code-bg: #000000;
+  --code-border: #333333;
+  --code-text: #D4D4D4;
+  --code-keyword: #C586C0;
+  --code-string: #CE9178;
+  --code-comment: #6A9955;
+  --code-number: #B5CEA8;
+  --code-function: #DCDCAA;
+
+  /* Mermaid */
+  --mermaid-theme: dark;
+  --mermaid-bg: #0C0C0C;
+  --mermaid-node-bg: #1A1A1A;
+  --mermaid-node-border: #61AFEF;
+  --mermaid-line-color: #CCCCCC;
+  --mermaid-text-color: #E0E0E0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Theme: Light
+   ═══════════════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #ebebeb;
+  --bg-hover: #e0e0e0;
+  --bg-active: #d5d5d5;
+
+  /* Text */
+  --text-primary: #1a1b26;
+  --text-secondary: #4a4a4a;
+  --text-muted: #757575;
+  --text-inverse: #ffffff;
+
+  /* Accent colors */
+  --accent-primary: #2563eb;
+  --accent-secondary: #7c3aed;
+  --accent-success: #16a34a;
+  --accent-warning: #d97706;
+  --accent-error: #dc2626;
+  --accent-info: #0891b2;
+
+  /* Borders */
+  --border-color: #d1d5db;
+  --border-subtle: #e5e7eb;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+
+  /* Scrollbar */
+  --scrollbar-track: #f5f5f5;
+  --scrollbar-thumb: #c0c0c0;
+  --scrollbar-thumb-hover: #a0a0a0;
+
+  /* Code/Editor */
+  --code-bg: #f8f8f8;
+  --code-border: #e0e0e0;
+  --code-text: #1a1b26;
+  --code-keyword: #7c3aed;
+  --code-string: #16a34a;
+  --code-comment: #6b7280;
+  --code-number: #d97706;
+  --code-function: #2563eb;
+
+  /* Mermaid */
+  --mermaid-theme: default;
+  --mermaid-bg: #ffffff;
+  --mermaid-node-bg: #f5f5f5;
+  --mermaid-node-border: #2563eb;
+  --mermaid-line-color: #4a4a4a;
+  --mermaid-text-color: #1a1b26;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Theme: Dracula
+   ═══════════════════════════════════════════════════════════════ */
+[data-theme="dracula"] {
+  /* Backgrounds */
+  --bg-primary: #282a36;
+  --bg-secondary: #44475a;
+  --bg-tertiary: #343746;
+  --bg-hover: #4a4d5e;
+  --bg-active: #565970;
+
+  /* Text */
+  --text-primary: #f8f8f2;
+  --text-secondary: #e0e0e0;
+  --text-muted: #6272a4;
+  --text-inverse: #282a36;
+
+  /* Accent colors */
+  --accent-primary: #bd93f9;
+  --accent-secondary: #ff79c6;
+  --accent-success: #50fa7b;
+  --accent-warning: #ffb86c;
+  --accent-error: #ff5555;
+  --accent-info: #8be9fd;
+
+  /* Borders */
+  --border-color: #6272a4;
+  --border-subtle: #44475a;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+
+  /* Scrollbar */
+  --scrollbar-track: #343746;
+  --scrollbar-thumb: #6272a4;
+  --scrollbar-thumb-hover: #bd93f9;
+
+  /* Code/Editor */
+  --code-bg: #282a36;
+  --code-border: #44475a;
+  --code-text: #f8f8f2;
+  --code-keyword: #ff79c6;
+  --code-string: #f1fa8c;
+  --code-comment: #6272a4;
+  --code-number: #bd93f9;
+  --code-function: #50fa7b;
+
+  /* Mermaid */
+  --mermaid-theme: dark;
+  --mermaid-bg: #282a36;
+  --mermaid-node-bg: #44475a;
+  --mermaid-node-border: #bd93f9;
+  --mermaid-line-color: #f8f8f2;
+  --mermaid-text-color: #f8f8f2;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Theme: Nord
+   ═══════════════════════════════════════════════════════════════ */
+[data-theme="nord"] {
+  /* Backgrounds */
+  --bg-primary: #2e3440;
+  --bg-secondary: #3b4252;
+  --bg-tertiary: #434c5e;
+  --bg-hover: #4c566a;
+  --bg-active: #5e6779;
+
+  /* Text */
+  --text-primary: #eceff4;
+  --text-secondary: #d8dee9;
+  --text-muted: #7b88a1;
+  --text-inverse: #2e3440;
+
+  /* Accent colors */
+  --accent-primary: #88c0d0;
+  --accent-secondary: #b48ead;
+  --accent-success: #a3be8c;
+  --accent-warning: #ebcb8b;
+  --accent-error: #bf616a;
+  --accent-info: #81a1c1;
+
+  /* Borders */
+  --border-color: #4c566a;
+  --border-subtle: #3b4252;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+
+  /* Scrollbar */
+  --scrollbar-track: #3b4252;
+  --scrollbar-thumb: #4c566a;
+  --scrollbar-thumb-hover: #5e6779;
+
+  /* Code/Editor */
+  --code-bg: #2e3440;
+  --code-border: #3b4252;
+  --code-text: #eceff4;
+  --code-keyword: #81a1c1;
+  --code-string: #a3be8c;
+  --code-comment: #616e88;
+  --code-number: #b48ead;
+  --code-function: #88c0d0;
+
+  /* Mermaid */
+  --mermaid-theme: dark;
+  --mermaid-bg: #2e3440;
+  --mermaid-node-bg: #3b4252;
+  --mermaid-node-border: #88c0d0;
+  --mermaid-line-color: #d8dee9;
+  --mermaid-text-color: #eceff4;
+}

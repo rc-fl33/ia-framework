@@ -1,0 +1,19 @@
+{
+  "$schema": "Parallel Task Manifest - tracks coordinated background subagent execution",
+  "id": "parallel-YYYYMMDD-HHMMSS",
+  "created_at": "ISO timestamp",
+  "user_request": "Original user prompt that triggered parallel execution",
+  "tasks": [
+    {
+      "task_id": "task-1",
+      "agent": "security|writer|advisor|legal",
+      "skill": "specific-skill-name",
+      "description": "Task description",
+      "output_path": "sessions/parallel-{id}-task-1.md",
+      "status": "pending|in_progress|complete|failed",
+      "agent_task_id": "Task tool ID for TaskOutput retrieval"
+    }
+  ],
+  "status": "in_progress|complete|partial",
+  "completed_at": "ISO timestamp when all tasks finish"
+}

@@ -1,0 +1,1 @@
+../tools/model-ranker/commands/model-ranker.md

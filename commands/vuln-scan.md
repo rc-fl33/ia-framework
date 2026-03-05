@@ -1,0 +1,1 @@
+../skills/vuln-scan/commands/vuln-scan.md

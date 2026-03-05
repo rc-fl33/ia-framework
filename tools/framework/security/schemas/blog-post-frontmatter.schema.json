@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://intelligenceadjacent.com/schemas/blog-post-frontmatter.schema.json",
+  "title": "IA Framework Blog Post Frontmatter",
+  "description": "JSON Schema for validating blog post frontmatter in Ghost CMS workflow",
+  "type": "object",
+  "required": [
+    "title",
+    "slug",
+    "excerpt",
+    "status",
+    "visibility",
+    "tags",
+    "category"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Post title (appears as H1 in Ghost)",
+      "minLength": 10,
+      "maxLength": 150
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-safe slug for the post",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "SEO meta description (150-160 characters recommended)",
+      "minLength": 50,
+      "maxLength": 200
+    },
+    "status": {
+      "type": "string",
+      "description": "Publication status in Ghost CMS",
+      "enum": [
+        "draft",
+        "published",
+        "scheduled"
+      ]
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Post visibility tier (public = everyone, members = free subscribers, paid = paid members)",
+      "enum": [
+        "public",
+        "members",
+        "paid"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Categorization tags (MUST be lowercase-with-hyphens)",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+        "minLength": 2,
+        "maxLength": 50
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary content category",
+      "enum": [
+        "framework",
+        "security",
+        "research",
+        "tools",
+        "infrastructure",
+        "commentary",
+        "announcement",
+        "implementation"
+      ]
+    },
+    "visibility_override": {
+      "type": "boolean",
+      "description": "Manual override of automatic visibility classification (optional)"
+    },
+    "visibility_reason": {
+      "type": "string",
+      "description": "Explanation for visibility override (required if visibility_override is true)",
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "published_at": {
+      "type": "string",
+      "description": "Scheduled publish date/time in ISO 8601 format (optional)",
+      "format": "date-time"
+    },
+    "feature_image": {
+      "type": "string",
+      "description": "URL or path to hero image (optional)",
+      "format": "uri-reference"
+    },
+    "featured": {
+      "type": "boolean",
+      "description": "Whether to feature this post on the homepage (optional)"
+    },
+    "legal_review": {
+      "type": "boolean",
+      "description": "Whether this post requires legal compliance review (optional)"
+    },
+    "authors": {
+      "type": "array",
+      "description": "Post authors (optional)",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 100
+      }
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "visibility_override": {
+        "const": true
+      }
+    },
+    "required": ["visibility_override"]
+  },
+  "then": {
+    "required": ["visibility_reason"]
+  }
+}

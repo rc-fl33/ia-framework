@@ -1,0 +1,232 @@
+{
+  "version": "1.0.0",
+  "description": "Detection rules for bash tool misuse in framework code",
+  "rules": [
+    {
+      "id": "BASH-001",
+      "name": "execSync with find",
+      "priority": "critical",
+      "pattern": "execSync\\s*\\(['\"`].*\\bfind\\b.*['\"`]",
+      "message": "Use Glob tool instead of execSync(find)",
+      "tokenCost": 1000,
+      "securityImpact": "performance",
+      "replacement": {
+        "tool": "Glob",
+        "example": "import { Glob } from 'bun';\nconst glob = new Glob(pattern);\nfor await (const file of glob.scan({ cwd })) { ... }"
+      },
+      "examples": [
+        "execSync(`find . -name \"*.ts\"`)",
+        "execSync('find . -type f -name \"*.js\"')"
+      ]
+    },
+    {
+      "id": "BASH-002",
+      "name": "execSync with grep pipe",
+      "priority": "high",
+      "pattern": "execSync\\s*\\(['\"`].*\\bgrep\\b.*\\|.*['\"`]",
+      "message": "Use Grep tool instead of execSync with grep pipes",
+      "tokenCost": 800,
+      "securityImpact": "performance",
+      "replacement": {
+        "tool": "Grep",
+        "example": "import { execSync } from 'child_process';\nconst result = execSync('command').toString();\nconst filtered = result.split('\\n').filter(line => /pattern/.test(line));"
+      },
+      "examples": [
+        "execSync(`find . -name \"*.ts\" | grep test`)",
+        "execSync('cat file.txt | grep error')"
+      ]
+    },
+    {
+      "id": "BASH-003",
+      "name": "execSync with cat",
+      "priority": "high",
+      "pattern": "execSync\\s*\\(['\"`].*\\bcat\\b.*['\"`]",
+      "message": "Use Read tool instead of execSync(cat)",
+      "tokenCost": 500,
+      "securityImpact": "performance",
+      "replacement": {
+        "tool": "Read",
+        "example": "import { readFileSync } from 'fs';\nconst content = readFileSync(filePath, 'utf-8');"
+      },
+      "examples": [
+        "execSync(`cat ${filePath}`)",
+        "execSync('cat file.txt')"
+      ]
+    },
+    {
+      "id": "SEC-001",
+      "name": "Unescaped variable interpolation in shell",
+      "priority": "critical",
+      "pattern": "execSync\\s*\\(`[^`]*\\$\\{[^}]+\\}[^`]*`",
+      "message": "SECURITY RISK: Unescaped variable in shell command - use input validation",
+      "tokenCost": 0,
+      "securityImpact": "command-injection",
+      "replacement": {
+        "technique": "Input validation + sanitization",
+        "example": "// Validate input format before interpolation\nif (!/^[a-zA-Z0-9.\\-+]+$/.test(input)) return;\nconst cmd = `dpkg -s ${input}`;"
+      },
+      "examples": [
+        "execSync(`dpkg -s ${packageName}`)",
+        "execSync(`rm -rf ${directory}`)"
+      ]
+    },
+    {
+      "id": "SEC-002",
+      "name": "Pipe to grep with user input",
+      "priority": "high",
+      "pattern": "execSync\\s*\\(`[^`]*|\\s*grep\\s+['\"]?\\$\\{[^}]+\\}",
+      "message": "Potential injection through grep pattern - validate input first",
+      "tokenCost": 0,
+      "securityImpact": "command-injection",
+      "replacement": {
+        "technique": "Input validation before shell execution",
+        "example": "// Validate input before using in command\nconst safePattern = input.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');"
+      },
+      "examples": [
+        "execSync(`cat file | grep \"${searchTerm}\"`)",
+        "execSync(`find . | grep ${pattern}`)"
+      ]
+    },
+    {
+      "id": "PERF-001",
+      "name": "Sequential execSync calls in loop",
+      "priority": "medium",
+      "pattern": "for\\s*\\([^)]*\\)\\s*\\{[^}]*execSync",
+      "message": "Consider parallelizing or batching execSync calls",
+      "tokenCost": 1500,
+      "securityImpact": "performance",
+      "replacement": {
+        "technique": "Use Promise.all or batch operations",
+        "example": "const results = await Promise.all(items.map(item => runAsync(item)));"
+      },
+      "examples": [
+        "for (const file of files) { execSync(`process ${file}`); }"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "BATCH-6-PHASE-1",
+      "type": "batch-complete",
+      "files": [
+        "./tools/setup/system-deps-checker.ts:78",
+        "./tools/setup/system-deps-checker.ts:208",
+        "./tools/framework/cleanup/auto-cleanup.ts"
+      ],
+      "reason": "Fixed in Batch 6 Phase 1 - input validation + Glob integration",
+      "timestamp": "2026-02-08T08:40:00Z",
+      "resolvedRules": [
+        "BASH-001",
+        "SEC-001",
+        "SEC-002"
+      ],
+      "notes": "Line 78: packageName validated before interpolation (regex pattern check). Line 208: packages array is constructed from validated names only, created in phase 1 fix."
+    },
+    {
+      "id": "BATCH-6-HOOKS-FIX",
+      "type": "input-validation",
+      "files": [
+        "./hooks/pre-commit/08-validate-docs-public.ts",
+        "./hooks/pre-commit/11-bash-tool-quick-scan.ts",
+        "./hooks/pre-push/03-bash-tool-full-audit.ts"
+      ],
+      "reason": "Fixed in Batch 6 Remediation Phase 1 - input validation added for all variables",
+      "timestamp": "2026-02-08T19:45:00Z",
+      "resolvedRules": [
+        "SEC-001",
+        "SEC-002"
+      ],
+      "notes": "All file paths and variables are validated with regex before shell interpolation. Variables are derived from safe sources (git output, path.join() results) but validation added for defense in depth."
+    },
+    {
+      "id": "BATCH-6-PHASE-2",
+      "type": "execFileSync-migration",
+      "files": [
+        "./tools/ingestion/framework-ingester.ts",
+        "./tools/validation/pre-commit-orchestrator.ts",
+        "./tools/setup/bun-installer.ts",
+        "./tools/setup/install-framework.ts",
+        "./tools/setup/wsl-configurator.ts"
+      ],
+      "reason": "Fixed in Batch 6 Phase 2 - migrated from execSync to execFileSync (no shell interpolation)",
+      "timestamp": "2026-02-08T21:00:00Z",
+      "resolvedRules": [
+        "SEC-001",
+        "SEC-002"
+      ],
+      "notes": "All execSync calls with variable interpolation replaced with execFileSync array args. No shell involved, eliminates injection surface entirely."
+    },
+    {
+      "id": "PERF-001-PLATFORM-DETECTOR",
+      "type": "intentional",
+      "files": [
+        "./tools/setup/platform-detector.ts:89"
+      ],
+      "reason": "Loop is necessary - detecting first available package manager requires sequential probing",
+      "timestamp": "2026-02-08T21:00:00Z",
+      "resolvedRules": [
+        "PERF-001"
+      ],
+      "notes": "Cannot batch or parallelize - need to detect first available manager and return immediately. Loop exits on first match."
+    },
+    {
+      "id": "BATCH-6-PHASE-3-SEC",
+      "type": "execFileSync-migration",
+      "files": [
+        "./tools/git/scripts/push/index.ts",
+        "./tools/git/scripts/pull/index.ts",
+        "./tools/git/scripts/public/index.ts",
+        "./tools/git/scripts/setup.ts",
+        "./skills/x-engagement/scripts/monitor-tweet-replies.ts",
+        "./skills/x-engagement/scripts/monitor-tweet-replies-enhanced.ts",
+        "./tools/pentest/session-manager.ts",
+        "./skills/ghost/hooks/pre-commit/10-validate-ghost-approvals.ts",
+        "./skills/ghost/scripts/batch-regenerate-heroes.ts",
+        "./skills/ghost/scripts/content-quality-review-v2.ts"
+      ],
+      "reason": "Fixed in Batch 6 Phase 3 - migrated from execSync to execFileSync across /skills",
+      "timestamp": "2026-02-08T01:58:00Z",
+      "resolvedRules": [
+        "SEC-001",
+        "SEC-002"
+      ],
+      "notes": "31 violations fixed. All execSync calls with variable interpolation replaced with execFileSync array args. Shell cd+cmd chains replaced with cwd option. Manual quote escaping removed."
+    },
+    {
+      "id": "PERF-001-SETUP-SCRIPTS",
+      "type": "intentional",
+      "files": [
+        "./tools/pentest/setup.ts:96",
+        "./skills/x-engagement/scripts/setup.ts:113"
+      ],
+      "reason": "Dependency installation loops must be sequential - each install may modify system state needed by the next",
+      "timestamp": "2026-02-08T01:58:00Z",
+      "resolvedRules": [
+        "PERF-001"
+      ],
+      "notes": "Package manager installs (apt/brew) cannot be safely parallelized. Sequential execution ensures proper dependency resolution and avoids lock conflicts."
+    }
+  ],
+  "fileTypeRules": {
+    "hooks": {
+      "priority": "critical",
+      "tolerance": 0,
+      "reason": "Hooks must be highly efficient - critical path code"
+    },
+    "skills": {
+      "priority": "high",
+      "tolerance": 0,
+      "reason": "Skills are user-facing - security and performance critical"
+    },
+    "tools": {
+      "priority": "high",
+      "tolerance": 1,
+      "reason": "Tools support infrastructure - allow one minor issue if documented"
+    },
+    "agents": {
+      "priority": "medium",
+      "tolerance": 1,
+      "reason": "Agents support user orchestration"
+    }
+  }
+}

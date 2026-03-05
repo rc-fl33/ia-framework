@@ -1,0 +1,10 @@
+# Root Cause Analysis
+
+## Technical Root Cause
+
+[Root cause description]
+
+## Contributing Factors
+
+- [Factor 1]
+- [Factor 2]

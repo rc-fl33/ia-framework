@@ -1,0 +1,402 @@
+# Java Vulnerability Patterns
+# Pattern ID format: JAVA-{CWE}-{NUM}
+# Reference: OWASP ASVS v5, CWE Top 25, SEI CERT Oracle Secure Coding Standard for Java
+
+patterns:
+  # XML External Entity (CWE-611)
+  - id: JAVA-611-001
+    cwe: 611
+    category: XXE
+    severity: CRITICAL
+    owasp_asvs: V5.5.2
+    description: Unsafe XML parsing with external entities enabled
+
+    vulnerable_pattern: |
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(userInput);
+
+    secure_pattern: |
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      // Disable external entities
+      factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+      factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+      factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+      factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+      factory.setXIncludeAware(false);
+      factory.setExpandEntityReferences(false);
+
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(userInput);
+
+  - id: JAVA-611-002
+    cwe: 611
+    category: XXE
+    severity: CRITICAL
+    owasp_asvs: V5.5.2
+    description: Unsafe JAXB unmarshalling
+
+    vulnerable_pattern: |
+      JAXBContext context = JAXBContext.newInstance(User.class);
+      Unmarshaller unmarshaller = context.createUnmarshaller();
+      User user = (User) unmarshaller.unmarshal(new StringReader(xml));
+
+    secure_pattern: |
+      JAXBContext context = JAXBContext.newInstance(User.class);
+      Unmarshaller unmarshaller = context.createUnmarshaller();
+
+      // Secure SAX parser
+      SAXParserFactory spf = SAXParserFactory.newInstance();
+      spf.setFeature("http://xml.org/sax/features/external-general-entities", false);
+      spf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+      spf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+
+      XMLReader reader = spf.newSAXParser().getXMLReader();
+      SAXSource source = new SAXSource(reader, new InputSource(new StringReader(xml)));
+
+      User user = (User) unmarshaller.unmarshal(source);
+
+  # Insecure Deserialization (CWE-502)
+  - id: JAVA-502-001
+    cwe: 502
+    category: Insecure Deserialization
+    severity: CRITICAL
+    owasp_asvs: V5.5.3
+    description: Unsafe ObjectInputStream usage
+
+    vulnerable_pattern: |
+      ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+      Object obj = ois.readObject();
+
+    secure_pattern: |
+      // Use whitelisting with ObjectInputFilter (Java 9+)
+      ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+      ois.setObjectInputFilter(info -> {
+          if (info.serialClass() != null) {
+              // Whitelist allowed classes
+              if (info.serialClass() == User.class ||
+                  info.serialClass() == String.class) {
+                  return ObjectInputFilter.Status.ALLOWED;
+              }
+              return ObjectInputFilter.Status.REJECTED;
+          }
+          return ObjectInputFilter.Status.UNDECIDED;
+      });
+      Object obj = ois.readObject();
+
+      // Better: use JSON instead
+      ObjectMapper mapper = new ObjectMapper();
+      User user = mapper.readValue(jsonString, User.class);
+
+  # SQL Injection (CWE-89)
+  - id: JAVA-89-001
+    cwe: 89
+    category: SQL Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.4
+    description: String concatenation in SQL queries
+
+    vulnerable_pattern: |
+      String query = "SELECT * FROM users WHERE id = " + userId;
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery(query);
+
+    secure_pattern: |
+      String query = "SELECT * FROM users WHERE id = ?";
+      PreparedStatement pstmt = conn.prepareStatement(query);
+      pstmt.setInt(1, userId);
+      ResultSet rs = pstmt.executeQuery();
+
+  - id: JAVA-89-002
+    cwe: 89
+    category: SQL Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.4
+    description: Unsafe Spring JDBC query
+
+    vulnerable_pattern: |
+      String query = "SELECT * FROM users WHERE username = '" + username + "'";
+      List<User> users = jdbcTemplate.query(query, new UserRowMapper());
+
+    secure_pattern: |
+      String query = "SELECT * FROM users WHERE username = ?";
+      List<User> users = jdbcTemplate.query(query, new UserRowMapper(), username);
+
+  # LDAP Injection (CWE-90)
+  - id: JAVA-90-001
+    cwe: 90
+    category: LDAP Injection
+    severity: HIGH
+    owasp_asvs: V5.3.4
+    description: Unsafe LDAP query construction
+
+    vulnerable_pattern: |
+      String filter = "(uid=" + username + ")";
+      NamingEnumeration<SearchResult> results = ctx.search("ou=users", filter, null);
+
+    secure_pattern: |
+      // Escape special LDAP characters
+      String escapedUsername = escapeL DAPSearchFilter(username);
+      String filter = "(uid=" + escapedUsername + ")";
+      NamingEnumeration<SearchResult> results = ctx.search("ou=users", filter, null);
+
+      // Or use parameterized LDAP queries with Spring LDAP
+      LdapQuery query = LdapQueryBuilder.query()
+          .where("uid").is(username);
+      List<User> users = ldapTemplate.search(query, new UserAttributesMapper());
+
+  # Path Traversal (CWE-22)
+  - id: JAVA-22-001
+    cwe: 22
+    category: Path Traversal
+    severity: HIGH
+    owasp_asvs: V5.3.2
+    description: Unsafe file path construction
+
+    vulnerable_pattern: |
+      File file = new File("/uploads/" + filename);
+      FileInputStream fis = new FileInputStream(file);
+
+    secure_pattern: |
+      File baseDir = new File("/uploads").getCanonicalFile();
+      File file = new File(baseDir, filename).getCanonicalFile();
+
+      // Ensure file is within base directory
+      if (!file.getPath().startsWith(baseDir.getPath())) {
+          throw new SecurityException("Path traversal attempt detected");
+      }
+
+      FileInputStream fis = new FileInputStream(file);
+
+  # Command Injection (CWE-78)
+  - id: JAVA-78-001
+    cwe: 78
+    category: OS Command Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.8
+    description: Unsafe Runtime.exec usage
+
+    vulnerable_pattern: |
+      String command = "ls " + directory;
+      Process process = Runtime.getRuntime().exec(command);
+
+    secure_pattern: |
+      // Use array form of exec
+      String[] command = {"ls", directory};
+      Process process = Runtime.getRuntime().exec(command);
+
+      // Better: use ProcessBuilder
+      ProcessBuilder pb = new ProcessBuilder("ls", directory);
+      Process process = pb.start();
+
+  # Server-Side Request Forgery (CWE-918)
+  - id: JAVA-918-001
+    cwe: 918
+    category: SSRF
+    severity: HIGH
+    owasp_asvs: V5.3.11
+    description: Unvalidated URL fetching
+
+    vulnerable_pattern: |
+      URL url = new URL(userInput);
+      URLConnection conn = url.openConnection();
+      InputStream is = conn.getInputStream();
+
+    secure_pattern: |
+      URL url = new URL(userInput);
+
+      // Validate protocol
+      if (!"https".equals(url.getProtocol()) && !"http".equals(url.getProtocol())) {
+          throw new SecurityException("Invalid protocol");
+      }
+
+      // Validate hostname
+      String[] allowedHosts = {"api.example.com"};
+      if (!Arrays.asList(allowedHosts).contains(url.getHost())) {
+          throw new SecurityException("Host not allowed");
+      }
+
+      URLConnection conn = url.openConnection();
+      conn.setConnectTimeout(5000);
+      conn.setReadTimeout(5000);
+      InputStream is = conn.getInputStream();
+
+  # Log Injection (CWE-117)
+  - id: JAVA-117-001
+    cwe: 117
+    category: Log Injection
+    severity: MEDIUM
+    owasp_asvs: V7.3.2
+    description: Unsanitized user input in logs
+
+    vulnerable_pattern: |
+      logger.info("User logged in: " + username);
+
+    secure_pattern: |
+      // Use parameterized logging
+      logger.info("User logged in: {}", username);
+
+      // Or sanitize user input
+      String sanitized = username.replaceAll("[\n\r]", "_");
+      logger.info("User logged in: " + sanitized);
+
+  # Hardcoded Credentials (CWE-798)
+  - id: JAVA-798-001
+    cwe: 798
+    category: Hardcoded Credentials
+    severity: CRITICAL
+    owasp_asvs: V2.10.1
+    description: Hardcoded passwords or keys
+
+    vulnerable_pattern: |
+      String dbPassword = "SuperSecret123!";
+      String apiKey = "sk-1234567890abcdef";
+
+      Properties props = new Properties();
+      props.put("password", "hardcoded_password");
+
+    secure_pattern: |
+      // Use environment variables
+      String dbPassword = System.getenv("DB_PASSWORD");
+      String apiKey = System.getenv("API_KEY");
+
+      // Or use Spring @Value
+      @Value("${db.password}")
+      private String dbPassword;
+
+  # Weak Cryptography (CWE-327)
+  - id: JAVA-327-001
+    cwe: 327
+    category: Weak Cryptography
+    severity: HIGH
+    owasp_asvs: V6.2.1
+    description: Using MD5 or SHA1 for passwords
+
+    vulnerable_pattern: |
+      MessageDigest md = MessageDigest.getInstance("MD5");
+      byte[] hash = md.digest(password.getBytes());
+
+    secure_pattern: |
+      // Use bcrypt or PBKDF2
+      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+      String hashedPassword = encoder.encode(password);
+
+  - id: JAVA-327-002
+    cwe: 327
+    category: Weak Cryptography
+    severity: HIGH
+    owasp_asvs: V6.2.2
+    description: Using ECB mode for encryption
+
+    vulnerable_pattern: |
+      Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+      cipher.init(Cipher.ENCRYPT_MODE, key);
+
+    secure_pattern: |
+      // Use GCM mode
+      Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+      GCMParameterSpec spec = new GCMParameterSpec(128, iv);
+      cipher.init(Cipher.ENCRYPT_MODE, key, spec);
+
+  # Insecure Random (CWE-330)
+  - id: JAVA-330-001
+    cwe: 330
+    category: Weak Random
+    severity: MEDIUM
+    owasp_asvs: V6.3.1
+    description: Using java.util.Random for security
+
+    vulnerable_pattern: |
+      Random random = new Random();
+      String token = String.valueOf(random.nextInt());
+
+    secure_pattern: |
+      SecureRandom random = new SecureRandom();
+      byte[] token = new byte[32];
+      random.nextBytes(token);
+      String tokenString = Base64.getEncoder().encodeToString(token);
+
+  # Missing Authorization (CWE-862)
+  - id: JAVA-862-001
+    cwe: 862
+    category: Missing Authorization
+    severity: HIGH
+    owasp_asvs: V4.1.2
+    description: No authorization check on sensitive operations
+
+    vulnerable_pattern: |
+      @DeleteMapping("/users/{id}")
+      public void deleteUser(@PathVariable Long id) {
+          userRepository.deleteById(id);
+      }
+
+    secure_pattern: |
+      @DeleteMapping("/users/{id}")
+      @PreAuthorize("hasRole('ADMIN') or #id == authentication.principal.id")
+      public void deleteUser(@PathVariable Long id, Authentication auth) {
+          userRepository.deleteById(id);
+      }
+
+  # CSRF (CWE-352)
+  - id: JAVA-352-001
+    cwe: 352
+    category: Cross-Site Request Forgery
+    severity: HIGH
+    owasp_asvs: V4.2.2
+    description: CSRF protection disabled
+
+    vulnerable_pattern: |
+      @Configuration
+      public class SecurityConfig extends WebSecurityConfigurerAdapter {
+          @Override
+          protected void configure(HttpSecurity http) throws Exception {
+              http.csrf().disable(); // WRONG
+          }
+      }
+
+    secure_pattern: |
+      @Configuration
+      public class SecurityConfig extends WebSecurityConfigurerAdapter {
+          @Override
+          protected void configure(HttpSecurity http) throws Exception {
+              http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+          }
+      }
+
+  # Open Redirect (CWE-601)
+  - id: JAVA-601-001
+    cwe: 601
+    category: Open Redirect
+    severity: MEDIUM
+    owasp_asvs: V5.1.5
+    description: Unvalidated redirect
+
+    vulnerable_pattern: |
+      @GetMapping("/redirect")
+      public String redirect(@RequestParam String url) {
+          return "redirect:" + url;
+      }
+
+    secure_pattern: |
+      private static final List<String> ALLOWED_DOMAINS = Arrays.asList(
+          "example.com", "app.example.com"
+      );
+
+      @GetMapping("/redirect")
+      public String redirect(@RequestParam String url) throws MalformedURLException {
+          URL redirectUrl = new URL(url);
+
+          if (ALLOWED_DOMAINS.contains(redirectUrl.getHost())) {
+              return "redirect:" + url;
+          }
+          throw new SecurityException("Invalid redirect URL");
+      }
+
+metadata:
+  total_patterns: 16
+  coverage:
+    owasp_top_10: [A01, A02, A03, A04, A05, A06, A07, A08]
+    cwe_top_25: [22, 78, 79, 89, 90, 117, 200, 327, 330, 352, 502, 601, 611, 798, 862, 918]
+  frameworks_covered: [spring_boot, spring_security, jdbc, jpa]
+  last_updated: "2026-01-18"
+  status: "complete"

@@ -1,0 +1,5098 @@
+framework: cis-aws-storage
+version: "unknown"
+status: draft
+source: "auto-extracted from 001-010.pdf; 011-020.pdf; 021-030.pdf; 031-040.pdf; 041-050.pdf; 051-060.pdf; 061-070.pdf; 071-080.pdf; 081-090.pdf; 091-100.pdf; 101-110.pdf; 111-120.pdf; 121-130.pdf; 131-140.pdf; 141-150.pdf; 151-160.pdf; 161-161.pdf"
+extraction_date: "2026-03-04"
+controls:
+  - id: "1"
+    title: "Introduction"
+    type: clause
+    clause_ref: "1"
+    status: draft
+    content: ""
+  - id: "1.1"
+    title: "AWS Storage Backups (Manual)"
+    type: subclause
+    clause_ref: "1.1"
+    status: draft
+    content: ""
+  - id: "1.2"
+    title: "Ensure securing AWS Backups (Manual)"
+    type: subclause
+    clause_ref: "1.2"
+    status: draft
+    content: ""
+  - id: "1.3"
+    title: "Ensure to create backup template and name (Manual)"
+    type: subclause
+    clause_ref: "1.3"
+    status: draft
+    content: ""
+  - id: "1.4"
+    title: "Ensure to create AWS IAM Policies (Manual)"
+    type: subclause
+    clause_ref: "1.4"
+    status: draft
+    content: ""
+  - id: "1.5"
+    title: "Ensure to create IAM roles for Backup (Manual)"
+    type: subclause
+    clause_ref: "1.5"
+    status: draft
+    content: ""
+  - id: "1.6"
+    title: "Ensure AWS Backup with Service Linked Roles (Manual)"
+    type: subclause
+    clause_ref: "1.6"
+    status: draft
+    content: ""
+  - id: "2"
+    title: "Elastic Block Store (EBS)"
+    type: clause
+    clause_ref: "2"
+    status: draft
+    content: ""
+  - id: "2.1"
+    title: "Ensure creating EC2 instance with EBS (Manual)"
+    type: subclause
+    clause_ref: "2.1"
+    status: draft
+    content: ""
+  - id: "2.2"
+    title: "Ensure configuring Security Groups (Manual)"
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: ""
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage (Manual)"
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume (Manual)"
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes (Manual)"
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: |
+      Page 2
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances (Manual)"
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: ""
+  - id: "2.7"
+    title: "Ensure creating IAM User (Manual)"
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.8"
+    title: "Ensure the Creation of IAM Groups (Manual)"
+    type: subclause
+    clause_ref: "2.8"
+    status: draft
+    content: ""
+  - id: "2.9"
+    title: "Ensure Granular Policy Creation (Manual)"
+    type: subclause
+    clause_ref: "2.9"
+    status: draft
+    content: ""
+  - id: "2.10"
+    title: "Ensure Resource Access via Tag-based Policies (Manual)"
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: ""
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation (Manual)"
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch (Manual)"
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "2.13"
+    title: "Ensure creating an SNS subscription (Manual)"
+    type: subclause
+    clause_ref: "2.13"
+    status: draft
+    content: ""
+  - id: "3"
+    title: "Elastic File System (EFS)"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS (Manual)"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS (Manual)"
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration (Manual)"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      Audit Procedures for AWS Redundancy and Scalability........................................................ 63
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services (Manual)"
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: ""
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC (Manual)"
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports (Manual)"
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets (Manual)"
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups (Manual)"
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS (Manual)"
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points (Manual)"
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies (Manual)"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster Recovery (Manual)"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: ""
+  - id: "4"
+    title: "FSx"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: ""
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache) (Manual)"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache (Manual)"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket (Manual)"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.4"
+    title: "Ensure the creation of Elastic File Cache (Manual)"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client (Manual)"
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre (Manual)"
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.7"
+    title: "Ensure mounting FSx cache (Manual)"
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: ""
+  - id: "4.8"
+    title: "Ensure exporting cache to S3 (Manual)"
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: ""
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources (Manual)"
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5"
+    title: "Simple Storage Service (S3)"
+    type: clause
+    clause_ref: "5"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service (Manual)"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3 (Manual)"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured (Manual)"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6"
+    title: "Elastic Disaster Recovery (EDR)"
+    type: clause
+    clause_ref: "6"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured (Manual)"
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration (Manual)"
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and Response (EDR) (Manual)"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: ""
+  - id: "6.4"
+    title: "Ensure configuration of replication settings (Manual)"
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic Disaster Recovery (Manual)"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: ""
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent (Manual)"
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: ""
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings (Manual)"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: ""
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill (Manual)"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations (Manual)"
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover (Manual)"
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback (Manual)"
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: ""
+  - id: "6.12"
+    title: "Ensure CloudWatch Metrics for AWS EDR (Manual)"
+    type: subclause
+    clause_ref: "6.12"
+    status: draft
+    content: ""
+  - id: "6.13"
+    title: "Ensure working of EDR (Manual)"
+    type: subclause
+    clause_ref: "6.13"
+    status: draft
+    content: |
+      Appendix: Summary Table ....................................................................................... 142
+      Appendix: CIS Controls v7 IG 1 Mapped Recommendations ................................ 146
+      Page 3
+      Appendix: CIS Controls v7 IG 2 Mapped Recommendations ................................ 148
+      Appendix: CIS Controls v7 IG 3 Mapped Recommendations ................................ 150
+      Appendix: CIS Controls v7 Unmapped Recommendations ................................... 152
+      Appendix:...
+  - id: "1"
+    title: "Introduction"
+    type: clause
+    clause_ref: "1"
+    status: draft
+    content: |
+      Benchmark Approach:
+      The suggested approach for securing your cloud environment is to start with the CIS
+      Amazon Web Services Foundations Benchmark found here:
+      https://www.cisecurity.org/benchmark/amazon_web_services/. The CIS Foundations
+      benchmark provides prescriptive guidance for configuring a subset of Amazon Web
+      Services with an emphasis on foundational, testable, and architecture agnostic settings
+      including:
+      • AWS Identity and Access Management (IAM)
+      • AWS Config
+      • AWS CloudTrail
+      • AWS...
+  - id: "1.1"
+    title: "AWS Storage Backups (Manual)"
+    type: subclause
+    clause_ref: "1.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      AWS Storage Backups is a managed AWS Service that establishes high resiliency to
+      your cloud resources. AWS Storage Backups are like making extra copies of your
+      important stuff on Amazon's computers. It is an excellent strategy to ensure that the
+      data and resources you use remain available in the event of unrecoverable damage or
+      loss to your resources.
+      Rationale:
+      AWS Backups enable you to back up and restore all data lost during the attack,While
+      AWS...
+  - id: "1.2"
+    title: "Ensure securing AWS Backups (Manual)"
+    type: subclause
+    clause_ref: "1.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      As an AWS administrator, it's important to know what you're responsible for. You're
+      responsible for keeping things safe in the cloud, which means taking care of the
+      resources and data on AWS. Here's what you need to secure, according to AWS
+      documentation:
+      1. Responsible for alert communication with AWS.
+      2. Managing access credentials for AWS resources.
+      3. Configuring backup plans according to organization policies.
+      4. Ensuring backup recovery...
+  - id: "1.3"
+    title: "Ensure to create backup template and name (Manual)"
+    type: subclause
+    clause_ref: "1.3"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      To create a backup plan, select a template and specify a name for the plan.
+      Additionally, define backup rules according to your requirements and then click on
+      create backup option.
+      Rationale:
+      Audit:
+      Backup Resources:
+      Once you've made your backup plan, it's time to put it into action and start backing up
+      your stuff.
+      Let's start by backing up an S3 storage bucket.
+      To back up Elastic Beanstalk instance stored on AWS S3, we'll need to tag its...
+  - id: "1.4"
+    title: "Ensure to create AWS IAM Policies (Manual)"
+    type: subclause
+    clause_ref: "1.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      AWS IAM policies, specify the desired permissions for accessing AWS resources and
+      define the conditions under which those permissions are granted. Configure the
+      appropriate policies to keep your resources secure.
+      Rationale:
+      Managing AWS IAM policies is crucial to safeguard your backups from unauthorized
+      access, ensuring that only approved users can manipulate or view sensitive data.
+      Audit:
+      To create a role for AWS Backup, follow these steps:
+      1....
+  - id: "1.5"
+    title: "Ensure to create IAM roles for Backup (Manual)"
+    type: subclause
+    clause_ref: "1.5"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      An AWS Identity and Access Management (IAM) role is similar to a user, in that it is an
+      AWS identity with permissions policies that determine what the identity can and cannot
+      do in AWS. However, instead of being uniquely associated with one person, a role is
+      intended to be assumable by anyone who needs it.
+      Rationale:
+      While Service Linked Roles offer quick deployment, using default configurations isn't
+      recommended for security best...
+  - id: "1.6"
+    title: "Ensure AWS Backup with Service Linked Roles (Manual)"
+    type: subclause
+    clause_ref: "1.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      AWS Service Linked Roles are IAM roles designed specifically for AWS Backup. These
+      roles come with default configurations allowing access to all AWS resources by default.
+      Rationale:
+      While Service Linked Roles offer quick deployment, using default configurations isn't
+      recommended for security best practices.
+      Audit:
+      Create service-linked role for AWS Backup:
+      You don't need to create a service-linked role manually. AWS Backup automatically
+      creates it...
+  - id: "2"
+    title: "Elastic Block Store (EBS)"
+    type: clause
+    clause_ref: "2"
+    status: draft
+    content: |
+      Amazon EBS is a block level file storage system that runs on EC2. EBS can be used as
+      a hard drive that’s mounted on an EC2 instance (virtual machine). EBS can store data
+      as a standalone apart from EC2. This means that data can persist to the block storage
+      service while an EC2 instance is offline. Out of the box EBS functions as an
+      unformatted file system that needs to be configured and mounted on top of an EC2
+      instance. EBS can be used as both a storage and boot drive; for the purposes of...
+  - id: "2.1"
+    title: "Ensure creating EC2 instance with EBS (Manual)"
+    type: subclause
+    clause_ref: "2.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      EBS are storage volumes that you attach to Amazon EC2 instances. After you attach a
+      volume to an instance, you can use it in the same way you would use a local hard drive
+      attached to a computer, for example to store files or to install applications.
+      Rationale:
+      Audit:
+      Creating EC2 instance with Volume:-
+      To create an EC2 instance with a volume in AWS, you can follow these general steps:
+      1. Initializing a Secure EC2 Instance:
+      Navigate to the EC2...
+  - id: "3.11"
+    title: "Encrypt Sensitive Data at Rest"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Encrypt sensitive data at rest on servers, applications, and databases containing
+      sensitive data. Storage-layer encryption, also known as server-side encryption,
+      v8
+      meets the minimum requirement of this Safeguard. Additional encryption methods
+      ● ●
+      may include application-layer encryption, also known as client-side encryption,
+      where access to the data storage device(s) does not permit access to the plain-text
+      data.
+  - id: "14.8"
+    title: "Encrypt Sensitive Information at Rest"
+    type: subclause
+    clause_ref: "14.8"
+    status: draft
+    content: |
+      v7 Encrypt all sensitive information at rest using a tool that requires a secondary ●
+      authentication mechanism not integrated into the operating system, in order to
+      access the information.
+      Page 23
+  - id: "2.2"
+    title: "Ensure configuring Security Groups (Manual)"
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Security groups are your first line of defense for the EC2 instance. A security group is a
+      firewall that controls inbound and outbound traffic.
+      Rationale:
+      Security groups play a critical role in maintaining the security of your AWS resources. It
+      is advisable to restrict traffic to only what is necessary for accessing your instance,
+      thereby minimizing potential security risks.
+      Audit:
+      Open traffic for SSH, HTTP, and HTTPS. Make sure to allow traffic...
+  - id: "12.3"
+    title: "Securely Manage Network Infrastructure"
+    type: subclause
+    clause_ref: "12.3"
+    status: draft
+    content: |
+      v8 Securely manage network infrastructure. Example implementations include ● ●
+      version-controlled-infrastructure-as-code, and the use of secure network
+      protocols, such as SSH and HTTPS.
+  - id: "9.2"
+    title: "Ensure Only Approved Ports, Protocols and Services"
+    type: subclause
+    clause_ref: "9.2"
+    status: draft
+    content: |
+      v7 Are Running ● ●
+      Ensure that only network ports, protocols, and services listening on a system
+      with validated business needs, are running on each system.
+      Page 24
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage (Manual)"
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      All computer instances need to have a device on which to store files. EBS is built on top
+      of EC2 instances as a block storage device.
+      Rationale:
+      Remember that we are working with cloud computing. Rather than purchasing and
+      manually installing disk drives on a server, AWS allows you to virtually add storage
+      using Elastic Block Store (EBS).
+      Impact:
+      Failure to properly configure EBS storage can lead to data loss, performance issues,
+      increased costs,...
+  - id: "4.2"
+    title: "Establish and Maintain a Secure Configuration"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Process for Network Infrastructure
+      v8
+      Establish and maintain a secure configuration process for network devices.
+      ● ● ●
+      Review and update documentation annually, or when significant enterprise
+      changes occur that could impact this Safeguard.
+  - id: "11.1"
+    title: "Maintain Standard Security Configurations for"
+    type: subclause
+    clause_ref: "11.1"
+    status: draft
+    content: |
+      v7 Network Devices ● ●
+      Maintain standard, documented security configuration standards for all
+      authorized network devices.
+      Page 26
+  - id: "2.4"
+    title: "Ensure the creation of a new volume (Manual)"
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Leave the root volume unchanged and create a new volume. To ensure the security of
+      the instance and prevent data loss, select "no" under the "delete on termination" option
+      and encrypt your volume using AWS KMS. A default key is available for encrypting the
+      volume.
+      Rationale:
+      By leaving the root volume unchanged and creating a new volume, you separate critical
+      data from the operating system. Selecting "no" for the "delete on termination"...
+  - id: "4.2"
+    title: "Establish and Maintain a Secure Configuration"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Process for Network Infrastructure
+      v8
+      Establish and maintain a secure configuration process for network devices.
+      ● ● ●
+      Review and update documentation annually, or when significant enterprise
+      changes occur that could impact this Safeguard.
+  - id: "11.1"
+    title: "Maintain Standard Security Configurations for"
+    type: subclause
+    clause_ref: "11.1"
+    status: draft
+    content: |
+      v7 Network Devices ● ●
+      Maintain standard, documented security configuration standards for all
+      authorized network devices.
+      Page 29
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes (Manual)"
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      A snapshot is a backup of your EBS volume that captures its state at a specific point in
+      time, storing only the data changes since the last snapshot to optimize storage costs
+      and speed. Snapshots are crucial for data recovery, creating new EBS volumes, and
+      replicating data across AWS regions for disaster recovery and high availability.
+      Restoring from a snapshot allows you to create a new EBS volume and attach it to an
+      EC2 instance in the same...
+  - id: "11.1"
+    title: "Establish and Maintain a Data Recovery Process"
+    type: subclause
+    clause_ref: "11.1"
+    status: draft
+    content: |
+      Establish and maintain a data recovery process. In the process, address the
+      v8
+      scope of data recovery activities, recovery prioritization, and the security of backup
+      ● ● ●
+      data. Review and update documentation annually, or when significant enterprise
+      changes occur that could impact this Safeguard.
+  - id: "10.1"
+    title: "Ensure Regular Automated Back Ups"
+    type: subclause
+    clause_ref: "10.1"
+    status: draft
+    content: |
+      v7 ● ● ●
+      Ensure that all system data is automatically backed up on regular basis.
+      Page 32
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances (Manual)"
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      IAM, or Identity and Access Management, is a vital security service used to control and
+      manage access to AWS resources, ensuring only authorized users and services can
+      interact with them. It allows you to create users and groups, set permissions, enforce
+      multi-factor authentication, and implement least privilege principles to enhance security
+      and compliance.
+      Rationale:
+      The rationale behind using IAM is to enhance security by controlling and...
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "4.3"
+    title: "Ensure the Use of Dedicated Administrative Accounts"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      v7 Ensure that all users with administrative account access use a dedicated or ● ● ●
+      secondary account for elevated activities. This account should only be used for
+      administrative activities and not internet browsing, email, or similar activities.
+      Page 36
+  - id: "2.7"
+    title: "Ensure creating IAM User (Manual)"
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      IAM users are individuals whose accounts have been created by the AWS
+      administrator, providing them access to specific AWS resources. These users have
+      undergone identity verification with your organization, ensuring that only authorized
+      personnel can manage and interact with your AWS environment.
+      Rationale:
+      The purpose of creating IAM users and verifying their identities with your organization is
+      to ensure that only authorized individuals have...
+  - id: "6.1"
+    title: "Establish an Access Granting Process"
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: |
+      v8
+      Establish and follow a process, preferably automated, for granting access to
+      ● ● ●
+      enterprise assets upon new hire, rights grant, or role change of a user.
+      Page 39
+  - id: "6.2"
+    title: "Establish an Access Revoking Process"
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: |
+      Establish and follow a process, preferably automated, for revoking access to
+      v8
+      enterprise assets, through disabling accounts immediately upon termination, rights
+      ● ● ●
+      revocation, or role change of a user. Disabling accounts, instead of deleting
+      accounts, may be necessary to preserve audit trails.
+  - id: "16.2"
+    title: "Configure Centralized Point of Authentication"
+    type: subclause
+    clause_ref: "16.2"
+    status: draft
+    content: |
+      v7
+      Configure access for all accounts through as few centralized points of
+      ● ●
+      authentication as possible, including network, security, and cloud systems.
+      Page 40
+  - id: "2.8"
+    title: "Ensure the Creation of IAM Groups (Manual)"
+    type: subclause
+    clause_ref: "2.8"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      IAM Groups are collections of users that share the same permissions for accessing
+      AWS resources. For instance, you can create a group named "Administrators," which
+      includes users who require full access to your AWS environment. This simplifies
+      permission management by assigning common access policies to all members of the
+      group.
+      Rationale:
+      IAM groups in AWS simplify permission management by grouping users with similar
+      access needs and applying...
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "16.1"
+    title: "Maintain an Inventory of Authentication Systems"
+    type: subclause
+    clause_ref: "16.1"
+    status: draft
+    content: |
+      v7
+      Maintain an inventory of each of the organization's authentication systems,
+      ● ●
+      including those located onsite or at a remote service provider.
+  - id: "16.2"
+    title: "Configure Centralized Point of Authentication"
+    type: subclause
+    clause_ref: "16.2"
+    status: draft
+    content: |
+      v7
+      Configure access for all accounts through as few centralized points of
+      ● ●
+      authentication as possible, including network, security, and cloud systems.
+      Page 43
+  - id: "2.9"
+    title: "Ensure Granular Policy Creation (Manual)"
+    type: subclause
+    clause_ref: "2.9"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Granular policies are meticulously tailored to AWS resources, ensuring precision in
+      access control measures.
+      Rationale:
+      Emphasizing granular policies in AWS ensures that access control measures are
+      precisely aligned with the requirements of each resource, bolstering security and
+      minimizing unauthorized access. By tailoring policies to specific resources,
+      organizations can adhere more closely to the principle of least privilege, mitigating risks
+      and...
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "16.2"
+    title: "Configure Centralized Point of Authentication"
+    type: subclause
+    clause_ref: "16.2"
+    status: draft
+    content: |
+      v7
+      Configure access for all accounts through as few centralized points of
+      ● ●
+      authentication as possible, including network, security, and cloud systems.
+      Page 46
+  - id: "2.10"
+    title: "Ensure Resource Access via Tag-based Policies (Manual)"
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      For optimal granularity in EC2 access, configuring IAM policies via tags proves highly
+      effective. This involves editing the JSON text editor to specify access permissions
+      based on specific tags. In the provided example, I'm granting the "developers" group
+      access exclusively to the newly created EC2 image, as illustrated in the attached
+      screenshot depicting the policy creation process.
+      Rationale:
+      Implementing IAM policies based on tags in EC2 enables...
+  - id: "6.7"
+    title: "Centralize Access Control"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      v8
+      Centralize access control for all enterprise assets through a directory service
+      ● ●
+      or SSO provider, where supported.
+  - id: "14.7"
+    title: "Enforce Access Control to Data through Automated"
+    type: subclause
+    clause_ref: "14.7"
+    status: draft
+    content: |
+      v7 Tools ●
+      Use an automated tool, such as host-based Data Loss Prevention, to
+      enforce access controls to data even when data is copied off a system.
+      Page 49
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation (Manual)"
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Password policies outline the appropriate parameters for password configuration within
+      an organization.
+      Rationale:
+      Clear password policies provide essential guidelines for maintaining strong
+      authentication practices, reducing the risk of unauthorized access and data breaches
+      within an organization. By enforcing requirements for complex passwords and regular
+      updates, these policies help bolster cybersecurity defenses and ensure compliance...
+  - id: "6.7"
+    title: "Centralize Access Control"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      v8
+      Centralize access control for all enterprise assets through a directory service or
+      ● ●
+      SSO provider, where supported.
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+      Page 51
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "4.2"
+    title: "Change Default Passwords"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      v7
+      Before deploying any new asset, change all default passwords to have values
+      ● ● ●
+      consistent with administrative level accounts.
+  - id: "4.5"
+    title: "Use Multifactor Authentication For All Administrative"
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: |
+      v7 Access ● ●
+      Use multi-factor authentication and encrypted channels for all administrative
+      account access.
+      Page 52
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch (Manual)"
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      CloudWatch is an AWS monitoring service that allows you to keep an eye on your AWS
+      resources. You can track metrics via log files or worldclass data visuals. AWS
+      CloudWatch allows the administrator to keep an eye on his/her AWS resources. You
+      can set up alarms, monitor activity, and analyze log data. CloudWatch is a must to keep
+      your AWS EBS and EC2 resources secure.
+      Rationale:
+      Using CloudWatch to monitor EC2 instances and EBS volumes is essential...
+  - id: "8.2"
+    title: "Collect Audit Logs"
+    type: subclause
+    clause_ref: "8.2"
+    status: draft
+    content: |
+      v8
+      Collect audit logs. Ensure that logging, per the enterprise’s audit log
+      ● ● ●
+      management process, has been enabled across enterprise assets.
+  - id: "6.2"
+    title: "Activate audit logging"
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: |
+      v7
+      Ensure that local logging has been enabled on all systems and networking
+      ● ● ●
+      devices.
+      Page 54
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "6.5"
+    title: "Central Log Management"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+      v7
+      Ensure that appropriate logs are being aggregated to a central log
+      ● ●
+      management system for analysis and review.
+      Page 55
+  - id: "2.13"
+    title: "Ensure creating an SNS subscription (Manual)"
+    type: subclause
+    clause_ref: "2.13"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Create an SNS notification to send to the system administrator’s email address.
+      Rationale:
+      Audit:
+      Creating an SNS subscription:
+      1. Navigate to SNS service in the AWS console - https://us-east-
+      2.console.aws.amazon.com/sns/v3/home?region=us-east-2#/homepage (make
+      sure you are in the correct region).
+      2. Navigate to “topics”.
+      3. Create a new topic.
+      4. Select the ARN of the topic.
+      5. Select the “Email” protocol if you wish to have the alarms delivered...
+  - id: "3"
+    title: "Elastic File System (EFS)"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: |
+      Amazon Elastic File System (EFS) automatically grows and shrinks as you add and
+      remove files with no need for management or provisioning. AWS EFS is a serverless file
+      storage service that allows users to easily configure filesystems. AWS takes care of
+      provisioning, patching, and deploying the file system when you use EFS. This file
+      system is built to scale without any user configuration changes. This means that the file
+      system automatically gets bigger as the storage needs increase. The file...
+  - id: "3.1"
+    title: "EFS (Manual)"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      AWS EFS is a scalable and fully-managed storage service that enables you to quickly
+      deploy file systems without the hassle of configuring, patching, or maintaining them.
+      Rationale:
+      Utilize AWS EFS to streamline your file system deployment, allowing the service to
+      handle the heavy lifting for you.
+      Impact:
+      Not using AWS EFS for your file system deployment can lead to increased
+      management overhead, as you'll need to manually configure, patch, and...
+  - id: "4.1"
+    title: "Establish and Maintain a Secure Configuration Process"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: |
+      Establish and maintain a secure configuration process for enterprise assets
+      v8 (end-user devices, including portable and mobile, non-computing/IoT devices, and ● ● ●
+      servers) and software (operating systems and applications). Review and update
+      documentation annually, or when significant enterprise changes occur that could
+      impact this Safeguard.
+  - id: "7.3"
+    title: "Perform Automated Operating System Patch"
+    type: subclause
+    clause_ref: "7.3"
+    status: draft
+    content: |
+      v8 Management ● ● ●
+      Perform operating system updates on enterprise assets through automated
+      patch management on a monthly, or more frequent, basis.
+  - id: "3.4"
+    title: "Deploy Automated Operating System Patch"
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: |
+      Management Tools
+      v7
+      Deploy automated software update tools in order to ensure that the operating
+      ● ● ●
+      systems are running the most recent security updates provided by the software
+      vendor.
+  - id: "5.4"
+    title: "Deploy System Configuration Management Tools"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      v7
+      Deploy system configuration management tools that will automatically enforce
+      ● ●
+      and redeploy configuration settings to systems at regularly scheduled intervals.
+      Page 59
+  - id: "3.2"
+    title: "Ensure Implementation of EFS (Manual)"
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      AWS EFS is a fully managed storage service that enables rapid file system deployment
+      without the need for configuration, patching, or maintenance.
+      Rationale:
+      The rationale behind using AWS EFS is to simplify and expedite the deployment of file
+      systems, eliminating the need for manual configuration, patching, and maintenance.
+      This allows you to focus on other critical aspects of your operations while benefiting
+      from a reliable, scalable, and fully...
+  - id: "3.11"
+    title: "Encrypt Sensitive Data at Rest"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Encrypt sensitive data at rest on servers, applications, and databases containing
+      sensitive data. Storage-layer encryption, also known as server-side encryption,
+      v8
+      meets the minimum requirement of this Safeguard. Additional encryption methods
+      ● ●
+      may include application-layer encryption, also known as client-side encryption,
+      where access to the data storage device(s) does not permit access to the plain-text
+      data.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of those
+      images or templates.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 62
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration (Manual)"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      You can use EFS as a network file system across availability zones on a virtual private
+      cloud. This capability allows the organization to create a highly available file sharing
+      solution. Leveraging AWS VPC and EC2 in tandem with AWS EFS makes for a highly
+      available and scalable cloud file storage solution.
+      Rationale:
+      Redundancy and scalability are crucial for maintaining uninterrupted services. By
+      integrating these AWS services, users can harness...
+  - id: "3.11"
+    title: "Encrypt Sensitive Data at Rest"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Encrypt sensitive data at rest on servers, applications, and databases containing
+      sensitive data. Storage-layer encryption, also known as server-side encryption,
+      v8
+      meets the minimum requirement of this Safeguard. Additional encryption methods
+      ● ●
+      may include application-layer encryption, also known as client-side encryption,
+      where access to the data storage device(s) does not permit access to the plain-text
+      data.
+  - id: "16.7"
+    title: "Use Standard Hardening Configuration Templates for"
+    type: subclause
+    clause_ref: "16.7"
+    status: draft
+    content: |
+      Application Infrastructure
+      v8
+      Use standard, industry-recommended hardening configuration templates for
+      ● ●
+      application infrastructure components. This includes underlying servers, databases,
+      and web servers, and applies to cloud containers, Platform as a Service (PaaS)
+      components, and SaaS components. Do not allow in-house developed software to
+      weaken configuration hardening.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share, claims,
+      v7
+      application, or database specific access control lists. These controls will enforce the
+      ● ● ●
+      principle that only authorized individuals should have access to the information
+      based on their need to access the information as a part of their responsibilities.
+      Page 64
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services (Manual)"
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      It’s important that you secure access to your resources on your AWS VPC network.
+      There are several ways to ensure that you control what traffic is accessing your
+      resources. Some of which include tightening down network layer security using a
+      Security Group and a NACL within the VPC console. You can also tighten down
+      Security Groups within your EC2 console and by using AWS IAM. Maintaining network
+      security is a high priority to ensure that no...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+      Page 65
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "13.5"
+    title: "Manage Access Control for Remote Assets"
+    type: subclause
+    clause_ref: "13.5"
+    status: draft
+    content: |
+      Manage access control for assets remotely connecting to enterprise resources.
+      v8 Determine amount of access to enterprise resources based on: up-to-date anti- ● ●
+      malware software installed, configuration compliance with the enterprise’s secure
+      configuration process, and ensuring the operating system and applications are up-
+      to-date.
+  - id: "1.7"
+    title: "Deploy Port Level Access Control"
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      Utilize port level access control, following 802.1x standards, to control which
+      v7
+      devices can authenticate to the network. The authentication system shall be tied
+      ● ●
+      into the hardware asset inventory data to ensure only authorized devices can
+      connect to the network.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 66
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC (Manual)"
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      A security group controls the traffic that is allowed to reach and leave the resources that
+      it is associated with. For example, after you associate a security group with an EC2
+      instance, it controls the inbound and outbound traffic for the instance.
+      Rationale:
+      Audit:
+      1. Go to https://console.aws.amazon.com/vpc/
+      2. Navigate to Security Groups and select on the VPC that houses your mount
+      target.
+      3. Ensure that incoming traffic is restricted to SSH...
+  - id: "6.7"
+    title: "Centralize Access Control"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      v8
+      Centralize access control for all enterprise assets through a directory service or
+      ● ●
+      SSO provider, where supported.
+  - id: "13.9"
+    title: "Deploy Port-Level Access Control"
+    type: subclause
+    clause_ref: "13.9"
+    status: draft
+    content: |
+      v8 Deploy port-level access control. Port-level access control utilizes 802.1x, or ●
+      similar network access control protocols, such as certificates, and may incorporate
+      user and/or device authentication.
+  - id: "1.7"
+    title: "Deploy Port Level Access Control"
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      Utilize port level access control, following 802.1x standards, to control which
+      v7
+      devices can authenticate to the network. The authentication system shall be tied
+      ● ●
+      into the hardware asset inventory data to ensure only authorized devices can
+      connect to the network.
+      Page 67
+  - id: "3.6"
+    title: "Ensure Secure Ports (Manual)"
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Securing network ports is essential for protecting AWS storage services like Amazon
+      S3, EFS, and EBS. By configuring security groups and network access control lists
+      (NACLs) to allow only necessary traffic, you minimize the risk of unauthorized access.
+      Regular audits and monitoring of port usage ensure that only approved ports and
+      protocols are operational, enhancing the overall security of your AWS storage
+      environment.
+      Rationale:
+      By limiting...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "13.9"
+    title: "Deploy Port-Level Access Control"
+    type: subclause
+    clause_ref: "13.9"
+    status: draft
+    content: |
+      v8 Deploy port-level access control. Port-level access control utilizes 802.1x, or ●
+      similar network access control protocols, such as certificates, and may incorporate
+      user and/or device authentication.
+  - id: "1.7"
+    title: "Deploy Port Level Access Control"
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      Utilize port level access control, following 802.1x standards, to control which
+      v7
+      devices can authenticate to the network. The authentication system shall be tied
+      ● ●
+      into the hardware asset inventory data to ensure only authorized devices can
+      connect to the network.
+  - id: "9.2"
+    title: "Ensure Only Approved Ports, Protocols and Services"
+    type: subclause
+    clause_ref: "9.2"
+    status: draft
+    content: |
+      v7 Are Running ● ●
+      Ensure that only network ports, protocols, and services listening on a system
+      with validated business needs, are running on each system.
+      Page 70
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets"
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: |
+      (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Mount targets act as gateways, enabling resources to be accessed across different
+      availability zones within a VPC. When you create an EFS file system, mount targets are
+      automatically provisioned in each availability zone associated with the VPC. This
+      ensures high availability and redundancy, allowing seamless and efficient access to the
+      EFS file system from any availability zone.
+      Rationale:
+      Using mount targets ensures seamless access to the...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share, claims,
+      v7
+      application, or database specific access control lists. These controls will enforce the
+      ● ● ●
+      principle that only authorized individuals should have access to the information
+      based on their need to access the information as a part of their responsibilities.
+  - id: "14.7"
+    title: "Enforce Access Control to Data through Automated"
+    type: subclause
+    clause_ref: "14.7"
+    status: draft
+    content: |
+      v7 Tools ●
+      Use an automated tool, such as host-based Data Loss Prevention, to enforce
+      access controls to data even when data is copied off a system.
+      Page 72
+  - id: "3.8"
+    title: "Ensure managing mount target security groups (Manual)"
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Managing security groups for mount targets is essential for controlling access to your
+      Amazon EFS file systems. By configuring these security groups, you ensure that only
+      authorized network traffic can access your file systems, enhancing security. Regular
+      reviews and updates of security group rules maintain strict access control, protecting
+      your data from unauthorized access and potential breaches.
+      Rationale:
+      The rationale for managing security...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "13.9"
+    title: "Deploy Port-Level Access Control"
+    type: subclause
+    clause_ref: "13.9"
+    status: draft
+    content: |
+      v8 Deploy port-level access control. Port-level access control utilizes 802.1x, or ●
+      similar network access control protocols, such as certificates, and may incorporate
+      user and/or device authentication.
+  - id: "1.7"
+    title: "Deploy Port Level Access Control"
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      Utilize port level access control, following 802.1x standards, to control which
+      v7
+      devices can authenticate to the network. The authentication system shall be tied
+      ● ●
+      into the hardware asset inventory data to ensure only authorized devices can
+      connect to the network.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 74
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS (Manual)"
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      With AWS PrivateLink, VPC Endpoints allow services to communicate within AWS
+      using private IP addresses within approved CIDR ranges. This communication can be
+      achieved without the need for a VPN, ensuring secure and efficient data transfer.
+      Rationale:
+      The rationale behind using AWS PrivateLink with VPC Endpoints is to enable secure
+      and efficient communication between services within AWS. By using private IP
+      addresses within approved CIDR ranges, it...
+  - id: "13.5"
+    title: "Manage Access Control for Remote Assets"
+    type: subclause
+    clause_ref: "13.5"
+    status: draft
+    content: |
+      Manage access control for assets remotely connecting to enterprise resources.
+      v8 Determine amount of access to enterprise resources based on: up-to-date anti- ● ●
+      malware software installed, configuration compliance with the enterprise’s secure
+      configuration process, and ensuring the operating system and applications are up-
+      to-date.
+  - id: "14.5"
+    title: "Train Workforce Members on Causes of Unintentional"
+    type: subclause
+    clause_ref: "14.5"
+    status: draft
+    content: |
+      Data Exposure
+      v8
+      Train workforce members to be aware of causes for unintentional data
+      ● ● ●
+      exposure. Example topics include mis-delivery of sensitive data, losing a portable
+      end-user device, or publishing data to unintended audiences.
+  - id: "9.2"
+    title: "Ensure Only Approved Ports, Protocols and Services"
+    type: subclause
+    clause_ref: "9.2"
+    status: draft
+    content: |
+      v7 Are Running ● ●
+      Ensure that only network ports, protocols, and services listening on a system
+      with validated business needs, are running on each system.
+  - id: "13.1"
+    title: "Maintain an Inventory Sensitive Information"
+    type: subclause
+    clause_ref: "13.1"
+    status: draft
+    content: |
+      v7 Maintain an inventory of all sensitive information stored, processed, or ● ● ●
+      transmitted by the organization's technology systems, including those located
+      onsite or at a remote service provider.
+      Page 76
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points (Manual)"
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      EFS access points serve as gateways to your EFS file system, allowing applications to
+      interact with the file system across various resources. Proper configuration of these
+      access points within your applications is crucial to ensure seamless and secure access.
+      By configuring EFS access points, you can control and manage which users have
+      access to specific resources in your EFS environment, enhancing security and
+      operational efficiency.
+      Rationale:
+      The...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+      Page 78
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share, claims,
+      v7
+      application, or database specific access control lists. These controls will enforce the
+      ● ● ●
+      principle that only authorized individuals should have access to the information
+      based on their need to access the information as a part of their responsibilities.
+  - id: "14.7"
+    title: "Enforce Access Control to Data through Automated"
+    type: subclause
+    clause_ref: "14.7"
+    status: draft
+    content: |
+      v7 Tools ●
+      Use an automated tool, such as host-based Data Loss Prevention, to enforce
+      access controls to data even when data is copied off a system.
+      Page 79
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies (Manual)"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      You can use IAM policies to control access to your EFS access points. To achieve this,
+      utilize the elasticfilesystem:AccessPointArn IAM condition key. The
+      AccessPointArn represents the Amazon Resource Name (ARN) of the access point
+      that the file system is mounted with.
+      Rationale:
+      The rationale for using IAM policies with the elasticfilesystem:AccessPointArn
+      condition key is to ensure precise and secure access control to EFS access points....
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+      Page 81
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "1.7"
+    title: "Deploy Port Level Access Control"
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      Utilize port level access control, following 802.1x standards, to control which
+      v7
+      devices can authenticate to the network. The authentication system shall be tied
+      ● ●
+      into the hardware asset inventory data to ensure only authorized devices can
+      connect to the network.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share, claims,
+      v7
+      application, or database specific access control lists. These controls will enforce the
+      ● ● ●
+      principle that only authorized individuals should have access to the information
+      based on their need to access the information as a part of their responsibilities.
+      Page 82
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster Recovery"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+      (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Before installing the AWS Elastic Disaster Recovery client, you need to configure AWS
+      IAM permissions and users for both the AWS Replication and AWS Failback Client.
+      Rationale:
+      Configuring AWS IAM permissions and users before installing the AWS Elastic Disaster
+      Recovery client ensures that the AWS Replication and AWS Failback Client have the
+      necessary access rights. This setup is essential for maintaining security and...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "1.7"
+    title: "Deploy Port Level Access Control"
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      Utilize port level access control, following 802.1x standards, to control which
+      v7
+      devices can authenticate to the network. The authentication system shall be tied
+      ● ●
+      into the hardware asset inventory data to ensure only authorized devices can
+      connect to the network.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share, claims,
+      v7
+      application, or database specific access control lists. These controls will enforce the
+      ● ● ●
+      principle that only authorized individuals should have access to the information
+      based on their need to access the information as a part of their responsibilities.
+      Page 84
+  - id: "4"
+    title: "FSx"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: |
+      Amazon FSx provides fully managed, high-performance file storage solutions tailored
+      for various workloads. It includes Amazon FSx for Windows File Server for Windows-
+      based applications, Amazon FSx for Lustre for high-performance computing and data
+      processing, and Amazon FSx for NetApp ONTAP for advanced data management
+      capabilities. These services ensure seamless integration, scalability, and reliability for
+      diverse storage needs.
+      Page 85
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache) (Manual)"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Amazon File Cache is a fully managed, high speed cache on AWS that is used to
+      process file data, regardless of where the data is stored. AWS File Cache is a
+      serverless service on AWS that spares the administrators from the burden of managing
+      file servers and storage volumes, updating hardware, configuring software, running out
+      of capacity, or tuning performance. AWS Elastic cache is capable of handling hundreds
+      of GB/s of throughput and up to...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 87
+  - id: "4.2"
+    title: "Amazon Elastic File Cache (Manual)"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Amazon File Cache is available in the following AWS Regions:
+      1. US East (N. Virginia)
+      2. US East (Ohio)
+      3. US West (Oregon)
+      4. Canada (Central)
+      5. Europe (Frankfurt)
+      6. Europe (Ireland)
+      7. Europe (London)
+      8. Europe (Stockholm)
+      9. Asia Pacific (Hong Kong)
+      10. Asia Pacific (Mumbai)
+      11. Asia Pacific (Seoul)
+      12. Asia Pacific (Tokyo)
+      13. Asia Pacific (Singapore)
+      14. Asia Pacific (Sydney)
+      Amazon Elastic File Cache Compatibility: In order to use AWS FSx,...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "6.4"
+    title: "Ensure adequate storage for logs"
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: |
+      v7
+      Ensure that all systems that store logs have adequate storage space for the logs
+      ● ●
+      generated.
+      Page 89
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 90
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket (Manual)"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      An S3 bucket will store the data that Amazon Elastic File Cache accesses
+      Rationale:
+      Storing data in S3 ensures scalability, durability, and cost-efficiency, while Amazon
+      Elastic File Cache enhances access speed by caching frequently accessed data. This
+      combination leverages the strengths of both services, providing a seamless and efficient
+      data storage and retrieval solution.
+      Audit:
+      1. Navigate to the Amazon S3 bucket...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+      Page 91
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "6.4"
+    title: "Ensure adequate storage for logs"
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: |
+      v7
+      Ensure that all systems that store logs have adequate storage space for the logs
+      ● ●
+      generated.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 92
+  - id: "4.4"
+    title: "Ensure the creation of Elastic File Cache (Manual)"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      With the prerequisites completed, we can now proceed to create our Elastic File Cache.
+      Rationale:
+      By implementing an Elastic File Cache, frequently accessed data is stored closer to the
+      application, reducing latency and speeding up access times. This approach optimizes
+      resource utilization, improves user experience, and ensures that the system can handle
+      high-demand workloads effectively.
+      Audit:
+      1. Navigate to the AWS Elastic File Cache...
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client (Manual)"
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      To utilize the newly created File Cache, you must install the Lustre Client on your EC2
+      instance.
+      Rationale:
+      The Lustre Client facilitates efficient communication between the EC2 instance and the
+      File Cache, ensuring high-performance data access and improved overall system
+      efficiency. This setup is crucial for optimizing data processing and leveraging the
+      benefits of the File Cache.
+      Audit:
+      Follow along to install the Lustre Client on Ubuntu...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "14.2"
+    title: "Train Workforce Members to Recognize Social"
+    type: subclause
+    clause_ref: "14.2"
+    status: draft
+    content: |
+      v8 Engineering Attacks ● ● ●
+      Train workforce members to recognize social engineering attacks, such as
+      phishing, pre-texting, and tailgating.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 96
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre (Manual)"
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      The latest kernel included with the Ubuntu Amazon EC2 AMI is not compatible with the
+      Lustre service, which is crucial for mounting the cache on your EC2 instance. To
+      downgrade your kernel, specific prerequisites must be met if you are using the default
+      Ubuntu machine image as of November 8, 2023.
+      Rationale:
+      The latest kernel version is not supported by Lustre, and meeting the prerequisites for
+      downgrading will allow you to leverage Lustre's...
+  - id: "5.4"
+    title: "Restrict Administrator Privileges to Dedicated"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      Administrator Accounts
+      v8
+      Restrict administrator privileges to dedicated administrator accounts on
+      ● ● ●
+      enterprise assets. Conduct general computing activities, such as internet browsing,
+      email, and productivity suite use, from the user’s primary, non-privileged account.
+      v8
+  - id: "13.11"
+    title: "Tune Security Event Alerting Thresholds"
+    type: subclause
+    clause_ref: "13.11"
+    status: draft
+    content: |
+      ●
+      Tune security event alerting thresholds monthly, or more frequently.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 98
+  - id: "4.7"
+    title: "Ensure mounting FSx cache (Manual)"
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Mounting the FSx cache is a crucial step to optimize data retrieval and system
+      performance. This process involves connecting the FSx file system to your compute
+      instances, allowing them to access cached data efficiently. Properly mounting the FSx
+      cache ensures low-latency access to frequently used data, enhances overall application
+      performance, and leverages the full capabilities of the AWS FSx service. This setup is
+      essential for achieving high...
+  - id: "3.3"
+    title: "Protect Dedicated Assessment Accounts"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v7 Use a dedicated account for authenticated vulnerability scans, which should not ● ●
+      be used for any other administrative activities and should be tied to specific
+      machines at specific IP addresses.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+  - id: "6.4"
+    title: "Ensure adequate storage for logs"
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: |
+      v7
+      Ensure that all systems that store logs have adequate storage space for the
+      ● ●
+      logs generated.
+  - id: "8.3"
+    title: "Enable Operating System Anti-Exploitation Features/"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      Deploy Anti-Exploit Technologies
+      v7 Enable anti-exploitation features such as Data Execution Prevention (DEP) or ● ●
+      Address Space Layout Randomization (ASLR) that are available in an operating
+      system or deploy appropriate toolkits that can be configured to apply protection to a
+      broader set of applications and executables.
+      Page 100
+  - id: "4.8"
+    title: "Ensure exporting cache to S3 (Manual)"
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      The S3 bucket we created earlier will store the files generated at this mount point.
+      Rationale:
+      The rationale behind using the S3 bucket to store files generated at the mount point is
+      to ensure scalable, durable, and cost-effective storage for your data. By exporting files
+      to S3, you benefit from its high availability and robust data management features, which
+      enhances data security and accessibility. This approach also optimizes storage
+      resource...
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources (Manual)"
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Cleaning up FSx resources involves removing unused or unnecessary FSx file systems
+      and associated components to optimize costs and maintain a secure cloud
+      environment. This includes deleting redundant file systems, snapshots, and mount
+      targets, while ensuring all data is backed up or migrated. Regular cleanup prevents
+      resource sprawl, reduces expenses, and maintains the overall health and performance
+      of your AWS infrastructure.
+      Rationale:
+      The...
+  - id: "3.8"
+    title: "Document Data Flows"
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: |
+      Document data flows. Data flow documentation includes service provider data
+      v8
+      flows and should be based on the enterprise’s data management process. Review
+      ● ●
+      and update documentation annually, or when significant enterprise changes occur
+      that could impact this Safeguard.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "7.8"
+    title: "Implement DMARC and Enable Receiver-Side"
+    type: subclause
+    clause_ref: "7.8"
+    status: draft
+    content: |
+      Verification
+      v7 To lower the chance of spoofed or modified emails from valid domains, ● ●
+      implement Domain-based Message Authentication, Reporting and Conformance
+      (DMARC) policy and verification, starting by implementing the Sender Policy
+      Framework (SPF) and the DomainKeys Identified Mail(DKIM) standards.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 103
+  - id: "5"
+    title: "Simple Storage Service (S3)"
+    type: clause
+    clause_ref: "5"
+    status: draft
+    content: |
+      Object storage built to retrieve any amount of data from anywhere.
+      Page 104
+  - id: "5.1"
+    title: "Amazon Simple Storage Service (Manual)"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Amazon Simple Storage Service (Amazon S3) is an object storage service that provides
+      industry-leading scalability, data availability, security, and performance. It allows
+      customers of all sizes and industries to store and protect any amount of data for virtually
+      any use case, including data lakes, cloud-native applications, and mobile apps. With
+      cost-effective storage classes and intuitive management features, you can optimize
+      costs, organize data,...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 106
+  - id: "5.2"
+    title: "Ensure direct data addition to S3 (Manual)"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Your bucket name must be unique and not already in use on AWS. Click on your bucket
+      name, and in the right corner, you will find an option to upload data directly to your S3
+      bucket. You can choose the file option to upload individual files, images, or even entire
+      folders.
+      Rationale:
+      Accessing the upload option within your bucket simplifies the process of adding data,
+      making it easy to manage and organize your files. This streamlined approach allows...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 108
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured (Manual)"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Amazon S3 offers various storage classes to optimize cost and performance based on
+      data access patterns and retention needs. Standard Storage is for frequently accessed
+      data, while Standard-IA and One Zone-IA are for infrequent access, with the latter
+      offering cost savings by storing in a single Availability Zone. Intelligent-Tiering
+      automatically moves data between access tiers based on usage, and Glacier and
+      Glacier Deep Archive provide low-cost...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "8.3"
+    title: "Ensure Adequate Audit Log Storage"
+    type: subclause
+    clause_ref: "8.3"
+    status: draft
+    content: |
+      v8
+      Ensure that logging destinations maintain adequate storage to comply with the
+      ● ● ●
+      enterprise’s audit log management process.
+  - id: "7.8"
+    title: "Implement DMARC and Enable Receiver-Side"
+    type: subclause
+    clause_ref: "7.8"
+    status: draft
+    content: |
+      Verification
+      v7 To lower the chance of spoofed or modified emails from valid domains, ● ●
+      implement Domain-based Message Authentication, Reporting and Conformance
+      (DMARC) policy and verification, starting by implementing the Sender Policy
+      Framework (SPF) and the DomainKeys Identified Mail(DKIM) standards.
+      Page 109
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 110
+  - id: "6"
+    title: "Elastic Disaster Recovery (EDR)"
+    type: clause
+    clause_ref: "6"
+    status: draft
+    content: |
+      AWS Elastic Disaster Recovery is an AWS service that allows you to create and
+      maintain backups of your workloads on AWS, specifically your servers. AWS Elastic
+      Disaster Recovery is essential to providing high resilience to your AWS workloads. It
+      works by establishing and maintaining backups in AWS regions of your choosing, to
+      ensure that your backups are safe, durable, and highly available if something goes
+      wrong in the availability zone or region that your AWS server resides.
+      Page 111
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured (Manual)"
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      AWS Elastic Disaster Recovery is a service that enables you to create and maintain
+      backups of your workloads on AWS, particularly your servers. This service is crucial for
+      ensuring high resilience for your AWS workloads. It operates by establishing and
+      maintaining backups in selected AWS regions, guaranteeing that your data is safe,
+      durable, and highly available in the event of issues in the primary availability zone or
+      region where your AWS server...
+  - id: "11.2"
+    title: "Perform Automated Backups"
+    type: subclause
+    clause_ref: "11.2"
+    status: draft
+    content: |
+      v8
+      Perform automated backups of in-scope enterprise assets. Run backups
+      ● ● ●
+      weekly, or more frequently, based on the sensitivity of the data.
+  - id: "10.2"
+    title: "Perform Complete System Backups"
+    type: subclause
+    clause_ref: "10.2"
+    status: draft
+    content: |
+      v7 Ensure that each of the organization's key systems are backed up as a ● ● ●
+      complete system, through processes such as imaging, to enable the quick
+      recovery of an entire system.
+      Page 115
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration (Manual)"
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      It’s important to understand how the network on EDR works. This isn’t a simple service
+      to configure, but it works with multiple work loads over the network. You can connect
+      your on-premises or third-party cloud service to AWS EDR over the network. Below are
+      the descriptions of the AWS network architecture:
+      1. Your local network inside the data center or cloud a.Connect an AWS Replication
+      Agent to each of your resources.
+      2. AWS Cloud Architecture a....
+  - id: "11.4"
+    title: "Establish and Maintain an Isolated Instance of"
+    type: subclause
+    clause_ref: "11.4"
+    status: draft
+    content: |
+      Recovery Data
+      v8
+      Establish and maintain an isolated instance of recovery data. Example
+      ● ● ●
+      implementations include, version controlling backup destinations through offline,
+      cloud, or off-site systems or services.
+      Page 116
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "13.3"
+    title: "Deploy a Network Intrusion Detection Solution"
+    type: subclause
+    clause_ref: "13.3"
+    status: draft
+    content: |
+      v8 Deploy a network intrusion detection solution on enterprise assets, where ● ●
+      appropriate. Example implementations include the use of a Network Intrusion
+      Detection System (NIDS) or equivalent cloud service provider (CSP) service.
+  - id: "10.4"
+    title: "Ensure Protection of Backups"
+    type: subclause
+    clause_ref: "10.4"
+    status: draft
+    content: |
+      v7 Ensure that backups are properly protected via physical security or encryption ● ● ●
+      when they are stored, as well as when they are moved across the network. This
+      includes remote backups and cloud services.
+  - id: "13.4"
+    title: "Only Allow Access to Authorized Cloud Storage or"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v7 Email Providers ● ●
+      Only allow access to authorized cloud storage or email providers.
+      Page 117
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and Response"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+      (EDR) (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Establish and maintain an effective Endpoint Detection and Response (EDR) system to
+      proactively monitor, detect, and respond to security threats on endpoints such as
+      computers, mobile devices, and servers. This involves deploying EDR software that
+      continuously collects data from endpoints, analyzes this data for signs of malicious
+      activity, and provides real-time alerts and detailed incident reports. Regularly test and
+      update the EDR...
+  - id: "13.2"
+    title: "Deploy a Host-Based Intrusion Detection Solution"
+    type: subclause
+    clause_ref: "13.2"
+    status: draft
+    content: |
+      v8
+      Deploy a host-based intrusion detection solution on enterprise assets, where
+      ● ●
+      appropriate and/or supported.
+  - id: "13.3"
+    title: "Deploy a Network Intrusion Detection Solution"
+    type: subclause
+    clause_ref: "13.3"
+    status: draft
+    content: |
+      v8 Deploy a network intrusion detection solution on enterprise assets, where ● ●
+      appropriate. Example implementations include the use of a Network Intrusion
+      Detection System (NIDS) or equivalent cloud service provider (CSP) service.
+  - id: "8.6"
+    title: "Centralize Anti-malware Logging"
+    type: subclause
+    clause_ref: "8.6"
+    status: draft
+    content: |
+      v7
+      Send all malware detection events to enterprise anti-malware administration
+      ● ●
+      tools and event log servers for analysis and alerting.
+  - id: "12.6"
+    title: "Deploy Network-based IDS Sensor"
+    type: subclause
+    clause_ref: "12.6"
+    status: draft
+    content: |
+      v7 Deploy network-based Intrusion Detection Systems (IDS) sensors to look for ● ●
+      unusual attack mechanisms and detect compromise of these systems at each of
+      the organization's network boundaries.
+      Page 119
+  - id: "6.4"
+    title: "Ensure configuration of replication settings (Manual)"
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Set up and maintain the replication settings to ensure accurate and efficient data
+      duplication across systems. Proper configuration includes specifying source and target
+      locations, defining replication schedules, and setting bandwidth limits to optimize
+      performance. Regularly review and update these settings to accommodate changes in
+      data volume and network conditions, ensuring data integrity and availability during
+      replication...
+  - id: "11.2"
+    title: "Perform Automated Backups"
+    type: subclause
+    clause_ref: "11.2"
+    status: draft
+    content: |
+      v8
+      Perform automated backups of in-scope enterprise assets. Run backups
+      ● ● ●
+      weekly, or more frequently, based on the sensitivity of the data.
+  - id: "11.4"
+    title: "Establish and Maintain an Isolated Instance of"
+    type: subclause
+    clause_ref: "11.4"
+    status: draft
+    content: |
+      Recovery Data
+      v8
+      Establish and maintain an isolated instance of recovery data. Example
+      ● ● ●
+      implementations include, version controlling backup destinations through offline,
+      cloud, or off-site systems or services.
+  - id: "10.4"
+    title: "Ensure Protection of Backups"
+    type: subclause
+    clause_ref: "10.4"
+    status: draft
+    content: |
+      v7 Ensure that backups are properly protected via physical security or encryption ● ● ●
+      when they are stored, as well as when they are moved across the network. This
+      includes remote backups and cloud services.
+  - id: "10.5"
+    title: "Ensure Backups Have At least One Non-"
+    type: subclause
+    clause_ref: "10.5"
+    status: draft
+    content: |
+      v7 Continuously Addressable Destination ● ● ●
+      Ensure that all backups have at least one backup destination that is not
+      continuously addressable through operating system calls.
+      Page 121
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+      Recovery (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Set up and maintain Identity and Access Management (IAM) roles and policies
+      specifically for AWS Elastic Disaster Recovery. This includes defining least-privilege
+      access for users and services, creating roles for automated processes, and enforcing
+      multi-factor authentication (MFA) for added security. Regularly review and update IAM
+      policies to adapt to changes in the organization and to maintain compliance with
+      security best...
+  - id: "6.7"
+    title: "Centralize Access Control"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      v8
+      Centralize access control for all enterprise assets through a directory service or
+      ● ●
+      SSO provider, where supported.
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share, claims,
+      v7
+      application, or database specific access control lists. These controls will enforce the
+      ● ● ●
+      principle that only authorized individuals should have access to the information
+      based on their need to access the information as a part of their responsibilities.
+  - id: "14.7"
+    title: "Enforce Access Control to Data through Automated"
+    type: subclause
+    clause_ref: "14.7"
+    status: draft
+    content: |
+      v7 Tools ●
+      Use an automated tool, such as host-based Data Loss Prevention, to enforce
+      access controls to data even when data is copied off a system.
+      Page 123
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent (Manual)"
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Set up and verify the installation of the AWS Replication Agent on all relevant systems
+      to facilitate efficient and reliable data replication. This process includes downloading the
+      agent, configuring it according to best practices, and ensuring it is correctly integrated
+      with your AWS environment. Regularly check the agent’s performance and update it as
+      needed to maintain optimal functionality and data integrity during replication...
+  - id: "6.7"
+    title: "Centralize Access Control"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      v8
+      Centralize access control for all enterprise assets through a directory service or
+      ● ●
+      SSO provider, where supported.
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "3.4"
+    title: "Deploy Automated Operating System Patch"
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: |
+      Management Tools
+      v7
+      Deploy automated software update tools in order to ensure that the operating
+      ● ● ●
+      systems are running the most recent security updates provided by the software
+      vendor.
+  - id: "5.4"
+    title: "Deploy System Configuration Management Tools"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      v7
+      Deploy system configuration management tools that will automatically enforce
+      ● ●
+      and redeploy configuration settings to systems at regularly scheduled intervals.
+      Page 125
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings (Manual)"
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Set up and verify the launch settings to ensure systems and applications start correctly
+      and securely. This includes defining startup parameters, specifying required resources,
+      and configuring security settings to prevent unauthorized changes. Regularly review
+      and update these settings to align with best practices and organizational requirements,
+      ensuring optimal performance and security at launch.
+      Rationale:
+      Proper configuration of launch settings...
+  - id: "4.2"
+    title: "Establish and Maintain a Secure Configuration Process"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      for Network Infrastructure
+      v8
+      Establish and maintain a secure configuration process for network devices.
+      ● ● ●
+      Review and update documentation annually, or when significant enterprise changes
+      occur that could impact this Safeguard.
+  - id: "16.7"
+    title: "Use Standard Hardening Configuration Templates for"
+    type: subclause
+    clause_ref: "16.7"
+    status: draft
+    content: |
+      Application Infrastructure
+      v8
+      Use standard, industry-recommended hardening configuration templates for
+      ● ●
+      application infrastructure components. This includes underlying servers, databases,
+      and web servers, and applies to cloud containers, Platform as a Service (PaaS)
+      components, and SaaS components. Do not allow in-house developed software to
+      weaken configuration hardening.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+  - id: "5.4"
+    title: "Deploy System Configuration Management Tools"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      v7
+      Deploy system configuration management tools that will automatically enforce
+      ● ●
+      and redeploy configuration settings to systems at regularly scheduled intervals.
+      Page 127
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill (Manual)"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      To ensure your organization is prepared for a disaster, it's crucial to verify that your
+      disaster recovery services function as expected. Your IT team should conduct regular
+      recovery drills on your AWS Elastic Recovery Instance to confirm everything operates
+      smoothly and according to plan.
+      Rationale:
+      Regular recovery drills are essential to verify the functionality of your disaster recovery
+      services and ensure your organization is well-prepared for...
+  - id: "11.5"
+    title: "Test Data Recovery"
+    type: subclause
+    clause_ref: "11.5"
+    status: draft
+    content: |
+      v8
+      Test backup recovery quarterly, or more frequently, for a sampling of in-scope
+      ● ●
+      enterprise assets.
+  - id: "17.7"
+    title: "Conduct Routine Incident Response Exercises"
+    type: subclause
+    clause_ref: "17.7"
+    status: draft
+    content: |
+      Plan and conduct routine incident response exercises and scenarios for key
+      v8
+      personnel involved in the incident response process to prepare for responding to
+      ● ●
+      real-world incidents. Exercises need to test communication channels, decision
+      making, and workflows. Conduct testing on an annual basis, at a minimum.
+  - id: "10.3"
+    title: "Test Data on Backup Media"
+    type: subclause
+    clause_ref: "10.3"
+    status: draft
+    content: |
+      v7
+      Test data integrity on backup media on a regular basis by performing a data
+      ● ●
+      restoration process to ensure that the backup is properly working.
+  - id: "19.7"
+    title: "Conduct Periodic Incident Scenario Sessions for"
+    type: subclause
+    clause_ref: "19.7"
+    status: draft
+    content: |
+      Personnel
+      v7
+      Plan and conduct routine incident response exercises and scenarios for the
+      ● ●
+      workforce involved in the incident response to maintain awareness and comfort in
+      responding to real world threats. Exercises should test communication channels,
+      decision making, and incident responders technical capabilities using tools and
+      data available to them.
+      Page 129
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations (Manual)"
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Maintain ongoing disaster recovery operations to ensure that systems and data can be
+      swiftly restored in the event of a disruption. This involves regularly updating and testing
+      recovery plans, monitoring replication processes, and verifying the integrity and
+      accessibility of backups. Continuously evaluate and improve disaster recovery
+      strategies to adapt to evolving threats and organizational changes, ensuring resilience
+      and minimal downtime during...
+  - id: "11.1"
+    title: "Establish and Maintain a Data Recovery Process"
+    type: subclause
+    clause_ref: "11.1"
+    status: draft
+    content: |
+      Establish and maintain a data recovery process. In the process, address the
+      v8
+      scope of data recovery activities, recovery prioritization, and the security of backup
+      ● ● ●
+      data. Review and update documentation annually, or when significant enterprise
+      changes occur that could impact this Safeguard.
+  - id: "11.5"
+    title: "Test Data Recovery"
+    type: subclause
+    clause_ref: "11.5"
+    status: draft
+    content: |
+      v8
+      Test backup recovery quarterly, or more frequently, for a sampling of in-scope
+      ● ●
+      enterprise assets.
+  - id: "10.2"
+    title: "Perform Complete System Backups"
+    type: subclause
+    clause_ref: "10.2"
+    status: draft
+    content: |
+      v7 Ensure that each of the organization's key systems are backed up as a ● ● ●
+      complete system, through processes such as imaging, to enable the quick recovery
+      of an entire system.
+  - id: "19.7"
+    title: "Conduct Periodic Incident Scenario Sessions for"
+    type: subclause
+    clause_ref: "19.7"
+    status: draft
+    content: |
+      Personnel
+      v7
+      Plan and conduct routine incident response exercises and scenarios for the
+      ● ●
+      workforce involved in the incident response to maintain awareness and comfort in
+      responding to real world threats. Exercises should test communication channels,
+      decision making, and incident responders technical capabilities using tools and
+      data available to them.
+      Page 132
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover (Manual)"
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Execute a comprehensive disaster recovery failover to transition operations from the
+      primary system to a backup system during disruptions. This process includes ensuring
+      all critical data and applications are accurately replicated to the backup site for
+      seamless operational continuity. Regularly test and document the failover process to
+      identify and resolve any issues, maintaining readiness to minimize downtime and data
+      loss during real...
+  - id: "11.4"
+    title: "Establish and Maintain an Isolated Instance of"
+    type: subclause
+    clause_ref: "11.4"
+    status: draft
+    content: |
+      Recovery Data
+      v8
+      Establish and maintain an isolated instance of recovery data. Example
+      ● ● ●
+      implementations include, version controlling backup destinations through offline,
+      cloud, or off-site systems or services.
+  - id: "11.5"
+    title: "Test Data Recovery"
+    type: subclause
+    clause_ref: "11.5"
+    status: draft
+    content: |
+      v8
+      Test backup recovery quarterly, or more frequently, for a sampling of in-scope
+      ● ●
+      enterprise assets.
+  - id: "10.4"
+    title: "Ensure Protection of Backups"
+    type: subclause
+    clause_ref: "10.4"
+    status: draft
+    content: |
+      v7 Ensure that backups are properly protected via physical security or encryption ● ● ●
+      when they are stored, as well as when they are moved across the network. This
+      includes remote backups and cloud services.
+  - id: "10.5"
+    title: "Ensure Backups Have At least One Non-"
+    type: subclause
+    clause_ref: "10.5"
+    status: draft
+    content: |
+      v7 Continuously Addressable Destination ● ● ●
+      Ensure that all backups have at least one backup destination that is not
+      continuously addressable through operating system calls.
+      Page 134
+  - id: "6.11"
+    title: "Ensure execution of a failback (Manual)"
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      This method involves transitioning operations back from the backup or recovery system
+      to the primary system after the resolution of a disruption or disaster. You can execute a
+      failback either to the original server, ensuring continuity and restoring the previous state,
+      or to a new server, which might be necessary if the original server is compromised or no
+      longer functional. The failback process ensures that all updated data and configurations
+      are...
+  - id: "11.1"
+    title: "Establish and Maintain a Data Recovery Process"
+    type: subclause
+    clause_ref: "11.1"
+    status: draft
+    content: |
+      Establish and maintain a data recovery process. In the process, address the
+      v8
+      scope of data recovery activities, recovery prioritization, and the security of backup
+      ● ● ●
+      data. Review and update documentation annually, or when significant enterprise
+      changes occur that could impact this Safeguard.
+  - id: "11.5"
+    title: "Test Data Recovery"
+    type: subclause
+    clause_ref: "11.5"
+    status: draft
+    content: |
+      v8
+      Test backup recovery quarterly, or more frequently, for a sampling of in-scope
+      ● ●
+      enterprise assets.
+  - id: "10.2"
+    title: "Perform Complete System Backups"
+    type: subclause
+    clause_ref: "10.2"
+    status: draft
+    content: |
+      v7 Ensure that each of the organization's key systems are backed up as a ● ● ●
+      complete system, through processes such as imaging, to enable the quick
+      recovery of an entire system.
+      Page 136
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "10.3"
+    title: "Test Data on Backup Media"
+    type: subclause
+    clause_ref: "10.3"
+    status: draft
+    content: |
+      v7
+      Test data integrity on backup media on a regular basis by performing a data
+      ● ●
+      restoration process to ensure that the backup is properly working.
+      Page 137
+  - id: "6.12"
+    title: "Ensure CloudWatch Metrics for AWS EDR (Manual)"
+    type: subclause
+    clause_ref: "6.12"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Set up and monitor AWS CloudWatch metrics for Endpoint Detection and Response
+      (EDR) to track and analyze the performance and security of your AWS environment.
+      This involves configuring CloudWatch to collect detailed logs and metrics on EDR
+      activities, such as threat detections, response actions, and system health. Regularly
+      review these metrics to identify trends, anomalies, and potential security issues,
+      enabling proactive management and timely...
+  - id: "6.13"
+    title: "Ensure working of EDR (Manual)"
+    type: subclause
+    clause_ref: "6.13"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Rationale:
+      Audit:
+      1. Preparing the Environment for EDR - Before getting started with EDR, you must
+      prepare the environment that you want to back up.
+      2. Preparing the Source Server - Allow direct access to Elastic Disaster Recovery
+      and Amazon S3 AWS service API endpoints through HTTPS protocol (TCP port
+      443). Direct outbound TCP port 1500 from the source server to the staging area
+      subnet, which contains the replication servers.
+      3. Preparing the...
+  - id: "1"
+    title: "Introduction"
+    type: clause
+    clause_ref: "1"
+    status: draft
+    content: ""
+  - id: "1.1"
+    title: "AWS Storage Backups (Manual)  "
+    type: subclause
+    clause_ref: "1.1"
+    status: draft
+    content: ""
+  - id: "1.2"
+    title: "Ensure securing AWS Backups (Manual)  "
+    type: subclause
+    clause_ref: "1.2"
+    status: draft
+    content: ""
+  - id: "1.3"
+    title: "Ensure to create backup template and name (Manual)  "
+    type: subclause
+    clause_ref: "1.3"
+    status: draft
+    content: ""
+  - id: "1.4"
+    title: "Ensure to create AWS IAM Policies (Manual)  "
+    type: subclause
+    clause_ref: "1.4"
+    status: draft
+    content: ""
+  - id: "1.5"
+    title: "Ensure to create IAM roles for Backup (Manual)  "
+    type: subclause
+    clause_ref: "1.5"
+    status: draft
+    content: ""
+  - id: "1.6"
+    title: "Ensure AWS Backup with Service Linked Roles  "
+    type: subclause
+    clause_ref: "1.6"
+    status: draft
+    content: |
+      (Manual)
+  - id: "2"
+    title: "Elastic Block Store (EBS)"
+    type: clause
+    clause_ref: "2"
+    status: draft
+    content: ""
+  - id: "2.1"
+    title: "Ensure creating EC2 instance with EBS (Manual)  "
+    type: subclause
+    clause_ref: "2.1"
+    status: draft
+    content: ""
+  - id: "2.2"
+    title: "Ensure configuring Security Groups (Manual)  "
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: ""
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage (Manual)  "
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume (Manual)  "
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes (Manual)  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances  "
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: |
+      (Manual)
+  - id: "2.7"
+    title: "Ensure creating IAM User (Manual)  "
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.8"
+    title: "Ensure the Creation of IAM Groups (Manual)  "
+    type: subclause
+    clause_ref: "2.8"
+    status: draft
+    content: ""
+  - id: "2.9"
+    title: "Ensure Granular Policy Creation (Manual)  "
+    type: subclause
+    clause_ref: "2.9"
+    status: draft
+    content: ""
+  - id: "2.10"
+    title: "Ensure Resource Access via Tag-based Policies  "
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: |
+      (Manual)
+      Page 142
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation  "
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: |
+      (Manual)
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: |
+      (Manual)
+  - id: "2.13"
+    title: "Ensure creating an SNS subscription (Manual)  "
+    type: subclause
+    clause_ref: "2.13"
+    status: draft
+    content: ""
+  - id: "3"
+    title: "Elastic File System (EFS)"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS (Manual)  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS (Manual)  "
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration (Manual)  "
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: ""
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services  "
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: |
+      (Manual)
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC (Manual)  "
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports (Manual)  "
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: |
+      (Manual)
+  - id: "3.8"
+    title: "Ensure managing mount target security groups (Manual)  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS (Manual)  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points (Manual)  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies (Manual)  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster  "
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+      Recovery (Manual)
+  - id: "4"
+    title: "FSx"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: ""
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache) (Manual)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache (Manual)  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Page 143
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket (Manual)  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.4"
+    title: "Ensure the creation of Elastic File Cache (Manual)  "
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client  "
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: |
+      (Manual)
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre (Manual)  "
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.7"
+    title: "Ensure mounting FSx cache (Manual)  "
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: ""
+  - id: "4.8"
+    title: "Ensure exporting cache to S3 (Manual)  "
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: ""
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources (Manual)  "
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5"
+    title: "Simple Storage Service (S3)"
+    type: clause
+    clause_ref: "5"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service (Manual)  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3 (Manual)  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured (Manual)  "
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6"
+    title: "Elastic Disaster Recovery (EDR)"
+    type: clause
+    clause_ref: "6"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured (Manual)  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration (Manual)  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and  "
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+      Response (EDR) (Manual)
+  - id: "6.4"
+    title: "Ensure configuration of replication settings (Manual)  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic  "
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+      Disaster Recovery (Manual)
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent  "
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: |
+      (Manual)
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings  "
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: |
+      (Manual)
+      Page 144
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill (Manual)  "
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: |
+      (Manual)
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: |
+      (Manual)
+  - id: "6.11"
+    title: "Ensure execution of a failback (Manual)  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: ""
+  - id: "6.12"
+    title: "Ensure CloudWatch Metrics for AWS EDR (Manual)  "
+    type: subclause
+    clause_ref: "6.12"
+    status: draft
+    content: ""
+  - id: "6.13"
+    title: "Ensure working of EDR (Manual)  "
+    type: subclause
+    clause_ref: "6.13"
+    status: draft
+    content: |
+      Page 145
+      Appendix: CIS Controls v7 IG 1 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances  "
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: ""
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation  "
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration  "
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+       
+      Recovery
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.4"
+    title: "Ensure configuration of replication settings  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+       
+      Disaster Recovery
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent  "
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Page 146
+      Page 147
+      Appendix: CIS Controls v7 IG 2 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "2.2"
+    title: "Ensure configuring Security Groups  "
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: ""
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage  "
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume  "
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances  "
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: ""
+  - id: "2.7"
+    title: "Ensure creating IAM User  "
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.8"
+    title: "Ensure the Creation of IAM Groups  "
+    type: subclause
+    clause_ref: "2.8"
+    status: draft
+    content: ""
+  - id: "2.9"
+    title: "Ensure Granular Policy Creation  "
+    type: subclause
+    clause_ref: "2.9"
+    status: draft
+    content: ""
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation  "
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS  "
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration  "
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: ""
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services  "
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: ""
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC  "
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports  "
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+       
+      Recovery
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client  "
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: |
+      Page 148
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre  "
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.7"
+    title: "Ensure mounting FSx cache  "
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: ""
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources  "
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured  "
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and Response"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+       
+      (EDR)
+  - id: "6.4"
+    title: "Ensure configuration of replication settings  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+       
+      Disaster Recovery
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent  "
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: ""
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings  "
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: ""
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill  "
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Page 149
+  - id: "2.1"
+    title: "Ensure creating EC2 instance with EBS  "
+    type: subclause
+    clause_ref: "2.1"
+    status: draft
+    content: ""
+  - id: "2.2"
+    title: "Ensure configuring Security Groups  "
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: ""
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage  "
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume  "
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances  "
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: ""
+  - id: "2.7"
+    title: "Ensure creating IAM User  "
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.8"
+    title: "Ensure the Creation of IAM Groups  "
+    type: subclause
+    clause_ref: "2.8"
+    status: draft
+    content: ""
+  - id: "2.9"
+    title: "Ensure Granular Policy Creation  "
+    type: subclause
+    clause_ref: "2.9"
+    status: draft
+    content: ""
+  - id: "2.10"
+    title: "Ensure Resource Access via Tag-based Policies  "
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: ""
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation  "
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS  "
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration  "
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: ""
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services  "
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: ""
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC  "
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports  "
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+       
+      Recovery
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Page 150
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client  "
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre  "
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.7"
+    title: "Ensure mounting FSx cache  "
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: ""
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources  "
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured  "
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and Response"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+       
+      (EDR)
+  - id: "6.4"
+    title: "Ensure configuration of replication settings  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+       
+      Disaster Recovery
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent  "
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: ""
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings  "
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: ""
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill  "
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Page 151
+      Appendix: CIS Controls v7 Unmapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "1.1"
+    title: "AWS Storage Backups  "
+    type: subclause
+    clause_ref: "1.1"
+    status: draft
+    content: ""
+  - id: "1.2"
+    title: "Ensure securing AWS Backups  "
+    type: subclause
+    clause_ref: "1.2"
+    status: draft
+    content: ""
+  - id: "1.3"
+    title: "Ensure to create backup template and name  "
+    type: subclause
+    clause_ref: "1.3"
+    status: draft
+    content: ""
+  - id: "1.4"
+    title: "Ensure to create AWS IAM Policies  "
+    type: subclause
+    clause_ref: "1.4"
+    status: draft
+    content: ""
+  - id: "1.5"
+    title: "Ensure to create IAM roles for Backup  "
+    type: subclause
+    clause_ref: "1.5"
+    status: draft
+    content: ""
+  - id: "1.6"
+    title: "Ensure AWS Backup with Service Linked Roles  "
+    type: subclause
+    clause_ref: "1.6"
+    status: draft
+    content: ""
+  - id: "2.13"
+    title: "Ensure creating an SNS subscription  "
+    type: subclause
+    clause_ref: "2.13"
+    status: draft
+    content: ""
+  - id: "4.4"
+    title: "Ensure the creation of Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: ""
+  - id: "4.8"
+    title: "Ensure exporting cache to S3  "
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: ""
+  - id: "6.12"
+    title: "Ensure CloudWatch Metrics for AWS EDR  "
+    type: subclause
+    clause_ref: "6.12"
+    status: draft
+    content: ""
+  - id: "6.13"
+    title: "Ensure working of EDR  "
+    type: subclause
+    clause_ref: "6.13"
+    status: draft
+    content: |
+      Page 152
+      Appendix: CIS Controls v8 IG 1 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage  "
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume  "
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.7"
+    title: "Ensure creating IAM User  "
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS  "
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services  "
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports  "
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+       
+      Recovery
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client  "
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre  "
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources  "
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured  "
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: |
+      Page 153
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "6.4"
+    title: "Ensure configuration of replication settings  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings  "
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Page 154
+      Appendix: CIS Controls v8 IG 2 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "2.1"
+    title: "Ensure creating EC2 instance with EBS  "
+    type: subclause
+    clause_ref: "2.1"
+    status: draft
+    content: ""
+  - id: "2.2"
+    title: "Ensure configuring Security Groups  "
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: ""
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage  "
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume  "
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.7"
+    title: "Ensure creating IAM User  "
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.10"
+    title: "Ensure Resource Access via Tag-based Policies  "
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: ""
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation  "
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS  "
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration  "
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: ""
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services  "
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: ""
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC  "
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports  "
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+       
+      Recovery
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client  "
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre  "
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: |
+      Page 155
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources  "
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured  "
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and Response"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+       
+      (EDR)
+  - id: "6.4"
+    title: "Ensure configuration of replication settings  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+       
+      Disaster Recovery
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent  "
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: ""
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings  "
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: ""
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill  "
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Page 156
+      Appendix: CIS Controls v8 IG 3 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "2.1"
+    title: "Ensure creating EC2 instance with EBS  "
+    type: subclause
+    clause_ref: "2.1"
+    status: draft
+    content: ""
+  - id: "2.2"
+    title: "Ensure configuring Security Groups  "
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: ""
+  - id: "2.3"
+    title: "Ensure the proper configuration of EBS storage  "
+    type: subclause
+    clause_ref: "2.3"
+    status: draft
+    content: ""
+  - id: "2.4"
+    title: "Ensure the creation of a new volume  "
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: ""
+  - id: "2.5"
+    title: "Ensure creating snapshots of EBS volumes  "
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: ""
+  - id: "2.6"
+    title: "Ensure Proper IAM Configuration for EC2 Instances  "
+    type: subclause
+    clause_ref: "2.6"
+    status: draft
+    content: ""
+  - id: "2.7"
+    title: "Ensure creating IAM User  "
+    type: subclause
+    clause_ref: "2.7"
+    status: draft
+    content: ""
+  - id: "2.8"
+    title: "Ensure the Creation of IAM Groups  "
+    type: subclause
+    clause_ref: "2.8"
+    status: draft
+    content: ""
+  - id: "2.9"
+    title: "Ensure Granular Policy Creation  "
+    type: subclause
+    clause_ref: "2.9"
+    status: draft
+    content: ""
+  - id: "2.10"
+    title: "Ensure Resource Access via Tag-based Policies  "
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: ""
+  - id: "2.11"
+    title: "Ensure Secure Password Policy Implementation  "
+    type: subclause
+    clause_ref: "2.11"
+    status: draft
+    content: ""
+  - id: "2.12"
+    title: "Ensure Monitoring EC2 and EBS with CloudWatch  "
+    type: subclause
+    clause_ref: "2.12"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "EFS  "
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.2"
+    title: "Ensure Implementation of EFS  "
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: ""
+  - id: "3.3"
+    title: "Ensure EFS and VPC Integration  "
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: ""
+  - id: "3.4"
+    title: "Ensure controlling Network access to EFS Services  "
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: ""
+  - id: "3.5"
+    title: "Ensure using Security Groups for VPC  "
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: ""
+  - id: "3.6"
+    title: "Ensure Secure Ports  "
+    type: subclause
+    clause_ref: "3.6"
+    status: draft
+    content: ""
+  - id: "3.7"
+    title: "Ensure File-Level Access Control with Mount Targets  "
+    type: subclause
+    clause_ref: "3.7"
+    status: draft
+    content: ""
+  - id: "3.8"
+    title: "Ensure managing mount target security groups  "
+    type: subclause
+    clause_ref: "3.8"
+    status: draft
+    content: ""
+  - id: "3.9"
+    title: "Ensure using VPC endpoints - EFS  "
+    type: subclause
+    clause_ref: "3.9"
+    status: draft
+    content: ""
+  - id: "3.10"
+    title: "Ensure managing AWS EFS access points  "
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: ""
+  - id: "3.11"
+    title: "Ensure accessing Points and IAM Policies  "
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: ""
+  - id: "3.12"
+    title: "Ensure configuring IAM for AWS Elastic Disaster"
+    type: subclause
+    clause_ref: "3.12"
+    status: draft
+    content: |
+       
+      Recovery
+  - id: "4.1"
+    title: "FSX (AWS Elastic File Cache)  "
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Amazon Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Page 157
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.3"
+    title: "Ensure the creation of an FSX Bucket  "
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Ensure installation and configuration of Lustre Client  "
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.6"
+    title: "Ensure EC2 Kernel compatibility with Lustre  "
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.9"
+    title: "Ensure cleaning up FSx Resources  "
+    type: subclause
+    clause_ref: "4.9"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Amazon Simple Storage Service  "
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Ensure direct data addition to S3  "
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Ensure Storage Classes are Configured  "
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "6.1"
+    title: "Ensure Elastic Disaster Recovery is Configured  "
+    type: subclause
+    clause_ref: "6.1"
+    status: draft
+    content: ""
+  - id: "6.2"
+    title: "Ensure AWS Disaster Recovery Configuration  "
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: ""
+  - id: "6.3"
+    title: "Ensure functionality of Endpoint Detection and Response"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+       
+      (EDR)
+  - id: "6.4"
+    title: "Ensure configuration of replication settings  "
+    type: subclause
+    clause_ref: "6.4"
+    status: draft
+    content: ""
+  - id: "6.5"
+    title: "Ensure proper IAM configuration for AWS Elastic"
+    type: subclause
+    clause_ref: "6.5"
+    status: draft
+    content: |
+       
+      Disaster Recovery
+  - id: "6.6"
+    title: "Ensure installation of the AWS Replication Agent  "
+    type: subclause
+    clause_ref: "6.6"
+    status: draft
+    content: ""
+  - id: "6.7"
+    title: "Ensure proper configuration of the Launch Settings  "
+    type: subclause
+    clause_ref: "6.7"
+    status: draft
+    content: ""
+  - id: "6.8"
+    title: "Ensure execution of a recovery drill  "
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: ""
+  - id: "6.9"
+    title: "Ensure Continuous Disaster Recovery Operations  "
+    type: subclause
+    clause_ref: "6.9"
+    status: draft
+    content: ""
+  - id: "6.10"
+    title: "Ensure execution of a Disaster Recovery Failover  "
+    type: subclause
+    clause_ref: "6.10"
+    status: draft
+    content: ""
+  - id: "6.11"
+    title: "Ensure execution of a failback  "
+    type: subclause
+    clause_ref: "6.11"
+    status: draft
+    content: |
+      Page 158
+      Appendix: CIS Controls v8 Unmapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "1.1"
+    title: "AWS Storage Backups  "
+    type: subclause
+    clause_ref: "1.1"
+    status: draft
+    content: ""
+  - id: "1.2"
+    title: "Ensure securing AWS Backups  "
+    type: subclause
+    clause_ref: "1.2"
+    status: draft
+    content: ""
+  - id: "1.3"
+    title: "Ensure to create backup template and name  "
+    type: subclause
+    clause_ref: "1.3"
+    status: draft
+    content: ""
+  - id: "1.4"
+    title: "Ensure to create AWS IAM Policies  "
+    type: subclause
+    clause_ref: "1.4"
+    status: draft
+    content: ""
+  - id: "1.5"
+    title: "Ensure to create IAM roles for Backup  "
+    type: subclause
+    clause_ref: "1.5"
+    status: draft
+    content: ""
+  - id: "1.6"
+    title: "Ensure AWS Backup with Service Linked Roles  "
+    type: subclause
+    clause_ref: "1.6"
+    status: draft
+    content: ""
+  - id: "2.13"
+    title: "Ensure creating an SNS subscription  "
+    type: subclause
+    clause_ref: "2.13"
+    status: draft
+    content: ""
+  - id: "4.4"
+    title: "Ensure the creation of Elastic File Cache  "
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: ""
+  - id: "4.7"
+    title: "Ensure mounting FSx cache  "
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: ""
+  - id: "4.8"
+    title: "Ensure exporting cache to S3  "
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: ""
+  - id: "6.12"
+    title: "Ensure CloudWatch Metrics for AWS EDR  "
+    type: subclause
+    clause_ref: "6.12"
+    status: draft
+    content: ""
+  - id: "6.13"
+    title: "Ensure working of EDR  "
+    type: subclause
+    clause_ref: "6.13"
+    status: draft
+    content: |
+      Page 159

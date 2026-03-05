@@ -1,0 +1,39 @@
+###############################################################################
+# grok2api Docker Compose - Framework Orchestration
+#
+# Builds from the local grok2api repo clone and manages persistent data.
+#
+# Usage:
+#   docker compose -f tools/grok2api/deploy/docker-compose.yml up -d --build
+#   docker compose -f tools/grok2api/deploy/docker-compose.yml logs -f
+#   docker compose -f tools/grok2api/deploy/docker-compose.yml down
+#
+# Prerequisites:
+#   - Fresh repo clone at ~/grok2api (git clone https://github.com/chenyme/grok2api.git)
+#   - Valid SSO tokens in ~/grok2api-data/token.json
+#
+# Data persistence:
+#   ~/grok2api-data/          Mounted to /app/data inside container
+#     ├── config.toml         Runtime config (auto-created from defaults on first run)
+#     ├── token.json          X.com SSO session tokens
+#     └── tmp/                Cached images and videos
+###############################################################################
+
+name: grok2api
+
+services:
+  grok2api:
+    container_name: grok2api
+    build:
+      context: ${HOME}/grok2api
+      dockerfile: Dockerfile
+    image: grok2api-local:latest
+    user: "${UID:-1000}:${GID:-1000}"
+    ports:
+      - "8000:8000"
+    environment:
+      TZ: America/Chicago
+    volumes:
+      - ${HOME}/grok2api-data:/app/data
+      - ${HOME}/grok2api-logs:/app/logs
+    restart: unless-stopped

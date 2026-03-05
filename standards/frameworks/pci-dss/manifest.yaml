@@ -1,0 +1,41 @@
+name: PCI Data Security Standard
+type: standard
+version: 4.0.1
+provider: pci-ssc
+skills:
+  - compliance
+  - pentest
+industries:
+  - retail
+  - financial
+  - ecommerce
+native_categories:
+  - Req-1    # Install and Maintain Network Security Controls
+  - Req-2    # Apply Secure Configurations
+  - Req-3    # Protect Stored Account Data
+  - Req-4    # Protect Cardholder Data in Transit
+  - Req-5    # Protect Systems Against Malware
+  - Req-6    # Develop and Maintain Secure Systems
+  - Req-7    # Restrict Access to System Components
+  - Req-8    # Identify Users and Authenticate Access
+  - Req-9    # Restrict Physical Access to Cardholder Data
+  - Req-10   # Log and Monitor All Access
+  - Req-11   # Test Security of Systems and Networks Regularly
+  - Req-12   # Support Information Security with Organizational Policies
+source_url: https://www.pcisecuritystandards.org/
+published: 2026-01-14
+pages: 397
+chunks: 40
+questions_count: 20
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: complete
+  questions: complete
+  questions_framework_count: 4
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://www.pcisecuritystandards.org/
+  next_check: 2027-02-25

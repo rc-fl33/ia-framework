@@ -1,0 +1,11 @@
+## Appendix A: CWE Reference Index {.appendix}
+
+| Finding | CWE | OWASP |
+|---------|-----|-------|
+| F001 | CWE-XXX | OWASP-XXX |
+
+## Appendix B: Finding Status {.appendix}
+
+| ID | Title | Severity | Status |
+|----|-------|----------|--------|
+| F001 | Example Finding Title | Medium | Open |

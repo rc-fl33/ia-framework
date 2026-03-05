@@ -1,0 +1,1 @@
+../skills/incident/commands/incident.md

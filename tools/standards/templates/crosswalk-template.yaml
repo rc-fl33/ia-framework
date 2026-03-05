@@ -1,0 +1,33 @@
+# Crosswalk Template
+# Usage: Copy to standards/mappings/crosswalks/{framework-id}.yaml
+# Replace all {PLACEHOLDER} values and remove this comment block.
+# Auto-generated mappings use confidence: medium; set to high after human review.
+
+framework: "{FRAMEWORK_ID}"                 # e.g., "iso-9001"
+version: "{VERSION}"
+description: "{FRAMEWORK} cross-framework mappings"
+last_updated: "{YYYY-MM-DD}"
+generated_by: enrich-pipeline                # enrich-pipeline | manual
+coverage_pct: 0                             # % of controls with ≥1 external mapping
+
+mappings:
+  - control: "{CONTROL_ID}"                 # Framework-native control ID
+    title: "{CONTROL_TITLE}"
+    external_mappings:
+      # Format: {framework-id}: ["{control-id}", ...]
+      # Use only frameworks where mapping is justified
+      nist-csf:
+        - "{GV.XX-NN}"
+      iso-27001:
+        - "A.{N}.{NN}"
+      nist-800-53:
+        - "{XX}-{N}"
+      soc2:
+        - "CC{N}.{N}"
+      hipaa:
+        - "§164.{NNN}({x})"
+      # Add other frameworks as applicable
+    confidence: medium                      # high | medium | low
+    evidence:
+      - "{EVIDENCE_OF_MAPPING}"
+    notes: "{MAPPING_NOTES}"

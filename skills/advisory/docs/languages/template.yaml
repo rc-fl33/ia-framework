@@ -1,0 +1,34 @@
+# Language Guide Template
+# Copy this file to create new language guides
+
+language:
+  name: ""  # Full language name (e.g., "Python", "JavaScript")
+  aliases: []  # Common variations (e.g., ["py", "python3"])
+  file_extensions: []  # File extensions (e.g., [".py", ".pyw"])
+  frameworks: []  # Popular frameworks
+  version_current: ""  # Current stable version
+  version_minimum_secure: ""  # Minimum version without critical vulns
+
+detection:
+  file_patterns: []  # Glob patterns for detection
+  shebang: ""  # Shebang pattern (if applicable)
+  package_files: []  # Package manager files
+
+resources:
+  official_security: ""  # Official security documentation URL
+  package_advisories: ""  # Package/dependency advisory source
+  style_guide: ""  # Official style/best practices guide
+  cert_standard: ""  # SEI CERT standard URL (if exists)
+
+owasp_asvs_applicable: false  # OWASP ASVS Level 2 applicable to language
+cwe_top25_applicable: []  # Relevant CWE IDs from Top 25
+
+pattern_count: 0  # Number of vulnerability patterns defined
+framework_coverage: []  # Frameworks with specific checks
+
+last_updated: "YYYY-MM-DD"
+status: "stub"  # stub | partial | complete
+
+# TODO: Create patterns.yaml with vulnerability patterns
+# TODO: Create checklist.yaml with code review checklist
+# TODO: Create examples.md with vulnerable/fixed code examples

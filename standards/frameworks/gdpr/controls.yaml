@@ -1,0 +1,177 @@
+framework: gdpr
+version: "2016/679"
+total_controls: 30
+controls:
+  - id: Art-5
+    title: Principles relating to processing of personal data
+    category: Chapter-II
+    description: "Lawfulness, fairness, transparency; purpose limitation; data minimisation; accuracy; storage limitation; integrity and confidentiality; accountability"
+    status: active
+
+  - id: Art-6
+    title: Lawfulness of processing
+    category: Chapter-II
+    description: "Processing is lawful only if at least one of six legal bases applies: consent, contract, legal obligation, vital interests, public task, legitimate interests"
+    status: active
+
+  - id: Art-7
+    title: Conditions for consent
+    category: Chapter-II
+    description: "Controller must demonstrate consent was given; consent requests must be distinguishable; withdrawal must be as easy as giving; consent is not valid if conditional on a contract"
+    status: active
+
+  - id: Art-8
+    title: Conditions applicable to child's consent
+    category: Chapter-II
+    description: "Processing of child's personal data is lawful only if child is at least 16 years old; member states may lower threshold to 13; parental consent required below threshold"
+    status: active
+
+  - id: Art-9
+    title: Processing of special categories of personal data
+    category: Chapter-II
+    description: "Prohibition on processing special categories (health, biometric, genetic, racial/ethnic, political, religious, trade union, sexual orientation) unless explicit exception applies"
+    status: active
+
+  - id: Art-12
+    title: Transparent information, communication and modalities for the exercise of the rights of the data subject
+    category: Chapter-III
+    description: "Controller must provide information in concise, transparent, intelligible, and easily accessible form; responds to requests without undue delay and in any event within one month"
+    status: active
+
+  - id: Art-13
+    title: Information to be provided where personal data are collected from the data subject
+    category: Chapter-III
+    description: "At point of collection controller must provide identity, contact details, DPO contact, purposes, legal basis, legitimate interests, recipients, international transfers, retention periods, and rights"
+    status: active
+
+  - id: Art-14
+    title: Information to be provided where personal data have not been obtained from the data subject
+    category: Chapter-III
+    description: "When data collected indirectly, controller must provide same information as Art-13 plus categories of data and source, within one month or at first communication"
+    status: active
+
+  - id: Art-15
+    title: Right of access by the data subject
+    category: Chapter-III
+    description: "Data subject has the right to obtain confirmation of processing, access to data, and copy; includes information about purposes, categories, recipients, retention, rights, and safeguards"
+    status: active
+
+  - id: Art-16
+    title: Right to rectification
+    category: Chapter-III
+    description: "Data subject has the right to obtain rectification of inaccurate data without undue delay; incomplete data must be completed"
+    status: active
+
+  - id: Art-17
+    title: Right to erasure (right to be forgotten)
+    category: Chapter-III
+    description: "Data subject has the right to erasure without undue delay in specified circumstances; exceptions for legal obligations, public interest, research, legal claims"
+    status: active
+
+  - id: Art-18
+    title: Right to restriction of processing
+    category: Chapter-III
+    description: "Data subject may obtain restriction of processing in specific circumstances; restricted data may only be stored or processed with consent or for legal claims"
+    status: active
+
+  - id: Art-20
+    title: Right to data portability
+    category: Chapter-III
+    description: "Data subject has the right to receive personal data in structured, commonly used, machine-readable format and the right to transmit it to another controller"
+    status: active
+
+  - id: Art-21
+    title: Right to object
+    category: Chapter-III
+    description: "Data subject may object to processing based on legitimate interests or public task; absolute right to object to direct marketing processing"
+    status: active
+
+  - id: Art-22
+    title: Automated individual decision-making, including profiling
+    category: Chapter-III
+    description: "Data subject has the right not to be subject to solely automated decisions that produce significant effects; exceptions for contract, legal obligation, or explicit consent with safeguards"
+    status: active
+
+  - id: Art-24
+    title: Responsibility of the controller
+    category: Chapter-IV
+    description: "Controller implements appropriate technical and organisational measures to ensure processing is compliant; must be able to demonstrate compliance"
+    status: active
+
+  - id: Art-25
+    title: Data protection by design and by default
+    category: Chapter-IV
+    description: "Controller implements data protection principles by design; by default only processes personal data necessary for each specific purpose"
+    status: active
+
+  - id: Art-28
+    title: Processor
+    category: Chapter-IV
+    description: "Controller only uses processors that provide sufficient guarantees; processing governed by binding contract (DPA) setting out processor obligations; sub-processor requires controller authorization"
+    status: active
+
+  - id: Art-30
+    title: Records of processing activities
+    category: Chapter-IV
+    description: "Controller maintains records including: controller identity, purposes, data subject categories, recipient categories, international transfers, retention periods, security measures"
+    status: active
+
+  - id: Art-32
+    title: Security of processing
+    category: Chapter-IV
+    description: "Appropriate technical and organisational measures based on risk: pseudonymisation, encryption, confidentiality/integrity/availability, resilience, restoration capability, regular testing"
+    status: active
+
+  - id: Art-33
+    title: Notification of a personal data breach to the supervisory authority
+    category: Chapter-IV
+    description: "Controller notifies supervisory authority within 72 hours of becoming aware of breach unless unlikely to result in risk; notification includes nature, categories, approximate numbers, consequences, measures taken"
+    status: active
+
+  - id: Art-34
+    title: Communication of a personal data breach to the data subject
+    category: Chapter-IV
+    description: "Where breach likely to result in high risk, controller communicates breach to data subject without undue delay in clear and plain language"
+    status: active
+
+  - id: Art-35
+    title: Data protection impact assessment
+    category: Chapter-IV
+    description: "DPIA required where processing likely results in high risk: systematic profiling, large-scale special categories, systematic monitoring of public areas; must include necessity/proportionality, risks, measures"
+    status: active
+
+  - id: Art-36
+    title: Prior consultation
+    category: Chapter-IV
+    description: "Where DPIA indicates high residual risk, controller consults supervisory authority prior to processing; supervisory authority may issue written advice"
+    status: active
+
+  - id: Art-37
+    title: Designation of the data protection officer
+    category: Chapter-IV
+    description: "DPO required for: public authority, large-scale systematic monitoring, large-scale special category processing; controller publishes DPO contact details"
+    status: active
+
+  - id: Art-38
+    title: Position of the data protection officer
+    category: Chapter-IV
+    description: "Controller ensures DPO is involved in all data protection matters; provided resources; not dismissed or penalised for performing tasks; reports to highest management; may have other tasks if no conflict"
+    status: active
+
+  - id: Art-39
+    title: Tasks of the data protection officer
+    category: Chapter-IV
+    description: "DPO tasks: inform and advise, monitor compliance, advise on DPIA, cooperate with supervisory authority, act as contact point for supervisory authority and data subjects"
+    status: active
+
+  - id: Art-44
+    title: General principle for transfers
+    category: Chapter-V
+    description: "Transfers to third countries or international organisations only if conditions of Chapter V are complied with; provisions applied to ensure level of protection is not undermined"
+    status: active
+
+  - id: Art-83
+    title: General conditions for imposing administrative fines
+    category: Chapter-VIII
+    description: "Fines up to EUR 10M or 2% of global annual turnover for less serious violations; up to EUR 20M or 4% of global annual turnover for most serious violations; fines must be effective, proportionate, and dissuasive"
+    status: active

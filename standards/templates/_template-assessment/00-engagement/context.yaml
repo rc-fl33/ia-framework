@@ -1,0 +1,63 @@
+# Assessment Context Variables
+# Populated during Phase 1 (Intake) — referenced by all templates
+# Fill this out first — all templates will use these values
+
+# ─── Organization Details ───
+organization:
+  name: ""                    # Legal entity name (e.g., "Acme Corp, Inc.")
+  short_name: ""              # Short name for headers (e.g., "Acme")
+  url: ""                     # Primary website
+  industry: ""                # e.g., Technology, Healthcare, Financial Services
+  employee_count: ""          # Approximate headcount
+  locations: []               # List of office/data center locations
+  description: ""             # One-line business description
+
+# ─── Key Contacts ───
+contacts:
+  primary:
+    name: ""
+    title: ""
+    email: ""
+    phone: ""
+  ciso:
+    name: ""
+    title: ""
+    email: ""
+  legal:
+    name: ""
+    title: ""
+    email: ""
+  ai_governance_lead:         # For AIUC-1 assessments
+    name: ""
+    title: ""
+    email: ""
+  dpo:                        # Data Protection Officer (if applicable)
+    name: ""
+    title: ""
+    email: ""
+
+# ─── Policy Governance ───
+governance:
+  policy_owner: ""            # Department or role (e.g., "Information Security")
+  policy_approver: ""         # Name and title of approving authority
+  contact_email: ""           # Policy questions contact
+  review_cycle: "Annual"      # Annual, Semi-Annual, Quarterly
+
+# ─── Assessment Details ───
+assessment:
+  assessor_name: ""           # Person/firm conducting assessment
+  assessor_org: ""            # Assessment organization
+  assessment_date: ""         # YYYY-MM-DD
+  frameworks: []              # List of frameworks (e.g., [nist-csf, hipaa, aiuc-1])
+  scope: ""                   # Assessment scope description
+  type: ""                    # Full, Targeted, Delta, Certification Readiness
+
+# ─── Document Control ───
+documents:
+  version: "1.0"
+  effective_date: ""          # YYYY-MM-DD
+  next_review_date: ""        # YYYY-MM-DD
+  change_summary: "Initial assessment"
+
+# ─── Compliance Frameworks ───
+compliance_frameworks: ""     # Comma-separated for template insertion (e.g., "NIST CSF 2.0, HIPAA, AIUC-1")

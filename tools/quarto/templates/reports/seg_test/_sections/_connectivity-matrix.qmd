@@ -1,0 +1,5 @@
+# Connectivity Matrix
+
+| Source Zone | Destination Zone | Port/Protocol | Action | Justification |
+|-------------|-------------------|---------------|--------|---------------|
+| [Zone A] | [Zone B] | [Port/Proto] | [Allow/Deny] | [Justification] |

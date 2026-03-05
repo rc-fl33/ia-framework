@@ -1,0 +1,32 @@
+framework: iso/42001
+checks:
+  - name: manifest_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/iso/42001/manifest.yaml
+  - name: controls_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/iso/42001/controls.yaml
+  - name: questions_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/iso/42001/questions.yaml
+  - name: crosswalk_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/iso-42001.yaml
+  - name: question_count
+    status: pass
+    detail: 30 questions (need ≥20 for T2)
+  - name: question_coverage
+    status: warn
+    detail: 38 controls not in any question
+  - name: framework_depth
+    status: fail
+    detail: Avg 0.8 external framework mappings per question (need ≥5 for T3)
+  - name: cardinality
+    status: pass
+    detail: total_questions=30, actual=30
+  - name: required_fields
+    status: fail
+    detail: 30 questions missing required fields
+errors: 2
+warnings: 1
+tier_achieved: 1

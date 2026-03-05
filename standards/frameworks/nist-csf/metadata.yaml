@@ -1,0 +1,65 @@
+# NIST Cybersecurity Framework Metadata
+# Used for version tracking and currency checks
+
+framework:
+  name: "NIST Cybersecurity Framework"
+  short_name: "NIST CSF"
+  version: "2.0"
+  release_date: "2024-02-26"
+  official_url: "https://www.nist.gov/cyberframework"
+  download_url: "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
+
+  # Source documents in reference/
+  source_documents:
+    - name: "NIST-CSWP-29"
+      description: "CSF 2.0 Core Document"
+    - name: "NIST-SP800-30r1"
+      description: "Risk Assessment Guide"
+    - name: "NIST-SP800-61r3"
+      description: "Incident Handling Guide"
+
+  # Framework structure
+  functions:
+    - id: "GV"
+      name: "GOVERN"
+      description: "Organizational context, risk management strategy, policies"
+    - id: "ID"
+      name: "IDENTIFY"
+      description: "Asset management, risk assessment, supply chain"
+    - id: "PR"
+      name: "PROTECT"
+      description: "Access control, awareness, data security, platform security"
+    - id: "DE"
+      name: "DETECT"
+      description: "Continuous monitoring, adverse event analysis"
+    - id: "RS"
+      name: "RESPOND"
+      description: "Incident management, analysis, mitigation, reporting"
+    - id: "RC"
+      name: "RECOVER"
+      description: "Recovery planning, communication"
+
+  controls_count: 106  # Approximate subcategories
+
+  # Verification
+  last_verified: "2026-01-14"
+  verified_by: "Local PDF comparison"
+  status: current  # current | outdated | deprecated
+
+  # Related frameworks
+  related:
+    - nist-800-53    # Detailed controls
+    - nist-800-171   # CUI protection
+    - cis-controls   # Implementation mapping
+
+# Acquisition instructions
+acquisition:
+  method: "curl"
+  command: 'curl -o NIST-CSF-2.0.pdf "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"'
+  requires_account: false
+
+# Update schedule
+maintenance:
+  check_frequency: "quarterly"
+  last_check: "2026-01-14"
+  next_check: "2026-04-14"

@@ -1,0 +1,247 @@
+framework: owasp-llm
+version: "2025"
+total_controls: 10
+
+controls:
+  - id: LLM01
+    title: "Prompt Injection"
+    category: LLM01
+    description: "A Prompt Injection Vulnerability occurs when user prompts alter the LLM's behavior or output in unintended ways. These inputs can affect the model even if they are imperceptible to humans. Prompt Injection vulnerabilities exist in how models process prompts, and how input may force the model to incorrectly pass prompt data to other parts of the model, potentially causing them to violate guidelines, generate harmful content, enable unauthorized access, or influence critical decisions. Direct injections alter model behavior via user input; indirect injections exploit external content (websites, files) processed by the LLM."
+    risk_factors:
+      - "Disclosure of sensitive information or system infrastructure details"
+      - "Content manipulation leading to incorrect or biased outputs"
+      - "Providing unauthorized access to functions available to the LLM"
+      - "Executing arbitrary commands in connected systems"
+      - "Manipulating critical decision-making processes"
+      - "Multimodal attack surface expansion (instructions hidden in images)"
+    prevention:
+      - "Constrain model behavior with specific role and capability instructions in system prompt"
+      - "Define and validate expected output formats using deterministic code"
+      - "Implement input and output filtering with semantic filters and RAG Triad evaluation"
+      - "Enforce privilege control and least privilege access for API tokens and model functions"
+      - "Require human approval for high-risk actions (human-in-the-loop)"
+      - "Segregate and clearly identify external untrusted content"
+      - "Conduct adversarial testing and attack simulations regularly"
+    mitre_atlas:
+      - "AML.T0051.000 - LLM Prompt Injection: Direct"
+      - "AML.T0051.001 - LLM Prompt Injection: Indirect"
+      - "AML.T0054 - LLM Jailbreak Injection: Direct"
+    status: active
+
+  - id: LLM02
+    title: "Sensitive Information Disclosure"
+    category: LLM02
+    description: "Sensitive information can affect both the LLM and its application context, including PII, financial details, health records, confidential business data, security credentials, and legal documents. LLMs risk exposing sensitive data, proprietary algorithms, or confidential details through their output, resulting in unauthorized data access, privacy violations, and intellectual property breaches. Disclosed training data can expose models to inversion attacks (e.g., CVE-2019-20634 Proof Pudding)."
+    risk_factors:
+      - "PII leakage during LLM interactions"
+      - "Proprietary algorithm exposure through poorly configured model outputs"
+      - "Sensitive business data disclosure in generated responses"
+      - "Training data inversion attacks enabling model extraction"
+      - "Bypassing system prompt restrictions via prompt injection"
+    prevention:
+      - "Integrate data sanitization techniques to prevent user data entering training models"
+      - "Apply robust input validation to detect and filter sensitive data inputs"
+      - "Enforce strict access controls based on least privilege principle"
+      - "Restrict model access to external data sources"
+      - "Utilize federated learning and differential privacy techniques"
+      - "Educate users on safe LLM interaction practices"
+      - "Maintain clear data retention, usage, and deletion policies with opt-out options"
+      - "Conceal system preamble and reference OWASP API8:2023 Security Misconfiguration"
+      - "Use homomorphic encryption and tokenization/redaction for sensitive data"
+    mitre_atlas:
+      - "AML.T0024.000 - Infer Training Data Membership"
+      - "AML.T0024.001 - Invert ML Model"
+      - "AML.T0024.002 - Extract ML Model"
+    status: active
+
+  - id: LLM03
+    title: "Supply Chain Vulnerabilities"
+    category: LLM03
+    description: "LLM supply chains are susceptible to various vulnerabilities affecting the integrity of training data, models, and deployment platforms. Risks extend beyond traditional software vulnerabilities to third-party pre-trained models, fine-tuning adapters (LoRA, PEFT), model repositories (Hugging Face), and on-device LLM deployments. Supply chain attacks can include model tampering (ROME lobotomisation), vulnerable LoRA adapters, compromised collaborative development processes, and unclear T&Cs enabling sensitive data use in training."
+    risk_factors:
+      - "Traditional third-party package vulnerabilities in LLM development environments"
+      - "Licensing risks from diverse software and dataset licenses"
+      - "Outdated or deprecated models no longer maintained"
+      - "Vulnerable pre-trained models with hidden biases, backdoors, or malicious features"
+      - "Weak model provenance with no strong assurances on model origin"
+      - "Vulnerable LoRA adapters compromising base model integrity"
+      - "Exploitation of collaborative development processes (model merges, format conversions)"
+      - "On-device LLM supply chain vulnerabilities from compromised firmware"
+      - "Unclear T&Cs leading to sensitive data use in model training"
+    prevention:
+      - "Vet data sources and suppliers rigorously, reviewing T&Cs and privacy policies"
+      - "Apply OWASP Top Ten A06:2021 Vulnerable and Outdated Components mitigations"
+      - "Perform comprehensive AI Red Teaming when selecting third-party models"
+      - "Maintain up-to-date SBOM/AI-BOM inventory using OWASP CycloneDX"
+      - "Conduct license audits using automated license management tools"
+      - "Use models only from verifiable sources with integrity checks and file hashes"
+      - "Implement strict monitoring for collaborative model development environments"
+      - "Apply anomaly detection and adversarial robustness tests on supplied models"
+      - "Implement patching policy for vulnerable or outdated components"
+      - "Encrypt edge-deployed models with integrity checks and vendor attestation"
+    mitre_atlas:
+      - "ML Supply Chain Compromise - MITRE ATLAS"
+    status: active
+
+  - id: LLM04
+    title: "Data and Model Poisoning"
+    category: LLM04
+    description: "Data poisoning occurs when pre-training, fine-tuning, or embedding data is manipulated to introduce vulnerabilities, backdoors, or biases. This manipulation can compromise model security, performance, or ethical behavior, leading to harmful outputs or impaired capabilities. Poisoning is an integrity attack targeting pre-training, fine-tuning, and embedding stages. Techniques include Split-View Data Poisoning, Frontrunning Poisoning, and malicious pickling. Backdoors can create sleeper agents where model behavior appears normal until a trigger activates malicious behavior."
+    risk_factors:
+      - "Malicious actors introducing harmful data during training using poisoning techniques"
+      - "Direct injection of harmful content into the training process"
+      - "User-injected sensitive or proprietary information exposed in subsequent outputs"
+      - "Unverified training data leading to biased or erroneous outputs"
+      - "Lack of resource access restrictions enabling ingestion of unsafe data"
+      - "Backdoor triggers enabling sleeper agent behavior"
+    prevention:
+      - "Track data origins and transformations using OWASP CycloneDX or ML-BOM"
+      - "Vet data vendors rigorously and validate model outputs against trusted sources"
+      - "Implement strict sandboxing to limit model exposure to unverified data sources"
+      - "Use anomaly detection techniques to filter adversarial data"
+      - "Implement data version control (DVC) to track dataset changes"
+      - "Store user-supplied information in vector databases to avoid full retraining"
+      - "Test model robustness with red team campaigns and adversarial techniques"
+      - "Monitor training loss and analyze model behavior for signs of poisoning"
+      - "Integrate RAG and grounding techniques during inference to reduce hallucination risk"
+    mitre_atlas:
+      - "AML.T0018 - Backdoor ML Model"
+    nist_ai_rmf_reference: "NIST AI Risk Management Framework: Strategies for ensuring AI integrity"
+    status: active
+
+  - id: LLM05
+    title: "Improper Output Handling"
+    category: LLM05
+    description: "Improper Output Handling refers to insufficient validation, sanitization, and handling of LLM-generated outputs before they are passed downstream to other components and systems. Since LLM output can be controlled by prompt input, this is similar to providing users indirect access to additional functionality. Successful exploitation can result in XSS, CSRF in web browsers, SSRF, privilege escalation, or remote code execution on backend systems."
+    risk_factors:
+      - "LLM output entered directly into system shell functions (exec, eval) enabling RCE"
+      - "JavaScript or Markdown generated by LLM interpreted by browser causing XSS"
+      - "LLM-generated SQL queries executed without parameterization causing SQL injection"
+      - "LLM output used to construct file paths without sanitization enabling path traversal"
+      - "LLM-generated email content without escaping enabling phishing attacks"
+      - "Application granting LLM privileges beyond intended end-user scope"
+      - "Indirect prompt injection enabling privileged access to user environment"
+    prevention:
+      - "Treat LLM as any other user with zero-trust approach on all outputs"
+      - "Follow OWASP ASVS guidelines for effective input validation and sanitization"
+      - "Encode model output back to users to prevent JavaScript and Markdown execution"
+      - "Implement context-aware output encoding (HTML, SQL, JavaScript contexts)"
+      - "Use parameterized queries for all database operations involving LLM output"
+      - "Employ strict Content Security Policies (CSP) to mitigate XSS risks"
+      - "Implement robust logging and monitoring to detect unusual LLM output patterns"
+    status: active
+
+  - id: LLM06
+    title: "Excessive Agency"
+    category: LLM06
+    description: "Excessive Agency is the vulnerability enabling damaging actions in response to unexpected, ambiguous, or manipulated LLM outputs. Root causes include excessive functionality (access to unnecessary extensions), excessive permissions (broader access than required), and excessive autonomy (no human approval for high-impact actions). Common triggers are hallucinations from poorly-engineered prompts and direct/indirect prompt injection. Impacts span confidentiality, integrity, and availability."
+    risk_factors:
+      - "LLM agent access to extensions with functions not needed for intended operation"
+      - "Deprecated extensions remaining available to LLM agents"
+      - "Open-ended extensions (shell commands, URL fetch) without granular filtering"
+      - "Extension permissions on downstream systems beyond operational requirements"
+      - "Extensions using generic high-privileged identity rather than user context"
+      - "LLM applications performing high-impact actions without user confirmation"
+    prevention:
+      - "Minimize extensions to only those strictly necessary for intended function"
+      - "Minimize extension functionality to minimum required operations"
+      - "Avoid open-ended extensions; use granular purpose-specific extensions instead"
+      - "Minimize extension permissions on downstream systems (principle of least privilege)"
+      - "Execute extensions in user context with minimum required privileges (OAuth scopes)"
+      - "Require user approval for all high-impact actions (human-in-the-loop)"
+      - "Implement complete mediation with authorization in downstream systems"
+      - "Apply OWASP ASVS input sanitization and SAST/DAST/IAST in development pipelines"
+      - "Log and monitor LLM extension activity to detect undesirable actions"
+      - "Implement rate limiting to reduce undesirable action volume"
+    status: active
+
+  - id: LLM07
+    title: "System Prompt Leakage"
+    category: LLM07
+    description: "System prompt leakage refers to the risk that system prompts used to steer LLM behavior may contain sensitive information not intended for discovery. The system prompt should not be considered a secret or used as a security control. The real risk is not prompt disclosure itself, but the underlying issues: sensitive data stored in prompts, bypassing session management and authorization by delegating to the LLM, and improper privilege separation. Attackers can infer guardrails and restrictions through normal application interaction."
+    risk_factors:
+      - "System prompt exposing API keys, database credentials, or sensitive architecture details"
+      - "Internal business rules and transaction limits revealed through system prompt"
+      - "Filtering criteria or content rejection rules disclosed enabling bypass"
+      - "Role structures and permission levels exposed enabling privilege escalation attacks"
+    prevention:
+      - "Separate sensitive data from system prompts; externalize to systems LLM cannot access"
+      - "Avoid relying on system prompts for strict behavior control; use external systems"
+      - "Implement output guardrails outside of the LLM to validate compliance"
+      - "Enforce security controls (privilege separation, authorization) independently from LLM"
+      - "Use multiple agents with least-privilege scopes for tasks requiring different access levels"
+    mitre_atlas:
+      - "AML.T0051.000 - LLM Prompt Injection: Direct (Meta Prompt Extraction)"
+    status: active
+
+  - id: LLM08
+    title: "Vector and Embedding Weaknesses"
+    category: LLM08
+    description: "Vectors and embeddings vulnerabilities present significant security risks in RAG-based LLM systems. Weaknesses in how vectors and embeddings are generated, stored, or retrieved can be exploited to inject harmful content, manipulate model outputs, or access sensitive information. Risks include unauthorized access across multi-tenant vector databases, embedding inversion attacks recovering source information, data poisoning of knowledge bases, and behavior alteration of the foundation model through retrieval augmentation."
+    risk_factors:
+      - "Unauthorized access and data leakage from inadequate access controls on embedding stores"
+      - "Cross-context information leaks in multi-tenant vector database environments"
+      - "Embedding inversion attacks recovering significant source information"
+      - "Data poisoning of RAG knowledge bases from malicious or unverified sources"
+      - "Behavior alteration of foundation model reducing empathy or accuracy characteristics"
+    prevention:
+      - "Implement fine-grained access controls and permission-aware vector and embedding stores"
+      - "Ensure strict logical and access partitioning of datasets in vector databases"
+      - "Implement robust data validation pipelines for knowledge sources"
+      - "Regularly audit and validate knowledge base integrity for hidden codes and poisoning"
+      - "Accept data only from trusted and verified sources"
+      - "Review and classify combined datasets with appropriate access level tagging"
+      - "Maintain detailed immutable logs of retrieval activities for anomaly detection"
+    status: active
+
+  - id: LLM09
+    title: "Misinformation"
+    category: LLM09
+    description: "Misinformation from LLMs occurs when the model produces false or misleading information that appears credible, leading to security breaches, reputational damage, and legal liability. The primary cause is hallucination, where LLMs fill training data gaps using statistical patterns without genuine comprehension. Additional causes include training data bias and incomplete information. Overreliance compounds the risk as users fail to verify LLM-generated content before acting on it (Air Canada chatbot lawsuit; ChatGPT fabricated legal cases)."
+    risk_factors:
+      - "Factual inaccuracies leading to decisions based on false information"
+      - "Unsupported claims especially harmful in healthcare or legal contexts"
+      - "Misrepresentation of expertise on complex topics"
+      - "Unsafe code generation suggesting insecure or non-existent libraries"
+      - "User overreliance on LLM output without verification"
+    prevention:
+      - "Use Retrieval-Augmented Generation (RAG) to ground outputs in verified external sources"
+      - "Enhance model with fine-tuning, PET, or chain-of-thought prompting to reduce misinformation"
+      - "Encourage cross-verification with trusted external sources and implement human oversight"
+      - "Implement automatic validation mechanisms for key outputs in high-stakes environments"
+      - "Clearly communicate LLM risks and limitations to users including misinformation potential"
+      - "Establish secure coding practices to prevent vulnerability introduction from code suggestions"
+      - "Design APIs and UIs with content filters, AI-generated content labeling, and use limitations"
+    mitre_atlas:
+      - "AML.T0048.002 - Societal Harm"
+    status: active
+
+  - id: LLM10
+    title: "Unbounded Consumption"
+    category: LLM10
+    description: "Unbounded Consumption occurs when an LLM application allows users to conduct excessive and uncontrolled inferences, leading to denial of service (DoS), economic losses (Denial of Wallet), model theft, and service degradation. Attacks include variable-length input floods, high-volume request floods, continuous context window overflow, resource-intensive queries, model extraction via API, functional model replication using synthetic training data, and side-channel attacks harvesting model weights."
+    risk_factors:
+      - "Variable-length input flood exploiting processing inefficiencies"
+      - "Denial of Wallet (DoW) exploiting cloud AI cost-per-use billing models"
+      - "Continuous input overflow exceeding LLM context window"
+      - "Resource-intensive queries draining system resources"
+      - "Model extraction via carefully crafted API queries and prompt injection"
+      - "Functional model replication using synthetic training data generation"
+      - "Side-channel attacks exploiting input filtering to harvest model weights"
+    prevention:
+      - "Implement strict input validation with reasonable size limits"
+      - "Restrict or obfuscate logit_bias and logprobs exposure in API responses"
+      - "Apply rate limiting and user quotas per source entity per time period"
+      - "Monitor and manage resource allocation dynamically per user and request"
+      - "Set timeouts and throttle processing for resource-intensive operations"
+      - "Apply sandbox techniques restricting LLM access to network resources and internal APIs"
+      - "Implement comprehensive logging, monitoring, and anomaly detection for resource usage"
+      - "Implement watermarking to detect unauthorized use of LLM outputs"
+      - "Design for graceful degradation under heavy load"
+      - "Limit queued actions with dynamic scaling and load balancing"
+    mitre_atlas:
+      - "AML.T0029 - Denial of ML Service"
+      - "AML.T0034 - Cost Harvesting"
+      - "AML.T0025 - Exfiltration via Cyber Means"
+      - "AML.TA0000 ML Model Access / AML.T0024 Exfiltration via ML Inference API"
+    status: active

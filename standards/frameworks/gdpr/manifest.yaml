@@ -1,0 +1,42 @@
+name: General Data Protection Regulation
+type: regulation
+version: "2016/679"
+full_name: "Regulation (EU) 2016/679 - General Data Protection Regulation"
+provider: eu
+skills:
+  - compliance
+  - legal
+industries:
+  - technology
+  - healthcare
+  - finance
+  - retail
+  - professional_services
+  - any_eu_data_processor
+native_categories:
+  - Ch-I    # General provisions (Art. 1-4)
+  - Ch-II   # Principles (Art. 5-11)
+  - Ch-III  # Rights of the data subject (Art. 12-23)
+  - Ch-IV   # Controller and processor (Art. 24-43)
+  - Ch-V    # Transfers to third countries (Art. 44-49)
+  - Ch-VI   # Independent supervisory authorities (Art. 51-59)
+  - Ch-VII  # Cooperation and consistency (Art. 60-76)
+  - Ch-VIII # Remedies, liability and penalties (Art. 77-84)
+  - Ch-IX   # Provisions relating to specific situations (Art. 85-91)
+source_url: https://gdpr.eu/
+published: 2026-01-14
+questions_count: 30
+chapters: 11
+articles: 99
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: complete
+  questions: complete
+  questions_framework_count: 3
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://gdpr.eu/
+  next_check: 2027-02-25

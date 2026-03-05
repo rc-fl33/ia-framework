@@ -1,0 +1,41 @@
+language:
+  name: "JavaScript"
+  aliases: ["js", "node", "nodejs"]
+  file_extensions: [".js", ".mjs", ".cjs"]
+  frameworks:
+    - React
+    - Vue
+    - Angular
+    - Express
+    - Next.js
+    - Svelte
+  version_current: "ES2024"
+  version_minimum_secure: "ES2015"  # Modern JS with proper security features
+
+detection:
+  file_patterns:
+    - "*.js"
+    - "*.mjs"
+    - "*.cjs"
+    - "package.json"
+    - "package-lock.json"
+  shebang: "#!/usr/bin/env node"
+  package_files:
+    - "package.json"
+    - "package-lock.json"
+    - "yarn.lock"
+
+resources:
+  official_security: "https://nodejs.org/en/docs/guides/security/"
+  package_advisories: "https://npmjs.com/advisories"
+  style_guide: "https://standardjs.com/"
+  cert_standard: ""
+
+owasp_asvs_applicable: true
+cwe_top25_applicable: [20, 22, 78, 79, 89, 200, 287, 327, 352, 798, 862, 918]
+
+pattern_count: 17
+framework_coverage: ["react", "vue", "angular", "express", "nextjs"]
+
+last_updated: "2026-01-18"
+status: "complete"

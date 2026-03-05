@@ -1,0 +1,122 @@
+# Compliance Question Schema
+# Version: 1.0
+# Purpose: Define control-tagged question format for multi-framework assessments
+
+# Schema Definition
+schema:
+  version: "1.0"
+  description: Control-tagged questions for framework-native compliance assessments
+
+# Question Structure
+question_structure:
+  # Required fields
+  id: string           # Format: Q-{FRAMEWORK}-{NNN} (e.g., Q-NIST-001, Q-HIPAA-001)
+  text: string         # Full question text
+  category: string     # Category name (framework-specific grouping label)
+  native_category: string  # The framework's own category (e.g., CC1, A.5, 164.308, GV)
+  domain: enum         # Work-type routing key for agent delegation and question deduplication.
+                       # These are assessment work types, NOT NIST CSF phase names.
+                       # They happen to align with security work types; for non-security
+                       # frameworks (quality_management, ai_governance, audit_methodology),
+                       # advisor handles all questions directly — no delegation occurs.
+                       #   governance | asset_management | access_control |
+                       #   data_protection | monitoring | incident_response | business_continuity
+
+  # Control mappings (key: framework, value: control ID)
+  controls:            # Maps to framework control IDs
+    nist-csf: string   # e.g., "GV.PO-01", "PR.AA-01"
+    hipaa: string      # e.g., "§164.308(a)(1)", "§164.312(d)"
+    pci-dss: string    # e.g., "1.1", "8.3.1"
+    iso-27001: string  # e.g., "A.5.1", "A.8.5"
+    cis-v8: string     # e.g., "1.1", "6.3"
+    soc2: string       # e.g., "CC6.1", "CC7.1"
+    nist-800-53: string # e.g., "AC-2", "IA-2"
+    aiuc-1: string     # e.g., "A001", "B003"
+    nist-ai-rmf: string # e.g., "MEASURE 2.10", "MAP 1.5"
+    owasp-llm: string  # e.g., "LLM01", "LLM06"
+    mitre-atlas: string # e.g., "AML.T0051", "AML.T0034"
+    eu-ai-act: string  # e.g., "Article 11", "Article 15"
+    csa-aicm: string   # e.g., "DSP-11", "AIS-01"
+    iso-42001: string  # e.g., "A.7.2", "A.8.4"
+
+  # Evidence requirements
+  evidence_required:
+    - string           # List of evidence types needed
+
+  # Scoring criteria
+  scoring:
+    full: string       # What constitutes full compliance
+    partial: string    # What constitutes partial compliance
+    none: string       # What constitutes non-compliance
+
+  # Optional fields
+  sub_questions:       # Nested sub-questions for complex topics
+    - string
+  sample_answer: string # OSINT-based sample answer template
+  risk_weight: enum    # HIGH | MEDIUM | LOW - used for prioritization
+  industry_tags:       # Applicable industries
+    - string
+
+# Domain values (internal dedup key — never appears in output)
+# domain: governance | asset_management | access_control | data_protection |
+#         monitoring | incident_response | business_continuity
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Enrichment Status (added to each framework's manifest.yaml)
+# ─────────────────────────────────────────────────────────────────────────────
+# Tracks completeness tier for pipeline orchestration and status reporting.
+#
+# Enrichment Tiers:
+#   T0  Pending     No source document, no YAML files
+#   T1  Structural  manifest.yaml + metadata.yaml + controls.yaml (all controls defined)
+#   T2  Assessable  T1 + questions.yaml (domain-tagged, scoring, evidence, sub-questions)
+#   T3  Cross-mapped T2 + ≥5 external framework mappings per question + crosswalk.yaml
+#   T4  Production  T3 + implementation steps in controls.yaml + verified dates + ≥2 sources
+
+enrichment_status_schema:
+  tier: integer                    # Current tier (0–4)
+  framework_category: enum         # Framework type — determines enrichment behavior:
+                                   #   security           (iso-27001, nist-csf, nist-800-53, cis-controls, fedramp)
+                                   #   regulatory         (hipaa, pci-dss, gdpr, dsa, ffiec, soc2)
+                                   #   quality_management (iso-9001, iso-13485)
+                                   #   ai_governance      (iso-42001, iso-42005, iso-42006, iso-24028, aiuc-1)
+                                   #   audit_methodology  (iso-19011)
+                                   # Controls nist_phase assignment: only 'security' category gets nist_phase.
+  controls: enum                   # complete | partial | pending
+  questions: enum                  # complete | partial | pending
+  questions_framework_count: integer  # Average external framework mappings per question
+  crosswalk: enum                  # complete | partial | pending
+  implementation_steps: enum       # complete | partial | pending
+  last_verified: date              # ISO date string (YYYY-MM-DD)
+  verified_by:                     # Verification sources (URLs or document references)
+    - string
+  next_check: date                 # ISO date string (YYYY-MM-DD)
+
+# Example Question
+example:
+  id: Q-NIST-001
+  text: "What industry does your organization operate in, and what is your primary business model?"
+  category: organization_overview
+  native_category: "ID.AM"  # Native NIST CSF category (since this example uses NIST CSF)
+  domain: asset_management  # Work-type routing key
+  controls:
+    nist-csf: "ID.AM-01"
+    hipaa: "§164.308(a)(1)(ii)(A)"
+    pci-dss: "12.5.1"
+    iso-27001: "A.5.9"
+  evidence_required:
+    - "Organization chart"
+    - "Business registration"
+    - "Industry classification documents"
+  scoring:
+    full: "Clear industry identification with documented business model"
+    partial: "Industry known but business model unclear"
+    none: "Unable to identify industry or business model"
+  sub_questions:
+    - "Primary products or services?"
+    - "Customer types (B2B, B2C, government)?"
+    - "Geographic presence?"
+  sample_answer: "Based on OSINT: {company} operates in the {industry} industry, providing {services} to {customer_types}."
+  risk_weight: MEDIUM
+  industry_tags:
+    - all

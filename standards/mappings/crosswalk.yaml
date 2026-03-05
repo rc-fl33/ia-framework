@@ -1,0 +1,580 @@
+# Cross-Framework Control Mappings (Crosswalk)
+# Maps equivalent controls across compliance frameworks
+#
+# Purpose:
+#   1. Control deduplication (one implementation satisfies multiple frameworks)
+#   2. Gap analysis across frameworks
+#   3. Unified compliance matrix generation
+#
+# Confidence levels:
+#   high - Direct equivalence, controls have same intent and scope
+#   medium - Similar intent, minor scope differences
+#   low - Related but different scope or approach
+#
+# Last Updated: 2026-01-14
+
+# Access Control Domain
+access_control:
+
+  - id: ACCESS-MFA
+    description: "Multi-factor authentication requirement"
+    mappings:
+      nist-csf: "PR.AA-01"
+      pci-dss: "8.3.1"
+      hipaa: "§164.312(d)"
+      iso-27001: "A.8.5"
+      cis-v8: "6.3"
+      soc2: "CC6.1"
+      fedramp: "IA-2"
+    confidence: high
+    evidence:
+      - "MFA configuration screenshots"
+      - "Authentication policy"
+      - "User access logs showing MFA enforcement"
+    implementation_note: "Phishing-resistant MFA (FIDO2/WebAuthn) preferred"
+
+  - id: ACCESS-LEAST-PRIVILEGE
+    description: "Least privilege access enforcement"
+    mappings:
+      nist-csf: "PR.AA-05"
+      pci-dss: "7.1"
+      hipaa: "§164.312(a)(1)"
+      iso-27001: "A.8.3"
+      cis-v8: "6.8"
+      soc2: "CC6.3"
+      fedramp: "AC-6"
+    confidence: high
+    evidence:
+      - "Access control policy"
+      - "Role definitions"
+      - "Access review records"
+
+  - id: ACCESS-PASSWORD-POLICY
+    description: "Password complexity and management"
+    mappings:
+      nist-csf: "PR.AA-03"
+      pci-dss: "8.2.3"
+      hipaa: "§164.308(a)(5)(ii)(D)"
+      iso-27001: "A.8.5"
+      cis-v8: "5.2"
+      soc2: "CC6.1"
+      fedramp: "IA-5"
+    confidence: high
+    evidence:
+      - "Password policy document"
+      - "System configuration showing enforcement"
+
+  - id: ACCESS-PRIVILEGED-ACCOUNT
+    description: "Privileged access management"
+    mappings:
+      nist-csf: "PR.AA-05"
+      pci-dss: "8.6"
+      hipaa: "§164.312(a)(2)(i)"
+      iso-27001: "A.8.18"
+      cis-v8: "5.4"
+      soc2: "CC6.2"
+      fedramp: "AC-2(7)"
+    confidence: high
+    evidence:
+      - "PAM solution configuration"
+      - "Privileged account inventory"
+      - "Session recording samples"
+
+# Data Protection Domain
+data_protection:
+
+  - id: DATA-ENCRYPT-REST
+    description: "Encryption of data at rest"
+    mappings:
+      nist-csf: "PR.DS-01"
+      pci-dss: "3.4"
+      hipaa: "§164.312(a)(2)(iv)"
+      iso-27001: "A.8.10"
+      cis-v8: "3.11"
+      soc2: "CC6.7"
+      fedramp: "SC-28"
+    confidence: high
+    evidence:
+      - "Encryption policy"
+      - "Database encryption configuration"
+      - "Key management procedures"
+
+  - id: DATA-ENCRYPT-TRANSIT
+    description: "Encryption of data in transit"
+    mappings:
+      nist-csf: "PR.DS-02"
+      pci-dss: "4.1"
+      hipaa: "§164.312(e)(1)"
+      iso-27001: "A.8.11"
+      cis-v8: "3.10"
+      soc2: "CC6.7"
+      fedramp: "SC-8"
+    confidence: high
+    evidence:
+      - "TLS configuration"
+      - "Certificate management"
+      - "Network traffic analysis"
+
+  - id: DATA-CLASSIFICATION
+    description: "Data classification and handling"
+    mappings:
+      nist-csf: "ID.AM-05"
+      pci-dss: "3.1"
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      iso-27001: "A.5.12"
+      cis-v8: "3.2"
+      soc2: "CC6.1"
+      fedramp: "RA-2"
+    confidence: high
+    evidence:
+      - "Data classification policy"
+      - "Data inventory/catalog"
+      - "Handling procedures by classification"
+
+  - id: DATA-RETENTION
+    description: "Data retention and disposal"
+    mappings:
+      nist-csf: "PR.DS-03"
+      pci-dss: "3.2"
+      hipaa: "§164.530(j)"
+      iso-27001: "A.8.10"
+      cis-v8: "3.4"
+      soc2: "CC6.5"
+      fedramp: "SI-12"
+    confidence: medium
+    evidence:
+      - "Retention policy"
+      - "Disposal procedures"
+      - "Disposal logs"
+    implementation_note: "HIPAA has specific 6-year retention requirement"
+
+# Logging and Monitoring Domain
+logging_monitoring:
+
+  - id: LOG-CENTRALIZED
+    description: "Centralized log management"
+    mappings:
+      nist-csf: "DE.CM-01"
+      pci-dss: "10.2"
+      hipaa: "§164.312(b)"
+      iso-27001: "A.8.15"
+      cis-v8: "8.2"
+      soc2: "CC7.2"
+      fedramp: "AU-6"
+    confidence: high
+    evidence:
+      - "SIEM/log management configuration"
+      - "Log source inventory"
+      - "Log retention policy"
+
+  - id: LOG-INTEGRITY
+    description: "Log integrity and tamper protection"
+    mappings:
+      nist-csf: "DE.CM-03"
+      pci-dss: "10.5"
+      hipaa: "§164.312(b)"
+      iso-27001: "A.8.15"
+      cis-v8: "8.11"
+      soc2: "CC7.2"
+      fedramp: "AU-9"
+    confidence: high
+    evidence:
+      - "Write-once storage configuration"
+      - "Log signing/hashing"
+      - "Access controls on logs"
+
+  - id: LOG-RETENTION
+    description: "Log retention periods"
+    mappings:
+      nist-csf: "DE.CM-01"
+      pci-dss: "10.7"
+      hipaa: "§164.312(b)"
+      iso-27001: "A.8.15"
+      cis-v8: "8.10"
+      soc2: "CC7.2"
+      fedramp: "AU-11"
+    confidence: medium
+    evidence:
+      - "Log retention policy"
+      - "Storage capacity planning"
+    implementation_note: "PCI requires 1 year; HIPAA 6 years; adjust to strictest"
+
+# Incident Response Domain
+incident_response:
+
+  - id: IR-PLAN
+    description: "Documented incident response plan"
+    mappings:
+      nist-csf: "RS.MA-01"
+      pci-dss: "12.10.1"
+      hipaa: "§164.308(a)(6)(i)"
+      iso-27001: "A.5.24"
+      cis-v8: "17.1"
+      soc2: "CC7.4"
+      fedramp: "IR-1"
+    confidence: high
+    evidence:
+      - "Incident response plan document"
+      - "IR team roster"
+      - "Escalation procedures"
+
+  - id: IR-TESTING
+    description: "Incident response testing/tabletops"
+    mappings:
+      nist-csf: "RS.MA-02"
+      pci-dss: "12.10.2"
+      hipaa: "§164.308(a)(7)(ii)(D)"
+      iso-27001: "A.5.26"
+      cis-v8: "17.7"
+      soc2: "CC7.4"
+      fedramp: "IR-3"
+    confidence: high
+    evidence:
+      - "Tabletop exercise reports"
+      - "Test schedules"
+      - "Lessons learned documentation"
+
+  - id: IR-NOTIFICATION
+    description: "Breach notification procedures"
+    mappings:
+      nist-csf: "RS.CO-02"
+      pci-dss: "12.10.5"
+      hipaa: "§164.404"
+      iso-27001: "A.5.24"
+      cis-v8: "17.3"
+      soc2: "CC7.5"
+      fedramp: "IR-6"
+    confidence: medium
+    evidence:
+      - "Breach notification procedures"
+      - "Regulatory contact list"
+      - "Notification templates"
+    implementation_note: "HIPAA has strict 60-day notification requirement"
+
+# Business Continuity Domain
+business_continuity:
+
+  - id: BC-PLAN
+    description: "Business continuity planning"
+    mappings:
+      nist-csf: "RC.RP-01"
+      pci-dss: "12.10.1"
+      hipaa: "§164.308(a)(7)(i)"
+      iso-27001: "A.5.29"
+      cis-v8: "17.1"
+      soc2: "CC9.1"
+      fedramp: "CP-1"
+    confidence: high
+    evidence:
+      - "Business continuity plan"
+      - "Business impact analysis"
+      - "Recovery procedures"
+
+  - id: BC-BACKUP
+    description: "Data backup procedures"
+    mappings:
+      nist-csf: "PR.IR-04"
+      pci-dss: "9.5.1"
+      hipaa: "§164.308(a)(7)(ii)(A)"
+      iso-27001: "A.8.13"
+      cis-v8: "11.2"
+      soc2: "CC9.1"
+      fedramp: "CP-9"
+    confidence: high
+    evidence:
+      - "Backup policy"
+      - "Backup schedules"
+      - "Restoration test results"
+
+  - id: BC-RTO-RPO
+    description: "RTO/RPO definitions and testing"
+    mappings:
+      nist-csf: "RC.RP-02"
+      pci-dss: "12.10.1"
+      hipaa: "§164.308(a)(7)(ii)(D)"
+      iso-27001: "A.5.30"
+      cis-v8: "17.9"
+      soc2: "CC9.1"
+      fedramp: "CP-2"
+    confidence: medium
+    evidence:
+      - "RTO/RPO documentation"
+      - "DR test results"
+      - "Recovery time measurements"
+
+# Vulnerability Management Domain
+vulnerability_management:
+
+  - id: VULN-SCANNING
+    description: "Regular vulnerability scanning"
+    mappings:
+      nist-csf: "ID.RA-01"
+      pci-dss: "11.3.1"
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      iso-27001: "A.8.8"
+      cis-v8: "7.1"
+      soc2: "CC7.1"
+      fedramp: "RA-5"
+    confidence: high
+    evidence:
+      - "Scan reports"
+      - "Scanning schedule"
+      - "Remediation tracking"
+
+  - id: VULN-PATCHING
+    description: "Patch management process"
+    mappings:
+      nist-csf: "PR.PS-01"
+      pci-dss: "6.3.3"
+      hipaa: "§164.308(a)(1)(ii)(B)"
+      iso-27001: "A.8.8"
+      cis-v8: "7.4"
+      soc2: "CC7.1"
+      fedramp: "SI-2"
+    confidence: high
+    evidence:
+      - "Patch management policy"
+      - "Patch deployment records"
+      - "Vulnerability remediation SLAs"
+
+  - id: VULN-PENTEST
+    description: "Penetration testing"
+    mappings:
+      nist-csf: "ID.RA-03"
+      pci-dss: "11.4"
+      hipaa: "§164.308(a)(8)"
+      iso-27001: "A.8.8"
+      cis-v8: "18.3"
+      soc2: "CC7.1"
+      fedramp: "CA-8"
+    confidence: medium
+    evidence:
+      - "Penetration test reports"
+      - "Remediation tracking"
+    implementation_note: "PCI requires annual external pentest; quarterly for service providers"
+
+# Governance Domain
+governance:
+
+  - id: GOV-POLICY
+    description: "Information security policies"
+    mappings:
+      nist-csf: "GV.PO-01"
+      pci-dss: "12.1"
+      hipaa: "§164.308(a)(1)(i)"
+      iso-27001: "A.5.1"
+      cis-v8: "1.1"
+      soc2: "CC1.1"
+      fedramp: "PL-1"
+    confidence: high
+    evidence:
+      - "Security policy document"
+      - "Policy review records"
+      - "Approval documentation"
+
+  - id: GOV-RISK-ASSESSMENT
+    description: "Risk assessment process"
+    mappings:
+      nist-csf: "ID.RA-01"
+      pci-dss: "12.2"
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      iso-27001: "A.5.10"
+      cis-v8: "1.1"
+      soc2: "CC3.2"
+      fedramp: "RA-3"
+    confidence: high
+    evidence:
+      - "Risk assessment reports"
+      - "Risk register"
+      - "Risk treatment plans"
+
+  - id: GOV-TRAINING
+    description: "Security awareness training"
+    mappings:
+      nist-csf: "PR.AT-01"
+      pci-dss: "12.6"
+      hipaa: "§164.308(a)(5)"
+      iso-27001: "A.6.3"
+      cis-v8: "14.1"
+      soc2: "CC1.4"
+      fedramp: "AT-2"
+    confidence: high
+    evidence:
+      - "Training program documentation"
+      - "Training completion records"
+      - "Phishing test results"
+
+  - id: GOV-VENDOR-MGMT
+    description: "Third-party/vendor risk management"
+    mappings:
+      nist-csf: "ID.SC-01"
+      pci-dss: "12.8"
+      hipaa: "§164.308(b)(1)"
+      iso-27001: "A.5.19"
+      cis-v8: "15.1"
+      soc2: "CC9.2"
+      fedramp: "SA-9"
+    confidence: high
+    evidence:
+      - "Vendor inventory"
+      - "Vendor assessments"
+      - "Contracts with security requirements"
+
+# Asset Management Domain
+asset_management:
+
+  - id: ASSET-INVENTORY
+    description: "IT asset inventory"
+    mappings:
+      nist-csf: "ID.AM-01"
+      pci-dss: "2.4"
+      hipaa: "§164.310(d)(1)"
+      iso-27001: "A.5.9"
+      cis-v8: "1.1"
+      soc2: "CC6.1"
+      fedramp: "CM-8"
+    confidence: high
+    evidence:
+      - "Asset inventory system"
+      - "Hardware/software lists"
+      - "Network diagrams"
+
+  - id: ASSET-CONFIGURATION
+    description: "Secure configuration baselines"
+    mappings:
+      nist-csf: "PR.PS-01"
+      pci-dss: "2.2"
+      hipaa: "§164.312(a)(2)(i)"
+      iso-27001: "A.8.9"
+      cis-v8: "4.1"
+      soc2: "CC6.6"
+      fedramp: "CM-6"
+    confidence: high
+    evidence:
+      - "Hardening baselines"
+      - "Configuration management policy"
+      - "Baseline compliance reports"
+
+# Physical Security Domain
+physical_security:
+
+  - id: PHYSICAL-ACCESS
+    description: "Physical access controls"
+    mappings:
+      nist-csf: "PR.AA-02"
+      pci-dss: "9.1"
+      hipaa: "§164.310(a)(1)"
+      iso-27001: "A.7.1"
+      cis-v8: "12.1"
+      soc2: "CC6.4"
+      fedramp: "PE-2"
+    confidence: high
+    evidence:
+      - "Physical access policy"
+      - "Access logs"
+      - "Badge reader configuration"
+
+  - id: PHYSICAL-MEDIA
+    description: "Media protection and disposal"
+    mappings:
+      nist-csf: "PR.DS-03"
+      pci-dss: "9.4"
+      hipaa: "§164.310(d)(2)"
+      iso-27001: "A.7.10"
+      cis-v8: "3.9"
+      soc2: "CC6.5"
+      fedramp: "MP-6"
+    confidence: high
+    evidence:
+      - "Media handling procedures"
+      - "Disposal certificates"
+      - "Sanitization logs"
+
+# AI Security & Safety Domain
+ai_security_safety:
+
+  - id: AI-ADVERSARIAL-ROBUSTNESS
+    description: "AI adversarial robustness and prompt injection defense"
+    mappings:
+      aiuc-1: "B001, B002, B003"
+      nist-ai-rmf: "MEASURE 2.6, MEASURE 2.7"
+      owasp-llm: "LLM01, LLM02"
+      mitre-atlas: "AML.T0051, AML.T0043"
+      iso-42001: "A.8.4, A.8.5"
+      eu-ai-act: "Article 15"
+    confidence: high
+    evidence:
+      - "Adversarial testing results"
+      - "Prompt injection defense documentation"
+      - "Red team assessment reports"
+
+  - id: AI-DATA-PRIVACY
+    description: "AI data privacy and IP protection"
+    mappings:
+      aiuc-1: "A001, A002, A003, A004, A005, A006, A007"
+      nist-ai-rmf: "MEASURE 2.10, MAP 1.5"
+      owasp-llm: "LLM06"
+      iso-42001: "A.7.2, A.7.3"
+      eu-ai-act: "Article 10, Article 11"
+    confidence: high
+    evidence:
+      - "Data handling policies"
+      - "PII leakage test results"
+      - "Training data documentation"
+
+  - id: AI-SAFETY-CONTROLS
+    description: "AI safety testing and harmful output prevention"
+    mappings:
+      aiuc-1: "C001, C002, C003, C004, C005, C006, C007, C008, C009, C010, C011, C012"
+      nist-ai-rmf: "MEASURE 2.5, MEASURE 2.8"
+      owasp-llm: "LLM09"
+      mitre-atlas: "AML.T0048"
+      iso-42001: "A.8.2, A.8.3"
+      eu-ai-act: "Article 9"
+    confidence: high
+    evidence:
+      - "Safety test results"
+      - "Content filtering configuration"
+      - "Third-party safety assessment"
+
+  - id: AI-RELIABILITY
+    description: "AI reliability, hallucination prevention, and tool call safety"
+    mappings:
+      aiuc-1: "D001, D002, D003, D004"
+      nist-ai-rmf: "MEASURE 2.5, MEASURE 2.11"
+      owasp-llm: "LLM09, LLM06"
+      mitre-atlas: "AML.T0048, AML.T0034"
+      iso-42001: "A.6.2, A.8.4"
+      eu-ai-act: "Article 15"
+    confidence: high
+    evidence:
+      - "Hallucination rate measurement"
+      - "Tool call authorization logs"
+      - "Accuracy benchmarks"
+
+  - id: AI-ACCOUNTABILITY
+    description: "AI governance, accountability, and transparency"
+    mappings:
+      aiuc-1: "E001, E002, E003, E004, E005, E006, E007, E008, E009, E010, E011, E012, E013, E014, E015, E016, E017"
+      nist-ai-rmf: "GOVERN 1.1, GOVERN 1.3, MAP 3.5"
+      owasp-llm: "LLM10"
+      iso-42001: "A.4.1, A.5.1, A.5.2, A.5.3"
+      eu-ai-act: "Article 13, Article 14, Article 26"
+    confidence: high
+    evidence:
+      - "AI governance documentation"
+      - "Approval workflows"
+      - "Activity logs and audit trails"
+      - "AI disclosure practices"
+
+  - id: AI-SOCIETAL-SAFETY
+    description: "AI societal safety and catastrophic risk prevention"
+    mappings:
+      aiuc-1: "F001, F002"
+      nist-ai-rmf: "GOVERN 1.7, MEASURE 2.13"
+      iso-42001: "A.4.6"
+      eu-ai-act: "Article 5, Article 6"
+    confidence: medium
+    evidence:
+      - "Societal risk assessment"
+      - "Catastrophic risk mitigation plan"

@@ -1,0 +1,5 @@
+# Incident Timeline
+
+| Timestamp | Event | Source | Analyst |
+|-----------|-------|--------|---------|
+| [ISO8601] | [Event description] | [Source] | [Analyst] |

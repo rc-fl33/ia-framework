@@ -1,0 +1,558 @@
+# HIPAA Security Rule Control-Tagged Questions
+# Version: 2.0
+# Reference: 45 CFR Part 164 Subpart C - Security Standards
+# Phase Alignment: NIST CSF 2.0
+
+framework: hipaa
+version: "45 CFR 164"
+total_questions: 20
+industry_focus: healthcare
+
+# HIPAA Security Rule Structure
+safeguard_categories:
+  - name: Administrative Safeguards
+    reference: "§164.308"
+    hipaa_category: administrative
+    question_range: Q01-Q10
+
+  - name: Physical Safeguards
+    reference: "§164.310"
+    hipaa_category: administrative
+    question_range: Q11-Q14
+
+  - name: Technical Safeguards
+    reference: "§164.312"
+    hipaa_category: administrative
+    question_range: Q15-Q20
+
+questions:
+  # Administrative Safeguards (§164.308)
+  - id: Q-HIPAA-001
+    text: "Has your organization conducted a thorough risk analysis of ePHI?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(a)(1)(ii)(A)"
+      nist-csf: "ID.RA-01, ID.RA-02"
+      nist-800-53: "RA-3, RA-5"
+      iso-27001: "A.5.7, A.8.8"
+      soc2: "CC3.1, CC3.2"
+      cis-controls: "CIS-v8-18.1, CIS-v8-18.2"
+    evidence_required:
+      - Risk analysis report
+      - ePHI inventory
+      - Threat and vulnerability assessment
+    scoring:
+      full: "Comprehensive risk analysis covering all ePHI, reviewed annually"
+      partial: "Risk analysis exists but incomplete or outdated"
+      none: "No formal risk analysis conducted"
+    sub_questions:
+      - "When was the last risk analysis conducted?"
+      - "Does it cover all systems with ePHI?"
+      - "Are threats and vulnerabilities documented?"
+
+  - id: Q-HIPAA-002
+    text: "What risk management measures have been implemented based on risk analysis?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(a)(1)(ii)(B)"
+      nist-csf: "GV.RM-01, PR.IP-01"
+      nist-800-53: "PM-9, RA-3, SI-2"
+      iso-27001: "A.5.7, A.6.1"
+      soc2: "CC3.3, CC3.4"
+      cis-controls: "CIS-v8-18.3, CIS-v8-18.5"
+    evidence_required:
+      - Risk treatment plan
+      - Control implementation evidence
+      - Residual risk acceptance
+    scoring:
+      full: "Documented risk treatment with implemented controls"
+      partial: "Some controls implemented but not linked to risk analysis"
+      none: "No risk management measures documented"
+    sub_questions:
+      - "How are identified risks prioritized?"
+      - "What controls were implemented?"
+      - "Is residual risk formally accepted?"
+
+  - id: Q-HIPAA-003
+    text: "Is there a designated Security Official responsible for HIPAA security?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.308(a)(2)"
+      nist-csf: "GV.RR-01, GV.RR-02"
+      nist-800-53: "PM-2, PM-19"
+      iso-27001: "A.5.2, A.5.4"
+      soc2: "CC1.3, CC1.4"
+      cis-controls: "CIS-v8-14.1, CIS-v8-17.1"
+    evidence_required:
+      - Security Official designation letter
+      - Job description
+      - Reporting structure
+    scoring:
+      full: "Designated Security Official with documented responsibilities"
+      partial: "Security function exists but official not formally designated"
+      none: "No designated Security Official"
+    sub_questions:
+      - "Who is the designated Security Official?"
+      - "What are their specific HIPAA responsibilities?"
+      - "Do they have adequate authority and resources?"
+
+  - id: Q-HIPAA-004
+    text: "How do you manage workforce access to ePHI?"
+    category: administrative_safeguards
+    domain: access_control
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(a)(3), §164.308(a)(3)(ii)(A), §164.308(a)(3)(ii)(B)"
+      nist-csf: "PR.AA-01, PR.AA-05"
+      nist-800-53: "AC-2, AC-6, PS-7"
+      iso-27001: "A.8.2, A.8.3, A.6.1"
+      soc2: "CC6.1, CC6.2, CC6.3"
+      cis-controls: "CIS-v8-5.1, CIS-v8-6.1, CIS-v8-6.2"
+    evidence_required:
+      - Access authorization procedures
+      - Role-based access matrix
+      - Workforce clearance procedures
+    scoring:
+      full: "Documented access management with least privilege enforcement"
+      partial: "Access controls exist but not consistently applied"
+      none: "No formal workforce access management"
+    sub_questions:
+      - "How is access authorized and provisioned?"
+      - "Is minimum necessary access enforced?"
+      - "How are access privileges reviewed?"
+
+  - id: Q-HIPAA-005
+    text: "Do you have documented policies for workforce termination and access revocation?"
+    category: administrative_safeguards
+    domain: access_control
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(a)(3)(ii)(C)"
+      nist-csf: "PR.AA-05, GV.PO-01"
+      nist-800-53: "AC-2, PS-4, PS-5"
+      iso-27001: "A.6.5, A.5.18"
+      soc2: "CC6.2, CC6.3"
+      cis-controls: "CIS-v8-5.3, CIS-v8-6.2"
+    evidence_required:
+      - Termination procedures
+      - Access revocation logs
+      - Exit interview checklist
+    scoring:
+      full: "Documented termination procedures with immediate access revocation"
+      partial: "Procedures exist but not consistently followed"
+      none: "No formal termination procedures"
+    sub_questions:
+      - "How quickly is access revoked upon termination?"
+      - "Are physical access credentials collected?"
+      - "Are remote access credentials disabled?"
+
+  - id: Q-HIPAA-006
+    text: "What security awareness and training is provided to workforce members?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.308(a)(5), §164.308(a)(5)(ii)(A), §164.308(a)(5)(ii)(B), §164.308(a)(5)(ii)(C), §164.308(a)(5)(ii)(D)"
+      nist-csf: "PR.AT-01, PR.AT-02"
+      nist-800-53: "AT-2, AT-3, SI-3"
+      iso-27001: "A.6.3, A.8.7"
+      soc2: "CC1.4, CC2.2"
+      cis-controls: "CIS-v8-14.1, CIS-v8-14.2, CIS-v8-10.1"
+    evidence_required:
+      - Training program documentation
+      - Training completion records
+      - Training content/curriculum
+    scoring:
+      full: "Regular HIPAA training with documented completion"
+      partial: "Training exists but not comprehensive or tracked"
+      none: "No security awareness training program"
+    sub_questions:
+      - "Is HIPAA-specific training provided?"
+      - "How often is training required?"
+      - "Is training completion tracked and enforced?"
+
+  - id: Q-HIPAA-007
+    text: "What security incident procedures are in place for ePHI breaches?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(a)(6), §164.308(a)(6)(ii)"
+      nist-csf: "RS.MA-01, RS.MA-02, RS.CO-02"
+      nist-800-53: "IR-1, IR-6, IR-8"
+      iso-27001: "A.5.24, A.5.26, A.5.25"
+      soc2: "CC7.3, CC7.4, CC7.5"
+      cis-controls: "CIS-v8-17.3, CIS-v8-17.4, CIS-v8-17.7"
+    evidence_required:
+      - Incident response plan
+      - Breach notification procedures
+      - Incident tracking logs
+    scoring:
+      full: "Documented incident procedures with breach notification process"
+      partial: "Some incident procedures but incomplete"
+      none: "No formal incident response procedures"
+    sub_questions:
+      - "How are security incidents identified and reported?"
+      - "Is there a breach notification process?"
+      - "Are incidents documented and analyzed?"
+
+  - id: Q-HIPAA-008
+    text: "Do you have a contingency plan for ePHI systems?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(a)(7), §164.308(a)(7)(ii)(A), §164.308(a)(7)(ii)(B), §164.308(a)(7)(ii)(C), §164.308(a)(7)(ii)(D), §164.308(a)(7)(ii)(E)"
+      nist-csf: "RC.RP-01, RC.RP-02, RC.RP-03"
+      nist-800-53: "CP-1, CP-2, CP-9, CP-10"
+      iso-27001: "A.5.29, A.5.30, A.8.13"
+      soc2: "A1.2, A1.3"
+      cis-controls: "CIS-v8-11.1, CIS-v8-11.2, CIS-v8-11.3"
+    evidence_required:
+      - Contingency plan
+      - Data backup procedures
+      - Disaster recovery procedures
+      - Emergency mode operations plan
+    scoring:
+      full: "Comprehensive contingency plan with tested procedures"
+      partial: "Some contingency procedures but not comprehensive"
+      none: "No formal contingency plan"
+    sub_questions:
+      - "Data backup and recovery procedures?"
+      - "Disaster recovery plan?"
+      - "Emergency mode operations plan?"
+      - "Testing and revision procedures?"
+
+  - id: Q-HIPAA-009
+    text: "Has your organization conducted a periodic security evaluation of its HIPAA program?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.308(a)(8)"
+      nist-csf: "ID.IM-01, GV.RM-02"
+      nist-800-53: "CA-2, CA-7, PM-9"
+      iso-27001: "A.5.35, A.5.36"
+      soc2: "CC4.1, CC4.2"
+      cis-controls: "CIS-v8-18.1, CIS-v8-18.4"
+    evidence_required:
+      - Evaluation scope and methodology
+      - Evaluation findings report
+      - Remediation tracking
+    scoring:
+      full: "Periodic technical and nontechnical evaluation documented and acted upon"
+      partial: "Evaluation conducted but not comprehensive or not followed up"
+      none: "No periodic security evaluation performed"
+    sub_questions:
+      - "When was the last security evaluation conducted?"
+      - "Did the evaluation cover both technical and nontechnical controls?"
+      - "How are evaluation findings tracked to remediation?"
+
+  - id: Q-HIPAA-010
+    text: "Do you have written business associate agreements covering ePHI handling, and do you manage information access authorization policies?"
+    category: administrative_safeguards
+    domain: governance
+    hipaa_category: administrative
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.308(b)(4), §164.308(a)(4)(ii)(A), §164.308(a)(4)(ii)(B), §164.308(a)(4)(ii)(C), §164.308(a)(1)(ii)(C)"
+      nist-csf: "GV.SC-06, GV.SC-07, PR.AA-05"
+      nist-800-53: "SA-9, AC-2, PS-6"
+      iso-27001: "A.5.19, A.5.20, A.8.2"
+      soc2: "CC9.2, CC6.1, CC6.2"
+      cis-controls: "CIS-v8-15.1, CIS-v8-5.1, CIS-v8-6.1"
+    evidence_required:
+      - Business associate agreement template and executed agreements
+      - BAA inventory
+      - Access authorization policies
+      - Sanction policy for workforce violations
+    scoring:
+      full: "All BAs have executed agreements; access authorization and sanction policies documented"
+      partial: "Some BAs have agreements; access authorization policies exist but incomplete"
+      none: "No BAAs in place; no access authorization or sanction policies"
+    sub_questions:
+      - "Are all business associates identified and under signed BAAs?"
+      - "How are BAAs monitored for compliance?"
+      - "Is there a documented sanction policy for workforce violations of security policies?"
+      - "How is ePHI access authorized for specific roles or functions?"
+
+  # Physical Safeguards (§164.310)
+  - id: Q-HIPAA-011
+    text: "How do you control physical access to facilities containing ePHI?"
+    category: physical_safeguards
+    domain: access_control
+    hipaa_category: physical
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.310(a)(1), §164.310(a)(2)(i), §164.310(a)(2)(ii), §164.310(a)(2)(iii), §164.310(a)(2)(iv)"
+      nist-csf: "PR.AC-02, PR.AA-05"
+      nist-800-53: "PE-2, PE-3, PE-6"
+      iso-27001: "A.7.1, A.7.2, A.7.3"
+      soc2: "CC6.4, CC6.5"
+      cis-controls: "CIS-v8-10.1, CIS-v8-10.2"
+    evidence_required:
+      - Facility access procedures
+      - Access control logs
+      - Visitor management procedures
+    scoring:
+      full: "Documented facility access controls with monitoring"
+      partial: "Some physical controls but incomplete coverage"
+      none: "No formal physical access controls"
+    sub_questions:
+      - "How is facility access controlled?"
+      - "Are access attempts logged?"
+      - "How are visitors managed?"
+
+  - id: Q-HIPAA-012
+    text: "What workstation security controls are in place?"
+    category: physical_safeguards
+    domain: access_control
+    hipaa_category: physical
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.310(b), §164.310(c)"
+      nist-csf: "PR.AC-03, PR.DS-05"
+      nist-800-53: "PE-18, SC-10, AC-11"
+      iso-27001: "A.8.1, A.7.7, A.7.8"
+      soc2: "CC6.1, CC6.7"
+      cis-controls: "CIS-v8-4.3, CIS-v8-13.5, CIS-v8-16.11"
+    evidence_required:
+      - Workstation use policy
+      - Workstation security procedures
+      - Physical security measures
+    scoring:
+      full: "Documented workstation policies with security controls"
+      partial: "Some workstation controls but not comprehensive"
+      none: "No formal workstation security controls"
+    sub_questions:
+      - "Physical location and access restrictions?"
+      - "Screen lock and auto-logoff?"
+      - "Clean desk policy?"
+
+  - id: Q-HIPAA-013
+    text: "How do you control media with ePHI (hard drives, removable media, paper)?"
+    category: physical_safeguards
+    domain: data_protection
+    hipaa_category: physical
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.310(d)(1), §164.310(d)(2)(ii), §164.310(d)(2)(iii), §164.310(d)(2)(iv)"
+      nist-csf: "PR.DS-03, PR.DS-05"
+      nist-800-53: "MP-2, MP-5, MP-6"
+      iso-27001: "A.8.10, A.7.10, A.7.14"
+      soc2: "CC6.5, CC6.7"
+      cis-controls: "CIS-v8-2.1, CIS-v8-3.5, CIS-v8-3.9"
+    evidence_required:
+      - Media handling policy
+      - Media disposal procedures
+      - Media movement logs
+    scoring:
+      full: "Documented media controls with secure disposal"
+      partial: "Some media controls but incomplete"
+      none: "No formal media handling procedures"
+    sub_questions:
+      - "How is media disposal handled?"
+      - "Are media movements tracked?"
+      - "Is encryption used for portable media?"
+
+  - id: Q-HIPAA-014
+    text: "How do you sanitize or destroy media containing ePHI?"
+    category: physical_safeguards
+    domain: data_protection
+    hipaa_category: physical
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.310(d)(2)(i)"
+      nist-csf: "PR.DS-03, PR.DS-10"
+      nist-800-53: "MP-6, MP-8"
+      iso-27001: "A.8.10, A.7.14"
+      soc2: "CC6.5"
+      cis-controls: "CIS-v8-3.7, CIS-v8-4.7"
+    evidence_required:
+      - Media destruction policy
+      - Destruction certificates
+      - Sanitization procedures
+    scoring:
+      full: "Documented destruction with certificates and verification"
+      partial: "Destruction occurs but not formally tracked"
+      none: "No formal media destruction procedures"
+    sub_questions:
+      - "What sanitization methods are used?"
+      - "Is destruction verified and documented?"
+      - "Is a vendor used for destruction?"
+
+  # Technical Safeguards (§164.312)
+  - id: Q-HIPAA-015
+    text: "How do you control access to electronic systems containing ePHI?"
+    category: technical_safeguards
+    domain: access_control
+    hipaa_category: technical
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.312(a)(1), §164.312(a)(2)(i), §164.312(a)(2)(ii), §164.312(a)(2)(iii)"
+      nist-csf: "PR.AA-01, PR.AC-01"
+      nist-800-53: "AC-2, AC-3, AC-12"
+      iso-27001: "A.8.2, A.8.5, A.8.18"
+      soc2: "CC6.1, CC6.2, CC6.3"
+      cis-controls: "CIS-v8-5.1, CIS-v8-5.2, CIS-v8-5.3"
+    evidence_required:
+      - Access control policy
+      - Unique user identification
+      - Emergency access procedures
+    scoring:
+      full: "Unique IDs with role-based access and emergency procedures"
+      partial: "Some access controls but incomplete"
+      none: "No formal electronic access controls"
+    sub_questions:
+      - "Are unique user IDs assigned?"
+      - "Is emergency access procedure documented?"
+      - "Is automatic logoff implemented?"
+
+  - id: Q-HIPAA-016
+    text: "How do you maintain audit controls for ePHI systems?"
+    category: technical_safeguards
+    domain: data_protection
+    hipaa_category: technical
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.312(b), §164.308(a)(1)(ii)(D)"
+      nist-csf: "DE.CM-01, DE.CM-03"
+      nist-800-53: "AU-2, AU-6, AU-9"
+      iso-27001: "A.8.15, A.8.16, A.8.17"
+      soc2: "CC7.2, CC7.3"
+      cis-controls: "CIS-v8-8.1, CIS-v8-8.2, CIS-v8-8.7"
+    evidence_required:
+      - Audit logging policy
+      - Log retention procedures
+      - Log review procedures
+    scoring:
+      full: "Comprehensive audit logging with regular review"
+      partial: "Some logging but not comprehensive or reviewed"
+      none: "No formal audit controls"
+    sub_questions:
+      - "What activities are logged?"
+      - "How long are logs retained?"
+      - "How often are logs reviewed?"
+
+  - id: Q-HIPAA-017
+    text: "What integrity controls protect ePHI from alteration or destruction?"
+    category: technical_safeguards
+    domain: data_protection
+    hipaa_category: technical
+    risk_weight: MEDIUM
+    controls:
+      hipaa: "§164.312(c)(1), §164.312(c)(2), §164.312(e)(2)(i)"
+      nist-csf: "PR.DS-06, PR.DS-10"
+      nist-800-53: "SI-7, SC-28"
+      iso-27001: "A.8.9, A.8.20, A.5.33"
+      soc2: "CC7.1, PI1.3"
+      cis-controls: "CIS-v8-3.3, CIS-v8-12.3, CIS-v8-13.1"
+    evidence_required:
+      - Integrity monitoring tools
+      - Change detection procedures
+      - Data validation controls
+    scoring:
+      full: "Integrity controls with monitoring and alerting"
+      partial: "Some integrity controls but incomplete"
+      none: "No formal integrity controls"
+    sub_questions:
+      - "Electronic mechanisms to confirm ePHI integrity?"
+      - "Is authentication of ePHI possible?"
+      - "How are unauthorized changes detected?"
+
+  - id: Q-HIPAA-018
+    text: "How do you authenticate users accessing ePHI?"
+    category: technical_safeguards
+    domain: access_control
+    hipaa_category: technical
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.312(d)"
+      nist-csf: "PR.AA-01, PR.AA-03"
+      nist-800-53: "IA-2, IA-5, IA-8"
+      iso-27001: "A.8.5, A.5.17"
+      soc2: "CC6.1, CC6.6"
+      cis-controls: "CIS-v8-6.3, CIS-v8-6.4, CIS-v8-6.5"
+    evidence_required:
+      - Authentication policy
+      - MFA implementation
+      - Password policy
+    scoring:
+      full: "MFA implemented with strong password policy"
+      partial: "Authentication exists but not MFA"
+      none: "Weak or no authentication controls"
+    sub_questions:
+      - "Is multi-factor authentication used?"
+      - "What authentication methods are implemented?"
+      - "Is authentication required for all ePHI access?"
+
+  - id: Q-HIPAA-019
+    text: "How is ePHI encrypted when transmitted over networks?"
+    category: technical_safeguards
+    domain: data_protection
+    hipaa_category: technical
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.312(e)(1), §164.312(e)(2)(ii)"
+      nist-csf: "PR.DS-02, PR.DS-05"
+      nist-800-53: "SC-8, SC-28, IA-3"
+      iso-27001: "A.8.11, A.8.24, A.8.20"
+      soc2: "CC6.7, CC6.8"
+      cis-controls: "CIS-v8-3.10, CIS-v8-12.6, CIS-v8-13.8"
+    evidence_required:
+      - Encryption policy
+      - TLS/SSL configuration
+      - Secure email procedures
+    scoring:
+      full: "Encryption for all ePHI transmission with strong protocols"
+      partial: "Some encryption but not comprehensive"
+      none: "ePHI transmitted unencrypted"
+    sub_questions:
+      - "What encryption protocols are used (TLS versions)?"
+      - "Is ePHI encrypted in email?"
+      - "Are all transmission paths identified?"
+
+  - id: Q-HIPAA-020
+    text: "How is ePHI encrypted at rest, and how are security policies, procedures, and documentation maintained?"
+    category: technical_safeguards
+    domain: data_protection
+    hipaa_category: technical
+    risk_weight: HIGH
+    controls:
+      hipaa: "§164.312(a)(2)(iv), §164.316(a), §164.316(b)(2)(i), §164.316(b)(2)(ii), §164.316(b)(2)(iii)"
+      nist-csf: "PR.DS-01, GV.PO-01, GV.PO-02"
+      nist-800-53: "SC-28, PL-1, SA-5"
+      iso-27001: "A.8.24, A.5.1, A.5.9, A.5.37"
+      soc2: "CC6.7, CC1.2, CC2.1"
+      cis-controls: "CIS-v8-3.11, CIS-v8-18.1, CIS-v8-14.9"
+    evidence_required:
+      - Encryption at rest policy
+      - Key management procedures
+      - Encrypted storage inventory
+      - Security policy framework
+      - Documentation retention schedule
+    scoring:
+      full: "All ePHI encrypted at rest with key management; security policies documented, available, and reviewed on schedule"
+      partial: "Some ePHI encrypted or policies exist but not comprehensive or maintained"
+      none: "ePHI stored unencrypted; no formal policy management"
+    sub_questions:
+      - "What encryption methods are used for ePHI at rest?"
+      - "How are encryption keys managed?"
+      - "Are backups encrypted?"
+      - "Are security policies reviewed and updated periodically?"
+      - "Are documentation records retained for six years as required?"

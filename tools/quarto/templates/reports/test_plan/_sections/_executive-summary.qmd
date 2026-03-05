@@ -1,0 +1,26 @@
+# Executive Summary
+
+Intelligence Adjacent conducted a assessment of **[Project Name]**
+for [Client Company Name] from $(date +%Y-%m-%d) through $(date +%Y-%m-%d).
+The assessment identified **1 finding(s)**.
+
+## Risk Distribution
+
+| Priority | Severity | Count |
+|----------|----------|-------|
+| P0 | [Critical]{.badge-critical} | 0 |
+| P1 | [High]{.badge-high} | 0 |
+| P2 | [Medium]{.badge-medium} | 1 |
+| P3 | [Low]{.badge-low} | 0 |
+| P4 | [Informational]{.badge-info} | 0 |
+| | **Total** | **1** |
+
+## Recommendations
+
+**P0 (Critical)** — Remediate immediately: _none_
+
+**P1 (High)** — Remediate within sprint: _none_
+
+**P2 (Medium)** — Plan remediation: F001: Example Finding Title
+
+**P3 (Low)** — Backlog: _none_

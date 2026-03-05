@@ -1,0 +1,40 @@
+framework: owasp-llm
+version: "2025"
+publication_date: "2024-11-18"
+publisher: OWASP
+publisher_url: https://owasp.org
+source_url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+document_title: "OWASP Top 10 for LLM Applications 2025"
+document_version: "v2.0"
+license: "CC BY-SA 4.0"
+license_url: "https://creativecommons.org/licenses/by-sa/4.0/legalcode"
+
+revision_history:
+  - version: "1.0"
+    date: "2023-08-01"
+  - version: "1.1"
+    date: "2023-10-16"
+  - version: "2025"
+    date: "2024-11-18"
+
+applicable_scope:
+  - LLM applications
+  - Generative AI applications
+  - Applications built on foundation models
+  - RAG (Retrieval-Augmented Generation) systems
+  - Agentic AI systems
+  - Multi-modal AI applications
+
+related_frameworks:
+  - id: mitre-atlas
+    relationship: "OWASP source explicitly maps individual vulnerabilities to MITRE ATLAS techniques"
+    notes: "LLM01 maps to AML.T0051.000/001/AML.T0054; LLM02 to AML.T0024.000/001/002; LLM03 to ML Supply Chain Compromise; LLM04 to AML.T0018; LLM07 to AML.T0051.000; LLM09 to AML.T0048.002; LLM10 to AML.T0029/AML.T0034/AML.T0025"
+  - id: nist-ai-rmf
+    relationship: "OWASP source references NIST AI RMF for LLM04 data integrity strategies"
+    notes: "Mentioned in LLM04 Related Frameworks section"
+
+project_leads:
+  - name: Steve Wilson
+    role: Project Lead
+  - name: Ads Dawson
+    role: Technical Lead and Vulnerability Entries Lead

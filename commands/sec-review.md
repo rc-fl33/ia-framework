@@ -1,0 +1,1 @@
+../skills/sec-review/commands/sec-review.md

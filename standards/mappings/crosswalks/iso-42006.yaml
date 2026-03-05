@@ -1,0 +1,213 @@
+framework: iso-42006
+version: "2025"
+description: ISO/IEC 42006:2025 Requirements for AIMS Certification Bodies cross-framework mappings
+last_updated: 2026-02-22
+note: >
+  ISO 42006 applies to CERTIFICATION BODIES (CBs), not to organizations seeking certification.
+  Mappings are primarily to ISO 17021-1 (which ISO 42006 extends) and to ISO 42001 (the
+  standard CBs certify against). Also mapped to IAF requirements where applicable.
+  Organizations selecting a CB should use these mappings to verify CB quality.
+
+mappings:
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 4: PRINCIPLES
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - control: "4"
+    title: Principles for AIMS certification
+    external_mappings:
+      iso-17021-1:
+        - Clause 4   # Principles (parent standard)
+    confidence: high
+    evidence:
+      - ISO 42006 extends ISO 17021-1 principles with AI-specific application
+    notes: ISO 42006 inherits all ISO 17021-1 principles — impartiality, competence, responsibility, openness, confidentiality, responsiveness.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 5: GENERAL REQUIREMENTS
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - control: "5.2"
+    title: Management of impartiality — AI-specific conflict of interest provisions
+    external_mappings:
+      iso-17021-1:
+        - Clause 5.2   # Impartiality management (parent requirement)
+      iso-42001:
+        - A.2.2    # AI policy — CBs cannot advise clients on AI policy while certifying
+        - A.6.1.3  # Processes for responsible design — CBs cannot consult on these
+    confidence: high
+    evidence:
+      - ISO 42006 clause 5.2.2.3 explicitly lists prohibited activities for CBs certifying AIMS
+    notes: >
+      ISO 42006 provides significantly more specific conflict of interest guidance than ISO 17021-1,
+      explicitly addressing AI management system consulting, data protection officer services,
+      risk management consulting, and AI system implementation advice as prohibited while certifying.
+
+  - control: "5.3"
+    title: Liability and financing
+    external_mappings:
+      iso-17021-1:
+        - Clause 5.3   # Liability and financing (parent requirement)
+    confidence: high
+    evidence:
+      - ISO 42006 inherits liability requirements from ISO 17021-1 with AI-sector sizing guidance
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 7: RESOURCE REQUIREMENTS (COMPETENCE)
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - control: "7.1.3"
+    title: Specific technical competence requirements for AIMS auditors
+    external_mappings:
+      iso-17021-1:
+        - Clause 7.1   # Competence requirements (parent — ISO 42006 extends these)
+      iso-42001:
+        - All clauses  # Auditors must understand all ISO 42001 requirements
+        - Annex A      # Full control set must be understood for audit competence
+      iso-22301:
+        - NA           # No direct linkage — AI auditor competence is AI-specific
+    confidence: high
+    evidence:
+      - ISO 42006 Table 1 specifies additional competence requirements beyond ISO 17021-1
+      - ISO 42006 clause 7.1.3 provides six domains of AI-specific competence
+    notes: >
+      Six domains (7.1.3.1 through 7.1.3.6): AIMS requirements, AI legal obligations,
+      AI terminology and methods, client business sector, client products/processes/organization,
+      and AI management system standards. These go substantially beyond ISO 17021-1.
+
+  - control: "7.2.2.2"
+    title: Minimum experience requirements for AIMS auditors
+    external_mappings:
+      iso-17021-1:
+        - Clause 7.2   # Auditor criteria (parent — ISO 42006 adds AI-specific experience)
+    confidence: high
+    evidence:
+      - ISO 42006 clause 7.2.2.2 specifies minimum 4 years IT/data protection experience + 1 year AI
+    notes: >
+      The one year of AI-specific experience requirement is an addition to ISO 17021-1 criteria.
+      For transition to ISO 42006, existing management system auditors with IT audit experience
+      need to demonstrate additional AI-specific work experience.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 8: INFORMATION REQUIREMENTS
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - control: "8.2.2"
+    title: AIMS certification documents (Statement of Applicability reference)
+    external_mappings:
+      iso-17021-1:
+        - Clause 8.2   # Certification documents (parent)
+      iso-42001:
+        - 6.1.4        # SoA is defined in ISO 42001 as output of impact/risk assessment planning
+        - "8.1"        # Operational planning produces SoA
+    confidence: high
+    evidence:
+      - ISO 42006 clause 8.2.2 explicitly requires SoA version on certification documents
+    notes: >
+      The SoA reference in certification documents is unique to ISO 42001/42006 compared to
+      other management system certifications. This requires CBs to verify SoA completeness
+      as part of the certification decision.
+
+  - control: "8.4"
+    title: Confidentiality — AI-specific sensitivity of AIMS information
+    external_mappings:
+      iso-17021-1:
+        - Clause 8.4   # Confidentiality (parent)
+      iso-42001:
+        - A.7.2        # Data for AI systems — training data may be highly sensitive
+        - A.7.5        # PII in AI systems — requires special confidentiality treatment
+    confidence: high
+    evidence:
+      - ISO 42006 clause 8.4.2 specifically addresses sensitive AIMS information including source code and raw data
+    notes: >
+      ISO 42006 explicitly addresses the challenge that AI system evidence (source code,
+      raw training data) may be commercially sensitive. CBs must determine audit
+      adequacy in the absence of restricted information.
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 9: PROCESS REQUIREMENTS
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - control: "9.1.2"
+    title: Audit programme — AI stakeholder role identification
+    external_mappings:
+      iso-17021-1:
+        - Clause 9.1   # Audit programme planning (parent)
+      iso-42001:
+        - Annex C      # AI supply chain and roles (AI producer, provider, customer)
+        - "4.1"        # Context — AI value chain position
+    confidence: high
+    evidence:
+      - ISO 42006 clause 9.1.2 explicitly requires identification of client stakeholder role(s)
+    notes: >
+      This is an AI-specific addition — the AI value chain position (producer/provider/customer)
+      determines which ISO 42001 requirements are applicable and how risk assessment must
+      address supply chain obligations.
+
+  - control: "9.1.3"
+    title: Scope of certification — SoA completeness verification
+    external_mappings:
+      iso-17021-1:
+        - Clause 9.1   # Scope determination (parent)
+      iso-42001:
+        - 6.1.4        # AI system impact assessment — scope element
+        - 6.1.2        # AI risk assessment — scope element
+    confidence: high
+    evidence:
+      - ISO 42006 clause 9.1.3 requires CB verification that SoA includes all significant AI system processes and risks
+
+  - control: "9.1.4"
+    title: Determining audit time — Annex A methodology
+    external_mappings:
+      iso-17021-1:
+        - Clause 9.1   # Audit time determination (parent)
+    confidence: high
+    evidence:
+      - ISO 42006 normative Annex A provides AI-specific audit time calculation factors
+    notes: >
+      AI-specific adjustment factors (number of AI systems, high-risk AI systems, regulatory
+      frameworks, third-party agreements, SoA controls) substantially expand ISO 17021-1 time
+      determination. Organizations should expect longer audit times for complex multi-system AIMS.
+
+  - control: "9.2.1"
+    title: Audit objectives — AIMS effectiveness and risk assessment coverage
+    external_mappings:
+      iso-17021-1:
+        - Clause 9.2   # Audit objectives (parent)
+      iso-42001:
+        - 6.1.2        # AI risk assessment — CB must verify adequacy
+        - 6.1.4        # Impact assessment — CB must verify completeness
+        - "9.1"        # Performance evaluation — CB reviews monitoring evidence
+    confidence: high
+    evidence:
+      - ISO 42006 clause 9.2.1.2 explicitly includes verifying risk assessment and AIMS objectives
+
+  - control: "9.6.2"
+    title: Surveillance activities — AI risk-adapted programme
+    external_mappings:
+      iso-17021-1:
+        - Clause 9.6   # Surveillance (parent)
+      iso-42001:
+        - "9.1"        # Performance evaluation — surveillance reviews monitoring outputs
+        - A.6.2.6      # Feedback from AI system deployment — surveillance trigger
+    confidence: high
+    evidence:
+      - ISO 42006 clause 9.6.2 explicitly requires AI system risk adaptation of surveillance programme
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # ANNEX A: AUDIT TIME (NORMATIVE)
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - control: "A.3"
+    title: Audit time calculation — AI-specific adjustment factors
+    external_mappings:
+      iso-17021-1:
+        - Annex B   # Audit time (parent — ISO 42006 Annex A replaces/extends for AI)
+    confidence: high
+    evidence:
+      - ISO 42006 Annex A is normative — supersedes ISO 17021-1 guidance for AIMS audits
+    notes: >
+      Key factors unique to ISO 42006: high-risk AI system count (0.5-2.0 auditor days each),
+      number of AI systems beyond five (1.0-2.0 days each), regulatory framework count (1.0 day each).
+      Organizations with high-risk AI systems should expect significantly more audit time.

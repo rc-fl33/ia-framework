@@ -1,0 +1,333 @@
+framework: owasp-llm
+version: "2025"
+description: OWASP Top 10 for Large Language Model Applications cross-framework mappings
+last_updated: 2026-02-25
+coverage_pct: 90
+mappings:
+  - control: "LLM01"
+    title: "Prompt Injection"
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.7"
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+      mitre-atlas:
+        - "AML.T0051.000"
+        - "AML.T0051.001"
+        - "AML.T0054"
+      nist-800-53:
+        - "SI-10"
+        - "SI-15"
+        - "AC-4"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+        - "6.1.2"
+      aiuc-1:
+        - "D001"
+        - "D003"
+        - "E001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - Prompt injection maps to input validation and adversarial robustness requirements across all major AI security frameworks
+      - MITRE ATLAS AML.T0051 is a direct technique mapping for LLM prompt injection
+      - NIST AI RMF MEASURE 2.5 addresses adversarial testing requirements
+    notes: LLM01 is the most cross-framework referenced LLM risk — covered by all major AI security frameworks
+
+  - control: "LLM02"
+    title: "Sensitive Information Disclosure"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "GOVERN 1.6"
+      mitre-atlas:
+        - "AML.T0024.000"
+        - "AML.T0024.001"
+        - "AML.T0024.002"
+        - "AML.T0037"
+      nist-800-53:
+        - "SC-28"
+        - "AC-4"
+        - "RA-3"
+      iso-42001:
+        - "A.6.2.3"
+        - "6.1.2"
+        - "A.8.2"
+      aiuc-1:
+        - "A001"
+        - "A002"
+        - "D002"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0024 covers inference attacks that extract training data membership and model inversion
+      - NIST 800-53 SC-28 addresses data-at-rest protection requirements applicable to training data
+      - EU AI Act Art-10 governs training data quality and data governance requirements
+    notes: LLM02 intersects with privacy frameworks and data protection regulations beyond security frameworks
+
+  - control: "LLM03"
+    title: "Supply Chain Vulnerabilities"
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "MAP 1.1"
+        - "MANAGE 2.2"
+      mitre-atlas:
+        - "AML.T0010"
+        - "AML.T0019"
+        - "AML.T0020"
+      nist-800-53:
+        - "SA-9"
+        - "SR-3"
+        - "SR-4"
+      iso-42001:
+        - "A.6.1.4"
+        - "8.3"
+        - "6.1.2"
+      aiuc-1:
+        - "B001"
+        - "B003"
+        - "E005"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-51"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0010 directly addresses ML supply chain compromise
+      - NIST 800-53 SA-9 and SR-3 cover external component and supply chain risk management
+      - NIST AI RMF MAP 1.1 requires documentation of AI system dependencies and supply chain
+    notes: Supply chain risk management maps consistently to supplier management controls across all governance frameworks
+
+  - control: "LLM04"
+    title: "Data and Model Poisoning"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "MAP 5.1"
+      mitre-atlas:
+        - "AML.T0020"
+        - "AML.T0018"
+        - "AML.T0019"
+      nist-800-53:
+        - "SI-10"
+        - "RA-3"
+        - "SA-9"
+      iso-42001:
+        - "A.7.2"
+        - "A.7.3"
+        - "A.7.4"
+      aiuc-1:
+        - "A001"
+        - "A005"
+        - "D003"
+      eu-ai-act:
+        - "Art-10"
+        - "Art-9"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0020 is the direct technique for training data poisoning
+      - MITRE ATLAS AML.T0018 covers backdoor ML model implantation via poisoning
+      - EU AI Act Art-10 requires training data governance including quality and integrity measures
+    notes: Data poisoning maps to data integrity and training pipeline security controls
+
+  - control: "LLM05"
+    title: "Improper Output Handling"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "GOVERN 1.7"
+      mitre-atlas:
+        - "AML.T0048"
+        - "AML.T0054"
+      nist-800-53:
+        - "SI-10"
+        - "SI-15"
+        - "SC-5"
+      iso-42001:
+        - "A.6.2.3"
+        - "8.3"
+        - "9.1"
+      aiuc-1:
+        - "D001"
+        - "D004"
+        - "E001"
+      eu-ai-act:
+        - "Art-15"
+        - "Art-9"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0048 covers societal harm from model output misuse
+      - NIST 800-53 SI-10 addresses information input validation applicable to LLM outputs
+      - OWASP ASVS alignment with NIST 800-53 output sanitization requirements
+    notes: Improper output handling maps to output validation and injection prevention controls across security frameworks
+
+  - control: "LLM06"
+    title: "Excessive Agency"
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 6.1"
+        - "GOVERN 6.2"
+        - "MANAGE 2.2"
+      mitre-atlas:
+        - "AML.T0047"
+        - "AML.T0043"
+      nist-800-53:
+        - "AC-4"
+        - "AC-6"
+        - "CM-7"
+      iso-42001:
+        - "A.6.2.3"
+        - "6.1.2"
+        - "A.5.2"
+      aiuc-1:
+        - "E001"
+        - "E002"
+        - "E007"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-14"
+    confidence: high
+    evidence:
+      - NIST AI RMF GOVERN 6.x specifically addresses human oversight and human-AI interaction requirements
+      - NIST 800-53 AC-6 least privilege principle directly addresses excessive permission granting
+      - EU AI Act Art-14 requires human oversight mechanisms for high-risk AI systems
+    notes: Excessive agency maps to human-in-the-loop, least privilege, and autonomous action constraints
+
+  - control: "LLM07"
+    title: "System Prompt Leakage"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "GOVERN 1.7"
+      mitre-atlas:
+        - "AML.T0051.000"
+        - "AML.T0037"
+      nist-800-53:
+        - "SC-28"
+        - "SI-15"
+        - "AC-4"
+      iso-42001:
+        - "A.6.2.3"
+        - "6.1.2"
+        - "A.8.2"
+      aiuc-1:
+        - "D001"
+        - "D002"
+        - "E001"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-12"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0051.000 includes meta prompt extraction as a prompt injection subtype
+      - MITRE ATLAS AML.T0037 covers model confidentiality bypass techniques
+      - NIST AI RMF MEASURE 2.5 addresses confidentiality of AI system design information
+    notes: System prompt leakage maps to confidentiality controls and information disclosure prevention
+
+  - control: "LLM08"
+    title: "Vector and Embedding Weaknesses"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.5"
+        - "MANAGE 2.2"
+        - "MAP 5.1"
+      mitre-atlas:
+        - "AML.T0025"
+        - "AML.T0043"
+        - "AML.T0020"
+      nist-800-53:
+        - "AC-4"
+        - "SC-28"
+        - "SI-10"
+      iso-42001:
+        - "A.7.3"
+        - "A.7.4"
+        - "6.1.2"
+      aiuc-1:
+        - "A002"
+        - "D003"
+        - "E002"
+      eu-ai-act:
+        - "Art-10"
+        - "Art-9"
+    confidence: medium
+    evidence:
+      - MITRE ATLAS AML.T0025 covers exfiltration via cyber means applicable to vector database attacks
+      - MITRE ATLAS AML.T0043 addresses neural network attacks applicable to embedding manipulation
+      - ISO 42001 A.7.3 addresses training data governance covering RAG knowledge base integrity
+    notes: Vector and embedding weaknesses are an emerging area — framework mappings reflect closest analogues
+
+  - control: "LLM09"
+    title: "Misinformation"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MEASURE 2.5"
+        - "MANAGE 2.4"
+      mitre-atlas:
+        - "AML.T0048.002"
+        - "AML.T0048"
+      nist-800-53:
+        - "SI-10"
+        - "SI-12"
+        - "RA-3"
+      iso-42001:
+        - "A.6.2.2"
+        - "9.1"
+        - "A.5.5"
+      aiuc-1:
+        - "C003"
+        - "C010"
+        - "F001"
+      eu-ai-act:
+        - "Art-15"
+        - "Art-9"
+        - "Art-12"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0048.002 directly addresses societal harm from AI-generated misinformation
+      - NIST AI RMF MEASURE 2.6 addresses explainability and transparency reducing misinformation risk
+      - EU AI Act Art-15 requires accuracy and robustness standards applicable to hallucination reduction
+    notes: Misinformation maps to accuracy, transparency, and human oversight controls across AI governance frameworks
+
+  - control: "LLM10"
+    title: "Unbounded Consumption"
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.7"
+        - "MANAGE 2.2"
+        - "GOVERN 1.7"
+      mitre-atlas:
+        - "AML.T0029"
+        - "AML.T0034"
+        - "AML.T0025"
+      nist-800-53:
+        - "SC-5"
+        - "SI-10"
+        - "AC-4"
+      iso-42001:
+        - "A.6.2.3"
+        - "9.1"
+        - "6.1.2"
+      aiuc-1:
+        - "D004"
+        - "E001"
+        - "E009"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+    confidence: high
+    evidence:
+      - MITRE ATLAS AML.T0029 is the direct technique for denial of ML service attacks
+      - MITRE ATLAS AML.T0034 covers cost harvesting attacks (Denial of Wallet)
+      - NIST 800-53 SC-5 addresses denial of service protection directly applicable to LLM endpoints
+    notes: Unbounded consumption maps to availability controls, rate limiting, and resource protection frameworks

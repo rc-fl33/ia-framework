@@ -1,0 +1,1 @@
+../skills/mentorship/commands/mentorship.md

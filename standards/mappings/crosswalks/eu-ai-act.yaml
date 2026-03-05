@@ -1,0 +1,982 @@
+framework: eu-ai-act
+version: "2024/1689"
+description: EU AI Act (Regulation EU 2024/1689) cross-framework mappings
+last_updated: 2026-02-25
+coverage_pct: 90
+mappings:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER II — PROHIBITED AI PRACTICES
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-5"
+    title: Prohibited AI practices
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "GOVERN 6.1"
+        - "GOVERN 1.1"
+      iso-42001:
+        - "6.1.2"
+        - "A.6.1.3"
+        - "A.2.2"
+      iso-24028:
+        - "Clause 8"
+      aiuc-1:
+        - "A001"
+        - "A002"
+        - "B001"
+      iso-42005:
+        - "5.1"
+        - "5.2"
+      iso-42006:
+        - "6.1"
+    confidence: high
+    evidence:
+      - Prohibited practices align with highest-risk AI categories in NIST AI RMF MAP 5.1
+      - ISO 42001 A.6.1.3 addresses prohibited and restricted AI uses
+      - ISO 24028 Clause 8 covers trustworthiness properties including fairness and non-manipulation
+    notes: Art-5 prohibitions map to highest-risk AI scenarios across all frameworks
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER III, SECTION 1 — CLASSIFICATION OF HIGH-RISK AI SYSTEMS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-6"
+    title: Classification rules for high-risk AI systems
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.1"
+        - "MAP 1.5"
+        - "MAP 5.1"
+      iso-42001:
+        - "6.1.2"
+        - "A.6.1.1"
+        - "A.6.1.2"
+      iso-24028:
+        - "Clause 4"
+        - "Clause 5"
+      aiuc-1:
+        - "B001"
+        - "B002"
+        - "B003"
+      iso-42005:
+        - "5.2"
+        - "5.3"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - Classification of AI systems by risk level is central to NIST AI RMF MAP 1.x
+      - ISO 42001 6.1.2 requires AI risk identification and assessment including use-case classification
+      - ISO 24028 Clause 4 defines context of use including risk-relevant characteristics
+    notes: Art-6 two-tier classification maps to risk categorization practices across all AI frameworks
+
+  - control: "Art-7"
+    title: Amendments to Annex III
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.4"
+        - "MAP 1.1"
+      iso-42001:
+        - "6.1.2"
+        - "10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "B001"
+        - "F001"
+      iso-42005:
+        - "5.3"
+      iso-42006:
+        - "6.1"
+    confidence: medium
+    evidence:
+      - Regulatory update monitoring maps to NIST AI RMF GOVERN 1.4 (risk tolerance updates)
+      - ISO 42001 10.1 covers continual improvement including regulatory change adaptation
+    notes: Art-7 delegated act process requires ongoing regulatory monitoring capability
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER III, SECTION 2 — REQUIREMENTS FOR HIGH-RISK AI SYSTEMS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-8"
+    title: Compliance with the requirements
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "GOVERN 1.2"
+        - "MAP 1.6"
+      iso-42001:
+        - "8.1"
+        - "9.1"
+        - "A.6.1.3"
+      iso-24028:
+        - "Clause 5"
+      aiuc-1:
+        - "C001"
+        - "F001"
+      iso-42005:
+        - "5.1"
+      iso-42006:
+        - "6.1"
+        - "6.2"
+    confidence: high
+    evidence:
+      - General compliance obligation maps to NIST AI RMF GOVERN 1.x governance requirements
+      - ISO 42001 8.1 operational planning and control covers compliance with AI requirements
+      - ISO 24028 Clause 5 defines trustworthiness properties high-risk systems must achieve
+    notes: Art-8 establishes the overarching compliance framework for Sections 9-15 requirements
+
+  - control: "Art-9"
+    title: Risk management system
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.3"
+        - "MAP 1.1"
+        - "MAP 2.1"
+        - "MAP 2.2"
+        - "MANAGE 1.1"
+      iso-42001:
+        - "6.1.1"
+        - "6.1.2"
+        - "8.3"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "C001"
+        - "C002"
+        - "C003"
+      iso-42005:
+        - "5.1"
+        - "5.2"
+        - "5.3"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF MAP 1.1 and MAP 2.x directly address AI risk identification and analysis
+      - ISO 42001 6.1.2 requires a risk management process for AI systems throughout lifecycle
+      - ISO 42005 Clause 5 covers impact assessment processes that feed into risk management
+    notes: Art-9 risk management system is the most broadly cross-mapped requirement in the EU AI Act
+
+  - control: "Art-10"
+    title: Data and data governance
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 2.1"
+        - "MAP 3.5"
+        - "MEASURE 2.5"
+      iso-42001:
+        - "8.3"
+        - "A.7.1"
+        - "A.7.2"
+        - "A.7.3"
+      iso-24028:
+        - "Clause 6"
+        - "Clause 7"
+      aiuc-1:
+        - "C003"
+        - "D001"
+        - "D002"
+      iso-42005:
+        - "5.4"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MAP 3.5 covers data provenance, representativeness, and bias
+      - ISO 42001 A.7.x covers data management practices for AI systems
+      - ISO 24028 Clause 6 addresses data-related trustworthiness characteristics
+    notes: Art-10 data governance is foundational to AI fairness and reliability across all frameworks
+
+  - control: "Art-11"
+    title: Technical documentation
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.6"
+        - "MEASURE 1.1"
+      iso-42001:
+        - "7.5"
+        - "A.6.2.1"
+        - "A.6.2.2"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "C004"
+        - "D003"
+      iso-42005:
+        - "6.1"
+        - "6.2"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 1.1 requires documentation of AI system characteristics and context
+      - ISO 42001 7.5 covers documented information requirements; A.6.2.x covers AI system documentation
+      - ISO 42005 Clause 6 provides guidance on impact assessment documentation structure
+    notes: Art-11 technical documentation aligns with documentation requirements across all AI frameworks
+
+  - control: "Art-12"
+    title: Record-keeping
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 1.1"
+        - "MEASURE 2.6"
+        - "MANAGE 2.2"
+      iso-42001:
+        - "7.5"
+        - "A.6.2.5"
+        - "9.1"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "C004"
+        - "D004"
+      iso-42005:
+        - "6.1"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 2.6 covers monitoring and tracking AI system performance over time
+      - ISO 42001 A.6.2.5 covers AI system event logging and traceability requirements
+      - Logging and record-keeping requirements appear across all AI governance frameworks
+    notes: Art-12 logging maps to monitoring and traceability requirements in all frameworks
+
+  - control: "Art-13"
+    title: Transparency and provision of information to deployers
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 4.1"
+        - "GOVERN 4.2"
+        - "MAP 1.6"
+      iso-42001:
+        - "A.8.3"
+        - "A.8.4"
+        - "7.5"
+      iso-24028:
+        - "Clause 5"
+        - "Clause 6"
+      aiuc-1:
+        - "D001"
+        - "D002"
+        - "D003"
+      iso-42005:
+        - "5.4"
+        - "6.1"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF GOVERN 4.x covers transparency and information sharing with AI system users
+      - ISO 42001 A.8.3-A.8.4 addresses transparency and explainability requirements
+      - ISO 24028 Clause 5 defines transparency and explainability as trustworthiness properties
+    notes: Art-13 transparency maps to information disclosure requirements across all frameworks
+
+  - control: "Art-14"
+    title: Human oversight
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "MANAGE 1.3"
+        - "MANAGE 2.4"
+      iso-42001:
+        - "A.6.1.4"
+        - "A.8.5"
+        - "5.3"
+      iso-24028:
+        - "Clause 6"
+        - "Clause 7"
+      aiuc-1:
+        - "D005"
+        - "E001"
+        - "E002"
+      iso-42005:
+        - "5.2"
+      iso-42006:
+        - "6.2"
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MANAGE 1.3 and 2.4 cover human oversight and intervention capabilities
+      - ISO 42001 A.6.1.4 addresses human oversight requirements for AI decision-making
+      - ISO 24028 Clause 6 covers human control and intervention as trustworthiness characteristics
+    notes: Art-14 human oversight is a universal requirement across all AI governance frameworks
+
+  - control: "Art-15"
+    title: Accuracy, robustness and cybersecurity
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.1"
+        - "MEASURE 2.2"
+        - "MEASURE 2.7"
+      iso-42001:
+        - "A.9.1"
+        - "A.9.2"
+        - "8.1"
+      iso-24028:
+        - "Clause 5"
+        - "Clause 6"
+      aiuc-1:
+        - "C005"
+        - "C006"
+        - "E003"
+      iso-42005:
+        - "5.2"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 2.x covers accuracy, reliability, and robustness evaluation
+      - ISO 42001 A.9.x addresses AI system performance monitoring and robustness
+      - ISO 24028 Clause 5 defines accuracy, reliability, and security as trustworthiness properties
+    notes: Art-15 accuracy/robustness/cybersecurity maps to performance and security requirements across all AI frameworks
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER III, SECTION 3 — OBLIGATIONS OF PROVIDERS AND DEPLOYERS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-16"
+    title: Obligations of providers of high-risk AI systems
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "GOVERN 1.2"
+        - "MANAGE 1.1"
+      iso-42001:
+        - "5.1"
+        - "5.2"
+        - "8.1"
+        - "9.1"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "F001"
+        - "F002"
+      iso-42005:
+        - "5.1"
+      iso-42006:
+        - "6.1"
+        - "6.2"
+    confidence: high
+    evidence:
+      - Provider obligations map to organizational accountability requirements in NIST AI RMF GOVERN 1.x
+      - ISO 42001 Clause 5 leadership requirements cover policy, roles, and responsibilities
+      - ISO 42006 covers AI governance obligations applicable to providers
+    notes: Art-16 consolidates all provider obligations as a checklist anchored to other articles
+
+  - control: "Art-17"
+    title: Quality management system
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "GOVERN 1.7"
+        - "MANAGE 4.1"
+      iso-42001:
+        - "4.4"
+        - "9.1"
+        - "10.1"
+        - "10.2"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "F001"
+        - "F002"
+      iso-42005:
+        - "5.1"
+      iso-42006:
+        - "6.1"
+    confidence: high
+    evidence:
+      - QMS requirements map to NIST AI RMF GOVERN 1.7 organizational accountability and processes
+      - ISO 42001 Clauses 9 and 10 cover performance evaluation and improvement processes
+      - ISO 42006 AI governance framework covers QMS-equivalent organizational requirements
+    notes: Art-17 QMS is the organizational system that implements all other Art 8-15 requirements
+
+  - control: "Art-18"
+    title: Documentation keeping
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MANAGE 2.2"
+        - "MEASURE 1.1"
+      iso-42001:
+        - "7.5"
+        - "A.6.2.1"
+        - "A.6.2.2"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "C004"
+        - "F001"
+      iso-42005:
+        - "6.1"
+        - "6.2"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MANAGE 2.2 covers maintenance and documentation of AI system records
+      - ISO 42001 7.5 documented information requirements include retention requirements
+      - ISO 42005 Clause 6 covers documentation requirements for impact assessments
+    notes: Art-18 10-year retention requirement is the EU AI Act's most specific documentation obligation
+
+  - control: "Art-19"
+    title: Automatically generated logs
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MANAGE 2.2"
+        - "MANAGE 2.4"
+      iso-42001:
+        - "7.5"
+        - "A.6.2.5"
+        - "9.1"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "C004"
+        - "D004"
+      iso-42005:
+        - "6.1"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 2.6 covers logging and monitoring for AI system oversight
+      - ISO 42001 A.6.2.5 addresses event logging requirements for AI systems
+      - Log retention is a common requirement enabling audit and incident investigation
+    notes: Art-19 6-month log retention is the minimum; other laws may require longer retention
+
+  - control: "Art-20"
+    title: Corrective actions and duty of information
+    external_mappings:
+      nist-ai-rmf:
+        - "MANAGE 1.3"
+        - "MANAGE 2.2"
+        - "MANAGE 3.1"
+      iso-42001:
+        - "10.2"
+        - "A.9.3"
+        - "8.4"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "E015"
+        - "E016"
+        - "F001"
+      iso-42005:
+        - "5.5"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MANAGE 3.1 covers corrective action and risk response for AI system issues
+      - ISO 42001 10.2 nonconformity and corrective action is directly equivalent
+      - ISO 42006 covers notification obligations as part of AI governance accountability
+    notes: Art-20 corrective action and notification maps to incident response and CAPA processes
+
+  - control: "Art-21"
+    title: Cooperation with competent authorities
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 6.1"
+        - "GOVERN 6.2"
+        - "MANAGE 4.2"
+      iso-42001:
+        - "9.1"
+        - "A.2.6"
+        - "10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "F001"
+        - "F002"
+      iso-42005:
+        - "5.1"
+      iso-42006:
+        - "6.1"
+        - "6.4"
+    confidence: high
+    evidence:
+      - NIST AI RMF GOVERN 6.x covers regulatory and oversight body cooperation
+      - ISO 42001 A.2.6 addresses regulatory and legal requirements and cooperation
+      - ISO 42006 AI governance covers regulatory engagement as a governance obligation
+    notes: Art-21 cooperation obligation maps to regulatory accountability across all AI governance frameworks
+
+  - control: "Art-22"
+    title: Authorised representatives of providers of high-risk AI systems
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "GOVERN 6.1"
+      iso-42001:
+        - "5.3"
+        - "A.2.6"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "F001"
+        - "F002"
+      iso-42005:
+        - "5.1"
+      iso-42006:
+        - "6.1"
+        - "6.4"
+    confidence: medium
+    evidence:
+      - NIST AI RMF GOVERN 1.2 covers organizational roles and responsibilities for AI oversight
+      - ISO 42001 5.3 requires assignment of AI-related roles and responsibilities
+      - Designated representative concept maps to accountability assignment requirements
+    notes: Art-22 is EU-specific but maps to accountability designation requirements in all frameworks
+
+  - control: "Art-23"
+    title: Obligations of importers
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "GOVERN 6.1"
+        - "MAP 5.2"
+      iso-42001:
+        - "8.4"
+        - "A.2.6"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "B003"
+        - "F001"
+      iso-42005:
+        - "5.3"
+      iso-42006:
+        - "6.4"
+    confidence: medium
+    evidence:
+      - NIST AI RMF MAP 5.2 covers supply chain and third-party AI system risks
+      - ISO 42001 8.4 addresses control of externally provided AI systems and services
+      - ISO 42006 covers supply chain governance obligations for AI systems
+    notes: Art-23 importer obligations map to supply chain due diligence requirements
+
+  - control: "Art-24"
+    title: Obligations of distributors
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "MAP 5.2"
+        - "MANAGE 4.2"
+      iso-42001:
+        - "8.4"
+        - "A.2.6"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "B003"
+        - "F001"
+      iso-42005:
+        - "5.3"
+      iso-42006:
+        - "6.4"
+    confidence: medium
+    evidence:
+      - Similar to Art-23, distributor obligations map to supply chain accountability frameworks
+      - ISO 42001 8.4 control of externally provided processes applies to distribution activities
+      - NIST AI RMF MAP 5.2 supply chain risk assessment applies to distribution contexts
+    notes: Art-24 distributor obligations are analogous to Art-23 importer obligations in supply chain terms
+
+  - control: "Art-25"
+    title: Responsibilities along the AI value chain
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "MAP 5.1"
+        - "MAP 5.2"
+      iso-42001:
+        - "4.2"
+        - "8.4"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "B003"
+        - "F001"
+        - "F002"
+      iso-42005:
+        - "5.3"
+      iso-42006:
+        - "6.4"
+    confidence: high
+    evidence:
+      - NIST AI RMF MAP 5.x covers full value chain accountability for AI systems
+      - ISO 42001 8.4 and A.10.1 cover supply chain and value chain responsibilities
+      - ISO 42006 governance covers accountability assignment across the AI value chain
+    notes: Art-25 value chain responsibility allocation is a unique EU AI Act provision with broad framework mappings
+
+  - control: "Art-26"
+    title: Obligations of deployers of high-risk AI systems
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.1"
+        - "MANAGE 1.1"
+        - "MANAGE 2.4"
+      iso-42001:
+        - "8.1"
+        - "A.6.1.4"
+        - "A.8.5"
+      iso-24028:
+        - "Clause 6"
+        - "Clause 7"
+      aiuc-1:
+        - "D001"
+        - "D005"
+        - "E001"
+      iso-42005:
+        - "5.2"
+        - "5.3"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - Deployer obligations map to operational controls in NIST AI RMF MANAGE 1.x
+      - ISO 42001 A.6.1.4 covers deployer-specific oversight obligations
+      - ISO 42005 covers impact assessment obligations that deployers must fulfill
+    notes: Art-26 deployer obligations mirror provider obligations but for operational use context
+
+  - control: "Art-27"
+    title: Fundamental rights impact assessment for high-risk AI systems
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 5.1"
+        - "MAP 5.2"
+        - "MEASURE 2.5"
+      iso-42001:
+        - "6.1.4"
+        - "A.5.2"
+        - "A.6.1.3"
+      iso-24028:
+        - "Clause 5"
+        - "Clause 8"
+      aiuc-1:
+        - "C001"
+        - "C002"
+        - "E013"
+      iso-42005:
+        - "5.1"
+        - "5.2"
+        - "5.3"
+        - "5.4"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF MAP 5.1 covers impact assessment for high-risk AI scenarios
+      - ISO 42005 is specifically designed for AI system impact assessment aligned with Art-27 FRIA
+      - ISO 42001 A.5.2 covers fundamental rights and ethical considerations in AI systems
+    notes: Art-27 FRIA is the most directly mapped to ISO 42005 of all EU AI Act articles
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER IV — TRANSPARENCY OBLIGATIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-50"
+    title: Transparency obligations for providers and deployers of certain AI systems
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 4.1"
+        - "GOVERN 4.2"
+        - "MANAGE 2.4"
+      iso-42001:
+        - "A.8.3"
+        - "A.8.4"
+        - "A.7.4"
+      iso-24028:
+        - "Clause 5"
+        - "Clause 6"
+      aiuc-1:
+        - "D001"
+        - "D002"
+        - "D003"
+      iso-42005:
+        - "5.4"
+      owasp-llm:
+        - "LLM07"
+      iso-42006:
+        - "6.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF GOVERN 4.x directly addresses transparency obligations for AI systems
+      - ISO 42001 A.8.3-A.8.4 covers transparency and explainability requirements
+      - ISO 24028 Clause 5 defines transparency as a core AI trustworthiness property
+    notes: Art-50 transparency maps broadly; OWASP LLM07 added for deepfake/synthetic content scenarios
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER V — GENERAL-PURPOSE AI MODELS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-51"
+    title: Classification of general-purpose AI models with systemic risk
+    external_mappings:
+      nist-ai-rmf:
+        - "MAP 1.1"
+        - "MAP 1.5"
+        - "MAP 5.1"
+      iso-42001:
+        - "6.1.2"
+        - "A.6.1.1"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 4"
+        - "Clause 5"
+      aiuc-1:
+        - "B001"
+        - "E001"
+        - "E002"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+      iso-42005:
+        - "5.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF MAP 1.x covers AI system classification by risk and capability level
+      - ISO 42001 A.6.1.1 addresses risk classification for AI systems
+      - OWASP LLM Top 10 covers systemic risks specific to large language models
+    notes: Art-51 systemic risk classification applies specifically to GPAI/LLM models
+
+  - control: "Art-52"
+    title: Procedure for systemic risk designation
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 6.1"
+        - "GOVERN 6.2"
+        - "MAP 1.5"
+      iso-42001:
+        - "6.1.2"
+        - "A.2.6"
+        - "9.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "B001"
+        - "F001"
+      owasp-llm:
+        - "LLM01"
+      iso-42005:
+        - "5.2"
+    confidence: medium
+    evidence:
+      - NIST AI RMF GOVERN 6.x covers regulatory notification and reporting processes
+      - ISO 42001 A.2.6 addresses regulatory compliance and notification requirements
+      - Designation procedure maps to regulatory classification frameworks
+    notes: Art-52 notification procedure is EU-specific but maps to regulatory reporting processes
+
+  - control: "Art-53"
+    title: Obligations for providers of general-purpose AI models
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "MAP 1.6"
+        - "MEASURE 1.1"
+      iso-42001:
+        - "7.5"
+        - "A.6.2.1"
+        - "A.7.1"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "E001"
+        - "E002"
+        - "E003"
+      owasp-llm:
+        - "LLM04"
+        - "LLM07"
+      iso-42005:
+        - "6.1"
+        - "6.2"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 1.1 covers documentation of AI model characteristics
+      - ISO 42001 A.10.1 covers GPAI-specific documentation and transparency obligations
+      - OWASP LLM04 (data poisoning) and LLM07 (prompt injection/transparency) align with Art-53 obligations
+    notes: Art-53 GPAI documentation obligations map to model transparency requirements across frameworks
+
+  - control: "Art-54"
+    title: Authorised representatives of GPAI model providers
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.2"
+        - "GOVERN 6.1"
+      iso-42001:
+        - "5.3"
+        - "A.2.6"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "F001"
+        - "F002"
+      owasp-llm:
+        - "LLM01"
+      iso-42005:
+        - "5.1"
+    confidence: medium
+    evidence:
+      - Similar to Art-22 for high-risk AI, Art-54 maps to accountability designation requirements
+      - NIST AI RMF GOVERN 1.2 covers roles and responsibilities for AI system accountability
+      - ISO 42001 5.3 requires designated roles for AI governance including regulatory liaison
+    notes: Art-54 is the GPAI equivalent of Art-22 authorised representative requirement
+
+  - control: "Art-55"
+    title: Obligations of providers of GPAI models with systemic risk
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.1"
+        - "MEASURE 2.6"
+        - "MANAGE 2.2"
+        - "MANAGE 3.1"
+      iso-42001:
+        - "A.9.1"
+        - "A.9.2"
+        - "A.10.1"
+        - "10.2"
+      iso-24028:
+        - "Clause 5"
+        - "Clause 6"
+      aiuc-1:
+        - "E001"
+        - "E002"
+        - "E015"
+        - "E016"
+      owasp-llm:
+        - "LLM01"
+        - "LLM02"
+        - "LLM09"
+      iso-42005:
+        - "5.2"
+        - "5.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 2.x covers model evaluation and adversarial testing requirements
+      - OWASP LLM Top 10 directly addresses systemic risks in GPAI/LLM systems
+      - ISO 42001 A.9.x covers performance monitoring and risk mitigation for AI systems
+    notes: Art-55 systemic risk obligations map most directly to GPAI/LLM-specific security frameworks
+
+  - control: "Art-56"
+    title: Codes of practice for GPAI models
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 1.4"
+        - "GOVERN 1.7"
+        - "MANAGE 4.1"
+      iso-42001:
+        - "10.1"
+        - "10.2"
+        - "A.10.1"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "F001"
+        - "E016"
+      owasp-llm:
+        - "LLM01"
+      iso-42005:
+        - "5.1"
+    confidence: medium
+    evidence:
+      - NIST AI RMF GOVERN 1.4 and 1.7 cover industry standards and codes of practice adoption
+      - ISO 42001 10.x continual improvement maps to codes of practice compliance lifecycle
+      - Codes of practice create presumption of conformity similar to ISO certification model
+    notes: Art-56 codes of practice create an alternative compliance pathway via industry self-regulation
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER VIII — POST-MARKET MONITORING AND ENFORCEMENT
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - control: "Art-72"
+    title: Post-market monitoring by providers
+    external_mappings:
+      nist-ai-rmf:
+        - "MEASURE 2.6"
+        - "MEASURE 2.7"
+        - "MANAGE 2.2"
+        - "MANAGE 4.1"
+      iso-42001:
+        - "9.1"
+        - "A.9.1"
+        - "A.9.3"
+        - "10.2"
+      iso-24028:
+        - "Clause 7"
+      aiuc-1:
+        - "E015"
+        - "E016"
+        - "F001"
+      iso-42005:
+        - "5.5"
+      iso-42006:
+        - "6.3"
+    confidence: high
+    evidence:
+      - NIST AI RMF MEASURE 2.6-2.7 cover ongoing monitoring of deployed AI system performance
+      - ISO 42001 9.1 and A.9.x cover performance evaluation and post-deployment monitoring
+      - ISO 42006 governance framework covers post-market accountability mechanisms
+    notes: Art-72 post-market monitoring maps directly to lifecycle governance in all AI frameworks
+
+  - control: "Art-83"
+    title: Formal non-compliance
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 6.1"
+        - "GOVERN 6.2"
+        - "MANAGE 3.1"
+      iso-42001:
+        - "10.2"
+        - "A.2.6"
+        - "9.2"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "E015"
+        - "E016"
+        - "F001"
+      iso-42005:
+        - "5.5"
+      iso-42006:
+        - "6.4"
+    confidence: high
+    evidence:
+      - NIST AI RMF GOVERN 6.x covers regulatory enforcement and supervisory actions
+      - ISO 42001 10.2 corrective action and A.2.6 regulatory compliance address non-conformance
+      - ISO 42006 governance covers regulatory enforcement mechanisms and organizational response
+    notes: Art-83 formal non-compliance maps to regulatory accountability and corrective action processes
+
+  - control: "Art-99"
+    title: Penalties
+    external_mappings:
+      nist-ai-rmf:
+        - "GOVERN 6.1"
+        - "GOVERN 6.2"
+      iso-42001:
+        - "A.2.6"
+        - "9.1"
+        - "10.2"
+      iso-24028:
+        - "Clause 4"
+      aiuc-1:
+        - "A001"
+        - "F001"
+        - "F002"
+      iso-42005:
+        - "5.1"
+      iso-42006:
+        - "6.1"
+        - "6.4"
+    confidence: medium
+    evidence:
+      - NIST AI RMF GOVERN 6.x covers regulatory compliance accountability including penalty exposure
+      - ISO 42001 A.2.6 addresses legal and regulatory requirements including penalty risk
+      - Penalty structure reinforces the priority hierarchy of compliance obligations
+    notes: Art-99 penalty tiers directly reflect the risk hierarchy: Art-5 prohibitions > Art-50 transparency > information accuracy

@@ -1,0 +1,32 @@
+name: NIST Cybersecurity Framework
+type: framework
+version: "2.0"
+provider: nist
+skills:
+  - compliance
+  - risk-assessment
+industries:
+  - all
+native_categories:
+  - GV   # GOVERN
+  - ID   # IDENTIFY
+  - PR   # PROTECT
+  - DE   # DETECT
+  - RS   # RESPOND
+  - RC   # RECOVER
+source_url: https://www.nist.gov/cyberframework
+published: 2026-01-14
+pages: 48
+chunks: 9
+enrichment_status:
+  tier: 2
+  framework_category: security
+  controls: complete
+  questions: complete
+  questions_framework_count: 5
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://www.nist.gov/cyberframework
+  next_check: 2027-02-25

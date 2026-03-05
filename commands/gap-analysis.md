@@ -1,0 +1,1 @@
+../skills/gap-analysis/commands/gap-analysis.md

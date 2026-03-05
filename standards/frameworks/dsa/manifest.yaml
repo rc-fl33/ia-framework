@@ -1,0 +1,34 @@
+name: Digital Services Act
+type: regulation
+version: "2022/2065"
+full_name: "Regulation (EU) 2022/2065 - Digital Services Act"
+provider: eu
+skills:
+  - compliance
+  - legal
+industries:
+  - technology
+  - platform_providers
+  - eu_operations
+native_categories:
+  - Ch-I    # General provisions (Art. 1-2)
+  - Ch-II   # Liability exemptions for intermediary services (Art. 3-9)
+  - Ch-III  # Due diligence obligations (Art. 10-48)
+  - Ch-IV   # Implementation and enforcement (Art. 49-70)
+  - Ch-V    # Delegated and implementing acts (Art. 71-77)
+source_url: https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package
+published: 2026-01-14
+status: complete
+questions_status: complete
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: partial
+  questions: complete
+  questions_framework_count: 2
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://digital-strategy.ec.europa.eu/en/policies/digital-services-act-package
+  next_check: 2027-02-25

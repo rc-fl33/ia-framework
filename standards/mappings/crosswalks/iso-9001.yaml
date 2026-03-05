@@ -1,0 +1,447 @@
+framework: iso-9001
+version: "2015"
+description: ISO 9001:2015 Quality Management System cross-framework mappings
+last_updated: 2026-02-25
+coverage_pct: 85
+mappings:
+  - control: "4.1"
+    title: Understanding the organization and its context
+    external_mappings:
+      iso-13485:
+        - "4.1"
+      iso-14001:
+        - "4.1"
+      iso-45001:
+        - "4.1"
+      iso-27001:
+        - "4.1"
+      nist-csf:
+        - GV.OC-01
+        - GV.OC-02
+        - GV.OC-03
+      nist-800-53:
+        - PL-1
+        - PL-2
+      soc2:
+        - CC1.4
+      cis-v8:
+        - "17.1"
+    confidence: high
+    evidence:
+      - All ISO HLS (High Level Structure) standards share identical Clause 4.1 text
+    notes: Context analysis is identical across all Annex SL/HLS management system standards
+
+  - control: "4.2"
+    title: Understanding the needs and expectations of interested parties
+    external_mappings:
+      iso-13485:
+        - "5.2"
+      iso-14001:
+        - "4.2"
+      iso-45001:
+        - "4.2"
+      iso-27001:
+        - "4.2"
+      nist-csf:
+        - GV.OC-04
+        - GV.OC-05
+      nist-800-53:
+        - PM-2
+        - PM-5
+      soc2:
+        - CC1.4
+    confidence: high
+    evidence:
+      - HLS alignment across ISO management system standards
+    notes: ISO 13485 integrates customer focus in 5.2 rather than 4.2 due to legacy structure
+
+  - control: "4.3"
+    title: Determining the scope of the quality management system
+    external_mappings:
+      iso-13485:
+        - "4.2.2"
+      iso-27001:
+        - "4.3"
+      nist-csf:
+        - GV.PO-01
+      nist-800-53:
+        - PL-2
+      soc2:
+        - CC2.1
+    confidence: high
+    evidence:
+      - Scope determination is foundational to all ISO management systems
+    notes: ISO 13485 scope captured in quality manual (4.2.2)
+
+  - control: "4.4"
+    title: Quality management system and its processes
+    external_mappings:
+      iso-13485:
+        - "4.1"
+      iso-27001:
+        - "4.4"
+      nist-csf:
+        - GV.OC-01
+        - ID.AM-07
+    confidence: high
+    evidence:
+      - Process approach requirement common to all HLS standards
+    notes: Process approach is the foundation of ISO 9001:2015 methodology
+
+  - control: "5.1"
+    title: Leadership and commitment
+    external_mappings:
+      iso-13485:
+        - "5.1"
+      iso-27001:
+        - "5.1"
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-02
+      nist-800-53:
+        - PM-2
+        - PM-3
+      soc2:
+        - CC1.1
+        - CC1.2
+    confidence: high
+    evidence:
+      - Management commitment requirements align across ISO management systems
+    notes: >
+      ISO 13485 retains management representative requirement (5.5.2) that ISO 9001:2015
+      removed. ISO 27001 adds ISMS-specific leadership responsibilities.
+
+  - control: "5.2"
+    title: Quality policy
+    external_mappings:
+      iso-13485:
+        - "5.3"
+      iso-27001:
+        - "5.2"
+      nist-csf:
+        - GV.PO-01
+        - GV.PO-02
+      nist-800-53:
+        - PM-1
+      soc2:
+        - CC1.2
+    confidence: high
+    evidence:
+      - Policy requirement present in all HLS-based management systems
+    notes: ISO 13485 5.3 is equivalent; ISO 27001 5.2 is equivalent
+
+  - control: "5.3"
+    title: Organizational roles, responsibilities, and authorities
+    external_mappings:
+      iso-13485:
+        - "5.5"
+      iso-27001:
+        - "5.3"
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-02
+        - GV.RR-03
+    confidence: high
+    evidence:
+      - Role and responsibility requirements align across all management systems
+    notes: ISO 13485 5.5 includes explicit management representative (not required in ISO 9001:2015)
+
+  - control: "6.1"
+    title: Actions to address risks and opportunities
+    external_mappings:
+      iso-13485:
+        - "4.1"
+        - "5.4"
+      iso-14971:
+        - "All"
+      iso-27001:
+        - "6.1"
+      nist-csf:
+        - GV.RM-01
+        - GV.RM-02
+        - ID.RA-01
+        - ID.RA-02
+        - ID.RA-03
+      nist-800-53:
+        - RA-1
+        - RA-3
+        - PM-9
+      soc2:
+        - CC3.1
+        - CC3.2
+        - CC3.3
+    confidence: high
+    evidence:
+      - Risk-based thinking required by all HLS standards
+    notes: >
+      ISO 13485 integrates risk management through ISO 14971 lifecycle approach rather than
+      the broader risk-based thinking concept in ISO 9001. ISO 27001 has explicit information
+      security risk assessment methodology (6.1.2, 6.1.3).
+
+  - control: "6.2"
+    title: Quality objectives and planning to achieve them
+    external_mappings:
+      iso-13485:
+        - "5.4.1"
+      iso-27001:
+        - "6.2"
+      nist-csf:
+        - GV.RM-06
+        - GV.PO-01
+    confidence: high
+    evidence:
+      - Objective setting is required across all HLS management systems
+    notes: Quality objectives in 9001 align with information security objectives in 27001
+
+  - control: "6.3"
+    title: Planning of changes
+    external_mappings:
+      iso-13485:
+        - "5.4.2"
+        - "7.3.9"
+      iso-27001:
+        - "6.3"
+      nist-csf:
+        - ID.IM-02
+        - PR.PS-03
+    confidence: medium
+    evidence:
+      - Change management is a common requirement across management systems
+    notes: >
+      ISO 13485 7.3.9 specifically covers design and development changes with regulatory
+      impact assessment — more rigorous than ISO 9001 6.3
+
+  - control: "7.1"
+    title: Resources
+    external_mappings:
+      iso-13485:
+        - "6.1"
+        - "6.2"
+        - "6.3"
+        - "6.4"
+        - "7.6"
+      iso-27001:
+        - "7.1"
+      nist-csf:
+        - GV.RM-07
+        - PR.AA-05
+    confidence: high
+    evidence:
+      - Resource provision is required across all management systems
+    notes: >
+      ISO 13485 is more explicit on infrastructure qualification (IQ/OQ/PQ) and work
+      environment control than ISO 9001
+
+  - control: "7.2"
+    title: Competence
+    external_mappings:
+      iso-13485:
+        - "6.2"
+      iso-27001:
+        - "7.2"
+      nist-csf:
+        - PR.AT-01
+        - PR.AT-02
+      nist-800-53:
+        - AT-2
+        - AT-3
+      soc2:
+        - CC1.4
+      cis-v8:
+        - "14.2"
+        - "14.3"
+    confidence: high
+    evidence:
+      - Competence requirements common across all management systems
+    notes: ISO 13485 requires effectiveness evaluation of training (not just completion)
+
+  - control: "7.5"
+    title: Documented information
+    external_mappings:
+      iso-13485:
+        - "4.2.3"
+        - "4.2.4"
+        - "4.2.5"
+      iso-27001:
+        - "7.5"
+      nist-csf:
+        - PR.PS-01
+        - PR.PS-04
+    confidence: high
+    evidence:
+      - Document and record control required across all management systems
+    notes: >
+      ISO 13485 has more prescriptive documentation requirements including explicit quality
+      manual, medical device file, and minimum record retention periods
+
+  - control: "8.1"
+    title: Operational planning and control
+    external_mappings:
+      iso-13485:
+        - "7.1"
+      iso-27001:
+        - "8.1"
+      nist-csf:
+        - PR.PS-01
+        - PR.PS-02
+    confidence: high
+    evidence:
+      - Operational planning requirement across all HLS standards
+    notes: ISO 13485 Clause 7 (Product Realization) is the equivalent of ISO 9001 Clause 8
+
+  - control: "8.3"
+    title: Design and development of products and services
+    external_mappings:
+      iso-13485:
+        - "7.3"
+      nist-csf:
+        - ID.AM-08
+        - PR.PS-04
+    confidence: high
+    evidence:
+      - Design control requirements directly aligned; ISO 13485 significantly more prescriptive
+    notes: >
+      ISO 13485 7.3 maps closely to FDA 21 CFR 820.30 and EU MDR Annex II design
+      documentation requirements. ISO 9001 design control requirements can be satisfied
+      by following ISO 13485 approach.
+
+  - control: "8.4"
+    title: Control of externally provided processes, products, and services
+    external_mappings:
+      iso-13485:
+        - "7.4"
+      iso-27001:
+        - "5.19"
+        - "5.20"
+        - "5.21"
+        - "5.22"
+      nist-csf:
+        - GV.SC-01
+        - GV.SC-04
+        - GV.SC-06
+        - GV.SC-07
+      nist-800-53:
+        - SA-9
+        - SR-1
+        - SR-3
+      soc2:
+        - CC9.2
+      cis-v8:
+        - "15.1"
+        - "15.2"
+    confidence: high
+    evidence:
+      - Supplier management required across all management systems
+    notes: >
+      ISO 27001 has more extensive supplier security requirements (A.5.19-A.5.22).
+      ISO 13485 requires quality agreements with critical suppliers.
+
+  - control: "8.7"
+    title: Control of nonconforming outputs
+    external_mappings:
+      iso-13485:
+        - "8.3"
+      nist-csf:
+        - RS.AN-01
+        - RS.MI-01
+    confidence: high
+    evidence:
+      - Nonconforming product/output control aligned across quality management systems
+    notes: ISO 13485 8.3 adds explicit requirements for post-delivery nonconformances and FSCA assessment
+
+  - control: "9.1"
+    title: Monitoring, measurement, analysis, and evaluation
+    external_mappings:
+      iso-13485:
+        - "8.1"
+        - "8.2.5"
+        - "8.2.6"
+      iso-27001:
+        - "9.1"
+      nist-csf:
+        - DE.CM-01
+        - DE.CM-06
+        - ID.IM-02
+    confidence: high
+    evidence:
+      - Performance monitoring is required across all HLS management systems
+    notes: ISO 13485 includes explicit regulatory reporting requirements (8.2.3) not in ISO 9001
+
+  - control: "9.2"
+    title: Internal audit
+    external_mappings:
+      iso-13485:
+        - "8.2.4"
+      iso-27001:
+        - "9.2"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-02
+      nist-800-53:
+        - AU-2
+        - CA-2
+        - CA-7
+      soc2:
+        - CC4.1
+    confidence: high
+    evidence:
+      - Internal audit program required across all HLS management systems
+    notes: >
+      ISO 13485 internal audits must also cover regulatory compliance — broader scope
+      than ISO 9001 audits which cover QMS requirements only
+
+  - control: "9.3"
+    title: Management review
+    external_mappings:
+      iso-13485:
+        - "5.6"
+      iso-27001:
+        - "9.3"
+      nist-csf:
+        - GV.RM-02
+        - ID.IM-04
+    confidence: high
+    evidence:
+      - Management review required across all HLS management systems
+    notes: >
+      ISO 13485 management review has more required inputs than ISO 9001, including
+      regulatory submissions status, post-market surveillance data, and MDR reporting
+
+  - control: "10.2"
+    title: Nonconformity and corrective action
+    external_mappings:
+      iso-13485:
+        - "8.5.2"
+      iso-27001:
+        - "10.2"
+      nist-csf:
+        - RS.MI-01
+        - RS.MI-02
+        - ID.IM-01
+      nist-800-53:
+        - CA-5
+        - IR-8
+      soc2:
+        - CC4.2
+    confidence: high
+    evidence:
+      - Corrective action process required across all management systems
+    notes: >
+      ISO 13485 CAPA (8.5.2) is more prescriptive and includes preventive action (8.5.3)
+      as a separate explicit requirement
+
+  - control: "10.3"
+    title: Continual improvement
+    external_mappings:
+      iso-27001:
+        - "10.1"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-04
+    confidence: medium
+    evidence:
+      - Continual improvement required across HLS standards
+    notes: >
+      ISO 13485 uses "maintain effectiveness" rather than "continual improvement" —
+      this is a deliberate difference for regulatory stability reasons. ISO 9001 explicit
+      continual improvement requirement has no direct ISO 13485 equivalent.

@@ -1,0 +1,1 @@
+../skills/ghost/commands/ghost-newsletter.md

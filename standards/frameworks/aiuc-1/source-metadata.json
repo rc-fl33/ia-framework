@@ -1,0 +1,11 @@
+{
+  "name": "AIUC-1 AI Unified Controls",
+  "version": "1.0",
+  "source": "https://www.aiuc-1.com/",
+  "navigator": "https://adversis.github.io/aiuc1-navigator/",
+  "type": "standard",
+  "description": "Defacto enterprise AI agent standard. 51 requirements, 6 principles. Operationalizes EU AI Act, ISO 42001, NIST AI RMF, OWASP LLM Top 10, MITRE ATLAS.",
+  "files": ["aiuc-1-standards.json", "aiuc-1-standards.csv"],
+  "ingested_date": "2026-02-13",
+  "update_cycle": "quarterly"
+}

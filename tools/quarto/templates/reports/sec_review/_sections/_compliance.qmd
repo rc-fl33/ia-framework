@@ -1,0 +1,8 @@
+# Compliance Assessment
+
+## Framework Requirements
+
+| Requirement | Status | Evidence |
+|-------------|--------|----------|
+| [Requirement 1] | [Compliant/Partial/Non-Compliant] | [Evidence] |
+| [Requirement 2] | [Compliant/Partial/Non-Compliant] | [Evidence] |

@@ -1,0 +1,2499 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 10
+/Kids [ 4 0 R 13 0 R 20 0 R 25 0 R 33 0 R 42 0 R 47 0 R 54 0 R 59 0 R 64 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents [ 5 0 R 6 0 R 7 0 R 8 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/TextRect [ 70 458 542 720 ]
+/Length 2402
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+0.15029 Tw
+1 0 0 1 70 700.4 Tm
+(Payment instructions are settled under the CLS Bank rules when it debits and credits the) Tj
+1.45 Tw
+0 -12 Td
+(relevant Settlement members' accounts for the amounts involved. This final settlement) Tj
+0.23133 Tw
+0 -12 Td
+(will only occur within the context of several risk management tests.The risk management) Tj
+2.864 Tw
+0 -12 Td
+(tests are: \(1\) any Short Position in respect to each currency would not exceed the) Tj
+2.2492 Tw
+0 -12 Td
+(relevant Settlement Member's Short Position Limit \(adjusted based on the committed) Tj
+0.488 Tw
+0 -12 Td
+(liquidity facilities available to CLS Bank for that day\); \(2\) the Aggregate Short Position in) Tj
+1.07382 Tw
+0 -12 Td
+(the Settlement Member's Account, calculated as an equivalent U.S. dollar value, would) Tj
+0.83292 Tw
+0 -12 Td
+(not exceed the Aggregate Short Position Limit which is set for that Settlement Member;) Tj
+1.936 Tw
+0 -12 Td
+(and \(3\) the sum of the Settlement Member's Long Positions and Short Positions \(the) Tj
+1.99778 Tw
+0 -12 Td
+("Account Balance"\), adjusted by applicable Haircuts \(the "Adjusted Account Balance\),) Tj
+0.71459 Tw
+0 -12 Td
+(would not be negative. If any of these tests are not satisfied, no debits or credits will be) Tj
+3.01133 Tw
+0 -12 Td
+(made, and the pair of Settlement Eligible Instructions will remain on the settlement) Tj
+2.77046 Tw
+0 -12 Td
+(processing queue and be retested each time the queue is cycled through. The risk) Tj
+0.00862 Tw
+0 -12 Td
+(management tests will continue to be applied to all Settlement Eligible Instructions on the) Tj
+0.50133 Tw
+0 -12 Td
+(settlement processing queue until the applicable currency closing time has passed or all) Tj
+1.3396 Tw
+0 -12 Td
+(Settlement Eligible Instructions on the settlement processing queue have been settled.) Tj
+2.31631 Tw
+0 -12 Td
+(CLS Bank does not \(i\) guarantee the settlement of every payment instruction that is) Tj
+0.84333 Tw
+0 -12 Td
+(submitted for settlement or \(ii\) become a counterparty to any FX transaction referenced) Tj
+1.12267 Tw
+0 -12 Td
+(in a payment instruction that is submitted for settlement. In the event that a member is) Tj
+0.92615 Tw
+0 -12 Td
+(unable to provide its expected pay-in, other CLS members may be obligated to provide) Tj
+0 Tw
+0 -12 Td
+(revised pay-in requirements.) Tj
+ET
+Q
+
+endstream
+endobj
+6 0 obj
+<<
+/TextRect [ 70 416 361.22 446 ]
+/Length 232
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 20 Tf
+1 0 0 1 70 420 Tm
+(Securities Settlement Systems) Tj
+0.2 0 Td
+(Securities Settlement Systems) Tj
+0.2 0 Td
+(Securities Settlement Systems) Tj
+0.2 0 Td
+(Securities Settlement Systems) Tj
+ET
+Q
+
+endstream
+endobj
+7 0 obj
+<<
+/TextRect [ 70 98 542 404 ]
+/Length 2464
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+2.55418 Tw
+1 0 0 1 70 384.4 Tm
+(The major securities markets in the United States include the government securities) Tj
+5.46255 Tw
+0 -12 Td
+(market, the corporate equities and bond market, the market for money market) Tj
+1.64436 Tw
+0 -12 Td
+(instruments, and the municipal bond market. The instruments traded in these markets) Tj
+3.84711 Tw
+0 -12 Td
+(are generally traded through organized exchanges or through the over-the-counter) Tj
+0.8092 Tw
+0 -12 Td
+(dealer markets. Major categories of financial instruments commonly traded include U.S.) Tj
+6.6725 Tw
+0 -12 Td
+(Treasury securities, government agency securities, securities issued by federal) Tj
+5.99714 Tw
+0 -12 Td
+(government-sponsored enterprises, corporate equities and bonds, money market) Tj
+3.07 Tw
+0 -12 Td
+(instruments such as commercial paper, and municipal \(state and local\) government) Tj
+1.49111 Tw
+0 -12 Td
+(securities. Participants in these markets include securities issuers; intermediaries such) Tj
+4.6 Tw
+0 -12 Td
+(as brokers and dealers; and investors such as insurance companies, investment) Tj
+0 Tw
+0 -12 Td
+(companies, non-financial corporations and individuals.) Tj
+0.00633 Tw
+0 -22 Td
+(The mechanisms for clearing and settling securities transactions vary by market and type) Tj
+2.4064 Tw
+0 -12 Td
+(of instrument, and generally involve two types of specialized financial intermediaries:) Tj
+2.666 Tw
+0 -12 Td
+(clearing corporations and securities depositories. Clearing corporations provide trade) Tj
+0.1408 Tw
+0 -12 Td
+(confirmation and comparison services, and multilateral netting of trade obligations; while,) Tj
+2.792 Tw
+0 -12 Td
+(securities depositories transfer securities ownership on a gross or net basis against) Tj
+0 Tw
+0 -12 Td
+(payment via book entry transfers.) Tj
+0.742 Tw
+0 -22 Td
+(Depository institutions play several important roles in securities clearing and settlement.) Tj
+1.672 Tw
+0 -12 Td
+(Not only do depository institutions participate in clearing and settlement arrangements) Tj
+2.50433 Tw
+0 -12 Td
+(for themselves, they also act as custodians, issuing and paying agents, and settling) Tj
+2.06873 Tw
+0 -12 Td
+(banks for their customers. In addition depository institutions provide credit to clearing) Tj
+7.9205 Tw
+0 -12 Td
+(corporations, securities depositories, and clearing participants for routine and) Tj
+0 Tw
+0 -12 Td
+(contingency purposes.) Tj
+ET
+Q
+
+endstream
+endobj
+8 0 obj
+<<
+/Filter /FlateDecode
+/Length 161
+>>
+stream
+xúçé1Ç0Ö˜KÓ?ºQl©]I–•âÆ’Tå	¬¬ø∑Yú»-/óªÔ{SjòÜ˘îL´ΩΩﬁ6êÊŒ$«ΩÑJt¥SHtS1-Œè⁄ª÷zá‹ˆï{w(˙∂sUã¥Æ_ﬁuKò'S–G¶‡∏05ìÊt`JDÄ	ñ^«cÙL≈xù]Üèf^1-E§‰ØWnKáÌπ“ì;§?ı¿388
+endstream
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+10 0 obj
+<<
+/BaseFont /ArialMT
+/Encoding /WinAnsiEncoding
+/FirstChar 1
+/FontDescriptor 11 0 R
+/LastChar 255
+/Subtype /TrueType
+/Type /Font
+/Widths [ 0 0 0 0 0 0 0 0 277 277 277 277 277 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 277 277 354 556 556 889 666 190 333 333 389 583 277 333 277 277 556 556 556 556 556 556 556 556 556 556 277 277 583 583 583 556 1015 666 666 722 722 666 610 777 722 277 500 666 556 833 722 777 666 777 722 666 610 722 666 943 666 666 610 277 277 277 469 556 333 556 556 500 556 556 277 556 556 222 222 500 222 833 556 556 556 556 333 500 277 556 500 722 500 500 500 333 259 333 583 350 556 350 222 556 333 1000 556 556 333 1000 666 333 1000 350 610 350 350 222 222 333 333 350 556 1000 333 1000 500 333 943 350 500 666 277 333 556 556 556 556 259 556 333 736 370 556 583 333 736 552 399 548 333 333 333 576 537 333 333 333 365 556 833 833 833 610 666 666 666 666 666 666 1000 722 666 666 666 666 277 277 277 277 722 722 777 777 777 777 777 583 777 722 722 722 722 666 666 610 556 556 556 556 556 556 889 500 556 556 556 556 277 277 277 277 556 556 556 556 556 556 556 548 610 556 556 556 556 500 556 500 ]
+>>
+endobj
+11 0 obj
+<<
+/Ascent 905
+/CapHeight 716
+/Descent -212
+/Flags 32
+/FontBBox [ -664 -324 2000 1005 ]
+/FontName /ArialMT
+/ItalicAngle 0
+/StemV 80
+/Type /FontDescriptor
+>>
+endobj
+12 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/Annots [ 14 0 R ]
+/Contents [ 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+14 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056ficc\056com)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 13 0 R
+/Rect [ 299.056 210 372.352 222 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+15 0 obj
+<<
+/TextRect [ 70 694 280.736 720 ]
+/Length 225
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 16 Tf
+1 0 0 1 70 697.2 Tm
+(U.S. Government Securities) Tj
+0.16 0 Td
+(U.S. Government Securities) Tj
+0.16 0 Td
+(U.S. Government Securities) Tj
+0.16 0 Td
+(U.S. Government Securities) Tj
+ET
+Q
+
+endstream
+endobj
+16 0 obj
+<<
+/TextRect [ 70 338 542 682 ]
+/Length 2352
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+0.6064 Tw
+1 0 0 1 70 662.4 Tm
+(The U.S. government securities market encompasses all primary and secondary market) Tj
+4.0096 Tw
+0 -12 Td
+(transactions in securities issued by the U.S. Treasury, certain federal government) Tj
+0.2483 Tw
+0 -12 Td
+(agencies, and federal government-sponsored enterprises.Gove) Tj
+/Fabc6 8.4 Tf
+337.0292 0 Td
+3.6 Ts
+( [8] ) Tj
+/Fabc6 12 Tf
+14.4742 0 Td
+0 Ts
+(Trading in government) Tj
+2.54982 Tw
+-351.5034 -12 Td
+(securities is conducted over the counter between brokers, dealers, and investors. In) Tj
+1.39891 Tw
+0 -12 Td
+(over-the-counter trading, participants trade with one another on a bilateral basis rather) Tj
+1.50133 Tw
+0 -12 Td
+(than on an organized exchange. Nearly all U.S. government securities are issued and) Tj
+0 Tw
+0 -12 Td
+(transferred through a book-entry system operated by the Federal Reserve.) Tj
+1.28109 Tw
+0 -22 Td
+(In the primary market, U.S. Treasury securities are issued through regularly scheduled) Tj
+3.45233 Tw
+0 -12 Td
+(auctions. The Federal Reserve Banks serve as conduits for the auctions, with the) Tj
+0.06433 Tw
+0 -12 Td
+(Federal Reserve Bank of New York coordinating much of the auction activity. Individuals,) Tj
+2.4748 Tw
+0 -12 Td
+(corporations and financial institutions may participate in the auctions. Participation in) Tj
+1.39891 Tw
+0 -12 Td
+(Treasury auctions, however, is typically concentrated among a small number of dealer) Tj
+0 Tw
+0 -12 Td
+(firms, known as primary dealers.) Tj
+/Fabc6 8.4 Tf
+172.62 0 Td
+3.6 Ts
+( [9]) Tj
+/Fabc6 12 Tf
+0.85564 Tw
+-172.62 -22 Td
+0 Ts
+(In the secondary market for government securities, trading activity takes place between) Tj
+3.4696 Tw
+0 -12 Td
+(primary dealers and non-primary dealers. Customers of these dealers are financial) Tj
+5.5115 Tw
+0 -12 Td
+(institutions, non-financial institutions and individuals. The majority of transactions) Tj
+2.8672 Tw
+0 -12 Td
+(between primary dealers and other large market participants are conducted through) Tj
+4.8724 Tw
+0 -12 Td
+(inter-dealer brokers that provide both anonymity and price information to market) Tj
+4.52311 Tw
+0 -12 Td
+(participants. Approximately 2,000 securities brokers and dealers are registered to) Tj
+0 Tw
+0 -12 Td
+(operate in the U.S. government securities market.) Tj
+ET
+Q
+
+endstream
+endobj
+17 0 obj
+<<
+/TextRect [ 70 304 309.364 326 ]
+/Length 289
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 306.4 Tm
+(Fixed Income Clearing Corporation \(FICC\)) Tj
+0.12 0 Td
+(Fixed Income Clearing Corporation \(FICC\)) Tj
+0.12 0 Td
+(Fixed Income Clearing Corporation \(FICC\)) Tj
+0.12 0 Td
+(Fixed Income Clearing Corporation \(FICC\)) Tj
+ET
+Q
+
+endstream
+endobj
+18 0 obj
+<<
+/TextRect [ 70 72 542 292 ]
+/Length 1882
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.34433 Tw
+1 0 0 1 70 272.4 Tm
+(FICC,FICC is a subsidiary of the Depository Trust and Clearing Corporation, a holding) Tj
+4.6696 Tw
+0 -12 Td
+(company that also includes the National Securities Clearing Corporation and the) Tj
+1.26578 Tw
+0 -12 Td
+(Depository Trust Company. In January 2003, the Mortgage-Backed Securities Clearing) Tj
+2.0752 Tw
+0 -12 Td
+(Corporation merged with the Government Securities Clearing Corporation to form the) Tj
+5.1472 Tw
+0 -12 Td
+(FICC. For further information about the Government Securities Division and the) Tj
+1.252 Tw
+0 -12 Td
+(Mortgage-Backed Securities Division, see\240) Tj
+ET
+BT
+0 0 1 rg
+1 0 0 1 299.056 212.4 Tm
+(www.ficc.com) Tj
+ET
+299.056 210.9 73.296 0.6 re
+f
+BT
+0 0 0 rg
+1 0 0 1 372.352 212.4 Tm
+(. composed of the Government) Tj
+5.6 Tw
+-302.352 -12 Td
+(Securities Division \(GSD\) and the Mortgage-Backed Securities Division \(MBSD\),) Tj
+3.28073 Tw
+0 -12 Td
+(compares and nets trades of U.S. Treasury securities, agency debt securities, and) Tj
+6.6112 Tw
+0 -12 Td
+(mortgage-backed securities. As the name implies, GSD clears and nets U.S.) Tj
+0.15244 Tw
+0 -12 Td
+(government securities and agency debt securities. MBSD provides automated post-trade) Tj
+1.78444 Tw
+0 -12 Td
+(comparison, netting, risk-management, and pool notification services to the mortgage-) Tj
+2.37778 Tw
+0 -12 Td
+(backed securities market. Securities eligible for MBSD clearing are mortgage-backed) Tj
+4.60311 Tw
+0 -12 Td
+(securities issued by the Government National Mortgage Association \(GNMA\), the) Tj
+0.1384 Tw
+0 -12 Td
+(Federal Home Loan Mortgage Corporation \(FHLMC\), and the Federal National Mortgage) Tj
+0 Tw
+0 -12 Td
+(Association \(FNMA\).) Tj
+0.00543 Tw
+0 -22 Td
+(FICC uses real time trade matching; trade details are compared and matched as soon as) Tj
+ET
+Q
+
+endstream
+endobj
+19 0 obj
+<<
+/Filter /FlateDecode
+/Length 161
+>>
+stream
+xúçé1Ç0Ö˜KÓ?ºQl©ï∞í†+JY´©-ÑÖo!≤8ô[^.wﬂ˜:¶Ã0	LÛÆô6{{πÓ ÃçIŒ{	ïË(UHt”0≠Œ˜÷ªﬁzá¬éç{(«~pMè¨müﬁkòS–G¶‡®ò∫Es:0%"¿Ko„9z¶ræŒ´È£˚Øòñ"R
+Ú€´∞µC˙á\È≈“è˙¿s89
+endstream
+endobj
+20 0 obj
+<<
+/Contents [ 21 0 R 22 0 R 23 0 R 24 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+21 0 obj
+<<
+/TextRect [ 70 566 542 720 ]
+/Length 1269
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+3.7396 Tw
+1 0 0 1 70 710.4 Tm
+(trade information is submitted. Successfully compared trades result in binding and) Tj
+1.39782 Tw
+0 -12 Td
+(enforceable obligations for settlement. Unmatched trades may be revised to achieve a) Tj
+0 Tw
+0 -12 Td
+(trade match.) Tj
+1.0804 Tw
+0 -22 Td
+(Successfully matched trades of eligible securities, for FICC netting service participants,) Tj
+1.76545 Tw
+0 -12 Td
+(are netted against offsetting net-receive or net-deliver obligation of the same security.) Tj
+3.208 Tw
+0 -12 Td
+(Once the government securities net positions are determined GSD interposes itself) Tj
+3.884 Tw
+0 -12 Td
+(between the original trading parties and becomes the legal counter-party to FICC) Tj
+0.79644 Tw
+0 -12 Td
+(members for settlement purposes. Therefore, GSD members' net settlement obligations) Tj
+0.45433 Tw
+0 -12 Td
+(are delivered to or received from GSD. MBSD, however, engages in multilateral position) Tj
+0.46831 Tw
+0 -12 Td
+(netting and does not stand in the middle of transactions. Final net settlement obligations) Tj
+1.62333 Tw
+0 -12 Td
+(of GSD and MBSD participants are settled through the Fedwire Securities Service via) Tj
+0 Tw
+0 -12 Td
+(participants' settlement bank.) Tj
+ET
+Q
+
+endstream
+endobj
+22 0 obj
+<<
+/TextRect [ 70 532 222.076 554 ]
+/Length 225
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 534.4 Tm
+(Fedwire Securities Service) Tj
+0.12 0 Td
+(Fedwire Securities Service) Tj
+0.12 0 Td
+(Fedwire Securities Service) Tj
+0.12 0 Td
+(Fedwire Securities Service) Tj
+ET
+Q
+
+endstream
+endobj
+23 0 obj
+<<
+/TextRect [ 70 72 542 520 ]
+/Length 3801
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.29629 Tw
+1 0 0 1 70 500.4 Tm
+(As fiscal agents of the United States, the Federal Reserve Banks act as the securities) Tj
+1.4776 Tw
+0 -12 Td
+(depository for all marketable U.S. Treasury securities, many federal agency securities,) Tj
+0.6724 Tw
+0 -12 Td
+(and certain mortgage-backed securities issued by GSEs.The Federal Reserve also acts) Tj
+0.72633 Tw
+0 -12 Td
+(as agent and depository for the securities of certain international organizations, such as) Tj
+1.39833 Tw
+0 -12 Td
+(the World Bank. U.S. government securities are issued in book-entry form through the) Tj
+0.88836 Tw
+0 -12 Td
+(Federal Reserve's Fedwire Securities Service using either an auction process or dealer) Tj
+1.31111 Tw
+0 -12 Td
+(syndicate mechanisms. The Federal Reserve's Fedwire Securities Service provides for) Tj
+1.15564 Tw
+0 -12 Td
+(the safekeeping and transfer of these securities. The safekeeping function involves the) Tj
+2.612 Tw
+0 -12 Td
+(records of securities balances, and the transfer and settlement function involves the) Tj
+0 Tw
+0 -12 Td
+(transfer of securities between parties.) Tj
+0.6088 Tw
+0 -22 Td
+(When book-entry securities transfers are processed using Fedwire Security Service, the) Tj
+1.1 Tw
+0 -12 Td
+(institution sending the transfer receives immediate credit in its Federal Reserve \(funds\)) Tj
+3.39733 Tw
+0 -12 Td
+(account for the payment associated with the transfer, and its securities account is) Tj
+0.0712 Tw
+0 -12 Td
+(correspondingly debited. The Federal Reserve \(funds\) account of the institution receiving) Tj
+2.23033 Tw
+0 -12 Td
+(a book-entry securities transfer is debited for the payment amount, and its securities) Tj
+1.00571 Tw
+0 -12 Td
+(account is credited. There are more than 9,000 participants in the system and they are) Tj
+0 Tw
+0 -12 Td
+(largely composed of depository institutions.) Tj
+0.83273 Tw
+0 -22 Td
+(The Federal Reserve's Fedwire Securities Service is supported by a real-time, delivery-) Tj
+1.8148 Tw
+0 -12 Td
+(versus-payment \(DVP\) gross settlement system that provides for the immediate, final,) Tj
+2.37527 Tw
+0 -12 Td
+(and simultaneous transfer of securities against the settlement of funds. This system,) Tj
+2.13091 Tw
+0 -12 Td
+(known as the National Book-Entry System \(NBES\), provides for the safekeeping and) Tj
+0.79033 Tw
+0 -12 Td
+(transfer of U.S. Treasury, government agency, and GSE securities as well as securities) Tj
+3.48311 Tw
+0 -12 Td
+(issued by certain international organizations. The safekeeping function involves the) Tj
+4.00509 Tw
+0 -12 Td
+(electronic storage of securities records in custody accounts, and the transfer and) Tj
+0 Tw
+0 -12 Td
+(settlement function involves the transfer of securities between parties.) Tj
+1.8088 Tw
+0 -22 Td
+(Financial institutions may access the Fedwire Securities Service via high-speed direct) Tj
+4.19273 Tw
+0 -12 Td
+(CI, FedLine, or with off-line telephone connectivity with a Federal Reserve Bank.) Tj
+5.41778 Tw
+0 -12 Td
+(Financial institutions may also access certain Fedwire Securities Service inquiry) Tj
+1.62133 Tw
+0 -12 Td
+(information via FedLine for the Web. On-line participants, using either a mainframe or) Tj
+0.73236 Tw
+0 -12 Td
+(FedLine PC connection to Fedwire Securities Service, require no manual processing by) Tj
+2.0116 Tw
+0 -12 Td
+(the Federal Reserve Banks. Off-line participants provide funds transfer instructions to) Tj
+0.66909 Tw
+0 -12 Td
+(their Federal Reserve Bank by telephone, and once authenticated, the Federal Reserve) Tj
+3.58945 Tw
+0 -12 Td
+(Bank enters the transfer instruction into the Fedwire Securities Service system for) Tj
+0.248 Tw
+0 -12 Td
+(execution. The manual processing required for off-line requests makes them more costly) Tj
+ET
+Q
+
+endstream
+endobj
+24 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé1Ç0Ö˜KÓ?‹®∂î⁄∏í†+JY´)mm˛ΩÖ»‚Dnyπº˜æ◊!‰Å—tüaw4∑˚û8#› ˘œI(ô)ôíˆõÎ#8€g©4£∑ÔÅ™±¨Ô)·ÂÏ∞%˝D(bı!2jÑn¡\Nä≈2F±KfÈ,B5ªãzJtÎÜIñ%JˇÌ*Mk£e]»’˚¸8l
+endstream
+endobj
+25 0 obj
+<<
+/Annots [ 26 0 R ]
+/Contents [ 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+26 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056nscc\056com)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 25 0 R
+/Rect [ 83.32 114 163.3 126 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+27 0 obj
+<<
+/TextRect [ 70 696 542 720 ]
+/Length 194
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.56133 Tw
+1 0 0 1 70 710.4 Tm
+(and suitable only for institutions processing a small number of funds transfer payment) Tj
+0 Tw
+0 -12 Td
+(orders.) Tj
+ET
+Q
+
+endstream
+endobj
+28 0 obj
+<<
+/TextRect [ 70 658 338.512 684 ]
+/Length 257
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 16 Tf
+1 0 0 1 70 661.2 Tm
+(Corporate and Municipal Securities) Tj
+0.16 0 Td
+(Corporate and Municipal Securities) Tj
+0.16 0 Td
+(Corporate and Municipal Securities) Tj
+0.16 0 Td
+(Corporate and Municipal Securities) Tj
+ET
+Q
+
+endstream
+endobj
+29 0 obj
+<<
+/TextRect [ 70 384 542 646 ]
+/Length 1582
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.93782 Tw
+1 0 0 1 70 626.4 Tm
+(Corporate equities and bonds, commercial paper, and municipal bonds are traded on) Tj
+0.66844 Tw
+0 -12 Td
+(various established exchanges and on over-the-counter markets. The primary securities) Tj
+0.72677 Tw
+0 -12 Td
+(exchanges in the United States are the New York Stock Exchange, the American Stock) Tj
+0.30909 Tw
+0 -12 Td
+(Exchange, and the primary over-the-counter dealer market is the National Association of) Tj
+0 Tw
+0 -12 Td
+(Securities Dealers Automated Quotations \(NASDAQ\).) Tj
+1.28985 Tw
+0 -22 Td
+(The commercial paper market warrants special mention as it is an important source of) Tj
+2.30178 Tw
+0 -12 Td
+(short term funding for financial corporations and municipal governments. Commercial) Tj
+1.82109 Tw
+0 -12 Td
+(paper is a money market instrument issued by prime-rated non-financial and financial) Tj
+1.67133 Tw
+0 -12 Td
+(companies with maturities ranging from one to 270 days. Commercial paper is issued) Tj
+2.67244 Tw
+0 -12 Td
+(through dealer placements or direct placements with investors. Although commercial) Tj
+1.34033 Tw
+0 -12 Td
+(paper is a negotiable instrument, secondary market trading is limited. Disruption in the) Tj
+2.66982 Tw
+0 -12 Td
+(issuance of commercial paper can cause significant liquidity and credit concerns for) Tj
+1.88327 Tw
+0 -12 Td
+(issuers, many of whom are depository institutions and other financial companies, and) Tj
+0 Tw
+0 -12 Td
+(depository institutions that provide issuing and paying agent services to issuers.) Tj
+ET
+Q
+
+endstream
+endobj
+30 0 obj
+<<
+/TextRect [ 70 350 346.708 372 ]
+/Length 317
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 352.4 Tm
+(National Securities Clearing Corporation \(NSCC\)) Tj
+0.12 0 Td
+(National Securities Clearing Corporation \(NSCC\)) Tj
+0.12 0 Td
+(National Securities Clearing Corporation \(NSCC\)) Tj
+0.12 0 Td
+(National Securities Clearing Corporation \(NSCC\)) Tj
+ET
+Q
+
+endstream
+endobj
+31 0 obj
+<<
+/TextRect [ 70 72 542 338 ]
+/Length 2190
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+3.0052 Tw
+1 0 0 1 70 318.4 Tm
+(NSCC, established in 1976, provides clearing and settlement services for corporate) Tj
+6.22978 Tw
+0 -12 Td
+(equities, corporate debt, municipal securities, mutual funds, annuities, and unit) Tj
+0.73673 Tw
+0 -12 Td
+(investment trusts. NSCC is a registered clearing corporation regulated by the Securities) Tj
+3.04978 Tw
+0 -12 Td
+(and Exchange Commission \(SEC\). With roughly 250 full-service participants, NSCC) Tj
+0.10462 Tw
+0 -12 Td
+(handles all aspects of the clearing and settlement of trades between brokers and dealers) Tj
+0.45333 Tw
+0 -12 Td
+(in securities traded on the over-the-counter markets, the New York Stock Exchange, the) Tj
+0 Tw
+0 -12 Td
+(American Stock Exchange, and other regional exchanges.) Tj
+0.00769 Tw
+0 -22 Td
+(Executed trades are typically reported to NSCC on trade date. Trades are either reported) Tj
+0.30954 Tw
+0 -12 Td
+(to NSCC by an established exchange as matched \(irrevocable\) trades or by brokers and) Tj
+1.39455 Tw
+0 -12 Td
+(dealers as unmatched trades. Trades submitted by brokers and dealers are compared) Tj
+2.1196 Tw
+0 -12 Td
+(and matched within NSCC's Continuous Net Settlement \(CNS\) system. Following the) Tj
+3.03778 Tw
+0 -12 Td
+(comparison process, NSCC becomes the legal central counterparty and guarantees) Tj
+5.10036 Tw
+0 -12 Td
+(completion of all securities trades following through CNS. CNS functions as an) Tj
+2.22844 Tw
+0 -12 Td
+(automated book-entry accounting system that centralizes the settlement of compared) Tj
+7.3384 Tw
+0 -12 Td
+(security transactions and maintains an orderly flow of securities and money) Tj
+8.051 Tw
+0 -12 Td
+(balances.Further information about NSCC's clearing processes can be found) Tj
+0 Tw
+0 -12 Td
+(at\240) Tj
+ET
+BT
+0 0 1 rg
+1 0 0 1 83.32 116.4 Tm
+(www.nscc.com) Tj
+ET
+83.32 114.9 79.98 0.6 re
+f
+BT
+0 0 0 rg
+1 0 0 1 163.3 116.4 Tm
+(.) Tj
+0.01133 Tw
+-93.3 -22 Td
+(Similar to the FICC netting process, successfully matched trades of eligible securities are) Tj
+4.0084 Tw
+0 -12 Td
+(netted against offsetting net-receive or net-deliver obligation of the same security.) Tj
+ET
+Q
+
+endstream
+endobj
+32 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé1Ç0Ö˜KÓ?ºQlÅ⁄∏í†+JY´©-ÑÖo!≤8ô[^.wﬂ˜:¶Ã0	LÛÆô6{{πn!ÃçIŒ{âD´hó@´¶aZùÔ≠wΩıÖ˜Pé˝‡öY€>Ω÷0¶<†èL¡Q1uãÊt`“"¿K•Ò=S9_Á’Ù—˝WLâ4“Ú€´∞µÉîÿµ»C˙q ¸D8m
+endstream
+endobj
+33 0 obj
+<<
+/Annots [ 34 0 R ]
+/Contents [ 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc87 41 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+34 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056dtc\056org)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 33 0 R
+/Rect [ 126.676 450 192.652 462 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+35 0 obj
+<<
+/TextRect [ 70 696 542 720 ]
+/Length 252
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+4.37273 Tw
+1 0 0 1 70 710.4 Tm
+(Settlement of securities takes place at the Depository Trust Company and funds) Tj
+0 Tw
+0 -12 Td
+(settlement occur over the Fedwire Funds Service through settlement banks.) Tj
+ET
+Q
+
+endstream
+endobj
+36 0 obj
+<<
+/TextRect [ 70 662 260.008 684 ]
+/Length 249
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 664.4 Tm
+(Depository Trust Company \(DTC\)) Tj
+0.12 0 Td
+(Depository Trust Company \(DTC\)) Tj
+0.12 0 Td
+(Depository Trust Company \(DTC\)) Tj
+0.12 0 Td
+(Depository Trust Company \(DTC\)) Tj
+ET
+Q
+
+endstream
+endobj
+37 0 obj
+<<
+/TextRect [ 70 450 542 650 ]
+/Length 1821
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.48571 Tw
+1 0 0 1 70 630.4 Tm
+(DTC is a New York limited purpose trust company, a member of the Federal Reserve) Tj
+2.56733 Tw
+0 -12 Td
+(System, and a clearing agency registered with the SEC. DTC, the central securities) Tj
+4.07511 Tw
+0 -12 Td
+(depository for corporate equities and bonds, municipal government securities, and) Tj
+1.2088 Tw
+0 -12 Td
+(money market instruments, provides safekeeping and transfer of these securities. DTC) Tj
+2.84 Tw
+0 -12 Td
+(participants include securities brokers, dealers, institutional investors, and depository) Tj
+1.08123 Tw
+0 -12 Td
+(institutions acting on their own behalf as well as functioning as custodians, issuing and) Tj
+0 Tw
+0 -12 Td
+(paying agents, and settling banks for their customers.) Tj
+1.18844 Tw
+0 -22 Td
+(Like Fedwire Securities, the safekeeping function involves the electronic recordkeeping) Tj
+1.23133 Tw
+0 -12 Td
+(of securities balances for participants, and the transfer function involves the transfer of) Tj
+0.06333 Tw
+0 -12 Td
+(securities between parties. DTC transfers securities on a gross basis throughout the day,) Tj
+0.8395 Tw
+0 -12 Td
+(while settling funds obligations on a net basis at the end of the day. During the transfer) Tj
+1.32308 Tw
+0 -12 Td
+(process, DTC will limit its credit exposure through participants' net debit caps. Any net) Tj
+2.78433 Tw
+0 -12 Td
+(debit position incurred by participants must be fully collateralized. End of day funds) Tj
+4.64578 Tw
+0 -12 Td
+(settlement occur over the Fedwire Funds Service through participants' settlement) Tj
+0 Tw
+0 -12 Td
+(banks.See) Tj
+ET
+BT
+0 0 1 rg
+1 0 0 1 126.676 452.4 Tm
+(www.dtc.org) Tj
+ET
+126.676 450.9 65.976 0.6 re
+f
+BT
+0 0 0 rg
+1 0 0 1 192.652 452.4 Tm
+( for more information on DTC.) Tj
+ET
+Q
+
+endstream
+endobj
+38 0 obj
+<<
+/TextRect [ 70 408 486.8 438 ]
+/Length 272
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 20 Tf
+1 0 0 1 70 412 Tm
+(Intrabank Payment and Messaging Systems) Tj
+0.2 0 Td
+(Intrabank Payment and Messaging Systems) Tj
+0.2 0 Td
+(Intrabank Payment and Messaging Systems) Tj
+0.2 0 Td
+(Intrabank Payment and Messaging Systems) Tj
+ET
+Q
+
+endstream
+endobj
+39 0 obj
+<<
+/TextRect [ 70 354 486.08 396 ]
+/Length 436
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 16 Tf
+1 0 0 1 70 373.2 Tm
+(Internally Developed and Off-The-Shelf Funds Transfer) Tj
+0.16 0 Td
+(Internally Developed and Off-The-Shelf Funds Transfer) Tj
+0.16 0 Td
+(Internally Developed and Off-The-Shelf Funds Transfer) Tj
+0.16 0 Td
+(Internally Developed and Off-The-Shelf Funds Transfer) Tj
+-0.48 -16 Td
+(Systems) Tj
+0.16 0 Td
+(Systems) Tj
+0.16 0 Td
+(Systems) Tj
+0.16 0 Td
+(Systems) Tj
+ET
+Q
+
+endstream
+endobj
+40 0 obj
+<<
+/Filter /FlateDecode
+/Length 622
+>>
+stream
+xúµTQk€0~7¯?‹€6h<G∂„d}Z!{(tK`}ÿÀ’ñ≠≤îHÚJˆÎw≤‚¥+Éa≤NwﬂÁÔ>›.éÆ÷qîÇLGÔØÒæöó0e∞n‚h:¶0O!c,…a›≈—€èïZ¡™Ô:4˚w∞˛A%JIa]ˇß¯@l6ÚJì,ùœ∞~å£	}Ã`íÁ!˘Z(Tï@	BY'\ÔkY0|◊√Å7ç®WÏﬁ:ﬁYh¥gPŸÜ#TMØjKŸéÖRÓ/ ;≠⁄¿cö˘t6 ß0Òt<®€P%.rKáUè¬mÄ6ÖÅ™∑Nw‹ â¶ÂìZKZ¿˜1Ò‰$:Ì44#ˇÉ.ßP$…wÅ1V·Á<§ÂŒI_£“f´:>lWÔ	˛ñåuèä›†¬ñ˚‡êA¥·^£°í›À˙CHX<%|g¨8®qÏŸ“:ºó¬n†ÓI{ÇuFÀë⁄âêÔ©n(Ój•GÒ«é\éé»l¡Bè	h¬ÿy¯≠Ñ£äNÍ∞™∏µÉû/b\@á‘azΩd® ˚Z™
+ÈIRﬂœËo…H$ï7ÿÛ\zË£ïgåΩí¯gı‘/Ø¸	›£éDV¥iQâ_Éúo¸>	Ÿq-Øz#‹˛Û≠—≠¡Œã¬…& zü∑>k¥K#Í~è§¸Í`¢%Õé/qDC‰.év„˘˙)éfã§Äí.‰e¨úí«„h5_ﬁ˘î›ã£ánx˙«‰… "YdP,Ãûo-πE…·6Vá{|•ıÉ‰ÓoÃ îä•@µäúK˘Oƒä4O 0(=Ø[∫BÙÒ
+Ù¨¡iuÇ˝ß™í•
+endstream
+endobj
+41 0 obj
+<<
+/BaseFont /Helvetica-BoldOblique
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+42 0 obj
+<<
+/Contents [ 43 0 R 44 0 R 45 0 R 46 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+43 0 obj
+<<
+/TextRect [ 70 410 542 720 ]
+/Length 2100
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+3.70509 Tw
+1 0 0 1 70 700.4 Tm
+(Financial institutions rely on internal funds transfer systems and networks to send) Tj
+1.0048 Tw
+0 -12 Td
+(payment instructions to their correspondents for the transfer of correspondent balances) Tj
+0.06733 Tw
+0 -12 Td
+(or to initiate Fedwire Funds Service or CHIPS payments. Large financial institutions have) Tj
+0.06333 Tw
+0 -12 Td
+(either developed their own funds transfer systems or relied on off-the-shelf funds transfer) Tj
+0.80109 Tw
+0 -12 Td
+(systems. In either case, the internal financial institution funds transfer systems interface) Tj
+0.61782 Tw
+0 -12 Td
+(with Fedwire Funds Service and CHIPS, supporting the interface and transaction format) Tj
+4.75511 Tw
+0 -12 Td
+(specifications for the transmission of payment orders. Off-the-shelf funds transfer) Tj
+0.6748 Tw
+0 -12 Td
+(systems typically support a variety of treasury, cash management, and straight-through-) Tj
+0 Tw
+0 -12 Td
+(processing \(STP\) modules, which automate payment order processing.) Tj
+3.26844 Tw
+0 -22 Td
+(The Federal Reserve Banks provide the Computer Interface Protocol Specifications) Tj
+1.34246 Tw
+0 -12 Td
+(\(CIPS\) that funds transfer and book-entry securities systems need to adopt in order to) Tj
+0.45133 Tw
+0 -12 Td
+(implement a CI connection successfully. The Federal Reserve provides a website with a) Tj
+2.16255 Tw
+0 -12 Td
+(list of vendors who have completed the Federal Reserve Banks' protocol certification) Tj
+0.51723 Tw
+0 -12 Td
+(process.) Tj
+/Fabc6 8.4 Tf
+45.336 0 Td
+3.6 Ts
+( [10] ) Tj
+/Fabc6 12 Tf
+19.68246 0 Td
+0 Ts
+(The Federal Reserve Banks do not endorse any specific software vendor or) Tj
+0.06691 Tw
+-65.01846 -12 Td
+(product. The Federal Reserve Banks make no warranties or representations with respect) Tj
+4.24727 Tw
+0 -12 Td
+(to any of the products offered by these vendors except that communication-level) Tj
+0.38178 Tw
+0 -12 Td
+(software correctly executes systems network architecture \(SNA\) commands as specified) Tj
+0 Tw
+0 -12 Td
+(in the CIPS.) Tj
+ET
+Q
+
+endstream
+endobj
+44 0 obj
+<<
+/TextRect [ 70 376 238.06 398 ]
+/Length 221
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 378.4 Tm
+(Payment Messaging Systems) Tj
+0.12 0 Td
+(Payment Messaging Systems) Tj
+0.12 0 Td
+(Payment Messaging Systems) Tj
+0.12 0 Td
+(Payment Messaging Systems) Tj
+ET
+Q
+
+endstream
+endobj
+45 0 obj
+<<
+/TextRect [ 70 72 542 364 ]
+/Length 2522
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.4195 Tw
+1 0 0 1 70 344.4 Tm
+(Financial institutions, corporations, and other organizations employ wholesale payment) Tj
+0.96114 Tw
+0 -12 Td
+(message systems to originate payment orders, either for their own benefit or for a third) Tj
+1.2748 Tw
+0 -12 Td
+(party. These systems are indispensable components of funds transfer activities. Unlike) Tj
+3.2764 Tw
+0 -12 Td
+(payment systems, which transmit actual debit and credit entries, message systems) Tj
+0.6724 Tw
+0 -12 Td
+(process administrative messages and instructions to move funds. The actual movement) Tj
+1.05371 Tw
+0 -12 Td
+(of the funds is then accomplished by initiating the actual entries to debit the originating) Tj
+4.49818 Tw
+0 -12 Td
+(customer's account and credit the beneficiary's account at one or more financial) Tj
+0.18633 Tw
+0 -12 Td
+(institutions. If the beneficiary's account or the beneficiary institution's account is also with) Tj
+3.90444 Tw
+0 -12 Td
+(the originator's institution, the institution normally handles the transaction internally) Tj
+1.72733 Tw
+0 -12 Td
+(through a book transfer. If the beneficiary related accounts are outside the originating) Tj
+0.24585 Tw
+0 -12 Td
+(customer's institution, the parties will complete the transfer by use of a payments system) Tj
+2.50833 Tw
+0 -12 Td
+(such as Fedwire Funds Service or CHIPS. The means of arranging payment orders) Tj
+6.1432 Tw
+0 -12 Td
+(range from manual methods \(e.g., memos, letters, telephone, fax, or standing) Tj
+1.508 Tw
+0 -12 Td
+(instruction\) to electronic methods using telecommunications networks. These networks) Tj
+0.72371 Tw
+0 -12 Td
+(may include those operated by the private sector, such as SWIFT or Telex, or operated) Tj
+3.78733 Tw
+0 -12 Td
+(internally by or for the institution. The internal networks can be for inter-company) Tj
+0 Tw
+0 -12 Td
+(purposes only or connected to customer sites.) Tj
+0.03629 Tw
+0 -22 Td
+(Since the payment order is the institution's authorization to act on behalf of the customer,) Tj
+0.04965 Tw
+0 -12 Td
+(it is imperative that a system is in place to establish the authenticity and time of receipt of) Tj
+3.95233 Tw
+0 -12 Td
+(the order. These two elements are the primary components cited by the Uniform) Tj
+0.17633 Tw
+0 -12 Td
+(Commercial Code Article 4A \(UCC4A\) in establishing responsibility for the execution of a) Tj
+0.51033 Tw
+0 -12 Td
+(payment order. Even though the transfers initiated through systems such as SWIFT and) Tj
+ET
+Q
+
+endstream
+endobj
+46 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé±Ç0Ü˜KÓn‘[Jm\I–•â¨’åÑÖ∑∑4≤8ë[˛\ÓæÔÔrç¿hûOã∞;ö€}Oúënx‹sJ&AJ¶§;ÑÕı·ùå≥Tö©≥Ôë™im7PÓ˝ÀŸqK˙âPÙ!8jÑ~—\Nä£¿íY£C®‚uQœ˝∫bíeâRƒΩJ”Z‚bÖ]»E“ü˚¸ƒ8o
+endstream
+endobj
+47 0 obj
+<<
+/Contents [ 48 0 R 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+48 0 obj
+<<
+/TextRect [ 70 526 542 720 ]
+/Length 1120
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+0.27707 Tw
+1 0 0 1 70 710.4 Tm
+(Telex do not result in the immediate transfer of funds from the issuing institution, they do) Tj
+2.62277 Tw
+0 -12 Td
+(result in the issuing institution having an immediate liability, which is payable to the) Tj
+0.74444 Tw
+0 -12 Td
+(disbursing institution. Therefore, the physical and logical controls surrounding payments) Tj
+0 Tw
+0 -12 Td
+(messaging systems should include:) Tj
+0.508 Tw
+9 -44 Td
+(\225) Tj
+12 0 Td
+(Physical controls limiting access to only those staff members assigned responsibility) Tj
+0 Tw
+0 -12 Td
+(for managing the payment messaging system;) Tj
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Logical access controls restricting access on a need to know basis;) Tj
+1.6312 Tw
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Assigning access to payment messaging application and data based on functional) Tj
+0 Tw
+0 -12 Td
+(job duties and requirements; and) Tj
+2.48578 Tw
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Identification and authentication controls used to authenticate access to payment) Tj
+0 Tw
+0 -12 Td
+(messaging systems.) Tj
+ET
+Q
+
+endstream
+endobj
+49 0 obj
+<<
+/TextRect [ 70 492 180.028 514 ]
+/Length 193
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 494.4 Tm
+(In-house Terminals) Tj
+0.12 0 Td
+(In-house Terminals) Tj
+0.12 0 Td
+(In-house Terminals) Tj
+0.12 0 Td
+(In-house Terminals) Tj
+ET
+Q
+
+endstream
+endobj
+50 0 obj
+<<
+/TextRect [ 70 362 542 480 ]
+/Length 991
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+7.05486 Tw
+1 0 0 1 70 460.4 Tm
+(Some financial institutions employ terminals, connected via telecommunications) Tj
+1.7128 Tw
+0 -12 Td
+(networks with customers and the institutions' operating departments, to execute funds) Tj
+1.79938 Tw
+0 -12 Td
+(payment orders. These systems may be dial-up or dedicated lines and are often fully) Tj
+0.32133 Tw
+0 -12 Td
+(interfaced to the institution's funds payments system. The primary security method is the) Tj
+0.00587 Tw
+0 -12 Td
+(use of unique passwords for each user of the system. Since there is often no intervention) Tj
+0.76829 Tw
+0 -12 Td
+(by the funds payment operation, it is necessary to establish controls directly in the area) Tj
+4.3384 Tw
+0 -12 Td
+(employing the terminals. These controls should cover origination, data entry, and) Tj
+3.77633 Tw
+0 -12 Td
+(release, and should be the same as those associated with an independent funds) Tj
+0 Tw
+0 -12 Td
+(payment function.) Tj
+ET
+Q
+
+endstream
+endobj
+51 0 obj
+<<
+/TextRect [ 70 328 314.704 350 ]
+/Length 277
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 330.4 Tm
+(Non-automated Payment Order Origination) Tj
+0.12 0 Td
+(Non-automated Payment Order Origination) Tj
+0.12 0 Td
+(Non-automated Payment Order Origination) Tj
+0.12 0 Td
+(Non-automated Payment Order Origination) Tj
+ET
+Q
+
+endstream
+endobj
+52 0 obj
+<<
+/TextRect [ 70 72 542 316 ]
+/Length 1607
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+2.43091 Tw
+1 0 0 1 70 296.4 Tm
+(While in-house terminals are the primary sources for payment order origination, less) Tj
+3.344 Tw
+0 -12 Td
+(complex institutions still rely heavily on memos, letters, telephone, fax, or standing) Tj
+0.274 Tw
+0 -12 Td
+(instructions. \(Note: standing instructions are normally maintained in the automated funds) Tj
+4.56233 Tw
+0 -12 Td
+(transfer system as recurring transfers and should be subject to the same input/) Tj
+0.82229 Tw
+0 -12 Td
+(verification controls as wires when first entered into the system\). It is imperative that an) Tj
+2.67091 Tw
+0 -12 Td
+(institution using these payment order methods has a viable security program, which) Tj
+0 Tw
+0 -12 Td
+(includes:) Tj
+1.5724 Tw
+9 -44 Td
+(\225) Tj
+12 0 Td
+(Maintaining signature lists for use with internally and externally generated memos,) Tj
+2.16473 Tw
+0 -12 Td
+(letters, or fax instructions. As noted in UCC4A Section 201, signature verification) Tj
+1.62215 Tw
+0 -12 Td
+(alone is not defined as a security procedure; however, institutions may use it with) Tj
+0 Tw
+0 -12 Td
+(other security devices such as call backs or codes.) Tj
+3.9016 Tw
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Call back to authorized individuals for both internally and externally generated) Tj
+0 Tw
+0 -12 Td
+(telephone instructions.) Tj
+1.66343 Tw
+-12 -22 Td
+(\225) Tj
+12 0 Td
+(Procedures covering standing instructions protecting against unauthorized change,) Tj
+3.6316 Tw
+0 -12 Td
+(periodic review to validate accuracy, and ensuring execution under the agreed) Tj
+ET
+Q
+
+endstream
+endobj
+53 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé1Ç0Ö˜KÓ?ºQlÅ⁄∏í†+JY´©-ÑÖo!≤8ô[^.wﬂ˜:¶Ã0	LÛÆô6{{πn!ÃçIŒ{âD´hó@´¶aZùÔ≠wΩıÖ˜Pé˝‡öY€>Ω÷0¶<†èL¡Q1uãÊt`“"¿K•Ò=S9_Á’Ù—˝WLâ4“Ú€´∞µÉLˇ∞'jëáÙ„˛ ˝8p
+endstream
+endobj
+54 0 obj
+<<
+/Contents [ 55 0 R 56 0 R 57 0 R 58 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+55 0 obj
+<<
+/TextRect [ 91 708 124.312 720 ]
+/Length 72
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1 0 0 1 91 710.4 Tm
+(terms.) Tj
+ET
+Q
+
+endstream
+endobj
+56 0 obj
+<<
+/TextRect [ 70 670 374.928 696 ]
+/Length 277
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 16 Tf
+1 0 0 1 70 673.2 Tm
+(Funds Transfer Operations \(Wire Room\)) Tj
+0.16 0 Td
+(Funds Transfer Operations \(Wire Room\)) Tj
+0.16 0 Td
+(Funds Transfer Operations \(Wire Room\)) Tj
+0.16 0 Td
+(Funds Transfer Operations \(Wire Room\)) Tj
+ET
+Q
+
+endstream
+endobj
+57 0 obj
+<<
+/TextRect [ 70 72 542 658 ]
+/Length 4966
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+0.40836 Tw
+1 0 0 1 70 638.4 Tm
+(A financial institution's funds transfer operation \(wire room\) is responsible for originating,) Tj
+0.01018 Tw
+0 -12 Td
+(transmitting, and receiving payment orders. In less complex financial institutions, the wire) Tj
+0.14857 Tw
+0 -12 Td
+(room typically includes a FedLine PC.) Tj
+/Fabc6 8.4 Tf
+201.37086 0 Td
+3.6 Ts
+( [11] ) Tj
+/Fabc6 12 Tf
+18.94514 0 Td
+0 Ts
+(Less complex institutions may also have a core) Tj
+0.06036 Tw
+-220.316 -12 Td
+(banking package that includes a funds transfer module, which generates payment orders) Tj
+2.62554 Tw
+0 -12 Td
+(in a Fedwire Funds Service format for uploading to the FedLine PC. Staff assigned) Tj
+1.56033 Tw
+0 -12 Td
+(responsibility for these activities are generally responsible for other duties and are not) Tj
+0.40233 Tw
+0 -12 Td
+(typically dedicated full-time to the wire room function. In most financial institutions, funds) Tj
+0.34486 Tw
+0 -12 Td
+(transfer payment order volume does not justify the costs associated with a full time staff,) Tj
+1.43938 Tw
+0 -12 Td
+(and the sending and receiving of payment orders may be a part-time responsibility for) Tj
+2.11733 Tw
+0 -12 Td
+(one or more people. For less complex financial institutions, a complete separation of) Tj
+0.22833 Tw
+0 -12 Td
+(duties may be difficult to achieve, and compensating controls, including rotation of duties) Tj
+1.2688 Tw
+0 -12 Td
+(and internal review procedures covering those payment orders requiring officer review,) Tj
+0 Tw
+0 -12 Td
+(should be considered.) Tj
+4.96578 Tw
+0 -22 Td
+(Financial institutions generating significant payment order volume usually have a) Tj
+0.45378 Tw
+0 -12 Td
+(separate funds transfer department with dedicated staff. Financial institutions generating) Tj
+3.39333 Tw
+0 -12 Td
+(a large volume of high value Fedwire Funds Service payment orders typically use) Tj
+3.10844 Tw
+0 -12 Td
+(dedicated funds transfer software \(developed in-house or purchased\) connected via) Tj
+1.8472 Tw
+0 -12 Td
+(computer interface to the Federal Reserve Bank's Fedwire Funds Service application.) Tj
+2.49418 Tw
+0 -12 Td
+(The software used for wire transfers automatically posts transactions to the demand) Tj
+0.24364 Tw
+0 -12 Td
+(deposit account and general ledger. The automated function provides an efficient means) Tj
+0 Tw
+0 -12 Td
+(to process a large number of payment orders supporting a variety of business lines.) Tj
+0.30473 Tw
+0 -22 Td
+(Payment orders can be received from several different sources including business areas) Tj
+3.70618 Tw
+0 -12 Td
+(within the financial institution, as well as from corporate and individual customers.) Tj
+1.00433 Tw
+0 -12 Td
+(Payment orders can be initiated by phone, fax, and online systems. Individuals wishing) Tj
+0.967 Tw
+0 -12 Td
+(to wire funds typically do so at the teller window or contact their loan officer or account) Tj
+2.74978 Tw
+0 -12 Td
+(representative. Payment order verification is an important safeguard, and institutions) Tj
+1.67133 Tw
+0 -12 Td
+(should, at a minimum, keep accurate records of all payment order requests, including) Tj
+0.91345 Tw
+0 -12 Td
+(those initiated by telephone. Institutions should record all phone calls initiating payment) Tj
+1.49477 Tw
+0 -12 Td
+(orders for security and audit reasons. The institutions should maintain the tapes for at) Tj
+0 Tw
+0 -12 Td
+(least a 30-day period.) Tj
+2.00708 Tw
+0 -22 Td
+(After receiving a payment order, the wire room operator keys the payment order into) Tj
+1.90277 Tw
+0 -12 Td
+(FedLine \(or the payment order is generated through the use of a third-party software) Tj
+0.44933 Tw
+0 -12 Td
+(product funds transfer module\). Before sending a payment order to the Federal Reserve) Tj
+3.28633 Tw
+0 -12 Td
+(Bank, a second staff member should verify it for accuracy and authorization. Most) Tj
+0.82646 Tw
+0 -12 Td
+(FedLine PCs have two printers attached, one that prints copies of all outgoing payment) Tj
+0.248 Tw
+0 -12 Td
+(order Fedwire Funds Service messages and another that prints incoming Fedwire Funds) Tj
+1.52109 Tw
+0 -12 Td
+(Service payment order messages. Institutions should maintain a record of all payment) Tj
+4.24182 Tw
+0 -12 Td
+(orders for record keeping purposes. The unbroken printout sheet helps ensure a) Tj
+1.15564 Tw
+0 -12 Td
+(complete record of all messages; however, institutions should also verify the sequence) Tj
+1.39891 Tw
+0 -12 Td
+(numbers of the messages to identify missing records due to communication problems.) Tj
+0.00543 Tw
+0 -12 Td
+(The sequence number provides an audit trail for all funds transfers on the Fedwire Funds) Tj
+0 Tw
+0 -12 Td
+(Service system.) Tj
+3.45636 Tw
+0 -22 Td
+(The institution should have appropriate procedures in place to verify all processed) Tj
+1.66933 Tw
+0 -12 Td
+(payment orders. These procedures usually include the use of code words, call backs,) Tj
+ET
+Q
+
+endstream
+endobj
+58 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé1Ç0Ö˜KÓ?ºQlÅ⁄∏í†+JY´©-ÑÖo!≤8ô[^.wﬂ˜:¶Ã0	LÛÆô6{{πn!ÃçIŒ{âD´hó@´¶aZùÔ≠wΩıÖ˜Pé˝‡öY€>Ω÷0¶<†èL¡Q1uãÊt`“"¿K•Ò=S9_Á’Ù—˝WLâ4“Ú€´∞µÉTÿµ»C˙q ˝D8q
+endstream
+endobj
+59 0 obj
+<<
+/Contents [ 60 0 R 61 0 R 62 0 R 63 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+60 0 obj
+<<
+/TextRect [ 70 446 542 720 ]
+/Length 1600
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+4.59244 Tw
+1 0 0 1 70 710.4 Tm
+(and corporate resolutions authorizing certain employees to send payment orders.) Tj
+1.23133 Tw
+0 -12 Td
+(Verification and security procedures are extremely important in light of the potential for) Tj
+0 Tw
+0 -12 Td
+(fraud or errors.) Tj
+0.61533 Tw
+0 -22 Td
+(A Fedwire Funds Service message is generated either by the application supporting the) Tj
+0.85829 Tw
+0 -12 Td
+(business line or by an authorized wire room employee who enters the message into an) Tj
+2.96429 Tw
+0 -12 Td
+(on-line terminal. Before transmitting the wire, it is sent to a second terminal for an) Tj
+0.15908 Tw
+0 -12 Td
+(independent employee to verify for accuracy as well as proper authorization. Only after a) Tj
+1.03231 Tw
+0 -12 Td
+(second staff member reviews the payment order should a financial institution send it to) Tj
+0 Tw
+0 -12 Td
+(the Federal Reserve Bank for processing.) Tj
+1.09833 Tw
+0 -22 Td
+(This separation of duties is important to ensure security. The institution's internal funds) Tj
+1.20333 Tw
+0 -12 Td
+(transfer system should maintain data on each day's transfers, including wires sent and) Tj
+1.13385 Tw
+0 -12 Td
+(received, wires listed by amount, wires listed by sequence number, and wires listed by) Tj
+0.11933 Tw
+0 -12 Td
+(account holder. Most software systems maintain the work of several previous days, often) Tj
+0.25411 Tw
+0 -12 Td
+(the last 5 to 7 days, to allow on-line access to trace errors and problems. After the 5 to 7) Tj
+0 Tw
+0 -12 Td
+(days, the data is typically archived.) Tj
+ET
+Q
+
+endstream
+endobj
+61 0 obj
+<<
+/TextRect [ 70 412 426.712 434 ]
+/Length 349
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 12 Tf
+1 0 0 1 70 414.4 Tm
+(Computer and Network Operations Supporting Funds Transfer) Tj
+0.12 0 Td
+(Computer and Network Operations Supporting Funds Transfer) Tj
+0.12 0 Td
+(Computer and Network Operations Supporting Funds Transfer) Tj
+0.12 0 Td
+(Computer and Network Operations Supporting Funds Transfer) Tj
+ET
+Q
+
+endstream
+endobj
+62 0 obj
+<<
+/TextRect [ 70 72 542 400 ]
+/Length 2730
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+5.48844 Tw
+1 0 0 1 70 380.4 Tm
+(Wholesale funds transfer systems are high risk. Therefore, management should) Tj
+2.0692 Tw
+0 -12 Td
+(configure hardware and software components to control access and support effective) Tj
+0.28978 Tw
+0 -12 Td
+(monitoring. Management should develop change management procedures to ensure the) Tj
+0.59644 Tw
+0 -12 Td
+(integrity of the hardware configurations and applications software. Operations personnel) Tj
+0 Tw
+0 -12 Td
+(should have the appropriate procedures to manage critical payment systems software.) Tj
+6.254 Tw
+0 -22 Td
+(Applications should employ strong user authentication, support user entitlement) Tj
+3.2068 Tw
+0 -12 Td
+(\(information access and function controls\) administration, and provide audit trails in) Tj
+5.7436 Tw
+0 -12 Td
+(sufficient detail to support the analysis or investigation of specific transactions.) Tj
+0.7996 Tw
+0 -12 Td
+(Management should enable funds transfer activity logs and designate independent staff) Tj
+5.4245 Tw
+0 -12 Td
+(members to monitor operations, applications support, system administration, and) Tj
+0 Tw
+0 -12 Td
+(security administrators' activities associated with the funds transfer system.) Tj
+2.14 Tw
+0 -22 Td
+(Telecommunications systems employed for EFT can range from a dial-up connection) Tj
+0.00909 Tw
+0 -12 Td
+(between the institution and payments system \(e.g., FedLine\) to terminal connections with) Tj
+1.4548 Tw
+0 -12 Td
+(institution staff and customers that transmit institution's funds transfer system payment) Tj
+1.44145 Tw
+0 -12 Td
+(orders directly to Fedwire Funds Service via CI connection. An institution's information) Tj
+4.7525 Tw
+0 -12 Td
+(security program should include access, authentication, and transmission controls) Tj
+0.4708 Tw
+0 -12 Td
+(surrounding wire room activities and all terminal connections. Access and authentication) Tj
+1.1404 Tw
+0 -12 Td
+(controls may consist of personal identification numbers, passwords, or other identifying) Tj
+1.46 Tw
+0 -12 Td
+(keys such as account numbers, balances, or other financial data. Financial institutions) Tj
+3.56233 Tw
+0 -12 Td
+(should use encryption as a means of protecting data throughout the EFT system.) Tj
+3.742 Tw
+0 -12 Td
+(Encrypting data during transmission allows institutions to scramble the contents of) Tj
+0.28333 Tw
+0 -12 Td
+(message/payment orders during transmission and limit the value of the information to an) Tj
+0.208 Tw
+0 -12 Td
+(interloper even if a transmission is intercepted. Nevertheless, financial institutions should) Tj
+1.56033 Tw
+0 -12 Td
+(monitor or prevent access to funds transfer activity by data processing personnel who) Tj
+ET
+Q
+
+endstream
+endobj
+63 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé±Ç0Ü˜KÓn‘[†4Æ$Ëä“D÷j*F[§oo!≤8ë[˛\ÓæÔÔJÖ¿höOá∞;ËÎ≠ ŒH›¯ºÁîIëÏ3í"%Â6óá∑f–÷P≠GgﬁÅöq∆Tzˇ≤&lI=™à>!DGã–/öÛA≤cY"OÁhö˘∫jßè~]1¡ÚDJ‚ø^µÓÒbÖ=ã<¶?˜˝Ñ8r
+endstream
+endobj
+64 0 obj
+<<
+/Annots [ 65 0 R 66 0 R 67 0 R 68 0 R 69 0 R ]
+/Contents [ 70 0 R 71 0 R 72 0 R 73 0 R 74 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc10 9 0 R
+/Fabc6 10 0 R
+/Fabc9 12 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+65 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056federalreserve\056gov\057paymentsystems\057psr\137policy\056htm)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 64 0 R
+/Rect [ 380.048 486 542 498 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+66 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056federalreserve\056gov\057paymentsystems\057psr\137policy\056htm)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 64 0 R
+/Rect [ 70 474 240.652 486 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+67 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056federalreserve\056gov\057paymentsystems\057psr\137policy\056htm)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 64 0 R
+/Rect [ 109.564 274 442.168 286 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+68 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056federalreserve\056gov\057paymentsystems\057psr\137policy\056htm)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 64 0 R
+/Rect [ 286.724 144 542 156 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+69 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (http\072\057\057www\056federalreserve\056gov\057paymentsystems\057psr\137policy\056htm)
+>>
+/Border [ 0 0 0 ]
+/H /N
+/P 64 0 R
+/Rect [ 70 132 147.328 144 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+70 0 obj
+<<
+/TextRect [ 70 696 542 720 ]
+/Length 218
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+1.05633 Tw
+1 0 0 1 70 710.4 Tm
+(have access to communications equipment and can monitor and record data flowing in) Tj
+0 Tw
+0 -12 Td
+(clear text from encryption devices.) Tj
+ET
+Q
+
+endstream
+endobj
+71 0 obj
+<<
+/TextRect [ 70 654 521.26 684 ]
+/Length 280
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 20 Tf
+1 0 0 1 70 658 Tm
+(Wholesale Payment Systems Risk Management) Tj
+0.2 0 Td
+(Wholesale Payment Systems Risk Management) Tj
+0.2 0 Td
+(Wholesale Payment Systems Risk Management) Tj
+0.2 0 Td
+(Wholesale Payment Systems Risk Management) Tj
+ET
+Q
+
+endstream
+endobj
+72 0 obj
+<<
+/TextRect [ 70 616 344.768 642 ]
+/Length 261
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc10 16 Tf
+1 0 0 1 70 619.2 Tm
+(Payments System Risk \(PSR\) Policy) Tj
+0.16 0 Td
+(Payments System Risk \(PSR\) Policy) Tj
+0.16 0 Td
+(Payments System Risk \(PSR\) Policy) Tj
+0.16 0 Td
+(Payments System Risk \(PSR\) Policy) Tj
+ET
+Q
+
+endstream
+endobj
+73 0 obj
+<<
+/TextRect [ 70 72 542 604 ]
+/Length 5069
+>>
+stream
+q
+BT
+0 0 0 rg
+/Fabc6 12 Tf
+0.84233 Tw
+1 0 0 1 70 584.4 Tm
+(Given the role of payments and securities settlement systems as critical components of) Tj
+2.75833 Tw
+0 -12 Td
+(the nation's financial system, the Federal Reserve Board has developed a policy to) Tj
+2.73418 Tw
+0 -12 Td
+(foster the safety and efficiency of these systems.The regulatory agencies have also) Tj
+0.8008 Tw
+0 -12 Td
+(issued interagency and agency-specific policies on payments and payment system risk.) Tj
+2.04433 Tw
+0 -12 Td
+(The "Interagency Paper on Sound Practices to Strengthen the Resilience of the U.S.) Tj
+1.7176 Tw
+0 -12 Td
+(Financial Sys-tem," for example, identifies sound practices focusing on minimizing the) Tj
+1.64982 Tw
+0 -12 Td
+(immediate systemic effects of a wide-scale disruption to critical financial markets. The) Tj
+1.8376 Tw
+0 -12 Td
+(sound practices discussed in this paper supplement the agen-cies' respective policies) Tj
+0.7535 Tw
+0 -12 Td
+(and other guidance on business continuity planning. See ) Tj
+ET
+BT
+0 0 1 rg
+1 0 0 1 380.048 488.4 Tm
+(http://www.federalreserve.gov/) Tj
+ET
+380.048 486.9 161.952 0.6 re
+f
+BT
+0 Tw
+1 0 0 1 70 476.4 Tm
+(paymentsystems/psr_policy.htm) Tj
+ET
+70 474.9 170.652 0.6 re
+f
+BT
+0 0 0 rg
+1.98133 Tw
+1 0 0 1 70 454.4 Tm
+(One major component of the Federal Reserve's policy addresses the extent to which) Tj
+0.22933 Tw
+0 -12 Td
+(institutions with Federal Reserve accounts are allowed to have daylight overdrafts in that) Tj
+3.73033 Tw
+0 -12 Td
+(account. Additional information about this aspect of the PSR policy is provided in) Tj
+0.15033 Tw
+0 -12 Td
+(Appendix E. A daylight overdraft occurs when an institution's Federal Reserve account is) Tj
+1.11133 Tw
+0 -12 Td
+(in a negative position during the business day. Negative balances typically occur when) Tj
+1.70533 Tw
+0 -12 Td
+(there are insufficient funds in an institution's account to cover outgoing Fedwire funds) Tj
+1.19511 Tw
+0 -12 Td
+(transfers, incoming book-entry securities transfers, or other payment activity processed) Tj
+0.89707 Tw
+0 -12 Td
+(by a Federal Reserve Bank. The PSR policy applies a series of limits and incentives to) Tj
+1.70533 Tw
+0 -12 Td
+(control the Federal Reserve Banks' exposures to the credit risk associated with these) Tj
+2.45633 Tw
+0 -12 Td
+(daylight overdrafts. Limits on net debit positions are sufficiently flexible to reflect the) Tj
+3.202 Tw
+0 -12 Td
+(overall financial condition and operational capacity of each institution using Federal) Tj
+0 Tw
+0 -12 Td
+(Reserve Bank payment services.) Tj
+2.39533 Tw
+0 -22 Td
+(Institutions with the highest net debit caps are subject to an annual self-assessment) Tj
+1.30185 Tw
+0 -12 Td
+(process that is outlined in the "Guide to the Federal Reserve's Payments System Risk) Tj
+2.797 Tw
+0 -12 Td
+(Policy.") Tj
+ET
+BT
+0 0 1 rg
+1 0 0 1 109.564 276.4 Tm
+(http://www.federalreserve.gov/paymentsystems/psr_policy.htm) Tj
+ET
+109.564 274.9 332.604 0.6 re
+f
+BT
+0 0 0 rg
+1 0 0 1 442.168 276.4 Tm
+( In addition to an) Tj
+4.2496 Tw
+-372.168 -12 Td
+(analysis of the institution's general creditworthiness, institutions eligible for a self-) Tj
+0.91018 Tw
+0 -12 Td
+(assessed cap should manage and control their intraday funds positions, maintain credit) Tj
+4.48727 Tw
+0 -12 Td
+(policies and controls at the customer level, and employ operational controls and) Tj
+1.13385 Tw
+0 -12 Td
+(contingency plans. In particular, institutions with self assessed caps need to be able to) Tj
+1.34154 Tw
+0 -12 Td
+(monitor and control the intraday credit they extend to their customers. Such credit has) Tj
+0.62708 Tw
+0 -12 Td
+(the potential to result in Federal Reserve daylight overdrafts for the institution. The risks) Tj
+0 Tw
+0 -12 Td
+(associated with customers' daylight overdrafts are discussed below.) Tj
+0.61236 Tw
+0 -22 Td
+(Another major component of the PSR policy provides expectations for risk management) Tj
+1.606 Tw
+0 -12 Td
+(in payments and securities settlement systems, and adopts international standards for) Tj
+7.81733 Tw
+0 -12 Td
+(systemically important systems.See ) Tj
+ET
+BT
+0 0 1 rg
+1 0 0 1 286.724 146.4 Tm
+(http://www.federalreserve.gov/paymentsystems/) Tj
+ET
+286.724 144.9 255.276 0.6 re
+f
+BT
+0.77938 Tw
+1 0 0 1 70 134.4 Tm
+(psr_policy.htm) Tj
+ET
+70 132.9 77.328 0.6 re
+f
+BT
+0 0 0 rg
+1 0 0 1 147.328 134.4 Tm
+( for details and further references. This portion of the policy is directed at) Tj
+0.00833 Tw
+-77.328 -12 Td
+(system operators, but contains key information about the risks that such systems present) Tj
+4.55164 Tw
+0 -12 Td
+(to system participants, and in some cases, requires covered systems to provide) Tj
+2.67644 Tw
+0 -12 Td
+(participants with clear information about these risks. Moreover, examined institutions) Tj
+2.11233 Tw
+0 -12 Td
+(may have an important role in the governance of wholesale payments and securities) Tj
+3.10073 Tw
+0 -12 Td
+(settlement systems, as many private sector systems are owned by their participant) Tj
+ET
+Q
+
+endstream
+endobj
+74 0 obj
+<<
+/Filter /FlateDecode
+/Length 162
+>>
+stream
+xúçé1Ç0Ö˜KÓ?ºQlÅ⁄∏í†+JY´©-ÑÖo!≤8ô[^.wﬂ˜:¶Ã0	LÛÆô6{{πn!ÃçIŒ{âD´hó@´¶aZùÔ≠wΩıÖ˜Pé˝‡öY€>Ω÷0¶<†èL¡Q1uãÊt`“"¿K•Ò=S9_Á’Ù—˝WLâ4“Ú€´∞µÉ‘ÿµ»C˙q ˝ƒ8s
+endstream
+endobj
+xref
+0 75
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000177 00000 n 
+0000000226 00000 n 
+0000000456 00000 n 
+0000002939 00000 n 
+0000003254 00000 n 
+0000005798 00000 n 
+0000006031 00000 n 
+0000006133 00000 n 
+0000007269 00000 n 
+0000007442 00000 n 
+0000007540 00000 n 
+0000007801 00000 n 
+0000007992 00000 n 
+0000008302 00000 n 
+0000010736 00000 n 
+0000011110 00000 n 
+0000013073 00000 n 
+0000013307 00000 n 
+0000013542 00000 n 
+0000014893 00000 n 
+0000015203 00000 n 
+0000019085 00000 n 
+0000019320 00000 n 
+0000019588 00000 n 
+0000019775 00000 n 
+0000020050 00000 n 
+0000020392 00000 n 
+0000022056 00000 n 
+0000022458 00000 n 
+0000024729 00000 n 
+0000024964 00000 n 
+0000025247 00000 n 
+0000025437 00000 n 
+0000025770 00000 n 
+0000026104 00000 n 
+0000028007 00000 n 
+0000028362 00000 n 
+0000028882 00000 n 
+0000029577 00000 n 
+0000029687 00000 n 
+0000029922 00000 n 
+0000032104 00000 n 
+0000032409 00000 n 
+0000035012 00000 n 
+0000035247 00000 n 
+0000035496 00000 n 
+0000036698 00000 n 
+0000036976 00000 n 
+0000038048 00000 n 
+0000038410 00000 n 
+0000040098 00000 n 
+0000040333 00000 n 
+0000040568 00000 n 
+0000040724 00000 n 
+0000041086 00000 n 
+0000046133 00000 n 
+0000046368 00000 n 
+0000046603 00000 n 
+0000048285 00000 n 
+0000048719 00000 n 
+0000051530 00000 n 
+0000051765 00000 n 
+0000052054 00000 n 
+0000052293 00000 n 
+0000052531 00000 n 
+0000052774 00000 n 
+0000053013 00000 n 
+0000053251 00000 n 
+0000053550 00000 n 
+0000053914 00000 n 
+0000054260 00000 n 
+0000059410 00000 n 
+trailer
+<<
+/Size 75
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+59645
+%%EOF

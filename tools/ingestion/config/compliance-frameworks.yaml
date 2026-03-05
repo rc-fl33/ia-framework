@@ -1,0 +1,182 @@
+# Compliance Frameworks Configuration
+# Used by tools/standards/ingest-frameworks.ts
+
+skillName: Compliance
+skillPath: "standards"
+itemType: "framework"
+
+frameworks:
+  # NIST Frameworks
+  nist-oscal:
+    name: "NIST OSCAL"
+    repo: "https://github.com/usnistgov/OSCAL"
+    outputDir: "frameworks/nist/reference/github/oscal"
+    description: "NIST Open Security Controls Assessment Language (machine-readable controls)"
+    category: "framework"
+
+  nist-sp-800-53:
+    name: "NIST SP 800-53"
+    repo: "https://github.com/usnistgov/SP800-53"
+    outputDir: "frameworks/nist/reference/github/sp-800-53"
+    description: "NIST SP 800-53 Security and Privacy Controls for Information Systems"
+    category: "control"
+
+  nist-sp-800-171:
+    name: "NIST SP 800-171"
+    repo: "https://github.com/usnistgov/800-171"
+    outputDir: "frameworks/nist/reference/github/sp-800-171"
+    description: "NIST SP 800-171 Protecting Controlled Unclassified Information in Non-Federal Systems"
+    category: "control"
+
+  nist-sp-800-53b:
+    name: "NIST SP 800-53B"
+    repo: "https://github.com/usnistgov/SP800-53"
+    outputDir: "frameworks/nist/reference/github/sp-800-53b"
+    description: "NIST SP 800-53B Control Baselines for Information Systems and Organizations"
+    category: "guidance"
+
+  nist-csf:
+    name: "NIST Cybersecurity Framework"
+    repo: "https://github.com/usnistgov/cybersecurity-framework"
+    outputDir: "frameworks/nist/reference/github/csf"
+    description: "NIST Cybersecurity Framework (CSF) 2.0"
+    category: "framework"
+
+  nist-privacy-framework:
+    name: "NIST Privacy Framework"
+    repo: "https://github.com/usnistgov/privacy-framework"
+    outputDir: "frameworks/nist/reference/github/privacy-framework"
+    description: "NIST Privacy Framework for organizational privacy program"
+    category: "framework"
+
+  # CIS Controls & Benchmarks
+  cis-controls:
+    name: "CIS Controls"
+    repo: "https://github.com/CISecurity/CISControls_OSCAL"
+    outputDir: "frameworks/cis/reference/github/controls"
+    description: "CIS Controls (formerly Critical Security Controls) - OSCAL format"
+    category: "control"
+
+  cis-benchmarks:
+    name: "CIS Benchmarks"
+    repo: "https://github.com/dev-sec/cis-docker-benchmark"
+    outputDir: "frameworks/cis/reference/github/benchmarks"
+    description: "CIS Benchmarks for various systems (Linux, Windows, Docker, etc.)"
+    category: "benchmark"
+
+  cis-aws-foundations:
+    name: "CIS AWS Foundations Benchmark"
+    repo: "https://github.com/aws-samples/aws-cis-foundations-benchmark"
+    outputDir: "frameworks/cis/reference/github/aws-foundations"
+    description: "CIS Amazon Web Services Foundations Benchmark"
+    category: "benchmark"
+
+  # FedRAMP
+  fedramp-baselines:
+    name: "FedRAMP Baselines"
+    repo: "https://github.com/GSA/fedramp-baselines"
+    outputDir: "frameworks/fedramp/reference/github/baselines"
+    description: "FedRAMP OSCAL baseline profiles and catalogs (Low, Moderate, High)"
+    category: "standard"
+
+  fedramp-oscal:
+    name: "FedRAMP OSCAL Library"
+    repo: "https://github.com/GSA/FedRAMP-OSCAL"
+    outputDir: "frameworks/fedramp/reference/github/oscal-library"
+    description: "FedRAMP OSCAL Baselines and Guidance"
+    category: "framework"
+
+  # ISO Standards
+  iso-27001:
+    name: "ISO/IEC 27001"
+    repo: "https://github.com/ISO27001Auditing/ISO27001"
+    outputDir: "frameworks/iso/reference/github/27001"
+    description: "ISO/IEC 27001 Information Security Management Systems"
+    category: "standard"
+
+  iso-27002:
+    name: "ISO/IEC 27002"
+    repo: "https://github.com/ISO27001Auditing/ISO27002"
+    outputDir: "frameworks/iso/reference/github/27002"
+    description: "ISO/IEC 27002 Information Security Controls Reference"
+    category: "control"
+
+  iso-27035:
+    name: "ISO/IEC 27035"
+    repo: "https://github.com/ISO27001Auditing/ISO27035"
+    outputDir: "frameworks/iso/reference/github/27035"
+    description: "ISO/IEC 27035 Information Security Incident Management"
+    category: "guidance"
+
+  # Industry Specific
+  pci-dss:
+    name: "PCI DSS"
+    repo: "https://github.com/pcisecuritystandards/documents"
+    outputDir: "frameworks/pci-dss/reference/github"
+    description: "Payment Card Industry Data Security Standard"
+    category: "standard"
+
+  hipaa-security:
+    name: "HIPAA Security Rule"
+    repo: "https://github.com/HHS-HIPAA/HIPAA-Security"
+    outputDir: "frameworks/hipaa/reference/github/security-rule"
+    description: "HIPAA Security Rule Controls and Compliance"
+    category: "control"
+
+  gdpr-compliance:
+    name: "GDPR Compliance"
+    repo: "https://github.com/gdpr-checklist/gdpr-checklist"
+    outputDir: "frameworks/gdpr/reference/github/compliance"
+    description: "GDPR Compliance Checklists and Requirements"
+    category: "framework"
+
+  soc-2:
+    name: "SOC 2 Trust Service Criteria"
+    repo: "https://github.com/AICPA/SOC-2-Framework"
+    outputDir: "frameworks/soc2/reference/github"
+    description: "SOC 2 Trust Service Criteria (Availability, Processing Integrity, Confidentiality, Privacy, Security)"
+    category: "standard"
+
+  # Threat & Vulnerability Intelligence
+  mitre-attack:
+    name: "MITRE ATT&CK"
+    repo: "https://github.com/mitre/cti"
+    outputDir: "frameworks/mitre/reference/github/attack"
+    description: "MITRE ATT&CK Framework (adversary tactics, techniques, procedures)"
+    category: "framework"
+
+  mitre-atlas:
+    name: "MITRE ATLAS"
+    repo: "https://github.com/mitre-atlas/atlas-data"
+    outputDir: "frameworks/mitre/reference/github/atlas"
+    description: "MITRE ATLAS - Adversarial Threat Landscape for AI Systems"
+    category: "framework"
+
+  cwe:
+    name: "CWE - Common Weakness Enumeration"
+    repo: "https://github.com/mitre/cwe-data"
+    outputDir: "frameworks/mitre/reference/github/cwe"
+    description: "CWE Common Weakness Enumeration"
+    category: "framework"
+
+  # Additional Guidance
+  nist-sp-800-161:
+    name: "NIST SP 800-161"
+    repo: "https://github.com/usnistgov/SP800-161"
+    outputDir: "frameworks/nist/reference/github/sp-800-161"
+    description: "NIST SP 800-161 Supply Chain Risk Management (SCRM)"
+    category: "guidance"
+
+  nist-sp-800-181:
+    name: "NIST SP 800-181"
+    repo: "https://github.com/usnistgov/800-181"
+    outputDir: "frameworks/nist/reference/github/sp-800-181"
+    description: "NIST SP 800-181 Cybersecurity Workforce Framework"
+    category: "guidance"
+
+  cisa-security-guidance:
+    name: "CISA Security Guidance"
+    repo: "https://github.com/CISA/cisa-guidance"
+    outputDir: "frameworks/cisa/reference/github/guidance"
+    description: "CISA Cybersecurity and Infrastructure Security Agency Guidance"
+    category: "guidance"

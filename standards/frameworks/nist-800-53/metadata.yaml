@@ -1,0 +1,103 @@
+# NIST SP 800-53 Metadata
+# Security and Privacy Controls for Information Systems and Organizations
+
+framework:
+  name: "NIST Special Publication 800-53"
+  short_name: "NIST 800-53"
+  version: "Rev 5"
+  release_date: "2020-09-23"
+  updated: "2024-05-07"  # Minor updates
+  official_url: "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+  download_url: "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf"
+
+  description: |
+    Comprehensive catalog of security and privacy controls for federal information
+    systems and organizations. Provides a proactive and systematic approach to
+    ensure that critical systems, components, and services are sufficiently
+    trustworthy and resilient.
+
+  # Source documents in reference/
+  # NOTE: Original PDF deleted to prevent context confusion - only chunks stored
+  source_documents:
+    - name: "NIST.SP.800-53r5_pages_*.pdf"
+      description: "492-page control catalog split into 10-page chunks"
+      pages: 492
+      chunks: 50
+      chunk_size: 10
+      original_deleted: true  # Prevents AI agent confusion
+
+  # Control families (20 families)
+  control_families:
+    - id: "AC"
+      name: "Access Control"
+    - id: "AT"
+      name: "Awareness and Training"
+    - id: "AU"
+      name: "Audit and Accountability"
+    - id: "CA"
+      name: "Assessment, Authorization, and Monitoring"
+    - id: "CM"
+      name: "Configuration Management"
+    - id: "CP"
+      name: "Contingency Planning"
+    - id: "IA"
+      name: "Identification and Authentication"
+    - id: "IR"
+      name: "Incident Response"
+    - id: "MA"
+      name: "Maintenance"
+    - id: "MP"
+      name: "Media Protection"
+    - id: "PE"
+      name: "Physical and Environmental Protection"
+    - id: "PL"
+      name: "Planning"
+    - id: "PM"
+      name: "Program Management"
+    - id: "PS"
+      name: "Personnel Security"
+    - id: "PT"
+      name: "PII Processing and Transparency"
+    - id: "RA"
+      name: "Risk Assessment"
+    - id: "SA"
+      name: "System and Services Acquisition"
+    - id: "SC"
+      name: "System and Communications Protection"
+    - id: "SI"
+      name: "System and Information Integrity"
+    - id: "SR"
+      name: "Supply Chain Risk Management"
+
+  controls_count: 1189  # Base controls + enhancements
+
+  # Verification
+  last_verified: "2026-01-14"
+  verified_by: "Direct download from NIST"
+  status: current
+
+  # Related frameworks
+  related:
+    - nist-csf        # Maps to CSF functions
+    - nist-800-171    # Subset for CUI
+    - fedramp         # Uses 800-53 baselines
+
+# Acquisition instructions
+acquisition:
+  method: "curl"
+  command: 'curl -o NIST.SP.800-53r5.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf"'
+  requires_account: false
+  post_processing: |
+    bun run tools/export/pdf-splitter.ts NIST.SP.800-53r5.pdf --output-dir reference/
+
+# OSCAL machine-readable version
+oscal_source:
+  repo: "https://github.com/usnistgov/oscal-content"
+  description: "Machine-readable control catalog in OSCAL format"
+  method: "gitingest"
+
+# Update schedule
+maintenance:
+  check_frequency: "quarterly"
+  last_check: "2026-01-14"
+  next_check: "2026-04-14"

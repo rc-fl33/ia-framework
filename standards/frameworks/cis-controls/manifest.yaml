@@ -1,0 +1,29 @@
+name: CIS Critical Security Controls
+type: controls
+version: "8.1"
+provider: cis
+skills:
+  - compliance
+  - hardening
+industries:
+  - all
+native_categories:
+  - CG-1   # Implementation Group 1 (basic cyber hygiene)
+  - CG-2   # Implementation Group 2 (foundational)
+  - CG-3   # Implementation Group 3 (organizational)
+source_url: https://www.cisecurity.org/controls
+published: 2026-01-14
+pages: 146
+chunks: 15
+enrichment_status:
+  tier: 2
+  framework_category: security
+  controls: partial
+  questions: complete
+  questions_framework_count: 3
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://www.cisecurity.org/controls
+  next_check: 2027-02-25

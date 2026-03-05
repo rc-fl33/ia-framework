@@ -1,0 +1,49 @@
+# Server Manifest Template
+# Copy this file to servers/{service-name}/manifest.yaml
+
+type: server
+name: service-name           # Must match directory name
+description: "Brief description of this VPS service"
+category: security           # security, content, infrastructure, etc.
+version: 2.0
+
+# VPS configuration
+vps_location: "OVHcloud VPS #2"  # Which VPS this runs on
+vps_required: true
+
+# API endpoints
+endpoints:
+  - name: endpoint-name
+    file: endpoint-wrapper.py
+    description: "What this endpoint does"
+    usage: "python endpoint-wrapper.py --target {target} --output {file}"
+
+  - name: another-endpoint
+    file: another-wrapper.ts
+    description: "Another endpoint description"
+    usage: "bun run another-wrapper.ts --param {value}"
+
+# Service capabilities
+capabilities:
+  - capability_one
+  - capability_two
+
+# Keywords for discovery
+keywords:
+  - keyword1
+  - keyword2
+
+# Authentication
+api_auth: "Bearer token via .env"  # How to authenticate
+
+# Deployment
+docker_compose: docker-compose.yml  # Optional: docker deployment file
+
+# Dependencies (on VPS)
+dependencies:
+  - tool-name-1            # e.g., nmap, nuclei
+  - tool-name-2
+
+# Metadata
+author: "IA Framework"
+last_updated: "2025-12-12"

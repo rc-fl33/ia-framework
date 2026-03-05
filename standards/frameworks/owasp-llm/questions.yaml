@@ -1,0 +1,554 @@
+framework: owasp-llm
+version: "2025"
+total_questions: 23
+
+questions:
+
+  # LLM01 - Prompt Injection (access_control)
+
+  - id: Q-OWASP-LLM-LLM01-001
+    text: "Does the application implement input validation and filtering to detect and block prompt injection attempts, including semantic filters and string-checking for non-allowed content?"
+    category: LLM01
+    native_category: LLM01
+    domain: access_control
+    controls:
+      owasp-llm: "LLM01"
+      mitre-atlas: "AML.T0051.000"
+      nist-ai-rmf: "GOVERN 1.7, MEASURE 2.5"
+      nist-800-53: "SI-10, SI-15"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - "Input validation configuration or code demonstrating filtering rules"
+      - "Documentation of sensitive content categories and handling rules"
+      - "Semantic filter implementation or vendor tool configuration"
+    scoring:
+      full: "Input validation implemented with semantic filters, string-checking, and documented category rules covering both direct and indirect injection vectors"
+      partial: "Basic input filtering present but lacks semantic analysis or does not cover indirect injection from external sources"
+      none: "No input validation or filtering for prompt injection attempts"
+    risk_weight: HIGH
+
+  - id: Q-OWASP-LLM-LLM01-002
+    text: "Are LLM agent privileges restricted to the minimum necessary, with human-in-the-loop approval required for high-risk actions such as sending emails, executing code, or modifying data?"
+    category: LLM01
+    native_category: LLM01
+    domain: access_control
+    controls:
+      owasp-llm: "LLM01"
+      mitre-atlas: "AML.T0051.001"
+      nist-ai-rmf: "GOVERN 6.1, MANAGE 2.2"
+      nist-800-53: "AC-4, AC-6"
+      iso-42001: "A.6.2.3, 6.1.2"
+      aiuc-1: "E001, E007"
+      eu-ai-act: "Art-9, Art-14"
+    evidence_required:
+      - "Documented privilege model for LLM agent API tokens and capabilities"
+      - "Human approval workflow configuration for high-risk operations"
+      - "Evidence of least-privilege enforcement in LLM extension permissions"
+    scoring:
+      full: "LLM agents operate with minimum necessary privileges and all high-risk actions require explicit human approval before execution"
+      partial: "Privilege restrictions exist but human approval is not consistently enforced for all high-risk action categories"
+      none: "LLM agents have broad permissions with no human approval gates for destructive or sensitive operations"
+    risk_weight: HIGH
+
+  - id: Q-OWASP-LLM-LLM01-003
+    text: "Is external content (retrieved from websites, documents, or databases) clearly segregated from trusted system instructions, and is adversarial testing conducted regularly against prompt injection attack patterns?"
+    category: LLM01
+    native_category: LLM01
+    domain: access_control
+    controls:
+      owasp-llm: "LLM01"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2"
+      mitre-atlas: "AML.T0051.000, AML.T0054"
+      nist-800-53: "SI-10, AC-4"
+      iso-42001: "A.6.2.3, 6.1.2"
+      aiuc-1: "D001, D003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - "Architecture documentation showing separation of trusted and untrusted content"
+      - "Adversarial testing records or penetration test reports covering prompt injection"
+      - "Evidence of regular red-team or attack simulation exercises"
+    scoring:
+      full: "External content is architecturally segregated with clear denoting of untrusted sources, and adversarial testing is conducted on a documented schedule"
+      partial: "Content segregation exists in policy but is not consistently enforced architecturally, or adversarial testing is ad hoc"
+      none: "No separation between trusted system instructions and external content; no adversarial testing conducted"
+    risk_weight: HIGH
+
+  # LLM02 - Sensitive Information Disclosure (data_protection)
+
+  - id: Q-OWASP-LLM-LLM02-001
+    text: "Does the application implement data sanitization to prevent sensitive information (PII, credentials, proprietary data) from entering LLM training pipelines, with system prompts configured to restrict sensitive data return types?"
+    category: LLM02
+    native_category: LLM02
+    domain: data_protection
+    controls:
+      owasp-llm: "LLM02"
+      mitre-atlas: "AML.T0024.000"
+      nist-ai-rmf: "MEASURE 2.5, GOVERN 1.6"
+      nist-800-53: "SC-28, AC-4"
+      iso-42001: "A.6.2.3, A.8.2"
+      aiuc-1: "A001, D002"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - "Data sanitization implementation documentation (scrubbing, masking processes)"
+      - "System prompt configuration showing data type restrictions"
+      - "Data classification and handling policies for LLM input pipelines"
+    scoring:
+      full: "Automated data sanitization applied before training pipeline entry; system prompts include explicit restrictions on sensitive data types in outputs"
+      partial: "Sanitization exists for some data categories but coverage is incomplete, or system prompt restrictions are present but not enforced through technical controls"
+      none: "No data sanitization applied; LLM has unrestricted access to sensitive data with no output restrictions"
+    risk_weight: HIGH
+
+  - id: Q-OWASP-LLM-LLM02-002
+    text: "Are access controls enforced on data sources accessible by the LLM using least-privilege principles, and is the application's use of user data in training disclosed to users with opt-out mechanisms?"
+    category: LLM02
+    native_category: LLM02
+    domain: data_protection
+    controls:
+      owasp-llm: "LLM02"
+      nist-ai-rmf: "GOVERN 1.6, MANAGE 2.2"
+      mitre-atlas: "AML.T0024.001, AML.T0037"
+      nist-800-53: "AC-6, RA-3"
+      iso-42001: "A.7.2, A.7.3"
+      aiuc-1: "A002, E002"
+      eu-ai-act: "Art-10, Art-9"
+    evidence_required:
+      - "Access control configuration for LLM data source connections"
+      - "Terms of Use or Privacy Policy with data training opt-out provisions"
+      - "Evidence of data retention, usage, and deletion policy enforcement"
+    scoring:
+      full: "LLM data source access is strictly limited by least-privilege controls; users are clearly informed of data use in training and have functional opt-out mechanisms"
+      partial: "Access controls exist but are not consistently applied to all data sources; opt-out exists but is difficult to find or exercise"
+      none: "No access restrictions on LLM data sources; no disclosure of training data use or user opt-out capability"
+    risk_weight: HIGH
+
+  # LLM03 - Supply Chain Vulnerabilities (governance)
+
+  - id: Q-OWASP-LLM-LLM03-001
+    text: "Does the organization maintain a Software Bill of Materials (SBOM or AI-BOM) for all LLM components, third-party models, and fine-tuning adapters, with regular vulnerability scanning and provenance verification?"
+    category: LLM03
+    native_category: LLM03
+    domain: governance
+    controls:
+      owasp-llm: "LLM03"
+      nist-ai-rmf: "GOVERN 1.1, MAP 1.1"
+      mitre-atlas: "AML.T0010, AML.T0019"
+      nist-800-53: "SA-9, SR-3"
+      iso-42001: "A.6.1.4, 8.3"
+      aiuc-1: "B001, B003"
+      eu-ai-act: "Art-9, Art-51"
+    evidence_required:
+      - "SBOM or AI-BOM inventory covering LLM models, adapters, and dependencies"
+      - "Vulnerability scanning records for LLM supply chain components"
+      - "Model provenance documentation including source, hash verification, and signing"
+    scoring:
+      full: "Complete SBOM/AI-BOM maintained with automated vulnerability scanning; all models verified via cryptographic hashes or signatures from verifiable sources"
+      partial: "Partial inventory exists but does not cover all components; provenance verification is manual and inconsistently applied"
+      none: "No component inventory; models deployed without provenance verification or vulnerability assessment"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM03-002
+    text: "Are third-party LLM suppliers, data sources, and model repositories evaluated and monitored for security posture, licensing compliance, and T&C changes that could expose sensitive application data to training?"
+    category: LLM03
+    native_category: LLM03
+    domain: governance
+    controls:
+      owasp-llm: "LLM03"
+      nist-ai-rmf: "GOVERN 1.1, MANAGE 2.2"
+      mitre-atlas: "AML.T0019, AML.T0020"
+      nist-800-53: "SA-9, SR-4"
+      iso-42001: "A.6.1.4, 6.1.2"
+      aiuc-1: "B003, E005"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - "Third-party supplier security assessment records"
+      - "License audit documentation covering all software, dataset, and model licenses"
+      - "Monitoring process for supplier T&C and privacy policy changes"
+    scoring:
+      full: "Formal supplier vetting process with documented security reviews; license audits conducted regularly; automated monitoring for T&C changes implemented"
+      partial: "Initial supplier vetting conducted but ongoing monitoring is ad hoc; license review coverage is incomplete"
+      none: "No supplier security evaluation; licenses not audited; T&C changes not monitored"
+    risk_weight: MEDIUM
+
+  # LLM04 - Data and Model Poisoning (monitoring)
+
+  - id: Q-OWASP-LLM-LLM04-001
+    text: "Are LLM training datasets validated for integrity and provenance using data lineage tracking and anomaly detection, with version control applied to detect unauthorized data modifications?"
+    category: LLM04
+    native_category: LLM04
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM04"
+      mitre-atlas: "AML.T0018"
+      nist-ai-rmf: "MEASURE 2.5, MAP 5.1"
+      nist-800-53: "SI-10, RA-3"
+      iso-42001: "A.7.2, A.7.3"
+      aiuc-1: "A001, A005"
+      eu-ai-act: "Art-10, Art-9"
+    evidence_required:
+      - "Data lineage tracking implementation (OWASP CycloneDX, ML-BOM, or equivalent)"
+      - "Dataset version control records (DVC or equivalent)"
+      - "Anomaly detection configuration for training data validation"
+    scoring:
+      full: "Data lineage tracked across all training stages; version control applied to datasets; anomaly detection identifies adversarial data patterns before model training"
+      partial: "Data lineage tracking exists for some stages but not end-to-end; version control applied inconsistently; no automated anomaly detection"
+      none: "No data lineage tracking; training datasets used without integrity validation or version control"
+    risk_weight: HIGH
+
+  - id: Q-OWASP-LLM-LLM04-002
+    text: "Is model behavior monitored for signs of poisoning (anomalous outputs, unexpected trigger responses, training loss patterns), and are red team campaigns conducted against data poisoning attack scenarios?"
+    category: LLM04
+    native_category: LLM04
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM04"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2"
+      mitre-atlas: "AML.T0020, AML.T0018"
+      nist-800-53: "SI-10, RA-3"
+      iso-42001: "A.7.4, 9.1"
+      aiuc-1: "A005, D003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - "Model behavioral monitoring configuration with anomaly thresholds"
+      - "Training loss monitoring records with alerting on anomalous patterns"
+      - "Red team exercise records covering data poisoning and backdoor trigger scenarios"
+    scoring:
+      full: "Continuous behavioral monitoring with defined thresholds for anomalous outputs; red team exercises cover poisoning scenarios on a documented schedule"
+      partial: "Some model output monitoring in place but backdoor trigger detection not specifically addressed; red teaming conducted but not focused on poisoning scenarios"
+      none: "No model behavioral monitoring; no red team testing for data poisoning or backdoor vulnerabilities"
+    risk_weight: HIGH
+
+  # LLM05 - Improper Output Handling (data_protection)
+
+  - id: Q-OWASP-LLM-LLM05-001
+    text: "Are all LLM-generated outputs validated and sanitized before use in downstream systems, with context-aware encoding applied (HTML encoding for web, parameterized queries for databases, path validation for file operations)?"
+    category: LLM05
+    native_category: LLM05
+    domain: data_protection
+    controls:
+      owasp-llm: "LLM05"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2"
+      mitre-atlas: "AML.T0048, AML.T0054"
+      nist-800-53: "SI-10, SI-15"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-15, Art-9"
+    evidence_required:
+      - "Output validation and sanitization code or configuration"
+      - "Context-aware encoding implementation (HTML, SQL, file path)"
+      - "Parameterized query implementation for all database operations using LLM output"
+    scoring:
+      full: "All LLM outputs validated and sanitized with context-appropriate encoding; parameterized queries used universally for database operations; CSP headers implemented"
+      partial: "Output sanitization applied to some downstream uses but coverage is incomplete; some database operations pass LLM output without parameterization"
+      none: "LLM outputs passed directly to downstream systems without validation or encoding; no parameterized queries for database operations"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM05-002
+    text: "Does the application treat LLM-generated output with zero-trust and implement robust logging and monitoring to detect exploitation attempts through unusual output patterns?"
+    category: LLM05
+    native_category: LLM05
+    domain: data_protection
+    controls:
+      owasp-llm: "LLM05"
+      nist-ai-rmf: "GOVERN 1.7, MEASURE 2.5"
+      mitre-atlas: "AML.T0048, AML.T0054"
+      nist-800-53: "SI-15, SC-5"
+      iso-42001: "A.6.2.3, 9.1"
+      aiuc-1: "D001, E001"
+      eu-ai-act: "Art-9, Art-12"
+    evidence_required:
+      - "Zero-trust architecture documentation for LLM output handling"
+      - "Logging configuration capturing LLM output content and downstream execution"
+      - "Monitoring alerts configured for anomalous LLM output patterns"
+    scoring:
+      full: "LLM treated as untrusted user with zero-trust validation; comprehensive logging of outputs and their downstream use; automated monitoring alerts on anomalous patterns"
+      partial: "Some output logging exists but coverage is incomplete; monitoring is reactive rather than automated"
+      none: "LLM output implicitly trusted; no logging of outputs for security monitoring purposes"
+    risk_weight: MEDIUM
+
+  # LLM06 - Excessive Agency (governance)
+
+  - id: Q-OWASP-LLM-LLM06-001
+    text: "Are LLM agent extensions limited to only those strictly necessary for the application's intended function, with each extension scoped to minimum required operations and permissions on downstream systems?"
+    category: LLM06
+    native_category: LLM06
+    domain: governance
+    controls:
+      owasp-llm: "LLM06"
+      nist-ai-rmf: "GOVERN 6.1, GOVERN 6.2"
+      mitre-atlas: "AML.T0047, AML.T0043"
+      nist-800-53: "AC-6, CM-7"
+      iso-42001: "A.6.2.3, A.5.2"
+      aiuc-1: "E001, E002"
+      eu-ai-act: "Art-9, Art-14"
+    evidence_required:
+      - "Inventory of LLM extensions with documented justification for each"
+      - "Extension permission audit records for downstream system access"
+      - "Evidence of extension functionality restriction (no open-ended shell or URL fetch)"
+    scoring:
+      full: "Formal extension review process with documented necessity justification; all extensions use minimum-scope permissions; no open-ended extensions (shell, generic URL fetch) in production"
+      partial: "Some extension review conducted but comprehensive permission scoping is not enforced; some deprecated or overly-permissive extensions remain"
+      none: "No extension inventory or review process; extensions use high-privilege identities; open-ended extensions present without input filtering"
+    risk_weight: HIGH
+
+  - id: Q-OWASP-LLM-LLM06-002
+    text: "Are high-impact LLM agent actions (data deletion, external communications, privileged system operations) subject to human-in-the-loop approval, and is authorization enforced in downstream systems rather than delegated to the LLM?"
+    category: LLM06
+    native_category: LLM06
+    domain: governance
+    controls:
+      owasp-llm: "LLM06"
+      nist-ai-rmf: "GOVERN 6.1, MANAGE 2.2"
+      mitre-atlas: "AML.T0047, AML.T0043"
+      nist-800-53: "AC-4, AC-6"
+      iso-42001: "A.6.2.3, 6.1.2"
+      aiuc-1: "E002, E007"
+      eu-ai-act: "Art-14, Art-9"
+    evidence_required:
+      - "Human approval workflow documentation for high-impact LLM-initiated actions"
+      - "Downstream authorization implementation records (not delegated to LLM)"
+      - "Complete mediation implementation evidence for extension-initiated requests"
+    scoring:
+      full: "Human approval required for all high-impact actions; authorization enforced deterministically in downstream systems independent of LLM decision-making"
+      partial: "Human approval exists for some high-impact actions but coverage is incomplete; some authorization logic delegated to LLM system prompts"
+      none: "No human approval gates for any LLM-initiated actions; authorization decisions made by LLM without independent enforcement"
+    risk_weight: HIGH
+
+  - id: Q-OWASP-LLM-LLM06-003
+    text: "Is LLM extension activity logged and monitored to identify undesirable actions, and are rate limits applied to LLM-initiated operations on downstream systems?"
+    category: LLM06
+    native_category: LLM06
+    domain: governance
+    controls:
+      owasp-llm: "LLM06"
+      nist-ai-rmf: "GOVERN 6.2, MEASURE 2.7"
+      mitre-atlas: "AML.T0047, AML.T0029"
+      nist-800-53: "AC-4, SC-5"
+      iso-42001: "9.1, A.6.2.3"
+      aiuc-1: "E009, E001"
+      eu-ai-act: "Art-12, Art-9"
+    evidence_required:
+      - "Extension activity logging configuration and retention records"
+      - "Rate limiting configuration for LLM-initiated downstream operations"
+      - "Incident records demonstrating detection and response to undesirable LLM actions"
+    scoring:
+      full: "Comprehensive logging of all extension activity; rate limits applied to downstream operations; evidence of successful detection and response to anomalous behavior"
+      partial: "Logging exists but rate limiting is absent or applied only to some operations; review of logs is manual rather than automated"
+      none: "No logging of LLM extension activity; no rate limiting on LLM-initiated operations"
+    risk_weight: HIGH
+
+  # LLM07 - System Prompt Leakage (data_protection)
+
+  - id: Q-OWASP-LLM-LLM07-001
+    text: "Are system prompts free of sensitive information (API keys, database credentials, connection strings, internal business rules), with all such data externalized to systems the LLM cannot directly access?"
+    category: LLM07
+    native_category: LLM07
+    domain: data_protection
+    controls:
+      owasp-llm: "LLM07"
+      mitre-atlas: "AML.T0051.000"
+      nist-ai-rmf: "MEASURE 2.5, GOVERN 1.7"
+      nist-800-53: "SC-28, SI-15"
+      iso-42001: "A.6.2.3, A.8.2"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-12"
+    evidence_required:
+      - "System prompt audit records confirming no embedded credentials or sensitive configuration"
+      - "Architecture documentation showing externalized sensitive data storage"
+      - "Secret scanning results applied to system prompt content"
+    scoring:
+      full: "System prompts audited and confirmed free of credentials or sensitive data; all such information externalized to secure vaults or configuration systems the LLM cannot query"
+      partial: "Most sensitive data externalized but some internal business rules or configuration details remain embedded in system prompts"
+      none: "System prompts contain credentials, API keys, or sensitive business logic accessible through the LLM interface"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM07-002
+    text: "Are security controls such as privilege separation, content filtering, and authorization enforced by systems independent of the LLM rather than relying on system prompt instructions?"
+    category: LLM07
+    native_category: LLM07
+    domain: data_protection
+    controls:
+      owasp-llm: "LLM07"
+      nist-ai-rmf: "GOVERN 1.7, MANAGE 2.2"
+      mitre-atlas: "AML.T0051.000, AML.T0037"
+      nist-800-53: "AC-4, SI-15"
+      iso-42001: "A.6.2.3, 6.1.2"
+      aiuc-1: "D001, E001"
+      eu-ai-act: "Art-9, Art-14"
+    evidence_required:
+      - "Architecture documentation showing security controls external to the LLM"
+      - "Output guardrail implementation operating independently of system prompt"
+      - "Authorization enforcement in downstream systems independent of LLM decision-making"
+    scoring:
+      full: "All critical security controls (content filtering, authorization, privilege separation) enforced by deterministic external systems; LLM system prompt used only for behavioral guidance"
+      partial: "Some security controls externalized but critical controls such as content filtering or role enforcement still rely on system prompt instructions"
+      none: "Security controls primarily implemented through system prompt instructions with no independent enforcement layer"
+    risk_weight: MEDIUM
+
+  # LLM08 - Vector and Embedding Weaknesses (monitoring)
+
+  - id: Q-OWASP-LLM-LLM08-001
+    text: "Are vector databases and embedding stores protected with fine-grained, permission-aware access controls that enforce logical partitioning between users, tenants, or data classification levels?"
+    category: LLM08
+    native_category: LLM08
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM08"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2"
+      mitre-atlas: "AML.T0025, AML.T0043"
+      nist-800-53: "AC-4, SC-28"
+      iso-42001: "A.7.3, A.7.4"
+      aiuc-1: "A002, D003"
+      eu-ai-act: "Art-10, Art-9"
+    evidence_required:
+      - "Vector database access control configuration documentation"
+      - "Logical partitioning implementation records for multi-tenant environments"
+      - "Access control audit records for embedding store permissions"
+    scoring:
+      full: "Permission-aware vector store implemented with strict logical partitioning; access controls verified to prevent cross-tenant information leakage in multi-user environments"
+      partial: "Access controls exist at the application layer but vector database itself lacks fine-grained permission enforcement; partitioning not tested for leakage"
+      none: "No access controls on vector database; all users share the same embedding namespace without partitioning"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM08-002
+    text: "Is the RAG knowledge base validated for data integrity before ingestion, with immutable retrieval activity logs maintained and regular audits conducted to detect data poisoning?"
+    category: LLM08
+    native_category: LLM08
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM08"
+      nist-ai-rmf: "MEASURE 2.5, MAP 5.1"
+      mitre-atlas: "AML.T0020, AML.T0043"
+      nist-800-53: "SI-10, SC-28"
+      iso-42001: "A.7.3, 9.1"
+      aiuc-1: "A002, E002"
+      eu-ai-act: "Art-10, Art-9"
+    evidence_required:
+      - "Knowledge base ingestion validation pipeline documentation"
+      - "Immutable retrieval activity log configuration and retention records"
+      - "Periodic integrity audit records for the knowledge base"
+    scoring:
+      full: "Automated validation pipeline rejects unverified or malformed knowledge base content; immutable logs maintained for all retrievals; periodic integrity audits with documented findings"
+      partial: "Some input validation applied to knowledge base content but coverage is incomplete; logging exists but is not immutable or consistently retained"
+      none: "Knowledge base accepts content from any source without validation; no retrieval logging or integrity auditing"
+    risk_weight: MEDIUM
+
+  # LLM09 - Misinformation (monitoring)
+
+  - id: Q-OWASP-LLM-LLM09-001
+    text: "Does the application employ RAG, fine-tuning, or grounding techniques to reduce hallucination and misinformation risk, and are automated validation mechanisms implemented for LLM outputs in high-stakes contexts?"
+    category: LLM09
+    native_category: LLM09
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM09"
+      mitre-atlas: "AML.T0048.002"
+      nist-ai-rmf: "MEASURE 2.6, MANAGE 2.4"
+      nist-800-53: "SI-10, SI-12"
+      iso-42001: "A.6.2.2, A.5.5"
+      aiuc-1: "C003, C010"
+      eu-ai-act: "Art-15, Art-9"
+    evidence_required:
+      - "RAG or grounding implementation documentation for knowledge-grounded outputs"
+      - "Automated output validation configuration for high-stakes use cases"
+      - "Fine-tuning or model quality improvement records addressing hallucination reduction"
+    scoring:
+      full: "RAG or grounding implemented with validated external knowledge sources; automated validation applied in all high-stakes output contexts (legal, medical, financial)"
+      partial: "RAG implemented but validation of retrieved sources is inconsistent; automated output validation applied only to some high-stakes contexts"
+      none: "No grounding or RAG implementation; no automated validation of LLM outputs regardless of stakes"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM09-002
+    text: "Are LLM capabilities and limitations clearly communicated to users including the potential for misinformation, and are human oversight and fact-checking processes implemented for critical or sensitive information outputs?"
+    category: LLM09
+    native_category: LLM09
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM09"
+      nist-ai-rmf: "MEASURE 2.6, GOVERN 1.7"
+      mitre-atlas: "AML.T0048.002, AML.T0048"
+      nist-800-53: "SI-12, RA-3"
+      iso-42001: "9.1, A.5.5"
+      aiuc-1: "F001, C010"
+      eu-ai-act: "Art-12, Art-9"
+    evidence_required:
+      - "User interface documentation showing AI-generated content labeling and limitation disclosures"
+      - "Human review process documentation for critical information outputs"
+      - "User training or documentation on LLM limitations and verification practices"
+    scoring:
+      full: "All AI-generated content clearly labeled; limitations and misinformation risk explicitly communicated; human review processes active for critical outputs with evidence of application"
+      partial: "Some disclosure of AI limitations present but not prominently communicated; human review processes exist but are not consistently applied"
+      none: "No disclosure of AI limitations or misinformation risk to users; no human oversight process for critical outputs"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM09-003
+    text: "Are LLM-generated code suggestions reviewed for security vulnerabilities and hallucinated package references before integration into software systems?"
+    category: LLM09
+    native_category: LLM09
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM09"
+      nist-ai-rmf: "MEASURE 2.5, MEASURE 2.6"
+      mitre-atlas: "AML.T0048, AML.T0048.002"
+      nist-800-53: "SI-10, SA-9"
+      iso-42001: "A.6.2.3, 9.1"
+      aiuc-1: "D003, C003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - "Code review process documentation covering AI-generated code security review"
+      - "Package verification procedures for AI-suggested dependencies"
+      - "SAST tooling applied to AI-generated code before production deployment"
+    scoring:
+      full: "Mandatory security review of all AI-generated code; automated package verification against known repositories before installation; SAST applied to AI-generated code in CI/CD pipelines"
+      partial: "Code review encouraged but not enforced for AI-generated code; package verification is manual and inconsistently applied"
+      none: "AI-generated code integrated without security review; package suggestions followed without verification"
+    risk_weight: MEDIUM
+
+  # LLM10 - Unbounded Consumption (monitoring)
+
+  - id: Q-OWASP-LLM-LLM10-001
+    text: "Are rate limiting, input size restrictions, and user quotas implemented to prevent denial of service and Denial of Wallet attacks against LLM API endpoints?"
+    category: LLM10
+    native_category: LLM10
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM10"
+      mitre-atlas: "AML.T0029"
+      nist-ai-rmf: "MEASURE 2.7, GOVERN 1.7"
+      nist-800-53: "SC-5, SI-10"
+      iso-42001: "A.6.2.3, 9.1"
+      aiuc-1: "D004, E009"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - "Rate limiting configuration for LLM API endpoints"
+      - "Input size validation implementation with defined maximum token or character limits"
+      - "User quota configuration and enforcement records"
+    scoring:
+      full: "Rate limiting enforced per source entity with documented thresholds; strict input size limits implemented; user quotas configured to prevent cost abuse on cloud deployments"
+      partial: "Rate limiting present but applied only at some layers or without per-user granularity; input size limits exist but are not enforced consistently"
+      none: "No rate limiting on LLM endpoints; no input size restrictions; users can submit unlimited requests"
+    risk_weight: MEDIUM
+
+  - id: Q-OWASP-LLM-LLM10-002
+    text: "Is resource usage continuously monitored with anomaly detection to identify model extraction attempts, excessive consumption patterns, and side-channel attacks, with API responses configured to limit logit and probability exposure?"
+    category: LLM10
+    native_category: LLM10
+    domain: monitoring
+    controls:
+      owasp-llm: "LLM10"
+      mitre-atlas: "AML.T0034"
+      nist-ai-rmf: "MEASURE 2.7, MANAGE 2.2"
+      nist-800-53: "SC-5, AC-4"
+      iso-42001: "9.1, 6.1.2"
+      aiuc-1: "E009, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - "Resource usage monitoring and alerting configuration"
+      - "Anomaly detection rules for unusual consumption and extraction-pattern queries"
+      - "API response configuration showing restricted logit_bias and logprobs exposure"
+    scoring:
+      full: "Continuous resource monitoring with automated alerts on anomalous patterns; logits and logprobs restricted or obfuscated in all API responses; documented response to detected extraction attempts"
+      partial: "Resource monitoring present but anomaly detection thresholds not tuned for extraction patterns; logit exposure not specifically restricted"
+      none: "No resource usage monitoring; logits and probabilities exposed in full in API responses; no detection capability for model extraction attempts"
+    risk_weight: MEDIUM

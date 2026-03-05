@@ -1,0 +1,37 @@
+name: SOC 2 Trust Services Criteria
+type: framework
+version: "2017-2022"
+full_name: "2017 Trust Services Criteria (With Revised Points of Focus – 2022)"
+provider: aicpa
+skills:
+  - compliance
+industries:
+  - technology
+  - saas
+  - cloud_services
+  - managed_services
+native_categories:
+  - CC    # Common Criteria (Security) — required
+  - A     # Availability
+  - PI    # Processing Integrity
+  - C     # Confidentiality
+  - P     # Privacy
+source_url: https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+published: 2026-01-14
+questions_count: 30
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: complete
+  questions: complete
+  questions_framework_count: 4
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+  next_check: 2027-02-25
+reference_note: |
+  Official PDF must be downloaded from AICPA. The Trust Services Criteria PDF
+  is available at: https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+  Additional crosswalk: https://www.nist.gov/itl/applied-cybersecurity/privacy-engineering/american-institute-certified-public-accountants-aicpa

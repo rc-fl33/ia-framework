@@ -1,0 +1,43 @@
+{
+  "scripts": {
+    "setup": "bun tools/setup/install-framework.ts",
+    "setup:deps": "bun setup/install-dependencies.ts",
+    "generate:catalogs": "bun tools/docs/generate-catalogs.ts",
+    "generate:catalogs:check": "bun tools/docs/generate-catalogs.ts --check",
+    "suggest:links": "bun tools/docs/suggest-links.ts",
+    "suggest:links:report": "bun tools/docs/suggest-links.ts --output suggestions.md"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "@mermaid-js/mermaid-cli": "^11.12.0",
+    "@tryghost/admin-api": "^1.14.4",
+    "@types/ws": "^8.18.1",
+    "@upstash/context7-sdk": "^0.3.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "docx-templates": "^4.15.0",
+    "dotenv": "^17.2.3",
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.1",
+    "mermaid": "^11.12.3",
+    "minimatch": "^10.1.2",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^5.4.624",
+    "puppeteer": "^24.36.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "sharp": "^0.34.5",
+    "ts-curl-impersonate": "^1.0.8",
+    "twitter-api-v2": "^1.29.0",
+    "undici": "^7.19.0",
+    "ws": "^8.19.0",
+    "yaml": "^2.8.2",
+    "youtube-dl-exec": "^3.0.29",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.0"
+  }
+}

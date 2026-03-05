@@ -1,0 +1,2188 @@
+# NIST AI Risk Management Framework 1.0 — Assessment Questions
+# Source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/
+# Document: NIST AI 100-1 (January 2023)
+# Questions derived from official NIST AI RMF subcategories.
+# Cross-framework mappings use nist-ai-rmf references only at T2;
+# T3 crosswalk requires official NIST crosswalk documents.
+# Last verified: 2026-02-25
+
+framework: nist-ai-rmf
+version: "1.0"
+total_questions: 72
+
+functions:
+  - id: GV
+    name: GOVERN
+    domain: governance
+  - id: MP
+    name: MAP
+    domain: asset_management
+  - id: MR
+    name: MEASURE
+    domain: monitoring
+  - id: MG
+    name: MANAGE
+    domain: governance
+
+questions:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GOVERN (GV) — governance domain
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-NIST-AI-RMF-GV-001
+    text: >
+      Are legal and regulatory requirements involving AI understood, managed,
+      and documented across the organization?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.1"
+      iso-42001: "4.1, 6.1.1"
+      eu-ai-act: "Art-1, Art-2"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.OC-01, GV.PO-01"
+      iso-42005: "5.1"
+      aiuc-1: "A001"
+    evidence_required:
+      - "Legal and regulatory AI inventory or register"
+      - "Policy documentation referencing applicable AI laws and regulations"
+      - "Legal team sign-off or counsel review records"
+    scoring:
+      full: >
+        Documented inventory of applicable AI regulations with assigned owners,
+        review dates, and evidence of compliance actions
+      partial: >
+        AI legal requirements identified but not formally documented or
+        ownership not assigned
+      none: >
+        No documented process for tracking AI legal and regulatory requirements
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-002
+    text: >
+      Are the characteristics of trustworthy AI (fairness, transparency,
+      accountability, explainability, safety, security, privacy, reliability)
+      integrated into organizational policies, processes, and practices?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.2"
+      iso-42001: "4.4, 5.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5, Clause 6"
+      nist-csf: "GV.PO-01, GV.PO-02"
+      iso-42005: "5.1"
+      aiuc-1: "A002"
+    evidence_required:
+      - "AI policy documents referencing trustworthiness characteristics"
+      - "Development and deployment checklists including trustworthy AI criteria"
+      - "Training materials on trustworthy AI principles"
+    scoring:
+      full: >
+        Trustworthy AI characteristics formally integrated into policies with
+        measurable criteria and regular review
+      partial: >
+        Trustworthy AI principles mentioned in policy but not systematically
+        operationalized
+      none: >
+        No integration of trustworthy AI characteristics into organizational
+        practices
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-003
+    text: >
+      Are processes, procedures, and practices in place to determine the
+      appropriate level of risk management activities based on the
+      organization's risk tolerance?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.3"
+      iso-42001: "6.1.1, 6.1.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.9"
+      nist-csf: "GV.RM-01, GV.RM-02"
+      iso-42005: "5.7"
+      aiuc-1: "B001"
+    evidence_required:
+      - "Risk tolerance statement or policy"
+      - "AI risk tiering or classification criteria"
+      - "Records showing differentiated risk management by AI system risk level"
+    scoring:
+      full: >
+        Documented risk tolerance with defined tiers and evidence of
+        proportionate risk management applied per tier
+      partial: >
+        Risk tolerance referenced but criteria for differentiating risk
+        management activities are not defined
+      none: >
+        No risk tolerance framework for AI activities
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-004
+    text: >
+      Is the AI risk management process established through transparent policies,
+      procedures, and controls based on organizational risk priorities?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.4"
+      iso-42001: "5.2, 6.1.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.PO-01, GV.RM-02"
+      iso-42005: "5.1"
+      aiuc-1: "A001, B001"
+    evidence_required:
+      - "AI risk management policy and procedures"
+      - "Risk prioritization criteria documentation"
+      - "Evidence of policy publication and stakeholder access"
+    scoring:
+      full: >
+        Documented AI risk management process with transparent controls,
+        publicly accessible policies, and evidence of consistent application
+      partial: >
+        AI risk management process exists but is not fully transparent or
+        documented
+      none: >
+        No documented AI risk management process
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-005
+    text: >
+      Are ongoing monitoring and periodic review of the AI risk management
+      process planned, with organizational roles and responsibilities clearly
+      defined?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.5"
+      iso-42001: "9.1, 9.3"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "GV.RM-02, GV.RR-01"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "Monitoring and review schedule for AI risk management"
+      - "RACI or responsibility matrix for AI risk management roles"
+      - "Review meeting records or audit logs"
+    scoring:
+      full: >
+        Defined monitoring schedule with assigned roles, documented review
+        records, and evidence of process improvements from reviews
+      partial: >
+        Monitoring planned but not consistently executed, or roles unclear
+      none: >
+        No monitoring or review process for AI risk management
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-GV-006
+    text: >
+      Are mechanisms in place to inventory AI systems, resourced according to
+      organizational risk priorities?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.6"
+      iso-42001: "6.1.4, A.4.1"
+      eu-ai-act: "Art-51"
+      iso-24028: "Clause 5"
+      nist-csf: "ID.AM-07, GV.RM-01"
+      iso-42005: "5.4"
+      aiuc-1: "E012"
+    evidence_required:
+      - "AI system inventory or register with risk classification"
+      - "Process for adding new AI systems to inventory"
+      - "Resource allocation records aligned to inventory risk tiers"
+    scoring:
+      full: >
+        Complete AI inventory with risk classifications, regular updates, and
+        documented resource allocation per risk tier
+      partial: >
+        Partial AI inventory exists but coverage is incomplete or not
+        risk-classified
+      none: >
+        No AI system inventory
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-007
+    text: >
+      Are processes and procedures in place for decommissioning and phasing out
+      AI systems safely without increasing risks?
+    category: govern_policies
+    native_category: "Govern 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 1.7"
+      iso-42001: "8.4, 10.1"
+      eu-ai-act: "Art-72"
+      iso-24028: "Clause 6"
+      nist-csf: "GV.RM-06, RS.MI-03"
+      iso-42005: "5.4"
+      aiuc-1: "E007"
+    evidence_required:
+      - "AI decommissioning policy or runbook"
+      - "Records of completed AI system retirements"
+      - "Data retention and deletion procedures for retired AI systems"
+    scoring:
+      full: >
+        Documented decommissioning procedures with evidence of safe retirement
+        of at least one AI system
+      partial: >
+        Decommissioning process referenced but not formally documented or
+        untested
+      none: >
+        No AI decommissioning procedures
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-GV-008
+    text: >
+      Are roles and responsibilities for AI risk management — including lines
+      of communication — documented and clear to individuals and teams?
+    category: govern_accountability
+    native_category: "Govern 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 2.1"
+      iso-42001: "5.3, A.3.2"
+      eu-ai-act: "Art-26"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.RR-01, GV.RR-02"
+      iso-42005: "5.6"
+      aiuc-1: "E004"
+    evidence_required:
+      - "RACI matrix or role descriptions for AI risk management"
+      - "Organizational chart showing AI governance structure"
+      - "Communication protocols or escalation paths"
+    scoring:
+      full: >
+        Documented roles and communication paths with evidence of staff
+        awareness (training records, signed acknowledgments)
+      partial: >
+        Roles documented but not communicated or awareness not verified
+      none: >
+        No documented roles or responsibilities for AI risk management
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-009
+    text: >
+      Do personnel and partners receive AI risk management training sufficient
+      to perform their duties and responsibilities?
+    category: govern_accountability
+    native_category: "Govern 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 2.2"
+      iso-42001: "7.2, 7.3"
+      eu-ai-act: "Art-26"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.RR-02, GV.RR-04"
+      iso-42005: "5.6"
+      aiuc-1: "E001"
+    evidence_required:
+      - "AI risk management training curriculum or materials"
+      - "Training completion records for relevant staff"
+      - "Training frequency and refresh schedule"
+    scoring:
+      full: >
+        Role-based AI risk management training with completion records,
+        regular refreshes, and coverage of all relevant personnel
+      partial: >
+        Training exists but coverage is incomplete or refresh cycle undefined
+      none: >
+        No AI risk management training program
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-010
+    text: >
+      Does executive leadership take responsibility for decisions about AI
+      system development and deployment risks?
+    category: govern_accountability
+    native_category: "Govern 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 2.3"
+      iso-42001: "5.1, 5.3"
+      eu-ai-act: "Art-26"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.RR-01, GV.RR-03"
+      iso-42005: "5.6"
+      aiuc-1: "A006"
+    evidence_required:
+      - "Board or executive committee AI governance charter or policy"
+      - "Executive sign-off on high-risk AI deployments"
+      - "Board meeting minutes referencing AI risk oversight"
+    scoring:
+      full: >
+        Documented executive accountability with evidence of active oversight
+        (board minutes, approval records for high-risk AI)
+      partial: >
+        Executive responsibility referenced in policy but no evidence of active
+        exercise of oversight
+      none: >
+        No executive accountability for AI risk decisions
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-011
+    text: >
+      Is decision-making for AI risk management informed by a diverse,
+      interdisciplinary team throughout the AI lifecycle?
+    category: govern_workforce
+    native_category: "Govern 3"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 3.1"
+      iso-42001: "5.3, A.2.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.10"
+      nist-csf: "GV.RR-02, GV.OC-04"
+      iso-42005: "5.6"
+      aiuc-1: "A003"
+    evidence_required:
+      - "Team composition records showing diverse representation"
+      - "Interdisciplinary review processes (ethics, legal, technical, domain)"
+      - "Documentation of diverse perspectives in AI design decisions"
+    scoring:
+      full: >
+        Documented diverse team composition with records of interdisciplinary
+        input incorporated into AI risk decisions
+      partial: >
+        Diversity goal referenced but team composition is not verified or
+        documented
+      none: >
+        No diversity consideration in AI risk management decision-making
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-GV-012
+    text: >
+      Are policies and procedures in place to define and differentiate roles
+      and responsibilities for human-AI configurations and oversight?
+    category: govern_workforce
+    native_category: "Govern 3"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 3.2"
+      iso-42001: "5.3, A.6.2.6"
+      eu-ai-act: "Art-14, Art-22"
+      iso-24028: "Clause 6.8"
+      nist-csf: "GV.RR-01, GV.RR-04"
+      iso-42005: "5.6"
+      aiuc-1: "E003"
+    evidence_required:
+      - "Policy defining human-in-the-loop, human-on-the-loop, and fully automated configurations"
+      - "Role definitions for human oversight positions"
+      - "Operating procedures for AI systems requiring human intervention"
+    scoring:
+      full: >
+        Documented human-AI configuration policies with clear role definitions
+        and evidence of operationalization
+      partial: >
+        Human oversight referenced but configurations not formally defined
+      none: >
+        No policies for human-AI oversight configurations
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-013
+    text: >
+      Are organizational policies and practices in place to foster a critical
+      thinking and safety-first mindset in AI design, development, deployment,
+      and use?
+    category: govern_culture
+    native_category: "Govern 4"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 4.1"
+      iso-42001: "5.1, 5.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.2"
+      nist-csf: "GV.PO-01, GV.PO-02"
+      iso-42005: "5.1"
+      aiuc-1: "A004"
+    evidence_required:
+      - "AI ethics or safety policy"
+      - "Processes for raising safety concerns (psychological safety mechanisms)"
+      - "Evidence of safety-first culture in development processes (e.g., red teaming)"
+    scoring:
+      full: >
+        Documented safety-first culture policy with operational mechanisms and
+        evidence of active use (safety reports, red team exercises)
+      partial: >
+        Safety mindset referenced in policy but no operational mechanisms
+      none: >
+        No policy or practice supporting critical thinking or safety-first culture
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-014
+    text: >
+      Do organizational teams document the risks and potential impacts of AI
+      technology they design, develop, deploy, evaluate, and use?
+    category: govern_culture
+    native_category: "Govern 4"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 4.2"
+      iso-42001: "6.1.4, A.5.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "GV.RM-03, ID.RA-01"
+      iso-42005: "6.8"
+      aiuc-1: "B002"
+    evidence_required:
+      - "AI risk documentation or model cards for deployed systems"
+      - "Risk registers capturing AI-specific risks"
+      - "Impact assessments for new AI deployments"
+    scoring:
+      full: >
+        Consistent risk documentation across all AI systems with model cards,
+        risk registers, and impact assessments
+      partial: >
+        Risk documentation exists for some AI systems but is not systematic
+      none: >
+        No AI risk documentation practice
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-015
+    text: >
+      Are organizational practices in place to enable AI testing, identification
+      of incidents, and information sharing?
+    category: govern_culture
+    native_category: "Govern 4"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 4.3"
+      iso-42001: "10.1, 10.2"
+      eu-ai-act: "Art-72"
+      iso-24028: "Clause 6.2"
+      nist-csf: "DE.CM-01, RS.AN-01"
+      iso-42005: "5.8"
+      aiuc-1: "E009"
+    evidence_required:
+      - "AI testing and red teaming procedures"
+      - "Incident identification and reporting procedures for AI systems"
+      - "Internal and external information sharing mechanisms (e.g., incident reports)"
+    scoring:
+      full: >
+        Documented testing, incident identification, and information sharing
+        practices with evidence of execution
+      partial: >
+        Testing exists but incident identification or sharing is not formalized
+      none: >
+        No practices for AI testing, incident identification, or information sharing
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-016
+    text: >
+      Are policies and practices in place to collect, consider, prioritize,
+      and integrate external feedback regarding potential individual and
+      societal impacts of AI systems?
+    category: govern_engagement
+    native_category: "Govern 5"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 5.1"
+      iso-42001: "4.2, A.5.5"
+      eu-ai-act: "Art-27"
+      iso-24028: "Clause 6.10"
+      nist-csf: "GV.OC-04, GV.OC-05"
+      iso-42005: "5.8"
+      aiuc-1: "F001"
+    evidence_required:
+      - "External feedback collection mechanisms (surveys, community forums, public comment)"
+      - "Records of external feedback received and prioritization decisions"
+      - "Evidence of feedback integration into AI design or policy"
+    scoring:
+      full: >
+        Formal external feedback process with documented collection, review,
+        prioritization, and integration records
+      partial: >
+        Feedback collected informally but no systematic prioritization or
+        integration process
+      none: >
+        No external feedback mechanism for AI impacts
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-GV-017
+    text: >
+      Are mechanisms established to enable AI development and deployment teams
+      to regularly incorporate adjudicated feedback from relevant AI actors
+      into system design and implementation?
+    category: govern_engagement
+    native_category: "Govern 5"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 5.2"
+      iso-42001: "4.2, 8.1"
+      eu-ai-act: "Art-27"
+      iso-24028: "Clause 6.10"
+      nist-csf: "GV.OC-05, ID.IM-01"
+      iso-42005: "5.8"
+      aiuc-1: "F002"
+    evidence_required:
+      - "Feedback adjudication process documentation"
+      - "Records of feedback incorporated into system updates"
+      - "Change log or version history showing feedback-driven changes"
+    scoring:
+      full: >
+        Documented feedback loop with adjudication process and evidence of
+        feedback integration in system updates
+      partial: >
+        Feedback received but adjudication or integration is not systematic
+      none: >
+        No mechanism for incorporating AI actor feedback into systems
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-GV-018
+    text: >
+      Are policies and procedures in place that address AI risks associated with
+      third-party entities, including risks of infringement?
+    category: govern_supply_chain
+    native_category: "Govern 6"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 6.1"
+      iso-42001: "8.4, A.10.1"
+      eu-ai-act: "Art-25, Art-26"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.SC-01, GV.SC-04"
+      iso-42005: "6.3"
+      aiuc-1: "B005"
+    evidence_required:
+      - "Third-party AI vendor risk management policy"
+      - "IP infringement and data rights review procedures"
+      - "Vendor contracts with AI-specific risk clauses"
+    scoring:
+      full: >
+        Documented third-party AI risk policy with vendor contracts, IP review
+        procedures, and evidence of enforcement
+      partial: >
+        Third-party risk addressed in general vendor policy but without
+        AI-specific provisions
+      none: >
+        No third-party AI risk management policy
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-GV-019
+    text: >
+      Are contingency processes in place to handle failures or incidents in
+      third-party data or AI systems deemed high-risk?
+    category: govern_supply_chain
+    native_category: "Govern 6"
+    domain: governance
+    controls:
+      nist-ai-rmf: "GOVERN 6.2"
+      iso-42001: "8.4, 10.1"
+      eu-ai-act: "Art-72"
+      iso-24028: "Clause 6"
+      nist-csf: "GV.SC-07, RC.RP-01"
+      iso-42005: "5.12"
+      aiuc-1: "B006"
+    evidence_required:
+      - "Business continuity or contingency plans for third-party AI failures"
+      - "Fallback procedures for high-risk third-party AI system outages"
+      - "Tested recovery procedures (tabletop exercise records)"
+    scoring:
+      full: >
+        Documented contingency plans for high-risk third-party AI, with tested
+        fallback procedures
+      partial: >
+        General contingency plans exist but not specifically adapted for
+        third-party AI failures
+      none: >
+        No contingency processes for third-party AI failures
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MAP (MP) — asset_management domain
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-NIST-AI-RMF-MP-001
+    text: >
+      Are the intended purposes, beneficial uses, context-specific laws, norms,
+      expectations, and prospective deployment settings of the AI system
+      understood and documented?
+    category: map_context
+    native_category: "Map 1"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 1.1"
+      iso-42001: "4.1, 6.1.4"
+      eu-ai-act: "Art-9, Art-13"
+      iso-24028: "Clause 5"
+      nist-csf: "ID.AM-07, GV.OC-01"
+      iso-42005: "5.1, 6.6"
+      aiuc-1: "E012"
+    evidence_required:
+      - "Use case documentation with intended purposes and deployment context"
+      - "Regulatory landscape analysis for the deployment domain"
+      - "Documented norms and expectations for the deployment setting"
+    scoring:
+      full: >
+        Comprehensive documentation of purposes, applicable laws, deployment
+        context, and stakeholder norms with sign-off from domain experts
+      partial: >
+        Some context documented but legal landscape or deployment norms are
+        incomplete
+      none: >
+        No documented context for AI system intended use and deployment
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-002
+    text: >
+      Does the team establishing context for the AI system reflect demographic
+      diversity and broad domain and user experience expertise?
+    category: map_context
+    native_category: "Map 1"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 1.2"
+      iso-42001: "5.3, A.2.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.10"
+      nist-csf: "GV.OC-04, GV.RR-02"
+      iso-42005: "5.6"
+      aiuc-1: "A003"
+    evidence_required:
+      - "Team composition records showing diverse representation"
+      - "Domain expert consultation records"
+      - "User experience research or usability testing records"
+    scoring:
+      full: >
+        Documented diverse and interdisciplinary team composition with evidence
+        of domain expert and user input
+      partial: >
+        Some diversity in team but not systematically verified or documented
+      none: >
+        No diversity consideration in context-establishing team
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-003
+    text: >
+      Are the organization's mission and relevant goals for AI technology
+      understood and documented?
+    category: map_context
+    native_category: "Map 1"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 1.3"
+      iso-42001: "4.1, 6.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.OC-01, GV.OC-02"
+      iso-42005: "5.1"
+      aiuc-1: "A001"
+    evidence_required:
+      - "Strategic AI plan or roadmap aligned to organizational mission"
+      - "AI project charters referencing organizational goals"
+      - "Approval records from leadership confirming alignment"
+    scoring:
+      full: >
+        Documented AI strategy aligned to organizational mission with
+        leadership approval and regular review
+      partial: >
+        AI goals exist but alignment to mission is informal or not documented
+      none: >
+        No documented AI goals or mission alignment
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-004
+    text: >
+      Has the business value or context of AI use been clearly defined, or in
+      the case of existing systems, re-evaluated?
+    category: map_context
+    native_category: "Map 1"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 1.4"
+      iso-42001: "4.1, 6.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.OC-02, GV.OC-03"
+      iso-42005: "5.1"
+      aiuc-1: "E012"
+    evidence_required:
+      - "Business case documentation for AI system"
+      - "Value realization or ROI assessment"
+      - "Re-evaluation records for existing AI systems"
+    scoring:
+      full: >
+        Clear business case with defined value metrics, evidence of
+        measurement, and re-evaluation schedule for existing systems
+      partial: >
+        Business value described qualitatively but not measured or
+        re-evaluated systematically
+      none: >
+        No business case or value definition for AI system
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-005
+    text: >
+      Are organizational risk tolerances for AI determined and documented?
+    category: map_context
+    native_category: "Map 1"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 1.5"
+      iso-42001: "6.1.1, 6.1.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.9"
+      nist-csf: "GV.RM-01, GV.RM-03"
+      iso-42005: "5.7"
+      aiuc-1: "B001"
+    evidence_required:
+      - "Formal risk tolerance statement for AI systems"
+      - "Risk appetite documentation approved by leadership"
+      - "Evidence of risk tolerance applied in AI deployment decisions"
+    scoring:
+      full: >
+        Documented risk tolerance for AI with leadership approval and evidence
+        of application in deployment decisions
+      partial: >
+        Risk tolerance mentioned but not formally documented or consistently
+        applied
+      none: >
+        No documented AI risk tolerance
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-006
+    text: >
+      Are system requirements elicited from and understood by relevant AI
+      actors, with design decisions accounting for socio-technical implications?
+    category: map_context
+    native_category: "Map 1"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 1.6"
+      iso-42001: "8.1, A.5.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.10"
+      nist-csf: "ID.AM-07, GV.OC-04"
+      iso-42005: "5.6, 6.7"
+      aiuc-1: "C001"
+    evidence_required:
+      - "Requirements documentation from diverse stakeholders"
+      - "Socio-technical impact analysis in design records"
+      - "Stakeholder review and sign-off on requirements"
+    scoring:
+      full: >
+        Requirements elicited from diverse AI actors with documented
+        socio-technical analysis and stakeholder sign-off
+      partial: >
+        Requirements documented but stakeholder breadth or socio-technical
+        analysis is incomplete
+      none: >
+        No systematic requirements elicitation or socio-technical analysis
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-007
+    text: >
+      Are the specific tasks and AI methods used (e.g., classifiers, generative
+      models, recommenders) defined and documented?
+    category: map_categorization
+    native_category: "Map 2"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 2.1"
+      iso-42001: "A.4.2, A.4.3"
+      eu-ai-act: "Art-11"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.AM-07, ID.AM-08"
+      iso-42005: "6.3, 6.5"
+      aiuc-1: "D001"
+    evidence_required:
+      - "Technical design documents specifying AI methods and task definitions"
+      - "Model or system architecture documentation"
+      - "AI system categorization records"
+    scoring:
+      full: >
+        Complete technical documentation of AI methods, tasks, and
+        categorization with current version control
+      partial: >
+        AI methods partially documented but not comprehensive or current
+      none: >
+        No documentation of AI tasks or methods
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-008
+    text: >
+      Is information about the AI system's knowledge limits and how its output
+      may be utilized and overseen by humans documented?
+    category: map_categorization
+    native_category: "Map 2"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 2.2"
+      iso-42001: "A.4.5, A.6.2.6"
+      eu-ai-act: "Art-13, Art-14"
+      iso-24028: "Clause 6.3, Clause 6.8"
+      nist-csf: "ID.AM-08, GV.RR-04"
+      iso-42005: "6.3, 6.5"
+      aiuc-1: "D002"
+    evidence_required:
+      - "Model card or system documentation describing known limitations"
+      - "Human oversight guidance for AI output use"
+      - "Documentation of AI system confidence thresholds and failure modes"
+    scoring:
+      full: >
+        Documented knowledge limits with human oversight guidance and failure
+        mode analysis
+      partial: >
+        Limitations partially documented without human oversight guidance
+      none: >
+        No documentation of AI system knowledge limits or oversight guidance
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-009
+    text: >
+      Are scientific integrity and TEVV (testing, evaluation, verification, and
+      validation) considerations identified and documented, including those
+      related to experimental design, data collection, and selection?
+    category: map_categorization
+    native_category: "Map 2"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 2.3"
+      iso-42001: "A.6.2.3, A.7.2"
+      eu-ai-act: "Art-9, Art-10"
+      iso-24028: "Clause 6.5"
+      nist-csf: "ID.AM-08, DE.CM-01"
+      iso-42005: "6.4, 6.5"
+      aiuc-1: "C001"
+    evidence_required:
+      - "TEVV plan or protocol documentation"
+      - "Experimental design documentation with data collection methodology"
+      - "Scientific integrity policy or checklist"
+    scoring:
+      full: >
+        Documented TEVV plan with scientific integrity considerations, data
+        collection methodology, and review records
+      partial: >
+        TEVV partially documented but scientific integrity or data selection
+        considerations missing
+      none: >
+        No TEVV documentation or scientific integrity consideration
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-010
+    text: >
+      Are the potential benefits of intended AI system functionality and
+      performance examined and documented?
+    category: map_benefits_costs
+    native_category: "Map 3"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 3.1"
+      iso-42001: "6.2, A.5.3"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.OC-03, ID.RA-01"
+      iso-42005: "6.8"
+      aiuc-1: "E012"
+    evidence_required:
+      - "Benefits analysis documentation for the AI system"
+      - "Performance benchmarks and expected improvement metrics"
+      - "Evidence review showing benefits examined against benchmarks"
+    scoring:
+      full: >
+        Documented benefits analysis with quantified metrics and comparison
+        against benchmarks
+      partial: >
+        Benefits described qualitatively without measurement or benchmarking
+      none: >
+        No benefits analysis for AI system
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-011
+    text: >
+      Are potential costs — including non-monetary costs from expected or
+      realized AI errors or system failures — examined and documented?
+    category: map_benefits_costs
+    native_category: "Map 3"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 3.2"
+      iso-42001: "6.1.4, A.5.4"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.9"
+      nist-csf: "ID.RA-01, ID.RA-04"
+      iso-42005: "6.8"
+      aiuc-1: "B002"
+    evidence_required:
+      - "Cost-benefit analysis including non-monetary harms"
+      - "Error impact assessment (false positive/negative cost analysis)"
+      - "Documentation of costs from past AI incidents or errors"
+    scoring:
+      full: >
+        Documented cost analysis including non-monetary harms, error impact
+        assessment, and historical incident costs
+      partial: >
+        Monetary costs documented but non-monetary harms or error costs not
+        analyzed
+      none: >
+        No cost analysis for AI system
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-012
+    text: >
+      Is the targeted application scope specified and documented based on the
+      AI system's capability, established context, and categorization?
+    category: map_benefits_costs
+    native_category: "Map 3"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 3.3"
+      iso-42001: "4.3, A.4.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.OC-01, ID.AM-07"
+      iso-42005: "5.5, 6.2"
+      aiuc-1: "E012"
+    evidence_required:
+      - "Documented scope definition with in-scope and out-of-scope use cases"
+      - "Capability boundary documentation"
+      - "Context and categorization records supporting scope decisions"
+    scoring:
+      full: >
+        Clear scope documentation with explicit boundaries linked to capability
+        and context assessments
+      partial: >
+        Scope described informally without explicit boundaries or capability
+        linkage
+      none: >
+        No documented application scope
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-013
+    text: >
+      Are processes for operator and practitioner proficiency with AI system
+      performance and trustworthiness defined, assessed, and documented?
+    category: map_benefits_costs
+    native_category: "Map 3"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 3.4"
+      iso-42001: "7.2, A.6.2.6"
+      eu-ai-act: "Art-14, Art-26"
+      iso-24028: "Clause 6.8"
+      nist-csf: "GV.RR-02, GV.RR-04"
+      iso-42005: "5.6"
+      aiuc-1: "E001"
+    evidence_required:
+      - "Operator training and proficiency requirements documentation"
+      - "Competency assessment records for AI system operators"
+      - "Trustworthiness criteria communicated to operators"
+    scoring:
+      full: >
+        Documented proficiency requirements with assessment records and
+        regular refresher processes
+      partial: >
+        Proficiency requirements defined but assessments not conducted or
+        documented
+      none: >
+        No operator proficiency requirements for AI systems
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MP-014
+    text: >
+      Are processes for human oversight of AI systems defined, assessed, and
+      documented in accordance with organizational policies?
+    category: map_benefits_costs
+    native_category: "Map 3"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 3.5"
+      iso-42001: "A.6.2.6, 8.1"
+      eu-ai-act: "Art-14, Art-22"
+      iso-24028: "Clause 6.8"
+      nist-csf: "GV.RR-04, DE.CM-01"
+      iso-42005: "5.6"
+      aiuc-1: "E003"
+    evidence_required:
+      - "Human oversight policy and procedures for AI systems"
+      - "Oversight mechanism documentation (review intervals, escalation paths)"
+      - "Records of human oversight activities and decisions"
+    scoring:
+      full: >
+        Documented human oversight procedures with evidence of implementation
+        and regular assessment
+      partial: >
+        Oversight referenced in policy but procedures not defined or oversight
+        activities not recorded
+      none: >
+        No human oversight processes for AI systems
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-015
+    text: >
+      Are approaches for mapping AI technology and legal risks of AI system
+      components — including third-party data or software — in place, followed,
+      and documented?
+    category: map_component_risks
+    native_category: "Map 4"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 4.1"
+      iso-42001: "6.1.1, 8.4"
+      eu-ai-act: "Art-9, Art-25"
+      iso-24028: "Clause 5"
+      nist-csf: "ID.RA-01, GV.SC-04"
+      iso-42005: "6.3, 6.5"
+      aiuc-1: "B003"
+    evidence_required:
+      - "Component risk mapping methodology or framework"
+      - "Records of third-party component risk assessments"
+      - "Legal risk review records for AI components"
+    scoring:
+      full: >
+        Documented component risk mapping with legal review records and evidence
+        of consistent application
+      partial: >
+        Risk mapping partially applied or legal risks not included
+      none: >
+        No component risk mapping process
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-016
+    text: >
+      Are internal risk controls for AI system components, including third-party
+      AI technologies, identified and documented?
+    category: map_component_risks
+    native_category: "Map 4"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 4.2"
+      iso-42001: "6.1.3, 8.4"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.RA-01, PR.PS-01"
+      iso-42005: "6.5, 6.9"
+      aiuc-1: "B004"
+    evidence_required:
+      - "Risk control register for AI system components"
+      - "Third-party AI technology risk controls documentation"
+      - "Control testing or validation records"
+    scoring:
+      full: >
+        Complete control register covering all components including third-party
+        technologies, with testing evidence
+      partial: >
+        Controls identified for some components but coverage is incomplete
+      none: >
+        No risk controls documented for AI system components
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-017
+    text: >
+      Are the likelihood and magnitude of each identified AI impact — both
+      beneficial and harmful — identified and documented?
+    category: map_impacts
+    native_category: "Map 5"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 5.1"
+      iso-42001: "6.1.4, A.5.4"
+      eu-ai-act: "Art-9, Art-27"
+      iso-24028: "Clause 6.9"
+      nist-csf: "ID.RA-04, ID.RA-05"
+      iso-42005: "6.8"
+      aiuc-1: "C003"
+    evidence_required:
+      - "Impact assessment with likelihood and magnitude ratings"
+      - "Methodology for quantifying or qualifying impact severity"
+      - "Review records from affected communities or domain experts"
+    scoring:
+      full: >
+        Documented impact assessment with both beneficial and harmful impacts
+        rated for likelihood and magnitude, reviewed by stakeholders
+      partial: >
+        Impacts identified but likelihood/magnitude not assessed or only
+        harmful impacts documented
+      none: >
+        No impact identification or assessment
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MP-018
+    text: >
+      Are practices and personnel for regular engagement with relevant AI actors
+      — to collect and integrate feedback about AI impacts — in place and
+      documented?
+    category: map_impacts
+    native_category: "Map 5"
+    domain: asset_management
+    controls:
+      nist-ai-rmf: "MAP 5.2"
+      iso-42001: "4.2, A.5.5"
+      eu-ai-act: "Art-27"
+      iso-24028: "Clause 6.10"
+      nist-csf: "GV.OC-04, GV.OC-05"
+      iso-42005: "5.8, 6.7"
+      aiuc-1: "F001"
+    evidence_required:
+      - "AI actor engagement plan or schedule"
+      - "Designated personnel for impact feedback collection"
+      - "Records of engagement activities and feedback integration"
+    scoring:
+      full: >
+        Documented engagement plan with assigned personnel, executed
+        activities, and records of feedback integration
+      partial: >
+        Engagement occurs informally but is not planned or documented
+      none: >
+        No engagement process for collecting AI impact feedback
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MEASURE (MR) — monitoring domain
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-NIST-AI-RMF-MR-001
+    text: >
+      Are approaches and metrics for measuring AI risks — starting with the
+      most significant — selected and applied?
+    category: measure_methods
+    native_category: "Measure 1"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 1.1"
+      iso-42001: "9.1, 6.1.4"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "DE.CM-01, ID.RA-05"
+      iso-42005: "5.7"
+      aiuc-1: "B001"
+    evidence_required:
+      - "AI risk measurement methodology documentation"
+      - "Selected metrics list with rationale for prioritization"
+      - "Evidence of metrics applied to identified AI risks"
+    scoring:
+      full: >
+        Documented risk measurement methodology with prioritized metrics and
+        evidence of application to significant risks
+      partial: >
+        Metrics selected but not risk-prioritized or application is inconsistent
+      none: >
+        No AI risk measurement methodology or metrics
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-002
+    text: >
+      Are AI metrics and the effectiveness of existing controls regularly
+      assessed and updated, including reports of errors and potential impacts?
+    category: measure_methods
+    native_category: "Measure 1"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 1.2"
+      iso-42001: "9.1, 10.1"
+      eu-ai-act: "Art-9, Art-17"
+      iso-24028: "Clause 6"
+      nist-csf: "DE.CM-01, ID.IM-02"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "Metric review records with update history"
+      - "Control effectiveness assessment records"
+      - "Error and incident reports linked to metric updates"
+    scoring:
+      full: >
+        Regular metric and control reviews with documented updates driven by
+        error reports and impact analysis
+      partial: >
+        Metrics reviewed occasionally but not on a defined schedule or not
+        linked to error reports
+      none: >
+        No process for reviewing or updating AI metrics or controls
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-003
+    text: >
+      Are internal experts not involved as front-line developers, and/or
+      independent assessors, involved in regular AI system assessments and
+      updates?
+    category: measure_methods
+    native_category: "Measure 1"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 1.3"
+      iso-42001: "9.2, 9.3"
+      eu-ai-act: "Art-9, Art-17"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.IM-01, ID.IM-02"
+      iso-42005: "5.6"
+      aiuc-1: "E008"
+    evidence_required:
+      - "Independent review records or third-party assessment reports"
+      - "Internal assessor role definitions showing separation from development"
+      - "Assessment frequency and scope documentation"
+    scoring:
+      full: >
+        Regular independent assessments with documented separation of duties
+        and external/internal review records
+      partial: >
+        Some independent review occurs but is not systematic or documented
+      none: >
+        No independent assessment of AI systems
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-004
+    text: >
+      Are test sets, metrics, and details about TEVV tools documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.1"
+      iso-42001: "A.6.2.3, 9.1"
+      eu-ai-act: "Art-9, Art-17"
+      iso-24028: "Clause 6.5"
+      nist-csf: "DE.CM-01, ID.IM-01"
+      iso-42005: "6.5"
+      aiuc-1: "D003"
+    evidence_required:
+      - "TEVV test set documentation with data provenance"
+      - "Metrics definitions and measurement tool documentation"
+      - "TEVV tool inventory with version information"
+    scoring:
+      full: >
+        Comprehensive TEVV documentation covering test sets, metrics, and
+        tools with version history
+      partial: >
+        Partial TEVV documentation — some elements missing or not current
+      none: >
+        No TEVV documentation
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-005
+    text: >
+      Do evaluations involving human subjects meet applicable requirements and
+      represent the relevant population?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.2"
+      iso-42001: "A.6.2.2, A.7.2"
+      eu-ai-act: "Art-10"
+      iso-24028: "Clause 6.4"
+      nist-csf: "ID.RA-02, DE.CM-01"
+      iso-42005: "6.4"
+      aiuc-1: "C002"
+    evidence_required:
+      - "IRB or ethics board approval records (if applicable)"
+      - "Population representativeness analysis for human subject evaluations"
+      - "Consent procedures and records"
+    scoring:
+      full: >
+        All human subject evaluations with documented IRB/ethics review,
+        representativeness analysis, and consent records
+      partial: >
+        Human subject evaluations conducted but representativeness or ethics
+        review not documented
+      none: >
+        No documentation of human subject evaluation requirements
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-006
+    text: >
+      Are AI system performance or assurance criteria measured qualitatively or
+      quantitatively and demonstrated for conditions similar to the deployment
+      setting?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.3"
+      iso-42001: "A.6.2.3, 9.1"
+      eu-ai-act: "Art-9, Art-15"
+      iso-24028: "Clause 6.5, Clause 6.6"
+      nist-csf: "DE.CM-01, DE.CM-06"
+      iso-42005: "6.5"
+      aiuc-1: "D004"
+    evidence_required:
+      - "Performance evaluation reports with pre-production testing results"
+      - "Deployment condition simulation or staging environment records"
+      - "Assurance criteria definition and measurement methodology"
+    scoring:
+      full: >
+        Documented performance criteria with measurement results from
+        deployment-condition testing
+      partial: >
+        Performance tested but not under deployment-similar conditions or
+        criteria not formally defined
+      none: >
+        No performance measurement against defined criteria
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-007
+    text: >
+      Are the functionality and behavior of the AI system and its components
+      monitored in production?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.4"
+      iso-42001: "9.1, A.6.2.5"
+      eu-ai-act: "Art-9, Art-72"
+      iso-24028: "Clause 6.5"
+      nist-csf: "DE.CM-01, DE.CM-09"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "Production monitoring system and dashboards"
+      - "Monitoring coverage documentation (metrics, frequency, alerting)"
+      - "Monitoring review and alert response records"
+    scoring:
+      full: >
+        Continuous production monitoring with documented coverage, alerting,
+        and evidence of active review
+      partial: >
+        Monitoring exists but coverage is incomplete or alerting not
+        operationalized
+      none: >
+        No production monitoring for AI systems
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-008
+    text: >
+      Is the AI system demonstrated to be valid and reliable, with documented
+      limitations on generalizability?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.5"
+      iso-42001: "A.6.2.3, A.4.5"
+      eu-ai-act: "Art-9, Art-15"
+      iso-24028: "Clause 6.5, Clause 6.6"
+      nist-csf: "DE.CM-01, ID.IM-02"
+      iso-42005: "6.5"
+      aiuc-1: "D004"
+    evidence_required:
+      - "Validation and reliability testing records"
+      - "Documented generalizability limitations (out-of-distribution performance)"
+      - "Model card or system sheet with reliability characterization"
+    scoring:
+      full: >
+        Documented validity and reliability evidence with explicit
+        generalizability limitations
+      partial: >
+        Validation performed but generalizability limitations not documented
+      none: >
+        No validity or reliability evidence documented
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-009
+    text: >
+      Is the AI system regularly evaluated for safety risks, and demonstrated
+      to be safe with residual negative risk not exceeding risk tolerance?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.6"
+      iso-42001: "6.1.4, 9.1"
+      eu-ai-act: "Art-9, Art-15"
+      iso-24028: "Clause 6.2"
+      nist-csf: "DE.CM-01, ID.RA-05"
+      iso-42005: "5.7, 6.8"
+      aiuc-1: "B002"
+    evidence_required:
+      - "Safety evaluation reports with risk findings"
+      - "Residual risk assessment against risk tolerance"
+      - "Safety testing frequency and methodology documentation"
+    scoring:
+      full: >
+        Regular safety evaluations with documented residual risk assessments
+        demonstrating risk within tolerance
+      partial: >
+        Safety evaluated but residual risk not assessed against tolerance or
+        evaluation frequency not defined
+      none: >
+        No safety risk evaluation for AI system
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-010
+    text: >
+      Are AI system security and resilience evaluated and documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.7"
+      iso-42001: "A.6.2.4, 9.1"
+      eu-ai-act: "Art-15"
+      iso-24028: "Clause 6.7"
+      nist-csf: "DE.CM-01, ID.RA-05"
+      iso-42005: "6.8"
+      owasp-llm: "LLM05, LLM07"
+      aiuc-1: "D005"
+    evidence_required:
+      - "Security assessment reports (adversarial testing, red teaming)"
+      - "Resilience testing records (failure mode testing, recovery testing)"
+      - "Security and resilience metrics and benchmarks"
+    scoring:
+      full: >
+        Regular security and resilience evaluations with documented methodology,
+        findings, and remediation tracking
+      partial: >
+        Security evaluated but resilience not tested or evaluation is infrequent
+      none: >
+        No security or resilience evaluation for AI systems
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-011
+    text: >
+      Are risks associated with AI transparency and accountability examined and
+      documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.8"
+      iso-42001: "A.5.3, 9.1"
+      eu-ai-act: "Art-13, Art-50"
+      iso-24028: "Clause 6.3, Clause 6.11"
+      nist-csf: "DE.CM-01, GV.OC-05"
+      iso-42005: "6.8"
+      aiuc-1: "E015"
+    evidence_required:
+      - "Transparency risk assessment (explainability gaps, accountability gaps)"
+      - "Documentation of transparency mechanisms (model cards, audit trails)"
+      - "Accountability gap analysis and remediation records"
+    scoring:
+      full: >
+        Documented transparency and accountability risk analysis with
+        mechanisms in place and gap remediation records
+      partial: >
+        Transparency mechanisms exist but accountability risks not formally
+        assessed
+      none: >
+        No transparency or accountability risk examination
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-012
+    text: >
+      Is the AI model explained, validated, and documented, and is AI system
+      output interpreted within its context?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.9"
+      iso-42001: "A.4.5, A.6.2.3"
+      eu-ai-act: "Art-13, Art-50"
+      iso-24028: "Clause 6.3"
+      nist-csf: "DE.CM-01, ID.AM-08"
+      iso-42005: "6.5"
+      owasp-llm: "LLM04"
+      aiuc-1: "D002"
+    evidence_required:
+      - "Model explainability documentation (XAI techniques used)"
+      - "Model validation records"
+      - "Output interpretation guidance for operators and users"
+    scoring:
+      full: >
+        Model explanation, validation, and documentation complete with
+        output interpretation guidance provided to users
+      partial: >
+        Model validated but explainability documentation or output
+        interpretation guidance incomplete
+      none: >
+        No model explanation, validation, or documentation
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-013
+    text: >
+      Is privacy risk of the AI system examined and documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.10"
+      iso-42001: "A.7.4, 9.1"
+      eu-ai-act: "Art-10"
+      iso-24028: "Clause 6.4"
+      nist-csf: "ID.RA-02, DE.CM-01"
+      iso-42005: "6.8"
+      aiuc-1: "C004"
+    evidence_required:
+      - "Privacy impact assessment (PIA) for the AI system"
+      - "Data minimization and anonymization review records"
+      - "Privacy risk register and remediation records"
+    scoring:
+      full: >
+        Completed PIA with identified risks, mitigations, and evidence of
+        ongoing privacy risk monitoring
+      partial: >
+        Privacy risks partially assessed but PIA incomplete or not current
+      none: >
+        No privacy risk examination for AI system
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-014
+    text: >
+      Are fairness and bias evaluated and results documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.11"
+      iso-42001: "A.7.2, 9.1"
+      eu-ai-act: "Art-10"
+      iso-24028: "Clause 6.4, Clause 6.9"
+      nist-csf: "DE.CM-01, ID.RA-02"
+      iso-42005: "6.8"
+      aiuc-1: "C005"
+    evidence_required:
+      - "Fairness and bias evaluation methodology documentation"
+      - "Bias testing results across relevant demographic groups"
+      - "Remediation records for identified bias issues"
+    scoring:
+      full: >
+        Documented fairness and bias methodology with results across relevant
+        groups and evidence of bias remediation
+      partial: >
+        Bias testing performed but methodology not documented or coverage of
+        relevant groups is incomplete
+      none: >
+        No fairness or bias evaluation
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-015
+    text: >
+      Are the environmental impact and sustainability of AI model training and
+      management activities assessed and documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.12"
+      iso-42001: "A.6.2.1, 9.1"
+      eu-ai-act: "Art-51, Art-56"
+      iso-24028: "Clause 6"
+      nist-csf: "DE.CM-01, GV.OC-03"
+      iso-42005: "6.8"
+      aiuc-1: "E016"
+    evidence_required:
+      - "Environmental impact assessment for AI training (energy use, carbon footprint)"
+      - "Sustainability criteria for AI infrastructure decisions"
+      - "Environmental monitoring and reporting records"
+    scoring:
+      full: >
+        Documented environmental impact assessment with sustainability criteria
+        and ongoing monitoring
+      partial: >
+        Environmental impact acknowledged but not formally assessed or tracked
+      none: >
+        No environmental impact assessment for AI training or management
+    risk_weight: LOW
+
+  - id: Q-NIST-AI-RMF-MR-016
+    text: >
+      Are the effectiveness of TEVV metrics and processes in the measure
+      function evaluated and documented?
+    category: measure_evaluation
+    native_category: "Measure 2"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 2.13"
+      iso-42001: "9.1, 10.1"
+      eu-ai-act: "Art-9, Art-17"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.IM-01, ID.IM-02"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "TEVV effectiveness review records"
+      - "Metrics performance analysis (sensitivity, specificity of risk metrics)"
+      - "Process improvement records from TEVV reviews"
+    scoring:
+      full: >
+        Regular TEVV effectiveness reviews with documented findings and
+        process improvements
+      partial: >
+        TEVV reviewed informally but effectiveness not systematically measured
+      none: >
+        No evaluation of TEVV metrics or processes
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MR-017
+    text: >
+      Are approaches, personnel, and documentation in place to regularly
+      identify and track existing, unanticipated, and emergent AI risks?
+    category: measure_risk_tracking
+    native_category: "Measure 3"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 3.1"
+      iso-42001: "6.1.4, 9.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "DE.CM-01, ID.RA-01"
+      iso-42005: "5.12"
+      aiuc-1: "B003"
+    evidence_required:
+      - "AI risk tracking methodology and schedule"
+      - "Risk register with dates showing ongoing tracking"
+      - "Records of unanticipated risk identification and response"
+    scoring:
+      full: >
+        Systematic risk tracking with assigned personnel, regular cadence, and
+        documented emergent risk identification
+      partial: >
+        Risk tracking occurs but is not systematic or emergent risks are not
+        specifically tracked
+      none: >
+        No process for tracking AI risks over time
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-018
+    text: >
+      Are risk tracking approaches considered for settings where AI risks are
+      difficult to assess with currently available measurement techniques?
+    category: measure_risk_tracking
+    native_category: "Measure 3"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 3.2"
+      iso-42001: "6.1.4, 9.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.RA-09, ID.RA-10"
+      iso-42005: "5.8"
+      aiuc-1: "B003"
+    evidence_required:
+      - "Documentation of hard-to-measure AI risks and alternative tracking approaches"
+      - "Research or expert consultation records for unmeasured risk areas"
+      - "Qualitative risk tracking documentation for difficult-to-measure risks"
+    scoring:
+      full: >
+        Documented consideration of difficult-to-measure risks with alternative
+        tracking approaches and expert consultation
+      partial: >
+        Hard-to-measure risks acknowledged but no alternative tracking approach
+        documented
+      none: >
+        No consideration of risks beyond standard measurement techniques
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MR-019
+    text: >
+      Are feedback processes for end users and impacted communities to report
+      problems and appeal AI system outcomes established and integrated?
+    category: measure_risk_tracking
+    native_category: "Measure 3"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 3.3"
+      iso-42001: "A.5.5, 10.1"
+      eu-ai-act: "Art-27"
+      iso-24028: "Clause 6.10"
+      nist-csf: "RS.AN-01, GV.OC-05"
+      iso-42005: "5.8, 6.7"
+      aiuc-1: "F001"
+    evidence_required:
+      - "User feedback and appeal mechanism documentation"
+      - "Community reporting channels for AI harm"
+      - "Records of feedback received and integration into system improvements"
+    scoring:
+      full: >
+        Documented feedback and appeal mechanisms with records of receipt,
+        review, and integration of user/community feedback
+      partial: >
+        Feedback mechanism exists but appeal process or community channels
+        not established
+      none: >
+        No feedback or appeal mechanism for AI system outcomes
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MR-020
+    text: >
+      Are measurement approaches for identifying AI risks connected to
+      deployment contexts and informed by domain experts and end users?
+    category: measure_feedback
+    native_category: "Measure 4"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 4.1"
+      iso-42001: "9.1, 4.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.RA-02, DE.CM-01"
+      iso-42005: "5.8"
+      aiuc-1: "B001"
+    evidence_required:
+      - "Deployment context descriptions linked to measurement approaches"
+      - "Domain expert consultation records for measurement design"
+      - "End user input records in measurement approach development"
+    scoring:
+      full: >
+        Measurement approaches explicitly linked to deployment contexts with
+        documented expert and user consultation
+      partial: >
+        Measurements taken but not contextualized or lacking expert input
+      none: >
+        No context-linked measurement approaches
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MR-021
+    text: >
+      Are measurement results regarding AI system trustworthiness informed by
+      domain experts and relevant AI actors?
+    category: measure_feedback
+    native_category: "Measure 4"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 4.2"
+      iso-42001: "9.1, 4.2"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.RA-02, ID.IM-02"
+      iso-42005: "5.8, 6.7"
+      aiuc-1: "F002"
+    evidence_required:
+      - "Expert review records for trustworthiness measurement results"
+      - "AI actor (user, operator, impacted community) input on measurement results"
+      - "Documentation of how expert input shaped measurement interpretation"
+    scoring:
+      full: >
+        Trustworthiness measurements reviewed by domain experts and relevant
+        AI actors with documented input and interpretation
+      partial: >
+        Expert input sought but AI actor perspectives not systematically
+        incorporated
+      none: >
+        No external input into trustworthiness measurement results
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MR-022
+    text: >
+      Are measurable performance improvements or declines based on consultations
+      with relevant AI actors identified and documented?
+    category: measure_feedback
+    native_category: "Measure 4"
+    domain: monitoring
+    controls:
+      nist-ai-rmf: "MEASURE 4.3"
+      iso-42001: "9.1, 10.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.IM-01, ID.IM-04"
+      iso-42005: "5.12"
+      aiuc-1: "F002"
+    evidence_required:
+      - "Performance trend documentation from consultation-driven reviews"
+      - "Records of AI actor consultations leading to performance changes"
+      - "Before/after performance comparison reports"
+    scoring:
+      full: >
+        Documented performance trends from AI actor consultations with
+        before/after comparison records
+      partial: >
+        Consultations occur but performance changes are not systematically
+        measured or documented
+      none: >
+        No performance measurement linked to AI actor consultations
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MANAGE (MG) — governance domain
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-NIST-AI-RMF-MG-001
+    text: >
+      Is a determination made as to whether the AI system achieves its intended
+      purposes and whether its development or deployment should proceed?
+    category: manage_prioritization
+    native_category: "Manage 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 1.1"
+      iso-42001: "8.1, 6.1.4"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "GV.RM-05, RS.AN-01"
+      iso-42005: "5.11"
+      aiuc-1: "E007"
+    evidence_required:
+      - "Go/no-go decision records for AI system deployment"
+      - "Criteria used for deployment proceed/halt decisions"
+      - "Decision authority documentation"
+    scoring:
+      full: >
+        Documented go/no-go process with defined criteria, decision authority,
+        and records of deployment decisions
+      partial: >
+        Go/no-go decisions made but criteria not formally defined or documented
+      none: >
+        No formal determination process for AI system deployment
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-002
+    text: >
+      Is treatment of documented AI risks prioritized based on impact,
+      likelihood, and available resources?
+    category: manage_prioritization
+    native_category: "Manage 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 1.2"
+      iso-42001: "6.1.4, 6.1.3"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6.9"
+      nist-csf: "GV.RM-04, GV.RM-05"
+      iso-42005: "6.9"
+      aiuc-1: "B001"
+    evidence_required:
+      - "Risk prioritization methodology documentation"
+      - "Risk register with priority ratings and treatment assignments"
+      - "Resource allocation records aligned to risk priorities"
+    scoring:
+      full: >
+        Documented prioritization methodology applied consistently with
+        resource allocation aligned to risk priorities
+      partial: >
+        Risks prioritized informally without documented methodology or resource
+        alignment
+      none: >
+        No risk prioritization process
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-003
+    text: >
+      Are responses to high-priority AI risks developed, planned, and documented,
+      including options to mitigate, transfer, avoid, or accept?
+    category: manage_prioritization
+    native_category: "Manage 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 1.3"
+      iso-42001: "6.1.3, 8.1"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 6"
+      nist-csf: "RS.AN-01, RS.MI-01"
+      iso-42005: "6.9"
+      aiuc-1: "B004"
+    evidence_required:
+      - "Risk response plans for high-priority AI risks"
+      - "Documentation of selected response strategy (mitigate/transfer/avoid/accept)"
+      - "Implementation records for risk response actions"
+    scoring:
+      full: >
+        Documented risk response plans for all high-priority risks with
+        strategy rationale and implementation evidence
+      partial: >
+        Response plans exist for some high-priority risks but coverage is
+        incomplete
+      none: >
+        No documented risk response plans
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-004
+    text: >
+      Are negative residual risks to downstream acquirers and end users
+      documented?
+    category: manage_prioritization
+    native_category: "Manage 1"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 1.4"
+      iso-42001: "6.1.4, A.5.3"
+      eu-ai-act: "Art-9, Art-13"
+      iso-24028: "Clause 6.9"
+      nist-csf: "GV.SC-07, RS.MI-01"
+      iso-42005: "6.9"
+      aiuc-1: "B006"
+    evidence_required:
+      - "Residual risk documentation for downstream system users"
+      - "Disclosure records to downstream acquirers of known residual risks"
+      - "End user communication of residual risk and guidance"
+    scoring:
+      full: >
+        All residual risks documented with disclosure to downstream acquirers
+        and end users
+      partial: >
+        Residual risks documented but not disclosed to downstream parties
+      none: >
+        No documentation of residual AI risks
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-005
+    text: >
+      Are resources required to manage AI risks taken into account, along with
+      viable non-AI alternatives?
+    category: manage_strategies
+    native_category: "Manage 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 2.1"
+      iso-42001: "7.1, 6.1.3"
+      eu-ai-act: "Art-9"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.RM-07, GV.RM-05"
+      iso-42005: "5.1"
+      aiuc-1: "E012"
+    evidence_required:
+      - "Resource assessment for AI risk management activities"
+      - "Non-AI alternative analysis documentation"
+      - "Budget and staffing allocation records for AI risk management"
+    scoring:
+      full: >
+        Documented resource assessment with non-AI alternative analysis and
+        verified resource allocation
+      partial: >
+        Resources allocated but non-AI alternatives not analyzed or resource
+        sufficiency not assessed
+      none: >
+        No resource assessment for AI risk management
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MG-006
+    text: >
+      Are mechanisms in place and applied to sustain the value of deployed AI
+      systems?
+    category: manage_strategies
+    native_category: "Manage 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 2.2"
+      iso-42001: "8.1, 9.1"
+      eu-ai-act: "Art-72"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.IM-01, DE.CM-01"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "AI system maintenance and update procedures"
+      - "Value monitoring metrics and review records"
+      - "Model retraining or update schedule documentation"
+    scoring:
+      full: >
+        Documented maintenance procedures with value monitoring and evidence
+        of executed updates to sustain performance
+      partial: >
+        Maintenance performed but value monitoring is not systematic
+      none: >
+        No mechanisms to sustain value of deployed AI systems
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MG-007
+    text: >
+      Are procedures followed to respond to and recover from previously unknown
+      AI risks when they are identified?
+    category: manage_strategies
+    native_category: "Manage 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 2.3"
+      iso-42001: "10.1, 10.2"
+      eu-ai-act: "Art-72"
+      iso-24028: "Clause 6"
+      nist-csf: "RS.AN-01, RC.RP-01"
+      iso-42005: "5.12"
+      aiuc-1: "E009"
+    evidence_required:
+      - "Unknown risk response playbook or procedures"
+      - "Records of response to novel AI risks identified post-deployment"
+      - "Lessons learned documentation from novel risk events"
+    scoring:
+      full: >
+        Documented response procedures with evidence of execution and
+        lessons learned from novel risk events
+      partial: >
+        Response capability exists but procedures are not formalized or
+        no evidence of execution
+      none: >
+        No procedures for responding to unknown AI risks
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-008
+    text: >
+      Are mechanisms in place to supersede, disengage, or deactivate AI systems
+      that demonstrate performance or outcomes inconsistent with intended use,
+      with assigned responsibilities?
+    category: manage_strategies
+    native_category: "Manage 2"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 2.4"
+      iso-42001: "8.1, 10.1"
+      eu-ai-act: "Art-20, Art-72"
+      iso-24028: "Clause 6.2"
+      nist-csf: "RS.MI-02, RC.RP-01"
+      iso-42005: "5.11"
+      aiuc-1: "E007"
+    evidence_required:
+      - "AI system kill-switch or deactivation procedure documentation"
+      - "Trigger criteria for system deactivation"
+      - "Assigned authority for deactivation decisions"
+    scoring:
+      full: >
+        Documented deactivation mechanisms with defined trigger criteria,
+        assigned authority, and evidence of testing
+      partial: >
+        Deactivation capability exists but trigger criteria or authority not
+        formally assigned
+      none: >
+        No mechanism to deactivate or supersede underperforming AI systems
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-009
+    text: >
+      Are AI risks and benefits from third-party resources regularly monitored,
+      with risk controls applied and documented?
+    category: manage_third_party
+    native_category: "Manage 3"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 3.1"
+      iso-42001: "8.4, 9.1"
+      eu-ai-act: "Art-25, Art-26"
+      iso-24028: "Clause 5"
+      nist-csf: "GV.SC-04, GV.SC-07"
+      iso-42005: "6.3"
+      aiuc-1: "B005"
+    evidence_required:
+      - "Third-party AI risk monitoring records"
+      - "Third-party control assessment records"
+      - "Vendor risk review schedule and completion records"
+    scoring:
+      full: >
+        Regular third-party risk monitoring with documented controls and
+        evidence of applied risk management
+      partial: >
+        Third-party risks monitored but controls not systematically applied
+        or documented
+      none: >
+        No third-party AI risk monitoring
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-010
+    text: >
+      Are pre-trained models used in development monitored as part of regular
+      AI system monitoring and maintenance?
+    category: manage_third_party
+    native_category: "Manage 3"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 3.2"
+      iso-42001: "8.4, A.6.2.5"
+      eu-ai-act: "Art-53, Art-55"
+      iso-24028: "Clause 6.5"
+      nist-csf: "DE.CM-01, GV.SC-04"
+      iso-42005: "6.5"
+      owasp-llm: "LLM02, LLM03"
+    evidence_required:
+      - "Pre-trained model monitoring procedures and records"
+      - "Model update and drift detection documentation"
+      - "Third-party model change management records"
+    scoring:
+      full: >
+        Pre-trained models included in monitoring program with drift detection
+        and update management records
+      partial: >
+        Pre-trained models used but not specifically monitored beyond general
+        system monitoring
+      none: >
+        No monitoring of pre-trained models
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-011
+    text: >
+      Are post-deployment AI system monitoring plans implemented, including
+      mechanisms to capture and evaluate input from users and relevant AI
+      actors?
+    category: manage_post_deployment
+    native_category: "Manage 4"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 4.1"
+      iso-42001: "9.1, A.6.2.5"
+      eu-ai-act: "Art-72, Art-20"
+      iso-24028: "Clause 6"
+      nist-csf: "DE.CM-01, RS.AN-01"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "Post-deployment monitoring plan documentation"
+      - "User input capture mechanisms (feedback forms, telemetry, surveys)"
+      - "Monitoring review records showing user/actor feedback evaluation"
+    scoring:
+      full: >
+        Implemented monitoring plan with user input mechanisms and records of
+        feedback evaluation and action
+      partial: >
+        Monitoring in place but user input capture or feedback evaluation is
+        not systematic
+      none: >
+        No post-deployment monitoring plan
+    risk_weight: HIGH
+
+  - id: Q-NIST-AI-RMF-MG-012
+    text: >
+      Are measurable activities for continual improvement integrated into AI
+      system updates, including regular engagement with interested parties?
+    category: manage_post_deployment
+    native_category: "Manage 4"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 4.2"
+      iso-42001: "10.1, 9.3"
+      eu-ai-act: "Art-72"
+      iso-24028: "Clause 6"
+      nist-csf: "ID.IM-01, ID.IM-04"
+      iso-42005: "5.12"
+      aiuc-1: "E008"
+    evidence_required:
+      - "Continual improvement plan for AI systems"
+      - "Update records showing improvement activities"
+      - "Stakeholder engagement records for improvement planning"
+    scoring:
+      full: >
+        Documented continual improvement activities integrated into update
+        cycle with stakeholder engagement evidence
+      partial: >
+        AI system updated but improvements not measurable or stakeholder
+        engagement not documented
+      none: >
+        No continual improvement process for AI systems
+    risk_weight: MEDIUM
+
+  - id: Q-NIST-AI-RMF-MG-013
+    text: >
+      Are incidents and errors communicated to relevant AI actors, including
+      affected communities, with processes for tracking, responding to, and
+      recovering from them followed and documented?
+    category: manage_post_deployment
+    native_category: "Manage 4"
+    domain: governance
+    controls:
+      nist-ai-rmf: "MANAGE 4.3"
+      iso-42001: "10.1, 10.2"
+      eu-ai-act: "Art-72, Art-83"
+      iso-24028: "Clause 6"
+      nist-csf: "RS.AN-01, RC.CO-01"
+      iso-42005: "5.10"
+      aiuc-1: "E009"
+    evidence_required:
+      - "AI incident communication procedures and records"
+      - "Incident tracking system or register for AI events"
+      - "Recovery and response records for AI incidents"
+    scoring:
+      full: >
+        Documented incident communication with records of notification to
+        affected parties, tracking, response, and recovery
+      partial: >
+        Incidents tracked internally but external communication or recovery
+        documentation incomplete
+      none: >
+        No AI incident communication or tracking process
+    risk_weight: HIGH

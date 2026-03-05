@@ -1,0 +1,42 @@
+<!-- ia:finding
+id: F001
+severity: medium
+priority: P2
+title: "Example Finding Title"
+status: open
+cwe: "CWE-XXX"
+owasp: "OWASP-XXX"
+-->
+
+::: {.finding-medium}
+#### F001: Example Finding Title
+
+**Severity:** [Medium]{.badge-medium} | **Priority:** P2
+
+**Component:** [Component Name]
+
+**CWE:** CWE-XXX | **OWASP:** OWASP-XXX
+
+**Status:** Open
+
+---
+
+**Description**
+
+[Description of the finding]
+
+**Impact**
+
+[Impact description]
+
+**Proof of Concept**
+
+```
+[Code or steps to reproduce]
+```
+
+**Remediation**
+
+[Remediation guidance]
+
+:::

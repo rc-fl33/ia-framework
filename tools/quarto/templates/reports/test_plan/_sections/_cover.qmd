@@ -1,0 +1,36 @@
+::: {.report-header}
+![](../../../../../private/brand/assets/logo.webp){width=200}
+
+# Test Plan {.unnumbered .unlisted}
+
+<span class="report-target">[Project Name]</span>
+
+::: {.report-header-meta}
+<span><span class="meta-label">Organization</span>[Client Company Name]</span>
+<span><span class="meta-label">Report Date</span>$(date +%Y-%m-%d)</span>
+<span><span class="meta-label">Engagement ID</span>TEST_PLAN-$(date +%Y)-001</span>
+:::
+:::
+
+::: {.classification-notice .confidential}
+CONFIDENTIAL — For Authorized Recipients Only
+:::
+
+## Report Information {.unnumbered .unlisted}
+
+::: {.report-meta}
+| Field | Value |
+|-------|-------|
+| Project | [Project Name] |
+| Version | 1.0.0 |
+| Repository | https://github.com/org/repo |
+| Language / Frameworks | [Language] / [Frameworks] |
+| Organization | [Client Company Name] |
+| Assessment Type | Security Assessment |
+| Engagement ID | TEST_PLAN-$(date +%Y)-001 |
+| Classification | Confidential |
+| Review Window | $(date +%Y-%m-%d) — $(date +%Y-%m-%d) |
+| Report Date | $(date +%Y-%m-%d) |
+| Report Version | 1.0 |
+| Prepared By | [Your Name], Intelligence Adjacent |
+:::

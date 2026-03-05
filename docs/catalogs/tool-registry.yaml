@@ -1,0 +1,75 @@
+version: '1.0'
+generated: '2025-12-17T14:23:29.681406'
+total_tools: 3
+total_servers: 1
+tools:
+- name: context7
+  path: tools/research/context7
+  type: tool
+  category: research
+  subcategory: documentation
+  description: Context7 library documentation API wrapper for token-efficient docs
+    access
+  version: 1.0.0
+  capabilities:
+  - library_documentation
+  - api_documentation_search
+  - smart_caching
+  keywords:
+  - documentation
+  - library docs
+  - context7
+  - api reference
+  usage: 'python docs.py --library "react" --topic "hooks" --output docs.json
+
+    '
+  vps_required: false
+  language: python
+  last_updated: '2025-12-12'
+  executable: tools/research/context7/docs.py
+- name: openrouter
+  path: tools/research/openrouter
+  type: tool
+  category: research
+  subcategory: ai_models
+  description: OpenRouter API client for multi-model AI access (Grok, Perplexity,
+    etc.)
+  version: 1.0.0
+  capabilities:
+  - ai_model_discovery
+  - multi_model_access
+  - dynamic_model_selection
+  keywords:
+  - openrouter
+  - grok
+  - perplexity
+  - ai models
+  - llm
+  usage: 'python fetch_models.py --provider x-ai --output models.json
+
+    '
+  vps_required: false
+  language: python
+  last_updated: '2025-12-12'
+  executable: tools/research/openrouter/fetch_models.py
+- name: sample-tool
+  path: tools/test/sample-tool
+  type: tool
+  category: test
+  subcategory: validation
+  description: Sample tool for testing registry and validation
+  version: 1.0
+  capabilities:
+  - test_capability
+  - validation_testing
+  keywords:
+  - test
+  - sample
+  - validation
+  usage: 'python sample-tool.py --input test --output result.txt
+
+    '
+  vps_required: false
+  language: python
+  last_updated: '2025-12-12'
+  executable: tools/test/sample-tool/sample-tool.py

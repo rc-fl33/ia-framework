@@ -1,0 +1,5538 @@
+framework: cis-gke
+version: "unknown"
+status: draft
+source: "auto-extracted from 001-010.pdf; 011-020.pdf; 021-030.pdf; 031-040.pdf; 041-050.pdf; 051-060.pdf; 061-070.pdf; 071-080.pdf; 081-090.pdf; 091-100.pdf; 101-110.pdf; 111-120.pdf; 121-130.pdf; 131-140.pdf; 141-150.pdf; 151-160.pdf; 161-170.pdf; 171-180.pdf; 181-190.pdf; 191-200.pdf; 201-210.pdf; 211-220.pdf; 221-222.pdf"
+extraction_date: "2026-03-04"
+controls:
+  - id: "1"
+    title: "Control Plane Components"
+    type: clause
+    clause_ref: "1"
+    status: draft
+    content: ""
+  - id: "2"
+    title: "Control Plane Configuration"
+    type: clause
+    clause_ref: "2"
+    status: draft
+    content: ""
+  - id: "3"
+    title: "Worker Nodes"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "Worker Node Configuration Files"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: |
+      Page 2
+      Internal Only - General
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to 644 or more restrictive"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      (Automated) .............................................................................................................................. 19
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set to root:root (Automated)"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: ""
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions set to 644 (Automated)"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: ""
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set to root:root (Automated)"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: ""
+  - id: "4"
+    title: "Policies"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: ""
+  - id: "4.1"
+    title: "RBAC and Service Accounts"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where required (Automated)"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: ""
+  - id: "4.1.2"
+    title: "Minimize access to secrets (Automated)"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles (Automated)"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: ""
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively used (Automated)"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: ""
+  - id: "4.1.5"
+    title: "Ensure that Service Account Tokens are only mounted where necessary (Automated)"
+    type: subclause
+    clause_ref: "4.1.5"
+    status: draft
+    content: ""
+  - id: "4.1.6"
+    title: "Avoid use of system:masters group (Automated)"
+    type: subclause
+    clause_ref: "4.1.6"
+    status: draft
+    content: ""
+  - id: "4.1.7"
+    title: "Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster"
+    type: subclause
+    clause_ref: "4.1.7"
+    status: draft
+    content: |
+      (Manual) ................................................................................................................................... 45
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous (Automated)"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated (Automated)"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: ""
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated (Automated)"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: ""
+  - id: "4.2"
+    title: "Pod Security Standards"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard Baseline profile or stricter for all"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      namespaces. (Manual) ............................................................................................................. 57
+  - id: "4.3"
+    title: "Network Policies and CNI"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies (Manual)"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: ""
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies defined (Automated)"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: ""
+  - id: "4.4"
+    title: "Secrets Management"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: ""
+  - id: "4.4.1"
+    title: "Prefer using secrets as files over secrets as environment variables (Automated)"
+    type: subclause
+    clause_ref: "4.4.1"
+    status: draft
+    content: ""
+  - id: "4.4.2"
+    title: "Consider external secret storage (Manual)"
+    type: subclause
+    clause_ref: "4.4.2"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Extensible Admission Control"
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.5.1"
+    title: "Configure Image Provenance using ImagePolicyWebhook admission controller (Manual)"
+    type: subclause
+    clause_ref: "4.5.1"
+    status: draft
+    content: |
+      ................................................................................................................................................. 70
+  - id: "4.6"
+    title: "General Policies"
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.6.1"
+    title: "Create administrative boundaries between resources using namespaces (Manual)"
+    type: subclause
+    clause_ref: "4.6.1"
+    status: draft
+    content: ""
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault in the pod definitions"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      (Automated) .............................................................................................................................. 75
+  - id: "4.6.3"
+    title: "Apply Security Context to Pods and Containers (Manual)"
+    type: subclause
+    clause_ref: "4.6.3"
+    status: draft
+    content: ""
+  - id: "4.6.4"
+    title: "The default namespace should not be used (Automated)"
+    type: subclause
+    clause_ref: "4.6.4"
+    status: draft
+    content: ""
+  - id: "5"
+    title: "Managed services"
+    type: clause
+    clause_ref: "5"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Image Registry and Image Scanning"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled (Automated)"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: ""
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories (Manual)"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: ""
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image repositories (Manual)"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: ""
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used (Manual)"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Identity and Access Management (IAM)"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute Engine default service account"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      (Automated) .............................................................................................................................. 99
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and Workload Identity (Manual)"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: ""
+  - id: "5.3"
+    title: "Cloud Key Management Service (Cloud KMS)"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "5.3.1"
+    title: "Ensure Kubernetes Secrets are encrypted using keys managed in Cloud KMS"
+    type: subclause
+    clause_ref: "5.3.1"
+    status: draft
+    content: |
+      (Automated) ............................................................................................................................ 107
+  - id: "5.4"
+    title: "Node Metadata"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: ""
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: ""
+  - id: "5.5"
+    title: "Node Configuration and Maintenance"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: ""
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is used for GKE Node images"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      (Automated) ............................................................................................................................ 116
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes (Automated)"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: |
+      Page 3
+      Internal Only - General
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes (Automated)"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version management using Release"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      Channels (Automated) ........................................................................................................... 124
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: ""
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: ""
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: ""
+  - id: "5.6"
+    title: "Cluster Networking"
+    type: subclause
+    clause_ref: "5.6"
+    status: draft
+    content: ""
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility (Automated)"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: ""
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters (Automated)"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: ""
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: ""
+  - id: "5.6.4"
+    title: "Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled"
+    type: subclause
+    clause_ref: "5.6.4"
+    status: draft
+    content: |
+      (Automated) ............................................................................................................................ 146
+  - id: "5.6.5"
+    title: "Ensure clusters are created with Private Nodes (Automated)"
+    type: subclause
+    clause_ref: "5.6.5"
+    status: draft
+    content: ""
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes (Manual)"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: ""
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates (Automated)"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: ""
+  - id: "5.7"
+    title: "Logging"
+    type: subclause
+    clause_ref: "5.7"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: ""
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging (Manual)"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: ""
+  - id: "5.8"
+    title: "Authentication and Authorization"
+    type: subclause
+    clause_ref: "5.8"
+    status: draft
+    content: ""
+  - id: "5.8.1"
+    title: "Ensure authentication using Client Certificates is Disabled (Automated)"
+    type: subclause
+    clause_ref: "5.8.1"
+    status: draft
+    content: ""
+  - id: "5.8.2"
+    title: "Manage Kubernetes RBAC users with Google Groups for GKE (Manual)"
+    type: subclause
+    clause_ref: "5.8.2"
+    status: draft
+    content: ""
+  - id: "5.8.3"
+    title: "Ensure Legacy Authorization (ABAC) is Disabled (Automated)"
+    type: subclause
+    clause_ref: "5.8.3"
+    status: draft
+    content: ""
+  - id: "5.9"
+    title: "Storage"
+    type: subclause
+    clause_ref: "5.9"
+    status: draft
+    content: ""
+  - id: "5.9.1"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for GKE Persistent Disks (PD)"
+    type: subclause
+    clause_ref: "5.9.1"
+    status: draft
+    content: |
+      (Manual) ................................................................................................................................. 174
+  - id: "5.9.2"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for Boot Disks (Automated)"
+    type: subclause
+    clause_ref: "5.9.2"
+    status: draft
+    content: ""
+  - id: "5.10"
+    title: "Other Cluster Configurations"
+    type: subclause
+    clause_ref: "5.10"
+    status: draft
+    content: ""
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled (Automated)"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: ""
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production workloads (Automated)"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: ""
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads (Automated)"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: ""
+  - id: "5.10.4"
+    title: "Enable Security Posture (Manual)"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Appendix: Summary Table ........................................................................................ 189
+      Appendix: CIS Controls v7 IG 1 Mapped Recommendations ................................ 194
+      Appendix: CIS Controls v7 IG 2 Mapped Recommendations ................................ 195
+      Appendix: CIS Controls v7 IG 3 Mapped Recommendations ................................ 197
+      Appendix: CIS Controls v7 Unmapped Recommendations ................................... 200
+      Appendix: CIS...
+  - id: "1"
+    title: "Control Plane Components"
+    type: clause
+    clause_ref: "1"
+    status: draft
+    content: |
+      Under the GCP Shared Responsibility Model, Google manages the GKE control plane
+      components for you. The control plane includes the Kubernetes API server, etcd, and a
+      number of controllers. Google is responsible for securing the control plane, though you
+      might be able to configure certain options based on your requirements. Section 3 of this
+      Benchmark addresses these configurations.
+      You as the end user are responsible for securing your nodes, containers, and Pods and
+      that is what this Benchmark...
+  - id: "2"
+    title: "Control Plane Configuration"
+    type: clause
+    clause_ref: "2"
+    status: draft
+    content: |
+      Overview Under the GCP Shared Responsibility Model, Google manages the GKE
+      control plane components for you. The control plane includes the Kubernetes API
+      server, etcd, and a number of controllers. Google is responsible for securing the control
+      plane, though you might be able to configure certain options based on your
+      requirements. Section 3 of this Benchmark addresses these configurations.
+      You as the end user are responsible for securing your nodes, containers, and Pods and
+      that is what this...
+  - id: "3"
+    title: "Worker Nodes"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: |
+      This section consists of security recommendations for the components that run on GKE
+      worker nodes.
+      Page 17
+      Internal Only - General
+  - id: "3.1"
+    title: "Worker Node Configuration Files"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: |
+      This section covers recommendations for configuration files on the worker nodes.
+      Page 18
+      Internal Only - General
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to 644 or"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      more restrictive (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      If kubelet is running, and if it is configured by a kubeconfig file, ensure that the proxy
+      kubeconfig file has permissions of 644 or more restrictive.
+      Rationale:
+      The kubelet kubeconfig file controls various parameters of the kubelet service in the
+      worker node. You should restrict its file permissions to maintain the integrity of the file.
+      The file should be writable by only the administrators on the system.
+      It is...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+      v8
+  - id: "13.4"
+    title: "Perform Traffic Filtering Between Network Segments"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      ● ●
+      Perform traffic filtering between network segments, where appropriate.
+  - id: "13.6"
+    title: "Collect Network Traffic Flow Logs"
+    type: subclause
+    clause_ref: "13.6"
+    status: draft
+    content: |
+      v8
+      Collect network traffic flow logs and/or network traffic to review and alert upon
+      ● ●
+      from network devices.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 21
+      Internal Only - General
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set to"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      root:root (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      If kubelet is running, ensure that the file ownership of its kubeconfig file is set to
+      root:root.
+      Rationale:
+      The kubeconfig file for kubelet controls various parameters for the kubelet service in
+      the worker node. You should set its file ownership to maintain the integrity of the file.
+      The file should be owned by root:root.
+      Impact:
+      Overly permissive file access increases the security risk to the platform.
+      Audit:
+      Using Google...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 24
+      Internal Only - General
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      set to 644 (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Ensure that if the kubelet configuration file exists, it has permissions of 644.
+      Rationale:
+      The kubelet reads various parameters, including security settings, from a config file
+      specified by the --config argument. If this file exists, you should restrict its file
+      permissions to maintain the integrity of the file. The file should be writable by only the
+      administrators on the system.
+      Impact:
+      Overly permissive file access...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 27
+      Internal Only - General
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set to"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      root:root (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Ensure that if the kubelet configuration file exists, it is owned by root:root.
+      Rationale:
+      The kubelet reads various parameters, including security settings, from a config file
+      specified by the --config argument. If this file is specified you should restrict its file
+      permissions to maintain the integrity of the file. The file should be owned by root:root.
+      Impact:
+      Overly permissive file access increases the security risk to the...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 30
+      Internal Only - General
+  - id: "4"
+    title: "Policies"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: |
+      This section contains recommendations for various Kubernetes policies which are
+      important to the security of the environment.
+      Page 31
+      Internal Only - General
+  - id: "4.1"
+    title: "RBAC and Service Accounts"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: |
+      Page 32
+      Internal Only - General
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      required (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      The RBAC role cluster-admin provides wide-ranging powers over the environment
+      and should be used only where and when needed.
+      Rationale:
+      Kubernetes provides a set of default roles where RBAC is used. Some of these roles
+      such as cluster-admin provide wide-ranging privileges which should only be applied
+      where absolutely necessary. Roles such as cluster-admin allow super-user access to
+      perform any action on any resource. When used...
+  - id: "5.4"
+    title: "Restrict Administrator Privileges to Dedicated"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      Administrator Accounts
+      v8 Restrict administrator privileges to dedicated administrator accounts on ● ● ●
+      enterprise assets. Conduct general computing activities, such as internet
+      browsing, email, and productivity suite use, from the user’s primary, non-privileged
+      account.
+  - id: "4.3"
+    title: "Ensure the Use of Dedicated Administrative Accounts"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      v7 Ensure that all users with administrative account access use a dedicated or ● ● ●
+      secondary account for elevated activities. This account should only be used for
+      administrative activities and not internet browsing, email, or similar activities.
+      Page 34
+      Internal Only - General
+  - id: "4.1.2"
+    title: "Minimize access to secrets (Automated)"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 1
+      Description:
+      The Kubernetes API stores secrets, which may be service account tokens for the
+      Kubernetes API or credentials used by workloads in the cluster. Access to these secrets
+      should be restricted to the smallest possible group of users to reduce the risk of
+      privilege escalation.
+      Rationale:
+      Inappropriate access to secrets stored within the Kubernetes cluster can allow for an
+      attacker to gain additional access to the Kubernetes cluster or external...
+  - id: "4.1"
+    title: "Establish and Maintain a Secure Configuration Process"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: |
+      Establish and maintain a secure configuration process for enterprise assets
+      v8 (end-user devices, including portable and mobile, non-computing/IoT devices, and ● ● ●
+      servers) and software (operating systems and applications). Review and update
+      documentation annually, or when significant enterprise changes occur that could
+      impact this Safeguard.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 36
+      Internal Only - General
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Kubernetes Roles and ClusterRoles provide access to resources based on sets of
+      objects and actions that can be taken on those objects. It is possible to set either of
+      these to be the wildcard "*", which matches all items.
+      Use of wildcards is not optimal from a security perspective as it may allow for
+      inadvertent access to be granted when new resources are added to the Kubernetes API
+      either as CRDs or in later versions of the...
+  - id: "5.2"
+    title: "Use Unique Passwords"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      v8 Use unique passwords for all enterprise assets. Best practice implementation ● ● ●
+      includes, at a minimum, an 8-character password for accounts using MFA and a
+      14-character password for accounts not using MFA.
+  - id: "4.4"
+    title: "Use Unique Passwords"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: |
+      v7 Where multi-factor authentication is not supported (such as local administrator, ● ●
+      root, or service accounts), accounts will use passwords that are unique to that
+      system.
+      Page 38
+      Internal Only - General
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively used"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      The default service account should not be used to ensure that rights granted to
+      applications can be more easily audited and reviewed.
+      Rationale:
+      Kubernetes provides a default service account which is used by cluster workloads
+      where no specific service account is assigned to the pod.
+      Where access to the Kubernetes API from a pod is required, a specific service account
+      should be created for that pod, and rights granted to that service...
+  - id: "5.3"
+    title: "Disable Dormant Accounts"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      v8
+      Delete or disable any dormant accounts after a period of 45 days of inactivity,
+      ● ● ●
+      where supported.
+  - id: "4.3"
+    title: "Ensure the Use of Dedicated Administrative Accounts"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      v7 Ensure that all users with administrative account access use a dedicated or ● ● ●
+      secondary account for elevated activities. This account should only be used for
+      administrative activities and not internet browsing, email, or similar activities.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+  - id: "16.9"
+    title: "Disable Dormant Accounts"
+    type: subclause
+    clause_ref: "16.9"
+    status: draft
+    content: |
+      v7 ● ● ●
+      Automatically disable dormant accounts after a set period of inactivity.
+      Page 40
+      Internal Only - General
+  - id: "4.1.5"
+    title: "Ensure that Service Account Tokens are only mounted"
+    type: subclause
+    clause_ref: "4.1.5"
+    status: draft
+    content: |
+      where necessary (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Service accounts tokens should not be mounted in pods except where the workload
+      running in the pod explicitly needs to communicate with the API server
+      Rationale:
+      Mounting service account tokens inside pods can provide an avenue for privilege
+      escalation attacks where an attacker is able to compromise a single pod in the cluster.
+      Avoiding mounting these tokens removes this attack avenue.
+      Impact:
+      Pods mounted without service...
+  - id: "4.8"
+    title: "Uninstall or Disable Unnecessary Services on"
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: |
+      Enterprise Assets and Software
+      v8
+      Uninstall or disable unnecessary services on enterprise assets and software,
+      ● ●
+      such as an unused file sharing service, web application module, or service
+      function.
+  - id: "14.7"
+    title: "Enforce Access Control to Data through Automated"
+    type: subclause
+    clause_ref: "14.7"
+    status: draft
+    content: |
+      v7 Tools ●
+      Use an automated tool, such as host-based Data Loss Prevention, to enforce
+      access controls to data even when data is copied off a system.
+      Page 42
+      Internal Only - General
+  - id: "4.1.6"
+    title: "Avoid use of system:masters group (Automated)"
+    type: subclause
+    clause_ref: "4.1.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 1
+      Description:
+      The special group system:masters should not be used to grant permissions to any
+      user or service account, except where strictly necessary (e.g. bootstrapping access
+      prior to RBAC being fully available)
+      Rationale:
+      The system:masters group has unrestricted access to the Kubernetes API hard-coded
+      into the API server source code. An authenticated user who is a member of this group
+      cannot have their access reduced, even if all bindings and cluster role...
+  - id: "5.4"
+    title: "Restrict Administrator Privileges to Dedicated"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      Administrator Accounts
+      v8 Restrict administrator privileges to dedicated administrator accounts on ● ● ●
+      enterprise assets. Conduct general computing activities, such as internet
+      browsing, email, and productivity suite use, from the user’s primary, non-privileged
+      account.
+      v7
+  - id: "4"
+    title: "Controlled Use of Administrative Privileges"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: |
+      Controlled Use of Administrative Privileges
+      Page 44
+      Internal Only - General
+  - id: "4.1.7"
+    title: "Limit use of the Bind, Impersonate and Escalate"
+    type: subclause
+    clause_ref: "4.1.7"
+    status: draft
+    content: |
+      permissions in the Kubernetes cluster (Manual)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Cluster roles and roles with the impersonate, bind or escalate permissions should not
+      be granted unless strictly required. Each of these permissions allow a particular subject
+      to escalate their privileges beyond those explicitly granted by cluster administrators
+      Rationale:
+      The impersonate privilege allows a subject to impersonate other users gaining their
+      rights to the cluster. The bind privilege allows...
+  - id: "5.4"
+    title: "Restrict Administrator Privileges to Dedicated"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      Administrator Accounts
+      v8 Restrict administrator privileges to dedicated administrator accounts on ● ● ●
+      enterprise assets. Conduct general computing activities, such as internet
+      browsing, email, and productivity suite use, from the user’s primary, non-privileged
+      account.
+      v7
+  - id: "4"
+    title: "Controlled Use of Administrative Privileges"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: |
+      Controlled Use of Administrative Privileges
+      Page 46
+      Internal Only - General
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous (Automated)"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Avoid ClusterRoleBindings nor RoleBindings with the user system:anonymous.
+      Rationale:
+      Kubernetes assigns user system:anonymous to API server requests that have no
+      authentication information provided. Binding a role to user system:anonymous gives
+      any unauthenticated user the permissions granted by that role and is strongly
+      discouraged.
+      Impact:
+      Unauthenticated users will have privileges and permissions associated with roles
+      associated with the...
+  - id: "5.5"
+    title: "Establish and Maintain an Inventory of Service"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: |
+      Accounts
+      v8 Establish and maintain an inventory of service accounts. The inventory, at a ● ●
+      minimum, must contain department owner, review date, and purpose. Perform
+      service account reviews to validate that all active accounts are authorized, on a
+      recurring schedule at a minimum quarterly, or more frequently.
+  - id: "16.8"
+    title: "Disable Any Unassociated Accounts"
+    type: subclause
+    clause_ref: "16.8"
+    status: draft
+    content: |
+      v7
+      Disable any account that cannot be associated with a business process or
+      ● ● ●
+      business owner.
+      Page 49
+      Internal Only - General
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Avoid non-default ClusterRoleBindings and RoleBindings with the group
+      system:unauthenticated, except the ClusterRoleBinding system:public-info-
+      viewer.
+      Rationale:
+      Kubernetes assigns the group system:unauthenticated to API server requests that
+      have no authentication information provided. Binding a role to this group gives any
+      unauthenticated user the permissions granted by that role and is strongly discouraged.
+      Impact:
+      Unauthenticated...
+  - id: "5.5"
+    title: "Establish and Maintain an Inventory of Service"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: |
+      Accounts
+      v8 Establish and maintain an inventory of service accounts. The inventory, at a ● ●
+      minimum, must contain department owner, review date, and purpose. Perform
+      service account reviews to validate that all active accounts are authorized, on a
+      recurring schedule at a minimum quarterly, or more frequently.
+  - id: "16.8"
+    title: "Disable Any Unassociated Accounts"
+    type: subclause
+    clause_ref: "16.8"
+    status: draft
+    content: |
+      v7
+      Disable any account that cannot be associated with a business process or
+      ● ● ●
+      business owner.
+      Page 52
+      Internal Only - General
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Avoid non-default ClusterRoleBindings and RoleBindings with the group
+      system:authenticated, except the ClusterRoleBindings system:basic-user,
+      system:discovery, and system:public-info-viewer.
+      Google's approach to authentication is to make authenticating to Google Cloud and
+      GKE as simple and secure as possible without adding complex configuration steps. The
+      group system:authenticated includes all users with a Google account, which
+      includes...
+  - id: "5.5"
+    title: "Establish and Maintain an Inventory of Service"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: |
+      Accounts
+      v8 Establish and maintain an inventory of service accounts. The inventory, at a ● ●
+      minimum, must contain department owner, review date, and purpose. Perform
+      service account reviews to validate that all active accounts are authorized, on a
+      recurring schedule at a minimum quarterly, or more frequently.
+  - id: "16.8"
+    title: "Disable Any Unassociated Accounts"
+    type: subclause
+    clause_ref: "16.8"
+    status: draft
+    content: |
+      v7
+      Disable any account that cannot be associated with a business process or
+      ● ● ●
+      business owner.
+      Page 55
+      Internal Only - General
+  - id: "4.2"
+    title: "Pod Security Standards"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Pod Security Standards (PSS) are recommendations for securing deployed workloads
+      to reduce the risks of container breakout. There are a number of ways if implementing
+      PSS, including the built-in Pod Security Admission controller, or external policy control
+      systems which integrate with Kubernetes via validating and mutating webhooks.
+      Page 56
+      Internal Only - General
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      Baseline profile or stricter for all namespaces. (Manual)
+      Profile Applicability:
+      • Level 1
+      Description:
+      The Pod Security Standard Baseline profile defines a baseline for container security.
+      You can enforce this by using the built-in Pod Security Admission controller.
+      Rationale:
+      Without an active mechanism to enforce the Pod Security Standard Baseline profile, it is
+      not possible to limit the use of containers with access to underlying cluster nodes, via
+      mechanisms like privileged containers, or...
+  - id: "16.7"
+    title: "Use Standard Hardening Configuration Templates for"
+    type: subclause
+    clause_ref: "16.7"
+    status: draft
+    content: |
+      Application Infrastructure
+      v8
+      Use standard, industry-recommended hardening configuration templates for
+      ● ●
+      application infrastructure components. This includes underlying servers, databases,
+      and web servers, and applies to cloud containers, Platform as a Service (PaaS)
+      components, and SaaS components. Do not allow in-house developed software to
+      weaken configuration hardening.
+  - id: "5.1"
+    title: "Establish Secure Configurations"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: |
+      v7
+      Maintain documented, standard security configuration standards for all
+      ● ● ●
+      authorized operating systems and software.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 58
+      Internal Only - General
+  - id: "4.3"
+    title: "Network Policies and CNI"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      Page 59
+      Internal Only - General
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: |
+      (Manual)
+      Profile Applicability:
+      • Level 1
+      Description:
+      There are a variety of CNI plugins available for Kubernetes. If the CNI in use does not
+      support Network Policies it may not be possible to effectively restrict traffic in the
+      cluster.
+      Rationale:
+      Kubernetes network policies are enforced by the CNI plugin in use. As such it is
+      important to ensure that the CNI plugin supports both Ingress and Egress network
+      policies.
+      See also recommendation 5.6.7.
+      Impact:
+      None
+      Audit:
+      Review the documentation...
+  - id: "16.5"
+    title: "Use Up-to-Date and Trusted Third-Party Software"
+    type: subclause
+    clause_ref: "16.5"
+    status: draft
+    content: |
+      Components
+      v8 Use up-to-date and trusted third-party software components. When possible, ● ●
+      choose established and proven frameworks and libraries that provide adequate
+      security. Acquire these components from trusted sources or evaluate the software
+      for vulnerabilities before use.
+  - id: "18.4"
+    title: "Only Use Up-to-date And Trusted Third-Party"
+    type: subclause
+    clause_ref: "18.4"
+    status: draft
+    content: |
+      v7 Components ● ●
+      Only use up-to-date and trusted third-party components for the software
+      developed by the organization.
+      Page 61
+      Internal Only - General
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies defined"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Use network policies to isolate traffic in the cluster network.
+      Rationale:
+      Running different applications on the same Kubernetes cluster creates a risk of one
+      compromised application attacking a neighboring application. Network segmentation is
+      important to ensure that containers can communicate only with those they are supposed
+      to. A network policy is a specification of how selections of pods are allowed to
+      communicate with each other...
+  - id: "13.4"
+    title: "Perform Traffic Filtering Between Network"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      v8 Segments ● ●
+      Perform traffic filtering between network segments, where appropriate.
+  - id: "14.1"
+    title: "Segment the Network Based on Sensitivity"
+    type: subclause
+    clause_ref: "14.1"
+    status: draft
+    content: |
+      v7 Segment the network based on the label or classification level of the ● ●
+      information stored on the servers, locate all sensitive information on separated
+      Virtual Local Area Networks (VLANs).
+  - id: "14.2"
+    title: "Enable Firewall Filtering Between VLANs"
+    type: subclause
+    clause_ref: "14.2"
+    status: draft
+    content: |
+      v7 Enable firewall filtering between VLANs to ensure that only authorized ● ●
+      systems are able to communicate with other systems necessary to fulfill their
+      specific responsibilities.
+      Page 63
+      Internal Only - General
+  - id: "4.4"
+    title: "Secrets Management"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: |
+      Page 64
+      Internal Only - General
+  - id: "4.4.1"
+    title: "Prefer using secrets as files over secrets as environment"
+    type: subclause
+    clause_ref: "4.4.1"
+    status: draft
+    content: |
+      variables (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Kubernetes supports mounting secrets as data volumes or as environment variables.
+      Minimize the use of environment variable secrets.
+      Rationale:
+      It is reasonably common for application code to log out its environment (particularly in
+      the event of an error). This will include any secret values passed in as environment
+      variables, so secrets can easily be exposed to any user or entity who has access to the
+      logs.
+      Impact:
+      Application...
+  - id: "3"
+    title: "Data Protection"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: |
+      v8
+      Develop processes and technical controls to identify, classify, securely
+      handle, retain, and dispose of data.
+      v7
+  - id: "13"
+    title: "Data Protection"
+    type: clause
+    clause_ref: "13"
+    status: draft
+    content: |
+      Data Protection
+      Page 66
+      Internal Only - General
+  - id: "4.4.2"
+    title: "Consider external secret storage (Manual)"
+    type: subclause
+    clause_ref: "4.4.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Consider the use of an external secrets storage and management system instead of
+      using Kubernetes Secrets directly, if more complex secret management is required.
+      Ensure the solution requires authentication to access secrets, has auditing of access to
+      and use of secrets, and encrypts secrets. Some solutions also make it easier to rotate
+      secrets.
+      Rationale:
+      Kubernetes supports secrets as first-class objects, but care needs to be taken to ensure
+      that...
+  - id: "3"
+    title: "Data Protection"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: |
+      v8
+      Develop processes and technical controls to identify, classify, securely
+      handle, retain, and dispose of data.
+      v7
+  - id: "13"
+    title: "Data Protection"
+    type: clause
+    clause_ref: "13"
+    status: draft
+    content: |
+      Data Protection
+      Page 68
+      Internal Only - General
+  - id: "4.5"
+    title: "Extensible Admission Control"
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: |
+      Page 69
+      Internal Only - General
+  - id: "4.5.1"
+    title: "Configure Image Provenance using ImagePolicyWebhook"
+    type: subclause
+    clause_ref: "4.5.1"
+    status: draft
+    content: |
+      admission controller (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Configure Image Provenance for the deployment.
+      Rationale:
+      Kubernetes supports plugging in provenance rules to accept or reject the images in
+      deployments. Rules can be configured to ensure that only approved images are
+      deployed in the cluster.
+      Also see recommendation 5.1.4.
+      Impact:
+      Regular maintenance for the provenance configuration should be carried out, based on
+      container image updates.
+      Audit:
+      Review the pod...
+  - id: "4.6"
+    title: "Securely Manage Enterprise Assets and Software"
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: |
+      Securely manage enterprise assets and software. Example implementations
+      include managing configuration through version-controlled-infrastructure-as-code
+      v8
+      and accessing administrative interfaces over secure network protocols, such as
+      ● ● ●
+      Secure Shell (SSH) and Hypertext Transfer Protocol Secure (HTTPS). Do not use
+      insecure management protocols, such as Telnet (Teletype Network) and HTTP,
+      unless operationally essential.
+      v7
+  - id: "18"
+    title: "Application Software Security"
+    type: clause
+    clause_ref: "18"
+    status: draft
+    content: |
+      Application Software Security
+      Page 71
+      Internal Only - General
+  - id: "4.6"
+    title: "General Policies"
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: |
+      These policies relate to general cluster management topics, like namespace best
+      practices and policies applied to pod objects in the cluster.
+      Page 72
+      Internal Only - General
+  - id: "4.6.1"
+    title: "Create administrative boundaries between resources using"
+    type: subclause
+    clause_ref: "4.6.1"
+    status: draft
+    content: |
+      namespaces (Manual)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Use namespaces to isolate your Kubernetes objects.
+      Rationale:
+      Limiting the scope of user permissions can reduce the impact of mistakes or malicious
+      activities. A Kubernetes namespace allows you to partition created resources into
+      logically named groups. Resources created in one namespace can be hidden from
+      other namespaces. By default, each resource created by a user in Kubernetes cluster
+      runs in a default namespace, called...
+  - id: "13"
+    title: "Network Monitoring and Defense"
+    type: clause
+    clause_ref: "13"
+    status: draft
+    content: |
+      v8 Operate processes and tooling to establish and maintain comprehensive
+      network monitoring and defense against security threats across the enterprise’s
+      network infrastructure and user base.
+      v7
+  - id: "12"
+    title: "Boundary Defense"
+    type: clause
+    clause_ref: "12"
+    status: draft
+    content: |
+      Boundary Defense
+      Page 74
+      Internal Only - General
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault in"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      the pod definitions (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Enable RuntimeDefault seccomp profile in the pod definitions.
+      Rationale:
+      Seccomp (secure computing mode) is used to restrict the set of system calls
+      applications can make, allowing cluster administrators greater control over the security
+      of workloads running in the cluster. Kubernetes disables seccomp profiles by default for
+      historical reasons. It should be enabled to ensure that the workloads have restricted
+      actions...
+  - id: "16.7"
+    title: "Use Standard Hardening Configuration Templates for"
+    type: subclause
+    clause_ref: "16.7"
+    status: draft
+    content: |
+      Application Infrastructure
+      v8
+      Use standard, industry-recommended hardening configuration templates for
+      ● ●
+      application infrastructure components. This includes underlying servers, databases,
+      and web servers, and applies to cloud containers, Platform as a Service (PaaS)
+      components, and SaaS components. Do not allow in-house developed software to
+      weaken configuration hardening.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 76
+      Internal Only - General
+  - id: "4.6.3"
+    title: "Apply Security Context to Pods and Containers (Manual)"
+    type: subclause
+    clause_ref: "4.6.3"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Apply Security Context to Pods and Containers
+      Rationale:
+      A security context defines the operating system security settings (uid, gid, capabilities,
+      SELinux role, etc..) applied to a container. When designing containers and pods, make
+      sure that the security context is configured for pods, containers, and volumes. A security
+      context is a property defined in the deployment yaml. It controls the security parameters
+      that will be assigned to the...
+  - id: "4"
+    title: "Secure Configuration of Enterprise Assets and Software"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: |
+      v8 Establish and maintain the secure configuration of enterprise assets (end-user
+      devices, including portable and mobile; network devices; non-computing/IoT
+      devices; and servers) and software (operating systems and applications).
+  - id: "5.1"
+    title: "Establish Secure Configurations"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: |
+      v7
+      Maintain documented, standard security configuration standards for all
+      ● ● ●
+      authorized operating systems and software.
+      Page 78
+      Internal Only - General
+  - id: "4.6.4"
+    title: "The default namespace should not be used (Automated)"
+    type: subclause
+    clause_ref: "4.6.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Kubernetes provides a default namespace, where objects are placed if no namespace
+      is specified for them. Placing objects in this namespace makes application of RBAC and
+      other controls more difficult.
+      Rationale:
+      Resources in a Kubernetes cluster should be segregated by namespace, to allow for
+      security controls to be applied at that level and to make it easier to manage resources.
+      Impact:
+      None
+      Audit:
+      Run this command to list objects in default...
+  - id: "12.2"
+    title: "Establish and Maintain a Secure Network"
+    type: subclause
+    clause_ref: "12.2"
+    status: draft
+    content: |
+      Architecture
+      v8
+      Establish and maintain a secure network architecture. A secure network
+      ● ●
+      architecture must address segmentation, least privilege, and availability, at a
+      minimum.
+  - id: "2.10"
+    title: "Physically or Logically Segregate High Risk"
+    type: subclause
+    clause_ref: "2.10"
+    status: draft
+    content: |
+      Applications
+      v7
+      Physically or logically segregated systems should be used to isolate and run
+      ●
+      software that is required for business operations but incur higher risk for the
+      organization.
+      Page 80
+      Internal Only - General
+  - id: "5"
+    title: "Managed services"
+    type: clause
+    clause_ref: "5"
+    status: draft
+    content: |
+      This section consists of security recommendations for the direct configuration of
+      Kubernetes managed service components, namely, Google Kubernetes Engine (GKE).
+      These recommendations are directly applicable for features which exist only as part of a
+      managed service.
+      Page 81
+      Internal Only - General
+  - id: "5.1"
+    title: "Image Registry and Image Scanning"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: |
+      This section contains recommendations relating to container image registries and
+      securing images in those registries, such as Google Container Registry (GCR).
+      Page 82
+      Internal Only - General
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Note: GCR is now deprecated, being superseded by Artifact Registry starting 15th May
+      2024. Runtime Vulnerability scanning is available via GKE Security Posture
+      Scan images stored in Google Container Registry (GCR) or Artifact Registry (AR) for
+      vulnerabilities.
+      Rationale:
+      Vulnerabilities in software packages can be exploited by malicious users to obtain
+      unauthorized access to local cloud resources. GCR Container Analysis API or...
+  - id: "7.6"
+    title: "Perform Automated Vulnerability Scans of Externally-"
+    type: subclause
+    clause_ref: "7.6"
+    status: draft
+    content: |
+      Exposed Enterprise Assets
+      v8
+      Perform automated vulnerability scans of externally-exposed enterprise assets
+      ● ●
+      using a SCAP-compliant vulnerability scanning tool. Perform scans on a monthly,
+      or more frequent, basis.
+      v7
+  - id: "3"
+    title: "Continuous Vulnerability Management"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: |
+      Continuous Vulnerability Management
+  - id: "3.1"
+    title: "Run Automated Vulnerability Scanning Tools"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: |
+      v7 Utilize an up-to-date SCAP-compliant vulnerability scanning tool to ● ●
+      automatically scan all systems on the network on a weekly or more frequent basis
+      to identify all potential vulnerabilities on the organization's systems.
+  - id: "3.2"
+    title: "Perform Authenticated Vulnerability Scanning"
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: |
+      v7 Perform authenticated vulnerability scanning with agents running locally on ● ●
+      each system or with remote scanners that are configured with elevated rights on
+      the system being tested.
+      Page 85
+      Internal Only - General
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: |
+      (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Note: GCR is now deprecated, see the references for more details.
+      Restrict user access to GCR or AR, limiting interaction with build images to only
+      authorized personnel and service accounts.
+      Rationale:
+      Weak access control to GCR or AR may allow malicious users to replace built images
+      with vulnerable or back-doored containers.
+      Impact:
+      Care should be taken not to remove access to GCR or AR for accounts that require this
+      for their operation....
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 90
+      Internal Only - General
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      repositories (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Note: GCR is now deprecated, see the references for more details.
+      Configure the Cluster Service Account with Artifact Registry Viewer Role to only allow
+      read-only access to AR repositories. Configure the Cluster Service Account with
+      Storage Object Viewer Role to only allow read-only access to GCR.
+      Rationale:
+      The Cluster Service Account does not require administrative access to GCR or AR, only
+      requiring pull access to containers...
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply ● ● ●
+      data access control lists, also known as access permissions, to local and remote
+      file systems, databases, and applications.
+  - id: "3.2"
+    title: "Perform Authenticated Vulnerability Scanning"
+    type: subclause
+    clause_ref: "3.2"
+    status: draft
+    content: |
+      v7 Perform authenticated vulnerability scanning with agents running locally on ● ●
+      each system or with remote scanners that are configured with elevated rights on
+      the system being tested.
+      Page 94
+      Internal Only - General
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used (Manual)"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Use Binary Authorization to allowlist (whitelist) only approved container registries.
+      Rationale:
+      Allowing unrestricted access to external container registries provides the opportunity for
+      malicious or unapproved containers to be deployed into the cluster. Ensuring only
+      trusted container images are used reduces this risk.
+      Impact:
+      All container images to be deployed to the cluster must be hosted within an approved
+      container image registry. If public...
+  - id: "2.5"
+    title: "Allowlist Authorized Software"
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: |
+      v8 Use technical controls, such as application allowlisting, to ensure that only ● ●
+      authorized software can execute or be accessed. Reassess bi-annually, or more
+      frequently.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+  - id: "5.3"
+    title: "Securely Store Master Images"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      v7 Store the master images and templates on securely configured servers, ● ●
+      validated with integrity monitoring tools, to ensure that only authorized changes to
+      the images are possible.
+      Page 97
+      Internal Only - General
+  - id: "5.2"
+    title: "Identity and Access Management (IAM)"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      This section contains recommendations relating to using Cloud IAM with GKE.
+      Page 98
+      Internal Only - General
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      Engine default service account (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Create and use minimally privileged Service accounts to run GKE cluster nodes instead
+      of using the Compute Engine default Service account. Unnecessary permissions could
+      be abused in the case of a node compromise.
+      Rationale:
+      A GCP service account (as distinct from a Kubernetes ServiceAccount) is an identity
+      that an instance or an application can be used to run GCP API requests. This identity is
+      used to...
+  - id: "4.7"
+    title: "Manage Default Accounts on Enterprise Assets and"
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: |
+      Software
+      v8
+      Manage default accounts on enterprise assets and software, such as root,
+      ● ● ●
+      administrator, and other pre-configured vendor accounts. Example
+      implementations can include: disabling default accounts or making them unusable.
+  - id: "4.3"
+    title: "Ensure the Use of Dedicated Administrative Accounts"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      v7 Ensure that all users with administrative account access use a dedicated or ● ● ●
+      secondary account for elevated activities. This account should only be used for
+      administrative activities and not internet browsing, email, or similar activities.
+      Page 102
+      Internal Only - General
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      Workload Identity (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Kubernetes workloads should not use cluster node service accounts to authenticate to
+      Google Cloud APIs. Each Kubernetes Workload that needs to authenticate to other
+      Google services using Cloud IAM should be provisioned a dedicated Service account.
+      Enabling Workload Identity manages the distribution and rotation of Service account
+      keys for the workloads to use.
+      Rationale:
+      Manual approaches for authenticating Kubernetes...
+  - id: "4.7"
+    title: "Manage Default Accounts on Enterprise Assets and"
+    type: subclause
+    clause_ref: "4.7"
+    status: draft
+    content: |
+      Software
+      v8
+      Manage default accounts on enterprise assets and software, such as root,
+      ● ● ●
+      administrator, and other pre-configured vendor accounts. Example
+      implementations can include: disabling default accounts or making them unusable.
+  - id: "4.3"
+    title: "Ensure the Use of Dedicated Administrative Accounts"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: |
+      v7 Ensure that all users with administrative account access use a dedicated or ● ● ●
+      secondary account for elevated activities. This account should only be used for
+      administrative activities and not internet browsing, email, or similar activities.
+      Page 105
+      Internal Only - General
+  - id: "5.3"
+    title: "Cloud Key Management Service (Cloud KMS)"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      This section contains recommendations relating to using Cloud KMS with GKE.
+      Page 106
+      Internal Only - General
+  - id: "5.3.1"
+    title: "Ensure Kubernetes Secrets are encrypted using keys"
+    type: subclause
+    clause_ref: "5.3.1"
+    status: draft
+    content: |
+      managed in Cloud KMS (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Encrypt Kubernetes secrets, stored in etcd, at the application-layer using a customer-
+      managed key in Cloud KMS.
+      Rationale:
+      By default, GKE encrypts customer content stored at rest, including Secrets. GKE
+      handles and manages this default encryption for you without any additional action on
+      your part.
+      Application-layer Secrets Encryption provides an additional layer of security for sensitive
+      data, such as user defined...
+  - id: "3.11"
+    title: "Encrypt Sensitive Data at Rest"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Encrypt sensitive data at rest on servers, applications, and databases containing
+      sensitive data. Storage-layer encryption, also known as server-side encryption,
+      v8
+      meets the minimum requirement of this Safeguard. Additional encryption methods
+      ● ●
+      may include application-layer encryption, also known as client-side encryption,
+      where access to the data storage device(s) does not permit access to the plain-text
+      data.
+      Page 109
+      Internal Only - General
+  - id: "14.8"
+    title: "Encrypt Sensitive Information at Rest"
+    type: subclause
+    clause_ref: "14.8"
+    status: draft
+    content: |
+      v7 Encrypt all sensitive information at rest using a tool that requires a secondary ●
+      authentication mechanism not integrated into the operating system, in order to
+      access the information.
+      Page 110
+      Internal Only - General
+  - id: "5.4"
+    title: "Node Metadata"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: |
+      This section contains recommendations relating to node metadata in GKE.
+      Page 111
+      Internal Only - General
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Running the GKE Metadata Server prevents workloads from accessing sensitive
+      instance metadata and facilitates Workload Identity.
+      Rationale:
+      Every node stores its metadata on a metadata server. Some of this metadata, such as
+      kubelet credentials and the VM instance identity token, is sensitive and should not be
+      exposed to a Kubernetes workload. Enabling the GKE Metadata server prevents pods
+      (that are not running on the host network) from accessing...
+  - id: "16.7"
+    title: "Use Standard Hardening Configuration Templates for"
+    type: subclause
+    clause_ref: "16.7"
+    status: draft
+    content: |
+      Application Infrastructure
+      v8
+      Use standard, industry-recommended hardening configuration templates for
+      ● ●
+      application infrastructure components. This includes underlying servers, databases,
+      and web servers, and applies to cloud containers, Platform as a Service (PaaS)
+      components, and SaaS components. Do not allow in-house developed software to
+      weaken configuration hardening.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 114
+      Internal Only - General
+  - id: "5.5"
+    title: "Node Configuration and Maintenance"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: |
+      This section contains recommendations relating to node configurations in GKE.
+      Page 115
+      Internal Only - General
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is used"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      for GKE Node images (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Use Container-Optimized OS (cos_containerd) as a managed, optimized and hardened
+      base OS that limits the host's attack surface.
+      Rationale:
+      COS is an operating system image for Compute Engine VMs optimized for running
+      containers. With COS, the containers can be brought up on Google Cloud Platform
+      quickly, efficiently, and securely.
+      Using COS as the node image provides the following benefits:
+      • Run containers out of the...
+  - id: "2.5"
+    title: "Allowlist Authorized Software"
+    type: subclause
+    clause_ref: "2.5"
+    status: draft
+    content: |
+      v8 Use technical controls, such as application allowlisting, to ensure that only ● ●
+      authorized software can execute or be accessed. Reassess bi-annually, or more
+      frequently.
+  - id: "5.2"
+    title: "Maintain Secure Images"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: |
+      Maintain secure images or templates for all systems in the enterprise based on
+      v7
+      the organization's approved configuration standards. Any new system deployment
+      ● ●
+      or existing system that becomes compromised should be imaged using one of
+      those images or templates.
+      Page 118
+      Internal Only - General
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Nodes in a degraded state are an unknown quantity and so may pose a security risk.
+      Rationale:
+      Kubernetes Engine's node auto-repair feature helps you keep the nodes in the cluster in
+      a healthy, running state. When enabled, Kubernetes Engine makes periodic checks on
+      the health state of each node in the cluster. If a node fails consecutive health checks
+      over an extended time period, Kubernetes Engine initiates a repair process for...
+  - id: "7.6"
+    title: "Perform Automated Vulnerability Scans of Externally-"
+    type: subclause
+    clause_ref: "7.6"
+    status: draft
+    content: |
+      Exposed Enterprise Assets
+      v8
+      Perform automated vulnerability scans of externally-exposed enterprise assets
+      ● ●
+      using a SCAP-compliant vulnerability scanning tool. Perform scans on a monthly,
+      or more frequent, basis.
+  - id: "3.1"
+    title: "Run Automated Vulnerability Scanning Tools"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: |
+      v7 Utilize an up-to-date SCAP-compliant vulnerability scanning tool to ● ●
+      automatically scan all systems on the network on a weekly or more frequent basis
+      to identify all potential vulnerabilities on the organization's systems.
+      Page 120
+      Internal Only - General
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Node auto-upgrade keeps nodes at the current Kubernetes and OS security patch level
+      to mitigate known vulnerabilities.
+      Rationale:
+      Node auto-upgrade helps you keep the nodes in the cluster or node pool up to date with
+      the latest stable patch version of Kubernetes as well as the underlying node operating
+      system. Node auto-upgrade uses the same update mechanism as manual node
+      upgrades.
+      Node pools with node auto-upgrade enabled are...
+  - id: "7.3"
+    title: "Perform Automated Operating System Patch"
+    type: subclause
+    clause_ref: "7.3"
+    status: draft
+    content: |
+      v8 Management ● ● ●
+      Perform operating system updates on enterprise assets through automated
+      patch management on a monthly, or more frequent, basis.
+  - id: "2.2"
+    title: "Ensure Software is Supported by Vendor"
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: |
+      Ensure that only software applications or operating systems currently supported
+      v7
+      by the software's vendor are added to the organization's authorized software
+      ● ● ●
+      inventory. Unsupported software should be tagged as unsupported in the inventory
+      system.
+  - id: "3.4"
+    title: "Deploy Automated Operating System Patch"
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: |
+      Management Tools
+      v7
+      Deploy automated software update tools in order to ensure that the operating
+      ● ● ●
+      systems are running the most recent security updates provided by the software
+      vendor.
+  - id: "3.5"
+    title: "Deploy Automated Software Patch Management Tools"
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: |
+      v7 Deploy automated software update tools in order to ensure that third-party ● ● ●
+      software on all systems is running the most recent security updates provided by
+      the software vendor.
+      Page 123
+      Internal Only - General
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      management using Release Channels (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Subscribe to the Regular or Stable Release Channel to automate version upgrades to
+      the GKE cluster and to reduce version management complexity to the number of
+      features and level of stability required.
+      Rationale:
+      Release Channels signal a graduating level of stability and production-readiness. These
+      are based on observed performance of GKE clusters running that version and represent
+      experience and...
+  - id: "7.4"
+    title: "Perform Automated Application Patch Management"
+    type: subclause
+    clause_ref: "7.4"
+    status: draft
+    content: |
+      v8
+      Perform application updates on enterprise assets through automated patch
+      ● ● ●
+      management on a monthly, or more frequent, basis.
+  - id: "3.4"
+    title: "Deploy Automated Operating System Patch"
+    type: subclause
+    clause_ref: "3.4"
+    status: draft
+    content: |
+      Management Tools
+      v7
+      Deploy automated software update tools in order to ensure that the operating
+      ● ● ●
+      systems are running the most recent security updates provided by the software
+      vendor.
+  - id: "3.5"
+    title: "Deploy Automated Software Patch Management"
+    type: subclause
+    clause_ref: "3.5"
+    status: draft
+    content: |
+      Tools
+      v7
+      Deploy automated software update tools in order to ensure that third-party
+      ● ● ●
+      software on all systems is running the most recent security updates provided by
+      the software vendor.
+      Page 126
+      Internal Only - General
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled (Automated)"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 1
+      Description:
+      Shielded GKE Nodes provides verifiable integrity via secure boot, virtual trusted
+      platform module (vTPM)-enabled measured boot, and integrity monitoring.
+      Rationale:
+      Shielded GKE nodes protects clusters against boot- or kernel-level malware or rootkits
+      which persist beyond infected OS.
+      Shielded GKE nodes run firmware which is signed and verified using Google's
+      Certificate Authority, ensuring that the nodes' firmware is unmodified and establishing
+      the...
+  - id: "16.7"
+    title: "Use Standard Hardening Configuration Templates for"
+    type: subclause
+    clause_ref: "16.7"
+    status: draft
+    content: |
+      Application Infrastructure
+      v8
+      Use standard, industry-recommended hardening configuration templates for
+      ● ●
+      application infrastructure components. This includes underlying servers, databases,
+      and web servers, and applies to cloud containers, Platform as a Service (PaaS)
+      components, and SaaS components. Do not allow in-house developed software to
+      weaken configuration hardening.
+  - id: "5.3"
+    title: "Securely Store Master Images"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      v7 Store the master images and templates on securely configured servers, ● ●
+      validated with integrity monitoring tools, to ensure that only authorized changes to
+      the images are possible.
+      Page 128
+      Internal Only - General
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "18.11"
+    title: "Use Standard Hardening Configuration Templates"
+    type: subclause
+    clause_ref: "18.11"
+    status: draft
+    content: |
+      for Databases
+      v7
+      For applications that rely on a database, use standard hardening configuration
+      ● ●
+      templates. All systems that are part of critical business processes should also be
+      tested.
+      Page 129
+      Internal Only - General
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: |
+      Enabled (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Enable Integrity Monitoring for Shielded GKE Nodes to be notified of inconsistencies
+      during the node boot sequence.
+      Rationale:
+      Integrity Monitoring provides active alerting for Shielded GKE nodes which allows
+      administrators to respond to integrity failures and prevent compromised nodes from
+      being deployed into the cluster.
+      Impact:
+      None.
+      Audit:
+      Using Google Cloud Console:
+      1. Go to Kubernetes Engine by...
+  - id: "7.5"
+    title: "Perform Automated Vulnerability Scans of Internal"
+    type: subclause
+    clause_ref: "7.5"
+    status: draft
+    content: |
+      Enterprise Assets
+      v8
+      Perform automated vulnerability scans of internal enterprise assets on a
+      ● ●
+      quarterly, or more frequent, basis. Conduct both authenticated and
+      unauthenticated scans, using a SCAP-compliant vulnerability scanning tool.
+  - id: "7.6"
+    title: "Perform Automated Vulnerability Scans of Externally-"
+    type: subclause
+    clause_ref: "7.6"
+    status: draft
+    content: |
+      Exposed Enterprise Assets
+      v8
+      Perform automated vulnerability scans of externally-exposed enterprise assets
+      ● ●
+      using a SCAP-compliant vulnerability scanning tool. Perform scans on a monthly,
+      or more frequent, basis.
+      Page 131
+      Internal Only - General
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "5.3"
+    title: "Securely Store Master Images"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      v7 Store the master images and templates on securely configured servers, ● ●
+      validated with integrity monitoring tools, to ensure that only authorized changes to
+      the images are possible.
+      Page 132
+      Internal Only - General
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Enable Secure Boot for Shielded GKE Nodes to verify the digital signature of node boot
+      components.
+      Rationale:
+      An attacker may seek to alter boot components to persist malware or root kits during
+      system initialisation. Secure Boot helps ensure that the system only runs authentic
+      software by verifying the digital signature of all boot components, and halting the boot
+      process if signature verification fails.
+      Impact:
+      Secure Boot will not...
+  - id: "7.5"
+    title: "Perform Automated Vulnerability Scans of Internal"
+    type: subclause
+    clause_ref: "7.5"
+    status: draft
+    content: |
+      Enterprise Assets
+      v8
+      Perform automated vulnerability scans of internal enterprise assets on a
+      ● ●
+      quarterly, or more frequent, basis. Conduct both authenticated and
+      unauthenticated scans, using a SCAP-compliant vulnerability scanning tool.
+  - id: "7.6"
+    title: "Perform Automated Vulnerability Scans of Externally-"
+    type: subclause
+    clause_ref: "7.6"
+    status: draft
+    content: |
+      Exposed Enterprise Assets
+      v8
+      Perform automated vulnerability scans of externally-exposed enterprise assets
+      ● ●
+      using a SCAP-compliant vulnerability scanning tool. Perform scans on a monthly,
+      or more frequent, basis.
+  - id: "5.3"
+    title: "Securely Store Master Images"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: |
+      v7 Store the master images and templates on securely configured servers, ● ●
+      validated with integrity monitoring tools, to ensure that only authorized changes to
+      the images are possible.
+      Page 135
+      Internal Only - General
+  - id: "5.6"
+    title: "Cluster Networking"
+    type: subclause
+    clause_ref: "5.6"
+    status: draft
+    content: |
+      This section contains recommendations relating to network security configurations in
+      GKE.
+      Page 136
+      Internal Only - General
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility (Automated)"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Enable VPC Flow Logs and Intranode Visibility to see pod-level traffic, even for traffic
+      within a worker node.
+      Rationale:
+      Enabling Intranode Visibility makes intranode pod to pod traffic visible to the networking
+      fabric. With this feature, VPC Flow Logs or other VPC features can be used for
+      intranode traffic.
+      Impact:
+      Enabling it on existing cluster causes the cluster master and the cluster nodes to restart,
+      which might cause disruption.
+      Audit:
+      Using...
+  - id: "8.5"
+    title: "Collect Detailed Audit Logs"
+    type: subclause
+    clause_ref: "8.5"
+    status: draft
+    content: |
+      v8 Configure detailed audit logging for enterprise assets containing sensitive data. ● ●
+      Include event source, date, username, timestamp, source addresses, destination
+      addresses, and other useful elements that could assist in a forensic investigation.
+      v8
+  - id: "13.4"
+    title: "Perform Traffic Filtering Between Network Segments"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      ● ●
+      Perform traffic filtering between network segments, where appropriate.
+  - id: "13.6"
+    title: "Collect Network Traffic Flow Logs"
+    type: subclause
+    clause_ref: "13.6"
+    status: draft
+    content: |
+      v8
+      Collect network traffic flow logs and/or network traffic to review and alert upon
+      ● ●
+      from network devices.
+  - id: "6.3"
+    title: "Enable Detailed Logging"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+      v7 Enable system logging to include detailed information such as an event source, ● ●
+      date, user, timestamp, source addresses, destination addresses, and other useful
+      elements.
+      Page 139
+      Internal Only - General
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters (Automated)"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 1
+      Description:
+      Create Alias IPs for the node network CIDR range in order to subsequently configure
+      IP-based policies and firewalling for pods. A cluster that uses Alias IPs is called a VPC-
+      native cluster.
+      Rationale:
+      Using Alias IPs has several benefits:
+      • Pod IPs are reserved within the network ahead of time, which prevents conflict
+      with other compute resources.
+      • The networking layer can perform anti-spoofing checks to ensure that egress
+      traffic is not sent with...
+  - id: "13.4"
+    title: "Perform Traffic Filtering Between Network Segments"
+    type: subclause
+    clause_ref: "13.4"
+    status: draft
+    content: |
+      ● ●
+      Perform traffic filtering between network segments, where appropriate.
+      Page 141
+      Internal Only - General
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "11"
+    title: "Secure Configuration for Network Devices, such as"
+    type: clause
+    clause_ref: "11"
+    status: draft
+    content: |
+      v7 Firewalls, Routers and Switches
+      Secure Configuration for Network Devices, such as Firewalls, Routers and
+      Switches
+  - id: "14.1"
+    title: "Segment the Network Based on Sensitivity"
+    type: subclause
+    clause_ref: "14.1"
+    status: draft
+    content: |
+      v7 Segment the network based on the label or classification level of the ● ●
+      information stored on the servers, locate all sensitive information on separated
+      Virtual Local Area Networks (VLANs).
+      Page 142
+      Internal Only - General
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Enable Control Plane Authorized Networks to restrict access to the cluster's control
+      plane to only an allowlist of authorized IPs.
+      Rationale:
+      Authorized networks are a way of specifying a restricted range of IP addresses that are
+      permitted to access your cluster's control plane. Kubernetes Engine uses both
+      Transport Layer Security (TLS) and authentication to provide secure access to your
+      cluster's control plane from the public internet....
+  - id: "3.3"
+    title: "Configure Data Access Control Lists"
+    type: subclause
+    clause_ref: "3.3"
+    status: draft
+    content: |
+      v8 Configure data access control lists based on a user’s need to know. Apply data ● ● ●
+      access control lists, also known as access permissions, to local and remote file
+      systems, databases, and applications.
+  - id: "14.6"
+    title: "Protect Information through Access Control Lists"
+    type: subclause
+    clause_ref: "14.6"
+    status: draft
+    content: |
+      Protect all information stored on systems with file system, network share,
+      v7 claims, application, or database specific access control lists. These controls will ● ● ●
+      enforce the principle that only authorized individuals should have access to the
+      information based on their need to access the information as a part of their
+      responsibilities.
+      Page 145
+      Internal Only - General
+  - id: "5.6.4"
+    title: "Ensure clusters are created with Private Endpoint Enabled"
+    type: subclause
+    clause_ref: "5.6.4"
+    status: draft
+    content: |
+      and Public Access Disabled (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Disable access to the Kubernetes API from outside the node network if it is not required.
+      Rationale:
+      In a private cluster, the master node has two endpoints, a private and public endpoint.
+      The private endpoint is the internal IP address of the master, behind an internal load
+      balancer in the master's VPC network. Nodes communicate with the master using the
+      private endpoint. The public endpoint enables the...
+  - id: "4.4"
+    title: "Implement and Manage a Firewall on Servers"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: |
+      v8 Implement and manage a firewall on servers, where supported. Example ● ● ●
+      implementations include a virtual firewall, operating system firewall, or a third-
+      party firewall agent.
+      v7
+  - id: "12"
+    title: "Boundary Defense"
+    type: clause
+    clause_ref: "12"
+    status: draft
+    content: |
+      Boundary Defense
+      Page 148
+      Internal Only - General
+  - id: "5.6.5"
+    title: "Ensure clusters are created with Private Nodes (Automated)"
+    type: subclause
+    clause_ref: "5.6.5"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 1
+      Description:
+      Private Nodes are nodes with no public IP addresses. Disable public IP addresses for
+      cluster nodes, so that they only have private IP addresses.
+      Rationale:
+      Disabling public IP addresses on cluster nodes restricts access to only internal
+      networks, forcing attackers to obtain local network access before attempting to
+      compromise the underlying Kubernetes hosts.
+      Impact:
+      To enable Private Nodes, the cluster has to also be configured with a private master...
+  - id: "4.4"
+    title: "Implement and Manage a Firewall on Servers"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: |
+      v8 Implement and manage a firewall on servers, where supported. Example ● ● ●
+      implementations include a virtual firewall, operating system firewall, or a third-
+      party firewall agent.
+      v7
+  - id: "12"
+    title: "Boundary Defense"
+    type: clause
+    clause_ref: "12"
+    status: draft
+    content: |
+      Boundary Defense
+      Page 150
+      Internal Only - General
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes (Manual)"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Reduce the network attack surface of GKE nodes by using Firewalls to restrict ingress
+      and egress traffic.
+      Rationale:
+      Utilizing stringent ingress and egress firewall rules minimizes the ports and services
+      exposed to an network-based attacker, whilst also restricting egress routes within or out
+      of the cluster in the event that a compromised component attempts to form an outbound
+      connection.
+      Impact:
+      All instances targeted by a firewall rule, either...
+  - id: "4.4"
+    title: "Implement and Manage a Firewall on Servers"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: |
+      v8 Implement and manage a firewall on servers, where supported. Example ● ● ●
+      implementations include a virtual firewall, operating system firewall, or a third-
+      party firewall agent.
+  - id: "9.5"
+    title: "Implement Application Firewalls"
+    type: subclause
+    clause_ref: "9.5"
+    status: draft
+    content: |
+      v7 Place application firewalls in front of any critical servers to verify and validate ●
+      the traffic going to the server. Any unauthorized traffic should be blocked and
+      logged.
+      Page 154
+      Internal Only - General
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Encrypt traffic to HTTPS load balancers using Google-managed SSL certificates.
+      Rationale:
+      Encrypting traffic between users and the Kubernetes workload is fundamental to
+      protecting data sent over the web.
+      Google-managed SSL Certificates are provisioned, renewed, and managed for domain
+      names. This is only available for HTTPS load balancers created using Ingress
+      Resources, and not TCP/UDP load balancers created using Service...
+  - id: "3.10"
+    title: "Encrypt Sensitive Data in Transit"
+    type: subclause
+    clause_ref: "3.10"
+    status: draft
+    content: |
+      v8
+      Encrypt sensitive data in transit. Example implementations can include:
+      ● ●
+      Transport Layer Security (TLS) and Open Secure Shell (OpenSSH).
+      v7
+  - id: "14.4"
+    title: "Encrypt All Sensitive Information in Transit"
+    type: subclause
+    clause_ref: "14.4"
+    status: draft
+    content: |
+      ● ●
+      Encrypt all sensitive information in transit.
+      Page 156
+      Internal Only - General
+  - id: "5.7"
+    title: "Logging"
+    type: subclause
+    clause_ref: "5.7"
+    status: draft
+    content: |
+      This section contains recommendations relating to security-related logging in GKE.
+      Page 157
+      Internal Only - General
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Send logs and metrics to a remote aggregator to mitigate the risk of local tampering in
+      the event of a breach.
+      Rationale:
+      Exporting logs and metrics to a dedicated, persistent datastore such as Cloud
+      Operations for GKE ensures availability of audit data following a cluster security event,
+      and provides a central location for analysis of log and metric data collated from multiple
+      sources.
+      Audit:
+      Using Google Cloud Console:
+      LOGGING AND...
+  - id: "8.2"
+    title: "Collect Audit Logs"
+    type: subclause
+    clause_ref: "8.2"
+    status: draft
+    content: |
+      v8
+      Collect audit logs. Ensure that logging, per the enterprise’s audit log
+      ● ● ●
+      management process, has been enabled across enterprise assets.
+  - id: "6.2"
+    title: "Activate audit logging"
+    type: subclause
+    clause_ref: "6.2"
+    status: draft
+    content: |
+      v7
+      Ensure that local logging has been enabled on all systems and networking
+      ● ● ●
+      devices.
+      Page 160
+      Internal Only - General
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging (Manual)"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Run the auditd logging daemon to obtain verbose operating system logs from GKE
+      nodes running Container-Optimized OS (COS).
+      Rationale:
+      Auditd logs provide valuable information about the state of the cluster and workloads,
+      such as error messages, login attempts, and binary executions. This information can be
+      used to debug issues or to investigate security incidents.
+      Impact:
+      Increased logging activity on a node increases resource usage on that node,...
+  - id: "8.2"
+    title: "Collect Audit Logs"
+    type: subclause
+    clause_ref: "8.2"
+    status: draft
+    content: |
+      v8
+      Collect audit logs. Ensure that logging, per the enterprise’s audit log
+      ● ● ●
+      management process, has been enabled across enterprise assets.
+  - id: "6.3"
+    title: "Enable Detailed Logging"
+    type: subclause
+    clause_ref: "6.3"
+    status: draft
+    content: |
+      v7 Enable system logging to include detailed information such as an event ● ●
+      source, date, user, timestamp, source addresses, destination addresses, and
+      other useful elements.
+      Page 163
+      Internal Only - General
+  - id: "5.8"
+    title: "Authentication and Authorization"
+    type: subclause
+    clause_ref: "5.8"
+    status: draft
+    content: |
+      This section contains recommendations relating to authentication and authorization in
+      GKE.
+      Page 164
+      Internal Only - General
+  - id: "5.8.1"
+    title: "Ensure authentication using Client Certificates is Disabled"
+    type: subclause
+    clause_ref: "5.8.1"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Do not make use of client certificate authentication in GKE, as the credentials cannot be
+      revoked. Instead, use another authentication method like OpenID Connect.
+      Rationale:
+      With Client Certificate authentication, a client presents a certificate that the API server
+      verifies with the specified Certificate Authority. In GKE, Client Certificates are signed by
+      the cluster root Certificate Authority. When retrieved, the Client Certificate is...
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+      v7
+  - id: "16"
+    title: "Account Monitoring and Control"
+    type: clause
+    clause_ref: "16"
+    status: draft
+    content: |
+      Account Monitoring and Control
+      Page 167
+      Internal Only - General
+  - id: "5.8.2"
+    title: "Manage Kubernetes RBAC users with Google Groups for"
+    type: subclause
+    clause_ref: "5.8.2"
+    status: draft
+    content: |
+      GKE (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Cluster Administrators should leverage G Suite Groups and Cloud IAM to assign
+      Kubernetes user roles to a collection of users, instead of to individual emails using only
+      Cloud IAM.
+      Rationale:
+      On- and off-boarding users is often difficult to automate and prone to error. Using a
+      single source of truth for user permissions via G Suite Groups reduces the number of
+      locations that an individual must be off-boarded from, and prevents users...
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+  - id: "16.2"
+    title: "Configure Centralized Point of Authentication"
+    type: subclause
+    clause_ref: "16.2"
+    status: draft
+    content: |
+      v7
+      Configure access for all accounts through as few centralized points of
+      ● ●
+      authentication as possible, including network, security, and cloud systems.
+      Page 169
+      Internal Only - General
+  - id: "5.8.3"
+    title: "Ensure Legacy Authorization (ABAC) is Disabled"
+    type: subclause
+    clause_ref: "5.8.3"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Legacy Authorization, also known as Attribute-Based Access Control (ABAC) has been
+      superseded by Role-Based Access Control (RBAC) and is not under active
+      development. RBAC is the recommended way to manage permissions in Kubernetes.
+      Rationale:
+      In Kubernetes, RBAC is used to grant permissions to resources at the cluster and
+      namespace level. RBAC allows the definition of roles with rules containing a set of
+      permissions, whilst the legacy...
+  - id: "6.8"
+    title: "Define and Maintain Role-Based Access Control"
+    type: subclause
+    clause_ref: "6.8"
+    status: draft
+    content: |
+      Define and maintain role-based access control, through determining and
+      v8 documenting the access rights necessary for each role within the enterprise to ●
+      successfully carry out its assigned duties. Perform access control reviews of
+      enterprise assets to validate that all privileges are authorized, on a recurring
+      schedule at a minimum annually, or more frequently.
+      Page 171
+      Internal Only - General
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+      v7
+  - id: "4"
+    title: "Controlled Use of Administrative Privileges"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: |
+      Controlled Use of Administrative Privileges
+      v7
+  - id: "16"
+    title: "Account Monitoring and Control"
+    type: clause
+    clause_ref: "16"
+    status: draft
+    content: |
+      Account Monitoring and Control
+      Page 172
+      Internal Only - General
+  - id: "5.9"
+    title: "Storage"
+    type: subclause
+    clause_ref: "5.9"
+    status: draft
+    content: |
+      This section contains recommendations relating to security-related configurations for
+      storage in GKE.
+      Page 173
+      Internal Only - General
+  - id: "5.9.1"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.1"
+    status: draft
+    content: |
+      GKE Persistent Disks (PD) (Manual)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Use Customer-Managed Encryption Keys (CMEK) to encrypt dynamically-provisioned
+      attached Google Compute Engine Persistent Disks (PDs) using keys managed within
+      Cloud Key Management Service (Cloud KMS).
+      Rationale:
+      GCE persistent disks are encrypted at rest by default using envelope encryption with
+      keys managed by Google. For additional protection, users can manage the Key
+      Encryption Keys using Cloud...
+  - id: "3.11"
+    title: "Encrypt Sensitive Data at Rest"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Encrypt sensitive data at rest on servers, applications, and databases containing
+      sensitive data. Storage-layer encryption, also known as server-side encryption,
+      v8
+      meets the minimum requirement of this Safeguard. Additional encryption methods
+      ● ●
+      may include application-layer encryption, also known as client-side encryption,
+      where access to the data storage device(s) does not permit access to the plain-text
+      data.
+  - id: "14.8"
+    title: "Encrypt Sensitive Information at Rest"
+    type: subclause
+    clause_ref: "14.8"
+    status: draft
+    content: |
+      v7 Encrypt all sensitive information at rest using a tool that requires a secondary ●
+      authentication mechanism not integrated into the operating system, in order to
+      access the information.
+      Page 175
+      Internal Only - General
+  - id: "5.9.2"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.2"
+    status: draft
+    content: |
+      Boot Disks (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Use Customer-Managed Encryption Keys (CMEK) to encrypt node boot disks using
+      keys managed within Cloud Key Management Service (Cloud KMS).
+      Rationale:
+      GCE persistent disks are encrypted at rest by default using envelope encryption with
+      keys managed by Google. For additional protection, users can manage the Key
+      Encryption Keys using Cloud KMS.
+      Impact:
+      Encryption of dynamically-provisioned attached disks requires the use of the...
+  - id: "3.11"
+    title: "Encrypt Sensitive Data at Rest"
+    type: subclause
+    clause_ref: "3.11"
+    status: draft
+    content: |
+      Encrypt sensitive data at rest on servers, applications, and databases containing
+      sensitive data. Storage-layer encryption, also known as server-side encryption,
+      v8
+      meets the minimum requirement of this Safeguard. Additional encryption methods
+      ● ●
+      may include application-layer encryption, also known as client-side encryption,
+      where access to the data storage device(s) does not permit access to the plain-text
+      data.
+  - id: "14.8"
+    title: "Encrypt Sensitive Information at Rest"
+    type: subclause
+    clause_ref: "14.8"
+    status: draft
+    content: |
+      v7 Encrypt all sensitive information at rest using a tool that requires a secondary ●
+      authentication mechanism not integrated into the operating system, in order to
+      access the information.
+      Page 178
+      Internal Only - General
+  - id: "5.10"
+    title: "Other Cluster Configurations"
+    type: subclause
+    clause_ref: "5.10"
+    status: draft
+    content: |
+      This section contains recommendations relating to any remaining security-related
+      cluster configurations in GKE.
+      Page 179
+      Internal Only - General
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled (Automated)"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 1
+      Description:
+      Note: The Kubernetes web UI (Dashboard) does not have admin access by default in
+      GKE 1.7 and higher. The Kubernetes web UI is disabled by default in GKE 1.10 and
+      higher. In GKE 1.15 and higher, the Kubernetes web UI add-on KubernetesDashboard
+      is no longer supported as a managed add-on.
+      The Kubernetes Web UI (Dashboard) has been a historical source of vulnerability and
+      should only be deployed when necessary.
+      Rationale:
+      You should disable the...
+  - id: "1.7"
+    title: "and higher. The Kubernetes web UI is disabled by default in GKE 1.10 and higher."
+    type: subclause
+    clause_ref: "1.7"
+    status: draft
+    content: |
+      In GKE 1.15 and higher, the Kubernetes web UI add-on KubernetesDashboard is no
+      longer supported as a managed add-on.
+      References:
+      1. https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-
+      cluster#disable_kubernetes_dashboard
+      CIS Controls:
+      Controls
+      Control IG 1 IG 2 IG 3
+      Version
+  - id: "4.8"
+    title: "Uninstall or Disable Unnecessary Services on"
+    type: subclause
+    clause_ref: "4.8"
+    status: draft
+    content: |
+      Enterprise Assets and Software
+      v8
+      Uninstall or disable unnecessary services on enterprise assets and software,
+      ● ●
+      such as an unused file sharing service, web application module, or service
+      function.
+  - id: "2.2"
+    title: "Ensure Software is Supported by Vendor"
+    type: subclause
+    clause_ref: "2.2"
+    status: draft
+    content: |
+      Ensure that only software applications or operating systems currently supported
+      v7
+      by the software's vendor are added to the organization's authorized software
+      ● ● ●
+      inventory. Unsupported software should be tagged as unsupported in the inventory
+      system.
+  - id: "18.4"
+    title: "Only Use Up-to-date And Trusted Third-Party"
+    type: subclause
+    clause_ref: "18.4"
+    status: draft
+    content: |
+      v7 Components ● ●
+      Only use up-to-date and trusted third-party components for the software
+      developed by the organization.
+      Page 181
+      Internal Only - General
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: |
+      workloads (Automated)
+      Profile Applicability:
+      • Level 1
+      Description:
+      Alpha clusters are not covered by an SLA and are not production-ready.
+      Rationale:
+      Alpha clusters are designed for early adopters to experiment with workloads that take
+      advantage of new features before those features are production-ready. They have all
+      Kubernetes API features enabled, but are not covered by the GKE SLA, do not receive
+      security updates, have node auto-upgrade and node auto-repair disabled, and cannot
+      be upgraded....
+  - id: "16.8"
+    title: "Separate Production and Non-Production Systems"
+    type: subclause
+    clause_ref: "16.8"
+    status: draft
+    content: |
+      ● ●
+      Maintain separate environments for production and non-production systems.
+  - id: "18.9"
+    title: "Separate Production and Non-Production Systems"
+    type: subclause
+    clause_ref: "18.9"
+    status: draft
+    content: |
+      v7
+      Maintain separate environments for production and nonproduction systems.
+      ● ●
+      Developers should not have unmonitored access to production environments.
+      Page 183
+      Internal Only - General
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: |
+      (Automated)
+      Profile Applicability:
+      • Level 2
+      Description:
+      Use GKE Sandbox to restrict untrusted workloads as an additional layer of protection
+      when running in a multi-tenant environment.
+      Rationale:
+      GKE Sandbox provides an extra layer of security to prevent untrusted code from
+      affecting the host kernel on your cluster nodes.
+      When you enable GKE Sandbox on a Node pool, a sandbox is created for each Pod
+      running on a node in that Node pool. In addition, nodes running sandboxed Pods are
+      prevented...
+  - id: "16.8"
+    title: "Separate Production and Non-Production Systems"
+    type: subclause
+    clause_ref: "16.8"
+    status: draft
+    content: |
+      ● ●
+      Maintain separate environments for production and non-production systems.
+  - id: "18.9"
+    title: "Separate Production and Non-Production Systems"
+    type: subclause
+    clause_ref: "18.9"
+    status: draft
+    content: |
+      v7
+      Maintain separate environments for production and nonproduction systems.
+      ● ●
+      Developers should not have unmonitored access to production environments.
+      Page 186
+      Internal Only - General
+  - id: "5.10.4"
+    title: "Enable Security Posture (Manual)"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Profile Applicability:
+      • Level 2
+      Description:
+      Rationale:
+      The security posture dashboard provides insights about your workload security posture
+      at the runtime phase of the software delivery life-cycle.
+      Impact:
+      GKE security posture configuration auditing checks your workloads against a set of
+      defined best practices. Each configuration check has its own impact or risk. Learn more
+      about the checks: https://cloud.google.com/kubernetes-engine/docs/concepts/about-
+      configuration-scanning
+      Example: The...
+  - id: "2.4"
+    title: "Utilize Automated Software Inventory Tools"
+    type: subclause
+    clause_ref: "2.4"
+    status: draft
+    content: |
+      v8
+      Utilize software inventory tools, when possible, throughout the enterprise to
+      ● ●
+      automate the discovery and documentation of installed software.
+  - id: "5.5"
+    title: "Implement Automated Configuration Monitoring"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: |
+      Systems
+      v7
+      Utilize a Security Content Automation Protocol (SCAP) compliant configuration
+      ● ●
+      monitoring system to verify all security configuration elements, catalog approved
+      exceptions, and alert when unauthorized changes occur.
+      Page 188
+      Internal Only - General
+      Appendix: Summary Table
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "1"
+    title: "Control Plane Components"
+    type: clause
+    clause_ref: "1"
+    status: draft
+    content: ""
+  - id: "2"
+    title: "Control Plane Configuration"
+    type: clause
+    clause_ref: "2"
+    status: draft
+    content: ""
+  - id: "3"
+    title: "Worker Nodes"
+    type: clause
+    clause_ref: "3"
+    status: draft
+    content: ""
+  - id: "3.1"
+    title: "Worker Node Configuration Files"
+    type: subclause
+    clause_ref: "3.1"
+    status: draft
+    content: ""
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to o o"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      644 or more restrictive (Automated)
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set o o"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      to root:root (Automated)
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has o o"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      permissions set to 644 (Automated)
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is o o"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      set to root:root (Automated)
+  - id: "4"
+    title: "Policies"
+    type: clause
+    clause_ref: "4"
+    status: draft
+    content: ""
+  - id: "4.1"
+    title: "RBAC and Service Accounts"
+    type: subclause
+    clause_ref: "4.1"
+    status: draft
+    content: ""
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where o o"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      required (Automated)
+  - id: "4.1.2"
+    title: "Minimize access to secrets (Automated) o o"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles o o"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: |
+      (Automated)
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively o o"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      used (Automated)
+  - id: "4.1.5"
+    title: "Ensure that Service Account Tokens are only mounted o o"
+    type: subclause
+    clause_ref: "4.1.5"
+    status: draft
+    content: |
+      where necessary (Automated)
+  - id: "4.1.6"
+    title: "Avoid use of system:masters group (Automated) o o"
+    type: subclause
+    clause_ref: "4.1.6"
+    status: draft
+    content: |
+      Page 189
+      Internal Only - General
+  - id: "4.1.7"
+    title: "Limit use of the Bind, Impersonate and Escalate o o"
+    type: subclause
+    clause_ref: "4.1.7"
+    status: draft
+    content: |
+      permissions in the Kubernetes cluster (Manual)
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous (Automated) o o"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated o o"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: |
+      (Automated)
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated o o"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: |
+      (Automated)
+  - id: "4.2"
+    title: "Pod Security Standards"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard o o"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      Baseline profile or stricter for all namespaces. (Manual)
+  - id: "4.3"
+    title: "Network Policies and CNI"
+    type: subclause
+    clause_ref: "4.3"
+    status: draft
+    content: ""
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies o o"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: |
+      (Manual)
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies o o"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: |
+      defined (Automated)
+  - id: "4.4"
+    title: "Secrets Management"
+    type: subclause
+    clause_ref: "4.4"
+    status: draft
+    content: ""
+  - id: "4.4.1"
+    title: "Prefer using secrets as files over secrets as environment o o"
+    type: subclause
+    clause_ref: "4.4.1"
+    status: draft
+    content: |
+      variables (Automated)
+  - id: "4.4.2"
+    title: "Consider external secret storage (Manual) o o"
+    type: subclause
+    clause_ref: "4.4.2"
+    status: draft
+    content: ""
+  - id: "4.5"
+    title: "Extensible Admission Control"
+    type: subclause
+    clause_ref: "4.5"
+    status: draft
+    content: ""
+  - id: "4.5.1"
+    title: "Configure Image Provenance using o o"
+    type: subclause
+    clause_ref: "4.5.1"
+    status: draft
+    content: |
+      ImagePolicyWebhook admission controller (Manual)
+  - id: "4.6"
+    title: "General Policies"
+    type: subclause
+    clause_ref: "4.6"
+    status: draft
+    content: ""
+  - id: "4.6.1"
+    title: "Create administrative boundaries between resources o o"
+    type: subclause
+    clause_ref: "4.6.1"
+    status: draft
+    content: |
+      using namespaces (Manual)
+      Page 190
+      Internal Only - General
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault o o"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      in the pod definitions (Automated)
+  - id: "4.6.3"
+    title: "Apply Security Context to Pods and Containers (Manual) o o"
+    type: subclause
+    clause_ref: "4.6.3"
+    status: draft
+    content: ""
+  - id: "4.6.4"
+    title: "The default namespace should not be used (Automated) o o"
+    type: subclause
+    clause_ref: "4.6.4"
+    status: draft
+    content: ""
+  - id: "5"
+    title: "Managed services"
+    type: clause
+    clause_ref: "5"
+    status: draft
+    content: ""
+  - id: "5.1"
+    title: "Image Registry and Image Scanning"
+    type: subclause
+    clause_ref: "5.1"
+    status: draft
+    content: ""
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled o o"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: |
+      (Manual)
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image o o"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      repositories (Manual)
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used (Manual) o o"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: ""
+  - id: "5.2"
+    title: "Identity and Access Management (IAM)"
+    type: subclause
+    clause_ref: "5.2"
+    status: draft
+    content: ""
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute o o"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      Engine default service account (Automated)
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and o o"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      Workload Identity (Manual)
+  - id: "5.3"
+    title: "Cloud Key Management Service (Cloud KMS)"
+    type: subclause
+    clause_ref: "5.3"
+    status: draft
+    content: ""
+  - id: "5.3.1"
+    title: "Ensure Kubernetes Secrets are encrypted using keys o o"
+    type: subclause
+    clause_ref: "5.3.1"
+    status: draft
+    content: |
+      managed in Cloud KMS (Automated)
+  - id: "5.4"
+    title: "Node Metadata"
+    type: subclause
+    clause_ref: "5.4"
+    status: draft
+    content: ""
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled o o"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.5"
+    title: "Node Configuration and Maintenance"
+    type: subclause
+    clause_ref: "5.5"
+    status: draft
+    content: |
+      Page 191
+      Internal Only - General
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is o o"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      used for GKE Node images (Automated)
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version o o"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      management using Release Channels (Automated)
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled (Automated) o o"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: ""
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is o o"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: |
+      Enabled (Automated)
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled o o"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.6"
+    title: "Cluster Networking"
+    type: subclause
+    clause_ref: "5.6"
+    status: draft
+    content: ""
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility o o"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters (Automated) o o"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: ""
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.6.4"
+    title: "Ensure clusters are created with Private Endpoint o o"
+    type: subclause
+    clause_ref: "5.6.4"
+    status: draft
+    content: |
+      Enabled and Public Access Disabled (Automated)
+  - id: "5.6.5"
+    title: "Ensure clusters are created with Private Nodes o o"
+    type: subclause
+    clause_ref: "5.6.5"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes (Manual) o o"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: ""
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates o o"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.7"
+    title: "Logging"
+    type: subclause
+    clause_ref: "5.7"
+    status: draft
+    content: |
+      Page 192
+      Internal Only - General
+      CIS Benchmark Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging (Manual) o o"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: ""
+  - id: "5.8"
+    title: "Authentication and Authorization"
+    type: subclause
+    clause_ref: "5.8"
+    status: draft
+    content: ""
+  - id: "5.8.1"
+    title: "Ensure authentication using Client Certificates is o o"
+    type: subclause
+    clause_ref: "5.8.1"
+    status: draft
+    content: |
+      Disabled (Automated)
+  - id: "5.8.2"
+    title: "Manage Kubernetes RBAC users with Google Groups o o"
+    type: subclause
+    clause_ref: "5.8.2"
+    status: draft
+    content: |
+      for GKE (Manual)
+  - id: "5.8.3"
+    title: "Ensure Legacy Authorization (ABAC) is Disabled o o"
+    type: subclause
+    clause_ref: "5.8.3"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.9"
+    title: "Storage"
+    type: subclause
+    clause_ref: "5.9"
+    status: draft
+    content: ""
+  - id: "5.9.1"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for o o"
+    type: subclause
+    clause_ref: "5.9.1"
+    status: draft
+    content: |
+      GKE Persistent Disks (PD) (Manual)
+  - id: "5.9.2"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for o o"
+    type: subclause
+    clause_ref: "5.9.2"
+    status: draft
+    content: |
+      Boot Disks (Automated)
+  - id: "5.10"
+    title: "Other Cluster Configurations"
+    type: subclause
+    clause_ref: "5.10"
+    status: draft
+    content: ""
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled (Automated) o o"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: ""
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production o o"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: |
+      workloads (Automated)
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads o o"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: |
+      (Automated)
+  - id: "5.10.4"
+    title: "Enable Security Posture (Manual) o o"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Page 193
+      Internal Only - General
+      Appendix: CIS Controls v7 IG 1 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      o o
+      required
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      o o
+      used
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous o o"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated o o"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: ""
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated o o"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      o o
+      Baseline profile or stricter for all namespaces.
+  - id: "4.6.3"
+    title: "Apply Security Context to Pods and Containers o o"
+    type: subclause
+    clause_ref: "4.6.3"
+    status: draft
+    content: ""
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: ""
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      o o
+      Engine default service account
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      o o
+      Workload Identity
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      o o
+      management using Release Channels
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: ""
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled o o"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: |
+      Page 194
+      Internal Only - General
+      Appendix: CIS Controls v7 IG 2 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      o o
+      644 or more restrictive
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      o o
+      set to 644
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      o o
+      required
+  - id: "4.1.2"
+    title: "Minimize access to secrets o o"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles o o"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: ""
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      o o
+      used
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous o o"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated o o"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: ""
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated o o"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      o o
+      Baseline profile or stricter for all namespaces.
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies o o"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: ""
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: |
+      o o
+      defined
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      o o
+      in the pod definitions
+  - id: "4.6.3"
+    title: "Apply Security Context to Pods and Containers o o"
+    type: subclause
+    clause_ref: "4.6.3"
+    status: draft
+    content: ""
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled o o"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: ""
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: ""
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      o o
+      repositories
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used o o"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: |
+      Page 195
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      o o
+      Engine default service account
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      o o
+      Workload Identity
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled o o"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: ""
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      o o
+      used for GKE Node images
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: ""
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      o o
+      management using Release Channels
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled o o"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: ""
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: |
+      o o
+      Enabled
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled o o"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: ""
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility o o"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: ""
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters o o"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: ""
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: ""
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates o o"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: ""
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging o o"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: ""
+  - id: "5.8.2"
+    title: "Manage Kubernetes RBAC users with Google Groups for"
+    type: subclause
+    clause_ref: "5.8.2"
+    status: draft
+    content: |
+      o o
+      GKE
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled o o"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: ""
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: |
+      o o
+      workloads
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads o o"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: ""
+  - id: "5.10.4"
+    title: "Enable Security Posture o o"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Page 196
+      Internal Only - General
+      Appendix: CIS Controls v7 IG 3 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      o o
+      644 or more restrictive
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      o o
+      set to 644
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      o o
+      required
+  - id: "4.1.2"
+    title: "Minimize access to secrets o o"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles o o"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: ""
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      o o
+      used
+  - id: "4.1.5"
+    title: "Ensure that Service Account Tokens are only mounted"
+    type: subclause
+    clause_ref: "4.1.5"
+    status: draft
+    content: |
+      o o
+      where necessary
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous o o"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated o o"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: ""
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated o o"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      o o
+      Baseline profile or stricter for all namespaces.
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies o o"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: ""
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: |
+      o o
+      defined
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      o o
+      in the pod definitions
+  - id: "4.6.3"
+    title: "Apply Security Context to Pods and Containers o o"
+    type: subclause
+    clause_ref: "4.6.3"
+    status: draft
+    content: ""
+  - id: "4.6.4"
+    title: "The default namespace should not be used o o"
+    type: subclause
+    clause_ref: "4.6.4"
+    status: draft
+    content: ""
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled o o"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: ""
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: |
+      Page 197
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      o o
+      repositories
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used o o"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: ""
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      o o
+      Engine default service account
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      o o
+      Workload Identity
+  - id: "5.3.1"
+    title: "Ensure Kubernetes Secrets are encrypted using keys"
+    type: subclause
+    clause_ref: "5.3.1"
+    status: draft
+    content: |
+      o o
+      managed in Cloud KMS
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled o o"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: ""
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      o o
+      used for GKE Node images
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: ""
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      o o
+      management using Release Channels
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled o o"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: ""
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: |
+      o o
+      Enabled
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled o o"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: ""
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility o o"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: ""
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters o o"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: ""
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: ""
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes o o"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: ""
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates o o"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: ""
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging o o"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: ""
+  - id: "5.8.2"
+    title: "Manage Kubernetes RBAC users with Google Groups for"
+    type: subclause
+    clause_ref: "5.8.2"
+    status: draft
+    content: |
+      o o
+      GKE
+  - id: "5.9.1"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.1"
+    status: draft
+    content: |
+      o o
+      GKE Persistent Disks (PD)
+  - id: "5.9.2"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.2"
+    status: draft
+    content: |
+      o o
+      Boot Disks
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled o o"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: |
+      Page 198
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: |
+      o o
+      workloads
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads o o"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: ""
+  - id: "5.10.4"
+    title: "Enable Security Posture o o"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Page 199
+      Internal Only - General
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      o o
+      644 or more restrictive
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      o o
+      set to 644
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      o o
+      required
+  - id: "4.1.2"
+    title: "Minimize access to secrets o o"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles o o"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: ""
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      o o
+      used
+  - id: "4.1.6"
+    title: "Avoid use of system:masters group o o"
+    type: subclause
+    clause_ref: "4.1.6"
+    status: draft
+    content: ""
+  - id: "4.1.7"
+    title: "Limit use of the Bind, Impersonate and Escalate"
+    type: subclause
+    clause_ref: "4.1.7"
+    status: draft
+    content: |
+      o o
+      permissions in the Kubernetes cluster
+  - id: "4.5.1"
+    title: "Configure Image Provenance using"
+    type: subclause
+    clause_ref: "4.5.1"
+    status: draft
+    content: |
+      o o
+      ImagePolicyWebhook admission controller
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: ""
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      o o
+      repositories
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      o o
+      Engine default service account
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      o o
+      Workload Identity
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      o o
+      management using Release Channels
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: |
+      Page 201
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.6.4"
+    title: "Ensure clusters are created with Private Endpoint"
+    type: subclause
+    clause_ref: "5.6.4"
+    status: draft
+    content: |
+      o o
+      Enabled and Public Access Disabled
+  - id: "5.6.5"
+    title: "Ensure clusters are created with Private Nodes o o"
+    type: subclause
+    clause_ref: "5.6.5"
+    status: draft
+    content: ""
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes o o"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: ""
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging o o"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: |
+      Page 202
+      Internal Only - General
+      Appendix: CIS Controls v8 IG 2 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      o o
+      644 or more restrictive
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      o o
+      set to 644
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      o o
+      required
+  - id: "4.1.2"
+    title: "Minimize access to secrets o o"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles o o"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: ""
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      o o
+      used
+  - id: "4.1.5"
+    title: "Ensure that Service Account Tokens are only mounted"
+    type: subclause
+    clause_ref: "4.1.5"
+    status: draft
+    content: |
+      o o
+      where necessary
+  - id: "4.1.6"
+    title: "Avoid use of system:masters group o o"
+    type: subclause
+    clause_ref: "4.1.6"
+    status: draft
+    content: ""
+  - id: "4.1.7"
+    title: "Limit use of the Bind, Impersonate and Escalate"
+    type: subclause
+    clause_ref: "4.1.7"
+    status: draft
+    content: |
+      o o
+      permissions in the Kubernetes cluster
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous o o"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated o o"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: ""
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated o o"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      o o
+      Baseline profile or stricter for all namespaces.
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies o o"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: ""
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: |
+      o o
+      defined
+  - id: "4.5.1"
+    title: "Configure Image Provenance using"
+    type: subclause
+    clause_ref: "4.5.1"
+    status: draft
+    content: |
+      o o
+      ImagePolicyWebhook admission controller
+      Page 203
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      o o
+      in the pod definitions
+  - id: "4.6.4"
+    title: "The default namespace should not be used o o"
+    type: subclause
+    clause_ref: "4.6.4"
+    status: draft
+    content: ""
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled o o"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: ""
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: ""
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      o o
+      repositories
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used o o"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: ""
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      o o
+      Engine default service account
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      o o
+      Workload Identity
+  - id: "5.3.1"
+    title: "Ensure Kubernetes Secrets are encrypted using keys"
+    type: subclause
+    clause_ref: "5.3.1"
+    status: draft
+    content: |
+      o o
+      managed in Cloud KMS
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled o o"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: ""
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      o o
+      used for GKE Node images
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: ""
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      o o
+      management using Release Channels
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled o o"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: ""
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: |
+      o o
+      Enabled
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled o o"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: ""
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility o o"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: ""
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters o o"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: ""
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: ""
+  - id: "5.6.4"
+    title: "Ensure clusters are created with Private Endpoint"
+    type: subclause
+    clause_ref: "5.6.4"
+    status: draft
+    content: |
+      o o
+      Enabled and Public Access Disabled
+  - id: "5.6.5"
+    title: "Ensure clusters are created with Private Nodes o o"
+    type: subclause
+    clause_ref: "5.6.5"
+    status: draft
+    content: ""
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes o o"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: ""
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates o o"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: |
+      Page 204
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging o o"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: ""
+  - id: "5.9.1"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.1"
+    status: draft
+    content: |
+      o o
+      GKE Persistent Disks (PD)
+  - id: "5.9.2"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.2"
+    status: draft
+    content: |
+      o o
+      Boot Disks
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled o o"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: ""
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: |
+      o o
+      workloads
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads o o"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: ""
+  - id: "5.10.4"
+    title: "Enable Security Posture o o"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Page 205
+      Internal Only - General
+      Appendix: CIS Controls v8 IG 3 Mapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "3.1.1"
+    title: "Ensure that the kubeconfig file permissions are set to"
+    type: subclause
+    clause_ref: "3.1.1"
+    status: draft
+    content: |
+      o o
+      644 or more restrictive
+  - id: "3.1.2"
+    title: "Ensure that the kubelet kubeconfig file ownership is set"
+    type: subclause
+    clause_ref: "3.1.2"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "3.1.3"
+    title: "Ensure that the kubelet configuration file has permissions"
+    type: subclause
+    clause_ref: "3.1.3"
+    status: draft
+    content: |
+      o o
+      set to 644
+  - id: "3.1.4"
+    title: "Ensure that the kubelet configuration file ownership is set"
+    type: subclause
+    clause_ref: "3.1.4"
+    status: draft
+    content: |
+      o o
+      to root:root
+  - id: "4.1.1"
+    title: "Ensure that the cluster-admin role is only used where"
+    type: subclause
+    clause_ref: "4.1.1"
+    status: draft
+    content: |
+      o o
+      required
+  - id: "4.1.2"
+    title: "Minimize access to secrets o o"
+    type: subclause
+    clause_ref: "4.1.2"
+    status: draft
+    content: ""
+  - id: "4.1.3"
+    title: "Minimize wildcard use in Roles and ClusterRoles o o"
+    type: subclause
+    clause_ref: "4.1.3"
+    status: draft
+    content: ""
+  - id: "4.1.4"
+    title: "Ensure that default service accounts are not actively"
+    type: subclause
+    clause_ref: "4.1.4"
+    status: draft
+    content: |
+      o o
+      used
+  - id: "4.1.5"
+    title: "Ensure that Service Account Tokens are only mounted"
+    type: subclause
+    clause_ref: "4.1.5"
+    status: draft
+    content: |
+      o o
+      where necessary
+  - id: "4.1.6"
+    title: "Avoid use of system:masters group o o"
+    type: subclause
+    clause_ref: "4.1.6"
+    status: draft
+    content: ""
+  - id: "4.1.7"
+    title: "Limit use of the Bind, Impersonate and Escalate"
+    type: subclause
+    clause_ref: "4.1.7"
+    status: draft
+    content: |
+      o o
+      permissions in the Kubernetes cluster
+  - id: "4.1.8"
+    title: "Avoid bindings to system:anonymous o o"
+    type: subclause
+    clause_ref: "4.1.8"
+    status: draft
+    content: ""
+  - id: "4.1.9"
+    title: "Avoid non-default bindings to system:unauthenticated o o"
+    type: subclause
+    clause_ref: "4.1.9"
+    status: draft
+    content: ""
+  - id: "4.1.10"
+    title: "Avoid non-default bindings to system:authenticated o o"
+    type: subclause
+    clause_ref: "4.1.10"
+    status: draft
+    content: ""
+  - id: "4.2.1"
+    title: "Ensure that the cluster enforces Pod Security Standard"
+    type: subclause
+    clause_ref: "4.2.1"
+    status: draft
+    content: |
+      o o
+      Baseline profile or stricter for all namespaces.
+  - id: "4.3.1"
+    title: "Ensure that the CNI in use supports Network Policies o o"
+    type: subclause
+    clause_ref: "4.3.1"
+    status: draft
+    content: ""
+  - id: "4.3.2"
+    title: "Ensure that all Namespaces have Network Policies"
+    type: subclause
+    clause_ref: "4.3.2"
+    status: draft
+    content: |
+      o o
+      defined
+  - id: "4.5.1"
+    title: "Configure Image Provenance using"
+    type: subclause
+    clause_ref: "4.5.1"
+    status: draft
+    content: |
+      o o
+      ImagePolicyWebhook admission controller
+      Page 206
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "4.6.2"
+    title: "Ensure that the seccomp profile is set to RuntimeDefault"
+    type: subclause
+    clause_ref: "4.6.2"
+    status: draft
+    content: |
+      o o
+      in the pod definitions
+  - id: "4.6.4"
+    title: "The default namespace should not be used o o"
+    type: subclause
+    clause_ref: "4.6.4"
+    status: draft
+    content: ""
+  - id: "5.1.1"
+    title: "Ensure Image Vulnerability Scanning is enabled o o"
+    type: subclause
+    clause_ref: "5.1.1"
+    status: draft
+    content: ""
+  - id: "5.1.2"
+    title: "Minimize user access to Container Image repositories o o"
+    type: subclause
+    clause_ref: "5.1.2"
+    status: draft
+    content: ""
+  - id: "5.1.3"
+    title: "Minimize cluster access to read-only for Container Image"
+    type: subclause
+    clause_ref: "5.1.3"
+    status: draft
+    content: |
+      o o
+      repositories
+  - id: "5.1.4"
+    title: "Ensure only trusted container images are used o o"
+    type: subclause
+    clause_ref: "5.1.4"
+    status: draft
+    content: ""
+  - id: "5.2.1"
+    title: "Ensure GKE clusters are not running using the Compute"
+    type: subclause
+    clause_ref: "5.2.1"
+    status: draft
+    content: |
+      o o
+      Engine default service account
+  - id: "5.2.2"
+    title: "Prefer using dedicated GCP Service Accounts and"
+    type: subclause
+    clause_ref: "5.2.2"
+    status: draft
+    content: |
+      o o
+      Workload Identity
+  - id: "5.3.1"
+    title: "Ensure Kubernetes Secrets are encrypted using keys"
+    type: subclause
+    clause_ref: "5.3.1"
+    status: draft
+    content: |
+      o o
+      managed in Cloud KMS
+  - id: "5.4.1"
+    title: "Ensure the GKE Metadata Server is Enabled o o"
+    type: subclause
+    clause_ref: "5.4.1"
+    status: draft
+    content: ""
+  - id: "5.5.1"
+    title: "Ensure Container-Optimized OS (cos_containerd) is"
+    type: subclause
+    clause_ref: "5.5.1"
+    status: draft
+    content: |
+      o o
+      used for GKE Node images
+  - id: "5.5.2"
+    title: "Ensure Node Auto-Repair is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.2"
+    status: draft
+    content: ""
+  - id: "5.5.3"
+    title: "Ensure Node Auto-Upgrade is Enabled for GKE Nodes o o"
+    type: subclause
+    clause_ref: "5.5.3"
+    status: draft
+    content: ""
+  - id: "5.5.4"
+    title: "When creating New Clusters - Automate GKE version"
+    type: subclause
+    clause_ref: "5.5.4"
+    status: draft
+    content: |
+      o o
+      management using Release Channels
+  - id: "5.5.5"
+    title: "Ensure Shielded GKE Nodes are Enabled o o"
+    type: subclause
+    clause_ref: "5.5.5"
+    status: draft
+    content: ""
+  - id: "5.5.6"
+    title: "Ensure Integrity Monitoring for Shielded GKE Nodes is"
+    type: subclause
+    clause_ref: "5.5.6"
+    status: draft
+    content: |
+      o o
+      Enabled
+  - id: "5.5.7"
+    title: "Ensure Secure Boot for Shielded GKE Nodes is Enabled o o"
+    type: subclause
+    clause_ref: "5.5.7"
+    status: draft
+    content: ""
+  - id: "5.6.1"
+    title: "Enable VPC Flow Logs and Intranode Visibility o o"
+    type: subclause
+    clause_ref: "5.6.1"
+    status: draft
+    content: ""
+  - id: "5.6.2"
+    title: "Ensure use of VPC-native clusters o o"
+    type: subclause
+    clause_ref: "5.6.2"
+    status: draft
+    content: ""
+  - id: "5.6.3"
+    title: "Ensure Control Plane Authorized Networks is Enabled o o"
+    type: subclause
+    clause_ref: "5.6.3"
+    status: draft
+    content: ""
+  - id: "5.6.4"
+    title: "Ensure clusters are created with Private Endpoint"
+    type: subclause
+    clause_ref: "5.6.4"
+    status: draft
+    content: |
+      o o
+      Enabled and Public Access Disabled
+  - id: "5.6.5"
+    title: "Ensure clusters are created with Private Nodes o o"
+    type: subclause
+    clause_ref: "5.6.5"
+    status: draft
+    content: ""
+  - id: "5.6.6"
+    title: "Consider firewalling GKE worker nodes o o"
+    type: subclause
+    clause_ref: "5.6.6"
+    status: draft
+    content: ""
+  - id: "5.6.7"
+    title: "Ensure use of Google-managed SSL Certificates o o"
+    type: subclause
+    clause_ref: "5.6.7"
+    status: draft
+    content: ""
+  - id: "5.7.1"
+    title: "Ensure Logging and Cloud Monitoring is Enabled o o"
+    type: subclause
+    clause_ref: "5.7.1"
+    status: draft
+    content: |
+      Page 207
+      Internal Only - General
+      Recommendation Set
+      Correctly
+      Yes No
+  - id: "5.7.2"
+    title: "Enable Linux auditd logging o o"
+    type: subclause
+    clause_ref: "5.7.2"
+    status: draft
+    content: ""
+  - id: "5.8.1"
+    title: "Ensure authentication using Client Certificates is"
+    type: subclause
+    clause_ref: "5.8.1"
+    status: draft
+    content: |
+      o o
+      Disabled
+  - id: "5.8.2"
+    title: "Manage Kubernetes RBAC users with Google Groups for"
+    type: subclause
+    clause_ref: "5.8.2"
+    status: draft
+    content: |
+      o o
+      GKE
+  - id: "5.8.3"
+    title: "Ensure Legacy Authorization (ABAC) is Disabled o o"
+    type: subclause
+    clause_ref: "5.8.3"
+    status: draft
+    content: ""
+  - id: "5.9.1"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.1"
+    status: draft
+    content: |
+      o o
+      GKE Persistent Disks (PD)
+  - id: "5.9.2"
+    title: "Enable Customer-Managed Encryption Keys (CMEK) for"
+    type: subclause
+    clause_ref: "5.9.2"
+    status: draft
+    content: |
+      o o
+      Boot Disks
+  - id: "5.10.1"
+    title: "Ensure Kubernetes Web UI is Disabled o o"
+    type: subclause
+    clause_ref: "5.10.1"
+    status: draft
+    content: ""
+  - id: "5.10.2"
+    title: "Ensure that Alpha clusters are not used for production"
+    type: subclause
+    clause_ref: "5.10.2"
+    status: draft
+    content: |
+      o o
+      workloads
+  - id: "5.10.3"
+    title: "Consider GKE Sandbox for running untrusted workloads o o"
+    type: subclause
+    clause_ref: "5.10.3"
+    status: draft
+    content: ""
+  - id: "5.10.4"
+    title: "Enable Security Posture o o"
+    type: subclause
+    clause_ref: "5.10.4"
+    status: draft
+    content: |
+      Page 208
+      Internal Only - General
+      Appendix: CIS Controls v8 Unmapped
+      Recommendations
+      Recommendation Set
+      Correctly
+      Yes No
+      No unmapped recommendations to CIS Controls v8 o o
+      Page 209
+      Internal Only - General
+  - id: "5.10.5"
+    title: "(Ticket 21588)"
+    type: subclause
+    clause_ref: "5.10.5"
+    status: draft
+    content: |
+      Page 211
+      Internal Only - General
+      Date Version Changes for this version
+      June 1, 2024 1.6.0 Modified recommendations to
+      automate AAC
+      2.1.2
+      3.1.1
+      3.1.2
+      3.1.3
+      3.1.4
+      4.1.6
+      4.3.2
+      4.4.1
+      4.6.2
+      4.6.4
+      5.1.4
+      5.2.2
+      5.6.7
+      5.10.3
+      May 30, 2024 1.6.0 Added recommendation 4.1.10
+      Avoid non-default bindings to
+      system:authenticated
+      May 30, 2024 1.6.0 Added recommendation 4.1.9
+      Avoid non-default bindings to
+      system:unauthenticated
+      May 30, 2024 1.6.0 Added recommendation 4.1.8
+      Avoid bindings to
+      system:anonymous
+      May...
+  - id: "4.2"
+    title: "(Ticket 18563)"
+    type: subclause
+    clause_ref: "4.2"
+    status: draft
+    content: |
+      Apr 21, 2023 1.5.0 Edit recommendation Title
+      (Ticket 18564)
+      Apr 21, 2023 1.5.0 Review output of DOXC - PDF
+      and generation of extraneous
+      subheads when expanding the
+      TOC. (Ticket 18566)
+      Sep 28, 2023 1.5.0 UPDATE: Proposed changes
+      for control 3.1.1 (Ticket 19758)
+      Sep 28, 2023 1.5.0 Proposed changes for GKE
+      control 3.2.5 (--streaming-
+      connection-idle-timeout) (Ticket
+      19782)
+      Sep 28, 2023 1.5.0 Proposed changes for GKE
+      control 3.2.6 (--make-iptables-
+      util-chains) (Ticket 19803)
+      Sep 28, 2023 1.5.0...
+  - id: "5.3.2"
+    title: "moved flags in audit"
+    type: subclause
+    clause_ref: "5.3.2"
+    status: draft
+    content: |
+      process to end of the
+      command line
+      Apr 3, 2023 1.4.0 Ticket # 16625Updated
+      Recommendation 5.7.1
+      default value statement.
+      Apr 3, 2023 1.4.0 Ticket #18522
+      Set Pod Security Policy
+      Recommendations to
+      Manual in preparation for
+      PSP removal in v1.25 and
+      beyond.
+      Mar 22, 2023 1.4.0 Ticket #17029
+      Recommendation 4.2.1
+      Minimize the admission of
+      privileged containers is
+      deprricated.
+      Page 220
+      Internal Only - General
+      Date Version Changes for this version
+      Mar 13, 2023 1.4.0 Ticket #16686
+      Updated recommendation
+  - id: "4.2.4"
+    title: "to resolve conflict with"
+    type: subclause
+    clause_ref: "4.2.4"
+    status: draft
+    content: |
+      4.2.8
+      Mar 13, 2023 1.4.0 Ticket # 15917
+      edited –event-qps option
+      with eventRecordQPS
+      Page 221
+      Internal Only - General

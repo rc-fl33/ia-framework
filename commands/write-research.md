@@ -1,0 +1,1 @@
+../skills/write/commands/write-research.md

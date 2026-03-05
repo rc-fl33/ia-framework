@@ -1,0 +1,393 @@
+framework: eu-ai-act
+version: "2024/1689"
+total_controls: 33
+# Source: Regulation (EU) 2024/1689, Official Journal OJ L, 2024/1689, 12.7.2024
+# Verified: https://artificialintelligenceact.eu/ai-act-explorer/
+
+controls:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER II — PROHIBITED AI PRACTICES
+  # Applies from: 2025-02-02
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-5
+    title: "Prohibited AI practices"
+    category: Chapter-II
+    description: "Lists AI practices that are prohibited as posing unacceptable risk: subliminal
+      manipulation; exploitation of vulnerabilities; social scoring by public authorities;
+      real-time remote biometric identification in public spaces (with limited law enforcement
+      exceptions); emotion recognition in workplace/education; biometric categorisation inferring
+      sensitive characteristics; untargeted facial recognition database scraping; AI that
+      manipulates persons to circumvent free will."
+    enforcement_date: "2025-02-02"
+    status: active
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER III, SECTION 1 — CLASSIFICATION OF HIGH-RISK AI SYSTEMS
+  # Applies from: 2026-08-02 (Art 6(2)/Annex III); 2027-08-02 (Art 6(1)/Annex I)
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-6
+    title: "Classification rules for high-risk AI systems"
+    category: Chapter-III
+    description: "Two-tier classification: (1) AI systems that are safety components of
+      products covered by Union harmonisation legislation in Annex I and subject to third-party
+      conformity assessment; (2) AI systems listed in Annex III (biometrics, critical
+      infrastructure, education, employment, essential services, law enforcement, migration,
+      justice). Art 6(1) applies from 2027-08-02; Art 6(2) applies from 2026-08-02."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-7
+    title: "Amendments to Annex III"
+    category: Chapter-III
+    description: "Commission may update Annex III by delegated act to add or modify high-risk
+      AI use-case areas where AI systems pose significant risks of harm to health, safety,
+      or fundamental rights."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER III, SECTION 2 — REQUIREMENTS FOR HIGH-RISK AI SYSTEMS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-8
+    title: "Compliance with the requirements"
+    category: Chapter-III
+    description: "High-risk AI systems shall comply with the requirements in this Section,
+      taking into account their intended purpose and the generally acknowledged state of the
+      art on AI and AI-related technologies. The risk management measures in Art 9 shall
+      be considered in ensuring compliance."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-9
+    title: "Risk management system"
+    category: Chapter-III
+    description: "Providers shall establish and document a risk management system — a continuous
+      iterative process run throughout the lifecycle. Must identify and analyse known and
+      reasonably foreseeable risks; estimate and evaluate risks that may emerge from intended
+      use and reasonably foreseeable misuse; evaluate other risks from post-market monitoring
+      data. Risk management measures shall be taken to address identified risks."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-10
+    title: "Data and data governance"
+    category: Chapter-III
+    description: "Training, validation, and testing data sets shall be subject to appropriate
+      data governance and management practices. Data sets shall be relevant, sufficiently
+      representative, and to the best extent possible free of errors and complete. They shall
+      have appropriate statistical properties. Relevant biases shall be identified, assessed,
+      and mitigated."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-11
+    title: "Technical documentation"
+    category: Chapter-III
+    description: "Before placing a high-risk AI system on the market or putting it into service,
+      providers shall draw up technical documentation in accordance with Annex IV. Technical
+      documentation shall be kept up to date. It shall be drawn up in such a way as to
+      demonstrate that the high-risk AI system complies with this Regulation."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-12
+    title: "Record-keeping"
+    category: Chapter-III
+    description: "High-risk AI systems shall technically allow for the automatic recording of
+      events (logs) over their lifetime. Logging capabilities shall ensure a level of traceability
+      of the AI system's functioning appropriate for the system's intended purpose, at minimum
+      enabling identification of situations that may present a risk or lead to substantial
+      modification."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-13
+    title: "Transparency and provision of information to deployers"
+    category: Chapter-III
+    description: "High-risk AI systems shall be designed so that their operation is sufficiently
+      transparent to enable deployers to interpret the system's output and use it appropriately.
+      Providers shall ensure systems are accompanied by instructions for use including: identity
+      of provider, system characteristics, performance metrics, limitations, human oversight
+      measures, computational and hardware requirements."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-14
+    title: "Human oversight"
+    category: Chapter-III
+    description: "High-risk AI systems shall be designed so that natural persons can effectively
+      oversee them during the period of use. Oversight measures shall be proportionate to risks.
+      The system shall enable persons to understand capabilities and limitations, monitor operation,
+      disregard or override outputs, intervene or interrupt operation, and be aware of automation
+      bias."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-15
+    title: "Accuracy, robustness and cybersecurity"
+    category: Chapter-III
+    description: "High-risk AI systems shall be designed to achieve an appropriate level of
+      accuracy, robustness, and cybersecurity throughout their lifecycle. Technical redundancy
+      solutions, fallback plans, and protection against adversarial attacks shall be implemented.
+      Systems processing personal data shall be resilient to attempts to alter the use of
+      personal data."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER III, SECTION 3 — OBLIGATIONS OF PROVIDERS AND DEPLOYERS
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-16
+    title: "Obligations of providers of high-risk AI systems"
+    category: Chapter-III
+    description: "Providers shall: ensure compliance with requirements (Art 8-15); have a quality
+      management system (Art 17); keep technical documentation (Art 18); retain automatically
+      generated logs (Art 19); ensure conformity assessment (Art 43); draw up EU declaration of
+      conformity (Art 47); affix CE marking (Art 48); register the system (Art 49); take
+      corrective actions (Art 20); cooperate with authorities (Art 21)."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-17
+    title: "Quality management system"
+    category: Chapter-III
+    description: "Providers shall put in place a quality management system ensuring compliance
+      with this Regulation. The QMS shall be documented in a systematic and orderly manner in
+      the form of written policies, procedures, and instructions. It shall cover strategy for
+      regulatory compliance; techniques for design and design control; examination and testing
+      procedures; roles and responsibilities."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-18
+    title: "Documentation keeping"
+    category: Chapter-III
+    description: "Providers shall keep the technical documentation referred to in Art 11 and,
+      where applicable, the EU declaration of conformity, for a period of 10 years after the
+      high-risk AI system has been placed on the market or put into service. Documentation shall
+      be made available to competent national authorities upon request."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-19
+    title: "Automatically generated logs"
+    category: Chapter-III
+    description: "Providers shall keep automatically generated logs of their high-risk AI systems
+      to the extent such logs are under their control. Logs shall be kept for a period of at
+      least 6 months, unless Union or national law provides otherwise, taking into account the
+      nature of the risk and any obligations to retain data under applicable Union or national law."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-20
+    title: "Corrective actions and duty of information"
+    category: Chapter-III
+    description: "Providers who consider or have reason to believe that a high-risk AI system
+      they have placed on the market or put into service is not in conformity with this Regulation
+      shall immediately take necessary corrective actions to bring the system into conformity,
+      withdraw it, or recall it as appropriate. They shall immediately inform the relevant national
+      competent authorities and deployers."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-21
+    title: "Cooperation with competent authorities"
+    category: Chapter-III
+    description: "Providers shall cooperate with national competent authorities and the AI Office
+      upon reasoned request to demonstrate conformity with this Regulation. Providers shall
+      provide access to technical documentation and, upon specific reasoned request, source code."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-22
+    title: "Authorised representatives of providers of high-risk AI systems"
+    category: Chapter-III
+    description: "Before placing a high-risk AI system on the EU market, providers established
+      outside the EU shall designate, by written mandate, an authorised representative established
+      in the Union. The authorised representative shall perform tasks specified in the mandate
+      and shall cooperate with and be an additional contact point for competent authorities."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-23
+    title: "Obligations of importers"
+    category: Chapter-III
+    description: "Before placing a high-risk AI system on the market, importers shall verify:
+      the provider has carried out the conformity assessment; the provider has drawn up the
+      technical documentation; the system bears the required CE marking; the provider has
+      taken the necessary corrective actions if they have knowledge that the system is not in
+      conformity."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-24
+    title: "Obligations of distributors"
+    category: Chapter-III
+    description: "Before making a high-risk AI system available on the EU market, distributors
+      shall verify that it bears the required CE marking; the provider and importer have complied
+      with their obligations; the instructions for use accompany the system. Distributors shall
+      cooperate with competent authorities on request."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-25
+    title: "Responsibilities along the AI value chain"
+    category: Chapter-III
+    description: "Any distributor, importer, deployer or other third party shall be considered
+      a provider and subject to provider obligations where they: place a high-risk AI system
+      on the market under their own name; make a substantial modification; change the intended
+      purpose of a non-high-risk system such that it becomes high-risk. The original provider
+      must provide necessary information and assistance."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-26
+    title: "Obligations of deployers of high-risk AI systems"
+    category: Chapter-III
+    description: "Deployers shall: use high-risk AI systems in accordance with instructions for
+      use; ensure competent human oversight; monitor operation and inform providers of serious
+      incidents; ensure input data is relevant and sufficiently representative; keep automatically
+      generated logs where under their control; perform data protection impact assessments where
+      required; perform fundamental rights impact assessments (Art 27) before deploying certain
+      systems."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-27
+    title: "Fundamental rights impact assessment for high-risk AI systems"
+    category: Chapter-III
+    description: "Before deploying a high-risk AI system in public authority, critical infrastructure,
+      education, employment, essential services, or law enforcement contexts, deployers shall
+      perform a fundamental rights impact assessment (FRIA). The FRIA must assess the impact
+      on fundamental rights and shall be notified to the market surveillance authority. The AI
+      Office shall develop a questionnaire template."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER IV — TRANSPARENCY OBLIGATIONS
+  # Applies from: 2026-08-02
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-50
+    title: "Transparency obligations for providers and deployers of certain AI systems"
+    category: Chapter-IV
+    description: "Providers shall ensure AI systems intended to interact directly with natural
+      persons are designed to inform those persons they are interacting with an AI system, unless
+      obvious from context. AI systems generating synthetic audio, image, video, or text content
+      shall mark outputs as artificially generated (machine-readable). Deployers of emotion
+      recognition and biometric categorisation systems shall inform natural persons thereof.
+      Deepfake content must be disclosed."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER V — GENERAL-PURPOSE AI MODELS
+  # Applies from: 2025-08-02
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-51
+    title: "Classification of general-purpose AI models as general-purpose AI models with systemic risk"
+    category: Chapter-V
+    description: "A GPAI model is classified as having systemic risk if it has high-impact
+      capabilities as determined by benchmarks and technical tools, or if the Commission
+      determines it has equivalent impact. The threshold presumption is training with more than
+      10^25 floating point operations (FLOPs). The Commission may update the threshold by
+      delegated act."
+    enforcement_date: "2025-08-02"
+    status: active
+
+  - id: Art-52
+    title: "Procedure"
+    category: Chapter-V
+    description: "Providers of GPAI models that meet or may meet the systemic risk threshold
+      shall notify the AI Office within two weeks of determination. The Commission may designate
+      a GPAI model as having systemic risk on the basis of criteria other than the FLOPs threshold.
+      Providers may request reassessment after 6 months if systemic risk designation is disputed."
+    enforcement_date: "2025-08-02"
+    status: active
+
+  - id: Art-53
+    title: "Obligations for providers of general-purpose AI models"
+    category: Chapter-V
+    description: "GPAI model providers shall: draw up and keep up-to-date technical documentation
+      (Annex XI); provide information and documentation to downstream providers integrating the
+      model; have in place a policy to comply with copyright law; publish a summary of training
+      data content. Providers making models available as open source are exempt from documentation
+      and information-sharing requirements unless the model has systemic risk."
+    enforcement_date: "2025-08-02"
+    status: active
+
+  - id: Art-54
+    title: "Authorised representatives of providers of general-purpose AI models"
+    category: Chapter-V
+    description: "Providers of GPAI models established outside the EU must designate a written
+      authorised representative established in the Union before making the model available in
+      the EU. The representative shall cooperate with the AI Office and competent authorities,
+      maintain technical documentation, and provide information to the AI Office upon request."
+    enforcement_date: "2025-08-02"
+    status: active
+
+  - id: Art-55
+    title: "Obligations of providers of general-purpose AI models with systemic risk"
+    category: Chapter-V
+    description: "Providers of GPAI models with systemic risk shall: perform model evaluations
+      using standardised protocols including adversarial testing; assess and mitigate systemic
+      risks including accidents, misuse, and societal scale impacts; report serious incidents to
+      the AI Office within 2 weeks of awareness; ensure adequate cybersecurity protection.
+      Compliance with codes of practice creates a presumption of conformity."
+    enforcement_date: "2025-08-02"
+    status: active
+
+  - id: Art-56
+    title: "Codes of practice"
+    category: Chapter-V
+    description: "The AI Office shall facilitate and encourage the drawing up of codes of practice
+      at Union level. Codes of practice shall cover at minimum: transparency measures including
+      copyright summary; technical documentation; copyright compliance policy; and for systemic
+      risk models: risk identification/mitigation, cybersecurity measures, incident reporting.
+      Compliance with an approved code creates a presumption of conformity with obligations."
+    enforcement_date: "2025-08-02"
+    status: active
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHAPTER VIII — POST-MARKET MONITORING AND ENFORCEMENT
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - id: Art-72
+    title: "Post-market monitoring by providers and post-market monitoring plan for high-risk AI systems"
+    category: Chapter-VI
+    description: "Providers of high-risk AI systems shall establish and document a post-market
+      monitoring system. The system shall actively and systematically collect, document, and
+      analyse relevant data throughout the lifecycle to monitor compliance, identify issues,
+      and apply corrective actions. Providers shall report serious incidents in accordance with
+      Art 73. The monitoring plan shall be part of the technical documentation."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-83
+    title: "Formal non-compliance"
+    category: Chapter-VI
+    description: "Where market surveillance authorities find that a high-risk AI system complies
+      formally with this Regulation but presents a risk to health, safety, or fundamental rights,
+      they shall require the relevant operator to take all appropriate measures to ensure the
+      AI system no longer presents that risk, withdraw it from the market, or recall it within
+      a reasonable period."
+    enforcement_date: "2026-08-02"
+    status: active
+
+  - id: Art-99
+    title: "Penalties"
+    category: Chapter-VI
+    description: "Penalties for natural and legal persons for violations of this Regulation:
+      up to EUR 35,000,000 or 7% of total worldwide annual turnover (whichever higher) for
+      violations of Art 5 prohibited practices; up to EUR 15,000,000 or 3% for violations of
+      other obligations including Art 50 transparency; up to EUR 7,500,000 or 1% for supplying
+      incorrect or misleading information. Art 99 applies from 2025-08-02."
+    enforcement_date: "2025-08-02"
+    status: active

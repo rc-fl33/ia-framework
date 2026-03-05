@@ -1,0 +1,1 @@
+../skills/seg-test/commands/seg-test.md

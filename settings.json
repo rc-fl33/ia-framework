@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_BUG_COMMAND": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(sudo *)",
+      "Bash(mkfs *)",
+      "Bash(dd *)",
+      "Bash(curl *|bash*)",
+      "Bash(wget *|bash*)",
+      "Bash(git push --force*)",
+      "Bash(git push *--force*)",
+      "Bash(git reset --hard*)",
+      "Bash(chmod -R 777 /)",
+      "Read(~/.ssh/**)",
+      "Edit(~/.ssh/**)",
+      "Edit(~/.bashrc)",
+      "Edit(~/.zshrc)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.aws/**)",
+      "Edit(~/.aws/*)",
+      "Read(~/.azure/**)",
+      "Read(~/.kube/**)",
+      "Edit(~/.kube/*)",
+      "Read(~/.docker/config.json)",
+      "Edit(~/.docker/config.json)",
+      "Read(~/.git-credentials)",
+      "Read(~/.config/gh/**)",
+      "Edit(~/.config/gh/hosts.yml)",
+      "Read(~/.npmrc)",
+      "Read(~/.npm/**)",
+      "Edit(~/.npmrc)",
+      "Read(~/.pypirc)",
+      "Edit(~/.pypirc)",
+      "Read(~/.gem/credentials)",
+      "Edit(~/.gem/credentials)",
+      "Read(~/.cargo/credentials*)",
+      "Edit(~/.cargo/credentials*)",
+      "Read(~/.netrc)",
+      "Edit(~/.netrc)",
+      "Read(~/Library/Keychains/**)",
+      "Read(~/Library/Application Support/**/metamask*/**)",
+      "Read(~/Library/Application Support/**/electrum*/**)",
+      "Read(~/Library/Application Support/**/exodus*/**)",
+      "Read(~/Library/Application Support/**/phantom*/**)",
+      "Read(~/Library/Application Support/**/solflare*/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/session-start.ts"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/tool-tracker.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run tools/monitor/scripts/hooks/observe-events.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/agent-loader.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/skill-loader.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/active-work-limiter.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/tool-usage-optimizer.ts"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/session-end.ts"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/skill-hook-loader.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/file-guardian.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/validate-frontmatter.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/skill-structure-validator.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/pre-commit/validate-registry-methodologies.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/pre-commit/validate-hero-prompts.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/credential-guardian.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/ghost-workflow-guard.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/bash-command-validator.ts"
+          },
+          {
+            "type": "command",
+            "command": "bun run hooks/enforce-package-manager.ts"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun run hooks/anti-rationalization.ts"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bunx -y ccstatusline@latest",
+    "padding": 0
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "description": "Intelligence Adjacent (IA) Framework Configuration — Claude Mode",
+  "framework": {
+    "name": "Intelligence Adjacent",
+    "version": "1.2.0",
+    "phase": "Skills-based architecture with TypeScript hooks",
+    "description": "Building systems that work alongside human intelligence, not replace it"
+  }
+}

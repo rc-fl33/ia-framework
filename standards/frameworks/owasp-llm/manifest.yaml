@@ -1,0 +1,57 @@
+framework: OWASP Top 10 for LLM Applications
+id: owasp-llm
+version: "2025"
+year: 2025
+publisher: OWASP
+framework_category: regulatory
+source_url: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+document: "OWASP Top 10 for LLM Applications 2025"
+description: "The ten most critical security risks for applications built on large language models. Covers prompt injection, sensitive data exposure, supply chain risks, data and model poisoning, improper output handling, excessive agency, system prompt leakage, vector and embedding weaknesses, misinformation, and unbounded consumption."
+native_categories:
+  - id: LLM01
+    name: Prompt Injection
+    description: "Manipulation of LLM behavior through crafted inputs that alter model output in unintended ways, including direct and indirect injection types"
+  - id: LLM02
+    name: Sensitive Information Disclosure
+    description: "Exposure of PII, proprietary algorithms, credentials, or confidential business data through LLM outputs"
+  - id: LLM03
+    name: Supply Chain Vulnerabilities
+    description: "Risks to training data integrity, model provenance, and deployment platforms from third-party components, pre-trained models, and fine-tuning adapters"
+  - id: LLM04
+    name: Data and Model Poisoning
+    description: "Manipulation of training, fine-tuning, or embedding data to introduce backdoors, biases, or vulnerabilities into LLM behavior"
+  - id: LLM05
+    name: Improper Output Handling
+    description: "Insufficient validation and sanitization of LLM-generated outputs before passing them to downstream components, enabling XSS, SSRF, SQL injection, and RCE"
+  - id: LLM06
+    name: Excessive Agency
+    description: "LLM agents granted excessive functionality, permissions, or autonomy enabling damaging actions in response to manipulated or unexpected outputs"
+  - id: LLM07
+    name: System Prompt Leakage
+    description: "Risk that system prompts containing sensitive configuration, credentials, or behavioral instructions are exposed to attackers"
+  - id: LLM08
+    name: Vector and Embedding Weaknesses
+    description: "Security risks in RAG systems from weaknesses in how vectors and embeddings are generated, stored, or retrieved, enabling data poisoning and unauthorized access"
+  - id: LLM09
+    name: Misinformation
+    description: "LLM generation of false or misleading information through hallucination, training bias, or overreliance, leading to security, legal, and reputational harm"
+  - id: LLM10
+    name: Unbounded Consumption
+    description: "Excessive and uncontrolled LLM inferences enabling denial of service, economic losses via Denial of Wallet, and model theft through extraction attacks"
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: complete
+  questions: complete
+  questions_framework_count: 1
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - private/books/standards/owasp-llm-top010/001-010.pdf
+    - private/books/standards/owasp-llm-top010/011-020.pdf
+    - private/books/standards/owasp-llm-top010/021-030.pdf
+    - private/books/standards/owasp-llm-top010/031-040.pdf
+    - private/books/standards/owasp-llm-top010/041-045.pdf
+    - private/books/standards/owasp-llm-top010/llm001-promptinjection.md
+  next_check: 2027-02-25

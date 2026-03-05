@@ -1,0 +1,9 @@
+# Architecture Overview
+
+## System Components
+
+[Component diagram or description]
+
+## Trust Boundaries
+
+[Trust boundary description]

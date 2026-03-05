@@ -1,0 +1,1008 @@
+framework: eu-ai-act
+version: "2024/1689"
+total_questions: 36
+industry_focus:
+  - technology
+  - ai_development
+  - healthcare
+  - finance
+  - public_sector
+  - education
+  - employment
+  - critical_infrastructure
+
+# Source: Regulation (EU) 2024/1689, Official Journal OJ L, 2024/1689, 12.7.2024
+# Verified: https://artificialintelligenceact.eu/ai-act-explorer/
+
+chapters:
+  - id: "II"
+    name: Prohibited AI Practices
+    articles: "5"
+    enforcement_date: "2025-02-02"
+
+  - id: "III"
+    name: High-Risk AI Systems
+    articles: "6-27"
+    enforcement_date: "2026-08-02"
+
+  - id: "IV"
+    name: Transparency Obligations
+    articles: "50"
+    enforcement_date: "2026-08-02"
+
+  - id: "V"
+    name: General-Purpose AI Models
+    articles: "51-56"
+    enforcement_date: "2025-08-02"
+
+  - id: "VI"
+    name: Governance and Enforcement
+    articles: "72, 83, 99"
+    enforcement_date: "2026-08-02"
+
+questions:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER II — PROHIBITED AI PRACTICES (Art 5)
+  # Applies from: 2025-02-02
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH2-001
+    text: "Has the organization inventoried all AI systems in use and determined whether
+      any fall under the prohibited practices listed in Article 5?"
+    category: Chapter-II
+    native_category: Chapter-II
+    domain: governance
+    controls:
+      eu-ai-act: "Art-5"
+      nist-ai-rmf: "MAP 5.1, GOVERN 6.1"
+      iso-42001: "6.1.2, A.6.1.3"
+      iso-24028: "Clause 8"
+      aiuc-1: "A001, A002"
+      iso-42005: "5.1, 5.2"
+    evidence_required:
+      - AI system inventory covering all deployed and procured AI systems
+      - Documented assessment of each system against Article 5 prohibited categories
+      - Written legal or compliance sign-off on non-prohibited status
+    scoring:
+      full: "Complete AI inventory with documented Art 5 assessment and legal sign-off for
+        each system, confirmed no prohibited systems are in use"
+      partial: "Inventory exists but assessment is incomplete or undocumented"
+      none: "No inventory or no assessment of prohibited practice risk"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH2-002
+    text: "Does the organization use or plan to use real-time remote biometric identification
+      in publicly accessible spaces, and if so, is use strictly limited to the narrow law
+      enforcement exceptions in Article 5(1)(h)?"
+    category: Chapter-II
+    native_category: Chapter-II
+    domain: governance
+    controls:
+      eu-ai-act: "Art-5"
+      nist-ai-rmf: "MAP 5.1, GOVERN 6.1"
+      iso-42001: "6.1.2, A.6.1.3, A.2.2"
+      iso-24028: "Clause 8"
+      aiuc-1: "A001, B001"
+      iso-42005: "5.1, 5.2"
+    evidence_required:
+      - Biometric AI system inventory
+      - Legal basis documentation citing applicable Art 5(1)(h) exception
+      - Prior authorisation from competent judicial or independent authority
+      - Documented scope limitations and proportionality assessment
+    scoring:
+      full: "No real-time remote biometric identification used, or use is strictly within
+        Art 5(1)(h) exceptions with documented authorisation and proportionality assessment"
+      partial: "Biometric system used with partial legal basis documentation, or authorisation
+        scope unclear"
+      none: "Real-time remote biometric identification in public spaces without documented
+        legal exception"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH2-003
+    text: "Does the organization use AI systems for social scoring, emotion recognition in
+      workplace or educational settings, or manipulation of human behaviour, and if so, have
+      these been assessed and confirmed not to violate Article 5 prohibitions?"
+    category: Chapter-II
+    native_category: Chapter-II
+    domain: governance
+    controls:
+      eu-ai-act: "Art-5"
+      nist-ai-rmf: "MAP 5.1, GOVERN 1.1"
+      iso-42001: "6.1.2, A.6.1.3"
+      iso-24028: "Clause 8"
+      aiuc-1: "A001, A002, B001"
+      iso-42005: "5.2"
+    evidence_required:
+      - Documented assessment for any social scoring, emotion recognition, or persuasion systems
+      - Legal and ethics review confirming compliance or non-use
+      - Any deployed use cases with documented justification against prohibited categories
+    scoring:
+      full: "No prohibited systems in use, documented assessment confirms compliance"
+      partial: "Assessment performed but incomplete or not covering all relevant system types"
+      none: "Systems in use with no assessment, or systems confirmed to violate Art 5"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III — HIGH-RISK CLASSIFICATION (Art 6-7)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH3-001
+    text: "Has the organization determined whether its AI systems fall under the high-risk
+      classification criteria in Article 6, covering both Annex I (regulated product safety
+      components) and Annex III (listed use-case areas)?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-6"
+      nist-ai-rmf: "MAP 1.1, MAP 1.5"
+      iso-42001: "6.1.2, A.6.1.1, A.6.1.2"
+      iso-24028: "Clause 4, Clause 5"
+      aiuc-1: "B001, B002, B003"
+      iso-42005: "5.2, 5.3"
+    evidence_required:
+      - AI system classification assessment for each system against Art 6(1) and Art 6(2)
+      - Annex I product category review for AI in regulated products
+      - Annex III use-case area review (biometrics, critical infrastructure, education,
+        employment, essential services, law enforcement, migration, justice)
+      - Documented classification decisions with rationale
+    scoring:
+      full: "Complete classification assessment for all AI systems, documented against both
+        Annex I and Annex III criteria, with legal or compliance sign-off"
+      partial: "Classification assessment performed but not comprehensive or not covering
+        all AI systems"
+      none: "No formal classification assessment performed"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-002
+    text: "For AI systems that are borderline or unclear in risk classification, has the
+      organization established a process to monitor Commission delegated acts under Article 7
+      that may add new Annex III categories?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-7"
+      nist-ai-rmf: "GOVERN 1.4, MAP 1.1"
+      iso-42001: "6.1.2, 10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "B001, F001"
+      iso-42005: "5.3"
+    evidence_required:
+      - Regulatory monitoring process for EU AI Act delegated acts
+      - Designated owner for tracking Annex III updates
+      - Review cadence documentation
+    scoring:
+      full: "Regulatory monitoring process in place with documented owner and review cadence"
+      partial: "Some monitoring but no formal process or unclear ownership"
+      none: "No monitoring of delegated act updates"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III — REQUIREMENTS FOR HIGH-RISK AI (Art 8-15)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH3-002B
+    text: "Has the organization confirmed that all high-risk AI systems comply with the
+      requirements in Articles 9-15, taking into account their intended purpose and the
+      generally acknowledged state of the art, as required by Article 8?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-8"
+      nist-ai-rmf: "GOVERN 1.1, GOVERN 1.2, MAP 1.6"
+      iso-42001: "8.1, 9.1, A.6.1.3"
+      iso-24028: "Clause 5"
+      aiuc-1: "C001, F001"
+      iso-42005: "5.1"
+    evidence_required:
+      - Compliance confirmation covering all Art 9-15 requirements for each high-risk AI system
+      - State-of-the-art assessment documenting technical standards and best practices referenced
+      - Documented intended purpose for each high-risk AI system used in compliance assessment
+    scoring:
+      full: "Documented compliance confirmation for all Art 9-15 requirements per high-risk AI
+        system, referencing applicable technical standards and intended purpose"
+      partial: "Compliance confirmed for some requirements or some systems but not comprehensively"
+      none: "No compliance confirmation process for high-risk AI system requirements"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-003
+    text: "Has the organization established and documented a risk management system per
+      Article 9 that covers the full lifecycle of each high-risk AI system?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-9"
+      nist-ai-rmf: "GOVERN 1.3, MAP 1.1, MAP 2.1, MAP 2.2, MANAGE 1.1"
+      iso-42001: "6.1.1, 6.1.2, 8.3"
+      iso-24028: "Clause 7"
+      aiuc-1: "C001, C002, C003"
+      iso-42005: "5.1, 5.2, 5.3"
+    evidence_required:
+      - Risk management system documentation (iterative process, lifecycle coverage)
+      - Risk register identifying known and reasonably foreseeable risks
+      - Residual risk assessment and accepted risk levels
+      - Evidence of risk management system updates based on operational experience
+    scoring:
+      full: "Documented iterative risk management system covering identification, analysis,
+        estimation, evaluation, and mitigation of risks for all high-risk AI systems"
+      partial: "Risk management system exists but is not iterative, not lifecycle-covering,
+        or not documented for all high-risk systems"
+      none: "No risk management system for high-risk AI systems"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-004
+    text: "Are training, validation, and testing datasets for high-risk AI systems subject
+      to data governance practices per Article 10, including bias identification and
+      representativeness assessment?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: data_protection
+    controls:
+      eu-ai-act: "Art-10"
+      nist-ai-rmf: "MAP 2.1, MAP 3.5, MEASURE 2.5"
+      iso-42001: "8.3, A.7.1, A.7.2, A.7.3"
+      iso-24028: "Clause 6, Clause 7"
+      aiuc-1: "C003, D001, D002"
+      iso-42005: "5.4"
+    evidence_required:
+      - Data governance procedures for training/validation/testing datasets
+      - Dataset representativeness and completeness assessment records
+      - Bias identification and mitigation records
+      - Data quality metrics and monitoring records
+    scoring:
+      full: "Documented data governance practices covering relevance, representativeness,
+        completeness, bias identification, and mitigation for all high-risk AI training data"
+      partial: "Data governance practices exist but are incomplete or not covering all
+        required elements"
+      none: "No data governance practices for high-risk AI training data"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-005
+    text: "Has the organization prepared and maintained technical documentation per Article 11
+      and Annex IV for each high-risk AI system before placing it on the market or putting
+      it into service?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-11"
+      nist-ai-rmf: "GOVERN 1.2, MAP 1.6, MEASURE 1.1"
+      iso-42001: "7.5, A.6.2.1, A.6.2.2"
+      iso-24028: "Clause 7"
+      aiuc-1: "C004, D003"
+      iso-42005: "6.1, 6.2"
+    evidence_required:
+      - Technical documentation per Annex IV for each high-risk AI system
+      - Documentation version control records showing updates
+      - Process for maintaining documentation currency throughout lifecycle
+    scoring:
+      full: "Complete Annex IV technical documentation for all high-risk AI systems, with
+        version control and a process for ongoing updates"
+      partial: "Technical documentation exists but is incomplete, out of date, or not
+        covering all high-risk systems"
+      none: "No technical documentation for high-risk AI systems"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-006
+    text: "Do high-risk AI systems provide automatic logging capability per Article 12 to
+      enable traceability, and are logs retained for the required minimum period?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: monitoring
+    controls:
+      eu-ai-act: "Art-12"
+      nist-ai-rmf: "MEASURE 1.1, MEASURE 2.6, MANAGE 2.2"
+      iso-42001: "7.5, A.6.2.5, 9.1"
+      iso-24028: "Clause 7"
+      aiuc-1: "C004, D004"
+      iso-42005: "6.1"
+    evidence_required:
+      - Technical specification of logging capability in AI systems
+      - Log retention policy (minimum 6 months per Art 19 for providers)
+      - Evidence that logs capture events sufficient to identify risks and substantial
+        modifications
+    scoring:
+      full: "Automatic logging implemented and documented; logs retained for required period;
+        log content covers Art 12 traceability requirements"
+      partial: "Logging exists but coverage is incomplete or retention period not met"
+      none: "No logging capability in high-risk AI systems"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH3-007
+    text: "Are high-risk AI systems accompanied by instructions for use per Article 13,
+      enabling deployers to interpret outputs and comply with their own obligations?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-13"
+      nist-ai-rmf: "GOVERN 4.1, GOVERN 4.2, MAP 1.6"
+      iso-42001: "A.8.3, A.8.4, 7.5"
+      iso-24028: "Clause 5, Clause 6"
+      aiuc-1: "D001, D002, D003"
+      iso-42005: "5.4, 6.1"
+    evidence_required:
+      - Instructions for use documentation covering Art 13 required elements
+      - Evidence instructions are provided to deployers at time of system delivery
+      - "Elements covered: provider identity, system characteristics, performance metrics,\
+        \ limitations, human oversight measures, computational requirements"
+    scoring:
+      full: "Complete instructions for use covering all Art 13 elements, provided to all
+        deployers"
+      partial: "Instructions provided but missing some Art 13 required elements"
+      none: "No instructions for use provided to deployers"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH3-008
+    text: "Are high-risk AI systems designed to enable meaningful human oversight per
+      Article 14, including the ability to understand, monitor, intervene, and override
+      the AI system?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-14"
+      nist-ai-rmf: "GOVERN 1.1, MANAGE 1.3, MANAGE 2.4"
+      iso-42001: "A.6.1.4, A.8.5, 5.3"
+      iso-24028: "Clause 6, Clause 7"
+      aiuc-1: "D005, E001, E002"
+      iso-42005: "5.2"
+    evidence_required:
+      - Design documentation showing human oversight mechanisms
+      - Evidence that oversight persons can understand AI capabilities and limitations
+      - Override and intervention capability documentation
+      - Automation bias awareness measures
+    scoring:
+      full: "Human oversight mechanisms designed and documented covering all Art 14
+        requirements: understanding, monitoring, override, intervention, bias awareness"
+      partial: "Some oversight mechanisms but not covering all Art 14 elements"
+      none: "No human oversight provisions in high-risk AI system design"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-009
+    text: "Have accuracy, robustness, and cybersecurity requirements per Article 15 been
+      addressed in the design and testing of high-risk AI systems, including resilience
+      against adversarial attacks?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-15"
+      nist-ai-rmf: "MEASURE 2.1, MEASURE 2.2, MEASURE 2.7"
+      iso-42001: "A.9.1, A.9.2, 8.1"
+      iso-24028: "Clause 5, Clause 6"
+      aiuc-1: "C005, C006, E003"
+      iso-42005: "5.2"
+    evidence_required:
+      - Accuracy metrics and benchmarks for the intended purpose
+      - Robustness testing records including edge cases
+      - Cybersecurity assessment and adversarial testing records
+      - Fallback plan documentation
+    scoring:
+      full: "Accuracy benchmarks defined and tested; robustness and adversarial testing
+        performed and documented; cybersecurity measures implemented with fallback plans"
+      partial: "Some elements addressed but not comprehensive testing across all Art 15
+        requirements"
+      none: "No accuracy, robustness, or cybersecurity assessment performed"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III — PROVIDER OBLIGATIONS (Art 16-21)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH3-010
+    text: "Has the provider established a quality management system per Article 17 ensuring
+      ongoing compliance of high-risk AI systems throughout their lifecycle?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-16, Art-17"
+      nist-ai-rmf: "GOVERN 1.2, GOVERN 1.7, MANAGE 4.1"
+      iso-42001: "4.4, 9.1, 10.1, 10.2"
+      iso-24028: "Clause 7"
+      aiuc-1: "F001, F002"
+      iso-42005: "5.1"
+    evidence_required:
+      - Quality management system documentation
+      - Written policies and procedures for AI compliance
+      - Roles and responsibilities definition
+      - QMS review and update records
+    scoring:
+      full: "Documented QMS covering strategy, design control, testing, roles, and review
+        procedures for all high-risk AI systems"
+      partial: "QMS exists but is incomplete or not formally documented"
+      none: "No quality management system for AI systems"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-011
+    text: "Does the provider retain technical documentation and EU declaration of conformity
+      for 10 years per Article 18, and are automatically generated logs retained for at
+      least 6 months per Article 19?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-18, Art-19"
+      nist-ai-rmf: "GOVERN 1.2, MANAGE 2.2, MEASURE 1.1"
+      iso-42001: "7.5, A.6.2.1, A.6.2.5"
+      iso-24028: "Clause 7"
+      aiuc-1: "C004, F001"
+      iso-42005: "6.1, 6.2"
+    evidence_required:
+      - Document retention policy specifying 10-year retention for Art 18 documentation
+      - Log retention policy specifying minimum 6-month retention for Art 19 logs
+      - Evidence of retention controls implementation
+    scoring:
+      full: "Retention policies implemented and enforced for both 10-year documentation
+        and 6-month log requirements"
+      partial: "Retention policies exist but retention periods or coverage is incomplete"
+      none: "No retention policy or retention requirements not met"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH3-012
+    text: "Does the provider have a process to take corrective actions and notify competent
+      authorities and deployers per Article 20 when a high-risk AI system is found to be
+      non-conforming or posing an unexpected risk?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-20"
+      nist-ai-rmf: "MANAGE 1.3, MANAGE 2.2, MANAGE 3.1"
+      iso-42001: "10.2, A.9.3, 8.4"
+      iso-24028: "Clause 7"
+      aiuc-1: "E015, E016, F001"
+      iso-42005: "5.5"
+    evidence_required:
+      - Corrective action procedure documentation
+      - Notification templates and escalation paths for authorities and deployers
+      - Documented incident response capability covering withdrawal and recall
+    scoring:
+      full: "Documented corrective action and notification process covering investigation,
+        corrective measures, authority notification, and deployer notification"
+      partial: "Some corrective action capability but notification process not formalized"
+      none: "No corrective action or notification process"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-012B
+    text: "Does the provider cooperate with national competent authorities and the AI Office
+      per Article 21, including providing access to technical documentation and source code
+      upon reasoned request?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-21"
+      nist-ai-rmf: "GOVERN 6.1, GOVERN 6.2, MANAGE 4.2"
+      iso-42001: "9.1, A.2.6, 10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "F001, F002"
+      iso-42005: "5.1"
+    evidence_required:
+      - Documented process for responding to authority requests for documentation or source code
+      - Contact and escalation procedures for AI Office and national competent authority inquiries
+      - Records of any prior authority interactions and cooperation evidence
+    scoring:
+      full: "Documented cooperation process covering access provision for technical documentation
+        and source code upon request, with clear escalation paths and response timeframes"
+      partial: "General cooperation intent documented but no formal process or unclear scope
+        of what would be provided"
+      none: "No process for cooperating with competent authorities; access not planned"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-013
+    text: "For providers established outside the EU, has a written authorised representative
+      in the EU been designated per Article 22 before placing high-risk AI systems on the
+      EU market?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-22"
+      nist-ai-rmf: "GOVERN 1.2, GOVERN 6.1"
+      iso-42001: "5.3, A.2.6"
+      iso-24028: "Clause 4"
+      aiuc-1: "F001, F002"
+      iso-42005: "5.1"
+    evidence_required:
+      - Written mandate naming the EU authorised representative
+      - Authorised representative contact details and responsibilities documented
+      - Evidence representative is informed and capable of fulfilling obligations
+    scoring:
+      full: "Written authorised representative designation in place before EU market entry,
+        with clear mandate and contact details"
+      partial: "Representative designated but mandate is incomplete or not in writing"
+      none: "No EU authorised representative despite provider being established outside EU"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-013B
+    text: "Before placing a high-risk AI system on the market, has the importer verified
+      that the provider has completed the conformity assessment, drawn up technical
+      documentation, applied CE marking, and taken corrective action for any non-conformance,
+      as required by Article 23?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-23"
+      nist-ai-rmf: "GOVERN 1.1, GOVERN 6.1, MAP 5.2"
+      iso-42001: "8.4, A.2.6, A.10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "B003, F001"
+      iso-42005: "5.3"
+    evidence_required:
+      - Importer due diligence checklist confirming provider conformity assessment completion
+      - CE marking verification records for each imported high-risk AI system
+      - Contractual provisions addressing provider obligations and importer verification rights
+    scoring:
+      full: "Documented importer due diligence process covering all Art 23 verification
+        points, with records for each high-risk AI system placed on the EU market"
+      partial: "Some verification performed but not covering all Art 23 requirements or
+        not documented for all systems"
+      none: "No importer verification process for provider conformity"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-013C
+    text: "Before making a high-risk AI system available on the EU market, has the
+      distributor verified CE marking, provider and importer obligation compliance, and
+      that instructions for use accompany the system, as required by Article 24?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-24"
+      nist-ai-rmf: "GOVERN 1.1, MAP 5.2, MANAGE 4.2"
+      iso-42001: "8.4, A.2.6, A.10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "B003, F001"
+      iso-42005: "5.3"
+    evidence_required:
+      - Distributor verification checklist covering CE marking, provider/importer compliance,
+        and instructions for use presence
+      - Records of verification activities for each high-risk AI system distributed
+      - Cooperation process documentation for responding to authority requests
+    scoring:
+      full: "Documented distributor verification process for all Art 24 requirements with
+        records per system, and cooperation process for authority requests"
+      partial: "Verification performed but not covering all requirements or not documented"
+      none: "No distributor verification process for high-risk AI systems"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III — DEPLOYER OBLIGATIONS (Art 26-27)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH3-014
+    text: "Does the deployer use high-risk AI systems in accordance with the provider's
+      instructions for use and maintain appropriate human oversight per Article 26?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-26"
+      nist-ai-rmf: "GOVERN 1.1, MANAGE 1.1, MANAGE 2.4"
+      iso-42001: "8.1, A.6.1.4, A.8.5"
+      iso-24028: "Clause 6, Clause 7"
+      aiuc-1: "D001, D005, E001"
+      iso-42005: "5.2, 5.3"
+    evidence_required:
+      - Deployment procedures referencing and incorporating provider instructions for use
+      - Human oversight assignment and training records
+      - Monitoring records for AI system operation
+      - Incident reporting process to providers
+    scoring:
+      full: "Deployment follows provider instructions; documented human oversight assignments
+        with trained personnel; monitoring records maintained; incident reporting process in place"
+      partial: "Instructions followed but oversight documentation or monitoring incomplete"
+      none: "No formal deployment procedures or human oversight arrangements"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH3-015
+    text: "Has the deployer performed a Fundamental Rights Impact Assessment (FRIA) per
+      Article 27 before deploying high-risk AI systems in public authority, critical
+      infrastructure, education, employment, or law enforcement contexts?"
+    category: Chapter-III
+    native_category: Chapter-III
+    domain: governance
+    controls:
+      eu-ai-act: "Art-27"
+      nist-ai-rmf: "MAP 5.1, MAP 5.2, MEASURE 2.5"
+      iso-42001: "6.1.4, A.5.2, A.6.1.3"
+      iso-24028: "Clause 5, Clause 8"
+      aiuc-1: "C001, C002, E013"
+      iso-42005: "5.1, 5.2, 5.3, 5.4"
+    evidence_required:
+      - FRIA documentation for each applicable deployment
+      - Notification to market surveillance authority of FRIA results
+      - Assessment covering impact on fundamental rights, data protection, and vulnerable groups
+    scoring:
+      full: "FRIA completed and notified to market surveillance authority for all applicable
+        deployments before deployment commenced"
+      partial: "FRIA performed but not notified to authority, or coverage incomplete"
+      none: "No FRIA performed for high-risk AI deployments in covered contexts"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER IV — TRANSPARENCY OBLIGATIONS (Art 50)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH4-001
+    text: "Where the organization deploys AI systems that interact directly with natural
+      persons (e.g. chatbots), are those persons informed they are interacting with an
+      AI system as required by Article 50?"
+    category: Chapter-IV
+    native_category: Chapter-IV
+    domain: data_protection
+    controls:
+      eu-ai-act: "Art-50"
+      nist-ai-rmf: "GOVERN 4.1, GOVERN 4.2, MANAGE 2.4"
+      iso-42001: "A.8.3, A.8.4, A.7.4"
+      iso-24028: "Clause 5, Clause 6"
+      aiuc-1: "D001, D002, D003"
+      iso-42005: "5.4"
+    evidence_required:
+      - Disclosure mechanism documentation (e.g. disclosure notice text, UX design)
+      - Evidence disclosure is presented before or at the start of interaction
+      - Exception documentation where AI nature is obvious from context
+    scoring:
+      full: "Clear AI disclosure presented to all users before or at start of interaction,
+        with documented exceptions where obviously AI"
+      partial: "Disclosure exists but is not consistently presented or clearly worded"
+      none: "No disclosure to users that they are interacting with an AI system"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH4-002
+    text: "Where the organization uses AI systems to generate or manipulate synthetic
+      audio, image, video, or text content (deepfakes), are outputs labelled as AI-generated
+      in machine-readable format per Article 50?"
+    category: Chapter-IV
+    native_category: Chapter-IV
+    domain: data_protection
+    controls:
+      eu-ai-act: "Art-50"
+      nist-ai-rmf: "GOVERN 4.1, GOVERN 4.2"
+      iso-42001: "A.8.3, A.8.4"
+      iso-24028: "Clause 5, Clause 6"
+      aiuc-1: "D001, D002"
+      owasp-llm: "LLM07"
+      iso-42005: "5.4"
+    evidence_required:
+      - Technical implementation of machine-readable labelling (e.g. C2PA metadata, watermark)
+      - Documentation of labelling mechanism and coverage
+      - Exception documentation for legitimate purposes (law enforcement, satire) with scope
+    scoring:
+      full: "Machine-readable labelling applied to all AI-generated synthetic content, with
+        documented technical implementation and appropriate exceptions"
+      partial: "Labelling applied but not machine-readable, or not covering all synthetic
+        content types"
+      none: "No labelling of AI-generated content"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH4-003
+    text: "Where the organization deploys emotion recognition or biometric categorisation
+      systems, are natural persons informed of their exposure to these systems per Article 50?"
+    category: Chapter-IV
+    native_category: Chapter-IV
+    domain: data_protection
+    controls:
+      eu-ai-act: "Art-50"
+      nist-ai-rmf: "GOVERN 4.1, GOVERN 4.2"
+      iso-42001: "A.8.3, A.8.4"
+      iso-24028: "Clause 5, Clause 6"
+      aiuc-1: "D001, D002, D003"
+      iso-42005: "5.4"
+    evidence_required:
+      - Inventory of emotion recognition and biometric categorisation deployments
+      - Disclosure notice and delivery mechanism documentation
+      - Evidence disclosure reaches affected persons before or during exposure
+    scoring:
+      full: "All emotion recognition and biometric categorisation deployments have documented
+        disclosure mechanism reaching affected persons"
+      partial: "Disclosure exists for some deployments but not all, or delivery mechanism
+        is unclear"
+      none: "No disclosure to persons subject to emotion recognition or biometric categorisation"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER V — GENERAL-PURPOSE AI MODELS (Art 51-56)
+  # Applies from: 2025-08-02
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH5-001
+    text: "If the organization provides a general-purpose AI (GPAI) model, has it assessed
+      whether the model meets the systemic risk threshold (>10^25 FLOPs training compute)
+      or has otherwise been designated as having systemic risk per Article 51?"
+    category: Chapter-V
+    native_category: Chapter-V
+    domain: governance
+    controls:
+      eu-ai-act: "Art-51, Art-52"
+      nist-ai-rmf: "MAP 1.1, MAP 1.5, MAP 5.1"
+      iso-42001: "6.1.2, A.6.1.1, A.10.1"
+      iso-24028: "Clause 4, Clause 5"
+      aiuc-1: "B001, E001, E002"
+      owasp-llm: "LLM01, LLM02"
+    evidence_required:
+      - Training compute assessment for GPAI models (FLOPs calculation or methodology)
+      - Documentation of systemic risk determination with rationale
+      - AI Office notification records if threshold is met
+    scoring:
+      full: "GPAI model training compute assessed; systemic risk determination documented;
+        AI Office notified within 2 weeks if threshold met"
+      partial: "Assessment performed but not documented, or AI Office not notified where required"
+      none: "No systemic risk assessment for GPAI models"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH5-002
+    text: "If the organization provides a GPAI model, has it prepared and maintained technical
+      documentation per Annex XI, a copyright compliance policy, and a training data summary
+      per Article 53?"
+    category: Chapter-V
+    native_category: Chapter-V
+    domain: governance
+    controls:
+      eu-ai-act: "Art-53"
+      nist-ai-rmf: "GOVERN 1.2, MAP 1.6, MEASURE 1.1"
+      iso-42001: "7.5, A.6.2.1, A.7.1, A.10.1"
+      iso-24028: "Clause 7"
+      aiuc-1: "E001, E002, E003"
+      owasp-llm: "LLM04, LLM07"
+    evidence_required:
+      - Technical documentation per Annex XI
+      - Copyright compliance policy document
+      - Training data content summary (publicly available or provided to AI Office)
+      - Information provision records for downstream providers
+    scoring:
+      full: "Annex XI documentation complete; copyright policy in place; training data
+        summary published; downstream provider information sharing in place"
+      partial: "Some elements present but documentation or policy is incomplete"
+      none: "No technical documentation, copyright policy, or training data summary"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH5-002B
+    text: "For GPAI model providers established outside the EU, has a written authorised
+      representative established in the Union been designated per Article 54, and has the
+      representative been provided with necessary technical documentation and cooperation
+      capabilities?"
+    category: Chapter-V
+    native_category: Chapter-V
+    domain: governance
+    controls:
+      eu-ai-act: "Art-54"
+      nist-ai-rmf: "GOVERN 1.2, GOVERN 6.1"
+      iso-42001: "5.3, A.2.6, A.10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "F001, F002"
+      owasp-llm: "LLM01"
+      iso-42005: "5.1"
+    evidence_required:
+      - Written mandate designating EU authorised representative for GPAI model
+      - Representative's contact details, scope, and responsibilities documented
+      - Evidence that representative has access to technical documentation required for AI Office cooperation
+    scoring:
+      full: "Written authorised representative designation in place, representative has required
+        technical documentation access, and cooperation capabilities with AI Office established"
+      partial: "Representative designated but mandate is incomplete, or representative lacks
+        documentation access needed to fulfill obligations"
+      none: "No EU authorised representative for GPAI model despite provider being outside EU"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH5-003
+    text: "For GPAI models classified as having systemic risk, has the organization implemented
+      the additional obligations in Article 55: model evaluations, risk assessment and mitigation,
+      serious incident reporting, and cybersecurity measures?"
+    category: Chapter-V
+    native_category: Chapter-V
+    domain: governance
+    controls:
+      eu-ai-act: "Art-55"
+      nist-ai-rmf: "MEASURE 2.1, MEASURE 2.6, MANAGE 2.2, MANAGE 3.1"
+      iso-42001: "A.9.1, A.9.2, A.10.1, 10.2"
+      iso-24028: "Clause 5, Clause 6"
+      aiuc-1: "E001, E002, E015, E016"
+      owasp-llm: "LLM01, LLM02, LLM09"
+    evidence_required:
+      - Model evaluation records using standardised protocols including adversarial testing
+      - Systemic risk assessment covering accidents, misuse, and societal impacts
+      - Serious incident reporting procedure with AI Office notification capability
+      - Cybersecurity protection documentation and testing records
+    scoring:
+      full: "All Art 55 obligations implemented and documented: evaluations, risk assessment,
+        incident reporting process, cybersecurity measures"
+      partial: "Some Art 55 obligations implemented but not all, or documentation incomplete"
+      none: "No Art 55 obligations implemented for systemic risk GPAI models"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH5-004
+    text: "Is the organization participating in or adhering to an approved code of practice
+      per Article 56 as a means to demonstrate compliance with GPAI obligations?"
+    category: Chapter-V
+    native_category: Chapter-V
+    domain: governance
+    controls:
+      eu-ai-act: "Art-56"
+      nist-ai-rmf: "GOVERN 1.4, GOVERN 1.7, MANAGE 4.1"
+      iso-42001: "10.1, 10.2, A.10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "F001, E016"
+      owasp-llm: "LLM01"
+    evidence_required:
+      - Code of practice subscription or membership records
+      - Compliance assessment against code of practice requirements
+      - Evidence of engagement with AI Office code development process if applicable
+    scoring:
+      full: "Participating in or adhering to an AI Office-approved code of practice covering
+        applicable GPAI obligations, with compliance records"
+      partial: "Aware of codes of practice but formal adherence not established"
+      none: "No engagement with codes of practice; compliance demonstrated by other means only"
+    risk_weight: LOW
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GOVERNANCE AND POST-MARKET (Art 72, 83, 99)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH6-001
+    text: "Has the provider established a post-market monitoring system per Article 72,
+      including systematic collection and analysis of data throughout the high-risk AI
+      system lifecycle?"
+    category: Chapter-VI
+    native_category: Chapter-VI
+    domain: monitoring
+    controls:
+      eu-ai-act: "Art-72"
+      nist-ai-rmf: "MEASURE 2.6, MEASURE 2.7, MANAGE 2.2, MANAGE 4.1"
+      iso-42001: "9.1, A.9.1, A.9.3, 10.2"
+      iso-24028: "Clause 7"
+      aiuc-1: "E015, E016, F001"
+      iso-42005: "5.5"
+    evidence_required:
+      - Post-market monitoring system documentation
+      - Data collection and analysis procedures covering deployed system performance
+      - Serious incident reporting procedures (Art 73)
+      - Monitoring plan as part of technical documentation
+    scoring:
+      full: "Documented post-market monitoring system with data collection, analysis,
+        incident reporting, and monitoring plan in technical documentation"
+      partial: "Some monitoring in place but system not formalized or documented"
+      none: "No post-market monitoring system for high-risk AI systems"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH6-001B
+    text: "Does the organization have a process to respond to formal non-compliance findings
+      by market surveillance authorities per Article 83, including procedures to eliminate
+      identified risks, withdraw systems from the market, or recall them within required
+      timeframes?"
+    category: Chapter-VI
+    native_category: Chapter-VI
+    domain: governance
+    controls:
+      eu-ai-act: "Art-83"
+      nist-ai-rmf: "GOVERN 6.1, GOVERN 6.2, MANAGE 3.1"
+      iso-42001: "10.2, A.2.6, 9.2"
+      iso-24028: "Clause 4"
+      aiuc-1: "E015, E016, F001"
+      iso-42005: "5.5"
+    evidence_required:
+      - Documented process for responding to formal non-compliance findings from market
+        surveillance authorities
+      - Risk elimination, withdrawal, and recall procedures with defined timeframes
+      - Escalation and communication process covering authority notifications and deployer
+        notifications upon formal non-compliance determination
+    scoring:
+      full: "Documented formal non-compliance response process covering risk elimination,
+        withdrawal, and recall with defined timeframes and authority/deployer communication"
+      partial: "General non-conformance process exists but not specifically addressing
+        Art 83 formal findings or market withdrawal scenarios"
+      none: "No process for responding to formal non-compliance findings from authorities"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH6-002
+    text: "Is the organization aware of the Article 99 penalty structure, and has it
+      implemented a compliance programme addressing the highest-penalty risk areas
+      (Art 5 prohibited practices and Art 50 transparency obligations)?"
+    category: Chapter-VI
+    native_category: Chapter-VI
+    domain: governance
+    controls:
+      eu-ai-act: "Art-99"
+      nist-ai-rmf: "GOVERN 6.1, GOVERN 6.2"
+      iso-42001: "A.2.6, 9.1, 10.2"
+      iso-24028: "Clause 4"
+      aiuc-1: "A001, F001, F002"
+      iso-42005: "5.1"
+    evidence_required:
+      - Compliance programme documentation referencing Art 99 penalty tiers
+      - Prioritized remediation plan for Art 5 and Art 50 risks
+      - Legal or compliance officer ownership for EU AI Act compliance
+    scoring:
+      full: "Compliance programme established with documented ownership, penalty awareness,
+        and prioritized remediation for highest-risk obligations"
+      partial: "Awareness of penalties but no formal compliance programme or prioritization"
+      none: "No compliance programme and no awareness of penalty exposure"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CROSS-CUTTING — GOVERNANCE AND READINESS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-EU-AI-ACT-CH6-003
+    text: "Has the organization assigned clear ownership and accountability for EU AI Act
+      compliance, with a programme to achieve compliance by the applicable enforcement dates?"
+    category: Chapter-VI
+    native_category: Chapter-VI
+    domain: governance
+    controls:
+      eu-ai-act: "Art-16, Art-26, Art-53"
+      nist-ai-rmf: "GOVERN 1.2, GOVERN 1.7"
+      iso-42001: "5.1, 5.2, 5.3"
+      iso-24028: "Clause 4"
+      aiuc-1: "F001, F002"
+      iso-42005: "5.1"
+    evidence_required:
+      - Named compliance owner or AI governance committee
+      - Compliance roadmap with milestones keyed to enforcement dates
+        (2025-02-02, 2025-08-02, 2026-08-02, 2027-08-02)
+      - Budget and resource allocation documentation
+    scoring:
+      full: "Named compliance owner, documented roadmap with enforcement date milestones,
+        and allocated resources"
+      partial: "Ownership assigned but roadmap incomplete or resources not allocated"
+      none: "No ownership or compliance programme for EU AI Act"
+    risk_weight: HIGH
+
+  - id: Q-EU-AI-ACT-CH6-004
+    text: "Has the organization conducted AI literacy training for staff involved in the
+      development, deployment, or oversight of AI systems as contemplated by Article 4 of
+      the EU AI Act?"
+    category: Chapter-VI
+    native_category: Chapter-VI
+    domain: governance
+    controls:
+      eu-ai-act: "Art-16, Art-26"
+      nist-ai-rmf: "GOVERN 1.1, GOVERN 1.2"
+      iso-42001: "7.2, A.2.5"
+      iso-24028: "Clause 4"
+      aiuc-1: "F001, F002"
+      iso-42005: "5.1"
+    evidence_required:
+      - AI literacy training programme or curriculum documentation
+      - Training completion records for relevant staff
+      - "Training scope covering: AI capabilities and limitations, applicable obligations, human oversight responsibilities"
+    scoring:
+      full: "Documented AI literacy training programme with completion records for all
+        staff involved in AI development, deployment, and oversight"
+      partial: "Some training conducted but not covering all relevant staff or topics"
+      none: "No AI literacy training programme in place"
+    risk_weight: MEDIUM
+
+  - id: Q-EU-AI-ACT-CH6-005
+    text: "Where the organization integrates third-party GPAI models into products or services,
+      has it verified the model provider's compliance with Article 53 obligations and
+      obtained necessary technical information for its own compliance?"
+    category: Chapter-VI
+    native_category: Chapter-VI
+    domain: governance
+    controls:
+      eu-ai-act: "Art-53, Art-25"
+      nist-ai-rmf: "GOVERN 1.1, MAP 5.1, MAP 5.2"
+      iso-42001: "4.2, 8.4, A.10.1"
+      iso-24028: "Clause 4"
+      aiuc-1: "B003, F001, F002"
+      iso-42005: "5.3"
+    evidence_required:
+      - Vendor/supplier assessment for GPAI model providers
+      - Technical information obtained from GPAI providers (model capabilities, limitations,
+        copyright policy, training data summary)
+      - Contractual provisions addressing Art 53 information-sharing obligations
+    scoring:
+      full: "GPAI provider compliance verified; required technical information received and
+        documented; contractual information-sharing provisions in place"
+      partial: "Some provider assessments conducted but information incomplete or contracts
+        do not address Art 53 requirements"
+      none: "No vendor assessment or information-gathering for third-party GPAI models"
+    risk_weight: MEDIUM

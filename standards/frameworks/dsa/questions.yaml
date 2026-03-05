@@ -1,0 +1,637 @@
+# EU Digital Services Act (DSA) 2022/2065 Control-Tagged Questions
+# Version: 1.0
+# Reference: Regulation (EU) 2022/2065 - Digital Services Act
+# Phase Alignment: NIST CSF 2.0
+# Industry Focus: Digital Platforms, Hosting Services, Online Intermediaries
+
+framework: dsa
+version: "2022/2065"
+total_questions: 35
+industry_focus:
+  - digital_platforms
+  - hosting_services
+  - online_marketplaces
+  - social_media
+  - search_engines
+  - eu_operations
+
+# DSA Service Categories (Tiered Obligations)
+service_categories:
+  - id: "intermediary"
+    name: All intermediary services
+    description: Mere conduit, caching, hosting
+
+  - id: "hosting"
+    name: Hosting services
+    description: Services storing user-provided content
+
+  - id: "platform"
+    name: Online platforms
+    description: Services disseminating user content to public
+
+  - id: "vlop_vlose"
+    name: Very Large Online Platforms/Search Engines
+    description: Services with >45M average monthly EU users
+
+# DSA Chapter Structure
+chapters:
+  - id: "II"
+    name: Liability of intermediary service providers
+    phase: GOVERN
+    articles: "4-9"
+
+  - id: "III-1"
+    name: Due diligence - All intermediary services
+    phase: GOVERN
+    articles: "11-15"
+
+  - id: "III-2"
+    name: Due diligence - Hosting services
+    phase: PROTECT
+    articles: "16-18"
+
+  - id: "III-3"
+    name: Due diligence - Online platforms
+    phase: PROTECT
+    articles: "19-28"
+
+  - id: "III-4"
+    name: Due diligence - VLOPs/VLOSEs
+    phase: IDENTIFY
+    articles: "33-43"
+
+  - id: "IV"
+    name: Implementation and enforcement
+    phase: GOVERN
+    articles: "49-72"
+
+questions:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER II: LIABILITY OF INTERMEDIARY SERVICE PROVIDERS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-DSA-II-001
+    text: "Does the service qualify for liability exemptions under intermediary service categories?"
+    category: liability
+    phase: GOVERN
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 4, 5, 6"
+    evidence_required:
+      - Service classification documentation
+      - Technical architecture description
+      - Liability assessment
+    scoring:
+      full: "Clear service classification with documented liability position"
+      partial: "Service category understood but not formally documented"
+      none: "No liability classification"
+    sub_questions:
+      - "Is the service classified as mere conduit, caching, or hosting?"
+      - "Are technical conditions for exemptions met?"
+      - "Is the classification regularly reviewed?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-II-002
+    text: "Are no general monitoring obligations imposed beyond legal requirements?"
+    category: liability
+    phase: GOVERN
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 8"
+    evidence_required:
+      - Monitoring policies
+      - Content moderation scope
+      - Legal basis documentation
+    scoring:
+      full: "Monitoring limited to legal requirements with clear scope"
+      partial: "Some monitoring controls but scope unclear"
+      none: "General monitoring without legal basis"
+    sub_questions:
+      - "Is monitoring limited to specific legal orders?"
+      - "Is proactive monitoring voluntary and targeted?"
+      - "Are monitoring activities documented?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III SECTION 1: ALL INTERMEDIARY SERVICES
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-DSA-III1-001
+    text: "Is a single point of contact established for authorities and users?"
+    category: due_diligence
+    phase: GOVERN
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 11, 12"
+    evidence_required:
+      - Contact point designation
+      - Communication channels
+      - Response procedures
+    scoring:
+      full: "Designated contact with documented communication procedures"
+      partial: "Contact exists but procedures not formalized"
+      none: "No designated contact point"
+    sub_questions:
+      - "Is contact for authorities clearly designated?"
+      - "Is contact for users easily accessible?"
+      - "Are language requirements met?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III1-002
+    text: "Is a legal representative designated in the EU (for non-EU providers)?"
+    category: due_diligence
+    phase: GOVERN
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 13"
+    evidence_required:
+      - Legal representative appointment
+      - Mandate documentation
+      - Contact details
+    scoring:
+      full: "Designated representative with clear mandate"
+      partial: "Representative exists but mandate unclear"
+      none: "No legal representative (if required)"
+    sub_questions:
+      - "Is the representative in an EU Member State?"
+      - "Does the mandate cover all DSA obligations?"
+      - "Is the representative publicly identified?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III1-003
+    text: "Are terms of service clear and include content moderation policies?"
+    category: due_diligence
+    phase: GOVERN
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 14"
+    evidence_required:
+      - Terms of service
+      - Content policy documentation
+      - Policy communication evidence
+    scoring:
+      full: "Clear ToS with comprehensive content moderation policies"
+      partial: "ToS exists but policies incomplete"
+      none: "No clear terms of service"
+    sub_questions:
+      - "Are restrictions on user content clearly stated?"
+      - "Are algorithmic decision-making practices disclosed?"
+      - "Are terms written in plain language?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III1-004
+    text: "Is an annual transparency report published?"
+    category: due_diligence
+    phase: DETECT
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 15"
+    evidence_required:
+      - Published transparency reports
+      - Content moderation statistics
+      - Complaint data
+    scoring:
+      full: "Annual report published with required content"
+      partial: "Report exists but incomplete"
+      none: "No transparency report"
+    sub_questions:
+      - "Does the report cover content moderation activities?"
+      - "Are removal statistics included?"
+      - "Is the report publicly accessible?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III SECTION 2: HOSTING SERVICES
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-DSA-III2-001
+    text: "Is a notice and action mechanism implemented for illegal content reports?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 16"
+    evidence_required:
+      - Notice mechanism documentation
+      - Processing procedures
+      - Response time records
+    scoring:
+      full: "Comprehensive notice mechanism with documented procedures"
+      partial: "Mechanism exists but procedures incomplete"
+      none: "No notice mechanism"
+    sub_questions:
+      - "Is the notice mechanism easy to access?"
+      - "Are precise location requirements met?"
+      - "Is the process for handling notices documented?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III2-002
+    text: "Is a statement of reasons provided for content moderation decisions?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 17"
+    evidence_required:
+      - Decision notification templates
+      - Reason documentation
+      - Appeal information
+    scoring:
+      full: "Clear statements with reasons and appeal information"
+      partial: "Statements provided but incomplete"
+      none: "No statements of reasons"
+    sub_questions:
+      - "Are decisions communicated clearly?"
+      - "Are legal grounds or ToS violations explained?"
+      - "Is redress information provided?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III2-003
+    text: "Are suspected criminal offenses reported to authorities?"
+    category: due_diligence
+    phase: RESPOND
+    applies_to: [hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 18"
+    evidence_required:
+      - Reporting procedures
+      - Authority contact records
+      - Incident documentation
+    scoring:
+      full: "Systematic reporting with documented procedures"
+      partial: "Some reporting but procedures inconsistent"
+      none: "No criminal offense reporting"
+    sub_questions:
+      - "Is there a process to identify suspected crimes?"
+      - "Are reports made to appropriate authorities?"
+      - "Is relevant information preserved?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III SECTION 3: ONLINE PLATFORMS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-DSA-III3-001
+    text: "Is an internal complaint-handling system implemented?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 20"
+    evidence_required:
+      - Complaint system documentation
+      - Processing procedures
+      - Resolution records
+    scoring:
+      full: "Electronic complaint system with human review"
+      partial: "System exists but human review limited"
+      none: "No internal complaint system"
+    sub_questions:
+      - "Is the system electronic and easy to use?"
+      - "Are decisions reviewed by qualified staff?"
+      - "Are decisions made in a timely manner?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III3-002
+    text: "Is out-of-court dispute settlement available to users?"
+    category: due_diligence
+    phase: RESPOND
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 21"
+    evidence_required:
+      - Certified body relationships
+      - User notification records
+      - Settlement engagement evidence
+    scoring:
+      full: "Access to certified dispute settlement bodies"
+      partial: "Some dispute resolution but not certified"
+      none: "No out-of-court settlement"
+    sub_questions:
+      - "Are certified settlement bodies identified?"
+      - "Are users informed of settlement options?"
+      - "Does the platform engage in good faith?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III3-003
+    text: "Are trusted flaggers recognized and prioritized?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 22"
+    evidence_required:
+      - Trusted flagger relationships
+      - Priority processing procedures
+      - Status verification records
+    scoring:
+      full: "Trusted flagger program with priority processing"
+      partial: "Some recognition but not systematic"
+      none: "No trusted flagger program"
+    sub_questions:
+      - "Are trusted flaggers identified by DSC status?"
+      - "Are their notices processed with priority?"
+      - "Is feedback provided on notice outcomes?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III3-004
+    text: "Are measures taken against misuse by repeat offenders?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 23"
+    evidence_required:
+      - Misuse detection procedures
+      - Suspension policies
+      - Warning records
+    scoring:
+      full: "Systematic misuse detection with proportionate measures"
+      partial: "Some measures but detection inconsistent"
+      none: "No misuse prevention"
+    sub_questions:
+      - "Are repeat offenders identified?"
+      - "Are warnings issued before suspension?"
+      - "Are suspensions proportionate and time-limited?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III3-005
+    text: "Is transparency ensured for online advertising?"
+    category: due_diligence
+    phase: GOVERN
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 26"
+    evidence_required:
+      - Ad labeling procedures
+      - Sponsor identification
+      - Targeting parameter disclosure
+    scoring:
+      full: "Clear ad identification with sponsor and targeting info"
+      partial: "Ads labeled but targeting info incomplete"
+      none: "No advertising transparency"
+    sub_questions:
+      - "Are ads clearly identified as advertisements?"
+      - "Is the sponsor/advertiser disclosed?"
+      - "Are main targeting parameters shown?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III3-006
+    text: "Is recommender system transparency provided to users?"
+    category: due_diligence
+    phase: GOVERN
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 27"
+    evidence_required:
+      - Recommender system documentation
+      - User controls
+      - Parameter disclosure
+    scoring:
+      full: "Clear explanation with user opt-out options"
+      partial: "Some disclosure but user controls limited"
+      none: "No recommender transparency"
+    sub_questions:
+      - "Are main parameters explained in ToS?"
+      - "Can users modify or opt out of profiling?"
+      - "Is at least one non-profiling option available?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III3-007
+    text: "Are minors protected through appropriate measures?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 28"
+    evidence_required:
+      - Minor protection policies
+      - Age verification measures
+      - Profiling restrictions
+    scoring:
+      full: "Comprehensive minor protection with profiling restrictions"
+      partial: "Some protection but profiling controls weak"
+      none: "No specific minor protection"
+    sub_questions:
+      - "Is profiling of minors for advertising prohibited?"
+      - "Are high privacy settings default for minors?"
+      - "Are age-appropriate design principles applied?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER III SECTION 4: VLOPs/VLOSEs
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-DSA-III4-001
+    text: "Is a systemic risk assessment conducted annually?"
+    category: due_diligence
+    phase: IDENTIFY
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 34"
+    evidence_required:
+      - Risk assessment methodology
+      - Annual assessment reports
+      - Risk categories covered
+    scoring:
+      full: "Comprehensive annual risk assessment"
+      partial: "Assessment conducted but not comprehensive"
+      none: "No systemic risk assessment"
+    sub_questions:
+      - "Are illegal content dissemination risks assessed?"
+      - "Are fundamental rights impacts evaluated?"
+      - "Are electoral and public security risks considered?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III4-002
+    text: "Are risk mitigation measures implemented based on assessment?"
+    category: due_diligence
+    phase: PROTECT
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 35"
+    evidence_required:
+      - Mitigation plan documentation
+      - Implementation evidence
+      - Effectiveness monitoring
+    scoring:
+      full: "Comprehensive mitigation with effectiveness tracking"
+      partial: "Some mitigation but tracking weak"
+      none: "No mitigation measures"
+    sub_questions:
+      - "Are content moderation measures enhanced?"
+      - "Are algorithmic systems adjusted?"
+      - "Are terms of service strengthened?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III4-003
+    text: "Is a crisis response mechanism established?"
+    category: due_diligence
+    phase: RESPOND
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 36"
+    evidence_required:
+      - Crisis protocol documentation
+      - Commission communication records
+      - Response capability evidence
+    scoring:
+      full: "Established crisis protocol with rapid response capability"
+      partial: "Some crisis planning but response capability limited"
+      none: "No crisis mechanism"
+    sub_questions:
+      - "Can response be activated within Commission timeframe?"
+      - "Are crisis measures proportionate and time-limited?"
+      - "Is coordination with authorities established?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III4-004
+    text: "Is an independent audit conducted annually?"
+    category: due_diligence
+    phase: DETECT
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 37"
+    evidence_required:
+      - Audit reports
+      - Auditor qualifications
+      - Remediation plans
+    scoring:
+      full: "Annual audit by qualified independent auditor"
+      partial: "Audits conducted but independence or scope issues"
+      none: "No independent audit"
+    sub_questions:
+      - "Is the auditor independent and qualified?"
+      - "Does the audit cover all DSA obligations?"
+      - "Are findings publicly accessible?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III4-005
+    text: "Is an advertising repository maintained and accessible?"
+    category: due_diligence
+    phase: DETECT
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 39"
+    evidence_required:
+      - Repository implementation
+      - Data completeness
+      - API access
+    scoring:
+      full: "Comprehensive repository with API access"
+      partial: "Repository exists but data incomplete"
+      none: "No advertising repository"
+    sub_questions:
+      - "Does the repository contain all required ad information?"
+      - "Is it searchable and API-accessible?"
+      - "Is data retained for required period?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III4-006
+    text: "Is data access provided to vetted researchers?"
+    category: due_diligence
+    phase: DETECT
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 40"
+    evidence_required:
+      - Data access procedures
+      - Researcher vetting process
+      - Access records
+    scoring:
+      full: "Systematic data access for vetted researchers"
+      partial: "Some access but procedures inconsistent"
+      none: "No researcher data access"
+    sub_questions:
+      - "Is access provided to vetted researchers?"
+      - "Are data protection requirements met?"
+      - "Is access reasonably proportionate?"
+    risk_weight: MEDIUM
+
+  - id: Q-DSA-III4-007
+    text: "Is a compliance function established with a compliance officer?"
+    category: due_diligence
+    phase: GOVERN
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 41"
+    evidence_required:
+      - Compliance function structure
+      - Officer appointment
+      - Independence documentation
+    scoring:
+      full: "Independent compliance function with qualified officer"
+      partial: "Function exists but independence limited"
+      none: "No compliance function"
+    sub_questions:
+      - "Is the compliance officer independent?"
+      - "Does the function have adequate resources?"
+      - "Does the officer report to highest management?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-III4-008
+    text: "Are enhanced transparency reports published?"
+    category: due_diligence
+    phase: DETECT
+    applies_to: [vlop_vlose]
+    controls:
+      dsa: "Article 42"
+    evidence_required:
+      - Enhanced transparency reports
+      - Risk assessment summaries
+      - Audit result publication
+    scoring:
+      full: "Comprehensive enhanced reporting every 6 months"
+      partial: "Reports published but incomplete"
+      none: "No enhanced transparency reports"
+    sub_questions:
+      - "Are reports published every 6 months?"
+      - "Are risk assessment results included?"
+      - "Are audit results and actions disclosed?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CHAPTER IV: IMPLEMENTATION AND ENFORCEMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-DSA-IV-001
+    text: "Is cooperation with Digital Services Coordinators established?"
+    category: implementation
+    phase: GOVERN
+    applies_to: [intermediary, hosting, platform, vlop_vlose]
+    controls:
+      dsa: "Article 49, 51"
+    evidence_required:
+      - DSC communication records
+      - Cooperation procedures
+      - Response records
+    scoring:
+      full: "Established cooperation with timely responses"
+      partial: "Some cooperation but procedures informal"
+      none: "No DSC cooperation"
+    sub_questions:
+      - "Is the relevant DSC identified?"
+      - "Are information requests responded to promptly?"
+      - "Is cooperation documented?"
+    risk_weight: HIGH
+
+  - id: Q-DSA-IV-002
+    text: "Are user numbers accurately reported for threshold assessment?"
+    category: implementation
+    phase: GOVERN
+    applies_to: [platform, vlop_vlose]
+    controls:
+      dsa: "Article 24"
+    evidence_required:
+      - User counting methodology
+      - Reporting records
+      - Publication evidence
+    scoring:
+      full: "Accurate user counting with transparent methodology"
+      partial: "Numbers reported but methodology unclear"
+      none: "No user number reporting"
+    sub_questions:
+      - "Is the counting methodology documented?"
+      - "Are numbers reported to DSC every 6 months?"
+      - "Are numbers published on the service?"
+    risk_weight: MEDIUM

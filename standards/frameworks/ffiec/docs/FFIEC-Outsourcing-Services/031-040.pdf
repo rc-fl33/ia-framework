@@ -1,0 +1,1360 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 10
+/Kids [ 4 0 R 9 0 R 11 0 R 14 0 R 17 0 R 19 0 R 29 0 R 31 0 R 33 0 R 35 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 6 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 5564
+>>
+stream
+BT
+0 0 0 rg
+/T1_0 16 Tf
+70 697.2 Td
+[(Endnotes)4546 (Endnotes)4546 (Endnotes)4546 (Endnotes)]TJ
+/TT0 12 Tf
+1 -36.8 Td
+([1])Tj
+0.9809 Tw 33.04 0 Td
+(See 12 USC 1867 \(c\)\(1\) and 12 USC 1464 \(d\)\(7\). The NCUA does not\ currently)Tj
+0 Tw 0 -12 Td
+(have independent regulatory authority over TSPs.)Tj
+-33.04 -24 Td
+([2])Tj
+2.4243 Tw 33.04 0 Td
+(S. Rep. No. 2105, 87-2105 at 3 \(1962\). reprinted in 1962 U.S.C.C.A.N. \3878,)Tj
+0.4823 Tw 0 -12 Td
+(3880. Accord H.R. Rep. No. 105-417, at 4 \(1998\), reprinted in 1998 U.S\.C.C.A.N.)Tj
+0 Tw -0 -12 Td
+[(22.)-277 (23.)]TJ
+-33.04 -24 Td
+([3])Tj
+0.0883 Tw 33.04 0 Td
+(Institutions may find advantages in contracting for services for three o\r more years)Tj
+1.0037 Tw 0 -12 Td
+(because of the costs of en-tering into the contract, the costs of changi\ng service)Tj
+0.2311 Tw 0 -12 Td
+(providers, and favorable price breaks that may be offered by the vendor \for longer)Tj
+0.7708 Tw 0 -12 Td
+(terms. Contract flexibility is necessary under these circumstances becau\se of the)Tj
+0.8218 Tw 0 -12 Td
+(rapid changes occurring in an IT environment. Contract flexibility shoul\d allow for)Tj
+2.9153 Tw 0 -12 Td
+(changes in service levels; increase or decrease in the scope of the proc\ess,)Tj
+3.5469 Tw 0 -12 Td
+(service, or system due to changing institutional goals or objectives; an\d the)Tj
+0.0309 Tw 0 -12 Td
+(retargeting of all relational elements on an annual basis. See Contract \Inducement)Tj
+0.0788 Tw 0 -12 Td
+(Concerns section in this booklet for further issues to be considered in \entering into)Tj
+0 Tw 0 -12 Td
+(long-term contracts.)Tj
+-33.04 -24 Td
+([4])Tj
+2.234 Tw 33.04 0 Td
+(The "Guidelines Establishing Standards to Safeguard Customer Information\" to)Tj
+4.5748 Tw 0 -12 Td
+(implement section 501\(b\) of the Gramm-Leach- Bliley Act of 1999 \(GLBA\\))Tj
+1.2388 Tw 0 -12 Td
+(promulgated by the FFIEC agencies requires institutions to, among other \things,)Tj
+0.436 Tw 0 -12 Td
+(require service providers by contract to implement appropriate security \controls to)Tj
+0 Tw 0 -12 Td
+(comply with the guidelines with respect to their handling of customer in\formation.)Tj
+-33.04 -24 Td
+([5])Tj
+0.6083 Tw 33.04 0 Td
+(See 66 Federal Register 8616 \(Feb. 1, 2001\); 12 CFR Part 30, app. B \(\OCC\); 12)Tj
+0.865 Tw 0 -12 Td
+(CFR Part 208, app. D-2 and Part 225, app. F. \(Board\); 12 CFR Part 364,\ app. B)Tj
+0.7503 Tw 0 -12 Td
+(\(FDIC\); 12 CFR Part 570, app. B \(OTS\). See 66 Federal Register 8152 \\(Jan. 30,)Tj
+0 Tw 0 -12 Td
+(2001\); 12 CFR Part 748, app. A \(NCUA\).)Tj
+-33.04 -24 Td
+([6])Tj
+1.2815 Tw 33.04 0 Td
+(The terms "foreign-based third-party service providers" or "foreign-base\d service)Tj
+5.0092 Tw 0 -12 Td
+(provider" refer to any entity, including an affiliated organization or h\olding)Tj
+0.0252 Tw 0 -12 Td
+(company, whose servicing operations are located in and subject to the la\ws of any)Tj
+1.3012 Tw 0 -12 Td
+(country other than the United States, including service providers locate\d outside)Tj
+2.1712 Tw 0 -12 Td
+(the United States providing services to foreign branches of U.S. organiz\ations.)Tj
+4.8352 Tw 0 -12 Td
+(The term also includes the foreign opera-tions, whether by subcontract o\r)Tj
+0 Tw 0 -12 Td
+(otherwise, of a domestic service provider.)Tj
+-33.04 -24 Td
+([7])Tj
+33.04 0 Td
+(15 USC 6801. Gramm-Leach-Bliley Act, Section 501\(b\).)Tj
+-33.04 -24 Td
+([8])Tj
+3.4391 Tw 33.04 0 Td
+(In this regard, organizations using foreign-based service providers shou\ld be)Tj
+0.7003 Tw 0 -12 Td
+(aware of Section 319 of the USA Patriot Act, Pub. L. No. 107-56 \(Oct. 2\6, 2001\),)Tj
+0.1 Tw 0 -12 Td
+(which requires a financial institution to make information on anti-money\ laundering)Tj
+2.8083 Tw 0 -12 Td
+(compliance by the institution or its customers available within 120 hour\s of a)Tj
+0 Tw 0 -12 Td
+(government request.)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 681 cm
+0 0 m
+0 1 l
+S
+Q
+q 1 0 0 1 70 682 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 682 cm
+0 0 m
+0 -1 l
+S
+Q
+q 1 0 0 1 542 681 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 645 cm
+0 0 m
+0 36 l
+S
+Q
+q 1 0 0 1 70 681 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 681 cm
+0 0 m
+0 -36 l
+S
+Q
+q 1 0 0 1 542 645 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 597 cm
+0 0 m
+0 48 l
+S
+Q
+q 1 0 0 1 70 645 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 645 cm
+0 0 m
+0 -48 l
+S
+Q
+q 1 0 0 1 542 597 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 465 cm
+0 0 m
+0 132 l
+S
+Q
+q 1 0 0 1 70 597 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 597 cm
+0 0 m
+0 -132 l
+S
+Q
+q 1 0 0 1 542 465 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 393 cm
+0 0 m
+0 72 l
+S
+Q
+q 1 0 0 1 70 465 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 465 cm
+0 0 m
+0 -72 l
+S
+Q
+q 1 0 0 1 542 393 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 333 cm
+0 0 m
+0 60 l
+S
+Q
+q 1 0 0 1 70 393 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 393 cm
+0 0 m
+0 -60 l
+S
+Q
+q 1 0 0 1 542 333 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 237 cm
+0 0 m
+0 96 l
+S
+Q
+q 1 0 0 1 70 333 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 333 cm
+0 0 m
+0 -96 l
+S
+Q
+q 1 0 0 1 542 237 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 213 cm
+0 0 m
+0 24 l
+S
+Q
+q 1 0 0 1 70 237 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 237 cm
+0 0 m
+0 -24 l
+S
+Q
+q 1 0 0 1 542 213 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 213 cm
+0 0 m
+0 0 l
+S
+Q
+q 1 0 0 1 70 213 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 213 cm
+0 0 m
+0 0 l
+S
+Q
+q 1 0 0 1 542 213 cm
+0 0 m
+-472 0 l
+S
+Q
+q 1 0 0 1 70 72 cm
+0 0 m
+0 610 l
+S
+Q
+q 1 0 0 1 70 682 cm
+0 0 m
+472 0 l
+S
+Q
+q 1 0 0 1 542 682 cm
+0 0 m
+0 -610 l
+S
+Q
+q 1 0 0 1 542 72 cm
+0 0 m
+-472 0 l
+S
+Q
+BT
+/TT0 10 Tf
+356.46 752 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.77 12 Td
+(Page 28)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /ArialMT
+/Encoding /WinAnsiEncoding
+/FirstChar 1
+/FontDescriptor 8 0 R
+/LastChar 255
+/Subtype /TrueType
+/Type /Font
+/Widths [ 0 0 0 0 0 0 0 0 277 277 277 277 277 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 277 277 354 556 556 889 666 190 333 333 389 583 277 333 277 277 556 556 556 556 556 556 556 556 556 556 277 277 583 583 583 556 1015 666 666 722 722 666 610 777 722 277 500 666 556 833 722 777 666 777 722 666 610 722 666 943 666 666 610 277 277 277 469 556 333 556 556 500 556 556 277 556 556 222 222 500 222 833 556 556 556 556 333 500 277 556 500 722 500 500 500 333 259 333 583 350 556 350 222 556 333 1000 556 556 333 1000 666 333 1000 350 610 350 350 222 222 333 333 350 556 1000 333 1000 500 333 943 350 500 666 277 333 556 556 556 556 259 556 333 736 370 556 583 333 736 552 399 548 333 333 333 576 537 333 333 333 365 556 833 833 833 610 666 666 666 666 666 666 1000 722 666 666 666 666 277 277 277 277 722 722 777 777 777 777 777 583 777 722 722 722 722 666 666 610 556 556 556 556 556 556 889 500 556 556 556 556 277 277 277 277 556 556 556 556 556 556 556 548 610 556 556 556 556 500 556 500 ]
+>>
+endobj
+8 0 obj
+<<
+/Ascent 905
+/CapHeight 716
+/Descent -212
+/Flags 32
+/FontBBox [ -664 -324 2000 1005 ]
+/FontName /ArialMT
+/ItalicAngle 0
+/StemV 80
+/Type /FontDescriptor
+>>
+endobj
+9 0 obj
+<<
+/Contents [ 10 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc6 7 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+10 0 obj
+<<
+/Filter /FlateDecode
+/Length 197
+>>
+stream
+xœ½Â0„wK~°@šÖJÀÈO3°BB¡4¢$Ş´¢ÀP¡,§è;ßÙÉá‚À¨~ë9‚b¤8!Çœr„a…0$Bòƒ¯±`1ïäh¹—Eus¼K}óMtË—a8ÛîŒ¤ˆ‘Ş#DÍD#!±$%8é0ª·¸]++MV8ÒÖ
+Ÿ{÷ Ô–÷ÌØŠïO¹½öIC’n@	öŞ&Èÿê	”¢èÕn¹u–ø¤CúH´áA}d?‰¸[
+endstream
+endobj
+11 0 obj
+<<
+/Contents [ 12 0 R 13 0 R ]
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/Fabc6 7 0 R
+>>
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+12 0 obj
+<<
+/Filter /FlateDecode
+/Length 1620
+>>
+stream
+xœ½WKoÛF¾ĞäĞÚ€Ìğ%R:Æ]ø4VĞ u+r%mBr™İ¥õ×wfIJÔÃ¥…a{Eí<¿oü6ÜÎ†èG-‡ƒ·lDàù0[}îAìAyN³|8¸ú{úÏ5Ì¾÷(úçp0|û±×‰ÇQÁl½Sé¹¡ã†]µÔ’â_f„,4è•¬²DÊ#`E
+U‘r¥ÍŠ+ËL$ö>ÈŞØ@ÆÖÖÂ¬D¬vÒsÜh­qnÈ¥­-¤âbYÀ—J	ŠÄj1+f¬Ú	¢ÀKy­ß(VèWŠ§°P2·|*„ÁÏO†®Q¢6èc\Ù=«ú¤QùÂ•U÷X®
+n@*ø@­…æ?p¤6ç:î$v'GñÕN¢Ñıå±ç#`˜4eôÿÀ\"³Œ't·Îjcó8:~:¸J‹b	¬2¢–64àß*Qæ.š;öÓ9`'Ó-O=÷L¢úNApŠ¨½3öÃb!N´{hÂ~§57îda”Ìè›hçÉ÷¼dÊØ`›Ç3Å™®Ô¦eŒçÆw˜T–æ¢I¡-ı9á’ Óx"™‹Ä>EB¤4+’ºpØ’‰BH¸2xja©-MœpEñ¡¥DVèµ *Èı*,ñ¯T„!º¡ğ¤ó‘5+,Yí5–AÁT"HtĞÄ¢ãPŒÒö•š3Mt(êµÜ)%Vt]ì[İš'È³¥d™v(áãıW¨Øaï_PqÕ¤ÿğğîşâsĞH~@Æ­×kÇÎR¾¼•–üï¼xÇ;ïLŞ…².œäİNïı÷R*¶f˜[yÎU"0M¼HÔ¦´EW*™V	’‘)ŒsË"Ì÷|C™¨‹œ úÆm…	©ˆ§EZi£j4F@Tni¼Oì»Úî´7p#ïÈÀ~›ÏÙæ¸x!¬æÅğ‚Í¿––³¦OÖRæ¦5ON«Y¦¹z¡jmtªÌ+ƒêr2œğ²)JÖ›gü`ì‘ïDşøh lùÊó2“NÅ$Š›$«R*‹KŒlŠ?ë*ÃYf¨èu œ%&‡ë¶µO]ÿ(¦fü	ºšk‘
+F•‹¶4å‹¾••±ç£Nï@Ã¡–Ê:İ¦pz
+/Å—UÖ …g¦l8X(o6N}¼1Ü=|„g?ŒéâĞu¼`Tÿá·W
+7±¤·•9ÚIeBµyyY†ngøçï-¡ßtËƒ²ìèÅË®­lz#xW–¼HÅw¸Áãã£óŞñánYñµ†¾+0İ=Wrƒjàù*}¾~¾òáùúf+%F_˜ v‰	ÎLÌA2:ºö’ü(î ~EaŞğlx½©B·£–†=6¦ŞØ
+mªAR[¬Ì
+¢Áâ{9ÇµÌÜÃÃãı~Îç8yØÅV§ÖÖÍ«ë“À‰(å×Œ›ŸH†×t|f2ÆØ­§ÿd6¼.¼ŸîÀ›DñóUBtô¯A¶7Â(lwùŠS›O*ìxnçL·yêu öe n¥9C N`²±/mãoû›p-%Š7İm%J»ävfËéñA=%‰T).]¼–étÉW0¦ä,+QËÚqŒsfÁåàûãøÑÙ{ïØ÷Nï½m– ¾/à_O˜…(ğ­ ô­0eáw½İéæøÆ’¬PdÅ^¸M²Â-aûúâO ŸÉÊ’«† ¸ô58hH”Ôúf ´ËPéõ•ÍXRZ•EÖèãfÇß[‘¾õ«Iëx½ãÊ“È’j)¥«„°&ìÑVĞî’ãàk†B¹]¯°ŸÔFoõ*’ã¢¸ÜJÒ·ÛAì›Qıq€çíg‹içÇ?†ƒØ…Ès!¯OXÇÙpğd/ß~U ¯¡À8ô{I´÷Z4×KdçV	¼6&ç	4.pŠd®ÈÎ­>x-Üó8EG2×GdçV	¼LÃó8EG2×GdçV	º»g
+Ô.pÊã~¡wÜê!A×‚ğLØ½Ğ){z†¾s«‡^óã38EG2×GdçV	ºæ+_ê”=z=EvnõØ‹ã™¿$ÿ *–
+
+endstream
+endobj
+13 0 obj
+<<
+/Filter /FlateDecode
+/Length 167
+>>
+stream
+xœ;‚@„ûMö?l©ŞÇõ$héƒ+hñr(ráeâ¿÷ ÒX‘i&“İù¦EH£IEØíË«Nˆ3R7>çœ"‘qBR„¤^›ã8ônìtÕXRFßW;û¡ÜtïJ›Rçµ¶¤™œ<©@hØå€ ™¯däEÎ¶FÈçë¬˜>Úuó‹)‰ÿÖJk(b+è‘XàŞı±¿tè:ó
+endstream
+endobj
+14 0 obj
+<<
+/Contents 15 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 6 0 R
+/T1_1 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+15 0 obj
+<<
+/Length 2586
+>>
+stream
+BT
+0 0 0 rg
+/T1_0 20 Tf
+70 694 Td
+(Appendix A: Examination Procedures)Tj
+0.2 0 Td
+(Appendix A: Examination Procedures)Tj
+0.2 0 Td
+(Appendix A: Examination Procedures)Tj
+0.2 0 Td
+(Appendix A: Examination Procedures)Tj
+/TT0 12 Tf
+7.9145 Tw -0.6 -35.6 Td
+(EXAMINATION OBJECTIVE: Assess the effectiveness of the institution's ris\k)Tj
+4.2484 Tw 0 -12 Td
+(management process as it relates to the outsourcing of information syste\ms and)Tj
+0 Tw 0 -12 Td
+(technology services.)Tj
+3.9527 Tw 9 -44 Td
+[(\225)-650 (Tier I objectives and procedures relate to the institution's implementat\ion of a)]TJ
+0 Tw 12 -12 Td
+(process for identifying and managing outsourcing risks.)Tj
+0.2344 Tw -12 -22 Td
+[(\225)-650 (Tier II objectives and procedures provide additional validation and test\ing techniques)]TJ
+3.9583 Tw 12 -12 Td
+(as warranted by risk to verify the effectiveness of the institution's pr\ocess on)Tj
+0 Tw 0 -12 Td
+(individual contracts.)Tj
+3.2162 Tw -21 -44 Td
+(Tier I and Tier II are intended to be a tool set examiners will use when\ selecting)Tj
+2.4471 Tw 0 -12 Td
+(examination procedures for their particular examination. Examiners shoul\d use these)Tj
+0 Tw 0 -12 Td
+(procedures as necessary to support examination objectives.)Tj
+0 -22 Td
+(TIER I OBJECTIVES AND PROCEDURES)Tj
+0 -22 Td
+(Objective 1: Determine the appropriate scope for the examination.)Tj
+0 -22 Td
+[(1.)-277 (Review past reports for weaknesses involving outsourcing. Consider:)]TJ
+9 -44 Td
+[(\225)-650 (Regulatory reports of examination of the institution and service provide\r\(s\); and)]TJ
+4.16 Tw 0 -22 Td
+[(\225)-650 (Internal and external audit reports of the institution and service provi\der\(s\) \(if)]TJ
+0 Tw 12 -12 Td
+(available\).)Tj
+5.4424 Tw -21 -44 Td
+[(2.)-730.533 (Assess management's response to issues raised since the last examination\.)]TJ
+0 Tw 0 -12 Td
+(Consider:)Tj
+9 -44 Td
+[(\225)-650 (Resolution of root causes rather than just specific issues; and)]TJ
+0 -22 Td
+[(\225)-650 (Existence of any outstanding issues.)]TJ
+-9 -44 Td
+[(3.)-277 (Interview management and review institution information to identify:)]TJ
+4.7131 Tw 9 -44 Td
+[(\225)-650 (Current outsourcing relationships, including cloud computing relationshi\ps, and)]TJ
+0 Tw 12 -12 Td
+(changes to those relationships since the last examination. Also identify\ any:)Tj
+0 -22 Td
+[(-)-277 (Material service provider subcontractors,)]TJ
+/T1_1 10 Tf
+280.74 675.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-1)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+16 0 obj
+<<
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+17 0 obj
+<<
+/Contents 18 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 2520
+>>
+stream
+BT
+0 0 0 rg
+/TT0 12 Tf
+91 700.4 Td
+[(-)-277 (Affiliated service providers,)]TJ
+0 -22 Td
+[(-)-277 (Foreign-based third party providers;)]TJ
+-12 -22 Td
+[(\225)-650 (Current transaction volume in each function outsourced;)]TJ
+0 -22 Td
+[(\225)-650 (Any material problems experienced with the service provided;)]TJ
+0 -22 Td
+[(\225)-650 (Service providers with significant financial or control related weakness\es; and)]TJ
+0.5186 Tw 0 -22 Td
+[(\225)-650 (When applicable, whether the primary regulator has been notified of the \outsourcing)]TJ
+1.2313 Tw 12 -12 Td
+(relationship as required by the Bank Service Company Act or Home Owners'\ Loan)Tj
+0 Tw 0 -12 Td
+(Act.)Tj
+3.6222 Tw -21 -44 Td
+(Objective 2: Evaluate the quantity of risk present from the institution'\s outsourcing)Tj
+0 Tw 0 -12 Td
+(arrangements.)Tj
+5.0371 Tw 0 -44 Td
+[(1.)-696.758 (Assess the level of risk present in outsourcing arrangements. Consider r\isks)]TJ
+0 Tw 0 -12 Td
+(pertaining to:)Tj
+9 -44 Td
+[(\225)-650 (Functions outsourced;)]TJ
+3.0031 Tw 0 -22 Td
+[(\225)-650 (Service providers, including, where appropriate, unique risks inherent i\n foreign-)]TJ
+0 Tw 12 -12 Td
+(based service provider arrangements; and)Tj
+-12 -22 Td
+[(\225)-650 (Technology used.)]TJ
+-9 -44 Td
+[(2.)-277 (If the institution engages in cloud computing, determine whether:)]TJ
+1.3151 Tw 9 -44 Td
+[(\225)-650 (The cloud computing service is or will be hosted internally or outsource\d to a third)]TJ
+0 Tw 12 -12 Td
+(party provider \(hosted externally\).)Tj
+1.6973 Tw -12 -22 Td
+[(\225)-650 (Resources are shared within a single organization or across various clie\nts of the)]TJ
+3.0047 Tw 12 -12 Td
+(service provider. \(Resources can be shared at the network, host, or app\lication)Tj
+0 Tw 0 -12 Td
+(level\).)Tj
+0.8653 Tw -12 -22 Td
+[(\225)-650 (The institution has the ability to increase or decrease resources on dem\and without)]TJ
+0 Tw 12 -12 Td
+(involving the service provider \(on-demand self-service\).)Tj
+-12 -22 Td
+[(\225)-650 (Massive scalability in terms of bandwidth or storage is available to the\ institution.)]TJ
+0 -22 Td
+[(\225)-650 (The institution can rapidly deploy or release resources.)]TJ
+0.8663 Tw 0 -22 Td
+[(\225)-650 (The financial institution pays only for those resources which are actual\ly used \(pay-)]TJ
+0 Tw 12 -12 Td
+(as-you go pricing\))Tj
+/T1_0 10 Tf
+280.74 655.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-2)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+19 0 obj
+<<
+/Contents 20 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/C2_0 21 0 R
+/T1_0 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+20 0 obj
+<<
+/Length 3183
+>>
+stream
+BT
+0 0 0 rg
+/TT0 12 Tf
+0.4854 Tw 70 700.4 Td
+[(3.)-317.45 (If the institution engages in cloud computing, identify the type\(s\) of\ service model that)]TJ
+0 Tw 0 -12 Td
+(is or will be used:)Tj
+ET
+/TouchUp_TextEdit MP
+BT
+4.815 Tw 79 600.4 Td
+[(\225)-650 (Software )-4.167 (as )-0.917 (a )-1 (Service )-2.333 (\(SaaS\) )-3.167 (- )-0.833 (application )-3.083 (software )-3.083 (is )-1 (hosted )-2.25 (in )-1.167 (the )-2 (cloud;)]TJ
+3.069 Tw 12 -12 Td
+[(commonly )-1.5 (used )-1.25 (for )-1.833 (email )-1.5 (applications )-3.083 (such )-1.083 (as )-1 (Hotmail )-2.5 (or )-1 (Gmail, )-3 (time )-2 (reporting)]TJ
+1.886 Tw 0 -12 Td
+[(systems, )-2.667 (customer )-2.167 (relationship )-3.083 (management )-2.75 (\(CRM\) )-1.167 (systems )-1.833 (such )-1.083 (as )-1 (SalesForce,)]TJ
+0 Tw 0 -12 Td
+(etc.;)Tj
+1.937 Tw -12 -22 Td
+[(\225)-650 (Platform )-4 (as )-1 (a )-1 (Service )-2.25 (\(PaaS\) )-3.167 (- )-0.833 (development )-2.917 (platform )-3.083 (such )-1.167 (as )-1 (Java, )-2 (.Net, )-3.583 (etc. )-2.675 (for)]TJ
+0 Tw 12 -12 Td
+(developing systems is hosted in the cloud;)Tj
+0.222 Tw -12 -22 Td
+[(\225)-650 (Infrastructure )-5 (as )-0.917 (a )-1 (Service )-2.333 (\(IaaS\) )-3 (- )-0.833 (infrastructure )-4.25 (resources )-1.417 (such )-1.167 (as )-1 (data )-2.083 (processing,)]TJ
+0 Tw 12 -12 Td
+(data storage, network systems, etc. are provided via the cloud; or)Tj
+2.427 Tw -12 -22 Td
+[(\225)-650 (Data )-2.167 (as )-1 (a )-0.917 (Service )-2.333 (\(DaaS\) )-2.333 (- )-0.833 (data )-2.083 (is )-1 (provided )-1.833 (or )-1 (accessed )-1.417 (via )-1.167 (the )-1.917 (cloud)]TJ
+/C2_0 12 Tf
+413.735 0 Td
+<0011>Tj
+ET
+/TouchUp_TextEdit MP
+BT
+/TT0 12 Tf
+0.4837 Tw 70 418.4 Td
+[(4.)-317.308 (If the institution engages in cloud computing, identify the type of depl\oyment model to)]TJ
+0 Tw 0 -12 Td
+(be used:)Tj
+0.9438 Tw 9 -88 Td
+[(\225)-650 (Private Cloud - hosted for or by a single entity on a private network; c\an be hosted)]TJ
+1.4793 Tw 12 -12 Td
+(internally or outsourced but is most often operated internally; only tho\se within the)Tj
+0 Tw 0 -12 Td
+(entity share the resources;)Tj
+0.8542 Tw -12 -22 Td
+[(\225)-650 (Community Cloud - hosted for a limited number of entities with a common \purpose;)]TJ
+2.156 Tw 12 -12 Td
+(access is generally restricted; most often used in a regulated environme\nt where)Tj
+0 Tw 0 -12 Td
+(entities have common requirements;)Tj
+0.3354 Tw -12 -22 Td
+[(\225)-650 (Hybrid Cloud - data or applications are portable and permit private and \public clouds)]TJ
+0 Tw 12 -12 Td
+(to connect; or,)Tj
+1.1214 Tw -12 -22 Td
+[(\225)-650 (Public Cloud - available to the general public; owned and operated by a \third party)]TJ
+0 Tw 12 -12 Td
+(service provider)Tj
+3.9473 Tw -21 -44 Td
+(Objective 3: Evaluate the quality of risk management 1. Evaluate the out\sourcing)Tj
+4.4306 Tw 0 -12 Td
+(process for appropriateness given the size and complexity of the institu\tion. The)Tj
+0 Tw 0 -12 Td
+(following elements are particularly important:)Tj
+/T1_0 10 Tf
+301.74 639.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+q
+1 0 0 1 70 750 cm
+0 0 0 RG
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-3)Tj
+ET
+q
+1 0 0 1 70 35 cm
+0 0 0 RG
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+21 0 obj
+<<
+/BaseFont /MFORBI+ArialMT
+/DescendantFonts 22 0 R
+/Encoding /Identity-H
+/Subtype /Type0
+/ToUnicode 28 0 R
+/Type /Font
+>>
+endobj
+22 0 obj
+[ 23 0 R ]
+endobj
+23 0 obj
+<<
+/BaseFont /MFORBI+ArialMT
+/CIDSystemInfo 24 0 R
+/CIDToGIDMap /Identity
+/DW 1000
+/FontDescriptor 25 0 R
+/Subtype /CIDFontType2
+/Type /Font
+/W [ 0 [ 750 0 ] 2 4 278 5 [ 355 ] 6 7 556 8 [ 889 667 191 ] 11 12 333 13 [ 389 584 278 333 ] 17 18 278 19 28 556 29 30 278 31 33 584 34 [ 556 1015 ] 36 37 667 38 39 722 40 [ 667 611 778 722 278 500 667 556 833 722 778 667 778 722 667 611 722 667 944 ] 59 60 667 61 [ 611 ] 62 64 278 65 [ 469 556 333 ] 68 69 556 70 [ 500 ] 71 72 556 73 [ 278 ] 74 75 556 76 77 222 78 [ 500 222 833 ] 81 84 556 85 [ 333 500 278 556 500 722 ] 91 93 500 94 [ 334 260 334 584 ] 98 99 667 100 [ 722 667 722 778 722 ] 105 110 556 111 [ 500 ] 112 115 556 116 119 278 120 130 556 131 [ 400 ] 132 134 556 135 [ 350 537 611 ] 138 139 737 141 142 333 143 [ 549 ] 145 [ 778 713 ] 147 149 549 150 [ 556 576 494 713 823 549 274 370 365 768 889 ] 161 162 611 163 [ 333 584 549 556 549 612 ] 169 170 556 172 173 667 174 [ 778 ] 176 [ 944 556 ] 179 180 333 181 182 222 183 [ 549 494 500 667 167 556 ] 189 190 333 191 192 500 193 [ 556 278 222 333 ] 198 202 667 203 206 278 207 209 778 210 212 722 213 [ 278 ] 214 223 333 224 [ 556 222 667 500 611 500 260 722 556 667 500 667 556 ] 237 238 584 239 241 333 242 244 834 245 [ 556 778 556 278 667 500 722 500 722 500 556 552 333 667 556 667 556 722 615 722 667 556 667 ] 268 269 556 270 [ 222 556 292 556 334 722 556 722 556 778 556 722 333 722 333 667 500 611 278 611 375 722 556 722 556 611 500 611 500 551 778 798 578 557 446 617 395 648 552 500 365 1094 ] 313 [ 500 ] 315 [ 500 ] 317 318 500 319 [ 979 719 583 604 584 ] 324 325 604 326 [ 708 625 ] 328 372 708 373 [ 729 604 ] 376 379 990 380 382 604 383 [ 1021 1052 917 ] 386 387 750 388 [ 531 656 594 510 500 750 735 444 604 188 354 885 323 604 ] 402 403 354 404 [ 604 354 667 556 722 500 722 500 667 556 667 556 667 556 778 556 778 556 778 556 722 556 722 556 ] 428 434 278 435 [ 222 500 222 667 ] 439 440 500 441 [ 556 222 722 556 723 556 778 556 778 556 722 333 667 500 611 278 722 556 722 556 722 556 722 556 944 722 667 500 222 667 556 ] 473 [ 889 778 611 278 944 722 944 722 944 722 667 500 222 333 556 600 ] 489 492 834 493 496 333 497 [ 667 784 838 384 774 855 752 222 ] 505 506 667 507 [ 668 667 611 722 278 667 668 833 722 650 778 722 667 618 611 ] 522 523 667 524 [ 835 748 278 667 578 446 556 222 547 575 500 441 ] 536 537 556 538 [ 222 ] 539 540 500 541 [ 576 500 448 556 569 482 547 525 713 781 222 547 556 547 781 667 865 542 719 667 ] 561 562 278 563 [ 500 1057 1010 854 583 635 719 667 656 667 542 677 667 923 604 ] 578 579 719 580 [ 583 656 833 722 778 719 667 722 611 635 760 667 740 667 917 938 792 885 656 719 1010 722 556 573 531 365 583 556 669 458 ] 610 611 559 612 [ 438 583 688 552 556 542 556 500 458 500 823 500 573 521 802 823 625 719 521 510 750 542 ] 634 635 556 636 [ 365 510 500 222 278 222 906 813 556 438 500 552 489 411 ] 651 [ 1073 690 ] 653 665 0 666 [ 383 0 275 ] 669 670 0 671 [ 278 563 542 399 508 602 247 382 599 590 247 509 461 463 599 601 247 353 574 529 566 546 461 479 550 509 694 643 ] 699 701 493 702 [ 236 417 815 247 ] 706 707 509 708 709 463 710 [ 535 ] 711 714 694 715 717 563 718 [ 542 399 508 602 287 411 590 287 509 461 463 601 353 574 566 546 479 550 509 694 643 247 542 461 546 576 ] 744 747 0 748 749 319 750 [ 356 413 207 ] 753 760 0 761 771 526 772 [ 319 526 ] 774 775 750 776 [ 282 750 ] 778 780 526 781 785 750 786 [ 0 ] 787 794 750 795 [ 638 ] 796 798 750 799 800 713 801 802 244 803 806 750 807 [ 563 526 ] 809 810 530 811 812 489 813 [ 812 933 394 515 812 933 394 515 638 588 375 ] 824 838 750 839 843 0 844 845 750 846 861 0 862 [ 556 ] 864 891 750 892 893 319 894 [ 750 616 413 207 229 207 229 ] 901 902 432 903 [ 207 229 638 588 ] 907 908 244 909 [ 207 229 ] 911 912 713 913 914 244 915 [ 282 375 ] 917 918 713 919 920 244 921 922 713 923 924 244 925 [ 563 526 ] 927 928 530 929 [ 563 526 ] 931 932 530 933 [ 563 526 ] 935 936 530 937 940 337 941 944 489 945 946 821 947 948 531 949 950 821 951 952 531 953 954 1098 955 956 846 957 958 1098 959 960 846 961 968 582 969 [ 544 450 526 394 544 450 526 394 ] 977 978 789 979 [ 268 263 ] 981 982 582 983 [ 268 263 ] 985 986 601 987 988 394 989 990 506 991 992 207 993 994 338 995 996 394 997 998 526 999 1000 244 1001 [ 282 375 450 394 ] 1005 1006 432 1007 [ 638 588 638 588 ] 1011 1012 244 1013 [ 544 601 544 601 544 601 544 601 ] 1021 1022 750 1023 1024 0 1025 1027 750 1028 1029 0 1030 1031 750 1032 1033 0 1034 1036 750 1037 1042 0 1043 [ 750 ] 1044 1045 0 1046 1099 750 1100 1102 319 1103 1126 750 1127 [ 125 ] 1129 [ 2000 857 656 854 669 ] 1134 1149 0 1150 [ 513 ] 1151 1152 834 1153 1186 0 1187 [ 222 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 667 556 278 222 278 222 778 556 778 556 778 556 778 556 778 556 778 556 778 556 857 656 857 656 857 656 857 656 857 656 722 556 722 556 854 669 854 669 854 669 854 669 854 669 667 500 667 500 667 500 667 556 278 222 778 556 722 556 722 556 722 556 722 556 722 556 ] 1292 1295 0 1296 [ 542 365 923 669 583 438 583 438 722 552 556 500 556 500 667 500 667 521 667 556 752 556 778 556 713 244 268 263 582 ] 1325 1330 244 1331 [ 269 ] 1332 1333 0 1334 1335 333 1336 1339 0 1340 [ 207 229 207 229 207 229 207 229 ] 1348 1351 432 1352 [ 638 588 ] 1354 1355 713 1356 1357 244 1358 1359 713 1360 1361 244 1362 1363 713 1364 1365 244 1366 1367 713 1368 1369 244 1370 1371 713 1372 1373 244 1374 1375 713 1376 1377 244 1378 1379 713 1380 1381 244 1382 [ 563 526 ] 1384 1385 530 1386 [ 563 526 ] 1388 1389 530 1390 [ 563 526 ] 1392 1393 530 1394 [ 563 526 ] 1396 1397 530 1398 [ 563 526 ] 1400 1401 530 1402 [ 563 526 ] 1404 1405 530 1406 1423 337 1424 1439 489 1440 1441 821 1442 1443 531 1444 1445 821 1446 1447 531 1448 1449 821 1450 1451 531 1452 1453 1098 1454 1455 846 1456 1457 1098 1458 1459 846 1460 1461 582 1462 [ 544 450 526 394 ] 1466 1468 789 1469 [ 268 263 ] 1471 1472 789 1473 [ 268 263 ] 1475 1476 789 1477 [ 268 263 ] 1479 1480 789 1481 [ 268 263 ] 1483 1484 789 1485 [ 268 263 ] 1487 1490 582 1491 1492 1155 1493 1494 906 1495 [ 812 933 394 515 ] 1499 1500 601 1501 1502 394 1503 1504 601 1505 1506 394 1507 1508 601 1509 1510 394 1511 [ 812 933 394 515 812 933 394 515 812 933 394 515 812 933 394 515 812 933 394 515 ] 1531 1532 506 1533 1534 207 1535 1536 506 1537 1538 207 1539 1540 506 1541 1542 207 1543 1544 506 1545 1546 207 1547 1548 526 1549 1550 244 1551 1556 526 1557 1558 244 1559 1560 526 1561 [ 563 526 ] 1563 1564 530 1565 [ 282 375 ] 1567 1569 388 1570 1585 432 1586 [ 638 588 638 588 ] 1590 1591 244 1592 1593 432 1594 [ 638 588 ] 1596 1597 244 1598 [ 638 588 ] 1600 1603 812 1604 [ 207 ] 1605 1611 0 1612 [ 1123 1084 ] 1614 1619 0 1620 [ 194 370 ] 1622 1623 0 1624 [ 600 ] 1625 1627 0 1628 1629 821 1630 1631 531 1632 1633 1098 1634 1635 846 1636 [ 544 450 526 394 413 338 282 244 320 ] 1645 1649 244 1650 [ 812 933 247 0 342 493 544 601 544 601 544 601 544 601 544 601 544 601 544 601 ] 1670 1671 526 1672 [ 544 601 556 758 656 556 656 556 ] 1680 1681 722 1682 [ 500 722 810 656 556 557 667 604 611 778 624 881 222 278 667 500 222 500 891 722 556 778 868 667 754 556 ] 1708 1709 667 1710 [ 500 618 380 278 611 278 611 748 722 772 500 611 500 ] 1723 1724 611 1725 1726 545 1727 1728 556 1729 [ 458 487 556 260 413 584 278 1333 1222 1049 1062 833 451 1222 944 771 556 667 556 0 667 556 ] 1752 [ 889 778 556 778 556 667 500 778 556 778 556 611 545 222 1333 1222 1049 778 556 1034 618 722 556 667 556 667 556 667 556 667 556 ] 1783 1786 278 1787 [ 778 556 778 556 722 333 722 333 722 556 722 556 667 500 611 278 545 437 722 556 706 604 565 611 500 667 556 667 556 778 556 0 778 556 778 556 778 556 667 500 ] 1827 1830 556 1831 1832 500 1833 1835 556 1836 [ 739 ] 1837 1838 458 1839 [ 631 507 278 ] 1842 1843 556 1844 [ 559 501 617 ] 1847 1849 556 1850 1851 222 1852 [ 356 327 304 222 572 ] 1857 1859 833 1860 1861 556 1862 [ 553 556 791 781 550 ] 1867 1873 333 1874 1875 542 1876 [ 500 222 260 222 349 ] 1881 1882 278 1883 [ 556 568 547 500 722 500 520 500 541 ] 1892 1893 545 1894 1897 500 1898 [ 778 531 507 559 552 397 500 404 556 ] 1907 1908 500 1909 [ 964 906 1005 712 429 719 764 661 632 485 527 ] 1920 1921 383 1922 [ 159 ] 1923 1925 240 1926 [ 364 481 321 191 355 ] 1931 1933 222 1934 1935 333 1936 1937 349 1938 1941 584 1942 1948 333 1949 1950 278 1951 1958 333 1959 [ 322 157 340 328 349 ] 1964 1968 383 1969 1973 333 1974 1982 542 1983 [ 383 ] 1984 1988 542 1989 [ 383 ] 1990 1994 542 1995 [ 383 ] 1996 2000 542 2001 [ 383 ] 2002 2006 542 2007 [ 383 ] 2008 2016 542 2017 [ 383 ] 2018 2022 542 2023 [ 383 ] 2024 2028 542 2029 [ 383 ] 2030 2034 542 2035 [ 383 ] 2036 2040 542 2041 [ 383 ] 2042 2050 542 2051 [ 383 ] 2052 2056 542 2057 [ 383 ] 2058 2062 542 2063 [ 383 ] 2064 2068 542 2069 [ 383 ] 2070 2074 542 2075 [ 383 ] 2076 2084 542 2085 [ 383 ] 2086 2090 542 2091 [ 383 ] 2092 2096 542 2097 [ 383 ] 2098 2102 542 2103 [ 383 ] 2104 2108 542 2109 [ 383 ] 2110 2113 542 2114 2204 0 2205 2207 333 2208 [ 575 547 772 958 772 560 781 601 778 556 722 500 611 404 625 529 756 577 891 833 674 556 674 500 ] 2232 2233 667 2234 [ 609 596 737 554 464 410 601 573 500 222 778 ] 2245 2246 442 2247 [ 667 719 556 559 1338 624 778 613 950 713 668 500 897 695 829 685 1053 867 604 458 796 688 778 556 803 631 803 631 1074 896 833 612 1191 852 0 1338 624 722 500 503 ] 2287 2292 0 2293 [ 719 559 656 521 667 556 670 549 604 458 583 438 742 536 879 648 1137 870 753 521 722 500 611 458 925 691 667 521 861 666 861 666 278 923 669 667 551 656 583 722 552 722 552 667 521 833 688 333 667 556 667 556 ] 2346 [ 889 667 556 752 556 923 669 604 458 604 545 719 559 719 559 778 556 778 556 719 510 635 500 635 500 635 500 667 521 885 719 656 556 968 876 956 815 663 509 970 910 1034 878 778 559 747 666 ] 2393 2430 0 2431 [ 667 556 667 556 667 556 667 556 722 500 722 556 722 556 722 556 722 556 722 556 667 556 667 556 667 556 667 556 667 556 611 278 778 556 722 556 722 556 722 556 722 556 722 556 278 222 ] 2477 2478 278 2479 [ 667 500 667 500 667 500 556 222 556 222 556 222 556 222 ] 2493 2498 833 2499 [ 722 556 722 556 722 556 722 556 778 556 778 556 778 556 778 556 667 556 667 556 722 333 722 333 722 333 722 333 667 500 667 500 667 500 667 500 667 500 611 278 611 278 611 278 611 278 722 556 722 556 722 556 722 556 722 556 667 500 667 500 944 722 944 722 667 500 667 500 667 500 611 500 611 500 611 500 556 278 722 500 556 222 ] 2581 2588 578 2589 2590 667 2591 2596 813 2597 2602 446 2603 2604 765 2605 2608 928 2609 2616 556 2617 2618 820 2619 2624 1015 2625 2632 222 2633 2634 375 2635 2640 571 2641 2646 556 2647 2648 827 2649 2650 1022 2651 2652 973 2653 2660 547 2661 [ 813 960 1009 960 ] 2665 2672 781 2673 2674 796 2675 2676 992 2677 2680 943 2681 2682 578 2683 2684 446 2685 2686 556 2687 2688 222 2689 2690 556 2691 2692 547 2693 2694 781 2695 2702 578 2703 2704 667 2705 2710 813 2711 2718 556 2719 2720 820 2721 2726 1015 2727 2734 781 2735 2736 796 2737 2738 992 2739 2742 943 2743 2749 578 2750 2754 667 2755 2759 333 2760 2764 556 2765 2766 813 2767 2768 869 2769 [ 722 ] 2770 2772 333 2773 2778 222 2779 2780 278 2781 2782 424 2783 2785 333 2786 2789 547 2790 2791 569 2792 2793 547 2794 2795 667 2796 [ 862 887 765 ] 2799 2801 333 2802 2806 781 2807 [ 924 827 894 796 748 ] 2812 2813 333 2814 [ 556 ] 2815 2816 722 2817 [ 833 722 1164 944 667 611 ] 2824 [ 500 594 ] 2826 2829 0 2830 2831 222 2832 [ 521 667 682 349 685 367 ] 2838 2839 687 2840 2848 333 2849 [ 278 ] 2850 2853 333 2854 2855 397 2856 [ 333 ] 2857 2867 0 2868 [ 667 556 496 748 889 531 500 ] 2875 2876 551 2877 [ 490 458 222 422 500 401 688 559 556 500 ] 2887 2889 608 2890 [ 944 457 ] 2892 2893 556 2894 [ 521 ] 2895 2896 542 2897 [ 458 547 597 733 597 500 722 500 458 427 607 365 500 542 521 713 583 453 664 ] 2916 2917 415 2918 [ 449 ] 2919 2920 410 2921 [ 496 429 167 314 425 352 510 430 429 512 382 418 451 433 429 623 ] 2937 2938 372 2939 [ 377 600 ] 2941 2942 377 2943 2944 372 2945 2946 318 2947 [ 377 157 339 573 382 377 354 ] 2954 2955 377 2956 [ 378 220 382 407 573 321 391 385 321 378 440 343 157 240 382 321 385 321 379 440 343 741 1300 759 817 657 239 544 ] 2984 2992 0 2993 2994 337 2995 2996 489 2997 [ 450 394 450 394 709 655 749 607 609 745 656 789 584 ] 3010 3012 0 3013 [ 556 333 354 ] 3016 3019 207 3020 [ 793 1221 500 ] 3024 [ 500 ] 3026 [ 333 250 167 556 278 200 83 0 737 722 833 688 908 ] 3039 3040 887 3041 [ 667 722 500 556 611 ] 3046 3047 500 3048 [ 581 ] 3049 3053 0 3054 [ 569 ] 3055 3057 722 3058 [ 542 365 ] 3060 3062 0 3063 [ 353 0 263 289 ] 3067 3073 0 3074 3075 713 3076 3077 244 3078 3079 713 3080 3081 244 3082 3083 713 3084 3085 244 3086 3087 713 3088 3089 244 3090 3091 713 3092 3093 244 3094 3095 713 3096 3097 244 3098 3099 713 3100 3101 244 3102 [ 563 526 ] 3104 3105 530 3106 [ 563 526 ] 3108 3109 530 3110 3113 337 3114 3115 489 3116 3117 821 3118 3119 531 3120 [ 544 450 526 394 544 450 526 394 544 450 526 394 ] 3132 3133 789 3134 [ 268 263 ] 3136 3137 789 3138 [ 268 263 812 933 394 515 812 933 394 515 812 933 394 515 ] 3152 3153 338 3154 3155 394 3156 3157 338 3158 3159 394 3160 3161 526 3162 3163 244 3164 3165 526 3166 3167 244 3168 3169 526 3170 3171 244 3172 3173 506 3174 3175 207 3176 3179 489 3180 3181 821 3182 3183 531 3184 3185 556 3186 [ 278 833 ] 3188 3189 556 3190 3191 333 3192 [ 500 278 500 556 380 557 786 ] 3199 3200 222 3201 [ 556 547 568 ] 3204 3205 556 3206 [ 278 713 500 222 833 ] 3211 3212 556 3213 [ 333 500 387 ] 3216 3218 500 3219 3222 556 3223 3224 458 3225 [ 650 222 500 222 556 545 377 354 348 373 318 ] 3236 3237 229 3238 [ 377 383 ] 3240 3243 157 3244 [ 271 ] 3245 3246 157 3247 [ 275 ] 3248 3249 572 3250 3252 382 3253 [ 377 375 340 157 220 382 388 378 354 321 ] 3263 3265 358 3266 [ 369 364 ] 3268 3271 0 3272 [ 278 ] 3273 3274 372 3275 [ 377 328 372 778 667 556 722 333 ] 3283 3290 578 3291 3298 222 3299 3306 547 3307 3310 222 3311 3314 547 3315 [ 544 601 453 667 722 668 667 556 500 222 737 556 722 333 667 ] 3330 3333 500 3334 [ 222 542 365 667 500 667 500 604 458 656 583 ] 3345 3353 0 3354 [ 943 490 500 556 222 556 667 722 556 278 722 556 667 500 611 ] 3369 3370 500 3371 [ 577 425 648 ] 3374 3379 0 3380 [ 222 723 722 723 ] 3384 3394 0 3395 [ 778 556 944 722 703 0 732 597 1037 841 278 438 ] 3407 3408 191 3409 3410 500 3411 3413 278 3414 [ 333 ] ]
+>>
+endobj
+24 0 obj
+<<
+/Ordering (Identity)
+/Registry (Adobe)
+/Supplement 0
+>>
+endobj
+25 0 obj
+<<
+/Ascent 1006
+/CIDSet 26 0 R
+/CapHeight 716
+/Descent -325
+/Flags 4
+/FontBBox [ -665 -325 2000 1006 ]
+/FontFamily (Arial)
+/FontFile2 27 0 R
+/FontName /MFORBI+ArialMT
+/FontStretch /Normal
+/FontWeight 400
+/ItalicAngle 0
+/StemV 88
+/Type /FontDescriptor
+/XHeight 519
+>>
+endobj
+26 0 obj
+<<
+/Filter /FlateDecode
+/Length 13
+>>
+stream
+H‰šÀà ` ó Ñ
+endstream
+endobj
+27 0 obj
+<<
+/Filter /FlateDecode
+/Length1 35176
+/Length 10523
+>>
+stream
+H‰\UxMWş×ŞûÜy	E’­sÉTnR$U¯L„›:y¨ÄP÷J®$Š„Ò&T•è­W}j*U£Ššê‰	†¾LçÓˆÒ©23mi¿ªÌ|Ÿšñ¸gÖMŒaÎúÎ>k¯½ŞkíuæÎ™çG‡Dß±}ÒĞşà×[òÌ\½}Kİ[á´ª²™í{{ïg•Í¨™vø[Û£@Ô&N+÷ûJOO¹8ˆÎæıcåLhçÏK¯ò™s«ïì7ı'Í¨,ñA½pßà½w¦¯ºªı¼f"/ú,ßLÿI1ÔÁ{–W}«æøïœ/xˆxR.§5Ğ¦ÕkéìeBûW~i¢s˜&"lJ„uÉÖ!T»Y´CH¾0×­#ºuK;Ì£t{&íÎY–Åv’´?„¬CiûÏ¯CÛ†x•„8ÀºÄïåĞ7Xa]‡¾â{æoºóÛñ.Uà]üR+K½‡}hÄ§ˆE66¢ëP&2å%ä3hL_GñV#ú`3×a3š™wb?ºQœõa©<ÁRK…†q¨ÄJmÍÃ$œUK0 £1Uô¼Ud­²ÖZoa+öÉO­Û\YJš­µ¯¬¿!•%^Åœ¥µöp&på÷É70õr²"«ÌºÁ8ñ,û ‹f:$\¬İKGµÒÍZ¶X¦õ1suÇd”£û©?Nm’•k5£Û¨f­°{šp§)RkµŞ²Z<Îñ4â(’ÁÛ‹ƒC9cg©7ñI%ŞÇŸpŒú@Tj‘Zš–¥Í·¾@ôÃxövK~K×ÅB†Eò°Ê±†#šóòJ(ÛøçÉA}h,=!z‹J±IÎA[ìÇPŠ
+Î÷k¬ı¹h¯ˆ-r‹Ú©nÚ³¢¹"IxoàŠâHuzš^ /é¢p‹)âuqA®S;Ôq»£~3±;q:Ó@Ê£_R9ÕR½B¨™Ñe1LŠ§ÄUY.gËƒj8CzZ-Ñ–i/Û.‹‚?^·Ò¬eÈã~XÌŞ¿ŠMÙ>´àÃY\ "(šA''§çÒJúm§ÔÈVÑúşI×è¦ ƒM$§èÉ`ˆ9âY±Nl-ÇÄâß2Vö”.Ù_fÈbYÉ^ÕÉ5{äyåP-Êâ<§iëµ7µíÚNíC­Õi!aŸİÚr;ùö™ ‚Ëƒëƒ»ƒÖytå:8=ÁŞû¦s½×sÇ½‡É¹sP2eÒhÎÌšN³©š3ù"ÕÓÖ6ßwÑÎÒIºÊ>G‰îm>?"ú‹áb,Ã“Â/f‹5b­h_ŠÒ.#dGÙU&Ër²ôË¹²F®—¦üLş]^?É[–
+W=TO•¤\j„š¢æ©Mê’º¤MÒhßØÂm3mËlM¶Ø³gÚÇÙóì“í«í{í_„y¹;?Âü÷<tN.–¹«DºŠGÅQîç)(•¹‚;Ul§åb5Š^ZµmˆBcĞª’8×‡Å›â'1DæÒ(*ÀtÑ¯]›­‹âI…õ®¨ÛQÖ\m‹¤…âª-»	bÛüDöU.y§åY²«Íø«
+§Xº"¶ÉqÜU¦V§Üˆ]r6-ÀáÂo†­à>Cïğ\(¤4ú—´ Åî¢ò"–à)ñ®ğ=^_Q©*Ã*¤S-.ám¾½µY¶d[Wú³¨Pñ 5B¨İ êERë‚i²¬·]§0-*gäoÙû±KæªV-ŸÊù,À2Ì¶£F+RÇ©’@"Úu¨•iÊÉßE<U&ñLÛË·{?Ïa2—)qÜ9£¹/Æó„¨gxç„âªà;>§ØQ4Ú
+EÊ´hâ©ÃóøH0­·±Á*Ã,k-RyÔYµ¬q;¾Ájl§¥ÁçP…‡øæœ¡ÑZhÑr¬T§DX}9Û‰‡ïø¿ƒLõuj­°şÂİı0OØ˜Š_àkòG¶0RBzpŒh°rdÇ{yÖ6«…£Üš±ü¯Üj×à³»¸Æ&çxŸƒ_ä[s¥?XÁyXÍYÈâlÍãùóR–{|á°¬¡™?Ï2xĞÀıMOë×·Ï#©)®äŞÿ,)±—ÑÓ©÷xèÁî	ø¸Øn]»<Ğ¹SLÇè¨Èˆğav›¦¤ ¤xŒ¯n&yM•dŒ™Ú>&øî!xMI9÷ó˜º·M¿Ÿ3‹9§ıgV;gÖ]NŠÑ3‘š¢{İlÎ6ô&š˜WÄøÊl£X7¯´á¹møš6<Šq§“tO\y¶n’W÷˜9Ï”<ŞlV×î6ÜşğÔ4„G0Á˜kT5Pl&µ!"Ö3¸A ,Š2F¶ÇŒ7²C˜2Ñã+5Çåy²œÎâÔ“Ü%ÆTÆp³£«î63¦ÍmÚÛÌè¡hğ²Şr(°¢)S½®ÈR£Ô7©È”¾âN.¶›mÆÎÿ:î[VŞÙ]Twïi‚xâ*ôĞ6¨ÓÍ_çİ{ê­ÅÅ¬ƒeEb7Ã¦WpGèlM,-.2i)›ÔC‘„¢jÏoxBïtİì`7ÊÓ½\GÀD~s·Ã‘µÏ:‡GNsh‚QìËîŞĞüšßÅgéñ÷Ÿ¤¦4ÄtjOlCtÇ;HdÔ½ˆÿîYÖÆÂFåßÍ,…<2ç†0õ=)28¦¡Å?’ÌÆO1±”YÊ©0;¸½˜Á!zHŞÔc=pÜÆ•î§øîPl‰1×BC}r·Õøü¿¸ér™ÉÉ¡±»¹¦ìcæ¸¯ÖØ(®+|fæÎìb ^b–+ÂnŒy,p¼Á`Œ]à×ÚbMi]Z7i¥a‘‹1®Ô´F¤Ô¶ˆ 6kâ¨k«mœHÄ"‰ÕôÔ6%HMiÒ("Tá5ıÎ™Íz !EêŸ®üùÌ9÷uî¹ß¹©çgÏ<¡ffîô!>Z‡Øn©-ÈAøC!^àı‰05@‰G×G,=HSÎ™WWë¹dÈ)ñWqIÔ)I6¯Ï“ûIÁ¦á{g&ÿÒ}“2Vn/ˆ+“>¥øËVyyEfùúºHpe¬Şmyå(Í*_’,³¿âÅ- Ú_j@“¥ åÆdeV"ãâ"†$õ¶„ÇVJ‹,‰ûêK­ÿµi¡Ğgl”0?àVR|ÒÌv3^0o´ş…Qú(÷ÆÅ48Œ£²¼².KUªY®¶O•‘P°8NUÈÌ,ü%Ì¡%ŒÚ@<ŒsğÏ2Ùê¨Šû»?fgöült±XIf°$VÛ’0£™A_fl@}E}%¶se½Cœ„9¸?/9P‹XmW
+*-ïËTZ×÷…•ÖŠºÈ€¯ƒÖÊÈ)UQ‹ë—×öÍ@Yd O¥°´ªle#+AV¨\Á$O©^Y?0&ŠÊR!RßšPHÚ¼M¡­	Õ²ù›
+›°laiãï1Å•‘TöÈ”¬Í&U‘×k"ò…&„&dáŸ‚#÷zPºÖéÅEœÑ¤ìÅ½_£¬ğdµÒÔÂÍ¸ïÂÅNt¢¼StuLç»²iÓ{TôŞÂÜ¼ü<ÿàÙ³gI²^OßxalCdszáGŞ€W´İfÍeyúpCÍÕ“7¾â#ï8ùSdÀ³ìæZ*öÑÕ“WŸôYı¤üÆ×¶‰oI6âêïèK¢‰üÀjÏ4ú^Mø]§öĞSm…Å	úêö@rÛ¢~ğg ¨¦Ú¶5À ‚uÔà¶èc'÷#eÕy§Ó£zµyãÔ‡éà¾»Å:n,¥Ğ¢İK‚è~®ƒ6ê€ı9”o…ídz¾7¢]®ı=ÆÓ†—&$`À>ıì·ç;K{™‹&ómÌ¥}–-cd	P:Ë½Ê0µ*Ãf7Ê!©ãïe;°Â–¥ègÊ‹Ğnôf|O…d:f«'h©:‘~™ƒù×Xó†i;Ï99'øoût+,ËS1	dªKÍ‹cR|s£Ù…ÕZE! °^=K;ÄIA¼Õ/’Æ ï8NÛh-t~Vèıtˆu`D“yC<GÚeZ‚²'ƒ˜Ç6Ä÷võ
+å¨ÿ l#‹v_+Ğÿnàúü›äÃ6ªÄø óÄEÉ¡à Æú§'ôİX×ë:çÚW «°.QàëìÆÏá˜óº+Õ7—¢î;¨³‘ûç%0wæ$·áöè+Ëæa÷'’ºQ§qı¤ üìƒÉ3({ıL`° ¸t@PÌÆØ„q5ÉWp†¹)ùnèÃˆ!|“œµæpD®§•3]v_<NÈ8A6BÜ'çs¾ô9}sN1g)ùİ(yÿ>Ï“9•”È=q‰V±2Á-GrŞÁgÎ‡ƒjµB›™³ìŸ#9.Ì5ä„-Sæš+sR#Ê´¹ŞìH'I¹¢Ïz£{J'•ŠoãåğCjĞ
+m-ĞsaÃ|P7®^¢^¼*°–AÖ%;åkúæÙ‹xĞOÓoŠõ>1¢èz¯ù®NÊ½W}Z~ß"İP†¬2–ŒÔ²ÿÖ~7PÏé½Ø3{Í¿ë#¦‰ù<Ã9á¹¤äAGÂ~
+ˆs½ó”o£’ğT‘Ï º<*ÂT ‡é~XEÂ}¹ {•ş6½¤µÑ>1bşA‰RT¡Ÿ¶àõ—Îc©ç¨™ÁıCîLáÑ(Î¹¹äH‡¯nÉ{¾Í©éòïuïØ¸|•ƒ“SølàıYØ£‹¯æÕ$?ÏĞóû~ºxÚèâç87/İR-Øß<…ûœùóşÈ{ï‘¼Ïñ>ãÔwË”ö1µ<æ}ø,ÕÙy}Ÿ2øøW;÷±c½kLÓ(1ıæqíó¸±ß¿tóæıDòL˜7íóts–Zvëœ£zí°÷³£r¿ù~,ÏÑjéßã$íÒ¯aİ±J;íD<áw£¨GÌÑÌcŠ¶ù;°‘c"×‚h2Ÿ|&jíˆ3ŸEmÔ¬½…û·Í£	ò¼(¢ø~FÚp¦²d›^CİÆ%Z$ª°×Ñ6^+ûÃkï}ŒÆ{ıØ'Fh¡øêø)õ:eÂtLò‚Û6âB…Xx¶’œ]‹:Ü_—l¦{ìx•±íqas,Ğ§á§ò>q‰~ªWQr¨Ë¥.£
+9ç§ãèãy´«b_Ğnª<¯ÛéaäW+ö¦Vì9$ù_g^Óz1Ÿ'°¯Z1ê¥Éz1l”s_!¬=v/çÖC3™#F;öa¾O´SLÌ£•F#µÁÖ†{èlŒ»¶ï#s‘»ûĞ~º½oÆŞ;·-â»ß8_<aÊ0¢ò@Ò¾§`|í]êÒÊ¨<~ĞÛ8ì¡lPš/÷-Hıi,H›Ï’JHóÑ÷Ø®æÑ›a,‘Égè€ØM_Õ´H[ˆÜ@Ùâ7ÈÕé°–N›ÅktX$è ë"ƒfkx?hı¸[²ıZÇvõMèT'
+Ñ¾•¾!6S“Öîı–ÒÄ#Xk´Ó Ì@ûÑ¯åÕiÕÈ­|làzrŒ~³†!J)[¶KôÕËgµ³*ÃšÂ_şå/|Múéøxÿä<¹_´ã:â0"Nç,KŞ\¯¶Q/Ğ©ş‘Šµ5ô]å¸‰W•¸Pšª‹|å)`È§Ÿ»ñ=òWÀIKÇİ-ŸŞö ï—!_àwC]N‹YÂvè ~í”¥‚Ç¹=zÀ¥¿ˆ³P.›ƒw}Äy1Æ[,0àbÃØE=ÓDmì÷¢K×È§i†Fæ¿îäÓ§¿Ü”8†Sçè¬ä¤Ï€ó)2ÈÒ>îÚ·»Öw°IÆ÷}ò[¢Ï)çÌóÕÊ9òiƒ ôlèN<u‚ıGÒîZ?p…8æn»[w¯ëtõÚœ
+‡I><CË¢õ·î=CËÆi”¾UÇî€:š«bŸÀÁY·êÆC4‹¡Î€¯S¹rHêo` ¸®l?V18wj?Şk@²<ŸV2Râº˜ãª²ÊõqÖÅ½>ğ/,^§Õ3!—BV@–925gİyë¶9{Éíê¸r#÷?õùÿäÎkÀ0ğêÿz,…ÀUÀçq)Â=r÷“‡©™èö’ë9ÿf½Üƒ«*î8şË=¯ÁğH:ICŠØ(jfÚJu*4  BC‚P
+"—òP‘±µŠZK‘"ETŠ+™¡>ŠïGÿ È´ÕˆĞVÄQbîéç·gÏÍÍ	ID¹3ŸùŞİ³{vÏ¾~ß…œCãĞ½ä½3gB7ş÷ ï*ô‘¦£üŸGşˆ0å&ë¬¯,%o›­›oßWÕozIäØ§ğxT¿©®æÿÿ€xŞô/ôYtåRoú\ô¼y
+é`'éC¤gÃåü_£gA/èIı•Šú‘6÷Ğ“®Ç¿|UÅ³L£Ÿåètaòñ•5ÏN4y×ˆç¿3õì]¢­FãÀé=|ß–Ü»OGwœX™ÏL.nmØŒ§ìª>Z½¬úgã­šû›ñ±´+R+ı)PÿªŞYı+ªïoğ=ÓŸZúu…é—¹gkŞ§²ºÃiVgQæ‹Ôáœ=…¬ï£ÜVHŸ
+uá›Ä®Bbİ.Îİ£èë¤û Gã˜Ÿ­mÎØNbÚÉNŸhŒü1µÒ2%A{ù1ç[.Q’±øDé,víXŞNŒÎÓß4Çù˜‚I¥	w(I_ÚÆt’îÌçh:é;N8ğ%q:I›çÉµû™2)Ë’Øw'ŠŞ-Ü­-Ş?îCrg÷›M3F?É…s` ¡ë9/ğÿa F…÷’wsş—R™ÿ˜T’Ş
+ÄÍÌÑ´>Cÿ·L$õYØLú6Òİİ×MÙË-éÎÖsrİª?7ş13çàrí¿œ@Oø3Ì‰çZï´½/EÔÕ{®;1<ê¾	Ø©~O®ƒÇH’.ä,.ò{pn‘?òÿN´Ú…ó},Ôs–ñ^›ı¦ÌU»óe8çü\wïÜ¾À™>ÇÍHaĞUˆ·CËy¾’º‹I£%A_y˜÷<Mı%üOˆƒã‰‡;h·NÖÂ,Ê^æ~"÷9§ÈPŞÓßİ/EVÏõšdªÆ+t×˜GŞ™è@£ûå<w’…‹xß…kœM¬‘Ô%ş¤Šd§3Zvº›eïÛÒ¥QÖ¼(kóÓR‹¬ôe¥³Fn'oMğkYãWHƒ¾#«ãÿ˜©¼ ‰ùsH—Y­Š¿9é	Lÿ&É(âòúÜvãzùÕÄÒOø~ÚÖ¾væmˆñwCšïpÑÏ’íé¥Ã×"•6Æßùu2‰~^¤cjÆv’ŒunæŞ§1]Ûß€ş]&»w‚ãd_â¶—æö¼PìMø?†ë<Dzéº2k)¢ÖûÈÌ×%:g^7öp¡Î¸]ÇÇp#åSRêÖöSa}•ÂøÔ>Ê¯eÎe¯°İx¦FYd¡l¸ÁÔ›mêõkà"úUO½ÆğıäÂ÷İZ¹ÛÀxéü¥ŠÂíè¼Ô«´5X
+Íø]OŸ–Ê8÷
+üHã¨ß]â$_×ç8`şá—¤û›o·jÆjõ
+¹×é7â©œA"<Ëw.PÅ¸Ù²ÁSRa½"ÕŞÒß¹ÿòÎºŞÌİæµPnwŞ“ÓİóešÓCÒJ^uøFŞ!§®¤’¿½‡tƒLLí•ÉŒ×­0îæ»›¯à€ır­eº’jÌû6Ïß	öŸè?yƒe›!~G£lÈrá{Ğ”º¶«$zš6ÖÑÚqº³ÿPçJË@ÛÎ0w<{¬5'¡®ê9IÈWıN›_–„|Õª$äW§í•k¯íåHBş€“ĞöŞÛ/	ùı:èßÈ$ä<~´7Îı“ß¿ƒ~ŒNBşèd?8Ÿ¸Çfvs7İŒ¾mãıGè(”Õ—yÿÜ/Âz›~Û–û¬‚ûáS¨²pæ…S(Ó€ş6ÀØ2/£½ÅüâvÂğ]¨‹ÚÒº™g¢¶¶ÍÌQıæÇĞ—éoÁQ{¦m={w ı`µı¾Å¶İ-Qß3+ZÊgzGßhêmi!tà§Ô/GkZÈlŸGÿÿ„m¿ôÿév<ô›ŸÒwµœrÌ]Í™q…±º(hŒÔ½IF™3÷ÍV±êZsî—æ¼9û.”J¿>ä©Rß g¸7İ”_â¥‰M‚?Á+¿ğoñÜ¿J©w@¦¸se¨³_<Œó–6ÜßÊÏôİzn«çpî’KaŒÆ0ÎM…#9sº<iüKwÊ¹Òßûew¶ÅŞå’G}?Dz9qıA¹Ñ»IäÏ‘]şÇôuÔ¯Êı)2Ø»M†Çw[x]ñVóWÉ´à,ò¥¯ûô.hÀ×½%c³ÄmÇ^Ë¤ˆ|³vıÁ—0Êô™şâÃ\·?†g2ñúçŒIÚôg´ÆO÷Qq[E¼ÃÄîKd`P€÷:G”È:ÿ3¾ÃÇ§VH¿l›ø §QWÉy^ƒğj™£
+|óûŒó8é+gû®`šŞÄ°	ïö ;ÃøÅî&)1ŞØ•Õø²Ê»U–²&%}Mì£²Â3s\·‘ıTãgöû­æø3îäp‹¥Â+fíà;Ú¨íSP,)»$ö³Á.8è©÷ï”ïRÆ¥—ÔÏKÏ`˜”¨?ãëæhŒö¾À‹ÖÈ ææb»ßº—†Ù=>Ÿü½°9Úº¿4ßìMòšWÛü«a!ÌŒë³ğ–èóáèıæÙÂ¨|3û0\Ê°¥ÔZŞ0÷¾¹>ÕøÑÈ[·Ö¬¯7ë§ºSMøÏöT÷0k¤WÖÇ~²­®@gÄi|Ş»ìÑ{©ÛüØG'•²+ñ(7Gj¼¡ê#VÒµ¦^/©Y_İ¶ç_s|l´Ïb|õ	lu@ì¯;Ó¬ÿn¥ahÓ§fızgZ'ÆwZ–qâAcµù…9ê·¹?åª™q¬Uÿ>‚q¿Ë]‡í ]wŠk 5uŠs\y<|"‰Ìnõùíâÿ†z_$<¢Ğç_E„¿·²¬Wœ<Å½'IxÄ w·ãà?@»vDğr„ñÿÀHÀÎïiÔ×XØ!¸%8lY†J<îñ8ÆãÂ·}ÀwÏÈö9nß¾÷›Îã7—“õİõ=öäˆÕWÛoæÇp$BÏ'Êö²øŒë3°	^±¬PØ+eìÛ£ÎtÖäÖi³–q7UlZ÷¢âãì‚’hpG:!7>ÁôhıgDãä5ÉTë½ğİô|WìÙ×¿`Œ<hÎ‚:)×³…¸«ûü\÷Y©oíùÂÖM©îâ¤GùŞ|©N½>ä-àLø8|É»/ ´µÈò²e]äıÂÇÑšq,ÛÑGsán{º¢ehïzxÄúmõ±ó"2Fù-ıŠÏ^çs¾£IJÕ7¸C¤Ôø—™Ò ¥Î!ãø†ÅÎTù±Æçûx+ü‡ú³Dz¹ï İ—1ÎÆœı]!‹ÜZÆ	Ô™yÚMĞò»Mı2{.Ô¶œYœãÿòÔ!ÊñŒz‹õŞ“²@}‘ÃÂ»Œu1–²cÃ¿9«Ğá–Ïa.ı­“™©Er¶S/•©·ğ;Åä_×ğ¿-„	°nóL~ëäåÁqI¿†z’†ÊÔ–¥ú<¯JÒ©m’Æ§y_Tn©áK:ï9ÓVÚ©â}”KqSrpN±ıïóüêíÂğ¾¼CÑ»Ì³¸LAK™ÿ³_ş±Mgî^Û$A‰tÂ¿oÒà”¤SÆob‡6KP£ –²uYÔ0¤1r¨û£¼¨“*ÔªalêVºVÑi4t §¢&A2S¬ÖÓ(¥i7mcÍ4¡ul´ï¾wï›,-kÑ¦jR¥ó«Ïóã~½ç»{Ÿ»s_¥Æ¼µÔè¹ì°İQk]¡…®5Tˆ9Í³1×§ûƒ8G-küS|€ÚÚZ*Ùmj•ÀÑî—(î^Dw¹?ÀùàÖÁ-tÿs×ÓeØÇXK€¸Û­uõX7°îÚøyë4û1ú2Ïjš’{œ¾Œ9$|4¦y?€f«ä~DXÓÄÄé­ß>‘áŞ¡9ßš<çNº‡ÇwÜìXdŸµ¾€ºyâÛƒİ*÷Ø¨Ô>Ç‰;Ô‡-K|mˆy¨³Üù†—c=ıP¬-ç,ˆªÖş†¸×Zsøtk/£€S÷+ö½Ôz|,E»ßÇ=f¾€]³LğŸµïÚN_rÍ‹`/ºÙÇ|†>2·]´XàªG9ÁªÒv‹ºö\ßÊ÷´R¥€WàÓÿƒ¿÷º-¸Šº[ûüeº] ×[åÍ>şÓ½‚ñÿ}+?kŒ­·ñ5ıIÿ¿ÇgäFì+YÏ‹Öyø¯€o!¾î¸È²wÄ9¯íĞ&ãÛNáÚLvGlì¡ âWÀõÖÎıv{tbSƒˆˆó7ÄáìO İŠs©6ñ_Ä2œöÅ=©IÔç|Ä½fûÜ³h•ˆµ"¦Ê=gQqOC¼é±…Ÿ¤:~ÃAì¼„D,Ò
+;ĞÇ©¥Í«œ˜Ò@¹¼ÿåÛ6š×:)cR³4B{Ï°ÿÚñªT›nÇ/~ÎAü2ÊŒqü‰ÂøÚˆ=çÃıroú‡'e,Dœ¶¸»8÷'¯ø/¢·:/9gËşé¡1}«s¡S§ß©ssù5Ôæ:u²s'öäWi¦{5M¿wÕ‰ñwÿ^ŞWš/Î ÿ>ç‹=Oì“r0G«p&ú3±ß\ç©MÌ­;BEbïÂ8 ç&èv¹O‹qüÎeyØwï“ï@ŒCûS°N¯9ı÷“¬Ó'Çï~cw¹±»Ñ×Ú§­ÃY¨–šœışè„ûí>Xgî“ô‚¸³	´×Q®ÉŞ7ärœ¿ïàÑ¿Áœ®ã2~ê#Ñæ÷%Œ×	ÊÍ¹J<ƒöyE3)É 5ôíYÒó"•Ø‘Ÿª>Ö*
+…B¡P(
+…B¡P(
+…B¡P(
+…B¡P(
+…B¡P(
+…B¡P(
+Åç
+F”ÿ ı•ÒhqòQˆî'rp•’>QıR#ñÛ ¥°'Ñ <Föo6«pl
+Øƒí‚½Î±=°7;ö$zˆ=’Ì•+Úd#ÍÈÏ—:6§¾Ö±5¤§Û{§c{`plô‡ÿœö“AaªÅ3ÖJZO1èJP7HÑ£´I¦,—„-dÒã²Dr¢Ô…Ç H[‡ú)ê‘^:†Ò[ ;Q2
+;º¢l\–é )Ù^'Ê<¤HK`”ÿû¾ˆV»e‹v½UğâğÄÛjƒÕ!=ûÍİHÉÙözÙWƒ†·¹)Ù[Qºf¿®­k¬\3Zİ‰Ô£›bÆ’DrS"Ù‘Š'ºkŒhW—±"¾n}ªÇXë‰%·Ä:kZ[W44WG“ñ®–•ŸæIeÄ{Œ#•ìèŒ=Ò‘Üh$Ö~âûŒx·‘BŞªîx*Öi´¥:R1Tîî%’F9IãáÄæîT2ë©ù?Îo5R+Ò¨™ª'ÌvŞ*J¯Ã¸vÉ9ş´’ÿkŞçvu¡•ÚÁiúÙ£ÚL\›™®.Õh•ZizÉh·M	{£wi¾ø”dYà¢v-€tä6`‚ƒ ÎM@æ úÀˆÈÑJ5ÚĞ}ÑJ­uKI¼ÚTĞH‡VĞzAğÈr"%¶,ø‹Ì‰hSÓ»êĞ÷©é'¥ØĞ–n‡í~õ!é<ğ ­[–Ûúf»Ø|»Øİ³ìäš[WŞië¢aSè¼üğ±h±VŒ?YŒo‚dügäeŒtÚ«M¡C€k'%¢TÃ}YÍELãÃDéÖ1¥óÃÑ<nñQ*"¿Ç¯Ú9üê@Aa¸/º”¿KAhü]<ïğwhcYú@œ£ÀÃGğ¼ç2¿L^ş…@=h} FÁ$ş¤_ñ^Ja×Î/Aúø›ø[oBzùEXùEtíWé9óÂG¤Qr}†cLı¢c‡3üôõ™XQAÌ4VÔVN‹©N+OÏ¸[ÏhÓÒãz†ÿvÀ¨Ö÷Fkù9:°“Aú€–¯ƒMÀë¬d‚`/8°Ê }Àà§ÀkàÕ‚XrøÙ4^“ágÒÁ=ZÌOóWi*FüulFB¿ÆOHı~\ê“ĞèSüD: St2ò	u|Ğ>èòİü§Eº-äYŒõ ´ƒ^àáY^îÔ‹ĞÈÊ!”LÓ©DÏçPdƒ	.Á4„Î_¢ÏèòHğ™gá
+|z,!‚ß|
+–Áol‡%D°k,!‚`	\ÓKˆ`ëJX¾ç•ŠJ}NëFfD½|+Fi+Fi+Fi+¹øVñĞu—èÛséª*ŒØîHõÌ*İdæQf®`æóÌŒ1ó1fngæBf~™ÕÌô33ÀÌ3‡Ø\…É"/Ä™ÆÌSÌ|‰™=Ì2s3+˜i°9‘/K7×Iu¯TQñÑA/ZŒèãåeÑ2¬ù2Ä„,ä`I/‚BF¹]¸$ tù@U½í×Ì'¢M|‡1Ãô6pa‚†±Œ†ÑÈ0ğBÖƒvpŒxPºï•Òõ l£À#»3
+8%œ.”9nÆS§Œ—EJ}~_µ¯Iëõ3o€µ¬ ŸCÅÅ8^æfXşá÷óÿş~>åFsùÓ¼—J1;İ›¾^ªgØ÷ÒÁ!=:…}—.¬:6‚lô\ê‘şlòç=§®~èpÚ?ªyÓÁ;õAV jÖ¯û§_ñg8Ì?ú‡ô_Këç‘ÒX?çß¡Ÿerrô_Œ—ÏoÓHÇg’R;-…´T%"nìÊMµËğK¨K€ Ô¤öfµ>š,òd#”6ŠTÄÉ	7ªî¡ÕŠ½ qà/@+­4¦Rå”çşı(®á½±“.¢+í(3oü¾Ÿ™73Û“¥‚90$Ú×nëÿJôŞ¾×·Ğìë/´ŠşT“B'ûpe××–ú/ĞŸ­mè–}îë+Úcı^Dı„möõ0U/Ã`ÔdP3';ü­ÒMëŠòFñ”Ê-å¦rEYPte^É*³êŒšVÏ©gÕ	UUÇÕ15¡u6YŒÀ­›O£ÃrLÖÓ	,ñÀŒ/=ª&È¯D\Hº	·V¦®øØ&î†!¾ÔÌN<lˆ3f™Š—¸õ²¸ÍÜP¬‰s…Rıİ(ı‹ƒW$^†”Ô½Ğµ“3«^ŸP:½ó*‹ö‡Wœ“ÌÜó•ÌÊLiúÎÏö)E+.ÙIÊ|SŸoÜš'şçâ&VóÜ¯kFÓëÓÏô“c÷é1îõ“%úÙYC²dsî†ô‘äˆAƒs,9>ÌÈCÍEÜÛˆËC{àÑ —J‘¼äò©”äÆ(r¿èØÁâ¢d.Ä—ŒÑø7s˜&Ÿ—ÌÜ69”ÌáÜ62¢$M$§I„^"šD4zI"Në1²;Bve¤$=a´ˆ™:2SGÀ°ÿ›:eÆè^‘·›NÇtZ¦ÓÜ>ßÌˆíÃÚC$—ZíM´ëÁÍ-Ú¦mÅæ)rå¢i¤éÔ½ iuì÷E«è˜ë6ß«T—ßÄÚÅZ®ÒY;[ÆX•Â)rå
+Æ*`¬ÆªX‹È=^õ•”ùj3²{‰É	Ø¯­ì/Ï¥Ÿ•äæ-.d¶²pZyG&gÍ²˜‚ŒÒÕûWï£ÏJçÀ}>–2[Å…ì}KipO›eÂº=¿G2Î;úùÀÕíá‚G%óÿ+ækİö»„¸ârÍ+^ (àmá”Äİ¡orÒ	#ç5pŞEg29Ñw}©T~ÿ{±]Å§`;ñaZ9
+>xRäÜz^õÌµÙğà,…ŸŸÃ}Ê¨?ì#6c$º&8çaîöâZ¼İØF-¡‰?\’QÂÅb£ë2öU€ øÃK
+endstream
+endobj
+28 0 obj
+<<
+/Filter /FlateDecode
+/Length 235
+>>
+stream
+H‰\ÁjÃ0†ï~
+ÛC±“]ƒatä°v,Û8¶’Û(Î!o?Å)L`ÃşOü’<·/mğä;EÛa†ÁG8Ç…,B£¢ªÁy›ïªüv2IH†»uÎ8µaˆ¢i@~psÎ´ÂáÙÅBŞÈ!ù0ÂáëÜAvKJ?8aÈ @kp8ğ 7“®fB;µû>¯'fşŸkB¨‹®ö06:œ“±H&Œ(Å¥¡yåÒƒû×¯wªì·¡â~b·RµÒ›ªª]]
+{wmSxYxD´§+)±¶@>àãh)&`j{âW€ &7rI
+endstream
+endobj
+29 0 obj
+<<
+/Contents 30 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+30 0 obj
+<<
+/Length 3111
+>>
+stream
+BT
+0 0 0 rg
+/TT0 12 Tf
+2.2816 Tw 79 700.4 Td
+[(\225)-650 (Institution's evaluation of service providers consistent with scope and \criticality of)]TJ
+0 Tw 12 -12 Td
+(outsourced services; and)Tj
+-12 -22 Td
+[(\225)-650 (Requirements for ongoing monitoring.)]TJ
+-9 -44 Td
+[(2.)-277 (Evaluate the requirements definition process.)]TJ
+0.2764 Tw 9 -44 Td
+[(\225)-650 (Ascertain that all stakeholders are involved; the requirements are devel\oped to allow)]TJ
+1.0073 Tw 12 -12 Td
+(for subsequent use in request for proposals \(RFPs\), contracts, and mon\itoring; and)Tj
+0 Tw 0 -12 Td
+(actions are required to be documented; and)Tj
+3.3112 Tw -12 -22 Td
+[(\225)-650 (Ascertain that the requirements definition is sufficiently complete to s\upport the)]TJ
+5.8244 Tw 12 -12 Td
+(future control efforts of service provider selection, contract preparati\on, and)Tj
+0 Tw 0 -12 Td
+(monitoring.)Tj
+-21 -44 Td
+[(3.)-277 (Evaluate the service provider selection process.)]TJ
+1.1231 Tw 9 -44 Td
+[(\225)-650 (Determine that the RFP adequately encapsulates the institution's require\ments and)]TJ
+1.8388 Tw 12 -12 Td
+(that elements included in the requirements definition are complete and s\ufficiently)Tj
+6.131 Tw 0 -12 Td
+(detailed to support subsequent RFP development, contract formulation, an\d)Tj
+0 Tw 0 -12 Td
+(monitoring;)Tj
+0.3123 Tw -12 -22 Td
+[(\225)-650 (Determine that any differences between the RFP and the submission of the\ selected)]TJ
+6.8564 Tw 12 -12 Td
+(service provider are appropriately evaluated, and that the institution t\akes)Tj
+0 Tw 0 -12 Td
+(appropriate actions to mitigate risks arising from requirements not bein\g met; and)Tj
+2.0391 Tw -12 -22 Td
+[(\225)-650 (Determine whether due diligence requirements encompass all material aspe\cts of)]TJ
+0.0088 Tw 12 -12 Td
+(the service provider relationship, such as the provider's financial cond\ition, reputation)Tj
+0.9748 Tw 0 -12 Td
+(\(e.g., reference checks\), controls, key personnel, disaster recovery p\lans and tests,)Tj
+0 Tw 0 -12 Td
+(insurance, communications capabilities and use of subcontractors.)Tj
+2.0588 Tw -21 -44 Td
+[(4.)-448.567 (Evaluate the process for entering into a contract with a service provide\r. Consider)]TJ
+0 Tw 0 -12 Td
+(whether:)Tj
+9 -44 Td
+[(\225)-650 (The contract contains adequate and measurable service level agreements;)]TJ
+5.6128 Tw 0 -22 Td
+[(\225)-650 (Allowed pricing methods do not adversely affect the institution's safety\ and)]TJ
+0 Tw 12 -12 Td
+(soundness, including the reasonableness of future price changes;)Tj
+-12 -22 Td
+[(\225)-650 (The rights and responsibilities of both parties are sufficiently detaile\d;)]TJ
+1.4356 Tw 0 -22 Td
+[(\225)-650 (Required contract clauses address significant issues, such as financial \and control)]TJ
+7.7498 Tw 12 -12 Td
+(reporting, right to audit, ownership of data and programs, confidentiali\ty,)Tj
+0 Tw 0 -12 Td
+(subcontractors, continuity of service, etc;)Tj
+/T1_0 10 Tf
+280.74 673.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-4)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+31 0 obj
+<<
+/Contents 32 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+32 0 obj
+<<
+/Length 3508
+>>
+stream
+BT
+0 0 0 rg
+/TT0 12 Tf
+1.9696 Tw 79 700.4 Td
+[(\225)-650 (Legal counsel reviewed the contract and legal issues were satisfactorily\ resolved;)]TJ
+0 Tw 12 -12 Td
+(and)Tj
+-12 -22 Td
+[(\225)-650 (Contract inducement concerns are adequately addressed.)]TJ
+0.4148 Tw -9 -44 Td
+[(5.)-311.567 (If the institution engages in cloud processing, determine that inherent \risks have been)]TJ
+1.6298 Tw 0 -12 Td
+(comprehensively evaluated, control mechanisms have been clearly identifi\ed, and that)Tj
+0 Tw 0 -12 Td
+(residual risks are at acceptable levels. Ensure that)Tj
+4.0996 Tw 9 -44 Td
+[(\225)-650 (Action plans are developed and implemented in instances where residual r\isk)]TJ
+0 Tw 12 -12 Td
+(requires further mitigation.)Tj
+-12 -22 Td
+[(\225)-650 (Management updates the risk assessment as necessary.)]TJ
+0.1323 Tw 0 -22 Td
+[(\225)-650 (The types of data in the cloud have been identified \(social security nu\mbers, account)]TJ
+1.4484 Tw 12 -12 Td
+(numbers, IP addresses, etc.\) and have established appropriate data clas\sifications)Tj
+0 Tw 0 -12 Td
+(based on the financial institution's policies.)Tj
+-12 -22 Td
+[(\225)-650 (The controls are commensurate with the sensitivity and criticality of th\e data.)]TJ
+0 -22 Td
+[(\225)-650 (The effectiveness of the controls are tested and verified.)]TJ
+4.8388 Tw 0 -22 Td
+[(\225)-650 (Adequate controls exist over the hypervisor if a virtual machine environ\ment)]TJ
+0 Tw 12 -12 Td
+(supports the cloud services.)Tj
+2.0113 Tw -12 -22 Td
+[(\225)-650 (All network traffic is encrypted in the cloud provider's internal networ\k and during)]TJ
+0 Tw 12 -12 Td
+(transition from the cloud to the institution's network.)Tj
+1.9203 Tw -12 -22 Td
+[(\225)-650 (All data stored on the service providers systems are being encrypted wit\h unique)]TJ
+0 Tw 12 -12 Td
+(keys that only authenticated users from this institution can access.)Tj
+3.1891 Tw -12 -22 Td
+[(\225)-650 (Unless the institution is using private cloud model, determine what cont\rols the)]TJ
+0 Tw 12 -12 Td
+(institution or service provider established to mitigate the risks of mul\titenancy.)Tj
+0.9603 Tw -12 -22 Td
+[(\225)-650 (If a financial institution is using the Software as a Service \(SaaS\) m\odel, determine)]TJ
+1.2251 Tw 12 -12 Td
+(whether regular backup copies of the data are being made in a format tha\t can be)Tj
+1.4773 Tw 0 -12 Td
+(read by the financial institution. \(Backup copies made by the service p\rovider may)Tj
+0 Tw 0 -12 Td
+(not be readable.\))Tj
+8.8445 Tw -12 -22 Td
+[(\225)-650 (Ensure that the financial institution's business continuity plan address\es)]TJ
+3.6711 Tw 12 -12 Td
+(contingencies for the cloud computing service. Determine whether the fin\ancial)Tj
+2.9773 Tw 0 -12 Td
+(institution has an exit strategy and de-conversion plan or strategy for \the cloud)Tj
+0 Tw 0 -12 Td
+(services.)Tj
+2.8143 Tw -12 -22 Td
+[(\225)-650 (Determine whether the cloud service provider has an internal IT audit st\aff with)]TJ
+0.2944 Tw 12 -12 Td
+(adequate knowledge and experience or an adequate contractual arrangement\ with a)Tj
+0 Tw 0 -12 Td
+(qualified third-party audit firm.)Tj
+2.6513 Tw -21 -44 Td
+[(6.)-497.942 (Evaluate the institution's process for monitoring the risk presented by \the service)]TJ
+0 Tw 0 -12 Td
+(provider relationship. Ascertain that monitoring addresses:)Tj
+/T1_0 10 Tf
+301.74 675.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-5)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+33 0 obj
+<<
+/Contents 34 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+34 0 obj
+<<
+/Length 2489
+>>
+stream
+BT
+0 0 0 rg
+/TT0 12 Tf
+79 700.4 Td
+[(\225)-650 (Key service level agreements and contract provisions;)]TJ
+0 -22 Td
+[(\225)-650 (Financial condition of the service provider;)]TJ
+0.0323 Tw 0 -22 Td
+[(\225)-650 (General control environment of the service provider through the receipt \and review of)]TJ
+0 Tw 12 -12 Td
+(appropriate audit and regulatory reports;)Tj
+-12 -22 Td
+[(\225)-650 (Service provider's disaster recovery program and testing;)]TJ
+0 -22 Td
+[(\225)-650 (Information security;)]TJ
+0 -22 Td
+[(\225)-650 (Insurance coverage;)]TJ
+0 -22 Td
+[(\225)-650 (Subcontractor relationships including any changes or control concerns;)]TJ
+0 -22 Td
+[(\225)-650 (Foreign third party relationships; and)]TJ
+2.3728 Tw 0 -22 Td
+[(\225)-650 (Potential changes due to the external environment \(i.e., competition an\d industry)]TJ
+0 Tw 12 -12 Td
+(trends\).)Tj
+0.772 Tw -21 -44 Td
+[(7.)-341.333 (Determine whether the following policies and processes have been revised\ in light of)]TJ
+0 Tw 0 -12 Td
+(the need for increased controls brought about by the implementation of c\loud computing:)Tj
+9 -44 Td
+[(\225)-650 (The Information Security Risk Assessment;)]TJ
+2.381 Tw 0 -22 Td
+[(\225)-650 (The Technology Outsourcing \(Vendor Management\) Policy;8. Review the po\licies)]TJ
+2.0316 Tw 12 -12 Td
+(regarding periodic ranking of service providers by risk for decisions re\garding the)Tj
+0 Tw 0 -12 Td
+(intensity of monitoring \(i.e., risk assessment\). Decision process shou\ld:)Tj
+-12 -22 Td
+[(\225)-650 (The Information Security Policy;)]TJ
+0 -22 Td
+[(\225)-650 (The Security Incident or Customer Notification Policy;)]TJ
+0 -22 Td
+[(\225)-650 (The Business Continuity Plan)]TJ
+4.2823 Tw -9 -44 Td
+[(8.)-633.858 (Review the policies regarding periodic ranking of service providers by r\isk for)]TJ
+1.0084 Tw 0 -12 Td
+(decisions regarding the intensity of monitoring \(i.e., risk assessment\)\. Decision process)Tj
+0 Tw 0 -12 Td
+(should:)Tj
+9 -44 Td
+[(\225)-650 (Include objective criteria;)]TJ
+0 -22 Td
+[(\225)-650 (Support consistent application;)]TJ
+2.3742 Tw 0 -22 Td
+[(\225)-650 (Consider the degree of service provider support for the institution's st\rategic and)]TJ
+0 Tw 12 -12 Td
+(critical business needs, and)Tj
+-12 -22 Td
+[(\225)-650 (Specify subsequent actions when rankings change.)]TJ
+/T1_0 10 Tf
+292.74 653.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-6)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+35 0 obj
+<<
+/Contents 36 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/T1_0 16 0 R
+/TT0 7 0 R
+>>
+/ProcSet [ /PDF /Text ]
+>>
+/Type /Page
+/Parent 2 0 R
+>>
+endobj
+36 0 obj
+<<
+/Length 1983
+>>
+stream
+BT
+0 0 0 rg
+/TT0 12 Tf
+3.4823 Tw 70 700.4 Td
+[(9.)-567.192 (Evaluate the financial institution's use of user groups and other mechan\isms to)]TJ
+0 Tw 0 -12 Td
+(monitor and influence the service provider.)Tj
+0 -44 Td
+(Objective 4: Discuss corrective action and communicate findings)Tj
+0.6225 Tw 0 -44 Td
+[(1.)-328.875 (Determine the need to complete Tier II procedures for additional validat\ion to support)]TJ
+0 Tw 0 -12 Td
+(conclusions related to any of the Tier I objectives.)Tj
+0 -44 Td
+[(2.)-277 (Review preliminary conclusions with the EIC regarding:)]TJ
+9 -44 Td
+[(\225)-650 (Violations of law, rulings, regulations;)]TJ
+0.4018 Tw 0 -22 Td
+[(\225)-650 (Significant issues warranting inclusion in the Report as matters requiri\ng attention or)]TJ
+0 Tw 12 -12 Td
+(recommendations; and)Tj
+0.6233 Tw -12 -22 Td
+[(\225)-650 (Potential impact of your conclusions on the institution's risk profile a\nd composite or)]TJ
+0 Tw 12 -12 Td
+(component IT ratings.)Tj
+5.3368 Tw -21 -44 Td
+[(3.)-721.733 (Discuss findings with management and obtain proposed corrective action f\or)]TJ
+0 Tw 0 -12 Td
+(significant deficiencies.)Tj
+0.4366 Tw 0 -44 Td
+[(4.)-313.383 (Document conclusions in a memo to the EIC that provides report ready com\ments for)]TJ
+0 Tw 0 -12 Td
+(the Report of Examination and guidance to future examiners.)Tj
+1.0603 Tw 0 -44 Td
+[(5.)-365.358 (Organize work papers to ensure clear support for significant findings by\ examination)]TJ
+0 Tw 0 -12 Td
+(objective.)Tj
+0 -44 Td
+(TIER II OBJECTIVES AND PROCEDURES)Tj
+0 -44 Td
+[(A.)-277 (IT REQUIREMENTS DEFINITION)]TJ
+2.5218 Tw 0 -44 Td
+[(1.)-487.15 (Review documentation supporting the requirements definition process to a\scertain)]TJ
+0 Tw 0 -12 Td
+(that it appropriately addresses:)Tj
+9 -44 Td
+[(\225)-650 (Scope and nature;)]TJ
+/T1_0 10 Tf
+292.74 675.6 Td
+(Outsourcing Technology Services Booklet)Tj
+ET
+0 0 0 RG
+q 1 0 0 1 70 750 cm
+0 0 m
+472 0 l
+S
+Q
+BT
+504.51 22 Td
+(Page A-7)Tj
+ET
+q 1 0 0 1 70 35 cm
+0 0 m
+472 0 l
+S
+Q
+
+endstream
+endobj
+xref
+0 37
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000176 00000 n 
+0000000225 00000 n 
+0000000390 00000 n 
+0000006006 00000 n 
+0000006108 00000 n 
+0000007242 00000 n 
+0000007414 00000 n 
+0000007598 00000 n 
+0000007868 00000 n 
+0000008060 00000 n 
+0000009754 00000 n 
+0000009994 00000 n 
+0000010174 00000 n 
+0000012813 00000 n 
+0000012913 00000 n 
+0000013081 00000 n 
+0000015654 00000 n 
+0000015835 00000 n 
+0000019071 00000 n 
+0000019211 00000 n 
+0000019238 00000 n 
+0000033581 00000 n 
+0000033656 00000 n 
+0000033939 00000 n 
+0000034024 00000 n 
+0000044637 00000 n 
+0000044945 00000 n 
+0000045113 00000 n 
+0000048277 00000 n 
+0000048445 00000 n 
+0000052006 00000 n 
+0000052174 00000 n 
+0000054716 00000 n 
+0000054884 00000 n 
+trailer
+<<
+/Size 37
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+56920
+%%EOF

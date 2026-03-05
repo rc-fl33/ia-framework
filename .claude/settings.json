@@ -1,0 +1,5 @@
+{
+  "plansDirectory": "./private/plans",
+  "allowDestructive": true,
+  "verboseMode": false
+}

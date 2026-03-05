@@ -1,0 +1,1369 @@
+# PCI DSS v4.0.1 Control-Tagged Questions
+# Version: 1.0
+# Reference: PCI DSS Version 4.0.1 (March 2024)
+# Requirement Alignment: PCI-DSS v4.0.1
+# Industry Focus: Retail, Financial, E-commerce
+
+framework: pci-dss
+version: "4.0.1"
+total_questions: 29
+industry_focus:
+  - retail
+  - financial
+  - ecommerce
+
+# PCI DSS 4.0.1 Goals & Requirements
+requirement_categories:
+  - name: Build and Maintain a Secure Network
+    requirements: [1, 2]
+    pci_requirement: 1
+
+  - name: Protect Account Data
+    requirements: [3, 4]
+    pci_requirement: 3
+
+  - name: Vulnerability Management Program
+    requirements: [5, 6]
+    pci_requirement: 5
+
+  - name: Strong Access Control Measures
+    requirements: [7, 8, 9]
+    pci_requirement: 7
+
+  - name: Monitor and Test Networks
+    requirements: [10, 11]
+    pci_requirement: 10
+
+  - name: Information Security Policy
+    requirements: [12]
+    pci_requirement: 12
+
+questions:
+  # Requirement 1: Network Security Controls
+  - id: Q-PCI-001
+    text: "How are network security controls (firewalls, NSGs) configured and maintained?"
+    category: network_security
+    pci_requirement: 1
+    controls:
+      pci-dss: "1.1, 1.2"
+      nist-csf: "PR.AC-05, PR.DS-05"
+      nist-800-53: "SC-7"
+      iso-27001: "A.8.22"
+      hipaa: "§164.312(e)"
+    evidence_required:
+      - Firewall rule documentation
+      - Network diagrams
+      - Configuration standards
+      - Change management logs
+    scoring:
+      full: "Documented firewall rules with regular review and change management"
+      partial: "Firewalls exist but documentation incomplete"
+      none: "No formal network security controls"
+    sub_questions:
+      - "Are firewall rules documented and justified?"
+      - "Is there a formal change management process?"
+      - "Are rules reviewed at least every six months?"
+    risk_weight: HIGH
+
+  - id: Q-PCI-002
+    text: "Is the cardholder data environment (CDE) properly segmented from other networks?"
+    category: network_security
+    pci_requirement: 1
+    controls:
+      pci-dss: "1.3, 1.4"
+      nist-csf: "PR.AC-05"
+      nist-800-53: "SC-7"
+      iso-27001: "A.8.22"
+    evidence_required:
+      - Network segmentation documentation
+      - CDE boundary definition
+      - Penetration test results
+    scoring:
+      full: "CDE properly segmented with validated boundaries"
+      partial: "Some segmentation but not fully validated"
+      none: "No CDE segmentation (flat network)"
+    sub_questions:
+      - "Is the CDE clearly defined and documented?"
+      - "Is segmentation validated through penetration testing?"
+      - "Are wireless networks isolated from the CDE?"
+    risk_weight: HIGH
+
+  # Requirement 2: Secure Configurations
+  - id: Q-PCI-003
+    text: "How do you manage secure configurations for all system components?"
+    category: secure_configuration
+    pci_requirement: 2
+    controls:
+      pci-dss: "2.1, 2.2"
+      nist-csf: "PR.IP-01"
+      nist-800-53: "CM-2, CM-6"
+      iso-27001: "A.8.9"
+      cis-v8: "4.1"
+    evidence_required:
+      - Configuration standards
+      - Hardening baselines
+      - System inventory
+    scoring:
+      full: "Documented configuration standards applied consistently"
+      partial: "Standards exist but not consistently applied"
+      none: "No formal configuration management"
+    sub_questions:
+      - "Are vendor defaults changed before deployment?"
+      - "Are unnecessary services and protocols disabled?"
+      - "Is there a hardening baseline for each system type?"
+    risk_weight: HIGH
+
+  # Requirement 3: Protect Stored Account Data
+  - id: Q-PCI-004
+    text: "How do you identify and minimize storage of cardholder data?"
+    category: data_protection
+    pci_requirement: 3
+    controls:
+      pci-dss: "3.1, 3.2"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "SC-28"
+      iso-27001: "A.8.10"
+    evidence_required:
+      - Data flow diagrams
+      - Data retention policy
+      - Cardholder data inventory
+    scoring:
+      full: "CHD minimized with documented retention policies"
+      partial: "Some data minimization but incomplete inventory"
+      none: "No formal CHD inventory or retention policy"
+    sub_questions:
+      - "Do you know where all cardholder data is stored?"
+      - "Is retention limited to business need only?"
+      - "Is sensitive authentication data stored after authorization?"
+    risk_weight: HIGH
+
+  - id: Q-PCI-005
+    text: "How is stored cardholder data protected?"
+    category: data_protection
+    pci_requirement: 3
+    controls:
+      pci-dss: "3.4, 3.5"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "SC-28"
+      iso-27001: "A.8.10"
+      hipaa: "§164.312(a)(2)(iv)"
+    evidence_required:
+      - Encryption documentation
+      - Key management procedures
+      - Masking/truncation standards
+    scoring:
+      full: "PAN rendered unreadable with strong encryption/truncation"
+      partial: "Some protection but not all data covered"
+      none: "PAN stored in clear text"
+    sub_questions:
+      - "Is the PAN rendered unreadable wherever stored?"
+      - "What methods are used (encryption, truncation, tokenization, hashing)?"
+      - "Is there documented key management?"
+    risk_weight: HIGH
+
+  # Requirement 4: Protect Data in Transit
+  - id: Q-PCI-006
+    text: "How is cardholder data protected during transmission?"
+    category: data_protection
+    pci_requirement: 4
+    controls:
+      pci-dss: "4.1, 4.2"
+      nist-csf: "PR.DS-02"
+      nist-800-53: "SC-8"
+      iso-27001: "A.8.11"
+      hipaa: "§164.312(e)"
+    evidence_required:
+      - Encryption standards
+      - Certificate management
+      - Transmission security documentation
+    scoring:
+      full: "Strong cryptography (TLS 1.2+) for all CHD transmission"
+      partial: "Some encryption but weak protocols or gaps"
+      none: "CHD transmitted unencrypted"
+    sub_questions:
+      - "What TLS versions are used?"
+      - "Are weak ciphers disabled?"
+      - "Is PAN never sent via end-user messaging (email, chat)?"
+    risk_weight: HIGH
+
+  # Requirement 5: Malware Protection
+  - id: Q-PCI-007
+    text: "How do you protect systems from malicious software?"
+    category: vulnerability_management
+    pci_requirement: 5
+    controls:
+      pci-dss: "5.1, 5.2, 5.3"
+      nist-csf: "PR.DS-01, DE.CM-04"
+      nist-800-53: "SI-3"
+      iso-27001: "A.8.7"
+      cis-v8: "10.1"
+    evidence_required:
+      - Anti-malware deployment records
+      - Signature update logs
+      - Scan results
+    scoring:
+      full: "Anti-malware on all applicable systems with current signatures"
+      partial: "Anti-malware deployed but gaps in coverage or updates"
+      none: "No anti-malware protection"
+    sub_questions:
+      - "Is anti-malware deployed on all applicable systems?"
+      - "Are signatures kept current (automatic updates)?"
+      - "Are periodic scans performed?"
+    risk_weight: MEDIUM
+
+  # Requirement 6: Secure Systems and Software
+  - id: Q-PCI-008
+    text: "How do you manage security patches and updates?"
+    category: vulnerability_management
+    pci_requirement: 6
+    controls:
+      pci-dss: "6.3"
+      nist-csf: "PR.IP-12"
+      nist-800-53: "SI-2"
+      iso-27001: "A.8.8"
+      cis-v8: "7.1"
+    evidence_required:
+      - Patch management policy
+      - Patch deployment records
+      - Critical patch timelines
+    scoring:
+      full: "Critical patches within one month, documented patch process"
+      partial: "Patching occurs but timelines not met"
+      none: "No formal patch management"
+    sub_questions:
+      - "Are critical/high patches installed within 30 days?"
+      - "Is there a patch prioritization process?"
+      - "Are patch deployment records maintained?"
+    risk_weight: HIGH
+
+  - id: Q-PCI-009
+    text: "How do you ensure secure software development practices?"
+    category: secure_development
+    pci_requirement: 6
+    controls:
+      pci-dss: "6.2, 6.5"
+      nist-csf: "PR.DS-07"
+      nist-800-53: "SA-3, SA-11"
+      iso-27001: "A.8.25, A.8.29"
+    evidence_required:
+      - Secure SDLC documentation
+      - Code review procedures
+      - Training records
+    scoring:
+      full: "Documented secure SDLC with code review and training"
+      partial: "Some secure coding practices but incomplete"
+      none: "No formal secure development practices"
+    sub_questions:
+      - "Are developers trained on secure coding?"
+      - "Is code reviewed for security before production?"
+      - "Is production separated from dev/test?"
+    risk_weight: MEDIUM
+
+  # Requirement 7: Restrict Access
+  - id: Q-PCI-010
+    text: "How do you restrict access to cardholder data to only those who need it?"
+    category: access_control
+    pci_requirement: 7
+    controls:
+      pci-dss: "7.1, 7.2"
+      nist-csf: "PR.AC-04, PR.AA-05"
+      nist-800-53: "AC-2, AC-6"
+      iso-27001: "A.8.2, A.8.3"
+      hipaa: "§164.308(a)(3)"
+    evidence_required:
+      - Access control policy
+      - Role-based access matrix
+      - Access approval records
+    scoring:
+      full: "Documented least privilege with role-based access"
+      partial: "Access controls exist but not consistently applied"
+      none: "No formal access restrictions"
+    sub_questions:
+      - "Is access based on job function (least privilege)?"
+      - "Are access rights formally approved?"
+      - "Is there a default deny-all policy?"
+    risk_weight: HIGH
+
+  # Requirement 8: Identify and Authenticate Access
+  - id: Q-PCI-011
+    text: "How are users identified and authenticated when accessing system components?"
+    category: access_control
+    pci_requirement: 8
+    controls:
+      pci-dss: "8.2, 8.3"
+      nist-csf: "PR.AA-01, PR.AA-03"
+      nist-800-53: "IA-2, IA-5"
+      iso-27001: "A.8.5"
+      hipaa: "§164.312(d)"
+      cis-v8: "6.3"
+    evidence_required:
+      - User ID management procedures
+      - MFA implementation evidence
+      - Password policy
+    scoring:
+      full: "Unique IDs with MFA for all CDE access"
+      partial: "Unique IDs but MFA not complete"
+      none: "Shared accounts or no MFA"
+    sub_questions:
+      - "Are unique user IDs assigned to each person?"
+      - "Is multi-factor authentication implemented for CDE access?"
+      - "Are passwords minimum 12 characters with complexity?"
+    risk_weight: HIGH
+
+  - id: Q-PCI-012
+    text: "How do you manage service and application accounts?"
+    category: access_control
+    pci_requirement: 8
+    controls:
+      pci-dss: "8.6"
+      nist-csf: "PR.AA-02"
+      nist-800-53: "AC-2"
+      iso-27001: "A.8.2"
+    evidence_required:
+      - Service account inventory
+      - Account management procedures
+      - Credential rotation records
+    scoring:
+      full: "Service accounts managed with least privilege and rotation"
+      partial: "Some service account controls but incomplete"
+      none: "No formal service account management"
+    sub_questions:
+      - "Are service accounts inventoried?"
+      - "Do they follow least privilege?"
+      - "Are credentials rotated regularly?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REQUIREMENT 9: Restrict Physical Access to Cardholder Data
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # --- 9.1.x: Processes and Documentation ---
+
+  - id: Q-PCI-013
+    text: "Are all security policies and operational procedures for physical access controls documented, current, in use, and known to all affected parties?"
+    category: physical_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.1.1", "9.1.2"]
+      nist-800-53: ["PL-1", "PL-2", "PS-2"]
+      iso-27001: ["A.5.1", "A.7.1.1"]
+      nist-csf: ["GV.PO-01", "PR.AC-01"]
+
+    canonical_question_id: PHYS-ACCESS-POLICY-001
+
+    evidence_required:
+      - type: policy_document
+        description: "Physical access control policy with approval, version control, and review records"
+        examples:
+          - "Physical Access Control Policy v3.2 dated 2025-11-15 with CISO signature and board approval"
+          - "Facility Security Policy Section 4: CDE Access Controls with annual review attestation"
+          - "Document management system showing policy version history and access logs (last 12 months)"
+
+      - type: procedure
+        description: "Operational procedures for all Requirement 9 activities"
+        examples:
+          - "Visitor Management Procedure with badge issuance, escort requirements, logging steps"
+          - "Media Handling Procedure covering classification, storage, transport, destruction"
+          - "POI Device Security Procedure with inspection checklists and inventory management"
+
+      - type: responsibility_matrix
+        description: "RACI matrix or role assignment document for Requirement 9 activities"
+        examples:
+          - "Physical Security RACI Matrix showing responsible parties for: facility access, visitor escorts, badge management, media handling, POI inspection"
+          - "Job descriptions mentioning specific Requirement 9 responsibilities (Security Guard, Facilities Manager, IT Operations)"
+          - "Organizational chart showing reporting structure for physical security roles with backup designations"
+
+    test_scenarios:
+      - scenario: "Documentation completeness and currency"
+        expected_evidence: ["All Requirement 9 sub-controls have corresponding documentation", "Approval date within last 12 months", "Version control showing revision history"]
+        pass_criteria: "Complete coverage of 9.1-9.5, current approval, accessible to staff"
+        compliance_level: full
+
+      - scenario: "Staff awareness verification"
+        expected_evidence: ["Training completion records for all security personnel", "Staff can locate and access procedures", "Personnel acknowledgment records signed within last 12 months"]
+        pass_criteria: "All interviewed staff (5 sample) demonstrate awareness and can access documentation"
+        compliance_level: full
+
+      - scenario: "Procedures match operational reality"
+        expected_evidence: ["Observed practices match documented procedures", "No significant deviations noted during facility walk-through"]
+        pass_criteria: "Documentation reflects actual environment (current facility layout, badge system, CCTV locations)"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Documentation stored in inaccessible location or requires special permissions"
+        indicator: "Staff cannot locate procedures when asked, or say 'compliance has those documents'"
+        remediation: "Migrate to shared drive with appropriate read access for all affected parties, add document location to onboarding checklist, verify access quarterly"
+
+      - gap: "Policies not updated after facility or technology changes"
+        indicator: "Procedures reference old facility layout, obsolete badge system (e.g., HID Prox when facility uses mobile credentials)"
+        remediation: "Add policy review trigger to change management process, quarterly walk-through to verify accuracy, assign policy owner for each facility"
+
+      - gap: "No evidence of staff awareness"
+        indicator: "No training completion records, staff unaware of documented responsibilities"
+        remediation: "Implement annual training with completion tracking, require signed acknowledgment, conduct spot-check interviews quarterly"
+
+    sub_questions:
+      - "Are all Requirement 9 policies documented with approval signatures and effective dates?"
+      - "Are roles and responsibilities for physical security activities assigned and understood?"
+      - "Is documentation accessible to all affected parties (security guards, facilities staff, IT operations)?"
+      - "Are policies reviewed at least annually and updated when operational changes occur?"
+
+    risk_weight: MEDIUM
+
+    scoring:
+      full: "Complete Requirement 9 documentation with current approval, accessible to staff, evidence of awareness"
+      partial: "Documentation exists but outdated (>12 months), incomplete coverage, or limited staff awareness"
+      none: "No formal physical access control policies or procedures documented"
+
+  # --- 9.2.x: Facility Access Controls ---
+
+  - id: Q-PCI-014
+    text: "Are appropriate facility entry controls in place to restrict physical access to systems in the cardholder data environment?"
+    category: physical_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.2.1", "9.2.1.1"]
+      nist-800-53: ["PE-2", "PE-3", "PE-4"]
+      iso-27001: ["A.7.1.2", "A.7.2.1"]
+      hipaa: ["§164.310(a)(1)", "§164.310(a)(2)(ii)"]
+      nist-csf: ["PR.AC-02", "PR.DS-05"]
+
+    canonical_question_id: PHYS-ACCESS-FACILITY-001
+
+    evidence_required:
+      - type: access_control_system
+        description: "Physical access control system (PACS) configuration and logs"
+        examples:
+          - "Lenel OnGuard/CCURE/Genetec configuration export showing CDE door groups with badge readers"
+          - "Access control policy: CDE facility requires badge swipe + biometric OR badge + PIN"
+          - "Access denied logs showing unauthorized access attempts (last 90 days)"
+          - "Door status monitoring dashboard showing all CDE entry points with real-time status"
+
+      - type: facility_documentation
+        description: "Facility layout showing CDE boundaries and entry control points"
+        examples:
+          - "Floor plan with CDE boundary marked in red, all entry points labeled with control type (badge reader, cipher lock, mantrap)"
+          - "Data center layout showing: outer perimeter (badge), inner cage (badge + biometric), server row (escort required)"
+          - "Photo documentation of physical controls: badge readers installed at each CDE entry point"
+
+      - type: access_logs
+        description: "Access logs demonstrating entry control effectiveness"
+        examples:
+          - "PACS access logs for last 90 days showing: timestamp, badge ID, door location, granted/denied"
+          - "Exception report showing any CDE access outside business hours (8am-6pm) with justification"
+          - "Badge reader health monitoring logs confirming all CDE doors actively logging"
+
+    test_scenarios:
+      - scenario: "Physical access controls at all CDE entry points"
+        expected_evidence: ["All doors to CDE have badge readers or equivalent controls", "No propped doors or bypassed readers observed", "Tailgating prevention measures in place"]
+        pass_criteria: "100% of CDE entry points have functioning controls, no physical bypass possible"
+        compliance_level: full
+
+      - scenario: "Access logging functional"
+        expected_evidence: ["PACS logs capture all entry attempts", "Logs include timestamp, user, location, grant/deny status", "Logs retained 90+ days minimum"]
+        pass_criteria: "Complete audit trail of physical access with proper retention"
+        compliance_level: full
+
+      - scenario: "Individual authentication required"
+        expected_evidence: ["CDE access requires individual badge (no shared credentials)", "Badge system integrated with HR (terminated employees removed within 24 hours)"]
+        pass_criteria: "Each person has unique badge, shared credentials do not exist, termination workflow proven"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Some CDE entry points lack physical access controls"
+        indicator: "Loading dock door to CDE has no badge reader, relies on 'keep locked' policy, staff prop door during deliveries"
+        remediation: "Install badge reader on all CDE entry points including loading docks, emergency exits (crash bar + badge reader), windows (intrusion detection), HVAC access panels (lock + seal)"
+
+      - gap: "Badge readers installed but logging disabled or not monitored"
+        indicator: "PACS configured but logs not retained, no one reviews access denied events, storage full error in PACS"
+        remediation: "Enable logging on all readers, configure 90-day retention minimum, set up automated log forwarding to SIEM, assign personnel to review denied access attempts weekly"
+
+      - gap: "Shared credentials or 'facilities master key' grants CDE access"
+        indicator: "Cleaning crew uses shared badge, maintenance staff has master key that opens CDE doors"
+        remediation: "Issue individual badges to all personnel with CDE access need, eliminate master keys for CDE (use individual access + escort), audit all shared credentials quarterly"
+
+    sub_questions:
+      - "Do all physical entry points to the CDE have access controls (badge readers, locks, guards)?"
+      - "Are access controls configured to require individual authentication (unique badges, no shared keys)?"
+      - "Are entry attempts logged with user identification, timestamp, location, and grant/deny status?"
+      - "Are logs retained for at least 90 days and reviewed for unauthorized access attempts?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "All CDE entry points have individual access controls with complete logging and 90-day retention"
+      partial: "Most entry points controlled but gaps exist (loading dock, emergency exits), or logging incomplete"
+      none: "CDE physically accessible without access controls, or controls exist but not enforced"
+
+  - id: Q-PCI-015
+    text: "Are video cameras and access control mechanisms protected from tampering or disabling, and are recordings reviewed and retained?"
+    category: physical_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.2.2", "9.2.3", "9.2.4"]
+      nist-800-53: ["PE-3", "PE-6"]
+      iso-27001: ["A.7.1.2"]
+      nist-csf: ["PR.AC-02", "DE.CM-02"]
+
+    canonical_question_id: PHYS-ACCESS-CAMERA-001
+
+    evidence_required:
+      - type: surveillance_documentation
+        description: "Video surveillance system configuration and coverage map"
+        examples:
+          - "CCTV coverage map showing camera locations covering: all CDE entry/exit points, server rack rows, media storage areas"
+          - "Camera system specifications: 30 FPS minimum, 90-day retention, motion detection enabled, tamper alerts configured"
+          - "Network video recorder (NVR) configuration showing storage capacity, retention policy (90 days minimum), redundancy (RAID)"
+
+      - type: physical_protection
+        description: "Evidence of camera and access control system tamper protection"
+        examples:
+          - "Photos showing cameras mounted in high/hardened locations, vandal-resistant housings, conduit-protected cabling"
+          - "Badge reader tamper seals visible in photos (numbered seals recorded in inventory)"
+          - "PACS server in locked room with badge access, cameras monitoring server room entry"
+          - "Network segmentation diagram showing PACS/CCTV on isolated VLAN, firewall rules restricting access"
+
+      - type: monitoring_logs
+        description: "Video review procedures and retention verification"
+        examples:
+          - "Video review log showing weekly review of CDE camera footage by security personnel (last 3 months)"
+          - "NVR storage dashboard showing 90-day retention compliance (oldest video timestamp 90+ days ago)"
+          - "Incident investigation examples where CCTV footage was reviewed (last 6 months)"
+          - "Camera health monitoring alerts showing notification when camera offline or storage failing"
+
+    test_scenarios:
+      - scenario: "Video coverage of all CDE entry/exit points"
+        expected_evidence: ["Camera coverage map matches actual CDE layout", "Walk-through confirms all doors visible on camera", "No blind spots identified"]
+        pass_criteria: "100% coverage of CDE entry/exit, video quality sufficient for identification"
+        compliance_level: full
+
+      - scenario: "Tamper protection effective"
+        expected_evidence: ["Cameras in hardened enclosures or high-mount locations", "Cabling protected in conduit or ceiling", "Tamper alerts tested and functional"]
+        pass_criteria: "Physical tampering requires tools/ladder, tampering triggers alert"
+        compliance_level: full
+
+      - scenario: "90-day retention enforced"
+        expected_evidence: ["Spot check: request footage from 85 days ago successfully retrieved", "NVR storage configuration shows retention policy", "No gaps in retention calendar"]
+        pass_criteria: "Footage available for full 90 days, automated retention enforcement verified"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Cameras cover entry points but not installed or not recording"
+        indicator: "Coverage map shows cameras at CDE doors, but walk-through reveals cameras not installed, or DVR shows 'no signal' for CDE cameras"
+        remediation: "Install all documented cameras, verify recording with test footage retrieval, configure health monitoring alerts for camera offline conditions"
+
+      - gap: "Video retention less than 90 days due to storage limitations"
+        indicator: "NVR shows oldest footage is 30 days, storage full, overwriting enabled"
+        remediation: "Upgrade storage capacity or reduce resolution/frame rate to achieve 90-day retention, implement storage monitoring alerts at 80% capacity"
+
+      - gap: "Cameras and access control systems accessible for tampering"
+        indicator: "Badge readers mounted at eye level with no tamper seals, camera cables visible and accessible in drop ceiling, PACS server in unlocked closet"
+        remediation: "Install tamper-resistant housings, protect cabling in conduit, add tamper seals to badge readers (inspect monthly), lock PACS infrastructure in secure room"
+
+    sub_questions:
+      - "Do video cameras monitor all CDE entry and exit points with coverage verified via facility walk-through?"
+      - "Are cameras and access control mechanisms protected from tampering (high-mount, hardened enclosures, conduit cabling)?"
+      - "Are video recordings retained for at least 90 days with automated enforcement?"
+      - "Are video recordings reviewed periodically and during incident investigations?"
+
+    risk_weight: MEDIUM
+
+    scoring:
+      full: "Video surveillance covers all CDE entry/exit, tamper-protected, 90-day retention verified, review procedures documented"
+      partial: "Cameras installed but incomplete coverage, retention <90 days, or no evidence of review"
+      none: "No video surveillance of CDE, or cameras installed but not recording/retained"
+
+  # --- 9.3.x: Personnel and Visitor Management ---
+
+  - id: Q-PCI-016
+    text: "Are physical access controls in place to identify and authorize personnel and distinguish personnel from visitors in the CDE?"
+    category: physical_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.3.1", "9.3.1.1", "9.3.2"]
+      nist-800-53: ["PE-2", "PE-3", "PS-3"]
+      iso-27001: ["A.7.1.2", "A.7.1.3"]
+      hipaa: ["§164.310(a)(2)(iii)"]
+      nist-csf: ["PR.AC-01", "PR.AC-02"]
+
+    canonical_question_id: PHYS-ACCESS-BADGE-001
+
+    evidence_required:
+      - type: badge_system
+        description: "Badge system with visual distinction between personnel and visitors"
+        examples:
+          - "Badge design templates: Employee badge (blue), Contractor badge (yellow), Visitor badge (red) with clearly visible color coding"
+          - "Badge inventory spreadsheet: badge ID, assigned to, type (employee/contractor/visitor), issue date, expiry date, access level"
+          - "Photos showing badge examples with visible differences (color, 'VISITOR' text, expiration date)"
+          - "Badge issuance log for last 90 days showing: name, badge ID, type, issued by, return date (for visitors)"
+
+      - type: access_authorization
+        description: "Personnel access authorization and approval procedures"
+        examples:
+          - "Access request form with approvals: employee requests CDE access → manager approves → security provisions badge → HR notified"
+          - "Access authorization matrix: role → facility access level mapping (e.g., DBA = CDE server room, Help Desk = office only)"
+          - "Quarterly access review meeting minutes showing CDE badge list reviewed and unauthorized access revoked (last 3 quarters)"
+          - "Termination workflow documentation: HR termination triggers badge deactivation within 24 hours, badge collection verified"
+
+      - type: visitor_badges
+        description: "Visitor badge management with expiration and return verification"
+        examples:
+          - "Visitor badge log showing: visitor name, company, host, badge ID, issue time, return time, escort name"
+          - "Time-expiring visitor badges (self-expiring badges show 'VOID' after 24 hours) or manual return process with signature"
+          - "Badge inventory reconciliation showing all visitor badges accounted for (issued count = returned count)"
+
+    test_scenarios:
+      - scenario: "Visual badge distinction functional"
+        expected_evidence: ["Employee and visitor badges visibly different (color, text, size)", "Spot check: security guards can identify visitor badges at a glance"]
+        pass_criteria: "Clear visual distinction, guards demonstrate recognition during interview"
+        compliance_level: full
+
+      - scenario: "Access authorization documented"
+        expected_evidence: ["Sample CDE access requests show manager approval", "Badge access levels match authorized roles", "Quarterly access reviews completed"]
+        pass_criteria: "All CDE access formally authorized, periodic review evidence (last 90 days)"
+        compliance_level: full
+
+      - scenario: "Visitor badge control enforced"
+        expected_evidence: ["Visitor badge log complete for last 90 days", "All issued visitor badges returned or accounted for", "Expired badges recovered"]
+        pass_criteria: "100% visitor badge accountability, return process enforced"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Employee and visitor badges look identical"
+        indicator: "Both badge types same color/format, only difference is small text, security guards cannot distinguish at a distance"
+        remediation: "Redesign visitor badges with high-visibility differences (bright red color, large 'VISITOR' text, landscape vs portrait orientation), train guards on visual identification"
+
+      - gap: "No access authorization approval process"
+        indicator: "Facilities issues badges on request without manager approval, no documentation of who authorized CDE access"
+        remediation: "Implement access request workflow (manager approval required), document authorization in ticketing system, conduct quarterly access reviews"
+
+      - gap: "Visitor badges not tracked or returned"
+        indicator: "Visitor badge log incomplete or not maintained, many badges missing, no return verification process"
+        remediation: "Implement visitor badge checkout/return log (physical or digital), use self-expiring badges, reconcile badge inventory weekly, follow up on unreturned badges within 24 hours"
+
+    sub_questions:
+      - "Are employee and visitor badges visually distinguishable (different colors, text, formats)?"
+      - "Is physical access to the CDE formally authorized with documented approval?"
+      - "Are visitor badges tracked, time-limited, and collected upon departure?"
+      - "Is badge access reviewed periodically to remove unauthorized or terminated personnel?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Badge system with clear visual distinction, documented access authorization, visitor badge tracking with return verification"
+      partial: "Badge system exists but weak visual distinction, informal authorization, or incomplete visitor badge tracking"
+      none: "No badge system, or badges not distinguishing personnel from visitors"
+
+  - id: Q-PCI-017
+    text: "Are visitors authorized, logged, and escorted at all times within the cardholder data environment?"
+    category: physical_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.3.3", "9.3.4"]
+      nist-800-53: ["PE-2", "PE-3", "PE-8"]
+      iso-27001: ["A.7.1.2", "A.7.1.3"]
+      hipaa: ["§164.310(a)(2)(iii)"]
+      nist-csf: ["PR.AC-02"]
+
+    canonical_question_id: PHYS-ACCESS-VISITOR-001
+
+    evidence_required:
+      - type: visitor_log
+        description: "Visitor access log with required data elements"
+        examples:
+          - "Visitor log spreadsheet/database showing: name, company, purpose, host/escort name, badge ID, date, entry time, exit time, signature"
+          - "Electronic visitor management system (Envoy, Traction Guest) screenshots showing complete visitor records (last 90 days)"
+          - "Physical sign-in sheet with all required fields completed (recent example from last 30 days)"
+
+      - type: authorization_procedure
+        description: "Visitor authorization and pre-approval process"
+        examples:
+          - "Visitor request form: vendor requests CDE access → facilities manager approves → security notified → escort assigned"
+          - "Email thread showing visitor pre-approval: 'John Smith from ABC Corp approved for data center access on 2025-12-01, escort: Jane Doe'"
+          - "Visitor access policy requiring: 24-hour advance notice, business justification, named escort, manager approval"
+
+      - type: escort_verification
+        description: "Escort procedures and compliance evidence"
+        examples:
+          - "Escort assignment log: visitor name → escort name → area visited → escort sign-off"
+          - "CCTV footage samples showing visitors accompanied by escorts in CDE (spot check from last 30 days)"
+          - "Security guard interview notes confirming escort policy enforcement: 'We challenge unescorted visitors in CDE'"
+          - "Escort training completion records for all authorized escorts (annual training on CDE access policy)"
+
+    test_scenarios:
+      - scenario: "Visitor log completeness"
+        expected_evidence: ["All visitors in last 90 days logged with complete data (name, company, date, times, escort)", "No blank fields in visitor log", "Electronic timestamps match sign-in/sign-out"]
+        pass_criteria: "100% visitor logging compliance, all required fields complete"
+        compliance_level: full
+
+      - scenario: "Pre-authorization enforced"
+        expected_evidence: ["Random visitor entry shows pre-approval documentation", "Reception denies unscheduled visitors CDE access", "Approval workflow demonstrated end-to-end"]
+        pass_criteria: "All CDE visitors pre-approved, ad-hoc access denied"
+        compliance_level: full
+
+      - scenario: "Escort policy enforced"
+        expected_evidence: ["Observation: visitor in CDE accompanied by escort", "CCTV review: no unescorted visitors observed", "Guard interview: escort policy enforced"]
+        pass_criteria: "100% escort compliance observed, policy enforced by security"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Visitor log incomplete or not maintained"
+        indicator: "Sign-in sheet has many blank fields (no escort name, no exit time), log not used for weeks at a time, digital system bypassed"
+        remediation: "Make all visitor log fields mandatory (digital form validation), train reception on logging requirements, audit visitor logs weekly for completeness"
+
+      - gap: "Visitors enter CDE without pre-authorization"
+        indicator: "Walk-in vendors granted access without prior approval, no documented business justification, escort assigned ad-hoc"
+        remediation: "Implement 24-hour advance notice requirement, require manager approval for all CDE visitor access, reject unscheduled visitors"
+
+      - gap: "Escort policy exists but not consistently enforced"
+        indicator: "Observation shows unescorted visitors in CDE, CCTV footage shows visitors alone in server room, staff say 'we trust regular vendors'"
+        remediation: "Re-train security guards on escort policy (no exceptions), add escort verification to guard patrol checklist, investigate escort policy violations"
+
+    sub_questions:
+      - "Are all visitors to the CDE logged with name, company, date/time, and escort information?"
+      - "Is visitor access pre-authorized with documented business justification and approval?"
+      - "Are visitors escorted at all times while in the CDE, with escorts identified and trained?"
+      - "Is the visitor log retained for at least 90 days and periodically reviewed?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Complete visitor logging, pre-authorization required, continuous escort enforced, 90-day log retention verified"
+      partial: "Visitor log exists but incomplete fields, informal authorization, or escort policy inconsistently enforced"
+      none: "No visitor logging, or visitors granted unescorted CDE access"
+
+  # --- 9.4.x: Media Security and Handling ---
+
+  - id: Q-PCI-018
+    text: "Is all media containing cardholder data physically secured, classified, and inventoried with documented accountability?"
+    category: media_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.4.1", "9.4.1.1", "9.4.1.2"]
+      nist-800-53: ["MP-2", "MP-4", "PE-3"]
+      iso-27001: ["A.7.1.2", "A.8.10"]
+      hipaa: ["§164.310(d)(1)"]
+      nist-csf: ["PR.DS-03", "PR.IP-06"]
+
+    canonical_question_id: MEDIA-INVENTORY-001
+
+    evidence_required:
+      - type: media_inventory
+        description: "Inventory of all media containing cardholder data with tracking details"
+        examples:
+          - "Media inventory spreadsheet: media ID, type (backup tape, USB drive, hard drive), classification (confidential-CHD), location, custodian, last inventory date"
+          - "Backup tape library log: tape barcode, backup job ID, creation date, retention period, vault location"
+          - "Physical media custody chain: media ID → issued to → purpose → return date → destruction date"
+
+      - type: classification_labels
+        description: "Media classification system with visible labeling"
+        examples:
+          - "Media classification policy: all CHD-containing media labeled 'CONFIDENTIAL - PCI DATA' (red label)"
+          - "Photos showing labeled backup tapes, USB drives, hard drives with classification markings"
+          - "Label templates and labeling procedures (label applied before media leaves secure area)"
+
+      - type: physical_security
+        description: "Secure storage for media with access controls"
+        examples:
+          - "Photos of locked media cabinets/safes with badge reader or combination lock"
+          - "Media storage room access log showing controlled access (badge swipe log for last 90 days)"
+          - "Offsite media storage contract with secure vault provider (Iron Mountain, Recall) showing chain of custody procedures"
+
+    test_scenarios:
+      - scenario: "Media inventory complete and accurate"
+        expected_evidence: ["Inventory lists all CHD media types", "Spot check: physical count matches inventory", "Last inventory date within 90 days"]
+        pass_criteria: "Complete inventory, physical verification matches records, quarterly reconciliation"
+        compliance_level: full
+
+      - scenario: "Classification labeling enforced"
+        expected_evidence: ["All CHD media visibly labeled", "Unlabeled media not containing CHD or properly labeled", "Labeling procedure followed at media creation"]
+        pass_criteria: "100% labeling compliance observed during spot check"
+        compliance_level: full
+
+      - scenario: "Secure storage access controlled"
+        expected_evidence: ["Media stored in locked container/room", "Access log shows authorized personnel only", "Unauthorized access attempt denied"]
+        pass_criteria: "Physical access controls functional, access logged and restricted"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Media inventory incomplete or not maintained"
+        indicator: "Inventory spreadsheet last updated 2 years ago, no process for adding new media, physical count doesn't match inventory"
+        remediation: "Conduct full media inventory, assign media custodian role, implement quarterly inventory reconciliation, add media tracking to backup job procedures"
+
+      - gap: "Media not classified or labeled"
+        indicator: "Backup tapes have no labels, USB drives unmarked, staff unsure which media contains CHD"
+        remediation: "Implement classification labeling procedure (all CHD media labeled before leaving IT), apply labels to existing media inventory, audit labeling compliance monthly"
+
+      - gap: "Media stored in unsecured locations"
+        indicator: "Backup tapes in unlocked cabinet, USB drives in desk drawers, media accessible to unauthorized personnel"
+        remediation: "Procure locking media cabinet or safe, limit access to media custodian + backup, log all media access, relocate media to secured room"
+
+    sub_questions:
+      - "Is all media containing cardholder data inventoried with tracking (type, location, custodian)?"
+      - "Is media classified and visibly labeled to identify sensitivity?"
+      - "Is media physically secured in locked containers or rooms with access controls?"
+      - "Is media inventory reconciled periodically (at least annually)?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Complete media inventory with classification labels, secure storage with access controls, quarterly reconciliation"
+      partial: "Media inventory exists but incomplete, inconsistent labeling, or informal storage security"
+      none: "No media inventory, classification, or secure storage for CHD-containing media"
+
+  - id: Q-PCI-019
+    text: "Are controls in place to secure media sent outside the facility and track media distribution?"
+    category: media_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.4.2", "9.4.3"]
+      nist-800-53: ["MP-5", "SC-8"]
+      iso-27001: ["A.7.1.2", "A.8.10", "A.8.11"]
+      nist-csf: ["PR.DS-03", "PR.DS-05"]
+
+    canonical_question_id: MEDIA-TRANSPORT-001
+
+    evidence_required:
+      - type: distribution_log
+        description: "Media distribution and movement tracking records"
+        examples:
+          - "Media shipment log: media ID, destination, courier, tracking number, shipped by, date sent, date received confirmation, recipient signature"
+          - "Offsite backup transport manifest: tape barcodes, pickup date, Iron Mountain driver signature, vault delivery confirmation"
+          - "Internal media movement log: media ID, moved from, moved to, authorized by, transport method, date"
+
+      - type: security_controls
+        description: "Media transport security measures and approvals"
+        examples:
+          - "Management authorization for offsite media: email approving tape shipment to DR site with business justification"
+          - "Courier service contract (FedEx, Iron Mountain) with chain of custody, signature required delivery, tracking"
+          - "Photos showing secure media packaging: tamper-evident bags, locked courier cases, padded envelopes with tracking labels"
+          - "Encryption verification: backup encryption enabled (AES-256), encryption key stored separately from media"
+
+      - type: tracking_verification
+        description: "Tracking mechanisms and delivery confirmation"
+        examples:
+          - "FedEx tracking numbers with delivery confirmation signatures (last 90 days)"
+          - "Iron Mountain chain of custody reports showing tape pickup/delivery with driver signatures"
+          - "Exception follow-up: tracking shows 'delivery attempted' → investigation initiated within 24 hours → media located/recovered"
+
+    test_scenarios:
+      - scenario: "Distribution tracking complete"
+        expected_evidence: ["All media shipments logged with tracking numbers", "Delivery confirmation documented", "No untracked media movements"]
+        pass_criteria: "100% media distribution accountability, tracking end-to-end"
+        compliance_level: full
+
+      - scenario: "Management authorization documented"
+        expected_evidence: ["Sample media shipment shows management approval", "Business justification documented", "Unauthorized shipments blocked"]
+        pass_criteria: "All offsite media movements authorized by management"
+        compliance_level: full
+
+      - scenario: "Secure transport methods used"
+        expected_evidence: ["Courier service with tracking and signature", "Tamper-evident packaging used", "Encryption verified before shipment"]
+        pass_criteria: "Secure courier + encryption for all CHD media in transit"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Media sent offsite without tracking or authorization"
+        indicator: "IT staff mail backup tapes to DR site via regular mail, no tracking numbers, no management approval"
+        remediation: "Require courier service with tracking (FedEx with signature, Iron Mountain secure transport), implement approval workflow for all offsite media shipments"
+
+      - gap: "Distribution log not maintained or incomplete"
+        indicator: "No record of media sent offsite last quarter, log has missing tracking numbers or recipient confirmations"
+        remediation: "Create media shipment log template (mandatory fields), train personnel on logging requirements, audit log completeness monthly"
+
+      - gap: "Media transported without encryption or tamper-evident packaging"
+        indicator: "Backup tapes sent in regular padded envelopes, encryption not enabled, no tamper seals"
+        remediation: "Enable backup encryption (verify before shipment), use tamper-evident bags (numbered seals logged), implement dual-control for media packaging (two people verify encryption + packaging)"
+
+    sub_questions:
+      - "Are all media distributions logged with destination, courier, tracking information, and delivery confirmation?"
+      - "Is management authorization required and documented for media sent outside the facility?"
+      - "Are secure courier services used with tracking and signature requirements?"
+      - "Is media encrypted before offsite transport, or physically secured in tamper-evident packaging?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Media distribution logged with tracking, management authorization required, secure courier used, encryption verified"
+      partial: "Distribution tracking exists but incomplete, informal authorization, or inconsistent courier usage"
+      none: "No media distribution tracking, or media sent offsite without secure transport controls"
+
+  - id: Q-PCI-020
+    text: "Is media properly classified, approved by management, and securely destroyed when no longer needed?"
+    category: media_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.4.4", "9.4.5", "9.4.5.1", "9.4.6"]
+      nist-800-53: ["MP-6"]
+      iso-27001: ["A.8.10"]
+      hipaa: ["§164.310(d)(2)(i)", "§164.310(d)(2)(ii)"]
+      nist-csf: ["PR.DS-03", "PR.IP-06"]
+
+    canonical_question_id: MEDIA-DESTRUCTION-001
+
+    evidence_required:
+      - type: destruction_records
+        description: "Media destruction certificates and logs"
+        examples:
+          - "Shred-it certificate of destruction: 50 backup tapes destroyed on 2025-11-15, certificate #12345, witnessed destruction"
+          - "Hard drive destruction log: drive serial numbers, destruction method (degaussing + shredding), date, performed by, witness signature"
+          - "Quarterly destruction batch records showing media retention expiry → scheduled for destruction → destruction completed (audit trail)"
+
+      - type: destruction_procedures
+        description: "Documented media destruction procedures and methods"
+        examples:
+          - "Media destruction policy: CHD media destroyed via cross-cut shredding (paper), degaussing + physical destruction (magnetic media), crypto-erase + physical destruction (SSDs)"
+          - "Destruction method matrix: media type → approved destruction method (NIST 800-88 Rev 1 Purge or Destroy)"
+          - "Photos/videos of destruction process: industrial shredder, degausser, witnessed destruction event"
+          - "Vendor contracts with certified destruction providers (NAID AAA certified, R2 certified)"
+
+      - type: authorization_records
+        description: "Management approval for media destruction"
+        examples:
+          - "Destruction authorization form: media inventory list → retention period expired → manager approval → destruction scheduled"
+          - "Email approval: 'Approve destruction of backup tapes from 2020 per 5-year retention policy'"
+          - "Destruction exception handling: media retention extended → management approval documented → updated destruction schedule"
+
+    test_scenarios:
+      - scenario: "Destruction procedures documented and followed"
+        expected_evidence: ["Destruction policy defines methods by media type", "Observed practice matches documented procedure", "NIST 800-88 compliant methods used"]
+        pass_criteria: "Complete destruction procedures, compliance verified via sampling"
+        compliance_level: full
+
+      - scenario: "Management authorization documented"
+        expected_evidence: ["Sample destruction batch shows management approval", "Retention policy drives destruction schedule", "Unauthorized destruction prevented"]
+        pass_criteria: "All media destruction authorized per retention policy"
+        compliance_level: full
+
+      - scenario: "Destruction certificates retained"
+        expected_evidence: ["Vendor certificates for all outsourced destruction (last 3 years)", "Internal destruction logs complete with serial numbers/identifiers", "Audit trail from media inventory → destruction"]
+        pass_criteria: "Complete destruction documentation, certificates retained per policy"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "Media destruction not documented or no certificates retained"
+        indicator: "IT staff say 'we destroy old tapes' but no logs, vendor provides destruction service but no certificates on file"
+        remediation: "Require destruction certificates from vendors (NAID certified), log all internal destruction (serial numbers, date, method, witness), retain certificates per document retention policy (3 years minimum)"
+
+      - gap: "Inadequate destruction methods used"
+        indicator: "Backup tapes thrown in regular trash, hard drives wiped but not physically destroyed, paper with CHD shredded with strip-cut shredder (not cross-cut)"
+        remediation: "Implement NIST 800-88 compliant methods: magnetic media = degauss + shred, SSDs = crypto-erase + physical destruction, paper = cross-cut shred or pulverize, contract with certified destruction vendor"
+
+      - gap: "No management approval for destruction"
+        indicator: "IT staff destroy media ad-hoc, no retention policy enforcement, no approval workflow"
+        remediation: "Create retention policy with destruction triggers (age, business need expiry), require manager approval before destruction, schedule quarterly destruction batches with approval workflow"
+
+    sub_questions:
+      - "Are media destruction procedures documented with methods appropriate for media type (cross-cut shred, degauss, crypto-erase)?"
+      - "Is management authorization required and documented before media destruction?"
+      - "Are destruction certificates or logs retained with media identifiers (serial numbers, tape barcodes)?"
+      - "Are destruction methods compliant with industry standards (NIST 800-88, rendering CHD unrecoverable)?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Documented destruction procedures (NIST 800-88 compliant), management authorization required, complete certificates/logs retained"
+      partial: "Destruction occurs but procedures informal, weak methods used, or incomplete documentation"
+      none: "No formal media destruction process, or media discarded without secure destruction"
+
+  - id: Q-PCI-021
+    text: "Are hard-copy materials containing cardholder data secured when not in use and destroyed when no longer needed?"
+    category: media_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.4.7"]
+      nist-800-53: ["MP-2", "MP-6"]
+      iso-27001: ["A.7.1.2", "A.8.10"]
+      nist-csf: ["PR.DS-03", "PR.IP-06"]
+
+    canonical_question_id: MEDIA-CLASSIFICATION-001
+
+    evidence_required:
+      - type: hardcopy_controls
+        description: "Physical security controls for hard-copy CHD materials"
+        examples:
+          - "Photos showing locked cabinets for CHD documents (invoices, receipts, reports)"
+          - "Clean desk policy: no CHD printouts left unattended, lock documents in drawer at end of day"
+          - "Secure printing configuration: print jobs require badge swipe at printer (pull printing), jobs auto-deleted after 24 hours"
+
+      - type: destruction_equipment
+        description: "Secure destruction equipment and procedures for hard-copy materials"
+        examples:
+          - "Cross-cut shredder specifications: minimum DIN P-4 security level (particle size ≤160mm²)"
+          - "Locked shred bins placed near workstations with CHD access, serviced by certified vendor weekly"
+          - "Destruction service contract (Shred-it, Iron Mountain) with certificates of destruction for confidential materials"
+          - "Quarterly destruction certificates showing volumes destroyed (e.g., '120 lbs confidential documents destroyed 2025-11-15')"
+
+      - type: policy_documentation
+        description: "Hard-copy media handling policy and training"
+        examples:
+          - "Clean desk policy requiring: CHD documents locked when unattended, documents shredded when no longer needed, no CHD in trash"
+          - "Staff training completion records on hard-copy security procedures (annual training)"
+          - "Workspace audit results: spot checks showing compliance with clean desk policy (last 3 months)"
+
+    test_scenarios:
+      - scenario: "Hard-copy materials secured when not in use"
+        expected_evidence: ["Workspace walk-through: no CHD documents visible on desks", "Documents stored in locked cabinets/drawers", "Clean desk policy enforced"]
+        pass_criteria: "No unattended CHD documents observed, locked storage available and used"
+        compliance_level: full
+
+      - scenario: "Secure destruction equipment available and used"
+        expected_evidence: ["Cross-cut shredders present (DIN P-4 or higher)", "Shred bins available and labeled 'Confidential'", "Destruction certificates from vendor (last 90 days)"]
+        pass_criteria: "Secure destruction readily accessible, regular service documented"
+        compliance_level: full
+
+      - scenario: "Staff trained on hard-copy security"
+        expected_evidence: ["Training completion records (annual)", "Staff interviews demonstrate awareness", "Policy accessible to staff"]
+        pass_criteria: "All staff handling CHD trained, can articulate procedures"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "CHD documents left unsecured on desks or printers"
+        indicator: "Walk-through reveals invoices with full PAN on desks, printouts left at printer overnight"
+        remediation: "Implement clean desk policy (lock documents when leaving desk), configure pull printing (badge required), conduct weekly workspace audits"
+
+      - gap: "Inadequate shredding equipment (strip-cut shredders)"
+        indicator: "Shredder produces long strips (not confetti), does not meet DIN P-4 security level"
+        remediation: "Replace shredders with cross-cut models (DIN P-4 minimum), contract with certified destruction service for high-volume shredding"
+
+      - gap: "CHD documents discarded in regular trash"
+        indicator: "Audit of trash bins reveals printouts with CHD, no shred bins available, staff unaware of destruction requirements"
+        remediation: "Place locked shred bins near all workstations handling CHD, train staff on shredding requirements (all CHD documents), audit trash bins monthly"
+
+    sub_questions:
+      - "Are hard-copy materials containing CHD secured in locked storage when not in use?"
+      - "Is secure destruction equipment available (cross-cut shredders, locked shred bins)?"
+      - "Are hard-copy materials destroyed when no longer needed, with destruction certificates retained?"
+      - "Are personnel trained on hard-copy security procedures (clean desk, secure printing, shredding)?"
+
+    risk_weight: MEDIUM
+
+    scoring:
+      full: "Hard-copy CHD secured in locked storage, cross-cut shredders available, destruction certificates retained, staff trained"
+      partial: "Some controls exist but inconsistent enforcement (documents left unsecured, inadequate shredders)"
+      none: "No hard-copy security controls, or CHD documents routinely left unsecured and discarded in trash"
+
+  # --- 9.5.x: POI Device Protection ---
+
+  - id: Q-PCI-022
+    text: "Is an inventory of point-of-interaction (POI) devices maintained and are devices inspected periodically for tampering?"
+    category: poi_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.5.1", "9.5.1.1", "9.5.1.2", "9.5.1.2.1"]
+      nist-800-53: ["PE-3", "SA-9"]
+      iso-27001: ["A.7.1.2", "A.8.1"]
+      nist-csf: ["PR.AC-02", "DE.CM-07"]
+
+    canonical_question_id: POI-INVENTORY-001
+
+    evidence_required:
+      - type: device_inventory
+        description: "Complete POI device inventory with tracking details"
+        examples:
+          - "POI inventory spreadsheet: device ID, make/model (Ingenico iSC250, Verifone VX520), serial number, location (Register 3, Lane 5), deployment date, last inspection date"
+          - "PCI PTS certification verification: each device model listed with PTS approval number from PCI SSC website"
+          - "Device photos in inventory: front, back, serial number label visible"
+
+      - type: inspection_procedures
+        description: "Tampering inspection procedures and checklists"
+        examples:
+          - "POI inspection checklist: verify serial number matches inventory, check for loose screws/panels, inspect for skimmers, verify tamper-evident seals intact, check cable connections, photo documentation"
+          - "Tamper-evident seal log: device serial number → seal number → applied date → verified date → inspector name"
+          - "Inspection schedule: daily (cashier visual check), weekly (manager detailed inspection), quarterly (security/IT full inspection with photos)"
+          - "Training materials: 'How to Identify POI Tampering' with examples of skimmers, modified devices, foreign components"
+
+      - type: inspection_records
+        description: "Inspection completion records and exception handling"
+        examples:
+          - "Daily inspection log: date, register/lane, device serial, inspected by, anomalies noted, seal intact (Y/N)"
+          - "Weekly detailed inspection report with photos: last 12 weeks showing inspection completion and findings"
+          - "Exception handling example: seal broken detected → device removed from service → replacement device deployed → investigation initiated"
+          - "Training completion records: all cashiers, managers, security staff trained on POI inspection procedures (annual training)"
+
+    test_scenarios:
+      - scenario: "Inventory complete and accurate"
+        expected_evidence: ["Inventory lists all POI devices", "Physical count matches inventory", "PTS certification verified for all models"]
+        pass_criteria: "100% inventory accuracy, all devices PTS-approved"
+        compliance_level: full
+
+      - scenario: "Inspection procedures documented and followed"
+        expected_evidence: ["Inspection checklist exists and used", "Inspection records complete for last 90 days", "Daily + periodic inspections documented"]
+        pass_criteria: "Regular inspection schedule maintained, records complete"
+        compliance_level: full
+
+      - scenario: "Tamper detection functional"
+        expected_evidence: ["Tamper-evident seals used on all POI devices", "Seal numbers tracked in inventory", "Broken seal triggers investigation"]
+        pass_criteria: "Seals present and intact, exception handling demonstrated"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "POI inventory incomplete or not maintained"
+        indicator: "Inventory spreadsheet last updated 2 years ago, new devices deployed but not added to inventory, physical count shows more devices than inventory"
+        remediation: "Conduct full POI inventory (visit all locations), assign POI inventory owner, update inventory when devices deployed/retired, quarterly inventory reconciliation"
+
+      - gap: "No tampering inspections or inspections not documented"
+        indicator: "Staff say 'we look at the devices' but no inspection checklist or records, no evidence of periodic inspections beyond ad-hoc visual checks"
+        remediation: "Create inspection checklist (what to look for), schedule daily visual + weekly detailed inspections, document inspections in log, train all personnel on inspection procedures"
+
+      - gap: "Tamper-evident seals not used or not tracked"
+        indicator: "Devices have no tamper seals, or seals present but seal numbers not recorded (cannot detect seal replacement)"
+        remediation: "Apply numbered tamper seals to all POI devices (cover screws, case seams), log seal numbers in inventory, inspect seal integrity during each inspection, replace seals only when device serviced (document reason)"
+
+    sub_questions:
+      - "Is a complete POI device inventory maintained with make, model, serial number, and location?"
+      - "Are all POI devices PCI PTS certified (verified against PCI SSC approved device list)?"
+      - "Are POI devices inspected periodically for tampering (daily visual, weekly detailed)?"
+      - "Are tamper-evident seals used and tracked, with seal integrity verified during inspections?"
+      - "Are personnel trained to identify POI tampering (skimmers, foreign components, loose panels)?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Complete POI inventory with PTS verification, regular tampering inspections documented, tamper-evident seals tracked"
+      partial: "Inventory exists but incomplete, inspections informal or undocumented, seals not used consistently"
+      none: "No POI inventory, or no tampering inspection procedures"
+
+  - id: Q-PCI-023
+    text: "Are personnel trained to detect tampering and substitution attempts, and are POI device surfaces inspected for evidence of tampering?"
+    category: poi_security
+    pci_requirement: 9
+    status: required
+    controls:
+      pci-dss: ["9.5.1.2.1", "9.5.1.3"]
+      nist-800-53: ["AT-2", "PE-3"]
+      iso-27001: ["A.7.1.2", "A.8.1"]
+      nist-csf: ["PR.AT-01", "DE.CM-07"]
+
+    canonical_question_id: POI-TAMPER-001
+
+    evidence_required:
+      - type: training_materials
+        description: "POI security awareness training content and completion records"
+        examples:
+          - "Training presentation: 'POI Tampering Awareness' with photos of skimmers, modified devices, fake PIN pads"
+          - "Training topics covered: visual inspection procedures, common tampering indicators (loose screws, extra cables, mismatched colors), substitution attempts, reporting procedures"
+          - "Training completion records: all personnel handling POI devices (cashiers, managers, IT) trained annually"
+          - "Training acknowledgment: signed attestation that personnel understand POI security responsibilities"
+
+      - type: inspection_guidance
+        description: "Surface inspection procedures for detecting tampering evidence"
+        examples:
+          - "POI tampering identification guide: photos showing normal vs tampered devices (side-by-side comparison)"
+          - "Inspection checklist focusing on surfaces: check for scratches near screws, color mismatches, loose/ill-fitting panels, foreign components, unusual weight"
+          - "Reference images: photos of each POI model in normal condition for comparison during inspections"
+          - "Tamper indicators poster displayed at POS areas: 'Report if you see: extra cables, loose panel, different color, unusual device appearance'"
+
+      - type: reporting_procedures
+        description: "Incident reporting and response procedures for suspected tampering"
+        examples:
+          - "Tampering incident report form: device location, description of anomaly, reported by, date/time, photo evidence, action taken"
+          - "Escalation procedure: suspect tampering → remove device from service → notify security/IT → notify acquirer/processor → investigate"
+          - "Example incident: 'Device at Register 5 had loose card slot, removed from service 2025-10-01, sent to vendor for forensic analysis, replacement deployed'"
+
+    test_scenarios:
+      - scenario: "Personnel trained and aware"
+        expected_evidence: ["Training completion records for all POI-handling personnel (last 12 months)", "Staff interviews demonstrate awareness of tampering indicators", "Staff can describe reporting procedure"]
+        pass_criteria: "100% training compliance, staff demonstrate knowledge during interviews"
+        compliance_level: full
+
+      - scenario: "Surface inspection effective"
+        expected_evidence: ["Inspection checklist includes surface tampering indicators", "Reference photos available for comparison", "Inspection records show surface examination documented"]
+        pass_criteria: "Surface inspection integrated into regular inspection routine"
+        compliance_level: full
+
+      - scenario: "Incident response functional"
+        expected_evidence: ["Reporting procedure documented and accessible", "Test scenario: staff describe correct response to suspected tampering", "Past incidents handled properly (if any)"]
+        pass_criteria: "Clear reporting path, staff know what to do, incidents documented"
+        compliance_level: full
+
+    gap_examples:
+      - gap: "No POI security training or training outdated"
+        indicator: "No training records, staff unaware of tampering indicators, cannot describe what to look for or report"
+        remediation: "Develop POI security awareness training (use industry examples, photos of skimmers), train all POI-handling personnel annually, track completion, test knowledge via spot interviews"
+
+      - gap: "Surface inspection not performed or not documented"
+        indicator: "Inspections focus only on seal integrity, no check for surface tampering (scratches, color mismatch, loose panels)"
+        remediation: "Enhance inspection checklist to include surface indicators (scratches near screws, panel alignment, color consistency, weight check), add reference photos to inspection guide"
+
+      - gap: "No clear incident reporting or response procedure"
+        indicator: "Staff unsure who to notify if tampering suspected, no documentation of how to handle suspected compromise"
+        remediation: "Document incident response procedure (remove device → notify security/IT → notify acquirer → investigate), add reporting contact info to inspection checklist, conduct tabletop exercise testing response"
+
+    sub_questions:
+      - "Are personnel trained to detect POI tampering and substitution attempts (annual training)?"
+      - "Does training include visual examples of tampering (skimmers, modified devices, foreign components)?"
+      - "Are POI device surfaces inspected for evidence of tampering (scratches, color mismatch, loose panels)?"
+      - "Is there a clear incident reporting and response procedure for suspected POI tampering?"
+
+    risk_weight: HIGH
+
+    scoring:
+      full: "Annual training with visual examples, surface inspection procedures documented, incident reporting and response clear"
+      partial: "Some training exists but not comprehensive, surface inspection informal, unclear reporting procedure"
+      none: "No POI security training, or no procedures for detecting and reporting tampering"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REQUIREMENT 10: Log and Monitor Access to Network Resources and Cardholder Data
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-PCI-024
+    text: "How do you log and monitor all access to network resources and cardholder data?"
+    category: monitoring_detection
+    pci_requirement: 10
+    controls:
+      pci-dss: "10.1, 10.2"
+      nist-csf: "DE.CM-01, DE.CM-03"
+      nist-800-53: "AU-2, AU-6"
+      iso-27001: "A.8.15"
+      hipaa: "§164.312(b)"
+    evidence_required:
+      - Logging policy
+      - Log retention records
+      - SIEM/log management documentation
+    scoring:
+      full: "Comprehensive logging with centralized management"
+      partial: "Some logging but not comprehensive"
+      none: "No formal logging"
+    sub_questions:
+      - "Are all access attempts logged?"
+      - "Do logs include user, timestamp, action, and outcome?"
+      - "Are logs centralized and protected?"
+    risk_weight: HIGH
+
+  - id: Q-PCI-025
+    text: "How often are logs reviewed and anomalies investigated?"
+    category: monitoring_detection
+    pci_requirement: 10
+    controls:
+      pci-dss: "10.4"
+      nist-csf: "DE.AE-02, DE.AE-03"
+      nist-800-53: "AU-6"
+      iso-27001: "A.8.15"
+    evidence_required:
+      - Log review procedures
+      - Review records
+      - Investigation documentation
+    scoring:
+      full: "Daily automated review with documented exception handling"
+      partial: "Periodic review but not daily"
+      none: "Logs not reviewed"
+    sub_questions:
+      - "Are security logs reviewed at least daily?"
+      - "Is automated log analysis in place?"
+      - "How are anomalies investigated?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REQUIREMENT 11: Test Security of Systems and Networks Regularly
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-PCI-026
+    text: "How do you test security of systems and networks?"
+    category: security_testing
+    pci_requirement: 11
+    controls:
+      pci-dss: "11.3, 11.4"
+      nist-csf: "DE.CM-08, ID.RA-01"
+      nist-800-53: "CA-8, RA-5"
+      iso-27001: "A.8.8"
+      cis-v8: "16.1"
+    evidence_required:
+      - Vulnerability scan results
+      - Penetration test reports
+      - Remediation tracking
+    scoring:
+      full: "Quarterly vulnerability scans and annual penetration tests"
+      partial: "Some testing but not at required frequency"
+      none: "No formal security testing"
+    sub_questions:
+      - "Are internal/external vulnerability scans performed quarterly?"
+      - "Are penetration tests performed annually?"
+      - "Are high/critical findings remediated promptly?"
+    risk_weight: HIGH
+
+  - id: Q-PCI-027
+    text: "Do you have change detection mechanisms for critical files?"
+    category: monitoring_detection
+    pci_requirement: 11
+    controls:
+      pci-dss: "11.5"
+      nist-csf: "PR.DS-06, DE.CM-09"
+      nist-800-53: "SI-7"
+      iso-27001: "A.8.9"
+    evidence_required:
+      - FIM configuration
+      - Alert procedures
+      - Change review records
+    scoring:
+      full: "File integrity monitoring with alerts and review"
+      partial: "FIM deployed but alerts not reviewed"
+      none: "No file integrity monitoring"
+    sub_questions:
+      - "Is file integrity monitoring deployed on critical systems?"
+      - "Are critical file changes alerted?"
+      - "How are alerts reviewed and responded to?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # REQUIREMENT 12: Support Information Security with Organizational Policies and Programs
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-PCI-028
+    text: "Is there a documented information security policy?"
+    category: governance_policies
+    pci_requirement: 12
+    controls:
+      pci-dss: "12.1"
+      nist-csf: "GV.PO-01"
+      nist-800-53: "PL-1"
+      iso-27001: "A.5.1"
+      hipaa: "§164.316"
+    evidence_required:
+      - Security policy
+      - Review records
+      - Executive approval
+    scoring:
+      full: "Comprehensive policy reviewed annually and approved"
+      partial: "Policy exists but outdated or incomplete"
+      none: "No formal security policy"
+    sub_questions:
+      - "Does the policy address all PCI DSS requirements?"
+      - "Is it reviewed at least annually?"
+      - "Is there executive-level approval?"
+    risk_weight: MEDIUM
+
+  - id: Q-PCI-029
+    text: "How do you manage incident response for security events?"
+    category: incident_response
+    pci_requirement: 12
+    controls:
+      pci-dss: "12.10"
+      nist-csf: "RS.MA-01, RS.MA-02"
+      nist-800-53: "IR-1, IR-4"
+      iso-27001: "A.5.24, A.5.26"
+      hipaa: "§164.308(a)(6)"
+    evidence_required:
+      - Incident response plan
+      - Contact list
+      - Test records
+    scoring:
+      full: "Documented IR plan tested annually with trained team"
+      partial: "IR plan exists but not tested"
+      none: "No formal incident response plan"
+    sub_questions:
+      - "Is there a documented incident response plan?"
+      - "Does it cover suspected breaches and PCI compromise?"
+      - "Is the plan tested at least annually?"
+      - "Are roles and responsibilities defined?"
+    risk_weight: HIGH

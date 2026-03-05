@@ -1,0 +1,63 @@
+framework: NIST AI Risk Management Framework
+id: nist-ai-rmf
+version: "1.0"
+year: 2023
+publisher: NIST
+framework_category: ai_governance
+classification: public
+source_url: https://airc.nist.gov/
+document: "NIST AI 100-1"
+description: >
+  Voluntary framework to help organizations manage AI risks throughout the
+  AI lifecycle. Organized around four core functions: GOVERN, MAP, MEASURE,
+  MANAGE. Governance is a cross-cutting function infused throughout the other
+  three. The AI RMF Core contains 72 subcategories across 19 categories.
+native_categories:
+  - id: GV
+    name: GOVERN
+    description: >
+      Cultivate a culture of risk management. Policies, processes, procedures,
+      and practices for AI risk management are in place, transparent, and
+      implemented effectively. Cross-cutting function that enables MAP, MEASURE,
+      and MANAGE.
+  - id: MP
+    name: MAP
+    description: >
+      Context is established and understood. Categorize AI risks, identify
+      impacts, and establish the context needed for go/no-go decisions about
+      AI system design, development, and deployment.
+  - id: MR
+    name: MEASURE
+    description: >
+      Risks are analyzed, assessed, and tracked. Employ quantitative,
+      qualitative, or mixed-method tools and methodologies to analyze,
+      assess, benchmark, and monitor AI risk and related impacts.
+  - id: MG
+    name: MANAGE
+    description: >
+      Risks are prioritized, responded to, and monitored. Allocate risk
+      resources to mapped and measured risks, plan risk treatments, and
+      respond to, recover from, and communicate about incidents or events.
+domain_mapping:
+  GV: governance
+  MP: asset_management
+  MR: monitoring
+  MG: governance
+enrichment_status:
+  tier: 2
+  framework_category: ai_governance
+  controls: complete
+  questions: complete
+  questions_framework_count: 1
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://airc.nist.gov/airmf-resources/airmf/5-sec-core/
+    - https://airc.nist.gov/
+  next_check: 2027-02-25
+  notes: >
+    T2 achieved. Controls and questions derived from official NIST AIRC
+    Core page (https://airc.nist.gov/airmf-resources/airmf/5-sec-core/).
+    Crosswalk to iso-42001, eu-ai-act, iso-27001 requires official NIST
+    crosswalk documents — pending T3 upgrade.

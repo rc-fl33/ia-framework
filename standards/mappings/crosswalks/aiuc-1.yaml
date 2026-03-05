@@ -1,0 +1,1236 @@
+framework: aiuc-1
+version: "1.0"
+description: AIUC-1 v1.0 cross-framework control mappings
+last_updated: 2026-02-14
+mappings:
+  - control: A001
+    title: established and communicated AI input data policies covering customer data us...
+    external_mappings:
+      iso-42001:
+        - A.7.2
+        - A.7.3
+      nist-ai-rmf:
+        - MEASURE 2.10
+      eu-ai-act:
+        - Article 11
+      csa-aicm:
+        - DSP-11
+        - DSP-12
+        - DSP-13
+        - DSP-14
+        - DSP-15
+        - DSP-16
+        - DSP-17
+        - DSP-18
+        - DSP-19
+        - DSP-20
+        - DSP-21
+        - DSP-22
+        - DSP-23
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A001
+  - control: A002
+    title: established AI output ownership, usage, opt-out and deletion policies and com...
+    external_mappings:
+      csa-aicm:
+        - DSP-16
+        - DSP-08
+        - STA-10
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A002
+  - control: A003
+    title: safeguards implemented to restrict AI agent data access to task-relevant info...
+    external_mappings:
+      iso-42001:
+        - A.7.2
+        - A.7.3
+      nist-ai-rmf:
+        - MAP 2.1
+      owasp-llm:
+        - LLM06:25
+        - LLM08:25
+        - LLM10:25
+      mitre-atlas:
+        - Data protection principles
+      csa-aicm:
+        - DSP-07
+        - DSP-08
+        - DSP-22
+        - AIS-11
+        - IAM-17
+        - IAM-19
+        - MDS-04
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A003
+  - control: A004
+    title: safeguards or technical controls implemented to prevent AI systems from leaki...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0020
+      eu-ai-act:
+        - Article 72
+      owasp-llm:
+        - LLM03:25
+        - LLM05:25
+        - LLM08:25
+      csa-aicm:
+        - DSP-01
+        - DSP-10
+        - DSP-02
+        - DSP-07
+        - DSP-08
+        - DSP-16
+        - UEM-08
+        - DSP-12
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A004
+  - control: A005
+    title: safeguards implemented to prevent cross-customer data exposure when combining...
+    external_mappings:
+      nist-ai-rmf:
+        - MEASURE 2.10
+      owasp-llm:
+        - LLM02:25
+        - LLM05:25
+        - LLM08:25
+      csa-aicm:
+        - I&S-06
+        - DSP-22
+        - UEM-08
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A005
+  - control: A006
+    title: safeguards established to prevent personal data leakage through AI outputs
+    external_mappings:
+      mitre-atlas:
+        - AML-M0020
+      eu-ai-act:
+        - Article 72
+      nist-ai-rmf:
+        - MEASURE 2.10
+      owasp-llm:
+        - LLM02:25
+        - LLM05:25
+        - LLM08:25
+      csa-aicm:
+        - DSP-10
+        - DSP-17
+        - HRS-12
+        - DSP-13
+        - UEM-08
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A006
+  - control: A007
+    title: safeguards and technical controls implemented to prevent AI outputs from viol...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0020
+      nist-ai-rmf:
+        - GOVERN 6.1
+        - MAP 4.1
+      iso-42001:
+        - A.7.5
+      owasp-llm:
+        - LLM03:25
+        - LLM05:25
+      csa-aicm:
+        - AIS-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-A007
+  - control: B001
+    title: an adversarial testing program implemented to validate system resilience agai...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0003
+        - AML-M0004
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MEASURE 2.1
+        - MEASURE 2.6
+        - MEASURE 2.7
+      owasp-llm:
+        - LLM01:25
+        - LLM04:25
+        - LLM05:25
+        - LLM08:25
+      csa-aicm:
+        - AIS-07
+        - MDS-06
+        - MDS-07
+        - TVM-01
+        - TVM-02
+        - TVM-03
+        - TVM-04
+        - TVM-05
+        - TVM-06
+        - TVM-07
+        - TVM-08
+        - TVM-09
+        - TVM-10
+        - TVM-11
+        - TVM-12
+        - TVM-13
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B001
+  - control: B002
+    title: monitoring capabilities implemented to detect and respond to adversarial inpu...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0003
+        - AML-M0015
+        - AML-M0024
+        - AML-M0021
+      eu-ai-act:
+        - Article 15
+        - Article 72
+      nist-ai-rmf:
+        - GOVERN 1.5
+        - MEASURE 2.4
+        - MEASURE 2.7
+        - MEASURE 3.1
+      owasp-llm:
+        - LLM01:25
+        - LLM08:25
+        - LLM10:25
+      csa-aicm:
+        - AIS-08
+        - MDS-07
+        - TVM-01
+        - TVM-04
+        - UEM-09
+        - TVM-02
+        - AIS-10
+        - LOG-14
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B002
+  - control: B003
+    title: controls implemented to prevent over-disclosure of technical information abou...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0000
+        - AML-M0001
+      owasp-llm:
+        - LLM02:25
+        - LLM07:25
+      csa-aicm:
+        - AIS-09
+        - AIS-15
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B003
+  - control: B004
+    title: safeguards implemented to prevent probing or scraping of external AI endpoints
+    external_mappings:
+      mitre-atlas:
+        - AML-M0003
+        - AML-M0004
+      eu-ai-act:
+        - Article 15
+      nist-ai-rmf:
+        - MEASURE 2.7
+      owasp-llm:
+        - LLM02:25
+        - LLM05:25
+        - LLM08:25
+        - LLM10:25
+      csa-aicm:
+        - AIS-10
+        - UEM-01
+        - UEM-05
+        - UEM-09
+        - UEM-10
+        - UEM-14
+        - TVM-06
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B004
+  - control: B005
+    title: automated moderation tools deployed for real-time input filtering to detect a...
+    external_mappings:
+      owasp-llm:
+        - LLM01:25
+        - LLM04:25
+        - LLM10:25
+      mitre-atlas:
+        - AML-M0015
+        - AML-M0021
+      nist-ai-rmf:
+        - MEASURE 2.7
+      csa-aicm:
+        - LOG-14
+        - AIS-08
+        - AIS-15
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B005
+  - control: B006
+    title: safeguards implemented to limit AI agent system access based on context and d...
+    external_mappings:
+      nist-ai-rmf:
+        - MAP 2.1
+      owasp-llm:
+        - LLM08:25
+        - LLM10:25
+      csa-aicm:
+        - AIS-11
+        - IAM-19
+        - DSP-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B006
+  - control: B007
+    title: user access controls and admin privileges established and maintained for AI s...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0005
+        - AML-M0019
+      owasp-llm:
+        - LLM02:25
+        - LLM06:25
+        - LLM10:25
+      csa-aicm:
+        - IAM controls
+        - DSP controls
+        - LOG controls
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B007
+  - control: B008
+    title: security measures implemented for AI model deployment environments including ...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0005
+        - AML-M0012
+        - AML-M0019
+      eu-ai-act:
+        - Article 15
+      owasp-llm:
+        - LLM07:25
+      csa-aicm:
+        - AIS-06
+        - AIS-14
+        - CEK-01 to CEK-21
+        - IAM-04
+        - IAM-14
+        - MDS-01
+        - MDS-02
+        - MDS-08
+        - MDS-09
+        - UEM-08
+        - DSP-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B008
+  - control: B009
+    title: output limitations and obfuscation techniques implemented to safeguard agains...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0002
+      nist-ai-rmf:
+        - MEASURE 2.10
+      owasp-llm:
+        - LLM02:25
+        - LLM05:25
+        - LLM08:25
+        - LLM09:25
+      csa-aicm:
+        - AIS-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-B009
+  - control: C001
+    title: Has a risk taxonomy been established that categorizes risks within harmful, o...
+    external_mappings:
+      eu-ai-act:
+        - Article 9
+      iso-42001:
+        - A.5.2
+        - A.5.3
+        - A.5.4
+        - A.5.5
+        - "4.1"
+        - 6.1.1
+        - 6.1.2
+        - 6.1.3
+        - 6.1.4
+        - "8.2"
+        - "8.3"
+        - "8.4"
+      nist-ai-rmf:
+        - GOVERN 1.3
+        - GOVERN 1.4
+        - GOVERN 4.2
+        - MANAGE 1.2
+        - MANAGE 1.3
+        - MANAGE 1.4
+        - MAP 1.5
+        - MAP 5.1
+        - MEASURE 1.1
+        - MEASURE 2.10
+        - MEASURE 2.11
+        - MEASURE 3.1
+      csa-aicm:
+        - A&A-05
+        - A&A-06
+        - BCR-02
+        - CEK-07
+        - DSP-09
+        - GRC-02
+        - MDS-11
+        - MDS-12
+        - CCC-03
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C001
+  - control: C002
+    title: internal testing conducted before deployment across risk categories including...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0016
+      eu-ai-act:
+        - Article 9
+        - Article 27
+      iso-42001:
+        - A.6.2.5
+        - A.6.2.4
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 1.1
+        - MAP 4.2
+        - MEASURE 2.1
+        - MEASURE 2.3
+        - MEASURE 2.5
+        - MEASURE 4.3
+      csa-aicm:
+        - AIS-05
+        - AIS-06
+        - AIS-07
+        - AIS-12
+        - CCC-02
+        - AIS-04
+        - TVM-05
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C002
+  - control: C003
+    title: safeguards or technical controls implemented to prevent harmful outputs inclu...
+    external_mappings:
+      eu-ai-act:
+        - Article 9
+      nist-ai-rmf:
+        - MEASURE 2.11
+      owasp-llm:
+        - LLM05:25
+        - LLM09:25
+      csa-aicm:
+        - AIS-09
+        - GRC-11
+        - GRC-09
+        - LOG-15
+        - TVM-11
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C003
+  - control: C004
+    title: safeguards or technical controls implemented to prevent out-of-scope outputs ...
+    external_mappings:
+      eu-ai-act:
+        - Article 72
+      nist-ai-rmf:
+        - MAP 2.2
+        - MAP 3.4
+      owasp-llm:
+        - LLM05:25
+      csa-aicm:
+        - AIS-09
+        - GRC-09
+        - LOG-15
+        - TVM-11
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C004
+  - control: C005
+    title: safeguards or technical controls implemented to prevent additional high-risk ...
+    external_mappings:
+      eu-ai-act:
+        - Article 9
+      nist-ai-rmf:
+        - MANAGE 1.4
+      owasp-llm:
+        - LLM05:25
+      csa-aicm:
+        - GRC-09
+        - LOG-15
+        - TVM-11
+        - STA-10
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C005
+  - control: C006
+    title: safeguards implemented to prevent security vulnerabilities in AI outputs from...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0020
+      eu-ai-act:
+        - Article 72
+      owasp-llm:
+        - LLM05:25
+      csa-aicm:
+        - AIS-09
+        - TVM-02
+        - AIS-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C006
+  - control: C007
+    title: an alerting system implemented that flags high-risk recommendations for human...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0020
+      nist-ai-rmf:
+        - GOVERN 3.2
+        - MAP 3.5
+      iso-42001:
+        - A.6.1.2
+        - A.9.3
+        - A.9.2
+      csa-aicm:
+        - GRC-15
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C007
+  - control: C008
+    title: monitoring implemented across AI risk categories to detect emerging issues
+    external_mappings:
+      eu-ai-act:
+        - Article 72
+      iso-42001:
+        - A.5.4
+        - A.6.2.6
+        - A.9.4
+        - 6.1.1
+        - 6.1.2
+        - 6.1.3
+        - "8.2"
+        - "8.3"
+        - "9.1"
+      nist-ai-rmf:
+        - GOVERN 1.5
+        - MANAGE 3.1
+        - MANAGE 4.1
+        - MEASURE 2.4
+        - MEASURE 4.3
+      csa-aicm:
+        - GRC-02
+        - MDS-11
+        - TVM-03
+        - MDS-12
+        - TVM-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C008
+  - control: C009
+    title: mechanisms implemented to enable real-time user feedback collection and inter...
+    external_mappings:
+      eu-ai-act:
+        - Article 14
+      iso-42001:
+        - A.8.3
+      nist-ai-rmf:
+        - GOVERN 3.2
+        - MAP 3.5
+        - MEASURE 3.3
+      csa-aicm:
+        - GRC-15
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C009
+  - control: C010
+    title: expert third parties appointed to evaluate system robustness to harmful outpu...
+    external_mappings:
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 2.2
+        - MEASURE 1.3
+        - MEASURE 2.1
+        - MEASURE 2.6
+        - MEASURE 2.11
+        - MEASURE 4.1
+        - MEASURE 4.2
+      eu-ai-act:
+        - Article 9
+      iso-42001:
+        - A.6.2.4
+      csa-aicm:
+        - GRC-11
+        - A&A-02
+        - TVM-06
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C010
+  - control: C011
+    title: qualified external assessors appointed to evaluate system robustness against ...
+    external_mappings:
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 2.2
+        - MAP 2.2
+        - MEASURE 1.3
+        - MEASURE 2.1
+        - MEASURE 2.6
+        - MEASURE 4.1
+        - MEASURE 4.2
+      iso-42001:
+        - A.6.2.4
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C011
+  - control: C012
+    title: expert third parties appointed to evaluate system robustness to additional hi...
+    external_mappings:
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 2.2
+        - MEASURE 1.3
+        - MEASURE 2.1
+        - MEASURE 2.6
+        - MEASURE 4.1
+        - MEASURE 4.2
+      iso-42001:
+        - A.6.2.4
+      csa-aicm:
+        - A&A-02
+        - TVM-06
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-C012
+  - control: D001
+    title: safeguards or technical controls implemented to prevent hallucinated outputs
+    external_mappings:
+      nist-ai-rmf:
+        - MEASURE 2.5
+      owasp-llm:
+        - LLM05:25
+        - LLM09:25
+      csa-aicm:
+        - AIS-09
+        - MDS-10
+        - MDS-11
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-D001
+  - control: D002
+    title: qualified external assessors appointed to evaluate hallucinated outputs at mi...
+    external_mappings:
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 2.2
+        - MEASURE 1.3
+        - MEASURE 2.1
+        - MEASURE 2.5
+        - MEASURE 4.1
+        - MEASURE 4.2
+      owasp-llm:
+        - LLM09:25
+      iso-42001:
+        - A.6.2.4
+      csa-aicm:
+        - AIS-09
+        - AIS-05
+        - MDS-06
+        - MDS-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-D002
+  - control: D003
+    title: safeguards or technical controls implemented to prevent AI tool calls from ex...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0004
+        - AML-M0024
+      eu-ai-act:
+        - Article 72
+      nist-ai-rmf:
+        - GOVERN 6.1
+      owasp-llm:
+        - LLM06:25
+        - LLM08:25
+        - LLM10:25
+      csa-aicm:
+        - AIS-10
+        - AIS-06
+        - AIS-13
+        - AIS-11
+        - MDS-10
+        - MDS-11
+        - TVM-11
+        - TVM-12
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-D003
+  - control: D004
+    title: expert third parties appointed to evaluate tool calls within AI systems at le...
+    external_mappings:
+      nist-ai-rmf:
+        - GOVERN 6.1
+        - GOVERN 4.3
+        - MANAGE 2.2
+        - MEASURE 1.3
+        - MEASURE 2.1
+        - MEASURE 2.6
+        - MEASURE 4.1
+        - MEASURE 4.2
+      owasp-llm:
+        - LLM06:25
+      iso-42001:
+        - A.6.2.4
+      csa-aicm:
+        - AIS-05
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-D004
+  - control: E001
+    title: an AI failure plan documented for privacy and security breaches, assigning ac...
+    external_mappings:
+      eu-ai-act:
+        - Article 20
+        - Article 73
+      iso-42001:
+        - A.8.4
+        - A.8.5
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 1.3
+        - MANAGE 4.3
+      csa-aicm:
+        - BCR-09
+        - BCR-10
+        - SEF-01
+        - SEF-02
+        - SEF-03
+        - SEF-04
+        - SEF-05
+        - SEF-06
+        - SEF-07
+        - SEF-08
+        - SEF-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E001
+  - control: E002
+    title: a comprehensive response plan documented for harmful AI outputs causing signi...
+    external_mappings:
+      eu-ai-act:
+        - Article 20
+        - Article 73
+      iso-42001:
+        - A.8.4
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 1.3
+        - MANAGE 4.3
+      csa-aicm:
+        - BCR-09
+        - BCR-10
+        - SEF-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E002
+  - control: E003
+    title: procedures documented for addressing hallucinated AI outputs causing substant...
+    external_mappings:
+      eu-ai-act:
+        - Article 20
+        - Article 73
+      iso-42001:
+        - A.8.4
+      nist-ai-rmf:
+        - GOVERN 4.3
+        - MANAGE 1.3
+        - MANAGE 4.3
+      csa-aicm:
+        - BCR-09
+        - BCR-10
+        - SEF-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E003
+  - control: E004
+    title: AI system changes across the development and deployment lifecycle documented ...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0013
+      eu-ai-act:
+        - Article 17
+        - Article 18
+      iso-42001:
+        - A.3.2
+        - A.4.6
+        - A.6.2.2
+        - A.10.2
+        - "5.1"
+        - "5.3"
+        - "7.2"
+      nist-ai-rmf:
+        - GOVERN 2.1
+        - GOVERN 2.3
+        - MAP 3.5
+        - MEASURE 2.8
+      csa-aicm:
+        - AIS-01
+        - AIS-04
+        - CCC-01
+        - CCC-03
+        - CCC-05
+        - CEK-02
+        - GRC-06
+        - MDS-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E004
+  - control: E005
+    title: criteria established for selecting cloud providers and determining circumstan...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0017
+      nist-ai-rmf:
+        - MAP 4.2
+      owasp-llm:
+        - LLM03:25
+      csa-aicm:
+        - DCS-01 to DCS-15
+        - AIS-05
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E005
+  - control: E006
+    title: AI vendor due diligence processes established for foundation and upstream mod...
+    external_mappings:
+      eu-ai-act:
+        - Article 23
+        - Article 24
+      iso-42001:
+        - A.10.3
+      nist-ai-rmf:
+        - MAP 4.2
+      owasp-llm:
+        - LLM03:25
+      csa-aicm:
+        - STA-01
+        - STA-08
+        - STA-09
+        - STA-10
+        - STA-11
+        - STA-12
+        - STA-13
+        - STA-14
+        - STA-15
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E006
+  - control: E007
+    title: approval processes defined for material changes to AI systems requiring forma...
+    external_mappings:
+      eu-ai-act:
+        - Article 17
+        - Article 18
+      nist-ai-rmf:
+        - GOVERN 2.1
+        - GOVERN 2.3
+        - MANAGE 1.1
+        - MAP 3.5
+        - MEASURE 2.8
+        - MEASURE 4.3
+      iso-42001:
+        - A.6.2.2
+        - A.6.2.4
+        - "6.3"
+      csa-aicm:
+        - CCC-01
+        - CCC-03
+        - CCC-04
+        - CCC-05
+        - CCC-06
+        - AIS-01
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E007
+  - control: E008
+    title: regular internal reviews of key AI governance processes established with docu...
+    external_mappings:
+      eu-ai-act:
+        - Article 43
+      iso-42001:
+        - A.3.3
+        - A.2.3
+        - A.2.4
+        - "6.3"
+        - 7.5.2
+        - 9.2.1
+        - 9.2.2
+        - 9.3.1
+        - 9.3.2
+        - 9.3.3
+      nist-ai-rmf:
+        - GOVERN 1.7
+        - GOVERN 5.2
+        - GOVERN 5.1
+        - MANAGE 4.2
+        - MEASURE 1.2
+        - MEASURE 2.13
+      csa-aicm:
+        - A&A-02
+        - A&A-03
+        - A&A-05
+        - A&A-06
+        - GRC-03
+        - IAM-03
+        - IAM-08
+        - LOG-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E008
+  - control: E009
+    title: systems implemented to monitor third-party access to AI systems
+    external_mappings:
+      mitre-atlas:
+        - AML-M0024
+      eu-ai-act:
+        - Article 72
+      nist-ai-rmf:
+        - GOVERN 1.5
+        - MANAGE 4.1
+      owasp-llm:
+        - LLM03:25
+        - LLM05:25
+        - LLM06:25
+        - LLM10:25
+      csa-aicm:
+        - AIS-10
+        - LOG-05
+        - UEM-14
+        - TVM-05
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E009
+  - control: E010
+    title: established and implemented an AI acceptable use policy defining prohibited u...
+    external_mappings:
+      iso-42001:
+        - A.2.2
+        - A.9.2
+        - A.9.4
+        - A.2.4
+        - A.9.3
+        - "4.1"
+        - "4.3"
+        - "5.2"
+      nist-ai-rmf:
+        - GOVERN 1.2
+        - MAP 1.6
+        - MAP 3.3
+        - MAP 3.4
+        - MEASURE 2.4
+      owasp-llm:
+        - LLM10:25
+      csa-aicm:
+        - GRC-09
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E010
+  - control: E011
+    title: AI data processing locations documented and maintained
+    external_mappings:
+      eu-ai-act:
+        - Article 11
+      iso-42001:
+        - A.7.5
+      nist-ai-rmf:
+        - GOVERN 1.6
+      csa-aicm:
+        - DSP-13
+        - DSP-19
+        - UEM-04
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E011
+  - control: E012
+    title: applicable AI laws, standards, required data protections, and compliance stra...
+    external_mappings:
+      eu-ai-act:
+        - Article 16
+        - Article 18
+        - Article 21
+        - Article 22
+        - Article 25
+        - Article 26
+        - Article 43
+        - Article 44
+        - Article 47
+        - Article 48
+        - Article 49
+      iso-42001:
+        - A.2.3
+        - A.8.5
+        - "10.2"
+      nist-ai-rmf:
+        - GOVERN 1.1
+        - GOVERN 1.7
+        - MAP 1.1
+        - MAP 4.1
+      csa-aicm:
+        - A&A-04
+        - DSP-10
+        - DSP-18
+        - GRC-07
+        - HRS-10
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E012
+  - control: E013
+    title: a quality management system established for AI systems proportionate to the s...
+    external_mappings:
+      eu-ai-act:
+        - Article 9
+        - Article 10
+        - Article 11
+        - Article 12
+        - Article 16
+        - Article 17
+        - Article 18
+        - Article 19
+        - Article 26
+        - Article 43
+        - Article 72
+        - Article 73
+      nist-ai-rmf:
+        - GOVERN 1.4
+        - GOVERN 1.3
+      iso-42001:
+        - A.5.2
+        - A.6.2.7
+        - A.5.3
+        - A.5.4
+        - A.4.2
+        - "4.4"
+        - 6.1.4
+        - "7.1"
+      csa-aicm:
+        - AIS-01
+        - AIS-03
+        - BCR-02
+        - GRC-02
+        - GRC-10
+        - MDS-02
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E013
+  - control: E014
+    title: policies established for sharing transparency reports with relevant stakehold...
+    external_mappings:
+      eu-ai-act:
+        - Article 11
+      iso-42001:
+        - A.6.2.7
+        - A.8.2
+        - A.8.5
+        - "7.4"
+      nist-ai-rmf:
+        - MANAGE 4.2
+        - MANAGE 4.3
+        - MAP 1.6
+        - MAP 5.2
+        - MEASURE 2.8
+        - MEASURE 2.9
+        - MEASURE 4.2
+      csa-aicm:
+        - GRC-14
+        - TVM-09
+        - TVM-10
+        - A&A-06
+        - LOG-13
+        - LOG-10
+        - SEF-05
+        - SEF-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E014
+  - control: E015
+    title: logs maintained of AI system processes, actions, and model outputs to support...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0024
+      eu-ai-act:
+        - Article 12
+        - Article 19
+      iso-42001:
+        - A.6.2.8
+      nist-ai-rmf:
+        - MEASURE 2.4
+        - MEASURE 2.8
+      owasp-llm:
+        - LLM10:25
+      csa-aicm:
+        - LOG-01
+        - LOG-03
+        - LOG-04
+        - LOG-05
+        - LOG-06
+        - LOG-07
+        - LOG-08
+        - LOG-09
+        - LOG-10
+        - LOG-11
+        - LOG-12
+        - LOG-13
+        - LOG-14
+        - LOG-15
+        - MDS-10
+        - SEF-05
+        - SEF-07
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E015
+  - control: E016
+    title: clear disclosure mechanisms implemented to inform users when they are interac...
+    external_mappings:
+      eu-ai-act:
+        - Article 13
+        - Article 50
+      iso-42001:
+        - A.8.2
+      nist-ai-rmf:
+        - MAP 2.2
+        - MAP 3.4
+        - MEASURE 2.8
+      csa-aicm:
+        - GRC-15
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E016
+  - control: E017
+    title: a system transparency policy established with a repository of model cards, da...
+    external_mappings:
+      mitre-atlas:
+        - AML-M0023
+        - AML-M0025
+      eu-ai-act:
+        - Article 11
+      iso-42001:
+        - A.4.2
+        - A.4.3
+        - A.4.4
+        - A.4.5
+        - A.6.2.3
+        - A.2.2
+        - A.2.4
+        - "4.3"
+        - "5.2"
+      nist-ai-rmf:
+        - GOVERN 1.2
+        - GOVERN 1.6
+        - MAP 1.6
+        - MEASURE 2.8
+        - MEASURE 2.9
+        - MEASURE 4.3
+      csa-aicm:
+        - GRC-13
+        - GRC-14
+        - MDS-03
+        - MDS-04
+        - MDS-05
+        - STA-16
+        - DSP-20
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-E017
+  - control: F001
+    title: guardrails implemented or documented to prevent AI-enabled misuse for cyber a...
+    external_mappings:
+      nist-ai-rmf:
+        - MEASURE 2.7
+      iso-42001:
+        - A.5.5
+      csa-aicm:
+        - GRC-02
+        - GRC-09
+        - GRC-10
+        - GRC-12
+        - TVM-11
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-F001
+  - control: F002
+    title: guardrails implemented or documented to prevent AI-enabled catastrophic misus...
+    external_mappings:
+      iso-42001:
+        - A.5.5
+      csa-aicm:
+        - GRC-02
+        - GRC-09
+        - GRC-10
+        - GRC-12
+        - TVM-11
+    confidence: high
+    evidence:
+      - AIUC-1 official questions.yaml v1.0
+    notes: Extracted from question Q-AIUC1-F002

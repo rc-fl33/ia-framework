@@ -1,0 +1,1 @@
+../tools/setup/commands/setup.md

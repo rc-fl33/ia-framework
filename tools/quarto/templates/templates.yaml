@@ -1,0 +1,650 @@
+# IA Framework Report Templates - Single Source of Truth
+#
+# This file defines ALL report templates for all skills.
+# The create-template.ts and report-generator.ts scripts read from this config.
+# The visual template builder modifies this file.
+#
+# Usage:
+#   bun tools/quarto/scripts/create-template.ts --all     # Generate all templates
+#   bun tools/quarto/scripts/create-template.ts --skill pentest  # Generate specific skill
+
+version: "1.0"
+
+# Shared section definitions - reusable across all skills
+sections:
+  cover:
+    name: "Cover Page"
+    file: "_cover.qmd"
+    required: true
+    description: "Report header with logo, title, and engagement metadata"
+    content_template: "cover"
+
+  executive_summary:
+    name: "Executive Summary"
+    file: "_executive-summary.qmd"
+    required: true
+    description: "High-level overview with risk distribution and key recommendations"
+    content_template: "executive_summary"
+
+  scope:
+    name: "Scope & Methodology"
+    file: "_scope.qmd"
+    required: true
+    description: "Assessment scope, in/out-of-scope items, and methodology"
+    content_template: "scope"
+
+  findings:
+    name: "Findings Index"
+    file: "_findings.qmd"
+    required: true
+    nested: true
+    description: "Index of all findings grouped by severity"
+    children_template: "_findings/_f{index}-{severity}.qmd"
+    children_content_template: "finding"
+
+  recommendations:
+    name: "Recommendations"
+    file: "_recommendations.qmd"
+    required: false
+    description: "Prioritized remediation guidance by priority level"
+    content_template: "recommendations"
+
+  appendices:
+    name: "Appendices"
+    file: "_appendices.qmd"
+    required: false
+    description: "CWE reference, finding status, glossary"
+    content_template: "appendices"
+
+# Skill-specific configurations
+skills:
+  pentest:
+    name: "Penetration Test Report"
+    report_type: "pentest"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: remediation
+        name: "Remediation Tracker"
+        file: "_remediation.qmd"
+        description: "Tracking table for remediation status"
+        required: false
+        content_template: "remediation"
+
+  sec_review:
+    name: "Security Review"
+    report_type: "sec-review"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: architecture
+        name: "Architecture Overview"
+        file: "_architecture.qmd"
+        description: "System architecture and component diagram"
+        required: false
+        content_template: "architecture"
+      - id: threat_model
+        name: "Threat Model"
+        file: "_threat-model.qmd"
+        description: "STRIDE/PASTA threat analysis"
+        required: false
+        content_template: "threat_model"
+      - id: practices
+        name: "Security Practices"
+        file: "_practices.qmd"
+        description: "Current security controls assessment"
+        required: false
+        content_template: "practices"
+      - id: compliance
+        name: "Compliance Assessment"
+        file: "_compliance.qmd"
+        description: "Regulatory compliance mapping"
+        required: false
+        content_template: "compliance"
+
+  code_review:
+    name: "Code Review"
+    report_type: "code-review"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: data_flow
+        name: "Data Flow Analysis"
+        file: "_data-flow.qmd"
+        description: "Data flow diagram and taint analysis"
+        required: false
+        content_template: "data_flow"
+
+  test_plan:
+    name: "Test Plan"
+    report_type: "test-plan"
+    sections:
+      - cover
+      - scope
+      - appendices
+    unique_sections:
+      - id: test_cases
+        name: "Test Cases"
+        file: "_test-cases.qmd"
+        description: "Detailed test case specifications"
+        required: true
+        content_template: "test_cases"
+      - id: test_matrix
+        name: "Test Matrix"
+        file: "_test-matrix.qmd"
+        description: "Coverage matrix by requirement"
+        required: false
+        content_template: "test_matrix"
+
+  gap_analysis:
+    name: "Gap Analysis Report"
+    report_type: "gap-analysis"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - appendices
+    unique_sections:
+      - id: compliance_matrix
+        name: "Compliance Matrix"
+        file: "_compliance-matrix.qmd"
+        description: "Control-by-control compliance status"
+        required: true
+        content_template: "compliance_matrix"
+      - id: gap_findings
+        name: "Gap Findings"
+        file: "_gap-findings.qmd"
+        description: "Detailed gaps by framework"
+        required: true
+        content_template: "gap_findings"
+      - id: remediation_roadmap
+        name: "Remediation Roadmap"
+        file: "_remediation-roadmap.qmd"
+        description: "Phased remediation plan"
+        required: false
+        content_template: "remediation_roadmap"
+
+  risk_assess:
+    name: "Risk Assessment Report"
+    report_type: "risk-assess"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: asset_inventory
+        name: "Asset Inventory"
+        file: "_asset-inventory.qmd"
+        description: "Categorized asset register"
+        required: true
+        content_template: "asset_inventory"
+      - id: threat_landscape
+        name: "Threat Landscape"
+        file: "_threat-landscape.qmd"
+        description: "Relevant threats and threat actors"
+        required: true
+        content_template: "threat_landscape"
+      - id: risk_register
+        name: "Risk Register"
+        file: "_risk-register.qmd"
+        description: "All risks with likelihood/impact scoring"
+        required: true
+        content_template: "risk_register"
+
+  incident:
+    name: "Incident Response Report"
+    report_type: "incident"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: timeline
+        name: "Incident Timeline"
+        file: "_timeline.qmd"
+        description: "Chronological event log"
+        required: true
+        content_template: "timeline"
+      - id: impact
+        name: "Impact Assessment"
+        file: "_impact.qmd"
+        description: "Business and technical impact"
+        required: true
+        content_template: "impact"
+      - id: root_cause
+        name: "Root Cause Analysis"
+        file: "_root-cause.qmd"
+        description: "Technical root cause analysis"
+        required: true
+        content_template: "root_cause"
+
+  advisory:
+    name: "Security Advisory"
+    report_type: "advisory"
+    sections:
+      - cover
+      - executive_summary
+      - findings
+      - recommendations
+      - appendices
+    unique_sections: []
+
+  vuln_scan:
+    name: "Vulnerability Scan Report"
+    report_type: "vuln-scan"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: scan_methodology
+        name: "Scan Methodology"
+        file: "_scan-methodology.qmd"
+        description: "Scanner configuration and scope"
+        required: true
+        content_template: "scan_methodology"
+
+  seg_test:
+    name: "Network Segmentation Test"
+    report_type: "seg-test"
+    sections:
+      - cover
+      - executive_summary
+      - scope
+      - findings
+      - recommendations
+      - appendices
+    unique_sections:
+      - id: network_diagram
+        name: "Network Diagram"
+        file: "_network-diagram.qmd"
+        description: "Network topology and zone mapping"
+        required: true
+        content_template: "network_diagram"
+      - id: connectivity_matrix
+        name: "Connectivity Matrix"
+        file: "_connectivity-matrix.qmd"
+        description: "Allowed/denied traffic rules"
+        required: true
+        content_template: "connectivity_matrix"
+
+  findings_report:
+    name: "Findings Report"
+    report_type: "findings"
+    sections:
+      - cover
+      - findings
+
+# Content templates - defines the actual QMD content for each section type
+content_templates:
+  cover: |
+    ::: {{ .report-header }}
+    {{ logo }}
+
+    # {{ title }} {.unnumbered .unlisted}
+
+    <span class="report-target">{{ project_name }}</span>
+
+    ::: {.report-header-meta}
+    <span><span class="meta-label">Organization</span>{{ client_name }}</span>
+    <span><span class="meta-label">Report Date</span>{{ report_date }}</span>
+    <span><span class="meta-label">Engagement ID</span>{{ engagement_id }}</span>
+    :::
+    :::
+
+    ::: {.classification-notice .{{ classification }}}
+    {{ classification | upper }} — For Authorized Recipients Only
+    :::
+
+    ## Report Information {.unnumbered .unlisted}
+
+    ::: {.report-meta}
+    | Field | Value |
+    |-------|-------|
+    | Project | {{ project_name }} |
+    | Version | {{ project_version }} |
+    | Repository | {{ repo_url }} |
+    | Language / Frameworks | {{ primary_language }} / {{ frameworks }} |
+    | Organization | {{ client_name }} |
+    | Assessment Type | {{ assessment_type }} |
+    | Engagement ID | {{ engagement_id }} |
+    | Classification | {{ classification }} |
+    | Review Window | {{ start_date }} — {{ end_date }} |
+    | Report Date | {{ report_date }} |
+    | Report Version | {{ report_version }} |
+    | Prepared By | {{ reviewer_name }}, {{ reviewer_org }} |
+    :::
+
+  executive_summary: |
+    # Executive Summary
+
+    {{ reviewer_org }} conducted a {{ assessment_description }} of **{{ project_name }}**
+    for {{ client_name }} from {{ start_date }} through {{ end_date }}.
+    The assessment identified **{{ finding_count }} finding(s)**.
+
+    ## Risk Distribution
+
+    | Priority | Severity | Count |
+    |----------|----------|-------|
+    | P0 | [Critical]{.badge-critical} | {{ critical_count }} |
+    | P1 | [High]{.badge-high} | {{ high_count }} |
+    | P2 | [Medium]{.badge-medium} | {{ medium_count }} |
+    | P3 | [Low]{.badge-low} | {{ low_count }} |
+    | P4 | [Informational]{.badge-info} | {{ info_count }} |
+    | | **Total** | **{{ finding_count }}** |
+
+    ## Recommendations
+
+    {{ priority_recommendations }}
+
+  scope: |
+    # Scope and Methodology
+
+    ## Codebase Overview
+
+    | Attribute | Value |
+    |-----------|-------|
+    | Repository | {{ repo_url }} |
+    | Version | {{ project_version }} |
+    | Primary Language | {{ primary_language }} |
+    | Frameworks | {{ frameworks }} |
+
+    ## In-Scope Paths
+
+    | Path | Type | Description |
+    |------|------|-------------|
+    {{ scope_in_rows }}
+
+    ## Out-of-Scope
+
+    {{ scope_out_items }}
+
+    ## Analysis Methodology
+
+    | Phase | Focus |
+    |-------|-------|
+    | 1 — Reconnaissance | Information gathering, asset discovery |
+    | 2 — Vulnerability Analysis | Pattern matching, CVE lookup |
+    | 3 — Exploitation | Proof of concept development |
+    | 4 — Reporting | Documentation and remediation guidance |
+
+    ## Compliance Frameworks
+
+    {{ compliance_items }}
+
+  findings: |
+    # Findings
+
+    {{ finding_index_table }}
+
+    {{ finding_includes }}
+
+  finding: |
+    <!-- ia:finding
+    id: {{ id }}
+    severity: {{ severity }}
+    priority: {{ priority }}
+    title: "{{ title }}"
+    status: {{ status }}
+    cwe: "{{ cwe }}"
+    owasp: "{{ owasp }}"
+    -->
+
+    ::: {.finding-{{ severity }}}
+    #### {{ id }}: {{ title }}
+
+    **Severity:** [{{ severity | title }}]{.badge-{{ severity }}} | **Priority:** {{ priority }}
+
+    **Component:** {{ component }}
+
+    **CWE:** {{ cwe }} | **OWASP:** {{ owasp }}
+
+    **Status:** {{ status }}
+
+    ---
+
+    **Description**
+
+    {{ description }}
+
+    **Impact**
+
+    {{ impact }}
+
+    **Proof of Concept**
+
+    {{ proof_of_concept }}
+
+    **Remediation**
+
+    {{ remediation }}
+
+    :::
+
+  recommendations: |
+    # Recommendations
+
+    | Priority | Criteria | Response |
+    |----------|----------|----------|
+    | P0 | Exploitable now, high impact | Remediate immediately |
+    | P1 | Significant risk, likely exploitable | Remediate within sprint |
+    | P2 | Moderate risk, harder to exploit | Plan remediation |
+    | P3 | Defense-in-depth, low impact | Backlog |
+
+    {{ priority_sections }}
+
+  appendices: |
+    ## Appendix A: CWE Reference Index {.appendix}
+
+    | Finding | CWE | OWASP |
+    |---------|-----|-------|
+    {{ cwe_rows }}
+
+    ## Appendix B: Finding Status {.appendix}
+
+    | ID | Title | Severity | Status |
+    |----|-------|----------|--------|
+    {{ status_rows }}
+
+  # Unique sections by skill
+  remediation: |
+    # Remediation Tracker
+
+    | Finding | Severity | Assigned To | Due Date | Status |
+    |---------|----------|-------------|----------|--------|
+    {{ remediation_rows }}
+
+  architecture: |
+    # Architecture Overview
+
+    ## System Components
+
+    {{ component_diagram }}
+
+    ## Trust Boundaries
+
+    {{ trust_boundaries }}
+
+  threat_model: |
+    # Threat Model
+
+    ## Threat Categories
+
+    | Category | Threats Identified |
+    |----------|-------------------|
+    {{ threat_categories }}
+
+    ## Attack Surface
+
+    {{ attack_surface }}
+
+  practices: |
+    # Security Practices Assessment
+
+    ## Current Controls
+
+    | Control Domain | Implementation Status | Notes |
+    |-----------------|----------------------|-------|
+    {{ control_rows }}
+
+  compliance: |
+    # Compliance Assessment
+
+    ## Framework Requirements
+
+    | Requirement | Status | Evidence |
+    |-------------|--------|----------|
+    {{ requirement_rows }}
+
+  data_flow: |
+    # Data Flow Analysis
+
+    ## Data Flows
+
+    {{ data_flow_diagram }}
+
+    ## Taint Sources
+
+    {{ taint_sources }}
+
+  test_cases: |
+    # Test Cases
+
+    {{ test_case_table }}
+
+    ## Test Details
+
+    {{ test_details }}
+
+  test_matrix: |
+    # Test Coverage Matrix
+
+    | Requirement | Test Case | Status | Result |
+    |-------------|-----------|--------|--------|
+    {{ matrix_rows }}
+
+  compliance_matrix: |
+    # Compliance Matrix
+
+    | Control ID | Control Description | Status | Gap | Remediation |
+    |------------|---------------------|--------|-----|-------------|
+    {{ matrix_rows }}
+
+  gap_findings: |
+    # Gap Findings
+
+    {{ gap_sections }}
+
+  remediation_roadmap: |
+    # Remediation Roadmap
+
+    ## Phase 1 (0-30 days)
+
+    {{ phase1_items }}
+
+    ## Phase 2 (30-90 days)
+
+    {{ phase2_items }}
+
+    ## Phase 3 (90+ days)
+
+    {{ phase3_items }}
+
+  asset_inventory: |
+    # Asset Inventory
+
+    | Asset | Type | Criticality | Owner | Location |
+    |-------|------|--------------|-------|----------|
+    {{ asset_rows }}
+
+  threat_landscape: |
+    # Threat Landscape
+
+    ## Relevant Threats
+
+    {{ threat_list }}
+
+    ## Threat Actors
+
+    {{ actor_list }}
+
+  risk_register: |
+    # Risk Register
+
+    | Risk ID | Description | Likelihood | Impact | Score | Treatment |
+    |---------|-------------|------------|--------|-------|-----------|
+    {{ risk_rows }}
+
+  timeline: |
+    # Incident Timeline
+
+    | Timestamp | Event | Source | Analyst |
+    |-----------|-------|--------|---------|
+    {{ timeline_rows }}
+
+  impact: |
+    # Impact Assessment
+
+    ## Business Impact
+
+    {{ business_impact }}
+
+    ## Technical Impact
+
+    {{ technical_impact }}
+
+  root_cause: |
+    # Root Cause Analysis
+
+    ## Technical Root Cause
+
+    {{ technical_root_cause }}
+
+    ## Contributing Factors
+
+    {{ contributing_factors }}
+
+  scan_methodology: |
+    # Scan Methodology
+
+    ## Scanner Configuration
+
+    | Setting | Value |
+    |---------|-------|
+    {{ config_rows }}
+
+  network_diagram: |
+    # Network Diagram
+
+    {{ network_svg }}
+
+  connectivity_matrix: |
+    # Connectivity Matrix
+
+    | Source Zone | Destination Zone | Port/Protocol | Action | Justification |
+    |-------------|-------------------|---------------|--------|---------------|
+    {{ connectivity_rows }}

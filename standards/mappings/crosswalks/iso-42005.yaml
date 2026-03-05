@@ -1,0 +1,324 @@
+framework: iso-42005
+version: "2025"
+description: ISO/IEC 42005:2025 AI System Impact Assessment cross-framework mappings
+last_updated: 2026-02-22
+note: >
+  ISO 42005 is a guidance standard organized around process elements (Clause 5) and
+  documentation content elements (Clause 6). Mappings are from guidance element IDs
+  to requirements in external frameworks. Confidence is high where ISO 42005 Annex A
+  explicitly cross-references ISO 42001 controls.
+
+mappings:
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 5: PROCESS GUIDANCE ELEMENTS
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - guidance_element: G.5.1
+    title: General — structured and consistent impact assessment process
+    external_mappings:
+      iso-42001:
+        - A.5.2   # Control: AI system impact assessment process (explicit linkage in ISO 42005 Annex A)
+        - 6.1.4   # Planning requirement: impact assessment process for AI risks
+      nist-ai-rmf:
+        - MAP 5.1   # Likelihood of impacts from AI systems is assessed
+        - GOVERN 1.3  # Organizational roles and responsibilities for managing AI risks are established
+      eu-ai-act:
+        - Article 9   # Risk management system (for high-risk AI — impact assessment is key input)
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A explicitly maps to ISO 42001 6.1.4 and A.5.2
+    notes: >
+      ISO 42005 was developed to provide implementation guidance for ISO 42001 clause 6.1.4.
+      The mapping to Annex A.5.2 is direct and normative — the standard says so explicitly.
+
+  - guidance_element: G.5.2
+    title: Documenting the process
+    external_mappings:
+      iso-42001:
+        - A.5.2   # Process requirement for impact assessment
+        - A.5.3   # Documentation of AI system impact assessments
+        - 7.5.2   # Creating documented information
+      nist-ai-rmf:
+        - GOVERN 2.2   # Accountability for AI risk management is documented
+        - MAP 5.1      # Impact assessment process documentation
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps to ISO 42001 A.5.2 and A.5.3
+
+  - guidance_element: G.5.3
+    title: Integration with other organizational management processes
+    external_mappings:
+      iso-42001:
+        - 6.1.1   # Actions to address risks and opportunities
+        - 6.1.4   # AI system impact assessment planning
+        - "4.1"   # Understanding the organization and its context
+      iso-23894:
+        - Clause 6  # AI risk management integration
+      nist-ai-rmf:
+        - MAP 1.1   # Context is established for the AI risk assessment
+        - GOVERN 1.4  # Organizational teams are committed to governance and accountability
+      eu-ai-act:
+        - Article 9   # Risk management system — integration with existing management systems
+    confidence: high
+    evidence:
+      - ISO 42005 clause 5.3 explicitly references integration with risk assessment (ISO 23894)
+
+  - guidance_element: G.5.4
+    title: Timing of AI system impact assessment
+    external_mappings:
+      iso-42001:
+        - 8.4    # AI system impact assessment operational requirement (review intervals)
+        - 6.1.4  # Planning requirement for when assessments are conducted
+        - A.5.2  # Process control including timing
+      nist-ai-rmf:
+        - MAP 5.1   # AI lifecycle stage consideration for impact assessment
+        - MANAGE 4.1  # Post-deployment risk monitoring and review
+      eu-ai-act:
+        - Article 9   # Risk management system shall be carried out throughout life cycle
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps timing guidance to ISO 42001 8.4
+
+  - guidance_element: G.5.5
+    title: Scope of the AI system impact assessment
+    external_mappings:
+      iso-42001:
+        - 6.1.4  # Scope planning for impact assessment
+        - "4.3"  # Determining the scope of the management system
+        - A.5.2  # Impact assessment process — scope element
+      nist-ai-rmf:
+        - MAP 1.5   # Organizational risk tolerance for AI impacts
+        - MAP 3.1   # Assessment of AI technology and context
+    confidence: high
+    evidence:
+      - ISO 42005 clause 5.5 discusses scope consistent with ISO 42001 6.1.4
+
+  - guidance_element: G.5.6
+    title: Allocating responsibilities
+    external_mappings:
+      iso-42001:
+        - A.3.2   # Roles and responsibilities for AI systems (implementation guidance)
+        - "5.3"   # Organizational roles, responsibilities, and authorities
+      nist-ai-rmf:
+        - GOVERN 2.1   # Roles and responsibilities for teams that develop AI are established
+        - GOVERN 3.2   # Executive leadership responsibilities for AI governance are documented
+      eu-ai-act:
+        - Article 26   # Obligations of deployers of high-risk AI systems
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps responsibility guidance to ISO 42001 A.3.2
+
+  - guidance_element: G.5.7
+    title: Establishing thresholds for sensitive uses, restricted uses and impact scales
+    external_mappings:
+      iso-42001:
+        - A.5.2   # Impact assessment process — threshold element
+        - A.5.5   # Assessing societal impacts
+      nist-ai-rmf:
+        - MAP 1.5   # Likelihood of impacts from AI systems is estimated
+        - MAP 5.1   # AI impact identification and significance assessment
+        - GOVERN 1.3  # Risk tolerance established for AI use cases
+      eu-ai-act:
+        - Article 6   # Classification of high-risk AI systems (comparable to "restricted use")
+        - Article 9   # Risk management system — risk acceptance criteria
+    confidence: high
+    evidence:
+      - ISO 42005 clause 5.7 provides threshold guidance comparable to EU AI Act risk categorization
+
+  - guidance_element: G.5.8
+    title: Performing the AI system impact assessment
+    external_mappings:
+      iso-42001:
+        - A.5.2   # Process control for performing assessment
+        - A.5.4   # Assessing AI system impact on individuals and groups of individuals
+        - A.5.5   # Assessing societal impacts of AI systems
+        - 6.1.4   # Operational execution of impact assessment
+      nist-ai-rmf:
+        - MAP 5.1   # AI impacts are identified and documented
+        - MAP 5.2   # Practices and personnel to implement risk treatment
+        - MEASURE 2.11  # Fairness and bias — part of impact identification
+      eu-ai-act:
+        - Article 9   # Risk identification and analysis
+        - Article 10  # Data governance considerations in assessment
+    confidence: high
+    evidence:
+      - Direct alignment between ISO 42005 clause 5.8 and ISO 42001 A.5.2, A.5.4, A.5.5
+
+  - guidance_element: G.5.9
+    title: Analysing the results of the AI system impact assessment
+    external_mappings:
+      iso-42001:
+        - 6.1.4   # Using impact assessment results in planning
+        - A.5.2   # Analysis element of impact assessment process
+        - "8.1"   # Operational planning and control
+      nist-ai-rmf:
+        - MANAGE 1.1   # Risk treatment options are identified
+        - MANAGE 1.3   # Responses to risks are implemented
+        - MAP 5.2      # Risk treatment options and monitoring
+    confidence: medium
+    evidence:
+      - ISO 42005 clause 5.9 describes analysis feeding into risk treatment — aligns with NIST RMF MANAGE
+
+  - guidance_element: G.5.10
+    title: Recording and reporting
+    external_mappings:
+      iso-42001:
+        - A.5.3   # Documentation of AI system impact assessments (explicit control)
+        - 7.5.2   # Creating documented information
+        - 7.5.3   # Control of documented information
+        - "9.1"   # Monitoring, measurement, analysis and evaluation
+      nist-ai-rmf:
+        - GOVERN 2.2   # AI risk management accountability is documented
+        - MEASURE 2.8  # AI risk management practices are reviewed
+        - MEASURE 4.2  # Measurable performance improvements occur for AI risk management
+      eu-ai-act:
+        - Article 11   # Technical documentation requirements
+        - Article 12   # Record-keeping for high-risk AI
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps recording/reporting to ISO 42001 A.5.3
+
+  - guidance_element: G.5.11
+    title: Approval process
+    external_mappings:
+      iso-42001:
+        - A.5.2   # Approval element of impact assessment process
+        - 6.1.4   # Approval in planning context
+        - "8.1"   # Operational planning — approval gates
+      nist-ai-rmf:
+        - GOVERN 2.1   # Accountability structures for AI risk decisions
+        - MANAGE 1.1   # Risk treatment decisions and approvals
+    confidence: medium
+    evidence:
+      - ISO 42005 clause 5.11 provides approval guidance — aligned with ISO 42001 governance structure
+
+  - guidance_element: G.5.12
+    title: Monitoring and review
+    external_mappings:
+      iso-42001:
+        - A.5.4   # Assessing impacts — ongoing (monitoring element)
+        - "9.1"   # Performance evaluation
+        - 8.4     # AI system impact assessment — monitoring at operational level
+        - "10.1"  # Continual improvement
+      nist-ai-rmf:
+        - MANAGE 4.1   # Monitored for any significant change post-deployment
+        - MEASURE 4.3  # All identified AI risks are monitored over time
+      eu-ai-act:
+        - Article 9   # Risk management system — post-market monitoring component
+    confidence: high
+    evidence:
+      - ISO 42005 clause 5.12 monitoring guidance maps to ISO 42001 clause 9.1 and 8.4
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # CLAUSE 6: DOCUMENTATION CONTENT ELEMENTS
+  # ─────────────────────────────────────────────────────────────────────────
+
+  - guidance_element: G.6.3
+    title: AI system information (description, capabilities, purpose, intended and unintended uses)
+    external_mappings:
+      iso-42001:
+        - A.4.2   # AI system purpose
+        - A.4.3   # AI system documentation
+        - A.4.4   # AI system intended uses
+        - A.4.5   # Unintended uses (misuse)
+        - A.5.3   # Documentation of impact assessment
+      nist-ai-rmf:
+        - MAP 1.6   # Intended uses and context of use
+        - MAP 2.2   # Scientific findings, context, and constraints
+      eu-ai-act:
+        - Article 11   # Technical documentation — system description elements
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps 6.3 to ISO 42001 A.4.2, A.4.3, A.4.4, A.4.5
+
+  - guidance_element: G.6.4
+    title: Data information and quality
+    external_mappings:
+      iso-42001:
+        - A.7.2   # Data for development of AI systems
+        - A.7.3   # Data governance
+        - A.7.4   # Data acquisition and data preparation
+        - A.4.6   # Resource documentation (data resources)
+      nist-ai-rmf:
+        - MAP 2.3   # AI system training or operation data is documented
+        - MEASURE 2.5  # AI system performance is evaluated
+      eu-ai-act:
+        - Article 10  # Data and data governance for high-risk AI
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps data documentation to ISO 42001 A.7.x and B.4.2
+
+  - guidance_element: G.6.6
+    title: Deployment environment
+    external_mappings:
+      iso-42001:
+        - A.4.6   # Resource documentation — deployment environment
+        - A.6.2.2  # AI system design
+        - A.6.2.3  # AI system operational and technical environment
+      nist-ai-rmf:
+        - MAP 1.5   # AI system context — deployment environment
+        - MAP 3.1   # Assessment context including deployment environment
+      eu-ai-act:
+        - Article 11   # Technical documentation — deployment conditions
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps deployment environment documentation to ISO 42001 B.4.2
+
+  - guidance_element: G.6.7
+    title: Relevant interested parties
+    external_mappings:
+      iso-42001:
+        - A.5.4   # Assessing AI system impact on individuals and groups of individuals (explicit control)
+        - A.5.5   # Assessing societal impacts of AI systems (explicit control)
+        - "4.2"   # Understanding the needs and expectations of interested parties
+      nist-ai-rmf:
+        - MAP 1.5   # Likelihood of impacts from AI systems on different groups
+        - MAP 1.6   # Stakeholder engagement
+        - GOVERN 6.1  # Policies for AI governance with affected communities
+      eu-ai-act:
+        - Article 9   # Risk identification — affected persons
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A explicitly maps interested party analysis to ISO 42001 A.5.4 and B.5.4/B.5.5
+
+  - guidance_element: G.6.8
+    title: Actual and reasonably foreseeable impacts (benefits and harms)
+    external_mappings:
+      iso-42001:
+        - A.5.4   # Assessing AI system impact on individuals and groups
+        - A.5.5   # Assessing societal impacts of AI systems
+        - 6.1.4   # Impact assessment planning — impact identification element
+      iso-24028:
+        - 6.5    # Safety trustworthiness property
+        - 6.7    # Privacy trustworthiness property
+        - 6.9    # Fairness trustworthiness property
+        - 6.10   # Accountability trustworthiness property
+        - 6.11   # Transparency trustworthiness property
+      nist-ai-rmf:
+        - MEASURE 2.5   # AI system to operation data
+        - MEASURE 2.11  # Fairness and bias assessment
+        - MEASURE 2.7   # Robustness to adversarial attack
+      eu-ai-act:
+        - Article 9   # Risk identification and analysis — impacts to fundamental rights
+        - Article 27  # Fundamental rights impact assessment for deployers
+    confidence: high
+    evidence:
+      - ISO 42005 Annex A maps 6.8 to ISO 42001 A.5.4, A.5.5, B.5.4, B.5.5
+
+  - guidance_element: G.6.9
+    title: Measures to address harms and benefits
+    external_mappings:
+      iso-42001:
+        - A.5.2   # Impact assessment process — treatment element
+        - 6.1.4   # Risk treatment as output of impact assessment
+        - "8.3"   # Design and development of AI systems (technical measures)
+      nist-ai-rmf:
+        - MANAGE 1.1   # Risk treatment options identified and prioritized
+        - MANAGE 1.3   # Responses to risks and benefits are implemented
+        - MANAGE 2.2   # Accountability for risk response actions
+      eu-ai-act:
+        - Article 9   # Risk management measures implementation
+    confidence: high
+    evidence:
+      - ISO 42005 clause 6.9 maps treatment documentation to ISO 42001 approval process (clause 5.11/6.1.4)

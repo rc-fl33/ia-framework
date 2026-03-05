@@ -1,0 +1,108 @@
+# ─── Per-Skill Metadata Schemas ───
+# Defines the skill_metadata extensions for each skill's _status.yaml
+# These fields live under skill_metadata: in the checkpoint file
+
+# ─────────────────────────────────────────────
+# CAREER (5 phases)
+# ─────────────────────────────────────────────
+career:
+  company: "{company name}"
+  role: "{job title}"
+  match_score: null              # set after Phase 1 (e.g., 82)
+  decision: null                 # GO | CONDITIONAL GO | NO-GO
+  application_url: null          # set in Phase 4
+  sources_collected: 0           # count from Phase 2
+
+# ─────────────────────────────────────────────
+# MENTORSHIP (4 phases)
+# ─────────────────────────────────────────────
+mentorship:
+  goal: "{learning goal}"
+  target_role: "{target job/skill}"
+  mode: null                     # Learning Roadmap | Certification Prep | Portfolio Building | Job Preparation | Career Progression
+  timeline_days: 90
+  hours_per_week: 0
+  certifications_target: []
+
+# ─────────────────────────────────────────────
+# TRAINING (5 phases)
+# ─────────────────────────────────────────────
+training:
+  goal: "{fitness goal}"
+  fitness_level: null            # Beginner | Intermediate | Advanced
+  equipment: null                # None | Minimal | Home Gym | Full Gym
+  frequency: null                # 2-3x | 4x | 5-6x per week
+  training_split: null           # set in Phase 2
+
+# ─────────────────────────────────────────────
+# COMPLIANCE (7 phases)
+# ─────────────────────────────────────────────
+compliance:
+  client: "{client/org name}"
+  frameworks: []                 # e.g., ["AIUC-1", "NIST-CSF"]
+  controls_assessed: 0
+  controls_total: 0
+  findings_count: 0
+  context_yaml_path: null        # links to existing context.yaml
+
+# ─────────────────────────────────────────────
+# CLIFTON (5 phases)
+# ─────────────────────────────────────────────
+clifton:
+  name: "{person's name}"
+  top_themes: []                 # e.g., ["Strategic", "Learner", "Achiever"]
+  output_formats: []             # e.g., ["markdown", "html"]
+
+# ─────────────────────────────────────────────
+# GHOST / WRITE (5 phases each)
+# ─────────────────────────────────────────────
+content:
+  title: "{post/article title}"
+  topic: "{topic}"
+  target_platform: null          # ghost | markdown | html
+  word_count_target: null
+  sources_collected: 0
+
+# ─────────────────────────────────────────────
+# PENTEST (bridges to session.json)
+# ─────────────────────────────────────────────
+pentest:
+  session_json_path: null        # links to existing session.json
+  target: "{target name}"
+  scope: "{scope summary}"
+  mode: null                     # Director | Mentor | Demo
+
+# ─────────────────────────────────────────────
+# WELLNESS (phases vary)
+# ─────────────────────────────────────────────
+wellness:
+  focus_area: "{health topic}"
+  modalities: []
+
+# ─────────────────────────────────────────────
+# ADVISORY (3 phases)
+# ─────────────────────────────────────────────
+advisory:
+  topic: "{security/advisory topic}"
+  scope: "{scope}"
+
+# ─────────────────────────────────────────────
+# INFRASTRUCTURE-MANAGEMENT (phases vary)
+# ─────────────────────────────────────────────
+infrastructure:
+  target_system: "{system name}"
+  action_type: null              # deploy | harden | remediate
+
+# ─────────────────────────────────────────────
+# CREATE (skill creation wizard)
+# ─────────────────────────────────────────────
+create:
+  skill_name: "{new skill name}"
+  classification: "private"
+
+# ─────────────────────────────────────────────
+# INCIDENT (incident response)
+# ─────────────────────────────────────────────
+incident:
+  incident_type: null            # documentation | tabletop | post-incident
+  severity: null

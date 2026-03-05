@@ -1,0 +1,31 @@
+::: {.report-header}
+![](../../../private/brand/assets/logo.{webp,png,jpg}){width=200}
+
+# {{title}} Report {.unnumbered .unlisted}
+
+<span class="report-target">[PROJECT NAME]</span>
+
+::: {.report-header-meta}
+<span><span class="meta-label">Organization</span>[Organization Name]</span>
+<span><span class="meta-label">Report Date</span>\date{}</span>
+<span><span class="meta-label">Engagement ID</span>[ENG-001]</span>
+:::
+:::
+
+::: {.classification-notice .confidential}
+CONFIDENTIAL — For Authorized Recipients Only
+:::
+
+## Report Information {.unnumbered .unlisted}
+
+::: {.report-meta}
+| Field | Value |
+|-------|-------|
+| Project | [Project Name] |
+| Version | 1.0 |
+| Classification | [Confidential | Restricted | Internal | Public] |
+| Engagement ID | [ENG-001] |
+| Report Date | \date{} |
+| Report Version | 1.0 |
+| Prepared By | [Your Name], [Organization] |
+:::

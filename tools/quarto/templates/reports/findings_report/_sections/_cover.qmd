@@ -1,0 +1,31 @@
+::: {.report-header}
+![](../../../private/brand/assets/logo.{webp,png,jpg}){width=200}
+
+# Findings Report {.unnumbered .unlisted}
+
+<span class="report-target">{{ project_name }}</span>
+
+::: {.report-header-meta}
+<span><span class="meta-label">Organization</span>{{ client_name }}</span>
+<span><span class="meta-label">Report Date</span>{{ report_date }}</span>
+<span><span class="meta-label">Engagement ID</span>{{ engagement_id }}</span>
+:::
+:::
+
+::: {.classification-notice .{{ .classify }}}
+{{ classification | upper }} — For Authorized Recipients Only
+:::
+
+## Report Information {.unnumbered .unlisted}
+
+::: {.report-meta}
+| Field | Value |
+|-------|-------|
+| Project | {{ project_name }} |
+| Version | {{ report_version }} |
+| Classification | {{ classification }} |
+| Engagement ID | {{ engagement_id }} |
+| Report Date | {{ report_date }} |
+| Report Version | {{ report_version }} |
+| Prepared By | {{ reviewer_name }}, {{ reviewer_org }} |
+:::

@@ -1,0 +1,46 @@
+{
+  "intent": "career-analysis",
+  "agent": "advisor",
+  "skill": "career",
+  "triggers": [
+    "job",
+    "career",
+    "application",
+    "resume",
+    "cover letter",
+    "interview",
+    "job posting",
+    "apply",
+    "job search"
+  ],
+  "required_context": [
+    "job_posting_url_or_description",
+    "user_background",
+    "deliverable_type"
+  ],
+  "optional_context": [
+    "clifton_strengths_available",
+    "specific_concerns",
+    "company_preferences",
+    "salary_expectations",
+    "timeline"
+  ],
+  "workflow_phases": [
+    "job_analysis",
+    "company_research",
+    "go_no_go_assessment",
+    "deliverable_generation",
+    "review"
+  ],
+  "quality_gates": {
+    "go_no_go_completed": true,
+    "company_research_depth": "comprehensive",
+    "tailored_to_posting": true,
+    "strengths_integrated": true,
+    "factual_accuracy": true
+  },
+  "default_output": "skills/career/output/applications/",
+  "cost_estimate": "haiku",
+  "typical_duration": "standard",
+  "enrichment_template": "User wants career/job application help.\n\nEXPLICIT REQUIREMENTS:\n- Job posting: {{url_or_description_or_needs_clarification}}\n- User background: {{from_context_or_needs_collection}}\n- Deliverables: {{resume|cover_letter|both}}\n- CliftonStrengths: {{available_or_skip}}\n- Analysis depth: GO/NO-GO assessment + company research\n- Output: skills/career/output/applications/{{company}}-{{date}}/\n\nWORKFLOW:\n1. Analyze job posting requirements\n2. Research company (culture, values, recent news)\n3. GO/NO-GO assessment (alignment, growth, compensation)\n4. Generate tailored deliverables\n5. Integrate CliftonStrengths if available\n\nQUALITY:\n- Tailored to specific posting (not generic)\n- Research-backed insights\n- Strengths-aligned positioning\n\nINSTRUCTION: Delegate to advisor agent with complete context.\n\nDelegation code:\nTask(subagent_type=\"advisor\", prompt=\"Execute career analysis workflow. Job: {{job_summary}}\")"
+}

@@ -1,0 +1,1 @@
+../skills/ghost/hooks/ghost-workflow-guard.ts

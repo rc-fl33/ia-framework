@@ -1,0 +1,163 @@
+# Capabilities Template
+# Per-skill capability registry with effort-gated access
+#
+# Usage: Copy to skills/{skill-name}/Data/Capabilities.yaml
+# Customize capabilities for your skill's domain
+
+version: "1.0"
+skill: skill-name
+
+# =============================================================================
+# EFFORT LEVELS
+# =============================================================================
+# QUICK    - Single action, obvious answer, no tools needed
+# STANDARD - Normal complexity, TodoWrite tracking, full workflow
+# THOROUGH - Complex/critical, EnterPlanMode required, user approval gates
+
+effort_default: STANDARD
+
+# =============================================================================
+# CAPABILITIES
+# =============================================================================
+# Define what this skill can do and when each capability is available
+# Each capability has:
+#   - effort_min: Minimum effort level to unlock this capability
+#   - use_when: Description of when to use this capability
+#   - tool/agent/script: How to invoke this capability
+
+capabilities:
+  # ---------------------------------------------------------------------------
+  # Research Capabilities
+  # ---------------------------------------------------------------------------
+  research:
+    web_search:
+      effort_min: STANDARD
+      use_when: "Need current information, citations, external sources"
+      tool: WebSearch
+
+    web_fetch:
+      effort_min: STANDARD
+      use_when: "Need to retrieve specific URL content"
+      tool: WebFetch
+
+    context7:
+      effort_min: STANDARD
+      use_when: "Need library documentation, API references"
+      tool: Context7
+
+    codebase_explore:
+      effort_min: STANDARD
+      use_when: "Need to understand codebase structure or find code"
+      tool: Task
+      tool_config:
+        subagent_type: Explore
+
+  # ---------------------------------------------------------------------------
+  # Validation Capabilities
+  # ---------------------------------------------------------------------------
+  validation:
+    qa_review:
+      effort_min: STANDARD
+      use_when: "Content needs quality verification before delivery"
+      agent: advisor
+      workflow: qa-review
+
+    grok_verify:
+      effort_min: THOROUGH
+      use_when: "Claims need external fact-check, citations need verification"
+      tool: GrokVerification
+
+    user_approval:
+      effort_min: THOROUGH
+      use_when: "Critical decision requires explicit user sign-off"
+      tool: AskUserQuestion
+
+  # ---------------------------------------------------------------------------
+  # Execution Capabilities
+  # ---------------------------------------------------------------------------
+  execution:
+    generate_image:
+      effort_min: STANDARD
+      use_when: "Need hero image, diagram, or visualization"
+      script: scripts/generate-hero.ts
+
+    file_operations:
+      effort_min: QUICK
+      use_when: "Need to read, write, or edit files"
+      tools: [Read, Write, Edit, Glob, Grep]
+
+  # ---------------------------------------------------------------------------
+  # Planning Capabilities
+  # ---------------------------------------------------------------------------
+  planning:
+    enter_plan_mode:
+      effort_min: THOROUGH
+      use_when: "Complex workflow requires user approval before execution"
+      tool: EnterPlanMode
+      required: true  # MUST use for THOROUGH effort
+
+    todo_tracking:
+      effort_min: STANDARD
+      use_when: "Need to track Success Criteria or multi-step progress"
+      tool: TodoWrite
+
+# =============================================================================
+# EFFORT UNLOCKS
+# =============================================================================
+# What capabilities are available at each effort level
+
+effort_unlocks:
+  QUICK:
+    capabilities:
+      - execution.file_operations
+    description: "Direct response, basic file operations only"
+
+  STANDARD:
+    capabilities:
+      - research.web_search
+      - research.web_fetch
+      - research.context7
+      - research.codebase_explore
+      - validation.qa_review
+      - execution.generate_image
+      - execution.file_operations
+      - planning.todo_tracking
+    description: "Full workflow with Success Criteria tracking via TodoWrite"
+
+  THOROUGH:
+    capabilities:
+      - all_standard
+      - validation.grok_verify
+      - validation.user_approval
+      - planning.enter_plan_mode
+    description: "Full workflow + EnterPlanMode required + approval gates"
+    requirements:
+      - "MUST call EnterPlanMode before any execution"
+      - "MUST get user approval at critical gates"
+      - "MUST verify all claims with external sources"
+
+# =============================================================================
+# AGENT DELEGATION
+# =============================================================================
+# When to delegate to specialized agents
+
+agent_delegation:
+  security_assessment:
+    agent: security
+    use_when: "Need penetration testing, vulnerability scanning, code review"
+
+  implementation:
+    agent: engineer
+    use_when: "Need infrastructure changes, remediation, hardening"
+
+  content_creation:
+    agent: writer
+    use_when: "Need blog posts, documentation, reports"
+
+  advisory_research:
+    agent: advisor
+    use_when: "Need OSINT, career guidance, QA review, compliance"
+
+  legal_compliance:
+    agent: legal
+    use_when: "Need legal analysis, compliance review, risk assessment"

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Component Gallery</title>
+<!-- Bootstrap 5 (matches Quarto's HTML output base) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+<!-- Bootstrap Icons (Quarto uses these for callout icons) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!-- Google Fonts — all editor font options pre-loaded -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Outfit:wght@400;600;700&family=Poppins:wght@400;600;700&family=Raleway:wght@400;600;700&family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@400;500&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Cascadia Code — not on Google Fonts, via fontsource CDN -->
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code/index.css" rel="stylesheet">
+<style>
+/* ===== Design Tokens (CSS vars — editor injects overrides here) ===== */
+:root {
+  --navy:         #1F3B5C;
+  --blue:         #4A90E2;
+  --navy-mid:     #2D5380;
+  --critical:        #7C3AED;
+  --critical-bg:     #F5F3FF;
+  --critical-border: #DDD6FE;
+  --high:            #DC2626;
+  --high-bg:         #FEF2F2;
+  --high-border:     #FECACA;
+  --medium:          #EA580C;
+  --medium-bg:       #FFF7ED;
+  --medium-border:   #FED7AA;
+  --low:             #16A34A;
+  --low-bg:          #F0FDF4;
+  --low-border:      #BBF7D0;
+  --info:            #2563EB;
+  --info-bg:         #EFF6FF;
+  --info-border:     #BFDBFE;
+  --compliant:       var(--low);
+  --compliant-bg:    var(--low-bg);
+  --partial:         var(--medium);
+  --partial-bg:      var(--medium-bg);
+  --non-compliant:   var(--high);
+  --non-compliant-bg:var(--high-bg);
+  --na:              #6B7280;
+  --na-bg:           #F9FAFB;
+  --pending:         var(--info);
+  --pending-bg:      var(--info-bg);
+  --risk-accepted:   #6B7280;
+  --risk-accepted-bg:#F9FAFB;
+  --table-header-bg:   var(--navy);
+  --table-header-text: #FFFFFF;
+  --table-stripe:      #F8FAFC;
+  --table-border:      #E5E7EB;
+  --code-bg:          #0F172A;
+  --code-text:        #E2E8F0;
+  --code-inline-bg:   #F1F5F9;
+  --code-inline-text: #DC2626;
+  /* Logo wrapper */
+  --logo-bg:          transparent;
+  --logo-padding:     6px;
+  --logo-radius:      4px;
+  --logo-max-height:  56px;
+  /* Typography */
+  --font-base:          "Inter", system-ui, sans-serif;
+  --font-heading:       "Outfit", system-ui, sans-serif;
+  --font-mono:          "Fira Code", "JetBrains Mono", Consolas, monospace;
+  --font-size-base:     15px;
+  --line-height:        1.65;
+  --heading-weight:     600;
+  /* Override Bootstrap's monospace stack so all code/pre/kbd elements use our token */
+  --bs-font-monospace:  var(--font-mono);
+}
+
+/* ===== Bootstrap overrides via IA tokens ===== */
+body {
+  font-family: var(--font-base) !important;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: #1A202C;
+  background: #f3f4f6;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--heading-weight);
+  color: var(--navy);
+}
+a { color: var(--blue); }
+
+/* Hide navbar when embedded in iframe */
+body.embedded .navbar { display: none !important; }
+body.embedded .gallery-wrap { padding-top: 1rem; }
+
+/* ===== Gallery chrome ===== */
+.gallery-wrap { max-width: 940px; margin: 0 auto; padding: 1.75rem; }
+.gallery-section { background: #fff; border-radius: 8px; padding: 1.4rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+.gallery-section-title {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #9CA3AF; margin-bottom: 1rem;
+  padding-bottom: 0.4rem; border-bottom: 1px solid #F3F4F6;
+}
+
+/* ===== Report Header ===== */
+.report-header { background: var(--navy); color: #fff; padding: 2rem; border-radius: 8px; }
+.report-header h1 {
+  color: #fff !important; font-size: 1.75rem;
+  border-bottom: 2px solid rgba(255,255,255,0.25);
+  padding-bottom: 0.5rem; margin-bottom: 0.75rem;
+}
+.report-header-meta { display: flex; gap: 2rem; font-size: 0.85rem; opacity: 0.85; }
+.report-header-meta span { display: flex; flex-direction: column; gap: 2px; }
+.meta-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
+
+/* ===== Classification Notice ===== */
+.classification-notice {
+  background: #FEF3C7; border: 1px solid #F59E0B; border-left: 5px solid #F59E0B;
+  border-radius: 6px; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 600;
+  color: #92400E; text-align: center; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.classification-notice.confidential { background: var(--high-bg); border-color: var(--high); color: #7F1D1D; }
+
+/* ===== Severity badges ===== */
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+/* Use !important to win over Bootstrap's own .badge-* namespace */
+.badge-critical, .badge-high, .badge-medium, .badge-low, .badge-info, .badge-informational {
+  display: inline-block !important; padding: 0.2em 0.6em !important;
+  border-radius: 20px !important; font-size: 0.75rem !important;
+  font-weight: 700 !important; text-transform: uppercase !important;
+  letter-spacing: 0.04em !important; white-space: nowrap !important;
+}
+.badge-critical { background: var(--critical) !important; color: #fff !important; }
+.badge-high     { background: var(--high) !important;     color: #fff !important; }
+.badge-medium   { background: var(--medium) !important;   color: #fff !important; }
+.badge-low      { background: var(--low) !important;      color: #fff !important; }
+.badge-info, .badge-informational { background: var(--info) !important; color: #fff !important; }
+
+/* ===== Status / Risk / Priority badges ===== */
+.status-compliant, .status-partial, .status-non-compliant,
+.status-na, .status-not-applicable, .status-pending,
+.risk-critical, .risk-high, .risk-medium, .risk-low, .risk-accepted,
+.priority-immediate, .priority-short-term, .priority-medium-term,
+.priority-long-term, .priority-accepted {
+  display: inline-block; padding: 0.2em 0.55em; border-radius: 4px;
+  font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.04em; white-space: nowrap;
+}
+.status-compliant     { background: var(--compliant-bg); color: var(--compliant); border: 1px solid var(--low-border); }
+.status-partial       { background: var(--partial-bg); color: var(--partial); border: 1px solid var(--medium-border); }
+.status-non-compliant { background: var(--non-compliant-bg); color: var(--non-compliant); border: 1px solid var(--high-border); }
+.status-na, .status-not-applicable { background: var(--na-bg); color: var(--na); border: 1px solid #D1D5DB; }
+.status-pending       { background: var(--pending-bg); color: var(--pending); border: 1px solid var(--info-border); }
+.risk-critical { background: var(--critical); color: #fff; font-weight: 700; }
+.risk-high     { background: var(--high);     color: #fff; font-weight: 700; }
+.risk-medium   { background: var(--medium);   color: #fff; font-weight: 700; }
+.risk-low      { background: var(--low);      color: #fff; font-weight: 700; }
+.risk-accepted { background: var(--risk-accepted-bg); color: var(--risk-accepted); border: 1px solid #D1D5DB; font-weight: 700; }
+.priority-immediate   { background: var(--critical); color: #fff; }
+.priority-short-term  { background: var(--high);     color: #fff; }
+.priority-medium-term { background: var(--medium);   color: #fff; }
+.priority-long-term   { background: var(--low);      color: #fff; }
+.priority-accepted    { background: var(--risk-accepted-bg); color: var(--risk-accepted); border: 1px solid #D1D5DB; }
+
+/* ===== Tables (Bootstrap .table base + IA header override) ===== */
+.table > thead > tr > th {
+  background: var(--table-header-bg) !important;
+  color: var(--table-header-text) !important;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: none !important;
+}
+.table > tbody > tr > td { vertical-align: middle; font-size: 0.875rem; }
+.table > tbody > tr:nth-child(even) > td { background: var(--table-stripe) !important; }
+.table > tbody > tr:hover > td { background: #EFF6FF !important; }
+.table { border-color: var(--table-border); }
+
+/* ===== Finding blocks ===== */
+.finding-critical, .finding-high, .finding-medium, .finding-low, .finding-info {
+  border-radius: 6px; padding: 1.1rem 1.4rem; border: 1px solid; border-left-width: 5px;
+}
+.finding-critical { background: var(--critical-bg); border-color: var(--critical-border); border-left-color: var(--critical); }
+.finding-high     { background: var(--high-bg);     border-color: var(--high-border);     border-left-color: var(--high); }
+.finding-medium   { background: var(--medium-bg);   border-color: var(--medium-border);   border-left-color: var(--medium); }
+.finding-low      { background: var(--low-bg);      border-color: var(--low-border);      border-left-color: var(--low); }
+.finding-info     { background: var(--info-bg);     border-color: var(--info-border);     border-left-color: var(--info); }
+.finding-critical h4 { color: var(--critical); margin: 0 0 0.4rem; font-size: 0.95rem; }
+.finding-high h4     { color: var(--high);     margin: 0 0 0.4rem; font-size: 0.95rem; }
+.finding-medium h4   { color: var(--medium);   margin: 0 0 0.4rem; font-size: 0.95rem; }
+.finding-low h4      { color: var(--low);      margin: 0 0 0.4rem; font-size: 0.95rem; }
+.finding-info h4     { color: var(--info);     margin: 0 0 0.4rem; font-size: 0.95rem; }
+.finding-meta { font-size: 0.8rem; color: #6B7280; margin-top: 0.5rem; }
+
+/* ===== Quarto callout base structure ===== */
+/* Matches the HTML Quarto actually generates for ::: {.callout-note} etc. */
+.callout {
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.callout.callout-style-default {
+  border: 1px solid #dee2e6;
+  border-left-width: 5px;
+}
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.callout-icon-container { font-size: 0.95rem; line-height: 1; }
+.callout-title-container { flex: 1; }
+.callout-body {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+}
+.callout-body p:last-child { margin-bottom: 0; }
+
+/* IA callout overrides (mirrors styles.css exactly) */
+div.callout-important { border-left-color: var(--critical) !important; background: var(--critical-bg) !important; }
+div.callout-important .callout-header { color: var(--critical) !important; background: var(--critical-bg) !important; }
+div.callout-warning   { border-left-color: var(--high) !important;     background: var(--high-bg) !important; }
+div.callout-warning   .callout-header { color: var(--high) !important;     background: var(--high-bg) !important; }
+div.callout-caution   { border-left-color: var(--medium) !important;   background: var(--medium-bg) !important; }
+div.callout-caution   .callout-header { color: var(--medium) !important;   background: var(--medium-bg) !important; }
+div.callout-tip       { border-left-color: var(--low) !important;      background: var(--low-bg) !important; }
+div.callout-tip       .callout-header { color: var(--low) !important;      background: var(--low-bg) !important; }
+div.callout-note      { border-left-color: var(--info) !important;     background: var(--info-bg) !important; }
+div.callout-note      .callout-header { color: var(--info) !important;     background: var(--info-bg) !important; }
+
+/* ===== Quarto sourceCode block structure ===== */
+/* Matches what Quarto generates for fenced code blocks */
+div.sourceCode {
+  position: relative;
+  margin-bottom: 0;
+}
+div.sourceCode pre.sourceCode {
+  background: var(--code-bg) !important;
+  color: var(--code-text) !important;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+  border: none !important;
+}
+div.sourceCode pre.sourceCode code { color: var(--code-text) !important; background: none; font-size: inherit; }
+.code-copy-button {
+  position: absolute;
+  top: 0.5rem; right: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #94A3B8;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  line-height: 1.6;
+  transition: background 0.15s, color 0.15s;
+}
+.code-copy-button:hover { background: rgba(255,255,255,0.18); color: #E2E8F0; }
+
+/* ===== Logo wrapper ===== */
+.logo-bg-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--logo-bg);
+  padding: var(--logo-padding);
+  border-radius: var(--logo-radius);
+}
+.logo-bg-container img {
+  max-height: var(--logo-max-height);
+  width: auto;
+  display: block;
+}
+
+/* Inline code (Bootstrap overrides code color/font, we restore IA tokens) */
+p code, li code, td code {
+  font-family: var(--font-mono) !important;
+  background: var(--code-inline-bg) !important;
+  color: var(--code-inline-text) !important;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+</style>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <i class="bi bi-layout-text-window-reverse"></i> Report Builder
+      </a>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/">Brand</a>
+        <a class="nav-link active" href="/gallery">Gallery</a>
+        <a class="nav-link" href="/builder">Report Builder</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="gallery-wrap">
+
+  <!-- ── Report Header ── -->
+  <div class="gallery-section" style="padding:0;overflow:hidden;">
+    <div class="report-header">
+      <div id="logo-wrapper" style="display:none;margin-bottom:1rem;">
+        <div class="logo-bg-container">
+          <img id="gallery-logo" src="" alt="Client Logo">
+        </div>
+      </div>
+      <h1>Penetration Test Report</h1>
+      <div class="report-header-meta">
+        <span><span class="meta-label">Client</span>Acme Corporation</span>
+        <span><span class="meta-label">Date</span>2026-02-27</span>
+        <span><span class="meta-label">Classification</span>Confidential</span>
+        <span><span class="meta-label">Report ID</span>PT-2026-001</span>
+      </div>
+    </div>
+    <div style="padding:1rem;">
+      <div class="classification-notice confidential">CONFIDENTIAL — For Authorized Recipients Only</div>
+    </div>
+  </div>
+
+  <!-- ── Severity Badges ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Severity Badges</div>
+    <div class="badge-row">
+      <span class="badge-critical">Critical</span>
+      <span class="badge-high">High</span>
+      <span class="badge-medium">Medium</span>
+      <span class="badge-low">Low</span>
+      <span class="badge-info">Informational</span>
+    </div>
+  </div>
+
+  <!-- ── Font Specimens ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Font Specimens — changes here reflect typography selectors</div>
+    <div style="display:flex;flex-direction:column;gap:0.9rem;">
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9CA3AF;margin-bottom:3px;">Base Font</div>
+        <div style="font-family:var(--font-base);font-size:var(--font-size-base);line-height:var(--line-height);">The quick brown fox jumps over the lazy dog — 0 1 2 3 4 5 6 7 8 9</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9CA3AF;margin-bottom:3px;">Heading Font</div>
+        <div style="font-family:var(--font-heading);font-size:1.3rem;font-weight:var(--heading-weight);line-height:1.3;color:var(--navy);">Security Assessment Report — Executive Summary</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9CA3AF;margin-bottom:3px;">Monospace Font</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;line-height:1.6;background:#F8FAFC;border-radius:6px;padding:0.6rem 0.9rem;border:1px solid #E5E7EB;">
+          const exploit = () =&gt; fetch('/api/login', { body: JSON.stringify({ user: "' OR 1=1 --" }) });<br>
+          HTTP/1.1 200 OK &nbsp;&nbsp;Set-Cookie: session=eyJhbGci... &nbsp;&nbsp;// authenticated
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Risk Summary Table ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Risk Summary Table</div>
+    <table class="table table-hover mb-0">
+      <thead><tr>
+        <th>Severity</th><th>Count</th><th>Risk Level</th><th>Description</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span class="badge-critical">Critical</span></td><td>2</td><td><span class="risk-critical">Critical</span></td><td>Immediate remediation required</td></tr>
+        <tr><td><span class="badge-high">High</span></td><td>4</td><td><span class="risk-high">High</span></td><td>Remediate within 7 days</td></tr>
+        <tr><td><span class="badge-medium">Medium</span></td><td>6</td><td><span class="risk-medium">Medium</span></td><td>Remediate within 30 days</td></tr>
+        <tr><td><span class="badge-low">Low</span></td><td>3</td><td><span class="risk-low">Low</span></td><td>Best-effort remediation</td></tr>
+        <tr><td><span class="badge-info">Info</span></td><td>1</td><td><span class="risk-accepted">Accepted</span></td><td>Informational only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Finding Blocks ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Finding Blocks</div>
+    <div class="d-flex flex-column gap-2">
+      <div class="finding-critical">
+        <h4>F-001: SQL Injection in Authentication Endpoint</h4>
+        <p class="mb-0" style="font-size:0.875rem;">The <code>/api/login</code> endpoint accepts unsanitized input in the <code>username</code> parameter, allowing complete authentication bypass.</p>
+        <div class="finding-meta">CVSS 9.8 · CVE-2021-44228 · Status: Open</div>
+      </div>
+      <div class="finding-high">
+        <h4>F-002: Stored Cross-Site Scripting in Dashboard</h4>
+        <p class="mb-0" style="font-size:0.875rem;">User-supplied content is rendered without output encoding in the activity dashboard, enabling persistent XSS.</p>
+        <div class="finding-meta">CVSS 7.4 · Status: Open</div>
+      </div>
+      <div class="finding-medium">
+        <h4>F-003: Insecure Direct Object Reference</h4>
+        <p class="mb-0" style="font-size:0.875rem;">The document download endpoint exposes predictable identifiers without authorization checks.</p>
+        <div class="finding-meta">CVSS 5.3 · Status: In Progress</div>
+      </div>
+      <div class="finding-low">
+        <h4>F-004: Missing Security Headers</h4>
+        <p class="mb-0" style="font-size:0.875rem;">CSP, HSTS, and X-Frame-Options headers are absent, reducing defense-in-depth.</p>
+        <div class="finding-meta">CVSS 3.1 · Status: Open</div>
+      </div>
+      <div class="finding-info">
+        <h4>F-005: TLS 1.1 Supported</h4>
+        <p class="mb-0" style="font-size:0.875rem;">The server accepts TLS 1.1 connections. Consider disabling deprecated protocol versions.</p>
+        <div class="finding-meta">Informational · Status: Open</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Findings Table ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Findings Table</div>
+    <table class="table table-hover mb-0">
+      <thead><tr><th>ID</th><th>Title</th><th>Severity</th><th>CVSS</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>F-001</td><td>SQL Injection in Authentication</td><td><span class="badge-critical">Critical</span></td><td>9.8</td><td>Open</td></tr>
+        <tr><td>F-002</td><td>Stored XSS in Dashboard</td><td><span class="badge-high">High</span></td><td>7.4</td><td>Open</td></tr>
+        <tr><td>F-003</td><td>Insecure Direct Object Reference</td><td><span class="badge-medium">Medium</span></td><td>5.3</td><td>In Progress</td></tr>
+        <tr><td>F-004</td><td>Missing Security Headers</td><td><span class="badge-low">Low</span></td><td>3.1</td><td>Open</td></tr>
+        <tr><td>F-005</td><td>TLS 1.1 Supported</td><td><span class="badge-info">Info</span></td><td>—</td><td>Open</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Compliance ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Compliance Status Badges</div>
+    <div class="badge-row mb-3">
+      <span class="status-compliant">Compliant</span>
+      <span class="status-partial">Partial</span>
+      <span class="status-non-compliant">Non-Compliant</span>
+      <span class="status-na">N/A</span>
+      <span class="status-pending">Pending</span>
+    </div>
+    <table class="table table-hover mb-0">
+      <thead><tr><th>Control</th><th>Description</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>AC-1</td><td>Access Control Policy and Procedures</td><td><span class="status-compliant">Compliant</span></td></tr>
+        <tr><td>AC-2</td><td>Account Management</td><td><span class="status-partial">Partial</span></td></tr>
+        <tr><td>IA-2</td><td>Identification and Authentication</td><td><span class="status-non-compliant">Non-Compliant</span></td></tr>
+        <tr><td>SC-12</td><td>Cryptographic Key Management</td><td><span class="status-pending">Pending</span></td></tr>
+        <tr><td>PE-1</td><td>Physical Security Policy</td><td><span class="status-na">N/A</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Quarto Code Block (authentic sourceCode structure) ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Code Block — Quarto <code>div.sourceCode</code> structure</div>
+    <div class="sourceCode" id="cb1">
+      <pre class="sourceCode http code-with-copy"><code class="sourceCode http">POST /api/login HTTP/1.1
+Host: target.example.com
+Content-Type: application/json
+
+{"username": "' OR '1'='1' --", "password": "anything"}
+
+HTTP/1.1 200 OK
+Set-Cookie: session=eyJhbGciOiJIUzI1NiJ9...; Path=/; HttpOnly</code></pre>
+      <button title="Copy to Clipboard" class="code-copy-button"><i class="bi bi-clipboard"></i></button>
+    </div>
+    <p class="mt-3 mb-0" style="font-size:0.9rem;">
+      The vulnerable parameter is <code>username</code> in the POST body.
+      Response code <code>200 OK</code> with a valid session cookie confirms authentication bypass.
+    </p>
+  </div>
+
+  <!-- ── Quarto Callouts (all 5 types, authentic HTML structure) ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Quarto Callouts — authentic <code>div.callout</code> HTML</div>
+    <div class="d-flex flex-column gap-2">
+
+      <!-- ::: {.callout-important} → maps to Critical -->
+      <div class="callout callout-style-default callout-important callout-titled">
+        <div class="callout-header d-flex align-content-center">
+          <div class="callout-icon-container"><i class="bi bi-exclamation-octagon-fill"></i></div>
+          <div class="callout-title-container flex-fill">Important — Critical</div>
+        </div>
+        <div class="callout-body-container callout-body">
+          <p>Critical findings require immediate attention. Used for out-of-band exploits, RCE, or authentication bypass findings.</p>
+        </div>
+      </div>
+
+      <!-- ::: {.callout-warning} → maps to High -->
+      <div class="callout callout-style-default callout-warning callout-titled">
+        <div class="callout-header d-flex align-content-center">
+          <div class="callout-icon-container"><i class="bi bi-exclamation-triangle-fill"></i></div>
+          <div class="callout-title-container flex-fill">Warning — High</div>
+        </div>
+        <div class="callout-body-container callout-body">
+          <p>High severity issues that should be remediated within 7 days. Significant exploitation potential but with mitigating factors.</p>
+        </div>
+      </div>
+
+      <!-- ::: {.callout-caution} → maps to Medium -->
+      <div class="callout callout-style-default callout-caution callout-titled">
+        <div class="callout-header d-flex align-content-center">
+          <div class="callout-icon-container"><i class="bi bi-exclamation-circle-fill"></i></div>
+          <div class="callout-title-container flex-fill">Caution — Medium</div>
+        </div>
+        <div class="callout-body-container callout-body">
+          <p>Medium severity. Exploitable under specific conditions. Remediate within 30 days or next sprint cycle.</p>
+        </div>
+      </div>
+
+      <!-- ::: {.callout-tip} → maps to Low -->
+      <div class="callout callout-style-default callout-tip callout-titled">
+        <div class="callout-header d-flex align-content-center">
+          <div class="callout-icon-container"><i class="bi bi-lightbulb-fill"></i></div>
+          <div class="callout-title-container flex-fill">Tip — Low / Recommendation</div>
+        </div>
+        <div class="callout-body-container callout-body">
+          <p>Low severity or best-practice recommendation. Address during normal maintenance cycles.</p>
+        </div>
+      </div>
+
+      <!-- ::: {.callout-note} → maps to Info -->
+      <div class="callout callout-style-default callout-note callout-titled">
+        <div class="callout-header d-flex align-content-center">
+          <div class="callout-icon-container"><i class="bi bi-info-circle-fill"></i></div>
+          <div class="callout-title-container flex-fill">Note — Informational / Scope</div>
+        </div>
+        <div class="callout-body-container callout-body">
+          <p>Testing was conducted within the agreed scope window (2026-02-20 to 2026-02-24). No production systems were impacted during testing.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Remediation Roadmap ── -->
+  <div class="gallery-section">
+    <div class="gallery-section-title">Remediation Roadmap Table</div>
+    <table class="table table-hover mb-0">
+      <thead><tr><th>Finding</th><th>Priority</th><th>Owner</th><th>Due Date</th></tr></thead>
+      <tbody>
+        <tr><td>F-001: SQL Injection</td><td><span class="priority-immediate">Immediate</span></td><td>Backend Team</td><td>2026-03-01</td></tr>
+        <tr><td>F-002: Stored XSS</td><td><span class="priority-short-term">Short-Term</span></td><td>Frontend Team</td><td>2026-03-07</td></tr>
+        <tr><td>F-003: IDOR</td><td><span class="priority-medium-term">Medium-Term</span></td><td>API Team</td><td>2026-03-28</td></tr>
+        <tr><td>F-004: Missing Headers</td><td><span class="priority-long-term">Long-Term</span></td><td>DevOps</td><td>2026-04-30</td></tr>
+        <tr><td>F-005: TLS 1.1</td><td><span class="priority-accepted">Accepted</span></td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Scoping Document Example (Pentest) ── -->
+  <div class="gallery-section" id="scoping-document-template-pentest">
+    <div class="gallery-section-title">Scoping Document Template (Pentest)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Engagement Metadata</h5>
+      <table class="table table-sm table-hover mb-3" style="font-size:0.8rem;">
+        <thead><tr><th>Field</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Engagement ID</td><td><code>ENG-2026-001</code></td></tr>
+          <tr><td>Client</td><td>Acme Corporation</td></tr>
+          <tr><td>Engagement Type</td><td>External Pentest</td></tr>
+          <tr><td>Status</td><td><span class="status-pending">Pending Approval</span></td></tr>
+        </tbody>
+      </table>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">In-Scope Domains (Checkbox Selection)</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;">
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" checked disabled>
+          <label class="form-check-label"><strong>Web Application Testing</strong> → Load: <code>methodologies/web-api/framework.md</code></label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" checked disabled>
+          <label class="form-check-label"><strong>API Testing</strong> → Load: <code>methodologies/web-api/framework.md</code></label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" disabled>
+          <label class="form-check-label"><strong>Mobile App Testing</strong> → Load: <code>methodologies/mobile/framework.md</code></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" disabled>
+          <label class="form-check-label"><strong>Cloud Security (AWS)</strong> → Load: <code>methodologies/cloud/aws-framework.md</code></label>
+        </div>
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">In-Scope Assets Table</h5>
+      <table class="table table-sm table-hover mb-0" style="font-size:0.8rem;">
+        <thead><tr><th>Asset ID</th><th>URL</th><th>Description</th><th>Auth</th></tr></thead>
+        <tbody>
+          <tr><td>WEB-001</td><td><code>https://app.acme.com</code></td><td>Main web application</td><td>OAuth 2.0</td></tr>
+          <tr><td>API-001</td><td><code>https://api.acme.com</code></td><td>REST API</td><td>JWT</td></tr>
+          <tr><td>WEB-002</td><td><code>https://admin.acme.com</code></td><td>Admin portal</td><td>MFA</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Test Plan Template Example (Pentest) ── -->
+  <div class="gallery-section" id="test-plan-template-pentest">
+    <div class="gallery-section-title">Test Plan Template (Pentest)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Plan Metadata &amp; Methodology Mapping</h5>
+      <table class="table table-sm table-hover mb-3" style="font-size:0.8rem;">
+        <thead><tr><th>Domain</th><th>Framework File</th><th>Controls</th></tr></thead>
+        <tbody>
+          <tr><td>Web Application</td><td><code>methodologies/web-api/framework.md</code></td><td>OWASP Top 10 2021</td></tr>
+          <tr><td>API</td><td><code>methodologies/web-api/framework.md</code></td><td>OWASP API Security Top 10</td></tr>
+        </tbody>
+      </table>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Dynamic Test Case Section</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--navy);">
+        <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--navy);margin-bottom:0.75rem;">[DOMAIN: Web Application Testing]</div>
+        <div style="font-size:0.8rem;color:#6B7280;margin-bottom:0.75rem;">Source: <code>methodologies/web-api/framework.md</code></div>
+
+        <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:0.75rem;margin-bottom:0.75rem;">
+          <div style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">Test Case: A01 - Broken Access Control</div>
+          <div style="font-size:0.8rem;color:#;margin-bottom:6B72800.5rem;">
+            <strong>Objective:</strong> Test for IDOR, privilege escalation<br>
+            <strong>Framework Mapping:</strong> OWASP A01:2021<br>
+            <strong>Time Estimate:</strong> 4 hours
+          </div>
+          <div style="background:#0F172A;border-radius:4px;padding:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:#E2E8F0;overflow-x:auto;">
+# Test horizontal privilege escalation<br>
+curl -X GET -b cookies_user.txt "https://example.com/api/user/2/profile"<br>
+# Test vertical privilege escalation<br>
+curl -X GET -b cookies_user.txt "https://example.com/api/admin/users"
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E5E7EB;border-radius:6px;padding:0.75rem;">
+          <div style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">Test Case: A03 - Injection</div>
+          <div style="font-size:0.8rem;color:#6B7280;margin-bottom:0.5rem;">
+            <strong>Objective:</strong> Test for SQL, NoSQL, command injection<br>
+            <strong>Framework Mapping:</strong> OWASP A03:2021, CWE-89<br>
+            <strong>Time Estimate:</strong> 6 hours
+          </div>
+          <div style="background:#0F172A;border-radius:4px;padding:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:#E2E8F0;overflow-x:auto;">
+# SQL Injection detection<br>
+sqlmap -u "https://example.com/api/user?id=1" --batch --level=1<br>
+# NoSQL Injection<br>
+curl -X POST https://example.com/api/login \<br>
+&nbsp;&nbsp;-H "Content-Type: application/json" \<br>
+&nbsp;&nbsp;-d '{"username": {"$ne": ""}, "password": {"$ne": ""}}'
+          </div>
+        </div>
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Approval Section</h5>
+      <table class="table table-sm mb-0" style="font-size:0.8rem;">
+        <thead><tr><th>Field</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Test Plan Status</td><td><span class="status-pending">Pending Approval</span></td></tr>
+          <tr><td>Lead Tester</td><td>_________________________</td></tr>
+          <tr><td>Client Representative</td><td>_________________________</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Code Review Scoping Document ── -->
+  <div class="gallery-section" id="scoping-document-template-code-review">
+    <div class="gallery-section-title">Scoping Document Template (Code Review)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Engagement Metadata</h5>
+      <table class="table table-sm table-hover mb-3" style="font-size:0.8rem;">
+        <thead><tr><th>Field</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Engagement ID</td><td><code>CR-2026-001</code></td></tr>
+          <tr><td>Repository/Project</td><td>acme/backend-api</td></tr>
+          <tr><td>Review Type</td><td>Full / <span class="badge-info">Incremental</span> / Focused</td></tr>
+          <tr><td>Status</td><td><span class="status-pending">Pending Approval</span></td></tr>
+        </tbody>
+      </table>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Code Repositories In Scope</h5>
+      <table class="table table-sm table-hover mb-3" style="font-size:0.8rem;">
+        <thead><tr><th>Repository</th><th>Branch</th><th>Language</th></tr></thead>
+        <tbody>
+          <tr><td><code>github.com/acme/backend-api</code></td><td>main</td><td>Go</td></tr>
+          <tr><td><code>github.com/acme/auth-lib</code></td><td>develop</td><td>Go</td></tr>
+        </tbody>
+      </table>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Review Focus Areas</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;">
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" checked disabled>
+          <label class="form-check-label"><strong>Authentication & Authorization</strong></label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" checked disabled>
+          <label class="form-check-label"><strong>Input Validation & Sanitization</strong></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" disabled>
+          <label class="form-check-label"><strong>Cryptographic Implementations</strong></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Code Review Test Plan ── -->
+  <div class="gallery-section" id="test-plan-template-code-review">
+    <div class="gallery-section-title">Test Plan Template (Code Review)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">CWE Category: Input Validation</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--navy);">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">Review Item: SQL Injection Prevention</div>
+        <div style="font-size:0.8rem;color:#6B7280;margin-bottom:0.5rem;">
+          <strong>CWE Mapping:</strong> CWE-89 | <strong>Files:</strong> <code>src/database/*</code>
+        </div>
+        <div style="background:#0F172A;border-radius:4px;padding:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:#E2E8F0;overflow-x:auto;">
+# Search for string concatenation in queries<br>
+grep -rn "SELECT.*\+.*request" --include="*.py" src/<br>
+grep -rn "query()" --include="*.go" src/ | grep -v "db.Execute"
+        </div>
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">CWE Category: Authentication</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--navy);">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">Review Item: Credential Storage</div>
+        <div style="font-size:0.8rem;color:#6B7280;margin-bottom:0.5rem;">
+          <strong>CWE Mapping:</strong> CWE-259 | <strong>Severity:</strong> <span class="badge-critical">Critical</span>
+        </div>
+        <div style="background:#0F172A;border-radius:4px;padding:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:#E2E8F0;overflow-x:auto;">
+# Search for hardcoded credentials<br>
+grep -rnE "password\s*=\s*['\"]" --include="*.py" src/<br>
+grep -rnE "AWS_ACCESS_KEY_ID\|AWS_SECRET_ACCESS_KEY" src/
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Security Architecture Review Scoping Document ── -->
+  <div class="gallery-section" id="scoping-document-template-security-architecture">
+    <div class="gallery-section-title">Scoping Document Template (Security Architecture)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Architecture Domains In Scope</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;">
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" checked disabled>
+          <label class="form-check-label"><strong>Domain A:</strong> Architecture & Environment <span class="badge-info">Always Required</span></label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" checked disabled>
+          <label class="form-check-label"><strong>Domain B:</strong> Security Practices</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" disabled>
+          <label class="form-check-label"><strong>Domain C:</strong> Patch Management</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" disabled>
+          <label class="form-check-label"><strong>Domain D:</strong> Supply Chain</label>
+        </div>
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Systems/Components In Scope</h5>
+      <table class="table table-sm table-hover mb-0" style="font-size:0.8rem;">
+        <thead><tr><th>Component</th><th>Type</th><th>Environment</th></tr></thead>
+        <tbody>
+          <tr><td>Web Application</td><td>Web App</td><td>AWS Prod</td></tr>
+          <tr><td>API Gateway</td><td>API</td><td>AWS Prod</td></tr>
+          <tr><td>PostgreSQL</td><td>Database</td><td>AWS Prod</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Security Architecture Review Test Plan ── -->
+  <div class="gallery-section" id="test-plan-template-security-architecture">
+    <div class="gallery-section-title">Test Plan Template (Security Architecture)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Domain A: Architecture & Environment</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--navy);">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">Review Item: Network Segmentation</div>
+        <div style="font-size:0.8rem;color:#6B7280;margin-bottom:0.5rem;">
+          <strong>Framework:</strong> NIST CSF PR.AC-5 | <strong>Priority:</strong> <span class="badge-high">High</span>
+        </div>
+        <div style="font-size:0.8rem;">
+          <div style="margin-bottom:0.25rem;">☐ DMZ isolation from internal networks</div>
+          <div style="margin-bottom:0.25rem;">☐ Database not internet-facing</div>
+          <div style="margin-bottom:0.25rem;">☐ Admin interfaces on separate network/VPN</div>
+          <div>☐ Cloud networkACLs/firewall rules reviewed</div>
+        </div>
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Domain B: Security Practices</h5>
+      <div style="background:#F8FAFC;border-radius:6px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--navy);">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem;">Review Item: Authentication Mechanisms</div>
+        <div style="font-size:0.8rem;color:#6B7280;margin-bottom:0.5rem;">
+          <strong>Framework:</strong> OWASP A07:2021, CWE-287 | <strong>Priority:</strong> <span class="badge-critical">Critical</span>
+        </div>
+        <div style="font-size:0.8rem;">
+          <div style="margin-bottom:0.25rem;">☐ Password policy enforcement</div>
+          <div style="margin-bottom:0.25rem;">☐ MFA available? Mandatory for whom?</div>
+          <div style="margin-bottom:0.25rem;">☐ Session timeout values</div>
+          <div>☐ Account lockout policy</div>
+        </div>
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Risk Scoring Matrix</h5>
+      <table class="table table-sm mb-0" style="font-size:0.7rem;">
+        <thead><tr><th></th><th>Impact 1</th><th>Impact 2</th><th>Impact 3</th><th>Impact 4</th><th>Impact 5</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Likelihood 5</strong></td><td>Low</td><td>Medium</td><td><span class="badge-high">High</span></td><td><span class="badge-critical">Critical</span></td><td><span class="badge-critical">Critical</span></td></tr>
+          <tr><td><strong>Likelihood 4</strong></td><td>Low</td><td>Medium</td><td><span class="badge-high">High</span></td><td><span class="badge-high">High</span></td><td><span class="badge-critical">Critical</span></td></tr>
+          <tr><td><strong>Likelihood 3</strong></td><td>Low</td><td>Low</td><td>Medium</td><td><span class="badge-high">High</span></td><td><span class="badge-high">High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Template Standards Reference ── -->
+  <div class="gallery-section" id="template-standards-reference">
+    <div class="gallery-section-title">Template Standards Reference</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Required Metadata Section</h5>
+      <table class="table table-sm table-hover mb-3" style="font-size:0.8rem;">
+        <thead><tr><th>Field</th><th>Format</th><th>Required</th></tr></thead>
+        <tbody>
+          <tr><td>Engagement ID</td><td><code>TYPE-YYYY-NNN</code></td><td><span class="badge-low">Yes</span></td></tr>
+          <tr><td>Date</td><td><code>YYYY-MM-DD</code></td><td><span class="badge-low">Yes</span></td></tr>
+          <tr><td>Status</td><td>Draft / Pending Approval / Approved</td><td><span class="badge-low">Yes</span></td></tr>
+        </tbody>
+      </table>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Dynamic Section Syntax</h5>
+      <div style="background:#0F172A;border-radius:6px;padding:0.75rem;font-family:var(--font-mono);font-size:0.75rem;color:#E2E8F0;margin-bottom:1rem;">
+### [DOMAIN: Web Application Testing]<br>
+**Source:** <code>methodologies/web-api/framework.md</code><br>
+<br>
+[Content expands based on scope - include only if domain is checked]
+      </div>
+
+      <h5 style="color:var(--navy);margin-bottom:0.5rem;font-size:1rem;">Source File Mapping</h5>
+      <table class="table table-sm table-hover mb-0" style="font-size:0.8rem;">
+        <thead><tr><th>Domain</th><th>Framework File</th></tr></thead>
+        <tbody>
+          <tr><td>Web/API</td><td><code>methodologies/web-api/framework.md</code></td></tr>
+          <tr><td>Mobile</td><td><code>methodologies/mobile/framework.md</code></td></tr>
+          <tr><td>Network</td><td><code>methodologies/network/framework.md</code></td></tr>
+          <tr><td>Cloud (AWS)</td><td><code>methodologies/cloud/aws-framework.md</code></td></tr>
+          <tr><td>Web3</td><td><code>methodologies/web3/framework.md</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Actual Template Files ── -->
+  <div class="gallery-section" id="actual-templates">
+    <div class="gallery-section-title">Actual Template Files (Editable)</div>
+    <div style="font-size:0.9rem;line-height:1.7;">
+      <p style="margin-bottom:1rem;">These are the actual template files. Click to view/edit in your editor.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;">
+        <a href="/templates/scoping-document.md" target="_blank" style="display:block;background:#F8FAFC;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-decoration:none;color:inherit;">
+          <div style="font-weight:600;margin-bottom:0.25rem;">Scoping Document</div>
+          <div style="font-size:0.75rem;color:#6B7280;">Generic engagement scope</div>
+        </a>
+
+        <a href="/templates/test-plan.md" target="_blank" style="display:block;background:#F8FAFC;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-decoration:none;color:inherit;">
+          <div style="font-weight:600;margin-bottom:0.25rem;">Test Plan</div>
+          <div style="font-size:0.75rem;color:#6B7280;">Generic test plan</div>
+        </a>
+
+        <a href="/templates/finding-template.md" target="_blank" style="display:block;background:#F8FAFC;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-decoration:none;color:inherit;">
+          <div style="font-weight:600;margin-bottom:0.25rem;">Finding Template</div>
+          <div style="font-size:0.75rem;color:#6B7280;">Professional finding format</div>
+        </a>
+
+        <a href="/templates/quick-finding.md" target="_blank" style="display:block;background:#F8FAFC;border:1px solid #E5E7EB;border-radius:6px;padding:1rem;text-decoration:none;color:inherit;">
+          <div style="font-weight:600;margin-bottom:0.25rem;">Quick Finding</div>
+          <div style="font-size:0.75rem;color:#6B7280;">Bug bounty / ad-hoc</div>
+        </a>
+      </div>
+
+      <p style="margin-top:1rem;font-size:0.8rem;color:#6B7280;">
+        Templates located in: <code>tools/quarto/templates/</code>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Hide navbar when embedded in iframe
+if (window.self !== window.top) {
+  document.body.classList.add('embedded');
+}
+
+// Load brand colors dynamically from /current-brand endpoint
+(async function() {
+  try {
+    const res = await fetch('/current-brand');
+    if (!res.ok) return;
+    const brand = await res.json();
+
+    const root = document.documentElement;
+
+    // Apply brand colors
+    if (brand.colors) {
+      if (brand.colors.primary) root.style.setProperty('--navy', brand.colors.primary);
+      if (brand.colors.secondary) root.style.setProperty('--blue', brand.colors.secondary);
+    }
+
+    // Apply security colors
+    if (brand.securityColors) {
+      if (brand.securityColors.critical) {
+        root.style.setProperty('--critical', brand.securityColors.critical);
+        root.style.setProperty('--critical-bg', brand.securityColors.critical + '15');
+        root.style.setProperty('--critical-border', brand.securityColors.critical + '40');
+      }
+      if (brand.securityColors.high) {
+        root.style.setProperty('--high', brand.securityColors.high);
+        root.style.setProperty('--high-bg', brand.securityColors.high + '15');
+        root.style.setProperty('--high-border', brand.securityColors.high + '40');
+      }
+      if (brand.securityColors.medium) {
+        root.style.setProperty('--medium', brand.securityColors.medium);
+        root.style.setProperty('--medium-bg', brand.securityColors.medium + '15');
+        root.style.setProperty('--medium-border', brand.securityColors.medium + '40');
+      }
+      if (brand.securityColors.low) {
+        root.style.setProperty('--low', brand.securityColors.low);
+        root.style.setProperty('--low-bg', brand.securityColors.low + '15');
+        root.style.setProperty('--low-border', brand.securityColors.low + '40');
+      }
+    }
+
+    // Apply table colors
+    if (brand.tableColors) {
+      if (brand.tableColors.headerBg) root.style.setProperty('--table-header-bg', brand.tableColors.headerBg);
+    }
+  } catch (e) {
+    console.warn('Failed to load brand colors:', e);
+  }
+})();
+</script>
+</body>
+</html>

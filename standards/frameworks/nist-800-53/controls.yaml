@@ -1,0 +1,151 @@
+# NIST SP 800-53 Rev 5 Control Families
+# Source: https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+# Version: Rev 5 (September 2020, updated January 2022)
+# Last Updated: 2026-02-25
+# Note: Entries are at the control FAMILY level (20 families).
+#       Individual controls and enhancements total 1,189 items.
+
+framework: nist-800-53
+version: "Rev 5"
+total_controls: 20
+controls:
+
+  - id: AC
+    title: Access Control
+    category: PR
+    description: "Policies and procedures limiting system access to authorized users, processes, and devices"
+    control_family: AC
+    status: active
+
+  - id: AT
+    title: Awareness and Training
+    category: PR
+    description: "Security awareness training and role-based training for personnel with security responsibilities"
+    control_family: AT
+    status: active
+
+  - id: AU
+    title: Audit and Accountability
+    category: DE
+    description: "Audit logging, review, analysis, reporting, and protection of audit records"
+    control_family: AU
+    status: active
+
+  - id: CA
+    title: Assessment, Authorization, and Monitoring
+    category: GV
+    description: "Assessment of security controls, system authorization, and continuous monitoring"
+    control_family: CA
+    status: active
+
+  - id: CM
+    title: Configuration Management
+    category: PR
+    description: "Baseline configurations, change control, and system component inventory management"
+    control_family: CM
+    status: active
+
+  - id: CP
+    title: Contingency Planning
+    category: RC
+    description: "Contingency plans, backups, testing, and recovery procedures for system continuity"
+    control_family: CP
+    status: active
+
+  - id: IA
+    title: Identification and Authentication
+    category: PR
+    description: "Unique user identification, authentication mechanisms, and authenticator management"
+    control_family: IA
+    status: active
+
+  - id: IR
+    title: Incident Response
+    category: RS
+    description: "Incident response capability, handling, reporting, and lessons learned"
+    control_family: IR
+    status: active
+
+  - id: MA
+    title: Maintenance
+    category: PR
+    description: "Controlled system maintenance, tools, remote maintenance, and maintenance personnel"
+    control_family: MA
+    status: active
+
+  - id: MP
+    title: Media Protection
+    category: PR
+    description: "Protection, sanitization, and destruction of system media containing information"
+    control_family: MP
+    status: active
+
+  - id: PE
+    title: Physical and Environmental Protection
+    category: PR
+    description: "Physical access controls, environmental protections, and facility monitoring"
+    control_family: PE
+    status: active
+
+  - id: PL
+    title: Planning
+    category: GV
+    description: "System security and privacy plans, rules of behavior, and security-related planning activities"
+    control_family: PL
+    status: active
+
+  - id: PM
+    title: Program Management
+    category: GV
+    description: "Organization-wide information security program, governance, and risk management"
+    control_family: PM
+    status: active
+
+  - id: PS
+    title: Personnel Security
+    category: PR
+    description: "Personnel screening, termination, transfer, sanctions, and access agreements"
+    control_family: PS
+    status: active
+
+  - id: PT
+    title: PII Processing and Transparency
+    category: GV
+    description: "Policies for PII processing, consent, privacy notice, and individual rights"
+    control_family: PT
+    status: active
+
+  - id: RA
+    title: Risk Assessment
+    category: ID
+    description: "Risk assessment methodology, risk register, vulnerability monitoring, and privacy risk"
+    control_family: RA
+    status: active
+
+  - id: SA
+    title: System and Services Acquisition
+    category: GV
+    description: "Security in acquisition, system development lifecycle, and external service management"
+    control_family: SA
+    status: active
+
+  - id: SC
+    title: System and Communications Protection
+    category: PR
+    description: "Boundary protection, encryption, network segmentation, and communications security"
+    control_family: SC
+    status: active
+
+  - id: SI
+    title: System and Information Integrity
+    category: DE
+    description: "Flaw remediation, malicious code protection, system monitoring, and integrity tools"
+    control_family: SI
+    status: active
+
+  - id: SR
+    title: Supply Chain Risk Management
+    category: GV
+    description: "Supply chain risk policies, supplier assessments, acquisition strategies, and SBOM"
+    control_family: SR
+    status: active

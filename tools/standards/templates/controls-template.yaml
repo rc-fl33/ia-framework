@@ -1,0 +1,41 @@
+# Controls Template
+# Usage: Copy to standards/frameworks/{provider}/{id}/controls.yaml
+# Replace all {PLACEHOLDER} values and remove this comment block.
+
+framework: "{FRAMEWORK_ID}"                 # e.g., "iso-27001", "nist-csf", "pci-dss"
+version: "{VERSION}"                        # e.g., "2022", "2.0", "4.0.1"
+total_controls: 0                           # Update after populating controls list
+last_updated: "{YYYY-MM-DD}"
+
+# NIST CSF Phase mapping for this framework
+# Maps framework domains/categories to NIST CSF 2.0 functions
+phase_mapping:
+  GOVERN:
+    - "{DOMAIN_OR_CATEGORY}"
+  IDENTIFY:
+    - "{DOMAIN_OR_CATEGORY}"
+  PROTECT:
+    - "{DOMAIN_OR_CATEGORY}"
+  DETECT:
+    - "{DOMAIN_OR_CATEGORY}"
+  RESPOND:
+    - "{DOMAIN_OR_CATEGORY}"
+  RECOVER:
+    - "{DOMAIN_OR_CATEGORY}"
+
+controls:
+  - id: "{CONTROL_ID}"                      # Framework-native ID, e.g., "A.5.1", "CC1.1", "8.3.1"
+    title: "{CONTROL_TITLE}"
+    description: "{FULL_CONTROL_TEXT}"
+    category: "{CATEGORY}"                  # Parent domain/section
+    native_category: "{NATIVE_CAT_ID}"      # Framework-native grouping label
+    nist_phase: "{NIST_PHASE}"              # GOVERN|IDENTIFY|PROTECT|DETECT|RESPOND|RECOVER
+    status: complete                        # complete | partial | pending
+    frequency: ongoing                      # ongoing | periodic | event-driven
+    # Optional: implementation guidance
+    implementation_steps:
+      - "{STEP_1}"
+      - "{STEP_2}"
+    # Optional: evidence types for audit
+    evidence:
+      - "{EVIDENCE_TYPE}"

@@ -1,0 +1,46 @@
+name: git-push
+tier: feature
+visibility: public
+description: Commit and push changes to private GitHub repository
+version: 2.0.0
+use_when: "user wants to commit changes, push to git, save work, backup code, OR says git commit, git push, save to repo"
+
+triggers:
+  patterns:
+    - "commit (these |the )?changes"
+    - "push (these |the )?changes"
+    - "git (commit|push)"
+    - "save (to |in )?(the )?private( repo)?"
+    - "commit and push"
+    - "push to private"
+    - "sync private repo"
+
+execution:
+  ai: false
+  timeout: 120000  # 2 minutes
+
+env_requirements:
+  required:
+    - name: GIT_PUSH_REPO_PATH
+      description: Path to YOUR private backup repository (where you want to backup your framework)
+      example: "$HOME/.claude"
+    - name: GITHUB_TOKEN
+      description: GitHub personal access token (scope repo)
+      get_url: https://github.com/settings/tokens
+      format: "ghp_..."
+  optional:
+    - name: GIT_PUSH_REMOTE
+      description: Git remote name (defaults to 'origin')
+      example: origin
+    - name: GIT_PUSH_BRANCH
+      description: Git branch name (defaults to 'main')
+      example: main
+    - name: GIT_PUSH_AUTO_VERIFY
+      description: Automatically verify remote before push (defaults to true)
+      example: "true"
+
+outputs:
+  - path: sessions/{session-id}.yaml
+    description: Session updated with git commit metadata
+
+dependencies: []

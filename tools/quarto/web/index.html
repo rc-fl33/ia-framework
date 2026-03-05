@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&family=Outfit:wght@400;600;700&family=Poppins:wght@400;600;700&family=Raleway:wght@400;600;700&family=Roboto:wght@400;500;700&family=Source+Code+Pro:wght@400;500&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code/index.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script src="/js/builder.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1F3B5C;
+    --accent: #4A90E2;
+    --bg: #f3f4f6;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #1a202c;
+    --text-muted: #6b7280;
+    --radius: 6px;
+    --panel-width: 360px;
+  }
+  body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+  header { background: var(--primary); color: #fff; padding: 10px 16px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  header h1 { font-family: Outfit, sans-serif; font-size: 16px; font-weight: 600; }
+  header span { font-size: 12px; opacity: 0.7; }
+  .layout { display: flex; flex: 1; overflow: hidden; }
+
+  /* ─── Three-Column Layout ─── */
+  .editor-panel { width: var(--panel-width); min-width: var(--panel-width); border-right: 1px solid var(--border); background: var(--surface); display: flex; flex-direction: column; overflow: hidden; }
+  .preview-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .panel-tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; background: var(--bg); }
+  .panel-tab { flex: 1; padding: 9px 4px; font-size: 12px; font-weight: 500; text-align: center; cursor: pointer; color: var(--text-muted); border-bottom: 2px solid transparent; transition: color 0.15s; white-space: nowrap; }
+  .panel-tab.active { color: var(--primary); border-bottom-color: var(--primary); background: var(--surface); }
+  .panel-body { flex: 1; overflow-y: auto; }
+  .panel-pane { display: none; padding: 14px; }
+  .panel-pane.active { display: block; }
+
+  /* Color sections */
+  .section { margin-bottom: 18px; }
+  .section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--border); }
+  .color-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .color-field { display: flex; align-items: center; gap: 6px; min-width: 0; }
+  .color-field label { font-size: 11px; color: var(--text-muted); min-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .color-field input[type="color"] { width: 32px; height: 26px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; padding: 2px; background: none; flex-shrink: 0; }
+  .color-field input[type="text"] { flex: 1; font-size: 8px; font-family: 'Fira Code', monospace; border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; background: var(--bg); color: var(--text); min-width: 48px; }
+  .color-field input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  /* Typography tab */
+  .form-row { margin-bottom: 10px; }
+  .form-row label { font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 3px; }
+  select { width: 100%; font-size: 12px; border: 1px solid var(--border); border-radius: var(--radius); padding: 5px 8px; background: var(--bg); color: var(--text); cursor: pointer; }
+  select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .radio-group { display: flex; gap: 4px; flex-wrap: wrap; }
+  .radio-option { flex: 1; min-width: 0; }
+  .radio-option input { display: none; }
+  .radio-option label { display: block; text-align: center; padding: 4px 6px; font-size: 11px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; background: var(--bg); color: var(--text-muted); transition: all 0.12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .radio-option input:checked + label { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  /* Actions */
+  .actions { padding: 10px 14px; border-top: 1px solid var(--border); display: flex; gap: 6px; flex-shrink: 0; }
+  .btn { flex: 1; padding: 7px 10px; border: none; border-radius: var(--radius); font-size: 12px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; white-space: nowrap; }
+  .btn:hover:not(:disabled) { opacity: 0.85; }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-secondary { background: var(--bg); border: 1px solid var(--border); color: var(--text); }
+  .template-nav { display: flex; flex-direction: column; gap: 6px; }
+  .template-btn {
+    padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius);
+    background: var(--bg); color: var(--text); font-size: 12px; font-weight: 500;
+    text-align: left; cursor: pointer; transition: all 0.15s;
+  }
+  .template-btn:hover { background: var(--surface); border-color: var(--accent); }
+  .template-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ─── Preview Panel ─── */
+  .tab-bar { display: flex; border-bottom: 1px solid var(--border); background: var(--surface); flex-shrink: 0; }
+  .tab { padding: 9px 16px; font-size: 12px; cursor: pointer; border-bottom: 2px solid transparent; color: var(--text-muted); transition: color 0.15s; }
+  .tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 500; }
+  .tab-content { flex: 1; overflow: hidden; }
+  .tab-pane { display: none; height: 100%; }
+  .tab-pane.active { display: flex; flex-direction: column; }
+  iframe.full { flex: 1; border: none; background: #fff; }
+
+  /* Status */
+  .status-bar { padding: 5px 14px; font-size: 11px; color: var(--text-muted); background: var(--surface); border-top: 1px solid var(--border); flex-shrink: 0; }
+  .status-bar.ok { color: #16a34a; }
+  .status-bar.err { color: #dc2626; }
+  .status-bar.loading { color: #ea580c; }
+
+  /* Form text inputs */
+  .form-row input[type="text"], .form-row input[type="email"] {
+    width: 100%; font-size: 12px; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 5px 8px; background: var(--bg); color: var(--text);
+  }
+  .form-row input[type="text"]:focus, .form-row input[type="email"]:focus {
+    outline: 2px solid var(--accent); outline-offset: -1px;
+  }
+
+  /* Report Preview */
+  .preview-type-bar { display: flex; gap: 6px; padding: 8px 12px; background: var(--bg); border-bottom: 1px solid var(--border); flex-shrink: 0; align-items: center; }
+  .preview-type-btn { padding: 4px 12px; font-size: 11px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; background: var(--surface); color: var(--text-muted); transition: all 0.12s; }
+  .preview-type-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .btn-render { padding: 4px 14px; font-size: 11px; border: none; border-radius: 4px; cursor: pointer; background: var(--accent); color: #fff; margin-left: auto; transition: opacity 0.15s; }
+  .btn-render:hover:not(:disabled) { opacity: 0.85; }
+  .btn-render:disabled { opacity: 0.5; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Report Builder</h1>
+</header>
+
+<div class="layout">
+  <!-- LEFT: Editor Controls -->
+  <div class="editor-panel">
+    <div class="panel-tabs">
+      <div class="panel-tab active" data-ptab="colors">Colors</div>
+      <div class="panel-tab" data-ptab="typography">Typography</div>
+      <div class="panel-tab" data-ptab="quarto">Quarto</div>
+      <div class="panel-tab" data-ptab="report">Report</div>
+    </div>
+    <div class="panel-body">
+
+      <!-- Colors Tab -->
+      <div class="panel-pane active" id="ptab-colors">
+
+        <div class="section">
+          <div class="section-title">Brand</div>
+          <div class="color-grid" id="brand-colors"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Security Severity</div>
+          <div class="color-grid" id="security-colors"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Compliance Status</div>
+          <div class="color-grid" id="compliance-colors"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Table Styles</div>
+          <div class="color-grid" id="table-colors"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Code Blocks</div>
+          <div class="color-grid" id="code-colors"></div>
+        </div>
+
+        <div style="display:flex;gap:6px;margin-top:4px;">
+          <button class="btn btn-secondary" id="btn-reset" style="flex:1;">Reset All</button>
+          <button class="btn btn-secondary" id="btn-load-defaults" style="flex:1;">Load Defaults<br><small>(Keep Logo)</small></button>
+        </div>
+
+      </div>
+
+      <!-- Typography Tab -->
+      <div class="panel-pane" id="ptab-typography">
+
+        <div class="form-row">
+          <label>Base Font</label>
+          <select id="font-base">
+            <option value="Inter, system-ui, -apple-system, sans-serif">Inter</option>
+            <option value="system-ui, -apple-system, sans-serif">System UI</option>
+            <option value="'Roboto', sans-serif">Roboto</option>
+            <option value="'Source Sans Pro', sans-serif">Source Sans Pro</option>
+            <option value="'Open Sans', sans-serif">Open Sans</option>
+            <option value="'Lato', sans-serif">Lato</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Heading Font</label>
+          <select id="font-headings">
+            <option value="Outfit, system-ui, sans-serif">Outfit</option>
+            <option value="Inter, system-ui, sans-serif">Inter</option>
+            <option value="'Raleway', sans-serif">Raleway</option>
+            <option value="'Montserrat', sans-serif">Montserrat</option>
+            <option value="'Poppins', sans-serif">Poppins</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Monospace Font</label>
+          <select id="font-mono">
+            <option value="'Fira Code', 'JetBrains Mono', 'Cascadia Code', Consolas, monospace">Fira Code</option>
+            <option value="'JetBrains Mono', Consolas, monospace">JetBrains Mono</option>
+            <option value="'Cascadia Code', Consolas, monospace">Cascadia Code</option>
+            <option value="'Source Code Pro', Consolas, monospace">Source Code Pro</option>
+            <option value="Consolas, 'Courier New', monospace">Consolas</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Base Size</label>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="font-size" id="fs-14" value="14px"><label for="fs-14">14px</label></div>
+            <div class="radio-option"><input type="radio" name="font-size" id="fs-15" value="15px" checked><label for="fs-15">15px</label></div>
+            <div class="radio-option"><input type="radio" name="font-size" id="fs-16" value="16px"><label for="fs-16">16px</label></div>
+            <div class="radio-option"><input type="radio" name="font-size" id="fs-17" value="17px"><label for="fs-17">17px</label></div>
+            <div class="radio-option"><input type="radio" name="font-size" id="fs-18" value="18px"><label for="fs-18">18px</label></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Line Height</label>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="line-height" id="lh-15" value="1.5"><label for="lh-15">1.5</label></div>
+            <div class="radio-option"><input type="radio" name="line-height" id="lh-16" value="1.6"><label for="lh-16">1.6</label></div>
+            <div class="radio-option"><input type="radio" name="line-height" id="lh-17" value="1.7" checked><label for="lh-17">1.7</label></div>
+            <div class="radio-option"><input type="radio" name="line-height" id="lh-18" value="1.8"><label for="lh-18">1.8</label></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Heading Weight</label>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="head-weight" id="hw-500" value="500"><label for="hw-500">500</label></div>
+            <div class="radio-option"><input type="radio" name="head-weight" id="hw-600" value="600" checked><label for="hw-600">600</label></div>
+            <div class="radio-option"><input type="radio" name="head-weight" id="hw-700" value="700"><label for="hw-700">700</label></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quarto Tab -->
+      <div class="panel-pane" id="ptab-quarto">
+        <div class="form-row">
+          <label>HTML Theme</label>
+          <select id="quarto-theme">
+            <option value="cosmo">cosmo</option>
+            <option value="darkly">darkly</option>
+            <option value="flatly">flatly</option>
+            <option value="litera">litera</option>
+            <option value="lux">lux</option>
+            <option value="materia">materia</option>
+            <option value="minty">minty</option>
+            <option value="morph">morph</option>
+            <option value="pulse">pulse</option>
+            <option value="sandstone">sandstone</option>
+            <option value="simplex">simplex</option>
+            <option value="slate">slate</option>
+            <option value="solar">solar</option>
+            <option value="spacelab">spacelab</option>
+            <option value="united">united</option>
+            <option value="yeti">yeti</option>
+            <option value="zephyr">zephyr</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Logo Upload</label>
+          <input type="file" id="logo-upload" accept="image/*" style="font-size:11px;width:100%;">
+          <p id="logo-status" style="font-size:10px;color:var(--text-muted);margin-top:4px;display:none;"></p>
+        </div>
+
+        <div id="logo-controls" style="display:none;">
+          <div class="form-row">
+            <label>Wrapper Background</label>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" id="logo-transparent" checked>
+              <label for="logo-transparent" style="font-size:11px;color:var(--text-muted);margin:0;">Transparent</label>
+              <input type="color" id="logo-bg-color" value="#1F3B5C" style="width:32px;height:26px;border:1px solid var(--border);border-radius:4px;cursor:pointer;padding:2px;background:none;display:none;">
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Padding</label>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="logo-padding" id="lp-0" value="0px"><label for="lp-0">None</label></div>
+              <div class="radio-option"><input type="radio" name="logo-padding" id="lp-sm" value="6px" checked><label for="lp-sm">S</label></div>
+              <div class="radio-option"><input type="radio" name="logo-padding" id="lp-md" value="12px"><label for="lp-md">M</label></div>
+              <div class="radio-option"><input type="radio" name="logo-padding" id="lp-lg" value="20px"><label for="lp-lg">L</label></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Corner Radius</label>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="logo-radius" id="lr-0" value="0px"><label for="lr-0">Sharp</label></div>
+              <div class="radio-option"><input type="radio" name="logo-radius" id="lr-sm" value="4px" checked><label for="lr-sm">4px</label></div>
+              <div class="radio-option"><input type="radio" name="logo-radius" id="lr-md" value="8px"><label for="lr-md">8px</label></div>
+              <div class="radio-option"><input type="radio" name="logo-radius" id="lr-pill" value="9999px"><label for="lr-pill">Pill</label></div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Max Height</label>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" name="logo-height" id="lh-40" value="40px"><label for="lh-40">40px</label></div>
+              <div class="radio-option"><input type="radio" name="logo-height" id="lh-56" value="56px" checked><label for="lh-56">56px</label></div>
+              <div class="radio-option"><input type="radio" name="logo-height" id="lh-72" value="72px"><label for="lh-72">72px</label></div>
+              <div class="radio-option"><input type="radio" name="logo-height" id="lh-90" value="90px"><label for="lh-90">90px</label></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Report Tab -->
+      <div class="panel-pane" id="ptab-report">
+
+        <div class="section">
+          <div class="section-title">Reviewer / Your Organization</div>
+          <div class="form-row">
+            <label>Organization Name</label>
+            <input type="text" id="report-org" placeholder="e.g. Acme Security LLC">
+          </div>
+          <div class="form-row">
+            <label>Contact Name</label>
+            <input type="text" id="report-contact" placeholder="e.g. Jane Smith">
+          </div>
+          <div class="form-row">
+            <label>Contact Email</label>
+            <input type="email" id="report-email" placeholder="e.g. security@example.com">
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Report Defaults</div>
+          <div class="form-row">
+            <label>Default Classification</label>
+            <select id="report-classification">
+              <option value="confidential">Confidential</option>
+              <option value="restricted">Restricted</option>
+              <option value="internal">Internal</option>
+              <option value="public">Public</option>
+            </select>
+          </div>
+        </div>
+
+        <p style="font-size:10px;color:var(--text-muted);padding:0 0 8px;line-height:1.5;">
+          These defaults are saved to <code>_brand.yml</code> and applied automatically
+          when rendering report previews. Client-specific fields (project name, client
+          contact) are populated per-engagement from scope documents.
+        </p>
+
+      </div>
+
+      <!-- Templates Tab (left pane - just selectors) -->
+      <div class="panel-pane active" id="ptab-templates">
+
+        <!-- Skill & Section Selectors -->
+        <div class="section">
+          <div class="section-title">Select Skill</div>
+          <select id="template-skill-select-left" style="width:100%;font-size:12px;padding:8px;margin-bottom:12px;">
+            <option value="">Choose a skill...</option>
+          </select>
+        </div>
+
+        <div class="section" id="section-select-container" style="display:none;">
+          <div class="section-title">Select Section</div>
+          <select id="template-section-select-left" style="width:100%;font-size:12px;padding:8px;margin-bottom:8px;">
+            <option value="">Choose a section...</option>
+            <option value="frontmatter">Front Matter</option>
+          </select>
+          <button class="btn btn-accent" id="btn-create-template" style="width:100%;padding:8px 14px;font-size:12px;">+ New Template</button>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="section" style="margin-top:12px;">
+          <div class="section-title">Quick Actions</div>
+          <button class="btn btn-secondary" id="btn-open-gallery" style="width:100%;margin-bottom:6px;">
+            Open Full Gallery
+          </button>
+          <button class="btn btn-secondary" id="btn-open-templates" style="width:100%;">
+            View Template Files
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-save">Save _brand.yml</button>
+      <button class="btn btn-accent" id="btn-generate">Generate CSS</button>
+    </div>
+  </div>
+
+  <!-- Preview & Template Editor -->
+  <div class="preview-panel">
+    <div class="panel-tabs" style="background: var(--surface);">
+      <div class="panel-tab active" data-preview-tab="preview">Preview</div>
+      <div class="panel-tab" data-preview-tab="templates">Templates</div>
+    </div>
+
+    <!-- Preview Tab -->
+    <div class="preview-tab-content" id="preview-tab-preview" style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+      <div class="preview-type-bar">
+        <span style="font-size:11px;font-weight:500;color:var(--text-muted);margin-right:2px;">Type:</span>
+        <button class="preview-type-btn active" data-ptype="code-review">Code Review</button>
+        <button class="preview-type-btn" data-ptype="sec-review">Sec Review</button>
+        <button class="preview-type-btn" data-ptype="pentest">Pentest</button>
+        <button class="preview-type-btn" data-ptype="scoping">Scoping</button>
+        <button class="preview-type-btn" data-ptype="testplan">Test Plan</button>
+        <button class="preview-type-btn" data-ptype="finding">Finding</button>
+        <button class="btn-render" id="btn-render-preview">Render</button>
+      </div>
+      <iframe class="full" id="report-preview-frame"></iframe>
+    </div>
+
+    <!-- Templates Tab (right pane - full editing) -->
+    <div class="preview-tab-content" id="preview-tab-templates" style="flex:1;display:none;flex-direction:column;overflow:hidden;">
+
+      <!-- Drag/Drop Sections Area (main content) -->
+      <div id="template-main-content" style="flex:1;display:flex;flex-direction:column;padding:12px;overflow-y:auto;">
+
+        <!-- Base Sections -->
+        <div class="section" id="base-sections-container" style="display:none;margin-bottom:16px;">
+          <div class="section-title">Base Sections <span style="font-weight:normal;font-size:10px;color:var(--text-muted);">(drag to reorder)</span></div>
+          <ul class="section-list" id="base-sections" style="margin-top:8px;min-height:60px;"></ul>
+        </div>
+
+        <!-- Unique Sections -->
+        <div class="section" id="unique-sections-container" style="display:none;margin-bottom:16px;">
+          <div class="section-title">Unique Sections <span style="font-weight:normal;font-size:10px;color:var(--text-muted);">(drag to reorder)</span></div>
+          <ul class="section-list" id="unique-sections" style="margin-top:8px;min-height:60px;"></ul>
+        </div>
+
+        <!-- Front Matter Editor -->
+        <div id="frontmatter-editor" style="display:none;flex-direction:column;gap:8px;padding:12px;background:var(--bg);border-radius:var(--radius);margin-bottom:12px;">
+          <div style="font-weight:600;font-size:13px;margin-bottom:4px;">Front Matter</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <input type="text" id="fm-title" placeholder="Report Title" style="padding:8px;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);">
+            <input type="text" id="fm-author" placeholder="Author Name" style="padding:8px;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <input type="date" id="fm-date" style="padding:8px;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);">
+            <select id="fm-classification" style="padding:8px;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);">
+              <option value="Public">Public</option>
+              <option value="Internal Use">Internal Use</option>
+              <option value="Confidential" selected>Confidential</option>
+              <option value="Secret">Secret</option>
+            </select>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <input type="text" id="fm-project" placeholder="Project Name" style="padding:8px;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);">
+            <input type="text" id="fm-client" placeholder="Client Name" style="padding:8px;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);">
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;font-size:12px;padding:8px;background:var(--surface);border-radius:var(--radius);">
+            <input type="checkbox" id="fm-draft" style="width:16px;height:16px;">
+            <span>Mark as DRAFT (shows watermark)</span>
+          </label>
+          <button class="btn btn-primary" id="btn-save-frontmatter" style="padding:8px 14px;font-size:12px;">Save Front Matter</button>
+        </div>
+
+        <!-- Section Editor -->
+        <div id="section-editor" style="display:none;flex-direction:column;gap:8px;flex:1;">
+          <div style="font-weight:600;font-size:13px;margin-bottom:4px;">Edit Section</div>
+          <textarea id="section-content" style="width:100%;flex:1;min-height:200px;padding:10px;font-family:monospace;font-size:12px;border:1px solid var(--border);border-radius:var(--radius);resize:vertical;"></textarea>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-primary" id="btn-save-section" style="flex:1;padding:8px;font-size:12px;">Save Section</button>
+            <button class="btn btn-secondary" id="btn-view-source" style="flex:1;padding:8px;font-size:12px;">View Source</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="status-bar" id="status">Loading brand config...</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // Global error handler
+  window.onerror = function(msg, url, line, col, error) {
+    console.error('[GLOBAL ERROR]', msg, 'at line', line);
+  };
+
+  console.log('[MAIN] Script starting...');
+
+  // ─── State ───
+  const state = {
+    colors: {},
+    securityColors: {},
+    complianceColors: {},
+    tableColors: {},
+    codeColors: {},
+    typography: {},
+    htmlTheme: 'cosmo',
+    reportDefaults: {
+      reviewerOrg: '',
+      reviewerContact: '',
+      reviewerEmail: '',
+      classification: 'confidential',
+    },
+  };
+
+  // ─── Color field definitions with CSS variable mappings ───
+  const BRAND_FIELDS = [
+    { key: 'primary',    label: 'Primary',    cssVars: ['--navy', '--table-header-bg'] },
+    { key: 'secondary',  label: 'Secondary',  cssVars: ['--blue'] },
+    { key: 'foreground', label: 'Foreground', cssVars: [] },
+    { key: 'background', label: 'Background', cssVars: [] },
+    { key: 'muted',      label: 'Muted',      cssVars: ['--na'] },
+    { key: 'border',     label: 'Border',     cssVars: ['--table-border'] }
+  ];
+
+  const SECURITY_FIELDS = [
+    { key: 'critical',      label: 'Critical', cssVars: ['--critical'] },
+    { key: 'high',          label: 'High',     cssVars: ['--high'] },
+    { key: 'medium',        label: 'Medium',   cssVars: ['--medium'] },
+    { key: 'low',           label: 'Low',      cssVars: ['--low'] },
+    { key: 'informational', label: 'Info',     cssVars: ['--info'] }
+  ];
+
+  const COMPLIANCE_FIELDS = [
+    { key: 'compliant',    label: 'Compliant',     cssVars: ['--compliant'] },
+    { key: 'partial',      label: 'Partial',       cssVars: ['--partial'] },
+    { key: 'nonCompliant', label: 'Non-Compliant', cssVars: ['--non-compliant'] },
+    { key: 'na',           label: 'N/A',           cssVars: ['--na'] },
+    { key: 'pending',      label: 'Pending',       cssVars: ['--pending'] }
+  ];
+
+  const TABLE_FIELDS = [
+    { key: 'headerBg',   label: 'Header Bg',   cssVars: ['--table-header-bg'] },
+    { key: 'headerText', label: 'Header Text', cssVars: ['--table-header-text'] },
+    { key: 'stripe',     label: 'Row Stripe',  cssVars: ['--table-stripe'] },
+    { key: 'border',     label: 'Border',      cssVars: ['--table-border'] }
+  ];
+
+  const CODE_FIELDS = [
+    { key: 'bg',        label: 'Block Bg',    cssVars: ['--code-bg'] },
+    { key: 'text',      label: 'Block Text',  cssVars: ['--code-text'] },
+    { key: 'inlineBg',  label: 'Inline Bg',   cssVars: ['--code-inline-bg'] },
+    { key: 'inlineText',label: 'Inline Text', cssVars: ['--code-inline-text'] }
+  ];
+
+  // ─── Default values (mirrors styles.css :root) ───
+  const DEFAULTS = {
+    colors: {
+      primary:    '#1F3B5C',
+      secondary:  '#4A90E2',
+      foreground: '#1A202C',
+      background: '#FFFFFF',
+      muted:      '#6B7280',
+      border:     '#E5E7EB',
+    },
+    securityColors: {
+      critical:      '#7C3AED',
+      high:          '#DC2626',
+      medium:        '#EA580C',
+      low:           '#16A34A',
+      informational: '#2563EB',
+    },
+    complianceColors: {
+      compliant:    '#16A34A',
+      partial:      '#EA580C',
+      nonCompliant: '#DC2626',
+      na:           '#6B7280',
+      pending:      '#2563EB',
+    },
+    tableColors: {
+      headerBg:   '#1F3B5C',
+      headerText: '#FFFFFF',
+      stripe:     '#F8FAFC',
+      border:     '#E5E7EB',
+    },
+    codeColors: {
+      bg:        '#0F172A',
+      text:      '#E2E8F0',
+      inlineBg:  '#F1F5F9',
+      inlineText:'#DC2626',
+    },
+  };
+
+  // ─── CSS variable injection into gallery iframe ───
+  function injectCssVar(vars, value) {
+    const frame = document.getElementById('gallery-frame');
+    if (!frame || !frame.contentDocument) return;
+    const root = frame.contentDocument.documentElement;
+    vars.forEach(v => root.style.setProperty(v, value));
+  }
+
+  // ─── Build color pickers ───
+  function buildColorFields(containerId, fields, stateKey) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    fields.forEach(({ key, label, cssVars }) => {
+      const div = document.createElement('div');
+      div.className = 'color-field';
+      div.innerHTML = `<label title="${key}">${label}</label>
+        <input type="color" id="cp-${stateKey}-${key}" value="#cccccc">
+        <input type="text"  id="ct-${stateKey}-${key}" value="#cccccc" maxlength="7">`;
+      container.appendChild(div);
+
+      const picker = div.querySelector(`#cp-${stateKey}-${key}`);
+      const text   = div.querySelector(`#ct-${stateKey}-${key}`);
+
+      const onChange = (val) => {
+        text.value = val;
+        picker.value = val;
+        state[stateKey][key] = val;
+        injectCssVar(cssVars, val);
+      };
+
+      picker.addEventListener('input', e => onChange(e.target.value));
+      text.addEventListener('change', e => {
+        if (/^#[0-9A-Fa-f]{6}$/.test(e.target.value)) onChange(e.target.value);
+      });
+    });
+  }
+
+  function populateColorFields(stateKey, fields) {
+    console.log(`[populateColorFields] ${stateKey}, state value:`, state[stateKey]);
+    fields.forEach(({ key }) => {
+      const val = state[stateKey][key];
+      console.log(`[populateColorFields] ${stateKey}.${key} = ${val}`);
+      if (!val) return;
+      const hex = val.startsWith('#') ? val.slice(0, 7) : '#' + val;
+      const cp = document.getElementById(`cp-${stateKey}-${key}`);
+      const ct = document.getElementById(`ct-${stateKey}-${key}`);
+      console.log(`[populateColorFields] Element cp-${stateKey}-${key}:`, !!cp, 'current value:', cp?.value);
+      if (cp) cp.value = hex;
+      if (ct) ct.value = hex;
+    });
+  }
+
+  // ─── Panel tabs (editor left side) ───
+  document.querySelectorAll('.panel-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.ptab;
+      document.querySelectorAll('.panel-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel-pane').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const pane = document.getElementById(`ptab-${target}`);
+      if (pane) pane.classList.add('active');
+    });
+  });
+
+  // ─── Template navigation ───
+  const templateAnchors = {
+    'scoping-pentest': '#scoping-document-template-pentest',
+    'test-plan-pentest': '#test-plan-template-pentest',
+    'scoping-codereview': '#scoping-document-template-code-review',
+    'test-plan-codereview': '#test-plan-template-code-review',
+    'scoping-secreview': '#scoping-document-template-security-architecture',
+    'test-plan-secreview': '#test-plan-template-security-architecture',
+    'standards': '#template-standards-reference',
+    'actual-templates': '#actual-templates'
+  };
+
+  document.querySelectorAll('.template-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const template = btn.dataset.template;
+      const galleryFrame = document.getElementById('gallery-frame');
+
+      if (template === 'all') {
+        galleryFrame.src = '/gallery';
+      } else if (templateAnchors[template]) {
+        galleryFrame.src = '/gallery' + templateAnchors[template];
+      }
+    });
+  });
+
+  // Open full gallery in new tab
+  document.getElementById('btn-open-gallery')?.addEventListener('click', () => {
+    window.open('/gallery', '_blank');
+  });
+
+  // Open templates folder
+  document.getElementById('btn-open-templates')?.addEventListener('click', () => {
+    window.open('/templates/reports/pentest/pentest-report.qmd', '_blank');
+  });
+
+  // Middle panel button handlers (duplicate for the new template panel)
+  document.getElementById('btn-open-gallery-middle')?.addEventListener('click', () => {
+    window.open('/gallery', '_blank');
+  });
+
+  document.getElementById('btn-open-templates-middle')?.addEventListener('click', () => {
+    window.open('/templates/reports/pentest/pentest-report.qmd', '_blank');
+  });
+
+  // ─── Gallery frame initialization (middle panel) ───
+  (function initGalleryFrame() {
+    const galleryFrame = document.getElementById('gallery-frame');
+    if (galleryFrame && !galleryFrame.src) {
+      galleryFrame.src = '/gallery';
+    }
+  })();
+
+  // ─── Gallery dropdown selection ───
+  document.getElementById('gallery-select')?.addEventListener('change', function() {
+    const galleryFrame = document.getElementById('gallery-frame');
+    if (galleryFrame && this.value) {
+      galleryFrame.src = this.value;
+    }
+  });
+
+  // ─── Report preview frame initialization (right panel) ───
+  (function initReportPreview() {
+    const frame = document.getElementById('report-preview-frame');
+    if (frame && !frame.src) {
+      frame.src = '/preview?type=code-review';
+    }
+  })();
+
+  // ─── Right panel tab switching (Preview / Templates) ───
+  document.querySelectorAll('[data-preview-tab]').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.previewTab;
+      document.querySelectorAll('[data-preview-tab]').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.preview-tab-content').forEach(p => p.style.display = 'none');
+      tab.classList.add('active');
+      document.getElementById(`preview-tab-${target}`).style.display = 'flex';
+
+      // When clicking right Templates tab, show template editing in left pane
+      if (target === 'templates') {
+        showLeftPaneTemplates();
+      }
+    });
+  });
+
+  // Function to show template editing in left pane
+  function showLeftPaneTemplates() {
+    // Hide other left panes
+    document.querySelectorAll('.editor-panel .panel-pane').forEach(p => p.classList.remove('active'));
+    // Show templates pane in left
+    const templatesPane = document.getElementById('ptab-templates');
+    if (templatesPane) {
+      templatesPane.classList.add('active');
+    }
+  }
+
+  // ─── Template section selection ───
+  const TEMPLATE_SECTIONS = [
+    { value: 'pentest/_sections/_scope', label: 'Pentest - Scope' },
+    { value: 'pentest/_sections/_executive-summary', label: 'Pentest - Executive Summary' },
+    { value: 'pentest/_sections/_findings/_f001-medium', label: 'Pentest - Finding Template' },
+    { value: 'code_review/_sections/_scope', label: 'Code Review - Scope' },
+    { value: 'code_review/_sections/_executive-summary', label: 'Code Review - Summary' },
+    { value: 'code_review/_sections/_findings/_f001-medium', label: 'Code Review - Finding Template' },
+    { value: 'sec_review/_sections/_scope', label: 'Sec Review - Scope' },
+    { value: 'sec_review/_sections/_findings/_f001-medium', label: 'Sec Review - Finding Template' },
+  ];
+
+  // ─── Template Builder: Skill/Section Selectors & Editors ───
+  let templatesConfig = null;
+  let currentTemplateSkill = null;
+  let currentTemplateSection = null;
+
+  async function loadTemplatesConfig() {
+    try {
+      const res = await fetch('/builder-config');
+      const data = await res.json();
+      if (data.ok) {
+        templatesConfig = jsyaml.load(data.config);
+        populateSkillSelector();
+      }
+    } catch (err) {
+      console.error('Failed to load templates config:', err);
+    }
+  }
+
+  function populateSkillSelector() {
+    const select = document.getElementById('template-skill-select');
+    if (!select || !templatesConfig) return;
+    select.innerHTML = '<option value="">Select a skill...</option>';
+
+    Object.entries(templatesConfig.skills || {}).forEach(([key, skill]) => {
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.textContent = skill.name;
+      select.appendChild(opt);
+    });
+  }
+
+  function populateSectionSelector(skillKey) {
+    const select = document.getElementById('template-section-select');
+    if (!select || !templatesConfig || !templatesConfig.skills[skillKey]) return;
+
+    const skill = templatesConfig.skills[skillKey];
+    select.innerHTML = '<option value="">Select a section...</option>';
+    select.innerHTML += '<option value="frontmatter">Front Matter</option>';
+
+    // Add base sections
+    (skill.sections || []).forEach(secKey => {
+      const section = templatesConfig.sections?.[secKey];
+      if (section) {
+        const opt = document.createElement('option');
+        opt.value = `base:${secKey}`;
+        opt.textContent = `Base: ${section.name}`;
+        select.appendChild(opt);
+      }
+    });
+
+    // Add unique sections
+    (skill.unique_sections || []).forEach(sec => {
+      const opt = document.createElement('option');
+      opt.value = `unique:${sec.id}`;
+      opt.textContent = `Unique: ${sec.name}`;
+      select.appendChild(opt);
+    });
+  }
+
+  function showFrontmatterEditor(skillKey) {
+    document.getElementById('frontmatter-editor').style.display = 'flex';
+    document.getElementById('section-editor').style.display = 'none';
+
+    // Load front matter from engagement.yaml
+    const engPath = `/templates/reports/${skillKey}/engagement.yaml`;
+    fetch(engPath)
+      .then(res => res.ok ? res.text() : null)
+      .then(yaml => {
+        if (yaml) {
+          const fm = jsyaml.load(yaml) || {};
+          document.getElementById('fm-title').value = fm.project_name || '';
+          document.getElementById('fm-author').value = fm.reviewer_name || '';
+          document.getElementById('fm-date').value = fm.report_date || '';
+          document.getElementById('fm-classification').value = fm.classification || 'Confidential';
+          document.getElementById('fm-project').value = fm.project_name || '';
+          document.getElementById('fm-client').value = fm.client_name || '';
+          document.getElementById('fm-draft').checked = fm.draft === true || fm.draft === 'true';
+        }
+      });
+  }
+
+  function showSectionEditor(skillKey, sectionValue) {
+    document.getElementById('frontmatter-editor').style.display = 'none';
+    document.getElementById('section-editor').style.display = 'flex';
+
+    // Determine file path based on section type
+    const [type, sectionId] = sectionValue.split(':');
+    let filePath = '';
+
+    if (type === 'base') {
+      const section = templatesConfig.sections?.[sectionId];
+      filePath = `/templates/reports/${skillKey}/_sections/${section?.file || '_' + sectionId + '.qmd'}`;
+    } else {
+      const skill = templatesConfig.skills[skillKey];
+      const section = (skill.unique_sections || []).find(s => s.id === sectionId);
+      filePath = `/templates/reports/${skillKey}/_sections/${section?.file || '_' + sectionId + '.qmd'}`;
+    }
+
+    // Load section content
+    fetch(filePath)
+      .then(res => res.ok ? res.text() : '')
+      .then(content => {
+        document.getElementById('section-content').value = content;
+      });
+
+    currentTemplateSkill = skillKey;
+    currentTemplateSection = sectionValue;
+  }
+
+  // Initialize template selectors
+  (async function initTemplateSelectors() {
+    await loadTemplatesConfig();
+
+    const skillSelect = document.getElementById('template-skill-select');
+    const sectionSelect = document.getElementById('template-section-select');
+
+    skillSelect?.addEventListener('change', function() {
+      currentTemplateSkill = this.value;
+      if (this.value) {
+        populateSectionSelector(this.value);
+      } else {
+        sectionSelect.innerHTML = '<option value="">Select a section...</option><option value="frontmatter">Front Matter</option>';
+      }
+      document.getElementById('frontmatter-editor').style.display = 'none';
+      document.getElementById('section-editor').style.display = 'none';
+    });
+
+    sectionSelect?.addEventListener('change', function() {
+      if (!currentTemplateSkill) return;
+
+      if (this.value === 'frontmatter') {
+        showFrontmatterEditor(currentTemplateSkill);
+      } else if (this.value) {
+        showSectionEditor(currentTemplateSkill, this.value);
+      } else {
+        document.getElementById('frontmatter-editor').style.display = 'none';
+        document.getElementById('section-editor').style.display = 'none';
+      }
+    });
+  })();
+
+  // Save front matter
+  document.getElementById('btn-save-frontmatter')?.addEventListener('click', async function() {
+    if (!currentTemplateSkill) return;
+
+    const fm = {
+      project_name: document.getElementById('fm-project').value,
+      client_name: document.getElementById('fm-client').value,
+      reviewer_name: document.getElementById('fm-author').value,
+      report_date: document.getElementById('fm-date').value,
+      classification: document.getElementById('fm-classification').value,
+      draft: document.getElementById('fm-draft').checked,
+    };
+
+    try {
+      const res = await fetch('/frontmatter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skill: currentTemplateSkill, frontmatter: fm }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setStatus('Front matter saved', 'success');
+      } else {
+        setStatus('Error: ' + data.error, 'error');
+      }
+    } catch (err) {
+      setStatus('Error saving front matter', 'error');
+    }
+  });
+
+  // Save section
+  document.getElementById('btn-save-section')?.addEventListener('click', async function() {
+    if (!currentTemplateSkill || !currentTemplateSection) return;
+
+    const content = document.getElementById('section-content').value;
+    const [type, sectionId] = currentTemplateSection.split(':');
+
+    try {
+      const res = await fetch('/section', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          skill: currentTemplateSkill,
+          sectionType: type,
+          sectionId: sectionId,
+          content: content
+        }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setStatus('Section saved', 'success');
+      } else {
+        setStatus('Error: ' + data.error, 'error');
+      }
+    } catch (err) {
+      setStatus('Error saving section', 'error');
+    }
+  });
+
+  // Create New Template button
+  document.getElementById('btn-create-template')?.addEventListener('click', async function() {
+    const skillName = prompt('Enter skill name (e.g., "cloud-audit"):');
+    if (!skillName) return;
+
+    const skillId = skillName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+    try {
+      const res = await fetch('/builder-create-skill', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skillId, skillName }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setStatus('Template created: ' + skillId, 'success');
+        // Reload config and refresh skill selector
+        await loadTemplatesConfig();
+        populateSkillSelector();
+        document.getElementById('template-skill-select').value = skillId;
+        document.getElementById('template-skill-select').dispatchEvent(new Event('change'));
+      } else {
+        setStatus('Error: ' + data.error, 'error');
+      }
+    } catch (err) {
+      setStatus('Error creating template', 'error');
+    }
+  });
+
+  // ─── View Source button (in section editor) ───
+  document.getElementById('btn-view-source')?.addEventListener('click', function() {
+    if (!currentTemplateSkill || !currentTemplateSection) return;
+    const [type, sectionId] = currentTemplateSection.split(':');
+    let filePath = '';
+
+    if (type === 'base') {
+      const section = templatesConfig.sections?.[sectionId];
+      filePath = `/templates/reports/${currentTemplateSkill}/_sections/${section?.file || '_' + sectionId + '.qmd'}`;
+    } else {
+      const skill = templatesConfig.skills[currentTemplateSkill];
+      const section = (skill.unique_sections || []).find(s => s.id === sectionId);
+      filePath = `/templates/reports/${currentTemplateSkill}/_sections/${section?.file || '_' + sectionId + '.qmd'}`;
+    }
+    window.open(filePath, '_blank');
+  });
+
+  // ─── Report Preview type selector ───
+  let selectedPreviewType = 'code-review';
+  document.querySelectorAll('.preview-type-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.preview-type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedPreviewType = btn.dataset.ptype;
+      const frame = document.getElementById('report-preview-frame');
+      if (frame) frame.src = `/preview?type=${selectedPreviewType}&t=${Date.now()}`;
+    });
+  });
+
+  document.getElementById('btn-render-preview')?.addEventListener('click', async () => {
+    const btn = document.getElementById('btn-render-preview');
+    btn.disabled = true;
+    btn.textContent = 'Rendering...';
+    const theme = state.htmlTheme || 'cosmo';
+    const types = [
+      'code-review', 'sec-review', 'pentest',
+      'scoping', 'testplan', 'finding'
+    ];
+    let errors = [];
+    for (let i = 0; i < types.length; i++) {
+      const t = types[i];
+      setStatus(`Rendering ${i + 1}/${types.length}: ${t}...`, 'loading');
+      try {
+        const res = await fetch('/render-preview', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ theme, previewType: t }),
+        });
+        const data = await res.json();
+        if (!data.ok) errors.push(`${t}: ${data.error || 'failed'}`);
+      } catch (err) {
+        errors.push(`${t}: ${err.message}`);
+      }
+    }
+    const frame = document.getElementById('report-preview-frame');
+    if (frame) frame.src = `/preview?type=${selectedPreviewType}&t=${Date.now()}`;
+    reportPreviewInitialized = true;
+    if (errors.length) {
+      setStatus(`Render errors: ${errors.join('; ')}`, 'err');
+    } else {
+      setStatus('All previews rendered', 'ok');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Render Preview';
+  });
+
+  // ─── Dynamic font loader (fallback for any font not pre-loaded) ───
+  const PRELOADED_FONTS = new Set([
+    'inter', 'outfit', 'fira code', 'jetbrains mono', 'lato', 'montserrat',
+    'open sans', 'poppins', 'raleway', 'roboto', 'source code pro', 'source sans pro',
+    'cascadia code', 'system-ui', '-apple-system', 'sans-serif', 'monospace',
+    'consolas', 'courier new',
+  ]);
+  const dynamicFontsLoaded = new Set();
+
+  function ensureFontLoaded(cssStack) {
+    const base = cssStack.split(',')[0].trim().replace(/['"]/g, '');
+    const key = base.toLowerCase();
+    if (PRELOADED_FONTS.has(key) || dynamicFontsLoaded.has(key)) return;
+    dynamicFontsLoaded.add(key);
+    const url = `https://fonts.googleapis.com/css2?family=${base.replace(/ /g, '+')}:wght@400;500;600;700&display=swap`;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.head.appendChild(link);
+    const frame = document.getElementById('gallery-frame');
+    if (frame && frame.contentDocument) {
+      const iLink = frame.contentDocument.createElement('link');
+      iLink.rel = 'stylesheet';
+      iLink.href = url;
+      frame.contentDocument.head.appendChild(iLink);
+    }
+  }
+
+  // ─── Typography live injection ───
+  ['font-base','font-headings','font-mono'].forEach(id => {
+    document.getElementById(id)?.addEventListener('change', e => {
+      ensureFontLoaded(e.target.value);
+      const frame = document.getElementById('gallery-frame');
+      if (!frame || !frame.contentDocument) return;
+      const root = frame.contentDocument.documentElement;
+      if (id === 'font-base')     root.style.setProperty('--font-base', e.target.value);
+      if (id === 'font-headings') root.style.setProperty('--font-heading', e.target.value);
+      if (id === 'font-mono')     root.style.setProperty('--font-mono', e.target.value);
+    });
+  });
+
+  document.querySelectorAll('input[name="font-size"]').forEach(r => {
+    r.addEventListener('change', e => {
+      const frame = document.getElementById('gallery-frame');
+      if (!frame || !frame.contentDocument) return;
+      frame.contentDocument.documentElement.style.setProperty('--font-size-base', e.target.value);
+    });
+  });
+
+  document.querySelectorAll('input[name="line-height"]').forEach(r => {
+    r.addEventListener('change', e => {
+      const frame = document.getElementById('gallery-frame');
+      if (!frame || !frame.contentDocument) return;
+      frame.contentDocument.documentElement.style.setProperty('--line-height', e.target.value);
+    });
+  });
+
+  document.querySelectorAll('input[name="head-weight"]').forEach(r => {
+    r.addEventListener('change', e => {
+      const frame = document.getElementById('gallery-frame');
+      if (!frame || !frame.contentDocument) return;
+      frame.contentDocument.documentElement.style.setProperty('--heading-weight', e.target.value);
+    });
+  });
+
+  // ─── Logo helpers ───
+  function injectLogoVar(prop, value) {
+    const frame = document.getElementById('gallery-frame');
+    if (!frame || !frame.contentDocument) return;
+    frame.contentDocument.documentElement.style.setProperty(prop, value);
+  }
+
+  function setGalleryLogo(src) {
+    const frame = document.getElementById('gallery-frame');
+    if (!frame || !frame.contentDocument) return;
+    const wrapper = frame.contentDocument.getElementById('logo-wrapper');
+    const img = frame.contentDocument.getElementById('gallery-logo');
+    if (!wrapper || !img) return;
+    img.src = src;
+    wrapper.style.display = src ? '' : 'none';
+  }
+
+  // ─── Logo upload ───
+  document.getElementById('logo-upload')?.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const statusEl = document.getElementById('logo-status');
+    const reader = new FileReader();
+    reader.onload = async ev => {
+      const dataUrl = ev.target.result;
+      if (statusEl) { statusEl.textContent = 'Uploading...'; statusEl.style.display = ''; }
+      try {
+        const res = await fetch('/upload-logo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ dataUrl, filename: file.name })
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'Upload failed');
+        setGalleryLogo(data.path + '?' + Date.now());
+        document.getElementById('logo-controls').style.display = '';
+        if (statusEl) { statusEl.textContent = 'Saved to docs/assets/'; statusEl.style.display = ''; }
+        setStatus('Logo uploaded: ' + data.path.split('/').pop(), 'ok');
+      } catch (err) {
+        if (statusEl) { statusEl.textContent = 'Upload failed: ' + err.message; statusEl.style.display = ''; }
+        setStatus('Logo upload failed: ' + err.message, 'err');
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // ─── Logo wrapper controls ───
+  document.getElementById('logo-transparent')?.addEventListener('change', e => {
+    const colorPicker = document.getElementById('logo-bg-color');
+    if (e.target.checked) {
+      colorPicker.style.display = 'none';
+      injectLogoVar('--logo-bg', 'transparent');
+    } else {
+      colorPicker.style.display = '';
+      injectLogoVar('--logo-bg', colorPicker.value);
+    }
+  });
+
+  document.getElementById('logo-bg-color')?.addEventListener('input', e => {
+    injectLogoVar('--logo-bg', e.target.value);
+  });
+
+  document.querySelectorAll('input[name="logo-padding"]').forEach(r => {
+    r.addEventListener('change', e => injectLogoVar('--logo-padding', e.target.value));
+  });
+
+  document.querySelectorAll('input[name="logo-radius"]').forEach(r => {
+    r.addEventListener('change', e => injectLogoVar('--logo-radius', e.target.value));
+  });
+
+  document.querySelectorAll('input[name="logo-height"]').forEach(r => {
+    r.addEventListener('change', e => injectLogoVar('--logo-max-height', e.target.value));
+  });
+
+  // ─── Status ───
+  function setStatus(msg, type = '') {
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = 'status-bar' + (type ? ' ' + type : '');
+  }
+
+  function selectMatchingOption(id, value) {
+    if (!value) return;
+    const sel = document.getElementById(id);
+    if (!sel) return;
+    const opt = Array.from(sel.options).find(o => o.value === value);
+    if (opt) sel.value = value;
+  }
+
+  // ─── Load brand ───
+  async function loadBrand() {
+    setStatus('Loading...', 'loading');
+    console.log('[loadBrand] Starting...');
+    try {
+      const res = await fetch('/current-brand');
+      console.log('[loadBrand] Response status:', res.status);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      console.log('[loadBrand] Got data, colors:', data.colors);
+      if (data.error) throw new Error(data.error);
+
+      // Merge brand values, using DEFAULTS as fallback for any undefined/missing values
+      const stripUndef = obj => Object.fromEntries(Object.entries(obj || {}).filter(([,v]) => v != null));
+      Object.assign(state.colors,           { ...DEFAULTS.colors,           ...stripUndef(data.colors) });
+      Object.assign(state.securityColors,   { ...DEFAULTS.securityColors,   ...stripUndef(data.securityColors) });
+      Object.assign(state.complianceColors, { ...DEFAULTS.complianceColors, ...stripUndef(data.complianceColors) });
+      Object.assign(state.tableColors,      { ...DEFAULTS.tableColors,      ...stripUndef(data.tableColors) });
+      Object.assign(state.codeColors,       { ...DEFAULTS.codeColors,       ...stripUndef(data.codeColors) });
+      Object.assign(state.typography, data.typography || {});
+      state.htmlTheme = data.htmlTheme || 'cosmo';
+
+      console.log('[loadBrand] State colors after merge:', state.colors);
+
+      populateColorFields('colors', BRAND_FIELDS);
+      populateColorFields('securityColors', SECURITY_FIELDS);
+      populateColorFields('complianceColors', COMPLIANCE_FIELDS);
+      populateColorFields('tableColors', TABLE_FIELDS);
+      populateColorFields('codeColors', CODE_FIELDS);
+
+      console.log('[loadBrand] Color fields populated');
+
+      if (data.typography) {
+        selectMatchingOption('font-base', data.typography.baseFamily);
+        selectMatchingOption('font-headings', data.typography.headingsFamily);
+        selectMatchingOption('font-mono', data.typography.monospaceFamily);
+        const selectRadio = (name, val) => {
+          if (!val) return;
+          const r = document.querySelector(`input[name="${name}"][value="${val}"]`);
+          if (r) r.checked = true;
+        };
+        selectRadio('font-size',   data.typography.baseSize);
+        selectRadio('line-height', data.typography.lineHeight);
+        selectRadio('head-weight', data.typography.headingWeight);
+      }
+      selectMatchingOption('quarto-theme', state.htmlTheme);
+
+      if (data.reportDefaults) {
+        const rd = data.reportDefaults;
+        Object.assign(state.reportDefaults, rd);
+        const setVal = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+        setVal('report-org',            rd.reviewerOrg);
+        setVal('report-contact',        rd.reviewerContact);
+        setVal('report-email',          rd.reviewerEmail);
+        setVal('report-classification', rd.classification);
+      }
+
+      injectAllToGallery();
+      setStatus('Brand config loaded', 'ok');
+    } catch (err) {
+      setStatus(`Failed to load: ${err.message}`, 'err');
+    }
+  }
+
+  function injectAllToGallery() {
+    const groups = [
+      { fields: BRAND_FIELDS,      stateKey: 'colors' },
+      { fields: SECURITY_FIELDS,   stateKey: 'securityColors' },
+      { fields: COMPLIANCE_FIELDS, stateKey: 'complianceColors' },
+      { fields: TABLE_FIELDS,      stateKey: 'tableColors' },
+      { fields: CODE_FIELDS,       stateKey: 'codeColors' },
+    ];
+    groups.forEach(({ fields, stateKey }) => {
+      fields.forEach(({ key, cssVars }) => {
+        if (cssVars.length && state[stateKey][key]) injectCssVar(cssVars, state[stateKey][key]);
+      });
+    });
+  }
+
+  // ─── Save to _brand.yml ───
+  document.getElementById('btn-save').addEventListener('click', async () => {
+    const btn = document.getElementById('btn-save');
+    btn.disabled = true;
+    setStatus('Saving...', 'loading');
+    try {
+      const payload = {
+        colors: { ...state.colors },
+        securityColors: { ...state.securityColors },
+        complianceColors: { ...state.complianceColors },
+        tableColors: { ...state.tableColors },
+        codeColors: { ...state.codeColors },
+        typography: {
+          baseFamily:     document.getElementById('font-base').value,
+          headingsFamily: document.getElementById('font-headings').value,
+          monospaceFamily:document.getElementById('font-mono').value,
+        },
+        reportDefaults: {
+          reviewerOrg:     document.getElementById('report-org')?.value || undefined,
+          reviewerContact: document.getElementById('report-contact')?.value || undefined,
+          reviewerEmail:   document.getElementById('report-email')?.value || undefined,
+          classification:  document.getElementById('report-classification')?.value || undefined,
+        },
+      };
+      const res = await fetch('/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setStatus('Saved to _brand.yml', 'ok');
+    } catch (err) {
+      setStatus(`Save failed: ${err.message}`, 'err');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  // ─── Generate CSS Files ───
+  document.getElementById('btn-generate').addEventListener('click', async () => {
+    const btn = document.getElementById('btn-generate');
+    btn.disabled = true;
+    setStatus('Generating CSS files...', 'loading');
+    try {
+      const payload = {
+        colors: { ...state.colors },
+        securityColors: { ...state.securityColors },
+        complianceColors: { ...state.complianceColors },
+        tableColors: { ...state.tableColors },
+        codeColors: { ...state.codeColors },
+        typography: {
+          baseFamily:     document.getElementById('font-base').value,
+          headingsFamily: document.getElementById('font-headings').value,
+          monospaceFamily:document.getElementById('font-mono').value,
+          baseSize:        document.querySelector('input[name="font-size"]:checked')?.value || '15px',
+          lineHeight:      document.querySelector('input[name="line-height"]:checked')?.value || '1.7',
+          headingWeight:   document.querySelector('input[name="head-weight"]:checked')?.value || '600',
+        }
+      };
+      const res = await fetch('/generate-css', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'Generate failed');
+      setStatus(`CSS generated: ${data.paths.map(p => p.split('/').pop()).join(', ')}`, 'ok');
+    } catch (err) {
+      setStatus(`Generate failed: ${err.message}`, 'err');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+
+  // ─── Reset to Defaults ───
+  function resetToDefaults() {
+    const groups = [
+      { stateKey: 'colors',           fields: BRAND_FIELDS,      defaults: DEFAULTS.colors },
+      { stateKey: 'securityColors',   fields: SECURITY_FIELDS,   defaults: DEFAULTS.securityColors },
+      { stateKey: 'complianceColors', fields: COMPLIANCE_FIELDS, defaults: DEFAULTS.complianceColors },
+      { stateKey: 'tableColors',      fields: TABLE_FIELDS,      defaults: DEFAULTS.tableColors },
+      { stateKey: 'codeColors',       fields: CODE_FIELDS,       defaults: DEFAULTS.codeColors },
+    ];
+    groups.forEach(({ stateKey, fields, defaults }) => {
+      Object.assign(state[stateKey], defaults);
+      populateColorFields(stateKey, fields);
+      fields.forEach(({ key, cssVars }) => {
+        if (cssVars.length && defaults[key]) injectCssVar(cssVars, defaults[key]);
+      });
+    });
+    setStatus('Reset to defaults', 'ok');
+  }
+
+  document.getElementById('btn-reset').addEventListener('click', resetToDefaults);
+
+  // ─── Version Check ───
+  async function checkVersions() {
+    try {
+      const res = await fetch('/check-versions');
+      if (!res.ok) return;
+      const { libs } = await res.json();
+      const outdated = libs.filter(l => l.latest && l.upToDate === false);
+      if (!outdated.length) return;
+      const names = outdated.map(l => `${l.name} ${l.pinned}→${l.latest}`).join(', ');
+      setStatus(`Updates available: ${names}`, '');
+      const statusEl = document.getElementById('status');
+      const btn = document.createElement('button');
+      btn.textContent = 'Update all';
+      btn.style.cssText = 'font-size:10px;padding:1px 8px;border:1px solid currentColor;border-radius:3px;cursor:pointer;background:none;color:inherit;margin-left:6px;';
+      btn.onclick = () => updateLibs(outdated, btn);
+      statusEl.appendChild(btn);
+    } catch { /* non-essential, fail silently */ }
+  }
+
+  async function updateLibs(outdated, btn) {
+    if (btn) btn.disabled = true;
+    setStatus('Updating CDN pins in gallery.html...', 'loading');
+    let updated = 0;
+    for (const { name, latest } of outdated) {
+      try {
+        const r = await fetch('/update-versions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, version: latest }),
+        });
+        if ((await r.json()).ok) updated++;
+      } catch { /* skip individual failures */ }
+    }
+    setStatus(`${updated} lib${updated !== 1 ? 's' : ''} updated — reload gallery to apply`, 'ok');
+  }
+
+  // ─── Init ───
+  buildColorFields('brand-colors',      BRAND_FIELDS,      'colors');
+  buildColorFields('security-colors',   SECURITY_FIELDS,   'securityColors');
+  buildColorFields('compliance-colors', COMPLIANCE_FIELDS, 'complianceColors');
+  buildColorFields('table-colors',      TABLE_FIELDS,      'tableColors');
+  buildColorFields('code-colors',       CODE_FIELDS,       'codeColors');
+  document.getElementById('gallery-frame')?.addEventListener('load', injectAllToGallery);
+
+  // Expose loadBrand globally for external scripts (e.g., builder.js)
+  window.loadBrand = loadBrand;
+
+  console.log('[MAIN] Calling loadBrand...');
+  loadBrand().then(() => {
+    console.log('[MAIN] loadBrand complete');
+    checkVersions();
+  }).catch(err => {
+    console.error('[MAIN] loadBrand error:', err);
+  });
+})();
+</script>
+</body>
+</html>

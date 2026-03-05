@@ -1,0 +1,794 @@
+framework: iso-42001
+version: "2023"
+description: ISO/IEC 42001:2023 AI Management System cross-framework control mappings
+last_updated: 2026-02-22
+mappings:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.2: POLICIES RELATED TO AI
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.2.2
+    title: AI policy
+    external_mappings:
+      aiuc-1:
+        - E001    # AI system inventory and classification (accountability/governance)
+        - E002    # Organizational AI risk policy
+      nist-ai-rmf:
+        - GOVERN 1.1    # AI risk management policies, processes, and frameworks are established
+        - GOVERN 1.2    # Accountability structures for AI risk management are in place
+        - GOVERN 1.3    # Organizational teams commit to policies and practices
+      eu-ai-act:
+        - Article 9     # Risk management system
+        - Article 17    # Quality management system
+      iso-27001:
+        - A.5.1         # Policies for information security
+      iso-42005:
+        - Clause 5.2    # AI impact assessment policy
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Clause 5.2 and Annex A.2.2
+      - NIST AI RMF alignment documentation (GOVERN function)
+    notes: AI policy is the foundational governance document. Maps to GOVERN 1.x broadly and to AIUC-1 E-family accountability controls. EU AI Act Article 17 quality management system requires documented policies.
+
+  - control: A.2.3
+    title: Alignment with other organizational policies
+    external_mappings:
+      aiuc-1:
+        - E001    # Organizational AI governance structure
+        - E003    # Policy alignment and integration
+      nist-ai-rmf:
+        - GOVERN 1.1    # Policies and frameworks established
+        - GOVERN 5.1    # Organizational risk policies are aligned
+      eu-ai-act:
+        - Article 9     # Risk management system encompasses all AI-related policies
+        - Article 17    # Quality management system
+      iso-27001:
+        - A.5.1         # Policies for information security (alignment target)
+      iso-42005:
+        - Clause 6.1    # Context and intersecting obligations
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.2.3 and B.2.3
+    notes: Bidirectional alignment between AI policy and quality, security, safety, and privacy policies. Maps to GOVERN function cross-functional governance activities.
+
+  - control: A.2.4
+    title: Review of the AI policy
+    external_mappings:
+      aiuc-1:
+        - E004    # Policy review and maintenance processes
+      nist-ai-rmf:
+        - GOVERN 1.4    # Organizational teams review and update AI policies
+        - GOVERN 5.2    # Policies are reviewed and updated
+      eu-ai-act:
+        - Article 9     # Risk management system must be updated
+        - Article 17    # Quality management system includes review processes
+      iso-27001:
+        - A.5.1         # Policies reviewed at planned intervals
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.2.4 and B.2.4
+    notes: Periodic review aligned to management review cycle (Clause 9.3). Maps to GOVERN function ongoing maintenance activities.
+
+  - control: A.2.5
+    title: Topic-specific AI policies
+    external_mappings:
+      aiuc-1:
+        - E002    # Risk-specific AI policies (incident, procurement, lifecycle)
+      nist-ai-rmf:
+        - GOVERN 1.1    # Domain-specific policies established
+        - GOVERN 4.1    # Policies for specific AI risk areas
+      eu-ai-act:
+        - Article 9     # Risk-management covering specific risk categories
+        - Article 17    # Quality management processes
+      iso-27001:
+        - A.5.1         # Topic-specific information security policies (parallel structure)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.2.5
+    notes: Subsidiary policies for AI procurement, incident response, data governance, model lifecycle. Parallel to ISO 27001 topic-specific policy approach.
+
+  - control: A.2.6
+    title: Approach to AI within other policies
+    external_mappings:
+      aiuc-1:
+        - E001    # AI considerations embedded in organizational governance
+      nist-ai-rmf:
+        - GOVERN 5.1    # AI risk considerations integrated into organizational policies
+      eu-ai-act:
+        - Article 9     # Risk management integrated into organizational practices
+      iso-27001:
+        - A.5.1         # Information security considerations in other organizational policies
+    confidence: medium
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.2.6
+    notes: Reverse of A.2.3 — embedding AI considerations into existing policies (security, privacy, quality) rather than aligning the AI policy to them.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.3: INTERNAL ORGANIZATION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.3.2
+    title: AI roles and responsibilities
+    external_mappings:
+      aiuc-1:
+        - E001    # AI governance and accountability structure
+        - E005    # RACI for AI governance
+      nist-ai-rmf:
+        - GOVERN 1.2    # Accountability structures established and maintained
+        - GOVERN 2.2    # AI roles and responsibilities defined across the organization
+      eu-ai-act:
+        - Article 9     # Risk management system with defined responsibilities
+        - Article 17    # Quality management system with defined roles
+      iso-27001:
+        - A.5.2         # Information security roles and responsibilities
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.3.2 and B.3.2
+    notes: Annex B.3.2 specifies twelve accountability areas requiring defined roles. Maps strongly to GOVERN 1.2 and GOVERN 2.2 in NIST AI RMF. AIUC-1 E001 requires similar accountability structure.
+
+  - control: A.3.3
+    title: Reporting
+    external_mappings:
+      aiuc-1:
+        - E006    # AI incident reporting and escalation
+        - E007    # AI performance reporting to governance
+      nist-ai-rmf:
+        - GOVERN 1.5    # Organizational processes for AI risk reporting
+        - GOVERN 2.1    # AI risks communicated across the organization
+      eu-ai-act:
+        - Article 72    # Post-market monitoring and reporting (for high-risk AI)
+        - Article 73    # Serious incident reporting (for high-risk AI)
+      iso-27001:
+        - A.5.36        # Compliance with policies, rules, and standards (reporting obligations)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.3.3
+    notes: Upward, lateral, and outward reporting for AI risks and performance. EU AI Act Articles 72-73 create specific reporting obligations for high-risk AI systems.
+
+  - control: A.3.4
+    title: AI system-related processes
+    external_mappings:
+      aiuc-1:
+        - E005    # AI governance process documentation
+        - E008    # AI operational processes
+      nist-ai-rmf:
+        - GOVERN 1.1    # Processes established for AI risk management
+        - MAP 1.1       # AI context and operational processes established
+      eu-ai-act:
+        - Article 9     # Risk management system processes
+        - Article 17    # Quality management processes
+      iso-27001:
+        - A.5.37        # Documented operating procedures
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.3.4
+    notes: Process documentation for impact assessment, risk assessment, AI system approval, and lifecycle management. Operationalizes policy commitments.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.4: RESOURCES FOR AI SYSTEMS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.4.2
+    title: AI system inventory
+    external_mappings:
+      aiuc-1:
+        - E001    # AI system inventory and classification
+      nist-ai-rmf:
+        - GOVERN 1.6    # AI systems identified and inventoried
+        - MAP 1.1       # Context for AI system deployment established
+      eu-ai-act:
+        - Article 9     # Risk management requires system identification
+        - Article 11    # Technical documentation per system
+      iso-27001:
+        - A.5.9         # Inventory of information and other associated assets
+      iso-42005:
+        - Clause 6.2    # AI system characteristics for impact assessment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.4.2
+    notes: Foundation control — all other Annex A controls depend on knowing what AI systems are in scope. Maps to ISO 27001 asset inventory structure.
+
+  - control: A.4.3
+    title: AI-related resources and assets
+    external_mappings:
+      aiuc-1:
+        - E001    # AI asset and component governance
+        - A010    # Third-party AI component management
+      nist-ai-rmf:
+        - MAP 1.5       # AI technology components and dependencies identified
+        - GOVERN 1.6    # AI assets inventoried
+      eu-ai-act:
+        - Article 11    # Technical documentation includes AI component documentation
+      iso-27001:
+        - A.5.9         # Inventory of assets
+        - A.5.10        # Acceptable use of information and other assets
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.4.3
+    notes: Extends AI system inventory to models, datasets, APIs, and infrastructure. Foundation for supply chain and third-party risk management.
+
+  - control: A.4.4
+    title: Computational resources
+    external_mappings:
+      nist-ai-rmf:
+        - MAP 1.5       # AI computational infrastructure identified
+        - MEASURE 2.5   # AI system dependencies on computational resources assessed
+      eu-ai-act:
+        - Article 9     # Risk management considers computational dependencies
+      iso-27001:
+        - A.8.9         # Configuration management (compute infrastructure)
+    confidence: medium
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.4.4
+    notes: Compute dependency and capacity management for AI workloads. No direct AIUC-1 equivalent but relates to infrastructure security controls.
+
+  - control: A.4.5
+    title: Resources for AI system development and operation
+    external_mappings:
+      nist-ai-rmf:
+        - GOVERN 1.2    # Adequate resources for AI risk management established
+        - GOVERN 2.2    # Team competency and resource adequacy
+      eu-ai-act:
+        - Article 17    # Quality management system includes adequate resources
+      iso-27001:
+        - A.5.2         # Information security roles with adequate resources
+    confidence: medium
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.4.5
+    notes: Human, technological, and financial resources for responsible AI development and governance. Connects to Clause 7.1 (Resources) and Clause 7.2 (Competence).
+
+  - control: A.4.6
+    title: Environmental impact
+    external_mappings:
+      nist-ai-rmf:
+        - MEASURE 2.5   # AI system environmental and societal impacts measured
+        - MAP 5.1       # AI system impacts on environment identified
+      eu-ai-act:
+        - Article 9     # Risk assessment includes environmental considerations
+      iso-42005:
+        - Clause 7.3    # Environmental impacts in AI impact assessment
+    confidence: medium
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.4.6
+    notes: Environmental impact of AI training and inference workloads. Aligns with CSRD and ESG disclosure requirements. Unique ISO 42001 control with no ISO 27001 equivalent.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.5: ASSESSING IMPACTS OF AI SYSTEMS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.5.2
+    title: AI impact assessment process
+    external_mappings:
+      aiuc-1:
+        - E009    # AI impact assessment methodology
+      nist-ai-rmf:
+        - MAP 5.1       # Likelihood and magnitude of AI risks established
+        - MAP 5.2       # AI system impact assessment methodology
+        - MEASURE 2.2   # Impact measurement approach established
+      eu-ai-act:
+        - Article 9     # Risk management system includes impact assessment
+        - Article 10    # Data governance informed by impact assessment
+      iso-27001:
+        - A.5.7         # Threat intelligence informs risk assessment (parallel)
+      iso-42005:
+        - Clause 5      # AI impact assessment process (core of ISO 42005)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.5.2 and B.5.2
+      - ISO/IEC 42005:2024 (AI impact assessment standard)
+    notes: Central control for ethical AI governance. ISO 42005 is the dedicated AI impact assessment standard that provides detailed guidance for implementing this control. Maps to NIST AI RMF MAP 5.x.
+
+  - control: A.5.3
+    title: Triggers for AI system impact assessments
+    external_mappings:
+      aiuc-1:
+        - E009    # Change triggers for AI impact reassessment
+      nist-ai-rmf:
+        - MAP 5.2       # Re-assessment triggers defined
+        - MANAGE 4.2    # AI risks re-evaluated when context changes
+      eu-ai-act:
+        - Article 9     # Risk management system continuously updated
+        - Article 72    # Post-market monitoring triggers reassessment
+      iso-42005:
+        - Clause 6.4    # Impact assessment triggers and timing
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.5.3
+    notes: Ensures impact assessments are not one-time activities but re-triggered by material changes. Connects to change management (Clause 6.3) and operational monitoring (A.6.2.4).
+
+  - control: A.5.4
+    title: Conducting and documenting AI impact assessments
+    external_mappings:
+      aiuc-1:
+        - E009    # Documented AI impact assessment records
+        - E010    # Stakeholder involvement in AI assessment
+      nist-ai-rmf:
+        - MAP 5.1       # Assessed likelihood and magnitude of impacts
+        - MAP 5.2       # Assessment with stakeholder involvement
+        - MEASURE 2.2   # Assessment documentation
+      eu-ai-act:
+        - Article 9     # Risk management requires documented assessment
+        - Article 10    # Fundamental rights impact assessment (high-risk AI)
+      iso-27001:
+        - A.5.7         # Risk analysis and evaluation (parallel documentation requirements)
+      iso-42005:
+        - Clause 7      # Conducting the AI impact assessment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.5.4
+      - ISO/IEC 42005:2024
+    notes: Execution and documentation of impact assessments. EU AI Act Article 10 requires fundamental rights impact assessments for high-risk AI systems — this control provides the framework.
+
+  - control: A.5.5
+    title: Responding to AI system impacts
+    external_mappings:
+      aiuc-1:
+        - E011    # AI impact remediation and risk acceptance
+      nist-ai-rmf:
+        - MANAGE 1.1    # AI risks managed in organizational context
+        - MANAGE 2.2    # Risk treatment decisions documented
+        - MANAGE 4.1    # AI risks evaluated and prioritized for treatment
+      eu-ai-act:
+        - Article 9     # Risk management includes risk mitigation measures
+      iso-27001:
+        - A.5.7         # Risk treatment (mitigate, accept, transfer, avoid)
+      iso-42005:
+        - Clause 8      # Impact assessment response and treatment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.5.5
+    notes: Treatment decisions for identified AI impacts. Maps directly to NIST AI RMF MANAGE function risk treatment activities.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.6: AI SYSTEM LIFE CYCLE
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.6.1.2
+    title: Responsible design and development objectives
+    external_mappings:
+      aiuc-1:
+        - C001    # Safety objectives and criteria for AI systems
+        - E012    # Responsible AI design commitments
+      nist-ai-rmf:
+        - GOVERN 4.1    # Organizational teams understand responsible AI principles
+        - MAP 1.6       # AI design objectives align with responsible practices
+        - MANAGE 4.1    # AI risk management objectives defined
+      eu-ai-act:
+        - Article 9     # Risk management integrated into design
+        - Article 13    # Transparency by design
+        - Article 14    # Human oversight by design
+      iso-27001:
+        - A.8.25        # Secure development lifecycle (parallel for security objectives)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.6.1.2
+    notes: Measurable responsible AI design objectives that translate policy principles into development criteria. Maps to NIST AI RMF GOVERN 4.x and EU AI Act design requirements.
+
+  - control: A.6.1.3
+    title: AI system development processes
+    external_mappings:
+      aiuc-1:
+        - C002    # Pre-deployment testing and validation
+        - B008    # Deployment security controls
+      nist-ai-rmf:
+        - MAP 2.1       # AI system development practices established
+        - MEASURE 2.1   # AI testing and validation procedures
+        - MANAGE 4.2    # AI development lifecycle controlled
+      eu-ai-act:
+        - Article 9     # Risk management system integrated into development
+        - Article 11    # Technical documentation of development lifecycle
+        - Article 17    # Quality management for development processes
+      iso-27001:
+        - A.8.25        # Secure development lifecycle
+        - A.8.26        # Application security requirements (development phase)
+        - A.8.28        # Secure coding
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.6.1.3
+    notes: Full AI development lifecycle with responsible AI checkpoints including bias testing, fairness evaluation, and model validation. Maps to ISO 27001 secure development lifecycle.
+
+  - control: A.6.2.2
+    title: Procurement
+    external_mappings:
+      aiuc-1:
+        - A010    # Third-party AI component governance
+        - A011    # Third-party AI service provider assessment
+        - E013    # AI supplier risk management
+      nist-ai-rmf:
+        - GOVERN 6.1    # AI risks in supply chain assessed
+        - GOVERN 6.2    # AI supplier selection and due diligence
+        - MAP 5.1       # Third-party AI system impacts assessed
+      eu-ai-act:
+        - Article 9     # Risk management includes supply chain risks
+        - Article 28    # Deployer obligations for third-party high-risk AI
+      iso-27001:
+        - A.5.19        # Information security in supplier relationships
+        - A.5.20        # Addressing information security within supplier agreements
+        - A.5.21        # Managing information security in the ICT supply chain
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.6.2.2
+    notes: AI-specific procurement due diligence. Maps to ISO 27001 supplier security controls with AI-specific additions (model documentation, bias assessment, AI incident notification). AIUC-1 A010/A011 address third-party AI at the technical control level.
+
+  - control: A.6.2.3
+    title: Deployment
+    external_mappings:
+      aiuc-1:
+        - B008    # Deployment security controls
+        - C002    # Pre-deployment testing
+        - E014    # AI deployment approval and gate controls
+      nist-ai-rmf:
+        - MANAGE 1.1    # AI deployment decisions made with risk awareness
+        - MANAGE 2.4    # AI system deployment controlled
+      eu-ai-act:
+        - Article 9     # Risk management completed before deployment
+        - Article 17    # Quality management for deployment
+      iso-27001:
+        - A.8.31        # Separation of development, test, and production environments
+        - A.8.32        # Change management (deployment controls)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.6.2.3
+    notes: Deployment gate with documented readiness criteria. Connects to impact assessment (A.5.4) as a deployment prerequisite.
+
+  - control: A.6.2.4
+    title: Operation
+    external_mappings:
+      aiuc-1:
+        - C008    # Risk monitoring for deployed AI systems
+        - D001    # Hallucination prevention and operational controls
+        - E015    # AI operational monitoring and incident detection
+      nist-ai-rmf:
+        - MANAGE 1.3    # AI risks monitored on ongoing basis
+        - MANAGE 2.2    # Deployed AI systems monitored
+        - MEASURE 1.1   # AI monitoring and measurement in operation
+        - MEASURE 2.3   # AI performance tracked over time
+      eu-ai-act:
+        - Article 72    # Post-market monitoring for high-risk AI
+        - Article 9     # Ongoing risk management
+      iso-27001:
+        - A.8.16        # Monitoring activities
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.6.2.4
+    notes: Ongoing operational monitoring for model performance, fairness metrics, and drift. Maps to NIST AI RMF MANAGE function ongoing monitoring and EU AI Act Article 72 post-market monitoring.
+
+  - control: A.6.2.5
+    title: Decommissioning
+    external_mappings:
+      aiuc-1:
+        - E016    # AI system end-of-life and decommissioning
+        - A002    # Data deletion and AI output ownership at decommissioning
+      nist-ai-rmf:
+        - MANAGE 4.3    # AI systems retired responsibly
+      eu-ai-act:
+        - Article 9     # Risk management through full lifecycle including decommissioning
+      iso-27001:
+        - A.8.10        # Information deletion (training data at decommissioning)
+        - A.5.10        # Acceptable use and disposal of information assets
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.6.2.5
+    notes: Systematic AI system end-of-life including data deletion verification and impact assessment for discontinuation. Maps to GDPR data deletion rights obligations.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.7: DATA FOR AI SYSTEMS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.7.2
+    title: Data acquisition and collection
+    external_mappings:
+      aiuc-1:
+        - A001    # AI input data policies
+        - A002    # AI output data policies
+        - A003    # AI agent data access controls
+      nist-ai-rmf:
+        - MAP 2.3       # AI data acquisition practices established
+        - MEASURE 2.10  # AI data provenance and practices documented
+      eu-ai-act:
+        - Article 10    # Data governance and data acquisition
+      iso-27001:
+        - A.5.12        # Classification of information (data for AI)
+        - A.5.34        # Privacy and protection of PII (legal basis for personal data)
+      iso-42005:
+        - Clause 6.2    # Data scope for impact assessment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.7.2
+      - AIUC-1 A001 control mapping
+    notes: Legal basis for training data acquisition — particularly important for personal data under GDPR. AIUC-1 A001 covers AI input data policies from a usage and governance perspective; ISO 42001 A.7.2 covers the acquisition legal basis.
+
+  - control: A.7.3
+    title: Data quality
+    external_mappings:
+      aiuc-1:
+        - A001    # Data quality governance for AI inputs
+      nist-ai-rmf:
+        - MEASURE 2.10  # AI data quality assessed and documented
+        - MAP 2.3       # AI data limitations and biases identified
+      eu-ai-act:
+        - Article 10    # Data governance — data quality requirements (para. 2-3)
+      iso-27001:
+        - A.5.33        # Protection of records (data integrity)
+      iso-42005:
+        - Clause 7.2    # Data quality considerations in impact assessment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.7.3
+      - EU AI Act Article 10 paragraphs 2-3 (data quality requirements for training, validation, testing)
+    notes: EU AI Act Article 10 specifies data quality requirements for training, validation, and testing data for high-risk AI systems. ISO 42001 A.7.3 provides the management system framework for meeting these requirements.
+
+  - control: A.7.4
+    title: Data provenance and attributes
+    external_mappings:
+      aiuc-1:
+        - A001    # Training data documentation and provenance
+      nist-ai-rmf:
+        - MEASURE 2.10  # AI data provenance documented
+        - MAP 2.3       # AI data attributes and limitations documented
+      eu-ai-act:
+        - Article 10    # Data governance includes provenance documentation
+        - Article 11    # Technical documentation includes data provenance
+      iso-27001:
+        - A.5.33        # Protection of records (data lineage)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.7.4
+    notes: Data lineage from source to training set. Required for EU AI Act Article 11 technical documentation and GDPR accountability obligations for AI systems processing personal data.
+
+  - control: A.7.5
+    title: Data preparation
+    external_mappings:
+      aiuc-1:
+        - A001    # Data preparation governance
+      nist-ai-rmf:
+        - MAP 2.3       # AI data preparation practices and quality
+        - MEASURE 2.10  # AI data preparation documented
+      eu-ai-act:
+        - Article 10    # Data governance — preparation and annotation (para. 3)
+      iso-27001:
+        - A.8.28        # Secure coding (for data preparation pipelines)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.7.5
+    notes: Annotation guidelines, labeling quality control, augmentation documentation, and split methodology. EU AI Act Article 10 para. 3 addresses data annotation and labeling.
+
+  - control: A.7.6
+    title: Data management for third-party data
+    external_mappings:
+      aiuc-1:
+        - A010    # Third-party AI component data governance
+        - A007    # Third-party intellectual property in AI data
+      nist-ai-rmf:
+        - GOVERN 6.1    # Supply chain AI data risks
+        - MEASURE 2.10  # Third-party data provenance
+      eu-ai-act:
+        - Article 10    # Data governance includes third-party data
+      iso-27001:
+        - A.5.19        # Information security in supplier relationships (data governance)
+        - A.5.21        # ICT supply chain information security
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.7.6
+    notes: License review, quality assessment, and lifecycle management for externally sourced datasets. AIUC-1 A007 addresses third-party IP rights specifically.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.8: INFORMATION FOR INTERESTED PARTIES
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.8.2
+    title: Information for users of AI systems
+    external_mappings:
+      aiuc-1:
+        - E017    # AI system transparency and user communication
+      nist-ai-rmf:
+        - GOVERN 4.1    # AI transparency practices established
+        - GOVERN 4.2    # AI system information available to users
+        - MEASURE 2.8   # AI system characteristics communicated
+      eu-ai-act:
+        - Article 13    # Transparency and provision of information to deployers
+        - Article 50    # Transparency obligations for certain AI systems
+      iso-27001:
+        - A.5.36        # Compliance with policies, rules, and standards
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.8.2
+      - EU AI Act Article 13 (high-risk AI transparency to deployers/users)
+    notes: User documentation covering capabilities and limitations. EU AI Act Article 13 creates transparency obligations for high-risk AI systems. ISO 42001 A.8.2 provides the management system framework.
+
+  - control: A.8.3
+    title: User notification of AI interaction
+    external_mappings:
+      aiuc-1:
+        - E017    # AI disclosure to users
+      nist-ai-rmf:
+        - GOVERN 4.1    # AI transparency — disclosure of AI nature
+        - GOVERN 4.2    # Users informed of AI involvement
+      eu-ai-act:
+        - Article 50    # Transparency obligations — AI interaction disclosure, chatbots, deep synthesis
+      iso-27001:
+        - A.5.36        # Compliance (with AI disclosure obligations)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.8.3
+      - EU AI Act Article 50 (mandatory disclosure requirements for chatbots, emotion recognition, synthetic content)
+    notes: EU AI Act Article 50 creates specific mandatory disclosure obligations for AI systems — particularly chatbots and systems generating synthetic content. ISO 42001 A.8.3 provides the management framework.
+
+  - control: A.8.4
+    title: Explanation of AI decisions
+    external_mappings:
+      aiuc-1:
+        - E017    # AI explainability requirements
+      nist-ai-rmf:
+        - GOVERN 4.1    # Explainability practices established
+        - GOVERN 4.2    # AI decision explanations available
+        - MEASURE 2.6   # AI explainability methods deployed
+      eu-ai-act:
+        - Article 13    # Transparency — explanation of AI decisions
+        - Article 86    # Right to explanation for individuals subject to high-risk AI decisions
+      iso-27001: []
+      iso-42005:
+        - Clause 7.4    # Explainability in impact assessment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.8.4
+      - EU AI Act Article 86 (right to explanation for affected individuals)
+    notes: EU AI Act Article 86 creates a right to explanation for individuals subject to decisions by high-risk AI systems. ISO 42001 A.8.4 establishes the management framework. GDPR Article 22 provides complementary automated decision-making rights.
+
+  - control: A.8.5
+    title: Information about AI system context and assumptions
+    external_mappings:
+      aiuc-1:
+        - E017    # AI system card and context documentation
+      nist-ai-rmf:
+        - GOVERN 4.2    # AI system context documented and communicated
+        - MEASURE 2.8   # AI system characteristics and limitations documented
+        - MANAGE 4.1    # AI system context maintained
+      eu-ai-act:
+        - Article 11    # Technical documentation requirements
+        - Article 13    # Transparency — limitations and capabilities
+      iso-42005:
+        - Clause 6.2    # AI system characterization for impact assessment
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.8.5
+    notes: Model cards and system cards documenting context, assumptions, training data scope, and performance characteristics. EU AI Act Article 11 technical documentation requirements overlap significantly.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.9: USE OF AI SYSTEMS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.9.2
+    title: Responsible use of AI systems
+    external_mappings:
+      aiuc-1:
+        - C003    # Harmful output prevention (responsible use controls)
+        - C004    # Out-of-scope output prevention
+        - E002    # Responsible use policy
+      nist-ai-rmf:
+        - GOVERN 1.3    # Organizational commitment to responsible AI use
+        - GOVERN 3.1    # AI decisions require human oversight where appropriate
+        - MANAGE 1.1    # AI use governed by organizational policy
+      eu-ai-act:
+        - Article 29    # Obligations of deployers of high-risk AI systems
+        - Article 26    # Obligations for providers (responsible deployment)
+      iso-27001:
+        - A.5.10        # Acceptable use of information and other assets
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.9.2
+      - EU AI Act Article 29 (deployer obligations for responsible AI use)
+    notes: Responsible use policies and human oversight requirements. EU AI Act Article 29 creates specific obligations for deployers of high-risk AI systems. AIUC-1 C003/C004 address the technical implementation of output controls.
+
+  - control: A.9.3
+    title: AI information literacy of users
+    external_mappings:
+      aiuc-1:
+        - E017    # User competency for AI interaction
+      nist-ai-rmf:
+        - GOVERN 2.2    # AI teams and users have appropriate training
+        - GOVERN 4.1    # Users understand AI limitations
+      eu-ai-act:
+        - Article 4     # AI literacy requirements
+        - Article 29    # Deployers ensure staff have AI literacy
+      iso-27001:
+        - A.6.3         # Information security awareness, education, and training
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.9.3
+      - EU AI Act Article 4 (AI literacy obligations across the AI value chain)
+    notes: EU AI Act Article 4 creates AI literacy obligations. ISO 42001 A.9.3 provides the management system framework for implementing AI literacy programs. Maps to ISO 27001 security awareness structure.
+
+  - control: A.9.4
+    title: Out-of-scope use
+    external_mappings:
+      aiuc-1:
+        - C004    # Out-of-scope output prevention and detection
+        - C001    # Risk taxonomy includes out-of-scope risk categories
+      nist-ai-rmf:
+        - MANAGE 2.2    # AI system use monitored for scope compliance
+        - MEASURE 2.7   # AI use patterns assessed against intended scope
+      eu-ai-act:
+        - Article 29    # Deployers must use AI systems per intended purpose
+        - Article 9     # Risk management includes scope violation risks
+      iso-27001:
+        - A.8.16        # Monitoring activities (use monitoring)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.9.4
+    notes: Detection and response for out-of-scope AI use. AIUC-1 C004 addresses technical out-of-scope output prevention; ISO 42001 A.9.4 covers the governance and monitoring framework.
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # FAMILY A.10: THIRD-PARTY AND CUSTOMER RELATIONSHIPS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - control: A.10.2
+    title: Suppliers of AI resources
+    external_mappings:
+      aiuc-1:
+        - A010    # Third-party AI component governance
+        - A011    # Third-party AI service assessment
+      nist-ai-rmf:
+        - GOVERN 6.1    # AI supply chain risks assessed and managed
+        - GOVERN 6.2    # AI supplier selection and oversight
+        - MAP 5.1       # Third-party AI system impacts assessed
+      eu-ai-act:
+        - Article 9     # Risk management includes supply chain
+        - Article 25    # Obligations of providers placing AI on market (supply chain)
+        - Article 28    # Deployers' obligations when using third-party high-risk AI
+      iso-27001:
+        - A.5.19        # Information security in supplier relationships
+        - A.5.20        # Addressing information security within supplier agreements
+        - A.5.21        # Managing information security in the ICT supply chain
+        - A.5.22        # Monitoring, review, and change management of supplier services
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.10.2
+      - AIUC-1 A010/A011 control mapping
+    notes: AI-specific supplier due diligence and contractual requirements. Maps strongly to ISO 27001 supplier security controls with AI-specific additions (model documentation, bias assessment, AI incident notification). EU AI Act Articles 25 and 28 create supply chain obligations.
+
+  - control: A.10.3
+    title: Customers and AI systems
+    external_mappings:
+      aiuc-1:
+        - A002    # AI output ownership and customer data policies
+        - E017    # Customer transparency and disclosure
+      nist-ai-rmf:
+        - GOVERN 4.2    # AI system information communicated to customers
+        - GOVERN 5.2    # Customer obligations for AI use addressed
+        - MANAGE 3.1    # AI risks to customers managed
+      eu-ai-act:
+        - Article 13    # Transparency to deployers (when provider sells to deployer)
+        - Article 26    # Obligations of providers regarding deployers
+        - Article 29    # Deployer obligations that providers must enable
+      iso-27001:
+        - A.5.19        # Information security in customer relationships
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.10.3
+      - EU AI Act Chapter 3 (obligations across AI value chain)
+    notes: Governs the organization's obligations when it provides AI systems to customers — disclosure, data processing terms, enabling customer rights. EU AI Act creates an explicit provider-deployer obligation chain.
+
+  - control: A.10.4
+    title: End users of AI
+    external_mappings:
+      aiuc-1:
+        - C003    # Harm prevention for end users
+        - E017    # End-user transparency
+      nist-ai-rmf:
+        - GOVERN 4.2    # AI transparency extends to affected individuals
+        - GOVERN 5.2    # Obligations to individuals affected by AI decisions
+        - MAP 5.1       # AI impacts on individuals assessed
+      eu-ai-act:
+        - Article 86    # Right to explanation for individuals subject to high-risk AI decisions
+        - Article 68    # General-purpose AI model transparency to downstream users
+        - Article 50    # Transparency obligations to individuals
+      iso-27001:
+        - A.5.34        # Privacy and protection of PII (end-user rights)
+    confidence: high
+    evidence:
+      - ISO/IEC 42001:2023 Annex A.10.4
+      - EU AI Act Article 86 (right to explanation)
+      - GDPR Article 22 (automated decision-making rights)
+    notes: Obligations to individuals affected by AI decisions who are not direct customers. EU AI Act Article 86 and GDPR Article 22 create specific rights. ISO 42001 A.10.4 establishes the management framework for honoring those rights.

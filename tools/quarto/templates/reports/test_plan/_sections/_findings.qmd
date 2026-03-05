@@ -1,0 +1,5 @@
+# Findings
+
+## Medium Findings
+
+{{< include _sections/_findings/_f001-medium.qmd >}}

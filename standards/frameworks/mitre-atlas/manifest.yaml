@@ -1,0 +1,57 @@
+framework: MITRE ATLAS
+id: mitre-atlas
+version: "5.1.0"
+year: 2025
+publisher: MITRE
+framework_category: ai_governance
+source_url: https://atlas.mitre.org/
+document: "MITRE ATLAS v5.1.0"
+description: >
+  Adversarial Threat Landscape for AI Systems. Knowledge base of adversary tactics and techniques
+  against AI/ML systems, analogous to ATT&CK for traditional IT. Used for threat modeling,
+  red teaming, and gap analysis of AI system defenses.
+native_categories:
+  - id: AML.TA0000
+    name: AI Model Access
+  - id: AML.TA0001
+    name: AI Attack Staging
+  - id: AML.TA0002
+    name: Reconnaissance
+  - id: AML.TA0003
+    name: Resource Development
+  - id: AML.TA0004
+    name: Initial Access
+  - id: AML.TA0005
+    name: Execution
+  - id: AML.TA0006
+    name: Persistence
+  - id: AML.TA0007
+    name: Defense Evasion
+  - id: AML.TA0008
+    name: Discovery
+  - id: AML.TA0009
+    name: Collection
+  - id: AML.TA0010
+    name: Exfiltration
+  - id: AML.TA0011
+    name: Impact
+  - id: AML.TA0012
+    name: Privilege Escalation
+  - id: AML.TA0013
+    name: Credential Access
+  - id: AML.TA0014
+    name: Command and Control
+  - id: AML.TA0015
+    name: Lateral Movement
+enrichment_status:
+  tier: 2
+  framework_category: ai_governance
+  controls: complete
+  questions: complete
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - private/books/standards/mitre-atlas/atlas-data.txt
+    - https://github.com/mitre-atlas/atlas-data (commit 467ffbd2)
+  next_check: 2027-02-25

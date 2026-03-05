@@ -1,0 +1,39 @@
+# Risk Assessment Report Engagement Metadata
+# Copy to your engagement directory and customize
+
+project_name: "[Project Name]"
+project_version: "1.0.0"
+repo_url: "https://github.com/org/repo"
+primary_language: "[Language]"
+frameworks: "[Frameworks]"
+
+client_name: "[Client Company Name]"
+client_contact: "[Client Contact]"
+client_email: "[email@domain.com]"
+
+engagement_id: "RISK_ASSESS-$(date +%Y)-001"
+engagement_type: "Risk Assessment Report"
+assessment_type: "Security Assessment"
+
+classification: "Confidential"
+draft: false
+start_date: "$(date +%Y-%m-%d)"
+end_date: "$(date +%Y-%m-%d)"
+report_date: "$(date +%Y-%m-%d)"
+report_version: "1.0"
+
+reviewer_name: "[Your Name]"
+reviewer_org: "Intelligence Adjacent"
+reviewer_contact: "[email@domain.com]"
+
+scope_in:
+  - "[Target] | [Type] | [Description] | [Environment]"
+scope_out:
+  - "[Out of scope item]"
+
+compliance:
+  - "[Framework 1]"
+  - "[Framework 2]"
+
+tools:
+  - "[Tool Name] | [Purpose] | [Version]"

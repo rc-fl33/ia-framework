@@ -1,0 +1,945 @@
+# SOC 2 Trust Services Criteria Control-Tagged Questions
+# Version: 1.0
+# Reference: 2017 Trust Services Criteria (With Revised Points of Focus – 2022)
+# Industry Focus: Technology, SaaS, Service Organizations
+
+framework: soc2
+version: "2017-2022"
+total_questions: 30
+industry_focus:
+  - technology
+  - saas
+  - cloud_services
+  - managed_services
+
+# Trust Services Categories (TSC)
+# Security (Common Criteria - CC) is required for all SOC 2 engagements
+# Other categories are optional based on service commitments
+trust_services_categories:
+  - name: Security (Common Criteria)
+    id: CC
+    required: true
+    criteria_count: 33
+    sub_categories:
+      - CC1: Control Environment
+      - CC2: Communication and Information
+      - CC3: Risk Assessment
+      - CC4: Monitoring Activities
+      - CC5: Control Activities
+      - CC6: Logical and Physical Access Controls
+      - CC7: System Operations
+      - CC8: Change Management
+      - CC9: Risk Mitigation
+
+  - name: Availability
+    id: A
+    required: false
+    criteria_count: 3
+
+  - name: Processing Integrity
+    id: PI
+    required: false
+    criteria_count: 5
+
+  - name: Confidentiality
+    id: C
+    required: false
+    criteria_count: 3
+
+  - name: Privacy
+    id: P
+    required: false
+    criteria_count: 8
+
+questions:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC1: CONTROL ENVIRONMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC1-001
+    text: "Does the organization demonstrate commitment to integrity and ethical values?"
+    category: control_environment
+    native_category: CC1
+    domain: governance
+    controls:
+      soc2: "CC1.1, CC1.2"
+      nist-csf: "GV.OC-01, GV.OC-02"
+      nist-800-53: "PL-4, PS-1"
+      iso-27001: "A.5.1, A.6.2"
+      cis-v8: "14.1"
+    evidence_required:
+      - Code of conduct
+      - Ethics policies
+      - Employee acknowledgment records
+      - Disciplinary procedures
+    scoring:
+      full: "Documented code of conduct, ethics training, disciplinary process"
+      partial: "Ethics policies exist but incomplete implementation"
+      none: "No formal ethics or integrity framework"
+    sub_questions:
+      - "Is there a documented code of conduct?"
+      - "Are employees trained on ethical standards?"
+      - "Is there a process for addressing deviations?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-CC1-002
+    text: "How does the Board of Directors demonstrate independence and oversight?"
+    category: control_environment
+    native_category: CC1
+    domain: governance
+    controls:
+      soc2: "CC1.3"
+      nist-csf: "GV.OV-01, GV.OV-02"
+      nist-800-53: "PM-1, PM-2"
+      iso-27001: "A.5.1"
+    evidence_required:
+      - Board charter
+      - Meeting minutes
+      - Independence documentation
+      - Oversight committee records
+    scoring:
+      full: "Independent board with documented oversight responsibilities"
+      partial: "Some oversight but limited independence"
+      none: "No formal board oversight"
+    sub_questions:
+      - "Does the board have independent members?"
+      - "Are security and risk topics regularly reviewed?"
+      - "Is there documented evidence of oversight activities?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-CC1-003
+    text: "Are roles, reporting lines, and responsibilities clearly defined and communicated?"
+    category: control_environment
+    native_category: CC1
+    domain: governance
+    controls:
+      soc2: "CC1.4, CC1.5"
+      nist-csf: "GV.RR-01, GV.RR-02"
+      nist-800-53: "PL-2, PM-13"
+      iso-27001: "A.5.2, A.5.4"
+      cis-v8: "14.1"
+    evidence_required:
+      - Organizational chart
+      - Role descriptions
+      - Responsibility matrix
+      - RACI documentation
+    scoring:
+      full: "Clear organizational structure with documented responsibilities"
+      partial: "Structure exists but responsibilities unclear"
+      none: "No formal role documentation"
+    sub_questions:
+      - "Is there a current organizational chart?"
+      - "Are security responsibilities documented?"
+      - "Are reporting lines clear?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC2: COMMUNICATION AND INFORMATION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC2-001
+    text: "How does the organization obtain and use relevant information to support internal controls?"
+    category: communication_information
+    native_category: CC2
+    domain: governance
+    controls:
+      soc2: "CC2.1, CC2.2"
+      nist-csf: "GV.PO-02, ID.IM-01"
+      nist-800-53: "PM-6, PM-14"
+      iso-27001: "A.5.1"
+    evidence_required:
+      - Information quality procedures
+      - Data governance framework
+      - Reporting mechanisms
+    scoring:
+      full: "Documented information governance with quality controls"
+      partial: "Some information management but not comprehensive"
+      none: "No formal information governance"
+    sub_questions:
+      - "Is information quality regularly assessed?"
+      - "Are there procedures to ensure information accuracy?"
+      - "How is information communicated across the organization?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-CC2-002
+    text: "How does the organization communicate with external parties about security matters?"
+    category: communication_information
+    native_category: CC2
+    domain: governance
+    controls:
+      soc2: "CC2.3"
+      nist-csf: "GV.PO-02"
+      nist-800-53: "PM-15, SA-9"
+      iso-27001: "A.5.6, A.5.31"
+    evidence_required:
+      - External communication policies
+      - Customer security commitments
+      - Third-party agreements
+    scoring:
+      full: "Documented external communication with security commitments"
+      partial: "Some external communication but not formalized"
+      none: "No formal external security communication"
+    sub_questions:
+      - "Are security commitments communicated to customers?"
+      - "Is there a process for external security inquiries?"
+      - "Are third parties informed of security requirements?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC3: RISK ASSESSMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC3-001
+    text: "Does the organization define clear objectives for risk assessment?"
+    category: risk_assessment
+    native_category: CC3
+    domain: asset_management
+    controls:
+      soc2: "CC3.1"
+      nist-csf: "ID.RA-01, ID.RA-05"
+      nist-800-53: "RA-1, RA-2"
+      iso-27001: "A.5.7"
+    evidence_required:
+      - Risk assessment policy
+      - Objective documentation
+      - Risk criteria definitions
+    scoring:
+      full: "Documented objectives aligned with business goals"
+      partial: "Some objectives but not comprehensive"
+      none: "No formal risk objectives"
+    sub_questions:
+      - "Are risk assessment objectives documented?"
+      - "Are objectives aligned with business strategy?"
+      - "Are risk criteria defined?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC3-002
+    text: "How does the organization identify and assess risks to achieving objectives?"
+    category: risk_assessment
+    native_category: CC3
+    domain: asset_management
+    controls:
+      soc2: "CC3.2, CC3.3"
+      nist-csf: "ID.RA-01, ID.RA-03, ID.RA-04"
+      nist-800-53: "RA-3, RA-5"
+      iso-27001: "A.5.7, A.5.8"
+      cis-v8: "3.1"
+    evidence_required:
+      - Risk assessment methodology
+      - Risk register
+      - Assessment results
+      - Risk rating criteria
+    scoring:
+      full: "Comprehensive risk assessment with documented methodology"
+      partial: "Risk assessment performed but not systematic"
+      none: "No formal risk assessment process"
+    sub_questions:
+      - "Is there a documented risk assessment methodology?"
+      - "Is a risk register maintained and updated?"
+      - "Are fraud risks considered?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC3-003
+    text: "How does the organization identify changes that could significantly impact internal controls?"
+    category: risk_assessment
+    native_category: CC3
+    domain: asset_management
+    controls:
+      soc2: "CC3.4"
+      nist-csf: "ID.IM-02, GV.SC-07"
+      nist-800-53: "RA-3, CM-3"
+      iso-27001: "A.5.7, A.8.32"
+    evidence_required:
+      - Change impact analysis procedures
+      - Significant change documentation
+      - Control impact assessments
+    scoring:
+      full: "Documented process for identifying significant changes"
+      partial: "Some change analysis but not comprehensive"
+      none: "No formal change impact analysis"
+    sub_questions:
+      - "Are significant changes identified and assessed?"
+      - "Are control impacts of changes evaluated?"
+      - "Are new vendor relationships assessed for risk?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC4: MONITORING ACTIVITIES
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC4-001
+    text: "How does the organization monitor and evaluate internal controls?"
+    category: monitoring_activities
+    native_category: CC4
+    domain: monitoring
+    controls:
+      soc2: "CC4.1, CC4.2"
+      nist-csf: "DE.CM-09, ID.IM-03"
+      nist-800-53: "CA-2, CA-7"
+      iso-27001: "A.5.35, A.5.36"
+    evidence_required:
+      - Control monitoring procedures
+      - Self-assessment results
+      - Control testing documentation
+      - Deficiency tracking
+    scoring:
+      full: "Ongoing control monitoring with documented evaluation"
+      partial: "Some monitoring but not systematic"
+      none: "No formal control monitoring"
+    sub_questions:
+      - "Are controls regularly tested and evaluated?"
+      - "Is there a self-assessment process?"
+      - "How are control deficiencies identified?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC4-002
+    text: "How are control deficiencies communicated and remediated?"
+    category: monitoring_activities
+    native_category: CC4
+    domain: monitoring
+    controls:
+      soc2: "CC4.2"
+      nist-csf: "ID.IM-04"
+      nist-800-53: "CA-5"
+      iso-27001: "A.5.36"
+    evidence_required:
+      - Deficiency communication procedures
+      - Remediation tracking
+      - Management reporting
+    scoring:
+      full: "Documented deficiency reporting with timely remediation"
+      partial: "Deficiencies tracked but remediation inconsistent"
+      none: "No formal deficiency management"
+    sub_questions:
+      - "Are deficiencies communicated to appropriate parties?"
+      - "Are remediation plans tracked to completion?"
+      - "Is there escalation for unresolved issues?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC5: CONTROL ACTIVITIES
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC5-001
+    text: "How does the organization select and develop control activities that mitigate risks?"
+    category: control_activities
+    native_category: CC5
+    domain: governance
+    controls:
+      soc2: "CC5.1, CC5.2"
+      nist-csf: "PR.IP-01"
+      nist-800-53: "PM-1, PL-11"
+      iso-27001: "A.5.1"
+    evidence_required:
+      - Control selection methodology
+      - Risk-to-control mapping
+      - Control documentation
+    scoring:
+      full: "Controls selected based on risk assessment and documented"
+      partial: "Controls exist but risk mapping incomplete"
+      none: "No formal control selection process"
+    sub_questions:
+      - "Are controls mapped to identified risks?"
+      - "Is there a control selection methodology?"
+      - "Are technology general controls addressed?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC5-002
+    text: "Are policies and procedures deployed to support control activities?"
+    category: control_activities
+    native_category: CC5
+    domain: governance
+    controls:
+      soc2: "CC5.3"
+      nist-csf: "GV.PO-01"
+      nist-800-53: "PL-1"
+      iso-27001: "A.5.1, A.5.10"
+    evidence_required:
+      - Policy framework
+      - Procedure documentation
+      - Review and update records
+    scoring:
+      full: "Comprehensive policies with regular review cycle"
+      partial: "Policies exist but not consistently maintained"
+      none: "No formal policy framework"
+    sub_questions:
+      - "Are policies documented for all control areas?"
+      - "Are policies reviewed and updated regularly?"
+      - "Are procedures aligned with policies?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC6: LOGICAL AND PHYSICAL ACCESS CONTROLS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC6-001
+    text: "How is logical access to system resources restricted and managed?"
+    category: logical_physical_access
+    native_category: CC6
+    domain: access_control
+    controls:
+      soc2: "CC6.1, CC6.2, CC6.3"
+      nist-csf: "PR.AA-01, PR.AA-02, PR.AA-05"
+      nist-800-53: "AC-2, AC-3, AC-6"
+      iso-27001: "A.8.2, A.8.3"
+      hipaa: "§164.312(a), §164.312(d)"
+      pci-dss: "7.1, 7.2, 8.1"
+      cis-v8: "5.1, 6.1"
+    evidence_required:
+      - Access control policy
+      - User provisioning procedures
+      - Access review records
+      - Deprovisioning procedures
+    scoring:
+      full: "Documented access controls with regular reviews and timely deprovisioning"
+      partial: "Access controls exist but reviews inconsistent"
+      none: "No formal access management"
+    sub_questions:
+      - "How are access requests approved and provisioned?"
+      - "Are access rights reviewed periodically?"
+      - "How quickly is access removed when no longer needed?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC6-002
+    text: "How is user authentication managed for system access?"
+    category: logical_physical_access
+    native_category: CC6
+    domain: access_control
+    controls:
+      soc2: "CC6.1"
+      nist-csf: "PR.AA-03"
+      nist-800-53: "IA-2, IA-5"
+      iso-27001: "A.8.5"
+      hipaa: "§164.312(d)"
+      pci-dss: "8.2, 8.3"
+      cis-v8: "6.3, 6.4"
+    evidence_required:
+      - Authentication policy
+      - MFA implementation evidence
+      - Password/credential standards
+      - SSO configuration
+    scoring:
+      full: "MFA implemented with strong authentication standards"
+      partial: "Authentication controls exist but MFA incomplete"
+      none: "Weak or no authentication controls"
+    sub_questions:
+      - "Is multi-factor authentication implemented?"
+      - "What are the password/credential requirements?"
+      - "Are unique user IDs assigned?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC6-003
+    text: "How is physical access to facilities and assets controlled?"
+    category: logical_physical_access
+    native_category: CC6
+    domain: access_control
+    controls:
+      soc2: "CC6.4, CC6.5"
+      nist-csf: "PR.AC-02"
+      nist-800-53: "PE-2, PE-3, PE-6"
+      iso-27001: "A.7.1, A.7.2, A.7.4"
+      hipaa: "§164.310(a)"
+      pci-dss: "9.1, 9.2"
+    evidence_required:
+      - Physical access policy
+      - Access card/badge system
+      - Visitor management procedures
+      - Video surveillance documentation
+    scoring:
+      full: "Physical access controlled with surveillance and visitor management"
+      partial: "Some physical controls but not comprehensive"
+      none: "No formal physical access controls"
+    sub_questions:
+      - "Are facilities protected by access controls?"
+      - "Is visitor access logged and escorted?"
+      - "Is video surveillance in place for sensitive areas?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-CC6-004
+    text: "How is data protected from unauthorized transmission and removal?"
+    category: logical_physical_access
+    native_category: CC6
+    domain: access_control
+    controls:
+      soc2: "CC6.6, CC6.7"
+      nist-csf: "PR.DS-01, PR.DS-02"
+      nist-800-53: "SC-8, SC-13, SC-28"
+      iso-27001: "A.8.10, A.8.11, A.8.24"
+      hipaa: "§164.312(e)"
+      pci-dss: "3.4, 4.1"
+    evidence_required:
+      - Encryption standards
+      - Data loss prevention controls
+      - Transmission security documentation
+      - Media handling procedures
+    scoring:
+      full: "Data encrypted at rest and in transit with DLP controls"
+      partial: "Some encryption but gaps in coverage"
+      none: "No encryption or data protection"
+    sub_questions:
+      - "Is data encrypted at rest and in transit?"
+      - "Are data loss prevention controls implemented?"
+      - "How is removable media controlled?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC7: SYSTEM OPERATIONS
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC7-001
+    text: "How does the organization detect and respond to security events?"
+    category: system_operations
+    native_category: CC7
+    domain: monitoring
+    controls:
+      soc2: "CC7.1, CC7.2"
+      nist-csf: "DE.CM-01, DE.AE-02, DE.AE-04"
+      nist-800-53: "SI-4, AU-6"
+      iso-27001: "A.8.15, A.8.16"
+      hipaa: "§164.312(b)"
+      pci-dss: "10.1, 10.4"
+      cis-v8: "8.1, 8.2"
+    evidence_required:
+      - Security monitoring tools
+      - Event detection procedures
+      - Alert thresholds and criteria
+      - Monitoring coverage documentation
+    scoring:
+      full: "Comprehensive monitoring with automated detection and alerting"
+      partial: "Some monitoring but coverage incomplete"
+      none: "No formal security monitoring"
+    sub_questions:
+      - "What security monitoring tools are deployed?"
+      - "Are detection criteria and thresholds defined?"
+      - "Is monitoring coverage comprehensive?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC7-002
+    text: "How are security incidents evaluated and responded to?"
+    category: system_operations
+    native_category: CC7
+    domain: monitoring
+    controls:
+      soc2: "CC7.3, CC7.4"
+      nist-csf: "RS.MA-01, RS.MA-02, RS.AN-03"
+      nist-800-53: "IR-4, IR-5, IR-6"
+      iso-27001: "A.5.24, A.5.25, A.5.26"
+      hipaa: "§164.308(a)(6)"
+      pci-dss: "12.10"
+    evidence_required:
+      - Incident response plan
+      - Incident classification criteria
+      - Response procedures
+      - Incident records
+    scoring:
+      full: "Documented incident response with classification and procedures"
+      partial: "Some incident response but not formalized"
+      none: "No formal incident response"
+    sub_questions:
+      - "Is there a documented incident response plan?"
+      - "How are incidents classified and prioritized?"
+      - "Are incidents tracked to resolution?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC7-003
+    text: "How does the organization recover from security incidents?"
+    category: system_operations
+    native_category: CC7
+    domain: monitoring
+    controls:
+      soc2: "CC7.5"
+      nist-csf: "RC.RP-01, RC.RP-02"
+      nist-800-53: "CP-10, IR-4"
+      iso-27001: "A.5.29, A.5.30"
+    evidence_required:
+      - Recovery procedures
+      - Root cause analysis records
+      - Lessons learned documentation
+      - Recovery testing evidence
+    scoring:
+      full: "Documented recovery with root cause analysis and improvement"
+      partial: "Recovery occurs but not formally documented"
+      none: "No formal recovery process"
+    sub_questions:
+      - "Are recovery procedures documented?"
+      - "Is root cause analysis performed?"
+      - "Are lessons learned incorporated?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC8: CHANGE MANAGEMENT
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC8-001
+    text: "How are changes to system components authorized, designed, and implemented?"
+    category: change_management
+    native_category: CC8
+    domain: data_protection
+    controls:
+      soc2: "CC8.1"
+      nist-csf: "PR.IP-03"
+      nist-800-53: "CM-3, CM-4"
+      iso-27001: "A.8.32"
+      pci-dss: "6.4"
+      cis-v8: "2.5"
+    evidence_required:
+      - Change management policy
+      - Change request records
+      - Approval documentation
+      - Implementation procedures
+    scoring:
+      full: "Formal change management with approval, testing, and documentation"
+      partial: "Change process exists but not consistently followed"
+      none: "No formal change management"
+    sub_questions:
+      - "Is there a formal change management process?"
+      - "Are changes approved before implementation?"
+      - "Are changes tested before production deployment?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC9: RISK MITIGATION
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-CC9-001
+    text: "How does the organization identify and mitigate risks from business disruptions?"
+    category: risk_mitigation
+    native_category: CC9
+    domain: business_continuity
+    controls:
+      soc2: "CC9.1"
+      nist-csf: "PR.IP-09, RC.RP-01"
+      nist-800-53: "CP-1, CP-2"
+      iso-27001: "A.5.29, A.5.30"
+    evidence_required:
+      - Business continuity plan
+      - Disaster recovery procedures
+      - Recovery testing records
+      - RTO/RPO documentation
+    scoring:
+      full: "Documented BCP/DR with regular testing"
+      partial: "Plans exist but not regularly tested"
+      none: "No formal business continuity planning"
+    sub_questions:
+      - "Is there a documented business continuity plan?"
+      - "Are disaster recovery procedures documented?"
+      - "Are plans tested at least annually?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-CC9-002
+    text: "How does the organization manage vendor and third-party risks?"
+    category: risk_mitigation
+    native_category: CC9
+    domain: business_continuity
+    controls:
+      soc2: "CC9.2"
+      nist-csf: "GV.SC-01, GV.SC-04, GV.SC-06"
+      nist-800-53: "SA-9, SR-1"
+      iso-27001: "A.5.19, A.5.20, A.5.21"
+    evidence_required:
+      - Vendor management policy
+      - Due diligence documentation
+      - Contract requirements
+      - Ongoing monitoring records
+    scoring:
+      full: "Comprehensive vendor management with due diligence and monitoring"
+      partial: "Some vendor oversight but not systematic"
+      none: "No formal vendor management"
+    sub_questions:
+      - "How are vendors assessed before engagement?"
+      - "Are security requirements in contracts?"
+      - "Are vendors monitored for ongoing compliance?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # AVAILABILITY (A)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-A-001
+    text: "How does the organization ensure systems meet availability commitments?"
+    category: availability
+    native_category: A
+    domain: business_continuity
+    controls:
+      soc2: "A1.1, A1.2"
+      nist-csf: "PR.IR-04, ID.IM-01"
+      nist-800-53: "CP-2, SI-13"
+      iso-27001: "A.5.29, A.8.14"
+    evidence_required:
+      - Availability commitments (SLAs)
+      - Capacity monitoring
+      - Performance metrics
+      - Uptime records
+    scoring:
+      full: "Documented SLAs with monitoring and consistent achievement"
+      partial: "SLAs exist but monitoring incomplete"
+      none: "No formal availability commitments"
+    sub_questions:
+      - "Are availability commitments documented?"
+      - "Is system capacity monitored?"
+      - "Are availability metrics tracked and reported?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-A-002
+    text: "How does the organization maintain data backup and recovery capabilities?"
+    category: availability
+    native_category: A
+    domain: business_continuity
+    controls:
+      soc2: "A1.2, A1.3"
+      nist-csf: "PR.DS-11"
+      nist-800-53: "CP-9, CP-10"
+      iso-27001: "A.8.13"
+      hipaa: "§164.308(a)(7)"
+    evidence_required:
+      - Backup policy
+      - Backup logs
+      - Recovery testing records
+      - Offsite storage documentation
+    scoring:
+      full: "Regular backups with tested recovery procedures"
+      partial: "Backups performed but recovery not tested"
+      none: "No formal backup procedures"
+    sub_questions:
+      - "Are backups performed regularly?"
+      - "Are backups stored offsite or in separate location?"
+      - "Is recovery tested at least annually?"
+    risk_weight: HIGH
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PROCESSING INTEGRITY (PI)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-PI-001
+    text: "How does the organization ensure system processing is complete, valid, and accurate?"
+    category: processing_integrity
+    native_category: PI
+    domain: data_protection
+    controls:
+      soc2: "PI1.1, PI1.2, PI1.3"
+      nist-csf: "PR.DS-06"
+      nist-800-53: "SI-10, SI-7"
+      iso-27001: "A.8.9"
+    evidence_required:
+      - Input validation procedures
+      - Processing controls
+      - Data integrity checks
+      - Error handling documentation
+    scoring:
+      full: "Comprehensive input validation and processing controls"
+      partial: "Some processing controls but incomplete"
+      none: "No formal processing integrity controls"
+    sub_questions:
+      - "How is input data validated?"
+      - "Are processing completeness checks performed?"
+      - "How are processing errors detected and handled?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-PI-002
+    text: "How are system outputs reviewed for completeness and accuracy?"
+    category: processing_integrity
+    native_category: PI
+    domain: data_protection
+    controls:
+      soc2: "PI1.4, PI1.5"
+      nist-csf: "PR.DS-06"
+      nist-800-53: "SI-7"
+      iso-27001: "A.8.9"
+    evidence_required:
+      - Output review procedures
+      - Reconciliation processes
+      - Distribution controls
+    scoring:
+      full: "Output reviewed and distributed according to documented procedures"
+      partial: "Some output review but not comprehensive"
+      none: "No formal output validation"
+    sub_questions:
+      - "Are system outputs reviewed for accuracy?"
+      - "Is there a reconciliation process?"
+      - "How is output distribution controlled?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CONFIDENTIALITY (C)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-C-001
+    text: "How is confidential information identified and protected?"
+    category: confidentiality
+    native_category: C
+    domain: data_protection
+    controls:
+      soc2: "C1.1, C1.2"
+      nist-csf: "PR.DS-01, PR.DS-05"
+      nist-800-53: "SC-8, SC-13, SC-28"
+      iso-27001: "A.5.12, A.5.13, A.8.10"
+    evidence_required:
+      - Data classification policy
+      - Confidential data inventory
+      - Protection mechanisms
+      - Access restrictions
+    scoring:
+      full: "Data classified with appropriate protection controls"
+      partial: "Some classification but protection incomplete"
+      none: "No formal data classification"
+    sub_questions:
+      - "Is confidential information identified and classified?"
+      - "Are appropriate protection controls in place?"
+      - "Is access to confidential data restricted?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-C-002
+    text: "How is confidential information disposed of when no longer needed?"
+    category: confidentiality
+    native_category: C
+    domain: data_protection
+    controls:
+      soc2: "C1.2"
+      nist-csf: "PR.DS-03"
+      nist-800-53: "MP-6"
+      iso-27001: "A.8.10"
+      hipaa: "§164.310(d)(2)"
+    evidence_required:
+      - Retention policy
+      - Disposal procedures
+      - Destruction records
+    scoring:
+      full: "Documented retention with secure disposal procedures"
+      partial: "Disposal occurs but not consistently documented"
+      none: "No formal disposal procedures"
+    sub_questions:
+      - "Are retention periods defined for confidential data?"
+      - "Are secure disposal methods used?"
+      - "Is disposal documented?"
+    risk_weight: MEDIUM
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PRIVACY (P)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: Q-SOC2-P-001
+    text: "How does the organization communicate privacy practices to individuals?"
+    category: privacy
+    native_category: P
+    domain: governance
+    controls:
+      soc2: "P1.1"
+      nist-csf: "GV.PO-01"
+      nist-800-53: "PT-5, PT-6"
+      iso-27001: "A.5.34"
+      gdpr: "Art. 13, Art. 14"
+    evidence_required:
+      - Privacy notice
+      - Communication procedures
+      - Consent records
+    scoring:
+      full: "Clear privacy notice with documented communication"
+      partial: "Privacy notice exists but communication inconsistent"
+      none: "No formal privacy notice"
+    sub_questions:
+      - "Is there a published privacy notice?"
+      - "Does it describe data collection and use?"
+      - "Are individuals notified of changes?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-P-002
+    text: "How does the organization obtain consent for collection and use of personal information?"
+    category: privacy
+    native_category: P
+    domain: governance
+    controls:
+      soc2: "P2.1"
+      nist-csf: "GV.PO-01"
+      nist-800-53: "PT-4"
+      iso-27001: "A.5.34"
+      gdpr: "Art. 6, Art. 7"
+    evidence_required:
+      - Consent mechanisms
+      - Consent records
+      - Opt-out procedures
+    scoring:
+      full: "Documented consent with opt-out options"
+      partial: "Some consent but not comprehensive"
+      none: "No formal consent process"
+    sub_questions:
+      - "Is consent obtained before collection?"
+      - "Can individuals opt out of certain uses?"
+      - "Are consent records maintained?"
+    risk_weight: HIGH
+
+  - id: Q-SOC2-P-003
+    text: "How does the organization limit collection of personal information?"
+    category: privacy
+    native_category: P
+    domain: governance
+    controls:
+      soc2: "P3.1, P3.2"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "PT-2, PT-3"
+      iso-27001: "A.5.34"
+      gdpr: "Art. 5"
+    evidence_required:
+      - Data minimization policy
+      - Collection practices
+      - Purpose limitation documentation
+    scoring:
+      full: "Data minimization enforced with documented purposes"
+      partial: "Some limitation but not consistently applied"
+      none: "No data minimization practices"
+    sub_questions:
+      - "Is collection limited to what's necessary?"
+      - "Are collection purposes documented?"
+      - "Is data collected only from legitimate sources?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-P-004
+    text: "How does the organization manage retention and disposal of personal information?"
+    category: privacy
+    native_category: P
+    domain: governance
+    controls:
+      soc2: "P4.1, P4.2, P4.3"
+      nist-csf: "PR.DS-03"
+      nist-800-53: "PT-3, MP-6"
+      iso-27001: "A.5.34, A.8.10"
+      gdpr: "Art. 5, Art. 17"
+    evidence_required:
+      - Retention schedule
+      - Disposal procedures
+      - Usage limitation policy
+    scoring:
+      full: "Documented retention with secure disposal and usage controls"
+      partial: "Some retention controls but not comprehensive"
+      none: "No formal retention management"
+    sub_questions:
+      - "Are retention periods defined?"
+      - "Is personal data securely disposed?"
+      - "Is use limited to stated purposes?"
+    risk_weight: MEDIUM
+
+  - id: Q-SOC2-P-005
+    text: "How do individuals access, correct, and request deletion of their personal information?"
+    category: privacy
+    native_category: P
+    domain: governance
+    controls:
+      soc2: "P5.1, P5.2"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "PT-6"
+      iso-27001: "A.5.34"
+      gdpr: "Art. 15, Art. 16, Art. 17"
+    evidence_required:
+      - Access request procedures
+      - Correction procedures
+      - Deletion request handling
+      - Response timelines
+    scoring:
+      full: "Documented procedures with timely responses"
+      partial: "Procedures exist but response times inconsistent"
+      none: "No formal access or correction procedures"
+    sub_questions:
+      - "Can individuals request access to their data?"
+      - "Can individuals request corrections?"
+      - "Can individuals request deletion?"
+      - "What are response timelines?"
+    risk_weight: HIGH

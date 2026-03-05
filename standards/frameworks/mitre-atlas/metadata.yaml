@@ -1,0 +1,35 @@
+framework: MITRE ATLAS
+id: mitre-atlas
+
+source:
+  repository: https://github.com/mitre-atlas/atlas-data
+  commit: 467ffbd2
+  ingestion_date: 2026-02-25
+  ingestion_source: private/books/standards/mitre-atlas/atlas-data.txt
+  changelog_version: 5.1.1
+  data_version: 5.1.0
+  data_version_date: 2025-11-06
+
+counts:
+  tactics: 16
+  techniques: 84
+  sub_techniques: 56
+  mitigations: 32
+  case_studies: 42
+
+use_cases:
+  - Threat modeling for AI/ML systems
+  - Red team exercise planning against AI systems
+  - Gap analysis of AI system defenses
+  - AI incident classification and reporting
+  - Mapping organizational AI security controls to known adversary techniques
+  - Supply chain risk assessment for AI pipelines
+
+notes: >
+  ATLAS is modeled after MITRE ATT&CK and is complementary to it.
+  Techniques are organized across two ATLAS-unique tactics (AI Model Access, AI Attack Staging)
+  and 14 tactics that mirror ATT&CK (Reconnaissance through Lateral Movement).
+  The framework covers both classical adversarial ML attacks (evasion, poisoning, extraction)
+  and newer LLM/GenAI attack patterns (prompt injection, jailbreak, agent compromise).
+  Case studies are included in the source data and document real-world incidents
+  such as PoisonGPT, Morris II Worm, and ChatGPT Package Hallucination.

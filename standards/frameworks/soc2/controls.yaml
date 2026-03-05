@@ -1,0 +1,658 @@
+# SOC 2 Trust Services Criteria (2017 with Revised Points of Focus - 2022)
+# Source: https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+# Version: 2017 (2022 Points of Focus Update)
+# Last Updated: 2026-03-02
+
+metadata:
+  framework: "SOC 2 Trust Services Criteria"
+  version: "2017-2022"
+  release_date: "2017-04-01"
+  official_url: "https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022"
+  reference_document: "2017-trust-services-criteria-revised-points-of-focus-2022.pdf"
+
+functions:
+  - id: CC
+    name: SECURITY
+    description: "Common Criteria — information and systems are protected against unauthorized access, unauthorized disclosure, and damage to systems (required for all SOC 2 engagements)"
+
+  - id: A
+    name: AVAILABILITY
+    description: "Information and systems are available for operation and use to meet the entity's objectives"
+
+  - id: PI
+    name: PROCESSING_INTEGRITY
+    description: "System processing is complete, valid, accurate, timely, and authorized to meet the entity's objectives"
+
+  - id: C
+    name: CONFIDENTIALITY
+    description: "Information designated as confidential is protected to meet the entity's objectives"
+
+  - id: P
+    name: PRIVACY
+    description: "Personal information is collected, used, retained, disclosed, and disposed of to meet the entity's objectives"
+
+controls:
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC1 - Control Environment (5 controls) → TSC Category: CC1
+  # COSO Principles 1-5
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC1.1
+    function: SECURITY
+    category: Control Environment
+    title: "Commitment to integrity and ethical values"
+    description: "The entity demonstrates a commitment to integrity and ethical values by establishing standards of conduct, evaluating adherence, and addressing deviations in a timely manner."
+    tsc_category: CC1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC1.2
+    function: SECURITY
+    category: Control Environment
+    title: "Board independence and oversight of internal controls"
+    description: "The board of directors demonstrates independence from management and exercises oversight of the development and performance of internal control."
+    tsc_category: CC1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC1.3
+    function: SECURITY
+    category: Control Environment
+    title: "Management establishes structures, reporting lines, and authorities"
+    description: "Management establishes, with board oversight, structures, reporting lines, and appropriate authorities and responsibilities in the pursuit of objectives."
+    tsc_category: CC1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC1.4
+    function: SECURITY
+    category: Control Environment
+    title: "Commitment to competence through workforce development"
+    description: "The entity demonstrates a commitment to attract, develop, and retain competent individuals in alignment with objectives, including appropriately planning for succession and dismissal."
+    tsc_category: CC1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC1.5
+    function: SECURITY
+    category: Control Environment
+    title: "Accountability for internal control responsibilities"
+    description: "The entity holds individuals accountable for their internal control responsibilities in the pursuit of objectives."
+    tsc_category: CC1
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC2 - Communication and Information (3 controls) → TSC Category: CC2
+  # COSO Principles 13-15
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC2.1
+    function: SECURITY
+    category: Communication and Information
+    title: "Quality information supports internal control functioning"
+    description: "The entity obtains or generates and uses relevant, quality information to support the functioning of internal control."
+    tsc_category: CC2
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC2.2
+    function: SECURITY
+    category: Communication and Information
+    title: "Internal communication of control objectives and responsibilities"
+    description: "The entity internally communicates information, including objectives and responsibilities for internal control, necessary to support the functioning of internal control."
+    tsc_category: CC2
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC2.3
+    function: SECURITY
+    category: Communication and Information
+    title: "External communication of matters affecting internal control"
+    description: "The entity communicates with external parties regarding matters affecting the functioning of internal control."
+    tsc_category: CC2
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC3 - Risk Assessment (4 controls) → TSC Category: CC3
+  # COSO Principles 6-9
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC3.1
+    function: SECURITY
+    category: Risk Assessment
+    title: "Objectives specified with sufficient clarity for risk identification"
+    description: "The entity specifies objectives with sufficient clarity to enable the identification and assessment of risks relating to objectives."
+    tsc_category: CC3
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC3.2
+    function: SECURITY
+    category: Risk Assessment
+    title: "Risk identification and analysis across the entity"
+    description: "The entity identifies risks to the achievement of its objectives across the entity and analyzes risks as a basis for determining how the risks should be managed."
+    tsc_category: CC3
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC3.3
+    function: SECURITY
+    category: Risk Assessment
+    title: "Consideration of fraud risk"
+    description: "The entity considers the potential for fraud in assessing risks to the achievement of objectives."
+    tsc_category: CC3
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC3.4
+    function: SECURITY
+    category: Risk Assessment
+    title: "Identification and assessment of significant changes"
+    description: "The entity identifies and assesses changes that could significantly impact the system of internal control."
+    tsc_category: CC3
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC4 - Monitoring Activities (2 controls) → TSC Category: CC4
+  # COSO Principles 16-17
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC4.1
+    function: SECURITY
+    category: Monitoring Activities
+    title: "Ongoing and separate evaluations of internal controls"
+    description: "The entity selects, develops, and performs ongoing and/or separate evaluations to ascertain whether the components of internal control are present and functioning."
+    tsc_category: CC4
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC4.2
+    function: SECURITY
+    category: Monitoring Activities
+    title: "Communication of internal control deficiencies"
+    description: "The entity evaluates and communicates internal control deficiencies in a timely manner to those parties responsible for taking corrective action, including senior management and the board of directors, as appropriate."
+    tsc_category: CC4
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC5 - Control Activities (3 controls) → TSC Category: CC5
+  # COSO Principles 10-12
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC5.1
+    function: SECURITY
+    category: Control Activities
+    title: "Selection and development of control activities for risk mitigation"
+    description: "The entity selects and develops control activities that contribute to the mitigation of risks to the achievement of objectives to acceptable levels."
+    tsc_category: CC5
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC5.2
+    function: SECURITY
+    category: Control Activities
+    title: "Selection and development of general technology controls"
+    description: "The entity also selects and develops general control activities over technology to support the achievement of objectives."
+    tsc_category: CC5
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC5.3
+    function: SECURITY
+    category: Control Activities
+    title: "Deployment of control activities through policies and procedures"
+    description: "The entity deploys control activities through policies that establish what is expected and in procedures that put policies into action."
+    tsc_category: CC5
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC6 - Logical and Physical Access Controls (8 controls) → TSC Category: CC6
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC6.1
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Logical access security through identification and authentication"
+    description: "The entity implements logical access security software, infrastructure, and architectures over protected information assets to protect them from security events to meet the entity's objectives."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.2
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "User registration and authorization management"
+    description: "Prior to issuing system credentials and granting system access, the entity registers and authorizes new internal and external users whose access is administered by the entity. For those users whose access is administered by the entity, user system credentials are removed when user access is no longer authorized."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.3
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Role-based access and least privilege enforcement"
+    description: "The entity authorizes, modifies, or removes access to data, software, functions, and other protected information assets based on roles, responsibilities, or the system design and changes, giving consideration to the concepts of least privilege and segregation of duties, to meet the entity's objectives."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.4
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Physical access restrictions to protected assets"
+    description: "The entity restricts physical access to facilities and protected information assets to authorized personnel to meet the entity's objectives."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.5
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Secure disposal of protected information assets"
+    description: "The entity discontinues logical and physical protections over physical assets only after the ability to read or recover data and software from those assets has been diminished and is no longer required to meet the entity's objectives."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.6
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Security measures against threats outside system boundaries"
+    description: "The entity implements logical access security measures to protect against threats from sources outside its system boundaries."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.7
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Secure transmission and movement of information"
+    description: "The entity restricts the transmission, movement, and removal of information to authorized internal and external users and processes, and protects it during transmission, movement, or removal to meet the entity's objectives."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC6.8
+    function: SECURITY
+    category: Logical and Physical Access Controls
+    title: "Prevention and detection of unauthorized or malicious software"
+    description: "The entity implements controls to prevent or detect and act upon the introduction of unauthorized or malicious software to meet the entity's objectives."
+    tsc_category: CC6
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC7 - System Operations (5 controls) → TSC Category: CC7
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC7.1
+    function: SECURITY
+    category: System Operations
+    title: "Detection of configuration changes introducing vulnerabilities"
+    description: "To meet its objectives, the entity uses detection and monitoring procedures to identify changes to configurations that result in the introduction of new vulnerabilities, and susceptibilities to newly discovered vulnerabilities."
+    tsc_category: CC7
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC7.2
+    function: SECURITY
+    category: System Operations
+    title: "Monitoring for anomalies indicative of security events"
+    description: "The entity monitors system components and the operation of those components for anomalies that are indicative of malicious acts, natural disasters, and errors affecting the entity's ability to meet its objectives; anomalies are analyzed to determine whether they represent security events."
+    tsc_category: CC7
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC7.3
+    function: SECURITY
+    category: System Operations
+    title: "Evaluation of security events for potential incidents"
+    description: "The entity evaluates security events to determine whether they could or have resulted in a failure of the entity to meet its objectives (security incidents) and, if so, takes actions to prevent or address such failures."
+    tsc_category: CC7
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC7.4
+    function: SECURITY
+    category: System Operations
+    title: "Incident response program for security incidents"
+    description: "The entity responds to identified security incidents by executing a defined incident response program to understand, contain, remediate, and communicate security incidents, as appropriate."
+    tsc_category: CC7
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC7.5
+    function: SECURITY
+    category: System Operations
+    title: "Recovery from identified security incidents"
+    description: "The entity identifies, develops, and implements activities to recover from identified security incidents."
+    tsc_category: CC7
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC8 - Change Management (1 control) → TSC Category: CC8
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC8.1
+    function: SECURITY
+    category: Change Management
+    title: "Authorization, design, development, testing, and approval of changes"
+    description: "The entity authorizes, designs, develops or acquires, configures, documents, tests, approves, and implements changes to infrastructure, data, software, and procedures to meet its objectives."
+    tsc_category: CC8
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CC9 - Risk Mitigation (2 controls) → TSC Category: CC9
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: CC9.1
+    function: SECURITY
+    category: Risk Mitigation
+    title: "Risk mitigation through business process controls"
+    description: "The entity identifies, selects, and develops risk mitigation activities for risks arising from potential business disruptions."
+    tsc_category: CC9
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: CC9.2
+    function: SECURITY
+    category: Risk Mitigation
+    title: "Risk mitigation through vendor and business partner management"
+    description: "The entity assesses and manages risks associated with vendors and business partners."
+    tsc_category: CC9
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # A1 - Availability (3 controls) → TSC Category: A1
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: A1.1
+    function: AVAILABILITY
+    category: System Availability
+    title: "Capacity management and demand planning"
+    description: "The entity maintains, monitors, and evaluates current processing capacity and use of system components (infrastructure, data, and software) to manage capacity demand and to enable the implementation of additional capacity to help meet its objectives."
+    tsc_category: A1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: A1.2
+    function: AVAILABILITY
+    category: System Availability
+    title: "Environmental protections, backup, and recovery infrastructure"
+    description: "The entity authorizes, designs, develops or acquires, implements, operates, approves, maintains, and monitors environmental protections, software, data backup processes, and recovery infrastructure to meet its objectives."
+    tsc_category: A1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: A1.3
+    function: AVAILABILITY
+    category: System Availability
+    title: "Testing of recovery plan procedures"
+    description: "The entity tests recovery plan procedures supporting system recovery to meet its objectives."
+    tsc_category: A1
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # PI1 - Processing Integrity (5 controls) → TSC Category: PI1
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: PI1.1
+    function: PROCESSING_INTEGRITY
+    category: Processing Integrity
+    title: "Communication of processing objectives and quality information"
+    description: "The entity obtains or generates, uses, and communicates relevant, quality information regarding the objectives related to processing, including definitions of data processed and product and service specifications, to support the use of products and services."
+    tsc_category: PI1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: PI1.2
+    function: PROCESSING_INTEGRITY
+    category: Processing Integrity
+    title: "System input completeness and accuracy controls"
+    description: "The entity implements policies and procedures over system inputs, including controls over completeness and accuracy, to result in products, services, and reporting to meet the entity's objectives."
+    tsc_category: PI1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: PI1.3
+    function: PROCESSING_INTEGRITY
+    category: Processing Integrity
+    title: "System processing policies and procedures"
+    description: "The entity implements policies and procedures over system processing to result in products, services, and reporting to meet the entity's objectives."
+    tsc_category: PI1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: PI1.4
+    function: PROCESSING_INTEGRITY
+    category: Processing Integrity
+    title: "Output completeness, accuracy, and timeliness"
+    description: "The entity implements policies and procedures to make available or deliver output completely, accurately, and timely in accordance with specifications to meet the entity's objectives."
+    tsc_category: PI1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: PI1.5
+    function: PROCESSING_INTEGRITY
+    category: Processing Integrity
+    title: "Storage of inputs, items in processing, and outputs"
+    description: "The entity implements policies and procedures to store inputs, items in processing, and outputs completely, accurately, and timely in accordance with system specifications to meet the entity's objectives."
+    tsc_category: PI1
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # C1 - Confidentiality (2 controls) → TSC Category: C1
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  - id: C1.1
+    function: CONFIDENTIALITY
+    category: Confidentiality
+    title: "Identification and maintenance of confidential information"
+    description: "The entity identifies and maintains confidential information to meet the entity's objectives related to confidentiality."
+    tsc_category: C1
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: C1.2
+    function: CONFIDENTIALITY
+    category: Confidentiality
+    title: "Disposal of confidential information"
+    description: "The entity disposes of confidential information to meet the entity's objectives related to confidentiality."
+    tsc_category: C1
+    status: mandatory
+    frequency: "Continuous"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Privacy (18 controls) → TSC Categories: P1-P8
+  # Eight categories: Notice, Choice/Consent, Collection, Use/Retention/Disposal,
+  # Access, Disclosure/Notification, Quality, Monitoring/Enforcement
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # --- P1: Notice and Communication of Objectives ---
+
+  - id: P1.1
+    function: PRIVACY
+    category: Notice and Communication of Objectives
+    title: "Privacy practices notice to data subjects"
+    description: "The entity provides notice to data subjects about its privacy practices to meet the entity's objectives related to privacy. The notice is updated and communicated to data subjects in a timely manner for changes to the entity's privacy practices, including changes in the use of personal information, to meet the entity's objectives related to privacy."
+    tsc_category: P1
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P2: Choice and Consent ---
+
+  - id: P2.1
+    function: PRIVACY
+    category: Choice and Consent
+    title: "Communication of choices regarding personal information"
+    description: "The entity communicates choices available regarding the collection, use, retention, disclosure, and disposal of personal information to the data subjects and the consequences, if any, of each choice, to meet the entity's objectives related to privacy. Explicit consent for the collection, use, retention, disclosure, and disposal of personal information is obtained from data subjects or other authorized persons, if required. Such consent is obtained only for the intended purpose of the information to meet the entity's objectives related to privacy."
+    tsc_category: P2
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P3: Collection ---
+
+  - id: P3.1
+    function: PRIVACY
+    category: Collection
+    title: "Collection limited to identified objectives"
+    description: "Personal information is collected consistent with the entity's objectives related to privacy."
+    tsc_category: P3
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P3.2
+    function: PRIVACY
+    category: Collection
+    title: "Explicit consent for sensitive information collection"
+    description: "For information requiring explicit consent, the entity communicates the need for such consent, as well as the consequences of a failure to provide consent for the request for personal information, and obtains the consent prior to the collection of the information to meet the entity's objectives related to privacy."
+    tsc_category: P3
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P4: Use, Retention, and Disposal ---
+
+  - id: P4.1
+    function: PRIVACY
+    category: Use, Retention, and Disposal
+    title: "Use of personal information limited to identified purposes"
+    description: "The entity limits the use of personal information to the purposes identified in the entity's objectives related to privacy."
+    tsc_category: P4
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P4.2
+    function: PRIVACY
+    category: Use, Retention, and Disposal
+    title: "Retention of personal information per defined objectives"
+    description: "The entity retains personal information consistent with the entity's objectives related to privacy."
+    tsc_category: P4
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P4.3
+    function: PRIVACY
+    category: Use, Retention, and Disposal
+    title: "Secure disposal of personal information"
+    description: "The entity securely disposes of personal information to meet the entity's objectives related to privacy. Personal information is anonymized, disposed of, or destroyed in a manner that prevents loss, theft, misuse, or unauthorized access."
+    tsc_category: P4
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P5: Access ---
+
+  - id: P5.1
+    function: PRIVACY
+    category: Access
+    title: "Data subject access to personal information for review"
+    description: "The entity grants identified and authenticated data subjects the ability to access their stored personal information for review and, upon request, provides the physical or electronic records of that personal information to the data subject to meet the entity's objectives related to privacy."
+    tsc_category: P5
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P5.2
+    function: PRIVACY
+    category: Access
+    title: "Correction and amendment of personal information"
+    description: "The entity corrects, amends, or appends personal information based on information provided by data subjects and communicates such information to third parties, as committed or required, to meet the entity's objectives related to privacy. If a request for correction is denied, data subjects are informed of the denial and reason for such denial to meet the entity's objectives related to privacy."
+    tsc_category: P5
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P6: Disclosure and Notification ---
+
+  - id: P6.1
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Disclosure of personal information with consent"
+    description: "The entity discloses personal information to third parties with the explicit consent of data subjects, and such disclosure is consistent with the objectives related to privacy."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P6.2
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Records of unauthorized disclosures"
+    description: "The entity creates and retains a complete, accurate, and timely record of detected or reported unauthorized disclosures (including breaches) of personal information to meet the entity's objectives related to privacy."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P6.3
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Third-party data protection agreements"
+    description: "The entity obtains privacy commitments from vendors and other third parties who have access to personal information to meet the entity's objectives related to privacy. The entity assesses those parties' compliance on a periodic and as-needed basis and takes corrective action, if necessary."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P6.4
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Breach notification to affected data subjects"
+    description: "The entity provides notification of breaches and incidents to affected data subjects, regulators, and others to meet the entity's objectives related to privacy."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P6.5
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Breach notification to regulators and authorities"
+    description: "The entity provides notification of breaches and incidents to regulators and other authorities as required to meet the entity's objectives related to privacy."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P6.6
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Data subject inquiry and complaint mechanisms"
+    description: "The entity provides data subjects with an accounting of the personal information held and disclosed, and information about how they may contact the entity with inquiries, complaints, and disputes regarding their personal information to meet the entity's objectives related to privacy."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  - id: P6.7
+    function: PRIVACY
+    category: Disclosure and Notification
+    title: "Modifications to disclosed personal information"
+    description: "The entity provides notification to third parties who have received personal information from the entity of any confirmed unauthorized disclosure of, or amendments, corrections, or appends to, such personal information to meet the entity's objectives related to privacy."
+    tsc_category: P6
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P7: Quality ---
+
+  - id: P7.1
+    function: PRIVACY
+    category: Quality
+    title: "Accuracy and completeness of personal information"
+    description: "The entity collects and maintains accurate, up-to-date, complete, and relevant personal information to meet the entity's objectives related to privacy."
+    tsc_category: P7
+    status: mandatory
+    frequency: "Continuous"
+
+  # --- P8: Monitoring and Enforcement ---
+
+  - id: P8.1
+    function: PRIVACY
+    category: Monitoring and Enforcement
+    title: "Privacy compliance monitoring and dispute resolution"
+    description: "The entity implements a process for receiving, addressing, resolving, and communicating the resolution of inquiries, complaints, and disputes from data subjects and others and periodically monitors compliance to meet the entity's objectives related to privacy."
+    tsc_category: P8
+    status: mandatory
+    frequency: "Continuous"

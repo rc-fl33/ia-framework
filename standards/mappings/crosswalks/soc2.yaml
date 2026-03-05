@@ -1,0 +1,386 @@
+framework: soc2
+version: unknown
+description: soc2 cross-framework mappings
+last_updated: 2026-02-25
+generated_by: enrich-pipeline
+coverage_pct: 61
+mappings:
+  - control: CC1.1
+    title: Commitment to integrity and ethical values
+    external_mappings:
+      iso-27001:
+        - A.5.10
+        - A.5.31
+      iso-9001:
+        - "5.1"
+    confidence: medium
+  - control: CC1.2
+    title: Board independence and oversight of internal controls
+    external_mappings:
+      iso-9001:
+        - "5.1"
+        - "5.2"
+    confidence: medium
+  - control: CC1.3
+    title: Management establishes structures, reporting lines, and authorities
+    external_mappings:
+      iso-27001:
+        - A.5.1
+        - A.5.2
+    confidence: medium
+  - control: CC1.4
+    title: Commitment to competence through workforce development
+    external_mappings:
+      iso-27001:
+        - A.5.2
+        - A.6.1
+        - A.6.2
+        - A.6.3
+      iso-9001:
+        - "4.1"
+        - "4.2"
+        - "7.2"
+    confidence: medium
+  - control: CC1.5
+    title: Accountability for internal control responsibilities
+    external_mappings: {}
+    confidence: medium
+  - control: CC2.1
+    title: Quality information supports internal control functioning
+    external_mappings:
+      iso-9001:
+        - "4.3"
+    confidence: medium
+  - control: CC2.2
+    title: Internal communication of control objectives and responsibilities
+    external_mappings:
+      iso-27001:
+        - A.6.3
+    confidence: medium
+  - control: CC2.3
+    title: External communication of matters affecting internal control
+    external_mappings:
+      iso-27001:
+        - A.5.14
+    confidence: medium
+  - control: CC3.1
+    title: Objectives specified with sufficient clarity for risk identification
+    external_mappings:
+      iso-9001:
+        - "6.1"
+    confidence: medium
+  - control: CC3.2
+    title: Risk identification and analysis across the entity
+    external_mappings:
+      iso-9001:
+        - "6.1"
+    confidence: medium
+  - control: CC3.3
+    title: Consideration of fraud risk
+    external_mappings:
+      iso-9001:
+        - "6.1"
+    confidence: medium
+  - control: CC3.4
+    title: Identification and assessment of significant changes
+    external_mappings: {}
+    confidence: medium
+  - control: CC4.1
+    title: Ongoing and separate evaluations of internal controls
+    external_mappings:
+      iso-27001:
+        - A.5.35
+      iso-9001:
+        - "9.2"
+    confidence: medium
+  - control: CC4.2
+    title: Communication of internal control deficiencies
+    external_mappings:
+      iso-27001:
+        - A.5.35
+      iso-9001:
+        - "10.2"
+    confidence: medium
+  - control: CC5.1
+    title: Selection and development of control activities for risk mitigation
+    external_mappings: {}
+    confidence: medium
+  - control: CC5.2
+    title: Selection and development of general technology controls
+    external_mappings: {}
+    confidence: medium
+  - control: CC5.3
+    title: Deployment of control activities through policies and procedures
+    external_mappings:
+      iso-27001:
+        - A.5.1
+    confidence: medium
+  - control: CC6.1
+    title: Logical access security through identification and authentication
+    external_mappings:
+      iso-27001:
+        - A.5.9
+        - A.5.12
+        - A.5.15
+        - A.5.16
+        - A.5.17
+        - A.8.3
+        - A.8.5
+    confidence: medium
+  - control: CC6.2
+    title: User registration and authorization management
+    external_mappings:
+      iso-27001:
+        - A.5.15
+        - A.5.16
+        - A.5.18
+        - A.6.5
+    confidence: medium
+  - control: CC6.3
+    title: Role-based access and least privilege enforcement
+    external_mappings:
+      iso-27001:
+        - A.5.3
+        - A.5.18
+        - A.6.5
+        - A.8.2
+        - A.8.3
+    confidence: medium
+  - control: CC6.4
+    title: Physical access restrictions to protected assets
+    external_mappings:
+      iso-27001:
+        - A.7.1
+        - A.7.2
+        - A.7.4
+    confidence: medium
+  - control: CC6.5
+    title: Secure disposal of protected information assets
+    external_mappings:
+      iso-27001:
+        - A.7.10
+        - A.7.14
+        - A.8.10
+    confidence: medium
+  - control: CC6.6
+    title: Security measures against threats outside system boundaries
+    external_mappings:
+      iso-27001:
+        - A.6.7
+        - A.8.1
+        - A.8.9
+        - A.8.20
+        - A.8.22
+    confidence: medium
+  - control: CC6.7
+    title: Secure transmission and movement of information
+    external_mappings:
+      iso-27001:
+        - A.5.14
+        - A.7.9
+        - A.7.10
+        - A.8.12
+        - A.8.24
+    confidence: medium
+  - control: CC6.8
+    title: Prevention and detection of unauthorized or malicious software
+    external_mappings:
+      iso-27001:
+        - A.8.7
+    confidence: medium
+  - control: CC7.1
+    title: Detection of configuration changes introducing vulnerabilities
+    external_mappings:
+      iso-27001:
+        - A.7.4
+        - A.8.8
+        - A.8.16
+        - A.8.17
+        - A.8.29
+    confidence: medium
+  - control: CC7.2
+    title: Monitoring for anomalies indicative of security events
+    external_mappings:
+      iso-27001:
+        - A.8.15
+        - A.8.16
+    confidence: medium
+  - control: CC7.3
+    title: Evaluation of security events for potential incidents
+    external_mappings:
+      iso-27001:
+        - A.6.8
+        - A.8.15
+    confidence: medium
+  - control: CC7.4
+    title: Incident response program for security incidents
+    external_mappings:
+      iso-27001:
+        - A.5.24
+        - A.5.26
+        - A.5.27
+    confidence: medium
+  - control: CC7.5
+    title: Recovery from identified security incidents
+    external_mappings:
+      iso-27001:
+        - A.5.24
+    confidence: medium
+  - control: CC8.1
+    title: Authorization, design, development, testing, and approval of changes
+    external_mappings:
+      iso-27001:
+        - A.5.8
+        - A.8.9
+        - A.8.25
+        - A.8.28
+        - A.8.31
+        - A.8.32
+    confidence: medium
+  - control: CC9.1
+    title: Risk mitigation through business process controls
+    external_mappings:
+      iso-27001:
+        - A.5.29
+        - A.8.13
+    confidence: medium
+  - control: CC9.2
+    title: Risk mitigation through vendor and business partner management
+    external_mappings:
+      iso-27001:
+        - A.5.19
+        - A.5.20
+        - A.5.23
+      iso-9001:
+        - "8.4"
+    confidence: medium
+  - control: A1.1
+    title: Capacity management and demand planning
+    external_mappings:
+      iso-27001:
+        - A.7.5
+    confidence: medium
+  - control: A1.2
+    title: Environmental protections, backup, and recovery infrastructure
+    external_mappings:
+      iso-27001:
+        - A.5.30
+        - A.8.13
+    confidence: medium
+  - control: A1.3
+    title: Testing of recovery plan procedures
+    external_mappings:
+      iso-27001:
+        - A.5.29
+        - A.5.30
+    confidence: medium
+  - control: PI1.1
+    title: Communication of processing objectives and quality information
+    external_mappings: {}
+    confidence: medium
+  - control: PI1.2
+    title: System input completeness and accuracy controls
+    external_mappings: {}
+    confidence: medium
+  - control: PI1.3
+    title: System processing policies and procedures
+    external_mappings: {}
+    confidence: medium
+  - control: PI1.4
+    title: Output completeness, accuracy, and timeliness
+    external_mappings: {}
+    confidence: medium
+  - control: PI1.5
+    title: Storage of inputs, items in processing, and outputs
+    external_mappings: {}
+    confidence: medium
+  - control: C1.1
+    title: Identification and maintenance of confidential information
+    external_mappings:
+      iso-27001:
+        - A.5.12
+    confidence: medium
+  - control: C1.2
+    title: Disposal of confidential information
+    external_mappings:
+      iso-27001:
+        - A.8.12
+    confidence: medium
+  - control: P1.1
+    title: Privacy practices notice to data subjects
+    external_mappings:
+      iso-27001:
+        - A.5.34
+    confidence: medium
+  - control: P2.1
+    title: Communication of choices regarding personal information
+    external_mappings:
+      iso-27001:
+        - A.5.34
+    confidence: medium
+  - control: P3.1
+    title: Collection limited to identified objectives
+    external_mappings:
+      iso-27001:
+        - A.5.34
+    confidence: medium
+  - control: P3.2
+    title: Explicit consent for sensitive information collection
+    external_mappings: {}
+    confidence: medium
+  - control: P4.1
+    title: Use of personal information limited to identified purposes
+    external_mappings: {}
+    confidence: medium
+  - control: P4.2
+    title: Retention of personal information per defined objectives
+    external_mappings: {}
+    confidence: medium
+  - control: P4.3
+    title: Secure disposal of personal information
+    external_mappings: {}
+    confidence: medium
+  - control: P5.1
+    title: Data subject access to personal information for review
+    external_mappings: {}
+    confidence: medium
+  - control: P5.2
+    title: Correction and amendment of personal information
+    external_mappings: {}
+    confidence: medium
+  - control: P6.1
+    title: Disclosure of personal information with consent
+    external_mappings: {}
+    confidence: medium
+  - control: P6.2
+    title: Records of unauthorized disclosures
+    external_mappings: {}
+    confidence: medium
+  - control: P6.3
+    title: Third-party data protection agreements
+    external_mappings: {}
+    confidence: medium
+  - control: P6.4
+    title: Breach notification to affected data subjects
+    external_mappings: {}
+    confidence: medium
+  - control: P6.5
+    title: Breach notification to regulators and authorities
+    external_mappings: {}
+    confidence: medium
+  - control: P6.6
+    title: Data subject inquiry and complaint mechanisms
+    external_mappings: {}
+    confidence: medium
+  - control: P6.7
+    title: Modifications to disclosed personal information
+    external_mappings: {}
+    confidence: medium
+  - control: P7.1
+    title: Accuracy and completeness of personal information
+    external_mappings: {}
+    confidence: medium
+  - control: P8.1
+    title: Privacy compliance monitoring and dispute resolution
+    external_mappings: {}
+    confidence: medium

@@ -1,0 +1,32 @@
+framework: mitre-atlas
+checks:
+  - name: manifest_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/mitre-atlas/manifest.yaml
+  - name: controls_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/mitre-atlas/controls.yaml
+  - name: questions_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/frameworks/mitre-atlas/questions.yaml
+  - name: crosswalk_exists
+    status: pass
+    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/mitre-atlas.yaml
+  - name: question_count
+    status: pass
+    detail: 44 questions (need ≥20 for T2)
+  - name: question_coverage
+    status: pass
+    detail: All controls referenced
+  - name: framework_depth
+    status: pass
+    detail: Avg 6.0 external framework mappings per question (need ≥5 for T3)
+  - name: cardinality
+    status: pass
+    detail: total_questions=44, actual=44
+  - name: required_fields
+    status: pass
+    detail: All questions have required fields
+errors: 0
+warnings: 0
+tier_achieved: 3

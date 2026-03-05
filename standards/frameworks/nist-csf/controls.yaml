@@ -1,0 +1,681 @@
+# NIST Cybersecurity Framework 2.0 Controls
+# Source: https://www.nist.gov/cyberframework
+# Version: 2.0 (February 2024)
+# Last Updated: 2026-03-03
+
+metadata:
+  framework: "NIST Cybersecurity Framework"
+  version: "2.0"
+  release_date: "2024-02-26"
+  official_url: "https://www.nist.gov/cyberframework"
+  reference_document: "NIST.CSWP.29.pdf"
+  total_controls: 106
+
+functions:
+  - id: GV
+    name: GOVERN
+    description: "Establish and monitor the organization's cybersecurity risk management strategy, expectations, and policy"
+
+  - id: ID
+    name: IDENTIFY
+    description: "Understand the organization's current cybersecurity risk posture"
+
+  - id: PR
+    name: PROTECT
+    description: "Use safeguards to prevent or reduce cybersecurity risk"
+
+  - id: DE
+    name: DETECT
+    description: "Find and analyze possible cybersecurity attacks and compromises"
+
+  - id: RS
+    name: RESPOND
+    description: "Take action regarding a detected cybersecurity incident"
+
+  - id: RC
+    name: RECOVER
+    description: "Restore assets and operations affected by a cybersecurity incident"
+
+controls:
+
+  # GOVERN Function (21 controls)
+  - id: GV.OC-01
+    function: GOVERN
+    category: Organizational Context
+    title: "Organizational mission is understood and informs cybersecurity risk management"
+    description: "The organization's mission, priorities, and strategic direction inform cybersecurity risk management."
+
+  - id: GV.OC-02
+    function: GOVERN
+    category: Organizational Context
+    title: "Internal and external stakeholders are understood"
+    description: "The organization understands internal and external stakeholder needs, expectations, and dependencies."
+
+  - id: GV.OC-03
+    function: GOVERN
+    category: Organizational Context
+    title: "Legal, regulatory, and contractual requirements are understood"
+    description: "The organization understands legal, regulatory, and contractual cybersecurity requirements."
+
+  - id: GV.OC-04
+    function: GOVERN
+    category: Organizational Context
+    title: "Critical objectives, capabilities, and services are understood"
+    description: "Critical objectives, capabilities, and services that stakeholders depend on are understood."
+
+  - id: GV.OC-05
+    function: GOVERN
+    category: Organizational Context
+    title: "Outcomes, capabilities, and services dependencies are understood"
+    description: "Dependencies among organizational outcomes, capabilities, and services are understood."
+
+  - id: GV.RM-01
+    function: GOVERN
+    category: Risk Management Strategy
+    title: "Risk management objectives are established and agreed upon"
+    description: "Cybersecurity risk management objectives are established and agreed upon by organizational stakeholders."
+
+  - id: GV.RM-02
+    function: GOVERN
+    category: Risk Management Strategy
+    title: "Risk appetite and tolerance statements are established"
+    description: "Risk appetite and risk tolerance statements are established, communicated, and maintained."
+
+  - id: GV.RM-03
+    function: GOVERN
+    category: Risk Management Strategy
+    title: "Cybersecurity risk management activities are integrated into ERM"
+    description: "Cybersecurity risk management activities and outcomes are included in enterprise risk management."
+
+  - id: GV.RM-04
+    function: GOVERN
+    category: Risk Management Strategy
+    title: "Strategic direction for cybersecurity risk management is established"
+    description: "Strategic direction that describes appropriate risk response options is established and communicated."
+
+  - id: GV.RR-01
+    function: GOVERN
+    category: Roles, Responsibilities, and Authorities
+    title: "Organizational leadership is responsible for cybersecurity risk"
+    description: "Organizational leadership is responsible and accountable for cybersecurity risk."
+
+  - id: GV.RR-02
+    function: GOVERN
+    category: Roles, Responsibilities, and Authorities
+    title: "Roles, responsibilities, and authorities are established"
+    description: "Roles, responsibilities, and authorities are established, communicated, and enforced."
+
+  - id: GV.RR-03
+    function: GOVERN
+    category: Roles, Responsibilities, and Authorities
+    title: "Adequate resources are allocated for cybersecurity"
+    description: "Adequate resources are allocated commensurate with cybersecurity risk."
+
+  - id: GV.RR-04
+    function: GOVERN
+    category: Roles, Responsibilities, and Authorities
+    title: "Cybersecurity is included in human resources practices"
+    description: "Cybersecurity is included in human resources practices."
+
+  - id: GV.PO-01
+    function: GOVERN
+    category: Policy
+    title: "Cybersecurity policy is established"
+    description: "Policy for managing cybersecurity risk is established based on context, strategy, and risk priorities."
+
+  - id: GV.PO-02
+    function: GOVERN
+    category: Policy
+    title: "Cybersecurity policy is reviewed and updated"
+    description: "Cybersecurity policy is reviewed, updated, and communicated."
+
+  - id: GV.OV-01
+    function: GOVERN
+    category: Oversight
+    title: "Cybersecurity risk management strategy is reviewed"
+    description: "Cybersecurity risk management strategy outcomes are reviewed."
+
+  - id: GV.OV-02
+    function: GOVERN
+    category: Oversight
+    title: "Cybersecurity risk management strategy is adjusted"
+    description: "Cybersecurity risk management strategy is adjusted based on review."
+
+  - id: GV.OV-03
+    function: GOVERN
+    category: Oversight
+    title: "Organizational cybersecurity performance is evaluated"
+    description: "Organizational cybersecurity risk management performance is evaluated."
+
+  - id: GV.SC-01
+    function: GOVERN
+    category: Cybersecurity Supply Chain Risk Management
+    title: "Supply chain risk management program is established"
+    description: "Cybersecurity supply chain risk management program, strategy, objectives, and policies are established."
+
+  - id: GV.SC-02
+    function: GOVERN
+    category: Cybersecurity Supply Chain Risk Management
+    title: "Supplier requirements are established"
+    description: "Cybersecurity roles and responsibilities for suppliers are established."
+
+  - id: GV.SC-03
+    function: GOVERN
+    category: Cybersecurity Supply Chain Risk Management
+    title: "Supply chain risk management processes are integrated"
+    description: "Supply chain risk management is integrated into cybersecurity risk management."
+
+  # IDENTIFY Function (20 controls)
+  - id: ID.AM-01
+    function: IDENTIFY
+    category: Asset Management
+    title: "Hardware inventories are maintained"
+    description: "Inventories of hardware managed by the organization are maintained."
+
+  - id: ID.AM-02
+    function: IDENTIFY
+    category: Asset Management
+    title: "Software inventories are maintained"
+    description: "Inventories of software, services, and systems managed by the organization are maintained."
+
+  - id: ID.AM-03
+    function: IDENTIFY
+    category: Asset Management
+    title: "Data flows are mapped"
+    description: "Representations of the organization's authorized network communication and data flows are maintained."
+
+  - id: ID.AM-04
+    function: IDENTIFY
+    category: Asset Management
+    title: "External information systems are catalogued"
+    description: "Inventories of services provided by suppliers are maintained."
+
+  - id: ID.AM-05
+    function: IDENTIFY
+    category: Asset Management
+    title: "Assets are prioritized based on criticality"
+    description: "Assets are prioritized based on classification, criticality, and business value."
+
+  - id: ID.AM-06
+    function: IDENTIFY
+    category: Asset Management
+    title: "Asset vulnerabilities are collected"
+    description: "Asset vulnerabilities are collected."
+
+  - id: ID.AM-07
+    function: IDENTIFY
+    category: Asset Management
+    title: "Data and assets are managed throughout lifecycle"
+    description: "Data and assets are managed consistent with organizational risk strategy and lifecycle."
+
+  - id: ID.AM-08
+    function: IDENTIFY
+    category: Asset Management
+    title: "Systems and assets are monitored"
+    description: "Systems, hardware, software, and services are managed throughout their life cycles."
+
+  - id: ID.RA-01
+    function: IDENTIFY
+    category: Risk Assessment
+    title: "Vulnerabilities are identified and documented"
+    description: "Vulnerabilities in assets are identified, validated, and documented."
+
+  - id: ID.RA-02
+    function: IDENTIFY
+    category: Risk Assessment
+    title: "Threat intelligence is received"
+    description: "Cyber threat intelligence is received from information sharing forums and sources."
+
+  - id: ID.RA-03
+    function: IDENTIFY
+    category: Risk Assessment
+    title: "Threats are identified and documented"
+    description: "Internal and external threats are identified and documented."
+
+  - id: ID.RA-04
+    function: IDENTIFY
+    category: Risk Assessment
+    title: "Potential business impacts are identified"
+    description: "Potential business impacts and likelihoods are identified."
+
+  - id: ID.RA-05
+    function: IDENTIFY
+    category: Risk Assessment
+    title: "Risks are determined"
+    description: "Threats, vulnerabilities, likelihoods, and impacts are used to determine risk."
+
+  - id: ID.RA-06
+    function: IDENTIFY
+    category: Risk Assessment
+    title: "Risk responses are identified and prioritized"
+    description: "Risk responses are identified, prioritized, and communicated."
+
+  - id: ID.IM-01
+    function: IDENTIFY
+    category: Improvement
+    title: "Improvements are identified"
+    description: "Improvements are identified from security tests, exercises, and incidents."
+
+  - id: ID.IM-02
+    function: IDENTIFY
+    category: Improvement
+    title: "Improvements are implemented"
+    description: "Improvements are prioritized, documented, and tracked."
+
+  - id: ID.IM-03
+    function: IDENTIFY
+    category: Improvement
+    title: "Improvement status is communicated"
+    description: "Improvement status is communicated to stakeholders."
+
+  - id: ID.GV-01
+    function: IDENTIFY
+    category: Governance
+    title: "Organizational cybersecurity risk management strategy is established"
+    description: "Organizational cybersecurity risk management strategy is established."
+
+  - id: ID.GV-02
+    function: IDENTIFY
+    category: Governance
+    title: "Organizational cybersecurity risk management policies are established"
+    description: "Organizational cybersecurity risk management policies are established."
+
+  - id: ID.GV-03
+    function: IDENTIFY
+    category: Governance
+    title: "Organizational cybersecurity risk management policies are implemented"
+    description: "Organizational cybersecurity risk management policies are implemented."
+
+  # PROTECT Function (24 controls)
+  - id: PR.AA-01
+    function: PROTECT
+    category: Identity Management and Access Control
+    title: "Identities and credentials are issued"
+    description: "Identities and credentials for authorized users, services, and hardware are issued."
+
+  - id: PR.AA-02
+    function: PROTECT
+    category: Identity Management and Access Control
+    title: "Identities and credentials are managed"
+    description: "Identities and credentials are managed, including revocation."
+
+  - id: PR.AA-03
+    function: PROTECT
+    category: Identity Management and Access Control
+    title: "Physical access is managed"
+    description: "Physical access to assets is managed, monitored, and enforced."
+
+  - id: PR.AA-04
+    function: PROTECT
+    category: Identity Management and Access Control
+    title: "Remote access is managed"
+    description: "Remote access is managed."
+
+  - id: PR.AA-05
+    function: PROTECT
+    category: Identity Management and Access Control
+    title: "Access permissions are managed"
+    description: "Access permissions, entitlements, and authorizations are managed."
+
+  - id: PR.AA-06
+    function: PROTECT
+    category: Identity Management and Access Control
+    title: "Users, devices, and assets are authenticated"
+    description: "Users, services, and hardware are authenticated."
+
+  - id: PR.AT-01
+    function: PROTECT
+    category: Awareness and Training
+    title: "Personnel are provided awareness and training"
+    description: "Personnel are provided cybersecurity awareness and training."
+
+  - id: PR.AT-02
+    function: PROTECT
+    category: Awareness and Training
+    title: "Privileged users understand roles"
+    description: "Individuals in specialized roles understand their role-related responsibilities."
+
+  - id: PR.AT-03
+    function: PROTECT
+    category: Awareness and Training
+    title: "Third-party stakeholders understand roles"
+    description: "Third-party stakeholders understand their role-related responsibilities."
+
+  - id: PR.DS-01
+    function: PROTECT
+    category: Data Security
+    title: "Data-at-rest is protected"
+    description: "Data-at-rest is protected."
+
+  - id: PR.DS-02
+    function: PROTECT
+    category: Data Security
+    title: "Data-in-transit is protected"
+    description: "Data-in-transit is protected."
+
+  - id: PR.DS-03
+    function: PROTECT
+    category: Data Security
+    title: "Data-in-use is protected"
+    description: "Data-in-use is protected."
+
+  - id: PR.DS-04
+    function: PROTECT
+    category: Data Security
+    title: "Data integrity is protected"
+    description: "Data integrity is protected."
+
+  - id: PR.DS-05
+    function: PROTECT
+    category: Data Security
+    title: "Backups of data are maintained"
+    description: "Backups are maintained and tested."
+
+  - id: PR.PS-01
+    function: PROTECT
+    category: Platform Security
+    title: "Configuration management is applied"
+    description: "Configuration management is applied."
+
+  - id: PR.PS-02
+    function: PROTECT
+    category: Platform Security
+    title: "Software is maintained"
+    description: "Software is maintained."
+
+  - id: PR.PS-03
+    function: PROTECT
+    category: Platform Security
+    title: "Hardware is maintained"
+    description: "Hardware is maintained."
+
+  - id: PR.PS-04
+    function: PROTECT
+    category: Platform Security
+    title: "Log records are generated"
+    description: "Log records are generated and made available for analysis."
+
+  - id: PR.PS-05
+    function: PROTECT
+    category: Platform Security
+    title: "Installation of software is managed"
+    description: "Installation and execution of software is managed."
+
+  - id: PR.PS-06
+    function: PROTECT
+    category: Platform Security
+    title: "Secure development practices are followed"
+    description: "Secure development practices are followed."
+
+  - id: PR.IR-01
+    function: PROTECT
+    category: Technology Infrastructure Resilience
+    title: "Networks and network services are protected"
+    description: "Networks and network services are protected."
+
+  - id: PR.IR-02
+    function: PROTECT
+    category: Technology Infrastructure Resilience
+    title: "Technology assets are protected"
+    description: "Technology assets are protected."
+
+  - id: PR.IR-03
+    function: PROTECT
+    category: Technology Infrastructure Resilience
+    title: "Mechanisms for resilience are implemented"
+    description: "Mechanisms for resilience are implemented."
+
+  - id: PR.IR-04
+    function: PROTECT
+    category: Technology Infrastructure Resilience
+    title: "Adequate resource capacity is maintained"
+    description: "Adequate resource capacity is maintained."
+
+  # DETECT Function (13 controls)
+  - id: DE.CM-01
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Networks and network services are monitored"
+    description: "Networks and network services are monitored."
+
+  - id: DE.CM-02
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Physical environment is monitored"
+    description: "Physical environment is monitored."
+
+  - id: DE.CM-03
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Personnel activity is monitored"
+    description: "Personnel activity and technology usage is monitored."
+
+  - id: DE.CM-04
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Malicious code is detected"
+    description: "Malicious code is detected."
+
+  - id: DE.CM-05
+    function: DETECT
+    category: Continuous Monitoring
+    title: "External service provider activity is monitored"
+    description: "External service provider activity is monitored."
+
+  - id: DE.CM-06
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Networks are monitored for anomalies"
+    description: "Networks are monitored for anomalies."
+
+  - id: DE.CM-07
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Vulnerability scans are performed"
+    description: "Vulnerability scans are performed."
+
+  - id: DE.CM-08
+    function: DETECT
+    category: Continuous Monitoring
+    title: "Computing hardware and software is monitored"
+    description: "Computing hardware and software is monitored."
+
+  - id: DE.AE-01
+    function: DETECT
+    category: Adverse Event Analysis
+    title: "A baseline of network operations and expected data flows is established"
+    description: "A baseline of network operations and expected data flows is established and managed."
+
+  - id: DE.AE-02
+    function: DETECT
+    category: Adverse Event Analysis
+    title: "Potentially adverse events are analyzed"
+    description: "Potentially adverse events are analyzed to characterize the events."
+
+  - id: DE.AE-03
+    function: DETECT
+    category: Adverse Event Analysis
+    title: "Information is correlated"
+    description: "Information is correlated from multiple sources."
+
+  - id: DE.AE-04
+    function: DETECT
+    category: Adverse Event Analysis
+    title: "Impact of events is estimated"
+    description: "Impact of events is estimated."
+
+  - id: DE.AE-05
+    function: DETECT
+    category: Adverse Event Analysis
+    title: "Information on detected events is provided"
+    description: "Information on detected events is provided to appropriate personnel."
+
+  # RESPOND Function (18 controls)
+  - id: RS.MA-01
+    function: RESPOND
+    category: Incident Management
+    title: "Incident response plan is executed"
+    description: "Incident response plan is executed."
+
+  - id: RS.MA-02
+    function: RESPOND
+    category: Incident Management
+    title: "Incident reports are triaged and validated"
+    description: "Incident reports are triaged and validated."
+
+  - id: RS.MA-03
+    function: RESPOND
+    category: Incident Management
+    title: "Incidents are prioritized"
+    description: "Incidents are prioritized."
+
+  - id: RS.MA-04
+    function: RESPOND
+    category: Incident Management
+    title: "Incidents are escalated or elevated"
+    description: "Incidents are escalated or elevated as needed."
+
+  - id: RS.AN-01
+    function: RESPOND
+    category: Incident Analysis
+    title: "Notifications from detection systems are received"
+    description: "Notifications from detection systems are received."
+
+  - id: RS.AN-02
+    function: RESPOND
+    category: Incident Analysis
+    title: "Incidents are analyzed"
+    description: "Incidents are analyzed."
+
+  - id: RS.AN-03
+    function: RESPOND
+    category: Incident Analysis
+    title: "Analysis is performed to establish what occurred"
+    description: "Analysis is performed to establish what occurred."
+
+  - id: RS.AN-04
+    function: RESPOND
+    category: Incident Analysis
+    title: "Incidents are categorized"
+    description: "Incidents are categorized."
+
+  - id: RS.AN-05
+    function: RESPOND
+    category: Incident Analysis
+    title: "Incidents are prioritized"
+    description: "Incidents are prioritized."
+
+  - id: RS.AN-06
+    function: RESPOND
+    category: Incident Analysis
+    title: "Actions taken during investigation are recorded"
+    description: "Actions taken during investigation are recorded."
+
+  - id: RS.AN-07
+    function: RESPOND
+    category: Incident Analysis
+    title: "Incident data is collected and preserved"
+    description: "Incident data is collected and preserved."
+
+  - id: RS.AN-08
+    function: RESPOND
+    category: Incident Analysis
+    title: "Incident forensic analysis is performed"
+    description: "Incident forensic analysis is performed."
+
+  - id: RS.CO-01
+    function: RESPOND
+    category: Incident Response Reporting and Communication
+    title: "Personnel know their roles and the order of operations"
+    description: "Personnel know their roles and the order of operations when a response is needed."
+
+  - id: RS.CO-02
+    function: RESPOND
+    category: Incident Response Reporting and Communication
+    title: "Internal stakeholders are notified"
+    description: "Internal stakeholders are notified of incidents."
+
+  - id: RS.CO-03
+    function: RESPOND
+    category: Incident Response Reporting and Communication
+    title: "External stakeholders are notified"
+    description: "External stakeholders are notified of incidents."
+
+  - id: RS.CO-04
+    function: RESPOND
+    category: Incident Response Reporting and Communication
+    title: "Information is shared with designated parties"
+    description: "Information is shared with designated internal and external parties."
+
+  - id: RS.MI-01
+    function: RESPOND
+    category: Incident Mitigation
+    title: "Incidents are contained"
+    description: "Incidents are contained."
+
+  - id: RS.MI-02
+    function: RESPOND
+    category: Incident Mitigation
+    title: "Incidents are eradicated"
+    description: "Incidents are eradicated."
+
+  # RECOVER Function (10 controls)
+  - id: RC.RP-01
+    function: RECOVER
+    category: Incident Recovery Plan Execution
+    title: "Recovery plan is executed"
+    description: "Recovery plan is executed."
+
+  - id: RC.RP-02
+    function: RECOVER
+    category: Incident Recovery Plan Execution
+    title: "Recovery actions are selected, scoped, and prioritized"
+    description: "Recovery actions are selected, scoped, and prioritized."
+
+  - id: RC.RP-03
+    function: RECOVER
+    category: Incident Recovery Plan Execution
+    title: "Data and assets are restored"
+    description: "Data and assets are restored."
+
+  - id: RC.RP-04
+    function: RECOVER
+    category: Incident Recovery Plan Execution
+    title: "Critical mission functions and infrastructure are considered"
+    description: "Critical mission functions and infrastructure are considered."
+
+  - id: RC.RP-05
+    function: RECOVER
+    category: Incident Recovery Plan Execution
+    title: "Integrity of restored assets is verified"
+    description: "Integrity of restored assets is verified."
+
+  - id: RC.RP-06
+    function: RECOVER
+    category: Incident Recovery Plan Execution
+    title: "End of incident recovery is declared"
+    description: "End of incident recovery is declared."
+
+  - id: RC.IM-01
+    function: RECOVER
+    category: Incident Recovery Communication
+    title: "Recovery lessons learned are identified"
+    description: "Recovery lessons learned are identified."
+
+  - id: RC.IM-02
+    function: RECOVER
+    category: Incident Recovery Communication
+    title: "Recovery improvements are implemented"
+    description: "Recovery improvements are implemented."
+
+  - id: RC.CO-01
+    function: RECOVER
+    category: Incident Recovery Communication
+    title: "Recovery communication is prepared"
+    description: "Recovery communication is prepared."
+
+  - id: RC.CO-02
+    function: RECOVER
+    category: Incident Recovery Communication
+    title: "Recovery activities and progress are communicated"
+    description: "Recovery activities and progress are communicated."

@@ -1,0 +1,219 @@
+framework: hipaa
+version: unknown
+description: hipaa cross-framework mappings
+last_updated: 2026-02-25
+generated_by: enrich-pipeline
+coverage_pct: 28
+mappings:
+  - control: 164.308(a)(1)(ii)(A)
+    title: Risk analysis conducted
+    external_mappings:
+      iso-27001:
+        - A.5.12
+    confidence: medium
+  - control: 164.308(a)(1)(ii)(B)
+    title: Risk management measures implemented
+    external_mappings:
+      iso-27001:
+        - A.8.8
+    confidence: medium
+  - control: 164.308(a)(1)(ii)(C)
+    title: Sanction policy applied to workforce violations
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(1)(ii)(D)
+    title: Information system activity review performed
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(2)
+    title: Security official designated
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(3)(ii)(A)
+    title: Workforce authorization and supervision procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(3)(ii)(B)
+    title: Workforce clearance procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(3)(ii)(C)
+    title: Termination procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(4)(ii)(A)
+    title: Healthcare clearinghouse functions isolated
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(4)(ii)(B)
+    title: Access authorization policies implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(4)(ii)(C)
+    title: Access establishment and modification procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(5)(ii)(A)
+    title: Security reminders provided
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(5)(ii)(B)
+    title: Protection from malicious software addressed
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(5)(ii)(C)
+    title: Log-in monitoring procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(5)(ii)(D)
+    title: Password management procedures implemented
+    external_mappings:
+      iso-27001:
+        - A.5.17
+    confidence: medium
+  - control: 164.308(a)(6)(ii)
+    title: Incident response and reporting procedures implemented
+    external_mappings:
+      iso-27001:
+        - A.5.26
+    confidence: medium
+  - control: 164.308(a)(7)(ii)(A)
+    title: Data backup plan established
+    external_mappings:
+      iso-27001:
+        - A.8.13
+    confidence: medium
+  - control: 164.308(a)(7)(ii)(B)
+    title: Disaster recovery plan established
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(7)(ii)(C)
+    title: Emergency mode operation plan established
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(7)(ii)(D)
+    title: Contingency plan testing and revision performed
+    external_mappings:
+      iso-27001:
+        - A.5.30
+    confidence: medium
+  - control: 164.308(a)(7)(ii)(E)
+    title: Applications and data criticality analysis performed
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(a)(8)
+    title: Periodic security evaluation performed
+    external_mappings: {}
+    confidence: medium
+  - control: 164.308(b)(4)
+    title: Written business associate contract or arrangement documented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(a)(2)(i)
+    title: Contingency operations facility access procedures established
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(a)(2)(ii)
+    title: Facility security plan implemented
+    external_mappings:
+      iso-27001:
+        - A.7.2
+    confidence: medium
+  - control: 164.310(a)(2)(iii)
+    title: Access control and validation procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(a)(2)(iv)
+    title: Maintenance records documented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(b)
+    title: Workstation use policies established
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(c)
+    title: Workstation security safeguards implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(d)(2)(i)
+    title: ePHI disposal procedures implemented
+    external_mappings:
+      iso-27001:
+        - A.7.14
+    confidence: medium
+  - control: 164.310(d)(2)(ii)
+    title: Media re-use procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(d)(2)(iii)
+    title: Device and media accountability maintained
+    external_mappings: {}
+    confidence: medium
+  - control: 164.310(d)(2)(iv)
+    title: Data backup and storage before equipment movement performed
+    external_mappings: {}
+    confidence: medium
+  - control: 164.312(a)(2)(i)
+    title: Unique user identification assigned
+    external_mappings:
+      iso-27001:
+        - A.5.16
+        - A.8.2
+    confidence: medium
+  - control: 164.312(a)(2)(ii)
+    title: Emergency access procedure established
+    external_mappings: {}
+    confidence: medium
+  - control: 164.312(a)(2)(iii)
+    title: Automatic logoff implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.312(a)(2)(iv)
+    title: Encryption and decryption of ePHI implemented
+    external_mappings:
+      iso-27001:
+        - A.8.24
+    confidence: medium
+  - control: 164.312(b)
+    title: Audit controls implemented
+    external_mappings:
+      iso-27001:
+        - A.8.15
+        - A.8.16
+    confidence: medium
+  - control: 164.312(c)(2)
+    title: ePHI authentication mechanism implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.312(d)
+    title: Person or entity authentication implemented
+    external_mappings:
+      iso-27001:
+        - A.8.5
+    confidence: medium
+  - control: 164.312(e)(2)(i)
+    title: Transmission integrity controls implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.312(e)(2)(ii)
+    title: Transmission encryption implemented
+    external_mappings:
+      iso-27001:
+        - A.8.24
+    confidence: medium
+  - control: 164.316(a)
+    title: Security policies and procedures implemented
+    external_mappings: {}
+    confidence: medium
+  - control: 164.316(b)(2)(i)
+    title: Documentation retention for six years enforced
+    external_mappings: {}
+    confidence: medium
+  - control: 164.316(b)(2)(ii)
+    title: Documentation availability to responsible persons ensured
+    external_mappings: {}
+    confidence: medium
+  - control: 164.316(b)(2)(iii)
+    title: Documentation reviewed and updated periodically
+    external_mappings: {}
+    confidence: medium

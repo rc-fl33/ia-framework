@@ -1,0 +1,1 @@
+../../skills/ghost/hooks/pre-commit/10-validate-ghost-approvals.ts

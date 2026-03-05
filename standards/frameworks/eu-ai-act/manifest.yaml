@@ -1,0 +1,69 @@
+framework: EU Artificial Intelligence Act
+id: eu-ai-act
+version: "2024/1689"
+year: 2024
+publisher: European Union
+framework_category: regulatory
+classification: public
+source_url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng
+document: "Regulation (EU) 2024/1689 of the European Parliament and of the Council"
+description: "Binding EU regulation establishing a risk-based framework for AI systems. Prohibits
+  unacceptable-risk AI practices, imposes requirements on high-risk AI systems, and sets
+  transparency obligations for general-purpose AI models."
+
+native_categories:
+  - id: Chapter-II
+    name: Prohibited AI Practices
+    description: "AI practices posing unacceptable risk — prohibited as of 2 February 2025."
+  - id: Chapter-III
+    name: High-Risk AI Systems
+    description: "Classification rules and requirements for high-risk AI systems and obligations
+      of providers, deployers, importers, and distributors."
+  - id: Chapter-IV
+    name: Transparency Obligations
+    description: "Disclosure requirements for AI systems interacting with natural persons or
+      generating synthetic content."
+  - id: Chapter-V
+    name: General-Purpose AI Models
+    description: "Obligations for providers of general-purpose AI (GPAI) models, including
+      those with systemic risk — applicable from 2 August 2025."
+  - id: Chapter-VI
+    name: Governance
+    description: "EU AI Office, national competent authorities, market surveillance, and
+      oversight mechanisms."
+
+enforcement_timeline:
+  - date: "2024-08-01"
+    scope: "Regulation enters into force (Art 113)"
+  - date: "2025-02-02"
+    scope: "Prohibited AI practices apply (Art 5, Chapter I-II)"
+  - date: "2025-08-02"
+    scope: "GPAI obligations (Art 51-56), governance structures, AI Office operational, penalty regime (Art 99-100)"
+  - date: "2026-08-02"
+    scope: "General application — high-risk AI requirements (Art 6(2), Chapter III), transparency obligations (Art 50)"
+  - date: "2027-08-02"
+    scope: "High-risk AI in regulated products (Art 6(1), Annex I); legacy GPAI compliance deadline"
+  - date: "2030-12-31"
+    scope: "Large-scale IT systems (Annex X) compliance deadline"
+
+domain_mapping:
+  Chapter-II: governance
+  Chapter-III: governance
+  Chapter-IV: data_protection
+  Chapter-V: governance
+  Chapter-VI: governance
+
+enrichment_status:
+  tier: 2
+  framework_category: regulatory
+  controls: complete
+  questions: complete
+  questions_framework_count: 0
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng
+    - https://artificialintelligenceact.eu/ai-act-explorer/
+    - https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
+  next_check: 2027-02-25

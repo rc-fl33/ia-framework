@@ -1,0 +1,503 @@
+# Java Code Review Security Checklist
+# Based on: OWASP ASVS Level 2, CWE Top 25, SEI CERT Oracle Secure Coding Standard for Java
+
+checklist:
+  input_validation:
+    required: true
+    items:
+      - id: INPUT-01
+        check: "All SQL queries use PreparedStatement (no string concatenation)"
+        severity: CRITICAL
+        cwe: 89
+        patterns_to_check: ["JAVA-89-001", "JAVA-89-002"]
+        references:
+          - "OWASP ASVS V5.3.4"
+          - "SEI CERT IDS00-J"
+
+      - id: INPUT-02
+        check: "XML parsers have external entities disabled"
+        severity: CRITICAL
+        cwe: 611
+        patterns_to_check: ["JAVA-611-001", "JAVA-611-002"]
+        references:
+          - "OWASP ASVS V5.5.2"
+
+      - id: INPUT-03
+        check: "LDAP queries properly escaped or parameterized"
+        severity: HIGH
+        cwe: 90
+        patterns_to_check: ["JAVA-90-001"]
+        references:
+          - "SEI CERT IDS54-J"
+
+      - id: INPUT-04
+        check: "File paths validated with getCanonicalPath()"
+        severity: HIGH
+        cwe: 22
+        patterns_to_check: ["JAVA-22-001"]
+        references:
+          - "OWASP ASVS V5.3.2"
+
+      - id: INPUT-05
+        check: "User input validated before use (type, length, format, range)"
+        severity: HIGH
+        cwe: 20
+        owasp_asvs: "V5.1.1"
+
+      - id: INPUT-06
+        check: "Regular expressions tested for catastrophic backtracking"
+        severity: MEDIUM
+        cwe: 1333
+
+  authentication:
+    required: true
+    items:
+      - id: AUTH-01
+        check: "Password hashing uses BCrypt, Argon2, or PBKDF2 (not MD5/SHA1)"
+        severity: CRITICAL
+        cwe: 327
+        patterns_to_check: ["JAVA-327-001"]
+        references:
+          - "OWASP ASVS V2.4.1"
+
+      - id: AUTH-02
+        check: "No hardcoded credentials in source code or resources"
+        severity: CRITICAL
+        cwe: 798
+        patterns_to_check: ["JAVA-798-001"]
+        references:
+          - "OWASP ASVS V2.10.1"
+          - "SEI CERT MSC03-J"
+
+      - id: AUTH-03
+        check: "Session tokens use SecureRandom (not java.util.Random)"
+        severity: HIGH
+        cwe: 330
+        patterns_to_check: ["JAVA-330-001"]
+        references:
+          - "OWASP ASVS V3.2.1"
+          - "SEI CERT MSC02-J"
+
+      - id: AUTH-04
+        check: "JWT tokens validated properly (no 'none' algorithm)"
+        severity: CRITICAL
+        cwe: 327
+        owasp_asvs: "V2.2.1"
+
+      - id: AUTH-05
+        check: "Multi-factor authentication for privileged accounts"
+        severity: HIGH
+        owasp_asvs: "V2.7.1"
+
+      - id: AUTH-06
+        check: "Password reset tokens expire after use"
+        severity: MEDIUM
+        owasp_asvs: "V2.5.6"
+
+  authorization:
+    required: true
+    items:
+      - id: AUTHZ-01
+        check: "Authorization checks on all protected endpoints (@PreAuthorize)"
+        severity: CRITICAL
+        cwe: 862
+        patterns_to_check: ["JAVA-862-001"]
+        references:
+          - "OWASP ASVS V4.1.1"
+
+      - id: AUTHZ-02
+        check: "Method-level security enabled (@EnableGlobalMethodSecurity)"
+        severity: HIGH
+        owasp_asvs: "V4.1.2"
+
+      - id: AUTHZ-03
+        check: "Resource ownership verified before operations"
+        severity: CRITICAL
+        cwe: 862
+
+      - id: AUTHZ-04
+        check: "CSRF protection enabled (not disabled)"
+        severity: HIGH
+        cwe: 352
+        patterns_to_check: ["JAVA-352-001"]
+        references:
+          - "OWASP ASVS V4.2.2"
+
+      - id: AUTHZ-05
+        check: "Principle of least privilege applied to all operations"
+        severity: MEDIUM
+        owasp_asvs: "V4.1.3"
+
+  session_management:
+    required: true
+    items:
+      - id: SESSION-01
+        check: "Session cookies have secure, httpOnly, and sameSite flags"
+        severity: HIGH
+        owasp_asvs: "V3.4.1"
+
+      - id: SESSION-02
+        check: "Session IDs have sufficient entropy (≥128 bits)"
+        severity: HIGH
+        owasp_asvs: "V3.2.1"
+
+      - id: SESSION-03
+        check: "Sessions invalidated on logout"
+        severity: MEDIUM
+        owasp_asvs: "V3.3.1"
+
+      - id: SESSION-04
+        check: "Session timeout configured appropriately"
+        severity: MEDIUM
+        owasp_asvs: "V3.3.3"
+
+      - id: SESSION-05
+        check: "Session fixation protection enabled"
+        severity: HIGH
+        owasp_asvs: "V3.2.2"
+
+  cryptography:
+    required: true
+    items:
+      - id: CRYPTO-01
+        check: "Strong encryption algorithms (AES-256-GCM, not DES/3DES/ECB)"
+        severity: CRITICAL
+        cwe: 327
+        patterns_to_check: ["JAVA-327-002"]
+        references:
+          - "OWASP ASVS V6.2.2"
+          - "SEI CERT MSC61-J"
+
+      - id: CRYPTO-02
+        check: "No hardcoded encryption keys or secrets"
+        severity: CRITICAL
+        cwe: 798
+        references:
+          - "OWASP ASVS V6.2.1"
+
+      - id: CRYPTO-03
+        check: "SecureRandom used for cryptographic operations"
+        severity: HIGH
+        cwe: 330
+        patterns_to_check: ["JAVA-330-001"]
+
+      - id: CRYPTO-04
+        check: "TLS 1.2+ used for all external connections"
+        severity: HIGH
+        owasp_asvs: "V9.1.1"
+
+      - id: CRYPTO-05
+        check: "Certificate validation enabled (not bypassed)"
+        severity: HIGH
+        owasp_asvs: "V9.1.3"
+
+      - id: CRYPTO-06
+        check: "Key management follows best practices"
+        severity: HIGH
+        owasp_asvs: "V6.4.1"
+
+  deserialization:
+    required: true
+    items:
+      - id: DESER-01
+        check: "ObjectInputStream uses ObjectInputFilter whitelist (Java 9+)"
+        severity: CRITICAL
+        cwe: 502
+        patterns_to_check: ["JAVA-502-001"]
+        references:
+          - "OWASP ASVS V5.5.3"
+          - "SEI CERT SER12-J"
+
+      - id: DESER-02
+        check: "Avoid deserialization of untrusted data (prefer JSON)"
+        severity: CRITICAL
+        cwe: 502
+
+      - id: DESER-03
+        check: "Jackson deserialization configured securely (enableDefaultTyping disabled)"
+        severity: HIGH
+        cwe: 502
+
+      - id: DESER-04
+        check: "readObject() methods validate object state"
+        severity: MEDIUM
+        references:
+          - "SEI CERT SER04-J"
+
+  database_security:
+    required: true
+    items:
+      - id: DB-01
+        check: "PreparedStatement used for all SQL queries"
+        severity: CRITICAL
+        cwe: 89
+        patterns_to_check: ["JAVA-89-001"]
+
+      - id: DB-02
+        check: "JPA/Hibernate queries use named parameters"
+        severity: HIGH
+        cwe: 89
+
+      - id: DB-03
+        check: "Database credentials from external configuration"
+        severity: CRITICAL
+        cwe: 798
+
+      - id: DB-04
+        check: "Database connections use TLS/SSL"
+        severity: HIGH
+        owasp_asvs: "V9.1.2"
+
+      - id: DB-05
+        check: "Connection pooling configured with limits"
+        severity: MEDIUM
+
+  command_execution:
+    required: true
+    items:
+      - id: CMD-01
+        check: "Runtime.exec uses array form (not string)"
+        severity: CRITICAL
+        cwe: 78
+        patterns_to_check: ["JAVA-78-001"]
+        references:
+          - "OWASP ASVS V5.3.8"
+          - "SEI CERT IDS07-J"
+
+      - id: CMD-02
+        check: "ProcessBuilder used instead of Runtime.exec where possible"
+        severity: HIGH
+        cwe: 78
+
+      - id: CMD-03
+        check: "Command arguments sanitized and validated"
+        severity: CRITICAL
+        cwe: 78
+
+  file_operations:
+    required: true
+    items:
+      - id: FILE-01
+        check: "File paths use getCanonicalPath() for validation"
+        severity: HIGH
+        cwe: 22
+        patterns_to_check: ["JAVA-22-001"]
+
+      - id: FILE-02
+        check: "Uploaded files validated (size, type, content)"
+        severity: HIGH
+        cwe: 434
+
+      - id: FILE-03
+        check: "Temporary files created securely (Files.createTempFile)"
+        severity: MEDIUM
+        references:
+          - "SEI CERT FIO00-J"
+
+      - id: FILE-04
+        check: "File permissions set restrictively"
+        severity: MEDIUM
+        references:
+          - "SEI CERT FIO01-J"
+
+  network_security:
+    required: true
+    items:
+      - id: NET-01
+        check: "SSRF protection on outbound HTTP requests"
+        severity: HIGH
+        cwe: 918
+        patterns_to_check: ["JAVA-918-001"]
+        references:
+          - "OWASP ASVS V5.3.11"
+
+      - id: NET-02
+        check: "URL hostname validated against whitelist"
+        severity: HIGH
+        cwe: 918
+
+      - id: NET-03
+        check: "Timeout configured on all HTTP requests"
+        severity: MEDIUM
+
+      - id: NET-04
+        check: "Open redirect prevention"
+        severity: MEDIUM
+        cwe: 601
+        patterns_to_check: ["JAVA-601-001"]
+
+  error_handling:
+    required: true
+    items:
+      - id: ERR-01
+        check: "No sensitive data in error messages shown to users"
+        severity: HIGH
+        cwe: 200
+        references:
+          - "OWASP ASVS V7.4.1"
+          - "SEI CERT ERR01-J"
+
+      - id: ERR-02
+        check: "Stack traces not exposed to users"
+        severity: HIGH
+        cwe: 200
+
+      - id: ERR-03
+        check: "Exceptions logged with full details (server-side only)"
+        severity: MEDIUM
+        owasp_asvs: "V7.3.1"
+
+      - id: ERR-04
+        check: "Generic error messages returned to clients"
+        severity: MEDIUM
+        owasp_asvs: "V7.4.1"
+
+      - id: ERR-05
+        check: "Finally blocks or try-with-resources used for cleanup"
+        severity: LOW
+        references:
+          - "SEI CERT ERR05-J"
+
+  logging:
+    required: true
+    items:
+      - id: LOG-01
+        check: "Security events logged (auth failures, access violations)"
+        severity: HIGH
+        owasp_asvs: "V7.1.1"
+
+      - id: LOG-02
+        check: "No sensitive data in logs (passwords, tokens, credit cards)"
+        severity: HIGH
+        owasp_asvs: "V7.1.3"
+
+      - id: LOG-03
+        check: "Log injection prevented (parameterized logging)"
+        severity: MEDIUM
+        cwe: 117
+        patterns_to_check: ["JAVA-117-001"]
+
+      - id: LOG-04
+        check: "Logs include timestamp, user ID, and action"
+        severity: MEDIUM
+        owasp_asvs: "V7.1.2"
+
+  dependencies:
+    required: true
+    items:
+      - id: DEP-01
+        check: "Dependency versions pinned in pom.xml/build.gradle"
+        severity: MEDIUM
+        owasp_asvs: "V14.2.1"
+
+      - id: DEP-02
+        check: "No known vulnerable dependencies (OWASP Dependency-Check)"
+        severity: CRITICAL
+        owasp_asvs: "V14.2.2"
+
+      - id: DEP-03
+        check: "Dependencies from trusted repositories only"
+        severity: HIGH
+        owasp_asvs: "V14.2.3"
+
+      - id: DEP-04
+        check: "Unused dependencies removed"
+        severity: LOW
+        owasp_asvs: "V14.2.5"
+
+      - id: DEP-05
+        check: "Log4j version ≥ 2.17.0 (CVE-2021-44228 mitigation)"
+        severity: CRITICAL
+        cwe: 117
+
+  framework_specific:
+    spring_boot:
+      - id: SPRING-01
+        check: "Spring Security configured (not excluded)"
+        severity: CRITICAL
+
+      - id: SPRING-02
+        check: "@PreAuthorize or @Secured on protected methods"
+        severity: CRITICAL
+        patterns_to_check: ["JAVA-862-001"]
+
+      - id: SPRING-03
+        check: "CSRF protection enabled (default)"
+        severity: HIGH
+        patterns_to_check: ["JAVA-352-001"]
+
+      - id: SPRING-04
+        check: "Security headers configured (X-Frame-Options, CSP, etc.)"
+        severity: HIGH
+
+      - id: SPRING-05
+        check: "Actuator endpoints secured or disabled in production"
+        severity: CRITICAL
+
+      - id: SPRING-06
+        check: "application.properties/yml in .gitignore"
+        severity: HIGH
+        cwe: 798
+
+      - id: SPRING-07
+        check: "@Value annotations use external configuration"
+        severity: HIGH
+        cwe: 798
+
+      - id: SPRING-08
+        check: "SQL injection protection (JPA/JDBC template)"
+        severity: CRITICAL
+        cwe: 89
+
+    spring_security:
+      - id: SEC-01
+        check: "Password encoder configured (BCrypt with strength ≥ 10)"
+        severity: CRITICAL
+        cwe: 327
+
+      - id: SEC-02
+        check: "UserDetailsService properly implemented"
+        severity: HIGH
+
+      - id: SEC-03
+        check: "Session management configured (sessionCreationPolicy)"
+        severity: MEDIUM
+
+      - id: SEC-04
+        check: "CORS configured restrictively (not allow all origins)"
+        severity: HIGH
+
+      - id: SEC-05
+        check: "OAuth2/OpenID Connect properly configured"
+        severity: HIGH
+
+      - id: SEC-06
+        check: "JWT validation includes signature verification"
+        severity: CRITICAL
+
+    jakarta_ee:
+      - id: JEE-01
+        check: "@RolesAllowed or @DeclareRoles used"
+        severity: HIGH
+
+      - id: JEE-02
+        check: "Security constraints in web.xml"
+        severity: HIGH
+
+      - id: JEE-03
+        check: "Form-based or BASIC auth over HTTPS only"
+        severity: HIGH
+
+      - id: JEE-04
+        check: "HttpOnly flag set on session cookies"
+        severity: HIGH
+
+metadata:
+  total_checks: 80+
+  critical_checks: 20
+  high_checks: 35
+  framework_coverage: ["spring_boot", "spring_security", "jakarta_ee"]
+  cert_standard: "SEI CERT Oracle Secure Coding Standard for Java"
+  owasp_asvs_level: 2
+  last_updated: "2026-01-18"
+  status: "complete"

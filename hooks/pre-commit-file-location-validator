@@ -1,0 +1,37 @@
+#!/bin/bash
+# Pre-commit hook: Validate file locations per docs/standards/file-location-standards.md
+# Note: The library/ directory has been removed from the framework.
+# - library/api/ -> tools/api/
+# - library/catalogs/ -> docs/catalogs/
+# - library/templates/ -> docs/templates/
+# - library/utils/ -> tools/framework/utils/
+# - library/export/ -> tools/export/
+# - library/detection-rules/ -> docs/detection-rules/
+
+EXIT_CODE=0
+
+# Check for files being added to the removed library/ directory
+LIBRARY_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '^library/')
+if [ -n "$LIBRARY_FILES" ]; then
+  echo "ERROR: Files detected in library/ which has been removed from the framework"
+  echo ""
+  echo "Files:"
+  echo "$LIBRARY_FILES" | sed 's/^/  - /'
+  echo ""
+  echo "Use the correct locations instead:"
+  echo "  library/api/        -> tools/api/"
+  echo "  library/catalogs/   -> docs/catalogs/"
+  echo "  library/templates/  -> docs/templates/"
+  echo "  library/utils/      -> tools/framework/utils/"
+  echo "  library/export/     -> tools/export/"
+  echo "  library/detection-rules/ -> docs/detection-rules/"
+  echo ""
+  EXIT_CODE=1
+fi
+
+if [ $EXIT_CODE -ne 0 ]; then
+  echo "Fix file locations and try again."
+  echo "See: docs/standards/file-location-standards.md"
+fi
+
+exit $EXIT_CODE

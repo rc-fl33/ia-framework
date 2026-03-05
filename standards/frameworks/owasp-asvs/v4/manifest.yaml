@@ -1,0 +1,16 @@
+name: OWASP Application Security Verification Standard v4.0
+framework_id: owasp-asvs-v4
+version: "4.0.3"
+type: standard
+provider: owasp
+category: standard
+framework_category: security
+published: '2021-10-01'
+source_url: https://owasp.org/www-project-application-security-verification-standard/
+skills:
+  - pentest
+  - code-review
+enrichment_status:
+  tier: ref
+  controls: pending
+  questions: pending

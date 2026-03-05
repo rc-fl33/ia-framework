@@ -1,0 +1,118 @@
+framework: eu-ai-act
+
+full_name: "Regulation (EU) 2024/1689 of the European Parliament and of the Council of
+  13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence
+  Act) and amending certain Union legislative acts"
+
+short_name: "EU Artificial Intelligence Act (EU AI Act)"
+regulation_number: "2024/1689"
+oj_citation: "OJ L, 2024/1689, 12.7.2024"
+celex_number: "32024R1689"
+
+dates:
+  adopted: "2024-06-13"
+  published_oj: "2024-07-12"
+  entry_into_force: "2024-08-01"
+  applicability_prohibited_practices: "2025-02-02"
+  applicability_gpai_governance_penalties: "2025-08-02"
+  applicability_general: "2026-08-02"
+  applicability_high_risk_regulated_products: "2027-08-02"
+  applicability_large_scale_it_systems: "2030-12-31"
+
+publisher:
+  name: European Parliament and Council of the European Union
+  type: supranational_regulatory
+  jurisdiction: European Union
+
+geographic_scope:
+  primary: European Union (all 27 member states)
+  extraterritorial: true
+  extraterritorial_basis: "Applies to providers placing AI systems on the EU market or
+    putting them into service in the EU, regardless of establishment location. Applies to
+    deployers of AI systems located in the EU. Output effects test: applies where outputs
+    are used within the EU."
+
+applicable_entities:
+  providers: "Any natural or legal person developing an AI system or general-purpose AI
+    model and placing it on the EU market or putting it into service under their own name
+    or trademark."
+  deployers: "Any natural or legal person using an AI system under their authority, except
+    for personal non-professional activity."
+  importers: "Any natural or legal person established in the EU that places on the market
+    a high-risk AI system bearing the name or trademark of a person established outside the EU."
+  distributors: "Any natural or legal person in the supply chain (other than the provider
+    or importer) that makes a high-risk AI system available on the EU market."
+  authorized_representatives: "Any natural or legal person established in the EU who has
+    received a written mandate from a provider established outside the EU."
+
+excluded_entities:
+  - "AI systems used exclusively for military, national security, defence, or intelligence
+    purposes by EU member states"
+  - "AI systems used solely for research and development prior to being placed on the market"
+  - "Natural persons using AI for purely personal non-professional activity"
+  - "Open-source GPAI models made publicly available (with exceptions for systemic risk)"
+
+penalty_structure:
+  authority: "Article 99 — Penalties (Art 99 applies from 2 August 2025)"
+  tiers:
+    - violation: "Prohibited AI practices (Article 5)"
+      max_fine_fixed: "EUR 35,000,000"
+      max_fine_turnover: "7% of total worldwide annual turnover"
+      basis: "whichever is higher"
+    - violation: "Non-compliance with other obligations (providers, importers, distributors,
+        deployers, notified bodies) including transparency obligations (Article 50)"
+      max_fine_fixed: "EUR 15,000,000"
+      max_fine_turnover: "3% of total worldwide annual turnover"
+      basis: "whichever is higher"
+    - violation: "Supplying incorrect, incomplete, or misleading information to notified
+        bodies or competent authorities"
+      max_fine_fixed: "EUR 7,500,000"
+      max_fine_turnover: "1% of total worldwide annual turnover"
+      basis: "whichever is higher"
+  sme_consideration: "For SMEs and startups, the lower of fixed amount or turnover percentage
+    shall apply."
+  member_state_discretion: "Member states shall lay down rules on penalties and other
+    enforcement measures. Fines for natural persons shall be proportionate."
+
+gpai_additional_penalties:
+  authority: "Article 101 — Fines for providers of general-purpose AI models"
+  max_fine: "EUR 15,000,000 or 3% of total worldwide annual turnover (whichever is higher)
+    for non-compliance with obligations under Chapter V"
+
+risk_classification:
+  unacceptable_risk:
+    description: "AI practices prohibited under Article 5"
+    examples:
+      - "Subliminal, manipulative, or deceptive AI targeting persons"
+      - "Exploitation of vulnerable groups"
+      - "Social scoring by public authorities"
+      - "Real-time remote biometric identification in public spaces (with limited exceptions)"
+      - "Emotion recognition in workplace or educational institutions"
+      - "Biometric categorisation systems inferring sensitive characteristics"
+      - "AI systems that create or expand facial recognition databases by untargeted scraping"
+      - "Manipulation of human behaviour to circumvent free will"
+  high_risk:
+    description: "AI systems subject to requirements in Chapter III"
+    classification_basis: "Article 6 — two-tier classification: Annex I (regulated products
+      as safety component) or Annex III (listed use-case areas)"
+    annex_iii_areas:
+      - "Biometric identification and categorisation"
+      - "Critical infrastructure management"
+      - "Education and vocational training"
+      - "Employment and workers management"
+      - "Access to essential private/public services and benefits"
+      - "Law enforcement"
+      - "Migration, asylum, and border control"
+      - "Administration of justice and democratic processes"
+  limited_risk:
+    description: "AI systems subject only to transparency obligations (Article 50)"
+    examples:
+      - "AI systems interacting with natural persons (chatbots)"
+      - "Emotion recognition systems"
+      - "Biometric categorisation systems"
+      - "AI that generates synthetic audio, image, video, or text content (deepfakes)"
+  minimal_risk:
+    description: "All other AI systems — no mandatory obligations"
+    examples:
+      - "AI-enabled video games"
+      - "Spam filters"

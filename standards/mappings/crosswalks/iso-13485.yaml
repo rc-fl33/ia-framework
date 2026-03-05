@@ -1,0 +1,453 @@
+framework: iso-13485
+version: "2016"
+description: ISO 13485:2016 Medical Devices QMS cross-framework mappings including regulatory alignment
+last_updated: 2026-02-25
+coverage_pct: 90
+mappings:
+  - control: "4.1"
+    title: General requirements (QMS establishment with risk management integration)
+    external_mappings:
+      iso-9001:
+        - "4.4"
+      iso-14971:
+        - "All"
+      fda-21cfr820:
+        - "820.20"
+        - "820.186"
+      eu-mdr:
+        - "Article 10"
+        - "Annex IX"
+      nist-csf:
+        - GV.OC-01
+        - GV.PO-01
+      nist-800-53:
+        - PL-1
+        - PL-2
+        - PM-9
+      hipaa:
+        - "§164.308(a)(1)"
+    confidence: high
+    evidence:
+      - ISO 13485 4.1 explicitly requires integration of ISO 14971 risk management
+    notes: >
+      ISO 13485 integrates risk management (ISO 14971) throughout QMS — a key differentiator
+      from ISO 9001's broader risk-based thinking approach
+
+  - control: "4.2"
+    title: Documentation requirements (quality manual, device file, document control, records)
+    external_mappings:
+      iso-9001:
+        - "7.5"
+      fda-21cfr820:
+        - "820.40"
+        - "820.180"
+        - "820.181"
+        - "820.184"
+      eu-mdr:
+        - "Article 10(8)"
+        - "Annex II"
+        - "Annex III"
+      nist-csf:
+        - PR.PS-01
+        - PR.PS-04
+      nist-800-53:
+        - CM-7
+        - AU-11
+      hipaa:
+        - "§164.312(b)"
+        - "§164.316(b)"
+    confidence: high
+    evidence:
+      - ISO 13485 4.2 requirements align with FDA DMR/DHR and EU MDR technical documentation
+    notes: >
+      ISO 13485 requires explicit quality manual (ISO 9001:2015 removed this). Medical Device
+      File (4.2.3) maps to FDA Device Master Record (820.181) and EU MDR Technical Documentation
+
+  - control: "5.1"
+    title: Management commitment
+    external_mappings:
+      iso-9001:
+        - "5.1"
+      fda-21cfr820:
+        - "820.20(a)"
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-02
+      nist-800-53:
+        - PM-2
+        - PM-3
+      hipaa:
+        - "§164.308(a)(2)"
+    confidence: high
+    evidence:
+      - Management commitment requirements align across ISO standards and FDA QSR
+    notes: FDA 820.20(a) requires management responsibility statement equivalent to 5.1
+
+  - control: "5.2"
+    title: Customer focus
+    external_mappings:
+      iso-9001:
+        - "5.1.2"
+      eu-mdr:
+        - "Article 10"
+      nist-csf:
+        - GV.OC-04
+    confidence: high
+    evidence:
+      - Customer focus integrated into management commitment in both standards
+    notes: In ISO 13485 context, "customer" includes regulatory requirements as primary constraint
+
+  - control: "5.3"
+    title: Quality policy
+    external_mappings:
+      iso-9001:
+        - "5.2"
+      nist-csf:
+        - GV.PO-01
+    confidence: high
+    evidence:
+      - Quality policy requirements structurally identical
+    notes: ISO 13485 policy must explicitly reference regulatory compliance; ISO 9001 does not require this
+
+  - control: "5.5.2"
+    title: Management representative
+    external_mappings:
+      fda-21cfr820:
+        - "820.20(b)(3)"
+      eu-mdr:
+        - "Article 15"
+    confidence: high
+    evidence:
+      - FDA 820.20(b)(3) requires management representative with defined authority
+    notes: >
+      EU MDR Article 15 requires a Person Responsible for Regulatory Compliance (PRRC) —
+      different from management representative but related function
+
+  - control: "5.6"
+    title: Management review
+    external_mappings:
+      iso-9001:
+        - "9.3"
+      fda-21cfr820:
+        - "820.20(c)"
+      nist-csf:
+        - GV.RM-02
+        - ID.IM-04
+    confidence: high
+    evidence:
+      - Management review requirements aligned; ISO 13485 has more required inputs
+    notes: >
+      ISO 13485 management review adds: regulatory submissions, post-market surveillance,
+      vigilance reports as required inputs — not present in ISO 9001 or FDA 820.20(c)
+
+  - control: "6.2"
+    title: Human resources / Personnel competence
+    external_mappings:
+      iso-9001:
+        - "7.2"
+      fda-21cfr820:
+        - "820.25"
+      nist-csf:
+        - PR.AT-01
+        - PR.AT-02
+      nist-800-53:
+        - AT-2
+        - AT-3
+      hipaa:
+        - "§164.308(a)(5)"
+    confidence: high
+    evidence:
+      - Personnel competence requirements aligned; ISO 13485 requires effectiveness evaluation
+    notes: FDA 820.25 "Personnel" requirement aligns with 6.2 competence requirements
+
+  - control: "6.3"
+    title: Infrastructure
+    external_mappings:
+      iso-9001:
+        - "7.1.3"
+      fda-21cfr820:
+        - "820.70(f)"
+        - "820.70(g)"
+      nist-csf:
+        - PR.PS-01
+        - PR.PS-02
+    confidence: high
+    evidence:
+      - Infrastructure requirements aligned; ISO 13485/FDA require equipment qualification
+    notes: >
+      FDA 820.70(f)(g) requires equipment qualification. ISO 13485 6.3 has same intent.
+      ISO 9001 7.1.3 is less prescriptive — does not explicitly require IQ/OQ/PQ.
+
+  - control: "6.4"
+    title: Work environment and contamination control
+    external_mappings:
+      iso-9001:
+        - "7.1.4"
+      fda-21cfr820:
+        - "820.70(c)"
+        - "820.70(d)"
+        - "820.70(e)"
+      nist-csf:
+        - PR.PS-01
+    confidence: high
+    evidence:
+      - Environmental control requirements aligned between ISO 13485 and FDA QSR
+    notes: >
+      FDA 820.70(c)(d)(e) cover buildings (comparable to 6.4.1) and environmental controls.
+      Contamination control (6.4.2) more explicit in ISO 13485 than ISO 9001.
+
+  - control: "7.3"
+    title: Design and development
+    external_mappings:
+      iso-9001:
+        - "8.3"
+      fda-21cfr820:
+        - "820.30"
+      eu-mdr:
+        - "Annex II"
+        - "Annex IX"
+      nist-csf:
+        - ID.AM-08
+        - PR.PS-04
+    confidence: high
+    evidence:
+      - ISO 13485 7.3 and FDA 21 CFR 820.30 were developed together
+    notes: >
+      FDA 21 CFR 820.30 is the primary US regulatory equivalent of ISO 13485 7.3.
+      The Design History File (DHF) concept is shared between both.
+      EU MDR Annex II Technical Documentation subsumes the ISO 13485 device file and
+      design documentation.
+
+  - control: "7.4"
+    title: Purchasing / Supplier management
+    external_mappings:
+      iso-9001:
+        - "8.4"
+      fda-21cfr820:
+        - "820.50"
+      eu-mdr:
+        - "Article 10(9)"
+      iso-27001:
+        - "A.5.19"
+        - "A.5.20"
+      nist-csf:
+        - GV.SC-01
+        - GV.SC-06
+        - GV.SC-07
+    confidence: high
+    evidence:
+      - Purchasing control requirements aligned; ISO 13485 requires quality agreements
+    notes: >
+      FDA 820.50 "Purchasing Controls" is structurally equivalent to ISO 13485 7.4.
+      EU MDR Article 10(9) requires manufacturer responsibility for supplier products.
+
+  - control: "7.5.6"
+    title: Validation of processes for production and service provision
+    external_mappings:
+      fda-21cfr820:
+        - "820.75"
+      eu-mdr:
+        - "Annex IX"
+      nist-csf:
+        - PR.PS-02
+    confidence: high
+    evidence:
+      - Process validation requirements directly aligned between ISO 13485 and FDA QSR
+    notes: >
+      FDA 820.75 "Process Validation" is the direct US regulatory equivalent of 7.5.6.
+      Both require documented validation (IQ/OQ/PQ approach).
+
+  - control: "7.5.7"
+    title: Validation of sterilization and sterile barrier systems
+    external_mappings:
+      fda-21cfr820:
+        - "820.75"
+      eu-mdr:
+        - "Annex IX"
+      iso-11135:
+        - "All"
+      iso-11137:
+        - "All"
+      iso-11607:
+        - "All"
+    confidence: high
+    evidence:
+      - Sterilization validation directly referenced in FDA QSR and ISO sterilization standards
+    notes: >
+      ISO 13485 7.5.7 requires sterilization validation per applicable ISO standards
+      (ISO 11135 for EtO, ISO 11137 for radiation, ISO 17665 for steam).
+      FDA 820.75 covers same requirement.
+
+  - control: "7.5.9"
+    title: Traceability
+    external_mappings:
+      iso-9001:
+        - "8.5.2"
+      fda-21cfr820:
+        - "820.65"
+      eu-mdr:
+        - "Article 27"
+      nist-csf:
+        - ID.AM-01
+        - ID.AM-02
+    confidence: high
+    evidence:
+      - Traceability requirements aligned; EU MDR adds UDI requirement
+    notes: >
+      FDA 820.65 "Traceability" is equivalent to ISO 13485 7.5.9.
+      EU MDR Article 27 adds mandatory Unique Device Identification (UDI) system.
+
+  - control: "7.6"
+    title: Control of monitoring and measuring equipment / Calibration
+    external_mappings:
+      iso-9001:
+        - "7.1.5"
+      fda-21cfr820:
+        - "820.72"
+      nist-csf:
+        - PR.PS-02
+    confidence: high
+    evidence:
+      - Calibration requirements aligned between ISO 13485 and FDA QSR
+    notes: FDA 820.72 "Inspection, Measuring, and Test Equipment" is equivalent to ISO 13485 7.6
+
+  - control: "8.2.1"
+    title: Feedback / Post-market surveillance
+    external_mappings:
+      iso-9001:
+        - "9.1.2"
+      fda-21cfr820:
+        - "820.198"
+      eu-mdr:
+        - "Articles 83-88"
+      nist-csf:
+        - DE.CM-06
+        - DE.CM-09
+    confidence: high
+    evidence:
+      - Customer feedback/PMS requirement aligned; EU MDR significantly more prescriptive
+    notes: >
+      EU MDR imposes extensive Post-Market Surveillance (PMS) requirements including PSUR
+      and PMCF that exceed ISO 13485 8.2.1 requirements.
+
+  - control: "8.2.2"
+    title: Complaint handling
+    external_mappings:
+      iso-9001:
+        - "9.1.2"
+      fda-21cfr820:
+        - "820.198"
+      eu-mdr:
+        - "Article 87"
+        - "Article 89"
+      nist-csf:
+        - RS.AN-01
+        - DE.CM-06
+      nist-800-53:
+        - CA-2
+        - IR-6
+      hipaa:
+        - "§164.308(a)(6)"
+    confidence: high
+    evidence:
+      - Complaint handling requirements aligned; FDA and EU MDR more prescriptive on reporting
+    notes: >
+      FDA 820.198 "Complaint Files" is the direct US equivalent.
+      EU MDR Article 87 requires serious incident reporting within 15 days.
+      ISO 13485 requires MDR reportability assessment for each complaint.
+
+  - control: "8.2.3"
+    title: Reporting to regulatory authorities
+    external_mappings:
+      fda-21cfr803:
+        - "All"
+      eu-mdr:
+        - "Article 87"
+        - "Article 95"
+      nist-csf:
+        - RS.CO-03
+    confidence: high
+    evidence:
+      - Regulatory reporting requirements directly referenced in global regulations
+    notes: >
+      FDA 21 CFR 803 MDR reporting requirements directly require reporting for
+      malfunction, serious injury, or death. EU MDR Article 87 requires serious incident
+      reporting. ISO 13485 8.2.3 requires documented procedure for these obligations.
+
+  - control: "8.2.4"
+    title: Internal audit
+    external_mappings:
+      iso-9001:
+        - "9.2"
+      fda-21cfr820:
+        - "820.22"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-02
+    confidence: high
+    evidence:
+      - Internal audit requirement aligned; ISO 13485 includes regulatory compliance audit
+    notes: >
+      FDA 820.22 "Quality Audits" is the direct US equivalent.
+      ISO 13485 internal audits must include regulatory compliance — broader than ISO 9001
+      internal audits which cover QMS conformance only.
+
+  - control: "8.3"
+    title: Control of nonconforming product
+    external_mappings:
+      iso-9001:
+        - "8.7"
+      fda-21cfr820:
+        - "820.90"
+      eu-mdr:
+        - "Article 83"
+      nist-csf:
+        - RS.MI-01
+        - RS.MI-02
+    confidence: high
+    evidence:
+      - Nonconforming product control requirements aligned between ISO 13485 and FDA QSR
+    notes: >
+      FDA 820.90 "Nonconforming Product" is the direct US equivalent.
+      ISO 13485 8.3.3 adds explicit requirement to assess post-delivery nonconformances
+      for FSCA/recall need.
+
+  - control: "8.5.2"
+    title: Corrective action
+    external_mappings:
+      iso-9001:
+        - "10.2"
+      fda-21cfr820:
+        - "820.100"
+      nist-csf:
+        - RS.MI-01
+        - ID.IM-01
+      nist-800-53:
+        - CA-5
+        - SI-1
+      hipaa:
+        - "§164.308(a)(1)(ii)(C)"
+    confidence: high
+    evidence:
+      - CAPA requirements aligned; FDA 820.100 is the direct regulatory equivalent
+    notes: >
+      FDA 820.100 "Corrective and Preventive Action" is the direct US regulatory equivalent.
+      Both require: source identification, investigation, corrective action, verification
+      of effectiveness, dissemination of information.
+
+  - control: "8.5.3"
+    title: Preventive action
+    external_mappings:
+      iso-9001:
+        - "6.1"
+      fda-21cfr820:
+        - "820.100"
+      nist-csf:
+        - ID.IM-01
+        - GV.RM-01
+    confidence: medium
+    evidence:
+      - Preventive action is a separate explicit requirement in ISO 13485 and FDA QSR
+    notes: >
+      ISO 9001:2015 replaced preventive action with risk-based thinking (6.1).
+      ISO 13485 retains explicit preventive action (8.5.3) aligned with FDA 820.100.

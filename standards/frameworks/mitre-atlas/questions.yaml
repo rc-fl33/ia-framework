@@ -1,0 +1,1058 @@
+framework: mitre-atlas
+version: "5.1.0"
+total_questions: 44
+
+questions:
+
+  # ── AI Attack Staging (AML.TA0001) ── highest-priority: techniques used in nearly every ATLAS case study
+
+  - id: Q-ATLAS-TA0001-001
+    text: "Does the organization have controls to detect or prevent adversaries from crafting and using proxy AI models to stage attacks against production models?"
+    category: ai_attack_staging
+    native_category: AML.TA0001
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0005"
+      nist-ai-rmf: "MEASURE 2.6, MANAGE 2.4, MAP 5.2"
+      nist-800-53: "AC-3, SC-28, AU-12, SI-4"
+      owasp-llm: "LLM02, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - API rate limiting and anomaly detection logs for inference endpoints
+      - Records of inference query volume monitoring
+      - Access controls on inference API endpoints
+    scoring:
+      full: "Inference APIs are authenticated, rate-limited, and monitored; anomalous query patterns trigger alerts"
+      partial: "Rate limiting is in place but query patterns are not monitored for model extraction behavior"
+      none: "Inference APIs are unauthenticated or unmonitored"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0001-002
+    text: "Does the organization validate AI models for backdoor triggers or adversarial influence before deploying them to production?"
+    category: ai_attack_staging
+    native_category: AML.TA0001
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0018"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.4, MAP 5.1"
+      nist-800-53: "SI-7, CM-3, SA-10, AU-12"
+      owasp-llm: "LLM04, LLM09"
+      iso-42001: "A.8.4, 8.3, A.9.3"
+      aiuc-1: "D003, D005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Model validation/testing procedures
+      - Evidence of backdoor testing or red team exercises
+      - Model integrity verification records
+    scoring:
+      full: "Formal model validation process tests for backdoors, data poisoning artifacts, and adversarial inputs before every deployment"
+      partial: "Models are tested for performance but not specifically for adversarial manipulation"
+      none: "No model validation process prior to deployment"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0001-003
+    text: "Does the organization have processes to prevent or detect adversarial data crafted to manipulate AI model outputs?"
+    category: ai_attack_staging
+    native_category: AML.TA0001
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0043"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2, MAP 5.2"
+      nist-800-53: "SI-3, SI-10, RA-5"
+      owasp-llm: "LLM01, LLM09"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D005, E005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Adversarial input detection implementation documentation
+      - Input preprocessing or validation pipeline records
+      - Monitoring alerts for anomalous model inputs
+    scoring:
+      full: "Adversarial input detection is implemented inline before model inference, with alerting and blocking"
+      partial: "Input validation exists but does not specifically target adversarial perturbations"
+      none: "No adversarial input detection in place"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0001-004
+    text: "Does the organization have controls to detect attack verification activity, including adversaries using inference APIs to test whether adversarial examples transfer to production models?"
+    category: ai_attack_staging
+    native_category: AML.TA0001
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0042"
+      nist-ai-rmf: "MEASURE 2.6, MAP 5.2"
+      nist-800-53: "SI-4, AU-12, RA-5"
+      owasp-llm: "LLM02, LLM09"
+      iso-42001: "8.3, A.9.3"
+      aiuc-1: "D001, E005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Inference API telemetry logging configuration
+      - Anomaly detection rules for unusual query sequences
+      - Rate limiting policies for inference endpoints
+    scoring:
+      full: "Behavioral anomaly detection identifies patterns consistent with attack verification; alerts are generated and investigated"
+      partial: "Query volumes are rate-limited but sequential attack verification patterns are not specifically detected"
+      none: "No monitoring for inference API abuse patterns"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0001-005
+    text: "Does the organization have controls to detect or prevent the use of deepfakes for impersonation and evasion of AI-based authentication systems?"
+    category: ai_attack_staging
+    native_category: AML.TA0001
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0088"
+      nist-ai-rmf: "GOVERN 1.2, MAP 5.2, MEASURE 2.7"
+      nist-800-53: "SI-12, IA-3, AU-12"
+      owasp-llm: "LLM09, LLM07"
+      iso-42001: "A.9.3, 8.5"
+      aiuc-1: "D005, E007"
+      eu-ai-act: "Art-50, Art-9"
+    evidence_required:
+      - Deepfake detection controls for biometric authentication systems
+      - Liveness detection implementation records
+      - Policies on AI-generated synthetic media
+    scoring:
+      full: "Biometric authentication systems incorporate liveness detection and deepfake detection; synthetic media policies exist"
+      partial: "Biometric authentication is in use but no specific deepfake countermeasures are implemented"
+      none: "No controls against deepfake-based authentication bypass"
+    risk_weight: HIGH
+
+  # ── Reconnaissance (AML.TA0002) ──
+
+  - id: Q-ATLAS-TA0002-001
+    text: "Does the organization limit public disclosure of technical details about its AI systems, model architectures, and training data?"
+    category: reconnaissance
+    native_category: AML.TA0002
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0000"
+      nist-ai-rmf: "GOVERN 1.2, MAP 1.5"
+      nist-800-53: "PL-8, SA-1, SC-7"
+      owasp-llm: "LLM09, LLM10"
+      iso-42001: "A.6.1.4, 8.2"
+      aiuc-1: "E001, E002"
+      eu-ai-act: "Art-9, Art-13"
+    evidence_required:
+      - Information disclosure policy covering AI systems
+      - Review records for public-facing technical publications
+      - Policy on researcher publications and blog posts referencing production systems
+    scoring:
+      full: "Documented policy limits disclosure of model architectures, datasets, and AI system details; publications are reviewed before release"
+      partial: "General information security policy exists but does not specifically address AI system information disclosure"
+      none: "No policy governing disclosure of AI technical details"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0002-002
+    text: "Does the organization monitor for active scanning or enumeration of its AI services and APIs?"
+    category: reconnaissance
+    native_category: AML.TA0002
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0006"
+      nist-ai-rmf: "MAP 1.5, MEASURE 2.6"
+      nist-800-53: "SI-4, SC-7, AU-12"
+      owasp-llm: "LLM10"
+      iso-42001: "A.6.2.3, 8.2"
+      aiuc-1: "D001, E002"
+      eu-ai-act: "Art-9"
+    evidence_required:
+      - API gateway or WAF logs showing scan detection
+      - Alerting rules for unusual enumeration patterns
+      - Records of scanning detection incidents
+    scoring:
+      full: "API gateways and web application firewalls are configured to detect and alert on scanning or enumeration behaviors"
+      partial: "General network monitoring exists but AI-specific endpoint scanning is not specifically detected"
+      none: "No monitoring for active scanning of AI services"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0002-003
+    text: "Does the organization have controls to detect or prevent adversaries from identifying RAG-indexed data sources for targeting?"
+    category: reconnaissance
+    native_category: AML.TA0002
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0064"
+      nist-ai-rmf: "MAP 1.5, MANAGE 2.2"
+      nist-800-53: "AC-3, SC-7, AU-12"
+      owasp-llm: "LLM10, LLM07"
+      iso-42001: "A.6.2.3, 8.2"
+      aiuc-1: "D001, E002"
+      eu-ai-act: "Art-9, Art-13"
+    evidence_required:
+      - Access controls on RAG database configuration and documentation
+      - Policy on disclosure of data sources used in AI systems
+      - Network segmentation records for RAG infrastructure
+    scoring:
+      full: "RAG data source configurations are not publicly disclosed; access to RAG infrastructure is restricted and monitored"
+      partial: "RAG data sources are secured but their existence is publicly known or documented"
+      none: "No controls on RAG data source visibility or access"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0002-004
+    text: "Does the organization have controls to limit adversary reconnaissance through victim-owned websites, application repositories, and open domain searches that may reveal AI system details?"
+    category: reconnaissance
+    native_category: AML.TA0002
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0001, AML.T0003, AML.T0004, AML.T0087, AML.T0095"
+      nist-ai-rmf: "GOVERN 1.2, MAP 1.5"
+      nist-800-53: "PL-8, SA-1, RA-3, PM-16"
+      owasp-llm: "LLM09, LLM10"
+      iso-42001: "A.6.1.4, 8.2"
+      aiuc-1: "E001, E002"
+      eu-ai-act: "Art-9, Art-13"
+    evidence_required:
+      - OSINT assessment of organization's public AI system exposure
+      - Policy on employee social media and publication disclosures referencing AI systems
+      - Review of app store metadata for AI component disclosure
+    scoring:
+      full: "Regular OSINT assessments performed; disclosure policy covers websites, app stores, and identity information; findings remediated"
+      partial: "General disclosure policy exists but no regular assessment of public AI system exposure"
+      none: "No controls on public information that could enable AI system reconnaissance"
+    risk_weight: MEDIUM
+
+  # ── Initial Access (AML.TA0004) ──
+
+  - id: Q-ATLAS-TA0004-001
+    text: "Does the organization have controls to detect or prevent supply chain compromise of AI artifacts including models, datasets, and AI software frameworks?"
+    category: initial_access
+    native_category: AML.TA0004
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0010"
+      nist-ai-rmf: "MAP 5.1, GOVERN 1.7, MANAGE 2.2"
+      nist-800-53: "SA-12, SR-3, SI-7, CM-8"
+      owasp-llm: "LLM04, LLM09"
+      iso-42001: "A.8.4, 8.3"
+      aiuc-1: "D003, D005"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - AI artifact provenance tracking (AI Bill of Materials or equivalent)
+      - Cryptographic verification of model files and datasets
+      - Vendor/third-party AI artifact vetting procedures
+      - Container registry access controls
+    scoring:
+      full: "All AI artifacts are tracked via an AI BOM; cryptographic checksums are verified; third-party models and datasets are vetted before use"
+      partial: "Some verification exists (e.g., checksums) but comprehensive provenance tracking is not implemented"
+      none: "No supply chain controls for AI artifacts"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0004-002
+    text: "Does the organization have controls to prevent or detect LLM prompt injection attacks against its AI systems?"
+    category: initial_access
+    native_category: AML.TA0004
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0051"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.6, MAP 5.1"
+      nist-800-53: "SI-10, SI-3, AU-12, SC-7"
+      owasp-llm: "LLM01, LLM02"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D004, D005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Generative AI guardrails implementation records
+      - Input validation for LLM-facing APIs
+      - Telemetry logging of LLM inputs and outputs
+      - Monitoring alerts for known prompt injection patterns
+    scoring:
+      full: "Guardrails are implemented to filter prompt injection patterns; all LLM inputs and outputs are logged and monitored"
+      partial: "Output guardrails exist but input validation for prompt injection is not implemented"
+      none: "No controls against LLM prompt injection"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0004-003
+    text: "Does the organization authenticate and authorize access to AI model inference APIs and AI-enabled products?"
+    category: initial_access
+    native_category: AML.TA0004
+    domain: access_control
+    controls:
+      mitre-atlas: "AML.T0012"
+      nist-ai-rmf: "GOVERN 1.7, MEASURE 2.6"
+      nist-800-53: "AC-2, IA-2, AC-3, AU-12"
+      owasp-llm: "LLM02, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - API authentication documentation (API keys, OAuth, etc.)
+      - Access control policies for AI inference endpoints
+      - Audit logs showing authenticated API access
+    scoring:
+      full: "All inference APIs require authentication; access is governed by least-privilege policies; usage is audited"
+      partial: "Authentication is in place but access policies are not granular or usage is not audited"
+      none: "Inference APIs are publicly accessible without authentication"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0004-004
+    text: "Does the organization have controls to detect or prevent drive-by compromise or prompt infiltration via public-facing applications that feed into AI systems?"
+    category: initial_access
+    native_category: AML.TA0004
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0093"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.2"
+      nist-800-53: "SI-10, SI-7, AU-12"
+      owasp-llm: "LLM01, LLM02"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Content sanitization controls for data ingested by AI/RAG systems
+      - Monitoring for unusual content in ingestion pipelines
+      - List of public-facing applications whose data feeds AI systems
+    scoring:
+      full: "All public-facing input channels that feed AI systems are identified; content is sanitized before ingestion; anomalies are monitored"
+      partial: "Content sanitization exists for some channels but full coverage of AI data ingestion paths is not achieved"
+      none: "No controls on public-facing inputs feeding AI systems"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0004-005
+    text: "Does the organization have controls to prevent or detect exploitation of public-facing AI applications, phishing attacks using AI-generated content, and drive-by LLM prompt injection via web browsing?"
+    category: initial_access
+    native_category: AML.TA0004
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0049, AML.T0052, AML.T0078"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MEASURE 2.7"
+      nist-800-53: "SI-2, SI-3, SC-7, AT-2, RA-5"
+      owasp-llm: "LLM01, LLM09, LLM10"
+      iso-42001: "A.6.2.3, 8.3, A.9.3"
+      aiuc-1: "D001, D004, D005"
+      eu-ai-act: "Art-9, Art-50"
+    evidence_required:
+      - Patch management records for public-facing AI applications
+      - AI phishing awareness training records
+      - Browser isolation or content filtering for AI agent web access
+    scoring:
+      full: "AI applications are patched; staff are trained on AI-enabled phishing; web browsing by AI agents is filtered or sandboxed"
+      partial: "Patch management exists but AI-enabled phishing countermeasures or agent web access controls are not implemented"
+      none: "No controls against AI application exploitation, AI phishing, or drive-by prompt injection"
+    risk_weight: HIGH
+
+  # ── Execution (AML.TA0005) ──
+
+  - id: Q-ATLAS-TA0005-001
+    text: "Does the organization restrict loading of unsafe AI artifacts such as pickle files and enforce code signing for AI model files?"
+    category: execution
+    native_category: AML.TA0005
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0011"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.2"
+      nist-800-53: "CM-7, SI-3, SA-10, AU-12"
+      owasp-llm: "LLM04, LLM09"
+      iso-42001: "A.8.4, 8.3"
+      aiuc-1: "D003, D005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Library loading restrictions or allowlists for AI artifact formats
+      - Code signing policy for AI model files
+      - Vulnerability scanning records for AI artifacts
+    scoring:
+      full: "AI artifact formats are restricted to safe serialization formats; code signing is enforced; artifacts are scanned before loading"
+      partial: "Some restrictions on artifact formats or scanning exists, but code signing is not enforced"
+      none: "No restrictions on loading AI artifacts; pickle or other unsafe formats are used without validation"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0005-002
+    text: "Does the organization have controls to detect or prevent AI agent tool invocation abuse, where an adversary uses prompt injection to invoke agent tools?"
+    category: execution
+    native_category: AML.TA0005
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0053"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.4"
+      nist-800-53: "AC-3, AU-12, CM-7, SI-10"
+      owasp-llm: "LLM01, LLM06"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - AI agent tool permission configuration records
+      - Human-in-the-loop approval workflows for high-consequence agent actions
+      - Logging of agent tool invocations
+    scoring:
+      full: "Agent tools operate under least-privilege; high-consequence actions require human approval; all tool invocations are logged"
+      partial: "Tool invocations are logged but permissions are not least-privilege and no human approval is required"
+      none: "AI agents can invoke tools without restrictions or logging"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0005-003
+    text: "Does the organization have controls to prevent AI agents from abusing command and scripting interpreters to execute arbitrary commands through prompt injection?"
+    category: execution
+    native_category: AML.TA0005
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0050"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1"
+      nist-800-53: "CM-7, SI-3, AU-12"
+      owasp-llm: "LLM01, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - AI agent sandboxing or containerization configuration
+      - Restrictions on code execution capabilities for AI agents
+      - Logging of commands executed by AI agents
+    scoring:
+      full: "AI agents are sandboxed; code execution is explicitly restricted to required capabilities; all executed commands are logged"
+      partial: "Some restrictions on AI agent execution exist but sandboxing is not implemented"
+      none: "AI agents have unrestricted command execution capabilities"
+    risk_weight: HIGH
+
+  # ── Persistence (AML.TA0006) ──
+
+  - id: Q-ATLAS-TA0006-001
+    text: "Does the organization have controls to detect or prevent poisoning of AI training data that would create persistent vulnerabilities in deployed models?"
+    category: persistence
+    native_category: AML.TA0006
+    domain: data_protection
+    controls:
+      mitre-atlas: "AML.T0020"
+      nist-ai-rmf: "MAP 5.1, MANAGE 2.2, MEASURE 2.5"
+      nist-800-53: "SI-7, SI-10, CM-3, AU-12"
+      owasp-llm: "LLM04, LLM09"
+      iso-42001: "A.8.4, 8.3"
+      aiuc-1: "D003, D005"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - Training data sanitization procedures
+      - Dataset provenance and integrity verification records
+      - Access controls on training data storage
+    scoring:
+      full: "Training data is sanitized before use; dataset provenance is tracked; access to training data is restricted and audited"
+      partial: "Access controls on training data exist but no formal sanitization or provenance tracking"
+      none: "No controls on training data integrity"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0006-002
+    text: "Does the organization have controls to detect or prevent RAG database poisoning and false entry injection?"
+    category: persistence
+    native_category: AML.TA0006
+    domain: data_protection
+    controls:
+      mitre-atlas: "AML.T0070"
+      nist-ai-rmf: "MAP 5.1, MANAGE 2.2, MEASURE 2.5"
+      nist-800-53: "SI-7, SI-10, AC-3, AU-12"
+      owasp-llm: "LLM07, LLM04"
+      iso-42001: "A.8.4, 8.3"
+      aiuc-1: "D003, D005"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - Access controls on RAG database write operations
+      - Content validation for documents ingested into RAG systems
+      - Monitoring for unexpected changes to RAG indexed content
+    scoring:
+      full: "RAG write access is restricted; ingested content is validated; changes to RAG indexed data are monitored and alerted"
+      partial: "Write access is controlled but content validation for injected entries is not implemented"
+      none: "No controls on RAG database content integrity"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0006-003
+    text: "Does the organization have controls to detect or prevent AI agent context poisoning including memory manipulation and chat thread poisoning?"
+    category: persistence
+    native_category: AML.TA0006
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0080"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.6, MAP 5.1"
+      nist-800-53: "SI-10, SI-7, AC-3, AU-12"
+      owasp-llm: "LLM01, LLM07"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D004, D005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Memory hardening controls for LLM agents
+      - Authentication requirements for memory update operations
+      - Semantic integrity checks on retrieved memories
+    scoring:
+      full: "Memory updates require authentication; memories are validated before execution; memory contents are monitored for suspicious instructions"
+      partial: "Some controls on agent memory exist but comprehensive hardening is not implemented"
+      none: "No controls on AI agent memory or context"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0006-004
+    text: "Does the organization have controls to detect or prevent persistent AI system compromise through training data poisoning, LLM prompt self-replication, AI agent configuration modification, or persistent prompt infiltration?"
+    category: persistence
+    native_category: AML.TA0006
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0020_persistence, AML.T0061, AML.T0081, AML.T0093_persistence"
+      nist-ai-rmf: "GOVERN 1.7, MANAGE 2.4, MEASURE 2.6"
+      nist-800-53: "CM-3, CM-7, SI-7, AU-12"
+      owasp-llm: "LLM01, LLM07, LLM09"
+      iso-42001: "A.8.4, 8.3"
+      aiuc-1: "D003, D004"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - Change management controls for AI agent configuration files
+      - Self-replication detection in LLM output monitoring
+      - Audit trails for AI system configuration changes
+    scoring:
+      full: "AI agent configuration changes require change management approval; LLM outputs are monitored for self-propagating patterns; configuration files are access-controlled and audited"
+      partial: "Some configuration controls exist but comprehensive monitoring for self-replication or persistent prompt infiltration is not implemented"
+      none: "No controls on AI system configuration persistence or prompt propagation"
+    risk_weight: HIGH
+
+  # ── Defense Evasion (AML.TA0007) ──
+
+  - id: Q-ATLAS-TA0007-001
+    text: "Does the organization have controls to detect or prevent LLM jailbreak attempts against its AI systems?"
+    category: defense_evasion
+    native_category: AML.TA0007
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0054"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.6, MAP 5.2"
+      nist-800-53: "SI-10, SI-3, AU-12"
+      owasp-llm: "LLM01, LLM02"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D004, D005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Generative AI guardrails configuration records
+      - System prompt/model guideline documentation
+      - Records of jailbreak detection alerts or incidents
+    scoring:
+      full: "Guardrails and model guidelines are implemented to detect and refuse jailbreak attempts; jailbreak patterns are monitored"
+      partial: "System prompts include safety instructions but no dedicated jailbreak detection guardrails"
+      none: "No controls against LLM jailbreaking"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0007-002
+    text: "Does the organization have controls to detect AI model evasion attacks targeting security-critical AI systems such as malware detection or fraud detection?"
+    category: defense_evasion
+    native_category: AML.TA0007
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0015"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2, MAP 5.2"
+      nist-800-53: "SI-3, SI-4, RA-5"
+      owasp-llm: "LLM01, LLM09"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D005, E005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Model hardening implementation records (adversarial training, distillation)
+      - Ensemble model architecture documentation
+      - Adversarial input detection for security-critical AI models
+    scoring:
+      full: "Security-critical AI models use adversarial training or ensemble methods; adversarial inputs are detected and blocked"
+      partial: "Some model hardening exists but adversarial input detection is not implemented"
+      none: "Security-critical AI models have no adversarial robustness measures"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0007-003
+    text: "Does the organization have controls to detect LLM defense evasion techniques including prompt obfuscation, trusted output manipulation, false RAG entry injection, impersonation, masquerading, and model corruption?"
+    category: defense_evasion
+    native_category: AML.TA0007
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0015_defense, AML.T0067, AML.T0068, AML.T0071, AML.T0073, AML.T0074, AML.T0076"
+      nist-ai-rmf: "MEASURE 2.5, MANAGE 2.2, MEASURE 2.7"
+      nist-800-53: "SI-3, SI-7, SI-10, SI-12, IA-3, CM-8"
+      owasp-llm: "LLM01, LLM04, LLM08, LLM09"
+      iso-42001: "A.9.3, A.8.4, 8.4, 8.5"
+      aiuc-1: "D003, D004, D005"
+      eu-ai-act: "Art-9, Art-50"
+    evidence_required:
+      - Hidden text and steganographic content detection in LLM inputs
+      - Model integrity scanning before deployment
+      - Citation and source verification controls for LLM outputs
+      - Impersonation controls on model registries and software repositories
+    scoring:
+      full: "Content security controls detect hidden text injection; model scanners verify integrity; output citations are validated; registry access controls prevent impersonation"
+      partial: "Some controls exist but comprehensive coverage of all defense evasion techniques is not achieved"
+      none: "No controls targeting defense evasion techniques in AI systems"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0007-004
+    text: "Does the organization have controls to detect or prevent delayed LLM instruction execution and LLM chat history manipulation used to cover adversary tracks?"
+    category: defense_evasion
+    native_category: AML.TA0007
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0092, AML.T0094"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.6"
+      nist-800-53: "AU-9, AU-12, SI-7, SI-10"
+      owasp-llm: "LLM01, LLM07, LLM09"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D004, D005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Immutable audit logging of LLM conversations
+      - Detection controls for time-delayed instruction patterns
+      - Monitoring for chat history tampering
+    scoring:
+      full: "LLM conversation logs are immutable; delayed instruction detection monitors for time-triggered patterns; history tampering triggers alerts"
+      partial: "Logging exists but is not immutable and delayed instruction detection is not implemented"
+      none: "No controls on LLM conversation integrity or delayed instruction execution"
+    risk_weight: MEDIUM
+
+  # ── Exfiltration (AML.TA0010) ──
+
+  - id: Q-ATLAS-TA0010-001
+    text: "Does the organization have controls to prevent model extraction attacks where adversaries repeatedly query the inference API to replicate the model?"
+    category: exfiltration
+    native_category: AML.TA0010
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0024"
+      nist-ai-rmf: "MEASURE 2.6, MANAGE 2.4, MAP 5.1"
+      nist-800-53: "SC-28, AU-12, AC-3, SC-7"
+      owasp-llm: "LLM02, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Query rate limiting configuration on inference APIs
+      - AI telemetry logging of inference requests
+      - Passive output obfuscation (reduced confidence score precision)
+      - Anomaly detection for unusual query volumes or patterns
+    scoring:
+      full: "Query rate limiting is enforced; output precision is reduced; telemetry logging detects unusual query patterns; alerts are generated"
+      partial: "Rate limiting is in place but output obfuscation and pattern detection are not implemented"
+      none: "No controls against model extraction via API queries"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0010-002
+    text: "Does the organization have controls to detect or prevent LLM data leakage, including training data memorization, system prompt extraction, and user data exposure?"
+    category: exfiltration
+    native_category: AML.TA0010
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0057"
+      nist-ai-rmf: "MEASURE 2.6, MANAGE 2.2, MAP 5.1"
+      nist-800-53: "SC-28, SI-12, AU-12, AC-3"
+      owasp-llm: "LLM02, LLM06"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Output guardrails for PII and sensitive data detection
+      - Telemetry logging of LLM outputs
+      - Records of data leakage incidents or near-misses
+    scoring:
+      full: "Output guardrails detect and redact PII and sensitive data; LLM outputs are logged; data leakage patterns are monitored"
+      partial: "Some output filtering exists but comprehensive leakage detection is not implemented"
+      none: "No controls on LLM output to prevent data leakage"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0010-003
+    text: "Does the organization have controls to prevent exfiltration via AI agent tool invocation, such as an agent being prompted to send emails or create documents containing sensitive data?"
+    category: exfiltration
+    native_category: AML.TA0010
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0086"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.4"
+      nist-800-53: "AC-3, AU-12, CM-7, SC-28"
+      owasp-llm: "LLM01, LLM06"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - AI agent tool permissions configuration (least-privilege)
+      - Logging of agent write operations (emails sent, files created, records modified)
+      - Human-in-the-loop approvals for agent write operations
+    scoring:
+      full: "Agent write operations are least-privilege; all write actions are logged; high-consequence writes require human approval"
+      partial: "Write operations are logged but permissions are not least-privilege and no human approval is required"
+      none: "AI agents can perform unrestricted write operations without logging or approval"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0010-004
+    text: "Does the organization have controls to detect or prevent LLM system prompt extraction, traditional cyber exfiltration of AI artifacts, and covert LLM response rendering used to exfiltrate data?"
+    category: exfiltration
+    native_category: AML.TA0010
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0025, AML.T0056, AML.T0077"
+      nist-ai-rmf: "GOVERN 1.7, MEASURE 2.6, MAP 5.1"
+      nist-800-53: "SC-7, SC-28, SI-12, AU-12, SI-10"
+      owasp-llm: "LLM02, LLM06, LLM07"
+      iso-42001: "A.6.2.3, 8.3, A.9.3"
+      aiuc-1: "D001, D003, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - System prompt confidentiality protections (e.g., refusal to reveal on explicit request)
+      - Network DLP for AI artifact exfiltration
+      - Content Security Policy controls preventing covert rendering-based exfiltration
+    scoring:
+      full: "System prompts are protected from extraction; DLP monitors AI artifact transfers; Content Security Policy blocks rendering-based exfiltration"
+      partial: "Some protections exist but comprehensive exfiltration controls across all vectors are not implemented"
+      none: "No controls against system prompt extraction, traditional exfiltration of AI artifacts, or covert rendering"
+    risk_weight: HIGH
+
+  # ── Impact (AML.TA0011) ──
+
+  - id: Q-ATLAS-TA0011-001
+    text: "Does the organization have controls to detect or prevent denial-of-service attacks targeting AI inference systems, including computationally expensive adversarial inputs?"
+    category: impact
+    native_category: AML.TA0011
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0029"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.6, MAP 5.2"
+      nist-800-53: "SC-5, SC-7, AU-12, SI-4"
+      owasp-llm: "LLM10, LLM04"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, E005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Query rate limiting and timeout policies for AI inference
+      - Resource utilization monitoring for AI compute infrastructure
+      - Alerting for unusual compute spikes
+    scoring:
+      full: "Rate limiting, query timeouts, and resource monitoring are in place; compute spikes trigger alerts"
+      partial: "General rate limiting exists but AI-specific denial-of-service patterns (sponge examples) are not specifically detected"
+      none: "No controls against AI denial-of-service attacks"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0011-002
+    text: "Does the organization have controls to detect AI model integrity erosion attacks where adversaries gradually degrade model performance with adversarial inputs?"
+    category: impact
+    native_category: AML.TA0011
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0031"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.5, MAP 5.1"
+      nist-800-53: "SI-4, SI-7, AU-12, RA-5"
+      owasp-llm: "LLM04, LLM09"
+      iso-42001: "A.9.3, 8.4"
+      aiuc-1: "D005, E005"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Model performance monitoring dashboards
+      - Alerting thresholds for model performance degradation
+      - Records of model performance drift investigations
+    scoring:
+      full: "Model performance is continuously monitored; degradation below thresholds triggers investigation; concept drift is tracked"
+      partial: "Performance is monitored but no automated alerting or systematic investigation of degradation"
+      none: "No ongoing monitoring of deployed model performance"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0011-003
+    text: "Does the organization have controls to limit external harm from AI system abuse, including financial fraud, reputational damage, and societal harms caused through AI misuse?"
+    category: impact
+    native_category: AML.TA0011
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0048"
+      nist-ai-rmf: "GOVERN 1.2, MAP 5.2, MANAGE 4.1"
+      nist-800-53: "IR-8, PM-12, PM-16"
+      owasp-llm: "LLM09, LLM07"
+      iso-42001: "8.5, A.9.4"
+      aiuc-1: "E007, E008"
+      eu-ai-act: "Art-9, Art-72"
+    evidence_required:
+      - AI use case risk assessment documentation
+      - Acceptable use policies for AI systems
+      - Harm monitoring and incident response procedures
+      - Generative AI guidelines and alignment documentation
+    scoring:
+      full: "AI use cases are risk-assessed; harm monitoring is in place; clear acceptable use policies and incident response procedures exist"
+      partial: "Acceptable use policies exist but harm monitoring or incident response for AI-specific harms is not defined"
+      none: "No controls on potential external harms from AI system misuse"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0011-004
+    text: "Does the organization have controls to detect and prevent cost harvesting attacks, chaff data injection, and dataset integrity erosion targeting its AI systems?"
+    category: impact
+    native_category: AML.TA0011
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0034, AML.T0046, AML.T0059"
+      nist-ai-rmf: "MANAGE 2.2, MEASURE 2.5, MEASURE 2.6"
+      nist-800-53: "SC-5, SI-4, SI-7, SI-10, AU-12, CM-3"
+      owasp-llm: "LLM04, LLM09, LLM10"
+      iso-42001: "A.6.2.3, A.8.4, 8.3"
+      aiuc-1: "D001, D003, E005"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - Compute cost monitoring and budget alerting for AI services
+      - Anomaly detection for unusual inference request patterns
+      - Dataset integrity checksums and provenance tracking
+    scoring:
+      full: "Compute cost alerts are configured; chaff input patterns trigger anomaly alerts; datasets are checksummed and provenance-tracked"
+      partial: "Cost monitoring exists but chaff detection or dataset integrity controls are not implemented"
+      none: "No controls against cost harvesting, chaff flooding, or dataset erosion"
+    risk_weight: MEDIUM
+
+  # ── Credential Access (AML.TA0013) ──
+
+  - id: Q-ATLAS-TA0013-001
+    text: "Does the organization have controls to prevent credential exposure through AI systems, including credentials inadvertently ingested into RAG databases or exposed through AI agent configurations?"
+    category: credential_access
+    native_category: AML.TA0013
+    domain: access_control
+    controls:
+      mitre-atlas: "AML.T0082"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.4"
+      nist-800-53: "IA-5, SC-28, AC-3, AU-12"
+      owasp-llm: "LLM07, LLM06"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Secrets management practices for AI agent configurations (vault usage, not plaintext)
+      - DLP or content scanning for credentials in RAG-indexed documents
+      - Access controls on AI agent configuration files
+    scoring:
+      full: "AI agent credentials are stored in dedicated secret managers; RAG-indexed documents are scanned for credentials; agent config files are access-controlled"
+      partial: "Some secrets management exists but RAG scanning or config file protection is not comprehensive"
+      none: "Credentials are stored in plaintext in AI agent configs or can be exposed through RAG systems"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0013-002
+    text: "Does the organization have controls to prevent credential theft from AI environments through unsecured credential files, AI agent configuration exposure, and OS credential dumping?"
+    category: credential_access
+    native_category: AML.TA0013
+    domain: access_control
+    controls:
+      mitre-atlas: "AML.T0055, AML.T0083, AML.T0090"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1"
+      nist-800-53: "IA-5, SC-28, CM-7, AU-12, AC-3"
+      owasp-llm: "LLM06, LLM07, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Secrets management tool usage records (no plaintext credentials in config files)
+      - Endpoint detection and response (EDR) coverage on AI infrastructure
+      - Credential rotation policies for AI service accounts
+    scoring:
+      full: "All AI service credentials use secrets management; EDR is deployed on AI infrastructure; credential rotation is automated"
+      partial: "Secrets management is used but EDR coverage or credential rotation policy is incomplete"
+      none: "AI service credentials are stored insecurely or no endpoint protection exists on AI systems"
+    risk_weight: HIGH
+
+  # ── AI Model Access (AML.TA0000) — additional questions ──
+
+  - id: Q-ATLAS-TA0000-001
+    text: "Does the organization control and monitor all forms of model access including inference API access, AI-enabled product access, physical environment access to AI sensors, and full white-box model access?"
+    category: ai_model_access
+    native_category: AML.TA0000
+    domain: access_control
+    controls:
+      mitre-atlas: "AML.T0040, AML.T0047, AML.T0041, AML.T0044"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MEASURE 2.6"
+      nist-800-53: "AC-3, AC-17, SC-28, PE-3, AU-12, MP-4"
+      owasp-llm: "LLM02, LLM09"
+      iso-42001: "A.6.2.3, 8.3, A.8.4"
+      aiuc-1: "D001, D002, D003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Inventory of all AI model access surfaces (APIs, products, physical sensors, model files)
+      - Access control policies for each access surface
+      - Physical security controls for AI sensor infrastructure
+      - Model file encryption and access controls
+    scoring:
+      full: "All AI access surfaces are inventoried; access controls are enforced across API, product, physical, and model file access; each is monitored"
+      partial: "Some access surfaces are controlled but the inventory is incomplete or monitoring is inconsistent"
+      none: "No comprehensive inventory or control of AI model access surfaces"
+    risk_weight: HIGH
+
+  # ── Resource Development (AML.TA0003) ──
+
+  - id: Q-ATLAS-TA0003-001
+    text: "Does the organization have supply chain controls to detect poisoned datasets, poisoned models, and adversary-published hallucinated entities from public AI artifact repositories?"
+    category: resource_development
+    native_category: AML.TA0003
+    domain: governance
+    controls:
+      mitre-atlas: "AML.T0019, AML.T0058, AML.T0060"
+      nist-ai-rmf: "MAP 5.1, MANAGE 2.2, MEASURE 2.5"
+      nist-800-53: "SA-12, SR-3, SI-7, CM-8"
+      owasp-llm: "LLM04, LLM08, LLM09"
+      iso-42001: "A.8.4, 8.3"
+      aiuc-1: "D003, D005"
+      eu-ai-act: "Art-9, Art-10"
+    evidence_required:
+      - Dataset and model vetting procedures before use in production
+      - Scanning of downloaded models and datasets for backdoors
+      - LLM dependency management procedures to catch hallucinated package references
+    scoring:
+      full: "Third-party datasets and models are vetted and scanned before use; LLM-generated code dependencies are validated against real package registries"
+      partial: "Some vetting exists but scanning for backdoors or hallucination-based dependency attacks is not implemented"
+      none: "No controls on third-party AI artifacts or hallucinated dependency risks"
+    risk_weight: HIGH
+
+  - id: Q-ATLAS-TA0003-002
+    text: "Does the organization have threat intelligence and monitoring capabilities to detect adversary resource development activities including infrastructure acquisition, capability development, LLM prompt crafting, and retrieval content crafting targeting its AI systems?"
+    category: resource_development
+    native_category: AML.TA0003
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0002, AML.T0008, AML.T0016, AML.T0017, AML.T0021, AML.T0065, AML.T0066, AML.T0079"
+      nist-ai-rmf: "GOVERN 1.2, MAP 1.5, MAP 5.2"
+      nist-800-53: "RA-3, SA-12, SR-3, CM-8, SI-10"
+      owasp-llm: "LLM01, LLM09, LLM10"
+      iso-42001: "A.6.1.4, 8.2, A.9.3"
+      aiuc-1: "D003, D005, E001"
+      eu-ai-act: "Art-9, Art-53"
+    evidence_required:
+      - Threat intelligence program covering adversarial AI techniques
+      - Monitoring for adversary use of organization's public AI artifacts
+      - Content validation controls on data ingested into RAG systems
+    scoring:
+      full: "Threat intelligence covers adversarial AI resource development; public artifact monitoring is in place; RAG content is validated before indexing"
+      partial: "General threat intelligence exists but AI-specific adversary resource development is not tracked"
+      none: "No threat intelligence or monitoring for adversary AI resource development"
+    risk_weight: MEDIUM
+
+  # ── Discovery (AML.TA0008) ──
+
+  - id: Q-ATLAS-TA0008-001
+    text: "Does the organization have controls to prevent adversaries from discovering AI model details including ontology, model family, architecture, and output characteristics through query-based enumeration?"
+    category: discovery
+    native_category: AML.TA0008
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0013, AML.T0014, AML.T0063"
+      nist-ai-rmf: "MAP 1.5, MEASURE 2.6"
+      nist-800-53: "SI-4, AU-12, AC-3, SC-28"
+      owasp-llm: "LLM02, LLM09"
+      iso-42001: "A.6.2.3, 8.2"
+      aiuc-1: "D001, E002"
+      eu-ai-act: "Art-9, Art-13"
+    evidence_required:
+      - Output confidence score obfuscation configuration
+      - Monitoring for model interrogation query patterns
+      - API response sanitization to remove model metadata
+    scoring:
+      full: "Confidence scores are obfuscated; API responses strip model metadata; query patterns consistent with model enumeration trigger alerts"
+      partial: "Some output restriction exists but systematic model discovery is not specifically detected"
+      none: "No controls against query-based AI model discovery"
+    risk_weight: MEDIUM
+
+  - id: Q-ATLAS-TA0008-002
+    text: "Does the organization have controls to prevent discovery of its internal AI artifacts, LLM system information, LLM hallucinations, AI agent configurations, cloud AI services, and running AI processes?"
+    category: discovery
+    native_category: AML.TA0008
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0007, AML.T0062, AML.T0069, AML.T0075, AML.T0084, AML.T0089"
+      nist-ai-rmf: "GOVERN 1.7, MAP 1.5, MEASURE 2.6"
+      nist-800-53: "CM-8, SI-4, AU-12, AC-3, SC-7"
+      owasp-llm: "LLM07, LLM08, LLM09, LLM10"
+      iso-42001: "A.6.2.3, 8.2"
+      aiuc-1: "D001, E002"
+      eu-ai-act: "Art-9, Art-13"
+    evidence_required:
+      - AI system asset inventory restricted from public access
+      - System prompt confidentiality (LLM does not reveal its instructions)
+      - AI agent tool definition access controls
+      - Cloud AI service discovery controls (least-privilege IAM)
+    scoring:
+      full: "AI asset inventory is access-controlled; system prompts are not disclosed; agent tool definitions are protected; cloud services use least-privilege IAM; process enumeration is blocked"
+      partial: "Some discovery controls exist but system prompt protection or agent configuration access controls are incomplete"
+      none: "No controls on internal AI artifact or configuration discovery"
+    risk_weight: MEDIUM
+
+  # ── Collection (AML.TA0009) ──
+
+  - id: Q-ATLAS-TA0009-001
+    text: "Does the organization have controls to detect or prevent adversarial collection of AI artifacts, data from information repositories, local system data, and data from AI services including RAG databases and agent tools?"
+    category: collection
+    native_category: AML.TA0009
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0035, AML.T0036, AML.T0037, AML.T0085"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.4"
+      nist-800-53: "AC-3, SC-28, AU-12, CM-7, MP-4"
+      owasp-llm: "LLM02, LLM06, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D003"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Data loss prevention (DLP) controls on AI model file access
+      - Access controls and logging for AI training data repositories
+      - AI agent tool permissions limiting data collection scope
+      - Monitoring for bulk data access from AI infrastructure
+    scoring:
+      full: "DLP controls cover AI artifacts; training data repositories are access-controlled with anomaly monitoring; agent tools have minimal data access permissions"
+      partial: "Some access controls exist but DLP, agent permission restrictions, or bulk access monitoring is incomplete"
+      none: "No controls on adversarial collection of AI system data"
+    risk_weight: HIGH
+
+  # ── Privilege Escalation (AML.TA0012) ──
+
+  - id: Q-ATLAS-TA0012-001
+    text: "Does the organization have controls to prevent AI agent tool invocation and LLM jailbreaking from being used as privilege escalation mechanisms to access capabilities beyond the user's authorization?"
+    category: privilege_escalation
+    native_category: AML.TA0012
+    domain: access_control
+    controls:
+      mitre-atlas: "AML.T0053_priv, AML.T0054_priv"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1, MANAGE 2.4"
+      nist-800-53: "AC-3, AC-6, AU-12, CM-7, SI-10"
+      owasp-llm: "LLM01, LLM02, LLM06"
+      iso-42001: "A.6.2.3, 8.3, A.9.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - AI agent tool permissions enforce separation of user and agent privilege levels
+      - Jailbreak-resistant guardrails preventing access to privileged capabilities
+      - Privilege escalation monitoring for AI agent actions
+    scoring:
+      full: "Agent tool permissions enforce strict privilege boundaries; jailbreak attempts to access privileged tools are detected and blocked; escalation attempts trigger alerts"
+      partial: "Some privilege boundaries exist but jailbreak-based escalation is not specifically detected"
+      none: "AI agent tools and LLM capabilities are accessible to any user without privilege controls"
+    risk_weight: HIGH
+
+  # ── Command and Control (AML.TA0014) ──
+
+  - id: Q-ATLAS-TA0014-001
+    text: "Does the organization have controls to detect or prevent reverse shell establishment by adversaries who have gained code execution through AI agent compromise?"
+    category: command_and_control
+    native_category: AML.TA0014
+    domain: monitoring
+    controls:
+      mitre-atlas: "AML.T0072"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1"
+      nist-800-53: "SC-7, SI-4, AU-12, CM-7"
+      owasp-llm: "LLM01, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D004"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Egress network filtering on AI compute infrastructure
+      - Network anomaly detection for unexpected outbound connections from AI systems
+      - AI agent sandboxing preventing outbound network access
+    scoring:
+      full: "AI systems have restricted network egress; anomalous outbound connections trigger alerts; agent sandboxing prevents reverse shell establishment"
+      partial: "Some network controls exist but AI-specific egress filtering or sandboxing is not implemented"
+      none: "No egress controls or monitoring on AI infrastructure"
+    risk_weight: HIGH
+
+  # ── Lateral Movement (AML.TA0015) ──
+
+  - id: Q-ATLAS-TA0015-001
+    text: "Does the organization have controls to prevent lateral movement between AI services using alternate authentication material such as application access tokens and API keys stolen from compromised AI systems?"
+    category: lateral_movement
+    native_category: AML.TA0015
+    domain: access_control
+    controls:
+      mitre-atlas: "AML.T0091"
+      nist-ai-rmf: "GOVERN 1.7, MAP 5.1"
+      nist-800-53: "IA-5, AC-3, AC-17, AU-12"
+      owasp-llm: "LLM06, LLM09"
+      iso-42001: "A.6.2.3, 8.3"
+      aiuc-1: "D001, D002"
+      eu-ai-act: "Art-9, Art-15"
+    evidence_required:
+      - Token lifecycle management for AI service access tokens
+      - Short-lived token policies (expiry enforced)
+      - Monitoring for token reuse from unexpected origins
+      - Network segmentation preventing cross-service lateral movement
+    scoring:
+      full: "AI service tokens are short-lived; reuse from unexpected origins triggers alerts; network segmentation limits lateral movement between AI services"
+      partial: "Token management exists but short-lived tokens or lateral movement monitoring are not implemented"
+      none: "Long-lived tokens are in use with no monitoring or network segmentation limiting lateral movement"
+    risk_weight: HIGH

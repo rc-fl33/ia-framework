@@ -1,0 +1,120 @@
+# SOC 2 Trust Services Criteria Metadata
+# AICPA System and Organization Controls for Service Organizations
+
+framework:
+  name: "SOC 2 Trust Services Criteria"
+  short_name: "SOC 2"
+  version: "2017-2022"
+  release_date: "2017-04-01"
+  official_url: "https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022"
+  download_url: "https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022"
+
+  description: |
+    The 2017 Trust Services Criteria for Security, Availability, Processing
+    Integrity, Confidentiality, and Privacy (with Revised Points of Focus - 2022)
+    is the authoritative framework for SOC 2 attestation engagements. Published by
+    the AICPA Assurance Services Executive Committee (ASEC), the framework defines
+    61 criteria across 5 Trust Services Categories. Security (Common Criteria) is
+    required for all SOC 2 engagements; Availability, Processing Integrity,
+    Confidentiality, and Privacy are selected based on the service organization's
+    commitments and system requirements. The Common Criteria are derived from the
+    2013 COSO Internal Control - Integrated Framework, supplemented with criteria
+    specific to IT security. The 2022 update revised Points of Focus to reflect
+    current technology practices without changing the underlying criteria.
+
+  # Source documents
+  source_documents:
+    - name: "2017-trust-services-criteria-revised-points-of-focus-2022.pdf"
+      description: "Official TSC PDF from AICPA with 2022 revised points of focus"
+      format: pdf
+      splitting_required: false
+      original_deleted: false
+
+  # Control families (5 Trust Services Categories)
+  control_families:
+    - id: "CC"
+      name: "Security (Common Criteria)"
+      controls: 33
+      description: "Information and systems are protected against unauthorized access, unauthorized disclosure, and damage (CC1-CC9, required for all SOC 2 engagements)"
+    - id: "A"
+      name: "Availability"
+      controls: 3
+      description: "Information and systems are available for operation and use to meet the entity's objectives"
+    - id: "PI"
+      name: "Processing Integrity"
+      controls: 5
+      description: "System processing is complete, valid, accurate, timely, and authorized"
+    - id: "C"
+      name: "Confidentiality"
+      controls: 2
+      description: "Information designated as confidential is protected to meet the entity's objectives"
+    - id: "P"
+      name: "Privacy"
+      controls: 18
+      description: "Personal information is collected, used, retained, disclosed, and disposed of appropriately (P1-P8 categories)"
+
+  controls_count: 61  # 33 CC + 3 A + 5 PI + 2 C + 18 P
+
+  # Verification
+  last_verified: "2026-02-13"
+  verified_by: "Cross-referenced AICPA official documentation, Secureframe, Bright Defense, Drata, and NIST crosswalk"
+  status: current
+
+  # Related frameworks
+  related:
+    - nist-csf       # NIST Cybersecurity Framework
+    - iso-27001      # Information security management
+    - cis-controls   # Center for Internet Security Controls
+    - hipaa          # Health Insurance Portability and Accountability Act
+    - pci-dss        # Payment Card Industry Data Security Standard
+
+# Acquisition instructions
+acquisition:
+  method: "download"
+  command: "Download PDF from AICPA website (requires free AICPA account)"
+  requires_account: true
+  post_processing: |
+    The Trust Services Criteria PDF is available from the AICPA-CIMA website at:
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+    A free AICPA account is required to download the PDF. The NIST crosswalk mapping
+    TSC to NIST SP 800-53 is available without an account at:
+    https://www.nist.gov/itl/applied-cybersecurity/privacy-engineering/american-institute-certified-public-accountants-aicpa
+
+# Certification
+certification:
+  certifying_body: "Licensed CPA firms"
+  report_types:
+    - name: "SOC 2 Type I"
+      description: "Point-in-time assessment of control design suitability"
+    - name: "SOC 2 Type II"
+      description: "Assessment of control design suitability and operating effectiveness over a review period (typically 6-12 months)"
+  common_auditors:
+    - "Deloitte"
+    - "PricewaterhouseCoopers (PwC)"
+    - "Ernst & Young (EY)"
+    - "KPMG"
+    - "Schellman"
+    - "Coalfire"
+    - "A-LIGN"
+    - "Moss Adams"
+    - "BDO"
+    - "Grant Thornton"
+  description: |
+    SOC 2 reports are issued by licensed CPA firms following AICPA attestation
+    standards (AT-C Section 205). Type I reports assess control design at a point
+    in time. Type II reports assess both design and operating effectiveness over a
+    review period, typically 6-12 months. Reports are restricted-use documents
+    shared under NDA. SOC 2 is not a certification but an attestation — the CPA
+    firm issues an opinion on whether controls are suitably designed and operating
+    effectively. Big 4 firms, national firms, and specialized firms (Schellman,
+    Coalfire, A-LIGN) are the most common auditors for SOC 2 engagements.
+
+# Update schedule
+maintenance:
+  check_frequency: "annually"
+  last_check: "2026-02-13"
+  next_check: "2027-02-13"
+  notes: |
+    The underlying criteria have not changed since 2017. The 2022 update revised
+    Points of Focus only. Monitor AICPA ASEC announcements for any future updates
+    to the Trust Services Criteria framework.

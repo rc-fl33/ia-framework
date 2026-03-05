@@ -1,0 +1,168 @@
+framework: iso-24028
+version: "2020"
+source: "ISO/IEC TR 24028:2020"
+controls:
+  - id: "5.1"
+    title: "Governance Framework for AI System Trustworthiness"
+    description: "The organization should establish a governance framework to ensure the trustworthy development, deployment, and operation of AI systems. This framework should define roles, responsibilities, and accountability structures for AI system lifecycle management."
+    type: "control"
+
+  - id: "5.2"
+    title: "Policies for AI System Trustworthiness"
+    description: "The organization should establish policies that articulate the principles, commitments, and requirements for AI system trustworthiness. These policies should address fairness, transparency, explainability, privacy, security, safety, and accountability."
+    type: "control"
+
+  - id: "5.3"
+    title: "Accountability"
+    description: "The organization should ensure clear accountability for AI system outcomes. Accountability mechanisms should be established to identify responsible parties for decisions made by or with AI systems, and to provide appropriate remedies when issues arise."
+    type: "control"
+
+  - id: "5.4"
+    title: "Fairness and Non-discrimination"
+    description: "The organization should implement measures to ensure AI systems operate fairly and do not discriminate against individuals or groups. This includes assessing and mitigating bias in training data, algorithms, and outputs. Fairness should be evaluated throughout the AI system lifecycle."
+    type: "control"
+
+  - id: "5.5"
+    title: "Transparency"
+    description: "The organization should ensure transparency in AI systems by providing appropriate information to relevant stakeholders. This includes disclosure of the presence of AI, the capabilities and limitations of AI systems, and factors that may influence system behavior."
+    type: "control"
+
+  - id: "5.6"
+    title: "Explainability"
+    description: "The organization should implement measures to enable explanation of AI system decisions and behaviors. Explanations should be appropriate to the context and the stakeholders who need them, balancing technical accuracy with understandability."
+    type: "control"
+
+  - id: "5.7"
+    title: "Privacy"
+    description: "The organization should ensure that AI systems protect individual privacy throughout their lifecycle. This includes implementing privacy by design principles, data minimization, purpose limitation, and appropriate security measures to safeguard personal data."
+    type: "control"
+
+  - id: "6.1"
+    title: "Design for AI Trustworthiness"
+    description: "Trustworthiness considerations should be incorporated into the design phase of AI systems. This includes defining trustworthiness requirements, selecting appropriate architectural approaches, and establishing validation methods to verify trustworthiness properties."
+    type: "control"
+
+  - id: "6.2"
+    title: "Data Quality"
+    description: "The organization should ensure data quality throughout the AI system lifecycle. This includes establishing data quality requirements, implementing quality assurance processes, and monitoring data quality metrics to ensure fitness for purpose."
+    type: "control"
+
+  - id: "6.3"
+    title: "Data Governance"
+    description: "The organization should implement data governance practices to ensure appropriate management of data used by AI systems. This includes data provenance tracking, lineage documentation, access controls, and compliance with applicable data protection regulations."
+    type: "control"
+
+  - id: "6.4"
+    title: "Model Development"
+    description: "The organization should follow established practices for AI model development that support trustworthiness. This includes proper model selection, validation methodology, testing procedures, and documentation of design decisions and assumptions."
+    type: "control"
+
+  - id: "6.5"
+    title: "AI Model Governance"
+    description: "The organization should implement governance practices for AI models including version control, change management, and model registry. Models should be tracked throughout their lifecycle with appropriate documentation of performance, limitations, and known biases."
+    type: "control"
+
+  - id: "6.6"
+    title: "Human Factor Integration"
+    description: "The organization should integrate human factors into AI system design and operation. This includes appropriate human oversight mechanisms, clear allocation of tasks between humans and AI, and ensuring human operators have sufficient understanding to make informed decisions."
+    type: "control"
+
+  - id: "6.7"
+    title: "Organizational Culture"
+    description: "The organization should foster a culture that supports AI trustworthiness. This includes promoting ethical awareness, encouraging responsible innovation, and establishing processes for identifying and addressing trustworthiness concerns."
+    type: "control"
+
+  - id: "6.8"
+    title: "Training and Education"
+    description: "The organization should provide appropriate training and education on AI trustworthiness for personnel involved in AI system development, deployment, and operation. Training should cover ethical considerations, bias awareness, and trustworthiness requirements."
+    type: "control"
+
+  - id: "6.9"
+    title: "Documentation"
+    description: "The organization should maintain comprehensive documentation for AI systems throughout their lifecycle. Documentation should include system purpose, design decisions, data sources, model characteristics, limitations, and known risks."
+    type: "control"
+
+  - id: "7.1"
+    title: "Security"
+    description: "The organization should implement appropriate security measures to protect AI systems from threats. This includes security by design, vulnerability assessment, threat modeling, and implementation of controls to prevent unauthorized access, manipulation, or exploitation of AI systems."
+    type: "control"
+
+  - id: "7.2"
+    title: "Resilience"
+    description: "The organization should ensure AI systems are resilient to disruptions and can maintain acceptable performance under adverse conditions. This includes implementing fallback mechanisms, redundancy, and recovery procedures."
+    type: "control"
+
+  - id: "7.3"
+    title: "Secure Development"
+    description: "The organization should follow secure development practices for AI systems. This includes secure coding practices, threat modeling, security testing, and vulnerability management throughout the development lifecycle."
+    type: "control"
+
+  - id: "7.4"
+    title: "Secure Deployment"
+    description: "The organization should implement security measures during AI system deployment. This includes secure configuration, access controls, monitoring capabilities, and appropriate segregation of environments."
+    type: "control"
+
+  - id: "7.5"
+    title: "Third-party Components"
+    description: "The organization should assess and manage risks associated with third-party components used in AI systems. This includes evaluation of third-party models, APIs, data sources, and infrastructure for security and trustworthiness implications."
+    type: "control"
+
+  - id: "7.6"
+    title: "Incident Management"
+    description: "The organization should establish procedures for detecting, responding to, and recovering from AI system incidents. This includes incident detection mechanisms, response plans, communication procedures, and post-incident analysis."
+    type: "control"
+
+  - id: "7.7"
+    title: "Information Sharing"
+    description: "The organization should participate in information sharing about AI system threats, vulnerabilities, and best practices. This includes sharing relevant information with industry partners, regulators, and security communities."
+    type: "control"
+
+  - id: "8.1"
+    title: "System Safety"
+    description: "The organization should ensure AI systems operate safely and do not cause harm. This includes safety risk assessment, safety by design, monitoring for unsafe conditions, and implementing safeguards to prevent or mitigate harm."
+    type: "control"
+
+  - id: "8.2"
+    title: "Human Oversight"
+    description: "The organization should implement appropriate human oversight of AI systems during operation. This includes defining the level and nature of human involvement, establishing intervention mechanisms, and ensuring human operators can effectively supervise AI system behavior."
+    type: "control"
+
+  - id: "8.3"
+    title: "Monitoring"
+    description: "The organization should monitor AI systems during operation to ensure they continue to function as intended. This includes performance monitoring, bias detection, drift monitoring, and detection of anomalous behavior."
+    type: "control"
+
+  - id: "8.4"
+    title: "Stakeholder Communication"
+    description: "The organization should communicate with relevant stakeholders about AI system operation. This includes providing information about system behavior, responding to inquiries, and disclosing significant changes or issues."
+    type: "control"
+
+  - id: "9.1"
+    title: "Change Management"
+    description: "The organization should implement change management processes for AI systems. Changes to AI systems should be assessed for trustworthiness implications, tested appropriately, and documented."
+    type: "control"
+
+  - id: "9.2"
+    title: "Model Updates"
+    description: "The organization should manage AI model updates appropriately. Updates should be validated, version controlled, and assessed for potential impacts on system behavior, fairness, and other trustworthiness properties."
+    type: "control"
+
+  - id: "9.3"
+    title: "Retirement Planning"
+    description: "The organization should plan for AI system retirement in a manner that minimizes disruption and maintains trustworthiness. This includes data handling during retirement, transition planning, and preservation of documentation."
+    type: "control"
+
+  - id: "10.1"
+    title: "Data Disposal"
+    description: "The organization should properly dispose of data associated with AI systems at end of life. This includes secure deletion of personal data, model weights, and training data in accordance with data protection requirements."
+    type: "control"
+
+  - id: "10.2"
+    title: "System Decommissioning"
+    description: "The organization should decommission AI systems in a controlled manner. This includes graceful shutdown, removal of integrations, and verification that decommissioning does not cause unintended consequences."
+    type: "control"
+
+  - id: "10.3"
+    title: "Knowledge Preservation"
+    description: "The organization should preserve relevant knowledge from retired AI systems. This includes maintaining documentation, lessons learned, and organizational knowledge to inform future AI system development."
+    type: "control"

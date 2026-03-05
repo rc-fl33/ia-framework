@@ -1,0 +1,193 @@
+framework: iso-19011
+version: "2011"
+source: "ISO/IEC 19011:2011"
+controls:
+  # Clause 5: Management of audit programme
+  - id: "5.1"
+    title: "General"
+    description: "The organization shall establish, document, implement, monitor, review and improve an audit programme in accordance with the requirements of this International Standard and in coordination with the management system of the organization. The organization shall take into account the inputs from interested parties and the results of previous audits. When establishing an audit programme, the organization shall consider the size, nature and complexity of the organization, the sector, the management system and its processes."
+    type: "control"
+
+  - id: "5.2"
+    title: "Establishing audit programme objectives"
+    description: "The organization shall establish audit programme objectives. The audit programme objectives should be linked to the organization's objectives and shall provide the basis for planning, performing, monitoring, reviewing and improving the audit programme. The audit programme objectives should take into account relevant management system requirements, legal and contractual requirements, as well as relevant interested party requirements."
+    type: "control"
+
+  - id: "5.3"
+    title: "Determining and evaluating audit programme risks and opportunities"
+    description: "The organization shall determine and evaluate the audit programme risks and opportunities in order to provide reasonable assurance that the audit programme will achieve its objectives. Risks and opportunities should be considered at least with regard to: the audit programme objectives, the competence of the audit team, resources (financial, time and personnel), the method(s) for conducting audits, the coordination of audit activities, and the competence of the person(s) managing the audit programme."
+    type: "control"
+
+  - id: "5.4"
+    title: "Developing audit programme"
+    description: "The audit programme shall include: the audit objectives, the number, types, duration, locations and schedule of audits; the competence required of auditors and audit team members; the selection and appointment of audit teams; the roles and responsibilities of the persons) managing the audit programme; the processes for performing audit activities; the procedures for ensuring auditor objectivity and independence; the procedures for ensuring audit quality; and the procedures for reporting results."
+    type: "control"
+
+  - id: "5.5"
+    title: "Implementing audit programme"
+    description: "The organization shall implement the audit programme by: assigning responsibilities and authority for the implementation and management of the audit programme; allocating resources (financial, time and personnel); ensuring that audit teams have the competence to achieve the audit programme objectives; ensuring that audit team leaders are competent; initiating the determination of audit criteria and the selection of audit teams; ensuring that audit teams have access to relevant information; ensuring coordination and communication between the audit teams; ensuring that audit reports are prepared and distributed in accordance with the procedures; ensuring that audit follow-up is performed where applicable."
+    type: "control"
+
+  - id: "5.6"
+    title: "Monitoring audit programme"
+    description: "The organization shall monitor the audit programme. Monitoring shall include: tracking the status of audit programme activities against the schedule; evaluating whether audit objectives are being achieved; reviewing audit findings and conclusions; reviewing and evaluating the effectiveness of the audit programme. The results of monitoring should be reviewed by the person(s) responsible for managing the audit programme and used as input to the review and improvement of the audit programme."
+    type: "control"
+
+  - id: "5.7"
+    title: "Reviewing and improving audit programme"
+    description: "The organization shall review and improve the audit programme to ensure that it continues to be effective. The review shall include evaluating: the achievement of audit programme objectives; the effectiveness of the processes for managing audit programme risks and opportunities; the conformity and the effectiveness of audit programme procedures; the competence of the audit teams and individual auditors; the effectiveness of communication and feedback processes; and the actions taken on previous audit findings and recommendations. The results of the review should be documented and reported to relevant interested parties."
+    type: "control"
+
+  # Clause 6: Performing an audit
+  - id: "6.1"
+    title: "General"
+    description: "This clause provides guidance on the activities necessary to plan and conduct audits in accordance with the audit programme. The sequence of activities is provided as a guide. The activities are applicable to all types of audits, whether conducted as separate, combined or integrated audits."
+    type: "control"
+
+  - id: "6.2"
+    title: "Initiating audit"
+    description: "The person(s) managing the audit programme shall ensure that the criteria, scope and objectives of a specific audit are defined. Initiating the audit includes: establishing contact with the audit client; determining whether the audit is feasible; providing any relevant information to the audit team leader; confirming the audit authority. The audit shall be conducted only when sufficient and appropriate audit evidence is available to enable the audit team to conclude on the audit criteria."
+    type: "control"
+
+  - id: "6.3"
+    title: "Preparing audit activities"
+    description: "The audit team leader shall prepare for the audit activities in advance. This includes: conducting a review of relevant information including the organization's management system documentation; performing documentation review; preparing audit plans; assigning work to audit team members; preparing work documents for use by audit team members. The audit plan shall be approved by the audit client prior to the commencement of the audit activities and communicated to the audit team leader and the auditee."
+    type: "control"
+
+  - id: "6.4"
+    title: "Performing audit activities"
+    description: "The audit activities shall include: opening meeting; communicating during the audit; reviewing the management system documentation; collecting and verifying information; generating audit findings; preparing audit conclusions; closing meeting. The audit team shall conduct the audit in accordance with the audit plan. Deviations from the plan shall be documented with justification and approved by the audit client and communicated to the auditee."
+    type: "control"
+
+  - id: "6.4.2"
+    title: "Opening meeting"
+    description: "The opening meeting shall be conducted to: confirm the audit plan; explain the audit methods and procedures including sampling; confirm communication channels; provide opportunity for the auditee to ask questions. The meeting shall be formal and attended by audit team leader, audit team members and the auditee's management and relevant personnel responsible for the processes to be audited."
+    type: "control"
+
+  - id: "6.4.3"
+    title: "Communicating during the audit"
+    description: "The audit team shall communicate among themselves and with the auditee and the audit client as appropriate. Any barriers to completing the audit shall be communicated to the audit client and the auditee. Where audit evidence indicates immediate and significant risk (dangerous situations), the audit team shall report the situation to the auditee and the audit client without delay."
+    type: "control"
+
+  - id: "6.4.4"
+    title: "Reviewing the management system documentation"
+    description: "The audit team shall review the management system documentation to determine whether it is sufficient as a basis for evaluation of the management system. The review shall determine whether: the management system documentation includes the required documentation; the documentation adequately describes the management system, including processes and their interaction, and the commitment of top management."
+    type: "control"
+
+  - id: "6.4.5"
+    title: "Collecting and verifying information"
+    description: "The audit shall collect and verify information relevant to the audit objectives, criteria and scope. Information needed for the audit can be obtained through interview, observation of activities and review of documents and records. Sampling can be used as a means of collecting information. Audit evidence shall be verifiable. It can be in the form of records, factual statements or other verifiable information."
+    type: "control"
+
+  - id: "6.4.6"
+    title: "Generating audit findings"
+    description: "The audit team shall evaluate the audit evidence against the audit criteria in order to generate audit findings. Audit findings can indicate conformity or nonconformity with audit criteria. When generating audit findings, the audit team shall consider sample size and limitations, and the uncertainty of evaluation. The audit team shall identify the processes, functions, areas or activities where the audit criteria are or are not satisfied."
+    type: "control"
+
+  - id: "6.4.7"
+    title: "Preparing audit conclusions"
+    description: "Before the closing meeting, the audit team shall prepare the audit conclusions. The audit conclusions can relate to: the degree of conformity of the management system with planned arrangements; the effective implementation, maintenance and improvement of the management system; the ability of the management system to achieve its objectives; and the results of the audit relative to the audit programme objectives."
+    type: "control"
+
+  - id: "6.4.8"
+    title: "Closing meeting"
+    description: "The closing meeting shall be conducted to present the audit findings and conclusions in a confidential manner. The audit team leader shall explain that audit findings are preliminary and subject to review. The audit team shall provide the auditee the opportunity to ask questions and seek clarification. The auditee shall be informed of the process for handling differences of opinion."
+    type: "control"
+
+  - id: "6.5"
+    title: "Preparing audit report"
+    description: "The audit team leader shall prepare the audit report. The audit report shall provide a complete, concise and clear record of the audit and shall include: audit objectives, scope and criteria; audit client and auditee; audit team members; dates and locations where audit activities were conducted; audit findings; audit conclusions; any opinions diverging from the audit client. The audit report shall be prepared within the timeframe specified in the audit plan."
+    type: "control"
+
+  - id: "6.6"
+    title: "Distributing audit report"
+    description: "The audit report shall be reviewed and approved by the audit client prior to distribution. The audit report shall be distributed within the timeframe specified in the audit plan. The audit report shall be distributed to the audit client and other relevant parties as specified in the audit programme procedures or by the audit client."
+    type: "control"
+
+  - id: "6.7"
+    title: "Completing audit"
+    description: "The audit is considered complete when all activities specified in the audit plan have been fulfilled and the audit report has been distributed. After completing the audit, the audit records shall be retained or returned to the auditee in accordance with the audit programme procedures and confidentiality requirements."
+    type: "control"
+
+  - id: "6.8"
+    title: "Conducting audit follow-up"
+    description: "Where agreed between the audit client and the auditee, audit follow-up activities may be conducted. Audit follow-up includes verification of actions taken by the auditee to address nonconformities identified during the audit. The results shall be recorded and reported to the audit client. Verification of audit follow-up shall be conducted in accordance with the audit programme procedures."
+    type: "control"
+
+  # Clause 7: Competence and evaluation of auditors
+  - id: "7.1"
+    title: "General"
+    description: "The organization shall ensure that the auditors and persons managing the audit programme have demonstrated competence in the audit process principles, practices and techniques, and possess the necessary personal attributes to enable consistent and effective performance of audit activities. The organization shall establish a process for evaluating auditors and audit team leaders."
+    type: "control"
+
+  - id: "7.2"
+    title: "Determining auditor competence"
+    description: "The competence of auditors and audit team leaders shall be evaluated in relation to the audit they are assigned. The organization shall determine the knowledge and skills required for auditors by considering: the audit processes, principles, practices and techniques; relevant management system standards, reference documents and procedures; the organizational context; the legal and contractual requirements; the audit criteria. The organization shall ensure that auditors possess the necessary competence to achieve the audit objectives."
+    type: "control"
+
+  - id: "7.3"
+    title: "Achieving auditor competence"
+    description: "The organization shall ensure that auditors develop and maintain competence through: education, work experience, auditor training and audit experience. The organization shall provide training or take other actions to achieve the required competence. Records of auditor training, education and experience shall be maintained."
+    type: "control"
+
+  - id: "7.4"
+    title: "Selecting appropriate audit team members"
+    description: "The organization shall select audit team members to ensure that the team collectively has the competence necessary to achieve the audit objectives. The organization shall consider: the audit scope and objectives; the overall competence required; the audit team composition; the relationship between the organization and the auditee; the language and cultural issues; the resources available. Where an audit team member lacks the required competence, the member shall be replaced or additional competence shall be obtained."
+    type: "control"
+
+  - id: "7.5"
+    title: "Evaluating auditor"
+    description: "The organization shall establish a process for evaluating auditor performance. Evaluation criteria shall be established and applied to assess auditor competence. The evaluation shall consider: performance during audits; demonstrated knowledge and skills; personal attributes; ability to apply knowledge and skills; the results of any examinations or tests. The evaluation results shall be used as input to the review and improvement of the audit programme."
+    type: "control"
+
+  # Clause 8: Audit team leader
+  - id: "8.1"
+    title: "General"
+    description: "The audit team leader is responsible for leading the audit team to achieve the audit objectives. This clause provides guidance on the additional responsibilities of the audit team leader beyond those of an auditor."
+    type: "control"
+
+  - id: "8.2"
+    title: "Managing audit"
+    description: "The audit team leader shall manage the audit from initiation to closing. The audit team leader shall: establish the audit plan; direct the work of the audit team; represent the audit team in communications with the audit client and the auditee; organize and direct the audit team members; ensure the audit progress is consistent with the audit plan; handle any issues that arise during the audit; ensure audit records are complete and accessible; ensure audit quality requirements are met."
+    type: "control"
+
+  - id: "8.3"
+    title: "Conducting review of audit"
+    description: "The audit team leader shall conduct a review of audit activities before the audit is concluded. The review shall verify that: audit activities have been carried out in accordance with the audit plan; audit findings and conclusions are supported by sufficient and appropriate audit evidence; any significant changes to the audit plan have been documented and approved. The review shall ensure that audit records are complete and properly organized."
+    type: "control"
+
+  # Additional guidance from Annex A (informative)
+  - id: "A.1"
+    title: " auditor competence"
+    description: "Annex A provides guidance on auditor competence including personal attributes (ethical, fair, courageous, perceptive, decisive, persistent), knowledge (management systems, audit process, applicable regulations), and skills (planning, working as a team, communicating, reporting, interviewing, observing, reviewing documents, sampling)."
+    type: "guidance"
+
+  - id: "A.2"
+    title: "Managing audit programme"
+    description: "Annex A provides guidance on managing an audit programme including establishing objectives, determining risks and opportunities, developing the programme, implementation, monitoring, and review and improvement."
+    type: "guidance"
+
+  - id: "A.3"
+    title: "Audit activities"
+    description: "Annex A provides detailed guidance on each stage of audit activities from initiating the audit through to follow-up, including practical guidance on documentation review, information collection and verification, and audit findings."
+    type: "guidance"
+
+  - id: "A.4"
+    title: "Competence and evaluation"
+    description: "Annex A provides guidance on determining auditor competence, achieving competence through education, training and experience, selecting appropriate team members, and evaluating auditor performance."
+    type: "guidance"
+
+  - id: "A.5"
+    title: "Audit team leader"
+    description: "Annex A provides guidance on the role of audit team leader including managing the audit and conducting the review of audit activities."
+    type: "guidance"
+
+  - id: "A.6"
+    title: "Combined and integrated audits"
+    description: "Annex A provides guidance on conducting combined audits (two or more management system standards) and integrated audits (management system elements from different standards within a single audit). The guidance covers planning, coordination, and reporting considerations."
+    type: "guidance"
+
+  - id: "A.7"
+    title: "Glossary of terms"
+    description: "Annex A includes definitions for key terms used in ISO 19011 including audit, audit client, audit team, auditor, audit programme, audit scope, audit criteria, audit evidence, audit finding, audit conclusion, auditee, and competence."
+    type: "guidance"

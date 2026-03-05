@@ -1,0 +1,9 @@
+# Impact Assessment
+
+## Business Impact
+
+[Business impact description]
+
+## Technical Impact
+
+[Technical impact description]

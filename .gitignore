@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment & credentials
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# IA Framework - User-specific (never sync)
+private/
+sessions/
+skills/ghost/
+
+# Claude Code local state
+history.jsonl
+file-history/
+shell-snapshots/
+projects/
+telemetry/
+statsig/
+todos/
+
+# Debug
+debug/
+
+# Cache
+.cache/

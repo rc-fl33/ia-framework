@@ -1,0 +1,1018 @@
+# FedRAMP Interview Questions - HIGH Baseline
+# Based on NIST 800-53 Rev 5 control families
+# Comprehensive coverage for FedRAMP HIGH authorization
+#
+# Version: Rev 5
+# Baseline: HIGH
+# Last Updated: 2026-01-14
+
+metadata:
+  framework: FedRAMP
+  version: "Rev 5"
+  baseline: "HIGH"
+  source: "NIST SP 800-53 Rev 5"
+  total_questions: 53
+
+questions:
+
+  # ============================================
+  # ACCESS CONTROL (AC) - 8 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-AC-001
+    text: "How do you manage user account provisioning, modification, and deprovisioning for your cloud system?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-2"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "AC-2"
+    evidence_required:
+      - "Account management procedures"
+      - "User provisioning workflows"
+      - "Account review logs (quarterly for HIGH)"
+    scoring:
+      full: "Automated provisioning with approval workflows, quarterly access reviews"
+      partial: "Manual process with documented procedures"
+      none: "Ad-hoc account management"
+
+  - id: Q-FEDRAMP-AC-002
+    text: "How do you implement automated account management mechanisms including automatic disabling of inactive/temporary accounts?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-2(2), AC-2(3)"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "AC-2(2), AC-2(3)"
+    evidence_required:
+      - "Automated account disable configuration"
+      - "Inactive account threshold settings (35 days for HIGH)"
+      - "Temporary account expiration policies"
+    scoring:
+      full: "Automated disable after 35 days inactivity, temp accounts auto-expire"
+      partial: "Manual review process for inactive accounts"
+      none: "No automated account management"
+
+  - id: Q-FEDRAMP-AC-003
+    text: "How is multi-factor authentication implemented for ALL users (privileged and non-privileged) accessing the system?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "IA-2(1), IA-2(2), IA-2(11)"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "IA-2(1), IA-2(2), IA-2(11)"
+    evidence_required:
+      - "MFA configuration for all user types"
+      - "Hardware token/PIV implementation"
+      - "Replay-resistant authentication evidence"
+    scoring:
+      full: "Phishing-resistant MFA (FIDO2, PIV/CAC) for all users, replay-resistant"
+      partial: "TOTP MFA for privileged, password for standard users"
+      none: "Password-only authentication"
+
+  - id: Q-FEDRAMP-AC-004
+    text: "How do you enforce least privilege and ensure users only have access necessary for their duties?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-6, AC-6(1), AC-6(2)"
+      nist-csf: "PR.AA-05"
+      nist-800-53: "AC-6"
+    evidence_required:
+      - "Role definitions with privilege justification"
+      - "Privileged function authorization records"
+      - "Security-relevant function access controls"
+    scoring:
+      full: "Documented least privilege, privileged functions require explicit authorization"
+      partial: "Roles defined but not consistently enforced"
+      none: "Shared admin accounts, no privilege restrictions"
+
+  - id: Q-FEDRAMP-AC-005
+    text: "How do you implement and enforce separation of duties for critical functions?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-5"
+      nist-csf: "PR.AA-05"
+      nist-800-53: "AC-5"
+    evidence_required:
+      - "Separation of duties matrix"
+      - "Conflicting duty identification"
+      - "Compensating controls for exceptions"
+    scoring:
+      full: "Documented separation matrix, system-enforced, no single person controls critical functions"
+      partial: "Policy exists, manual enforcement"
+      none: "No separation of duties"
+
+  - id: Q-FEDRAMP-AC-006
+    text: "How are remote access sessions secured, monitored, and controlled?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(4)"
+      nist-csf: "PR.AA-03"
+      nist-800-53: "AC-17"
+    evidence_required:
+      - "Remote access policy and authorization"
+      - "Encrypted tunnel configuration (FIPS-validated)"
+      - "Managed access control points"
+      - "Remote session disconnection policies"
+    scoring:
+      full: "FIPS-validated encryption, managed access points, session recording, auto-disconnect"
+      partial: "VPN with basic logging"
+      none: "Direct internet access without controls"
+
+  - id: Q-FEDRAMP-AC-007
+    text: "How do you control and monitor wireless access to the system?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-18, AC-18(1)"
+      nist-csf: "PR.AA-03"
+      nist-800-53: "AC-18"
+    evidence_required:
+      - "Wireless access policy"
+      - "Authentication/encryption for wireless (WPA3/WPA2-Enterprise)"
+      - "Wireless IDS configuration"
+    scoring:
+      full: "WPA3 or WPA2-Enterprise, wireless IDS, rogue AP detection"
+      partial: "WPA2 with pre-shared keys"
+      none: "Open wireless or WEP"
+
+  - id: Q-FEDRAMP-AC-008
+    text: "How do you control the use of mobile devices and enforce security requirements?"
+    category: Access Control
+    phase: PROTECT
+    controls:
+      fedramp: "AC-19, AC-19(5)"
+      nist-csf: "PR.AA-03"
+      nist-800-53: "AC-19"
+    evidence_required:
+      - "Mobile device policy"
+      - "MDM configuration"
+      - "Full-device encryption verification"
+      - "Container/app-level protections"
+    scoring:
+      full: "MDM enforced, full-device encryption, containerization, remote wipe capability"
+      partial: "Policy exists, partial MDM coverage"
+      none: "No mobile device controls"
+
+  # ============================================
+  # AUDIT AND ACCOUNTABILITY (AU) - 6 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-AU-001
+    text: "What events are logged and do you capture all required audit events for HIGH baseline?"
+    category: Audit and Accountability
+    phase: DETECT
+    controls:
+      fedramp: "AU-2, AU-2(3)"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "AU-2"
+    evidence_required:
+      - "Audit policy defining all loggable events"
+      - "Evidence of organization-defined events beyond baseline"
+      - "Audit event review and update records"
+    scoring:
+      full: "All baseline events plus organization-defined, reviewed annually"
+      partial: "Basic baseline events captured"
+      none: "Minimal logging"
+
+  - id: Q-FEDRAMP-AU-002
+    text: "What information is captured in audit records and does it support after-the-fact investigation?"
+    category: Audit and Accountability
+    phase: DETECT
+    controls:
+      fedramp: "AU-3, AU-3(1)"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "AU-3"
+    evidence_required:
+      - "Audit record format documentation"
+      - "Sample logs showing required fields"
+      - "Additional detail for organization-defined events"
+    scoring:
+      full: "Who, what, when, where, source, outcome plus additional context"
+      partial: "Basic fields captured"
+      none: "Insufficient audit detail"
+
+  - id: Q-FEDRAMP-AU-003
+    text: "How do you ensure adequate audit storage capacity and prevent audit failure?"
+    category: Audit and Accountability
+    phase: DETECT
+    controls:
+      fedramp: "AU-4, AU-5, AU-5(1)"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "AU-4, AU-5"
+    evidence_required:
+      - "Storage capacity planning documentation"
+      - "Alert thresholds for storage"
+      - "Real-time alerts to security personnel on audit failure"
+    scoring:
+      full: "Capacity planning, real-time alerts, automatic shutdown on audit failure"
+      partial: "Basic capacity monitoring"
+      none: "No capacity management"
+
+  - id: Q-FEDRAMP-AU-004
+    text: "How do you protect audit information from unauthorized access, modification, and deletion?"
+    category: Audit and Accountability
+    phase: DETECT
+    controls:
+      fedramp: "AU-9, AU-9(2), AU-9(3), AU-9(4)"
+      nist-csf: "DE.CM-03"
+      nist-800-53: "AU-9"
+    evidence_required:
+      - "Log access controls"
+      - "Backup to separate physical system"
+      - "Cryptographic protection (hashing/signing)"
+      - "Privileged user access restrictions"
+    scoring:
+      full: "Immutable storage, separate backup system, cryptographic integrity, restricted access"
+      partial: "Access controls on logs, no immutability"
+      none: "Logs stored with application data"
+
+  - id: Q-FEDRAMP-AU-005
+    text: "How long are audit records retained and what is the review/analysis process?"
+    category: Audit and Accountability
+    phase: DETECT
+    controls:
+      fedramp: "AU-6, AU-6(1), AU-6(3), AU-11"
+      nist-csf: "DE.AE-03"
+      nist-800-53: "AU-6, AU-11"
+    evidence_required:
+      - "Log retention configuration (minimum 1 year online)"
+      - "Automated analysis tools"
+      - "Correlation across system components"
+      - "Weekly review evidence"
+    scoring:
+      full: "1+ year retention, automated SIEM, cross-component correlation, weekly review"
+      partial: "90-day retention, manual review"
+      none: "Short retention, no analysis"
+
+  - id: Q-FEDRAMP-AU-006
+    text: "How do you synchronize time across all system components for audit correlation?"
+    category: Audit and Accountability
+    phase: DETECT
+    controls:
+      fedramp: "AU-8, AU-8(1)"
+      nist-csf: "DE.AE-03"
+      nist-800-53: "AU-8"
+    evidence_required:
+      - "NTP/time synchronization configuration"
+      - "Authoritative time source identification"
+      - "Time sync monitoring"
+    scoring:
+      full: "Authoritative time source, all components synchronized, monitored"
+      partial: "NTP configured but not monitored"
+      none: "No time synchronization"
+
+  # ============================================
+  # AWARENESS AND TRAINING (AT) - 2 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-AT-001
+    text: "How do you provide security awareness training and how often is it required?"
+    category: Awareness and Training
+    phase: GOVERN
+    controls:
+      fedramp: "AT-2, AT-2(2)"
+      nist-csf: "PR.AT-01"
+      nist-800-53: "AT-2"
+    evidence_required:
+      - "Security awareness training program"
+      - "Training completion records"
+      - "Insider threat awareness content"
+      - "Annual refresher evidence"
+    scoring:
+      full: "Initial + annual training, insider threat awareness, completion tracking"
+      partial: "Training exists but not tracked"
+      none: "No security awareness program"
+
+  - id: Q-FEDRAMP-AT-002
+    text: "How do you provide role-based security training for personnel with significant security responsibilities?"
+    category: Awareness and Training
+    phase: GOVERN
+    controls:
+      fedramp: "AT-3, AT-3(3)"
+      nist-csf: "PR.AT-02"
+      nist-800-53: "AT-3"
+    evidence_required:
+      - "Role-based training curriculum"
+      - "Training for developers, admins, security personnel"
+      - "Practical exercises included"
+      - "Training completion records by role"
+    scoring:
+      full: "Role-specific training with practical exercises, completion tracked"
+      partial: "Generic training for all roles"
+      none: "No role-based training"
+
+  # ============================================
+  # CONFIGURATION MANAGEMENT (CM) - 5 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-CM-001
+    text: "How do you develop, document, and maintain baseline configurations for system components?"
+    category: Configuration Management
+    phase: PROTECT
+    controls:
+      fedramp: "CM-2, CM-2(1), CM-2(2), CM-2(3)"
+      nist-csf: "PR.PS-01"
+      nist-800-53: "CM-2"
+    evidence_required:
+      - "Baseline configuration documentation"
+      - "Review and update records (annual minimum)"
+      - "Automated baseline maintenance tools"
+      - "High-risk area baseline retention"
+    scoring:
+      full: "Documented baselines, automated maintenance, annual review, retained for high-risk"
+      partial: "Baselines documented but manual"
+      none: "No defined baselines"
+
+  - id: Q-FEDRAMP-CM-002
+    text: "How is change management implemented and do you analyze security impact before changes?"
+    category: Configuration Management
+    phase: PROTECT
+    controls:
+      fedramp: "CM-3, CM-3(2), CM-4"
+      nist-csf: "PR.PS-01"
+      nist-800-53: "CM-3, CM-4"
+    evidence_required:
+      - "Change management policy"
+      - "Security impact analysis process"
+      - "Test/development environment for changes"
+      - "Change advisory board records"
+    scoring:
+      full: "Formal CAB, mandatory security impact analysis, test environment, rollback procedures"
+      partial: "Documented process without security analysis"
+      none: "Ad-hoc changes"
+
+  - id: Q-FEDRAMP-CM-003
+    text: "How do you enforce security configuration settings across all system components?"
+    category: Configuration Management
+    phase: PROTECT
+    controls:
+      fedramp: "CM-6, CM-6(1)"
+      nist-csf: "PR.PS-01"
+      nist-800-53: "CM-6"
+    evidence_required:
+      - "Configuration settings documentation"
+      - "Automated central management/verification"
+      - "Deviation response procedures"
+    scoring:
+      full: "Automated compliance checking, centralized management, deviation alerts"
+      partial: "Manual configuration verification"
+      none: "No configuration enforcement"
+
+  - id: Q-FEDRAMP-CM-004
+    text: "How do you restrict, disable, and prevent unauthorized software installation?"
+    category: Configuration Management
+    phase: PROTECT
+    controls:
+      fedramp: "CM-7, CM-7(1), CM-7(2), CM-7(5), CM-11"
+      nist-csf: "PR.PS-05"
+      nist-800-53: "CM-7, CM-11"
+    evidence_required:
+      - "Least functionality documentation"
+      - "Prohibited/permitted software lists"
+      - "Periodic review of functions/services"
+      - "Software allowlisting configuration"
+    scoring:
+      full: "Allowlisting enforced, periodic function review, automated monitoring"
+      partial: "Policy exists, manual enforcement"
+      none: "No software restrictions"
+
+  - id: Q-FEDRAMP-CM-005
+    text: "How do you maintain a complete and accurate inventory of system components?"
+    category: Configuration Management
+    phase: IDENTIFY
+    controls:
+      fedramp: "CM-8, CM-8(1), CM-8(2), CM-8(3), CM-8(5)"
+      nist-csf: "ID.AM-01"
+      nist-800-53: "CM-8"
+    evidence_required:
+      - "Component inventory (automated updates)"
+      - "Accountability by component"
+      - "Duplicate address detection"
+      - "Unauthorized component detection process"
+    scoring:
+      full: "Automated inventory, continuous updates, duplicate detection, unauthorized alerts"
+      partial: "Manual inventory updated periodically"
+      none: "No component inventory"
+
+  # ============================================
+  # CONTINGENCY PLANNING (CP) - 4 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-CP-001
+    text: "Do you have a documented contingency plan addressing all required elements?"
+    category: Contingency Planning
+    phase: RECOVER
+    controls:
+      fedramp: "CP-2, CP-2(1), CP-2(2), CP-2(3)"
+      nist-csf: "RC.RP-01"
+      nist-800-53: "CP-2"
+    evidence_required:
+      - "Contingency plan with all required elements"
+      - "Resumption of essential missions within defined time"
+      - "Full system restoration capability planning"
+      - "Coordination with external plans"
+    scoring:
+      full: "Complete plan, coordinated with related plans, addresses full restoration"
+      partial: "Basic plan without coordination"
+      none: "No contingency plan"
+
+  - id: Q-FEDRAMP-CP-002
+    text: "How often is the contingency plan tested and what types of tests are performed?"
+    category: Contingency Planning
+    phase: RECOVER
+    controls:
+      fedramp: "CP-4, CP-4(1)"
+      nist-csf: "RC.RP-01"
+      nist-800-53: "CP-4"
+    evidence_required:
+      - "Test schedule (annual minimum for HIGH)"
+      - "Coordinated testing with related plans"
+      - "Test results and lessons learned"
+      - "Plan updates based on tests"
+    scoring:
+      full: "Annual functional testing, coordinated, lessons incorporated"
+      partial: "Tabletop only, not full functional"
+      none: "No testing"
+
+  - id: Q-FEDRAMP-CP-003
+    text: "How are system backups performed, stored, and tested for restoration?"
+    category: Contingency Planning
+    phase: RECOVER
+    controls:
+      fedramp: "CP-9, CP-9(1), CP-9(2), CP-9(3), CP-9(5)"
+      nist-csf: "PR.IR-04"
+      nist-800-53: "CP-9"
+    evidence_required:
+      - "Backup policy covering all data types"
+      - "Separate storage location (alternate site for HIGH)"
+      - "Restoration test results"
+      - "Transfer to alternate site capability"
+    scoring:
+      full: "Automated backups, alternate site storage, regular restoration tests, encrypted"
+      partial: "Backups performed but rarely tested"
+      none: "Inconsistent or no backups"
+
+  - id: Q-FEDRAMP-CP-004
+    text: "Do you have an alternate processing site and how quickly can operations be transferred?"
+    category: Contingency Planning
+    phase: RECOVER
+    controls:
+      fedramp: "CP-7, CP-7(1), CP-7(2), CP-7(3)"
+      nist-csf: "RC.RP-01"
+      nist-800-53: "CP-7"
+    evidence_required:
+      - "Alternate processing site documentation"
+      - "Transfer time objectives"
+      - "Equivalent security controls at alternate"
+      - "Accessibility during area-wide disruption"
+    scoring:
+      full: "Geographically separate site, equivalent security, defined transfer time"
+      partial: "Alternate site but not fully configured"
+      none: "No alternate processing capability"
+
+  # ============================================
+  # IDENTIFICATION AND AUTHENTICATION (IA) - 4 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-IA-001
+    text: "How do you uniquely identify and authenticate all users, devices, and services?"
+    category: Identification and Authentication
+    phase: PROTECT
+    controls:
+      fedramp: "IA-2, IA-3, IA-4, IA-8"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "IA-2, IA-3, IA-4, IA-8"
+    evidence_required:
+      - "User identification process"
+      - "Device identification/authentication"
+      - "Identifier management procedures"
+      - "Non-organizational user identification"
+    scoring:
+      full: "Unique IDs for all entities, device authentication, non-org user identification"
+      partial: "User identification only"
+      none: "Shared accounts permitted"
+
+  - id: Q-FEDRAMP-IA-002
+    text: "How do you manage authenticator credentials (passwords, tokens, certificates, keys)?"
+    category: Identification and Authentication
+    phase: PROTECT
+    controls:
+      fedramp: "IA-5, IA-5(1), IA-5(2), IA-5(6), IA-5(7), IA-5(8)"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "IA-5"
+    evidence_required:
+      - "Password complexity enforcement"
+      - "PKI certificate validation"
+      - "Authenticator protection mechanisms"
+      - "Refresh frequency (60-day max for HIGH)"
+      - "Group authenticator controls"
+    scoring:
+      full: "Strong password policy, PKI validation, protected storage, regular refresh"
+      partial: "Basic password policy, manual management"
+      none: "Weak passwords, no management"
+
+  - id: Q-FEDRAMP-IA-003
+    text: "How do you authenticate cryptographic modules and ensure secure operation?"
+    category: Identification and Authentication
+    phase: PROTECT
+    controls:
+      fedramp: "IA-7"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "IA-7"
+    evidence_required:
+      - "FIPS 140-2/3 validation certificates"
+      - "Cryptographic module inventory"
+      - "Module authentication mechanisms"
+    scoring:
+      full: "FIPS 140-2/3 Level 1+ validated modules, documented inventory"
+      partial: "FIPS-validated encryption but not all modules"
+      none: "Non-validated cryptography"
+
+  - id: Q-FEDRAMP-IA-004
+    text: "How are service accounts, API keys, and system credentials managed and monitored?"
+    category: Identification and Authentication
+    phase: PROTECT
+    controls:
+      fedramp: "IA-4, IA-5"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "IA-4, IA-5"
+    evidence_required:
+      - "Service account inventory"
+      - "API key rotation policy and automation"
+      - "Service account activity monitoring"
+      - "Secrets management solution"
+    scoring:
+      full: "Inventoried, automated rotation, vault/secrets management, monitored"
+      partial: "Inventory exists, manual rotation"
+      none: "No service account management"
+
+  # ============================================
+  # INCIDENT RESPONSE (IR) - 4 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-IR-001
+    text: "Do you have a documented incident response capability addressing all FedRAMP requirements?"
+    category: Incident Response
+    phase: RESPOND
+    controls:
+      fedramp: "IR-1, IR-8"
+      nist-csf: "RS.MA-01"
+      nist-800-53: "IR-1, IR-8"
+    evidence_required:
+      - "Incident response policy and plan"
+      - "Defined incident handling procedures"
+      - "Plan review and update records"
+    scoring:
+      full: "Complete IR policy/plan, reviewed annually, addresses all phases"
+      partial: "Basic IR plan without full coverage"
+      none: "No incident response capability"
+
+  - id: Q-FEDRAMP-IR-002
+    text: "How do you train incident response personnel and test the IR capability?"
+    category: Incident Response
+    phase: RESPOND
+    controls:
+      fedramp: "IR-2, IR-3, IR-3(2)"
+      nist-csf: "RS.MA-02"
+      nist-800-53: "IR-2, IR-3"
+    evidence_required:
+      - "IR training program and records"
+      - "IR testing schedule and results (annual for HIGH)"
+      - "Coordination with related plans"
+      - "Automated testing mechanisms"
+    scoring:
+      full: "Regular IR training, annual testing with automation, coordinated exercises"
+      partial: "Training exists, infrequent testing"
+      none: "No IR training or testing"
+
+  - id: Q-FEDRAMP-IR-003
+    text: "How do you report incidents to FedRAMP, US-CERT, and agency customers within required timeframes?"
+    category: Incident Response
+    phase: RESPOND
+    controls:
+      fedramp: "IR-6, IR-6(1)"
+      nist-csf: "RS.CO-02"
+      nist-800-53: "IR-6"
+    evidence_required:
+      - "Incident reporting procedures (1-hour for HIGH)"
+      - "US-CERT notification process"
+      - "Agency notification templates"
+      - "Automated reporting mechanisms"
+    scoring:
+      full: "1-hour reporting capability, automated mechanisms, defined templates"
+      partial: "Reporting procedures but not automated"
+      none: "No incident reporting process"
+
+  - id: Q-FEDRAMP-IR-004
+    text: "How do you handle evidence collection, preservation, and chain of custody for incidents?"
+    category: Incident Response
+    phase: RESPOND
+    controls:
+      fedramp: "IR-4, IR-4(1), IR-4(4)"
+      nist-csf: "RS.AN-07"
+      nist-800-53: "IR-4"
+    evidence_required:
+      - "Evidence handling procedures"
+      - "Automated incident handling tools"
+      - "Information correlation capability"
+      - "Chain of custody documentation"
+    scoring:
+      full: "Automated handling, evidence correlation, documented chain of custody"
+      partial: "Manual evidence collection"
+      none: "No evidence handling procedures"
+
+  # ============================================
+  # MAINTENANCE (MA) - 2 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-MA-001
+    text: "How do you control and monitor system maintenance activities?"
+    category: Maintenance
+    phase: PROTECT
+    controls:
+      fedramp: "MA-2, MA-2(2), MA-3, MA-3(1), MA-3(2)"
+      nist-csf: "PR.PS-03"
+      nist-800-53: "MA-2, MA-3"
+    evidence_required:
+      - "Maintenance policy and procedures"
+      - "Automated maintenance scheduling"
+      - "Maintenance tool controls"
+      - "Media inspection before use"
+    scoring:
+      full: "Scheduled maintenance, controlled tools, media inspection, automated where possible"
+      partial: "Documented procedures, manual process"
+      none: "Ad-hoc maintenance"
+
+  - id: Q-FEDRAMP-MA-002
+    text: "How do you control nonlocal (remote) maintenance and diagnostic activities?"
+    category: Maintenance
+    phase: PROTECT
+    controls:
+      fedramp: "MA-4, MA-4(2), MA-4(3)"
+      nist-csf: "PR.PS-03"
+      nist-800-53: "MA-4"
+    evidence_required:
+      - "Remote maintenance policy"
+      - "Strong authentication for remote maintenance"
+      - "Session termination procedures"
+      - "Comparable security at remote sites"
+    scoring:
+      full: "Approved remote maintenance, strong auth, session recording, terminated when complete"
+      partial: "Remote maintenance with basic controls"
+      none: "Uncontrolled remote access"
+
+  # ============================================
+  # MEDIA PROTECTION (MP) - 2 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-MP-001
+    text: "How do you protect and control digital and non-digital media containing system information?"
+    category: Media Protection
+    phase: PROTECT
+    controls:
+      fedramp: "MP-2, MP-3, MP-4, MP-5"
+      nist-csf: "PR.DS-03"
+      nist-800-53: "MP-2, MP-3, MP-4, MP-5"
+    evidence_required:
+      - "Media protection policy"
+      - "Media marking procedures"
+      - "Controlled area storage"
+      - "Transport protection (encryption, courier)"
+    scoring:
+      full: "Marked media, controlled storage, encrypted transport, custodian accountability"
+      partial: "Basic media controls"
+      none: "No media protection"
+
+  - id: Q-FEDRAMP-MP-002
+    text: "How do you sanitize or destroy media before disposal or reuse?"
+    category: Media Protection
+    phase: PROTECT
+    controls:
+      fedramp: "MP-6, MP-6(1), MP-6(2)"
+      nist-csf: "PR.DS-03"
+      nist-800-53: "MP-6"
+    evidence_required:
+      - "Sanitization procedures by media type"
+      - "Testing of sanitization equipment"
+      - "Non-destructive sanitization for portable devices"
+      - "Sanitization records"
+    scoring:
+      full: "NIST 800-88 compliant sanitization, tested equipment, documented"
+      partial: "Basic sanitization without verification"
+      none: "Media disposed without sanitization"
+
+  # ============================================
+  # PHYSICAL AND ENVIRONMENTAL PROTECTION (PE) - 2 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-PE-001
+    text: "How do you control physical access to facilities and system components?"
+    category: Physical and Environmental Protection
+    phase: PROTECT
+    controls:
+      fedramp: "PE-2, PE-3, PE-3(1), PE-4, PE-5, PE-6"
+      nist-csf: "PR.AA-02"
+      nist-800-53: "PE-2, PE-3, PE-4, PE-5, PE-6"
+    evidence_required:
+      - "Physical access authorization records"
+      - "Access control systems (guards, locks, badges)"
+      - "Tamper protection for access devices"
+      - "Access control for transmission medium"
+      - "Visitor controls and logs"
+    scoring:
+      full: "Multi-factor physical access, monitored, visitor escorts, tamper-evident"
+      partial: "Badge access with basic monitoring"
+      none: "Uncontrolled physical access"
+
+  - id: Q-FEDRAMP-PE-002
+    text: "How do you protect against environmental hazards and ensure emergency provisions?"
+    category: Physical and Environmental Protection
+    phase: PROTECT
+    controls:
+      fedramp: "PE-9, PE-10, PE-11, PE-12, PE-13, PE-14, PE-15"
+      nist-csf: "PR.IR-03"
+      nist-800-53: "PE-9 through PE-15"
+    evidence_required:
+      - "Power protection (UPS, generator)"
+      - "Emergency shutoff procedures"
+      - "Fire protection systems"
+      - "Temperature/humidity controls"
+      - "Water damage protection"
+    scoring:
+      full: "Redundant power, fire suppression, HVAC, water detection, automatic shutoff"
+      partial: "Basic environmental controls"
+      none: "No environmental protection"
+
+  # ============================================
+  # RISK ASSESSMENT (RA) - 3 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-RA-001
+    text: "How do you perform and document risk assessments for the system?"
+    category: Risk Assessment
+    phase: IDENTIFY
+    controls:
+      fedramp: "RA-3, RA-3(1)"
+      nist-csf: "ID.RA-05"
+      nist-800-53: "RA-3"
+    evidence_required:
+      - "Risk assessment methodology"
+      - "Risk assessment report"
+      - "Supply chain risk assessment"
+      - "Annual update evidence"
+    scoring:
+      full: "Annual risk assessment, supply chain included, documented methodology"
+      partial: "Periodic assessment without supply chain"
+      none: "No risk assessment"
+
+  - id: Q-FEDRAMP-RA-002
+    text: "How often do you perform vulnerability scanning and what is your remediation process?"
+    category: Risk Assessment
+    phase: IDENTIFY
+    controls:
+      fedramp: "RA-5, RA-5(2), RA-5(3), RA-5(5), RA-5(6)"
+      nist-csf: "ID.RA-01"
+      nist-800-53: "RA-5"
+    evidence_required:
+      - "Vulnerability scan reports (monthly OS, weekly web/DB for HIGH)"
+      - "Authenticated scanning configuration"
+      - "Breadth/depth of coverage"
+      - "Privileged access scanning"
+      - "Trend analysis reports"
+    scoring:
+      full: "Monthly+ scans, authenticated, full coverage, trend analysis, remediation SLAs"
+      partial: "Quarterly scans, unauthenticated"
+      none: "No vulnerability scanning"
+
+  - id: Q-FEDRAMP-RA-003
+    text: "How often do you perform penetration testing and how are findings addressed?"
+    category: Risk Assessment
+    phase: IDENTIFY
+    controls:
+      fedramp: "CA-8, CA-8(1)"
+      nist-csf: "ID.RA-03"
+      nist-800-53: "CA-8"
+    evidence_required:
+      - "Penetration test reports (annual minimum)"
+      - "Red team exercises for HIGH"
+      - "Remediation tracking"
+      - "Testing scope documentation"
+    scoring:
+      full: "Annual pentest, red team exercises, tracked remediation"
+      partial: "Annual pentest without red team"
+      none: "No penetration testing"
+
+  # ============================================
+  # SYSTEM AND COMMUNICATIONS PROTECTION (SC) - 4 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-SC-001
+    text: "How do you implement boundary protection and control network traffic?"
+    category: System and Communications Protection
+    phase: PROTECT
+    controls:
+      fedramp: "SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-7(18)"
+      nist-csf: "PR.IR-01"
+      nist-800-53: "SC-7"
+    evidence_required:
+      - "Network architecture with security boundaries"
+      - "Access points limited and monitored"
+      - "Deny-by-default traffic rules"
+      - "Fail-secure configuration"
+      - "Traffic filtering on managed interfaces"
+    scoring:
+      full: "Segmented network, deny-by-default, fail-secure, managed interfaces only"
+      partial: "Basic firewall, limited segmentation"
+      none: "Flat network"
+
+  - id: Q-FEDRAMP-SC-002
+    text: "How is data protected during transmission (in transit)?"
+    category: System and Communications Protection
+    phase: PROTECT
+    controls:
+      fedramp: "SC-8, SC-8(1)"
+      nist-csf: "PR.DS-02"
+      nist-800-53: "SC-8"
+    evidence_required:
+      - "Encryption standards for transmission"
+      - "TLS 1.2+ configuration"
+      - "FIPS-validated cryptographic modules"
+      - "Alternative physical safeguards (if used)"
+    scoring:
+      full: "FIPS-validated TLS 1.2+, all transmission encrypted"
+      partial: "TLS implemented but not FIPS-validated"
+      none: "Unencrypted transmission"
+
+  - id: Q-FEDRAMP-SC-003
+    text: "How is data protected at rest (stored data)?"
+    category: System and Communications Protection
+    phase: PROTECT
+    controls:
+      fedramp: "SC-28, SC-28(1)"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "SC-28"
+    evidence_required:
+      - "Encryption at rest configuration"
+      - "FIPS-validated cryptographic modules"
+      - "Key management procedures"
+    scoring:
+      full: "FIPS-validated encryption for all data at rest, proper key management"
+      partial: "Encryption implemented but not FIPS-validated"
+      none: "No encryption at rest"
+
+  - id: Q-FEDRAMP-SC-004
+    text: "How do you manage cryptographic keys throughout their lifecycle?"
+    category: System and Communications Protection
+    phase: PROTECT
+    controls:
+      fedramp: "SC-12, SC-12(1)"
+      nist-csf: "PR.DS-01"
+      nist-800-53: "SC-12"
+    evidence_required:
+      - "Key management policy"
+      - "Key generation, distribution, storage procedures"
+      - "Key rotation and destruction"
+      - "HSM or equivalent protection"
+    scoring:
+      full: "FIPS-compliant key management, HSM protection, documented lifecycle"
+      partial: "Basic key management without HSM"
+      none: "No key management"
+
+  # ============================================
+  # SYSTEM AND INFORMATION INTEGRITY (SI) - 4 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-SI-001
+    text: "How do you identify, report, and correct system flaws (patch management)?"
+    category: System and Information Integrity
+    phase: PROTECT
+    controls:
+      fedramp: "SI-2, SI-2(2), SI-2(3)"
+      nist-csf: "PR.PS-01"
+      nist-800-53: "SI-2"
+    evidence_required:
+      - "Patch management policy with SLAs"
+      - "Automated patch deployment"
+      - "Patch installation verification"
+      - "Remediation benchmarks (30 days critical for HIGH)"
+    scoring:
+      full: "Automated patching, 30-day critical SLA, centralized management, verified"
+      partial: "Manual patching, longer SLAs"
+      none: "No patch management"
+
+  - id: Q-FEDRAMP-SI-002
+    text: "How do you protect against malicious code?"
+    category: System and Information Integrity
+    phase: DETECT
+    controls:
+      fedramp: "SI-3, SI-3(1), SI-3(2)"
+      nist-csf: "DE.CM-09"
+      nist-800-53: "SI-3"
+    evidence_required:
+      - "Anti-malware solution configuration"
+      - "Automatic updates (real-time for HIGH)"
+      - "Detection and eradication capability"
+      - "Non-signature-based detection"
+    scoring:
+      full: "EDR/XDR with behavioral analysis, real-time updates, automated response"
+      partial: "Signature-based AV with daily updates"
+      none: "No malware protection"
+
+  - id: Q-FEDRAMP-SI-003
+    text: "How do you monitor the system for security-relevant events and anomalies?"
+    category: System and Information Integrity
+    phase: DETECT
+    controls:
+      fedramp: "SI-4, SI-4(2), SI-4(4), SI-4(5), SI-4(12)"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "SI-4"
+    evidence_required:
+      - "Monitoring strategy and coverage"
+      - "Automated analysis tools"
+      - "Real-time alerts for indicators of compromise"
+      - "System-wide intrusion detection"
+      - "Alert correlation capability"
+    scoring:
+      full: "Comprehensive monitoring, automated analysis, real-time IOC alerts, correlated"
+      partial: "Basic monitoring with manual review"
+      none: "No security monitoring"
+
+  - id: Q-FEDRAMP-SI-004
+    text: "How do you verify software, firmware, and information integrity?"
+    category: System and Information Integrity
+    phase: PROTECT
+    controls:
+      fedramp: "SI-7, SI-7(1), SI-7(7)"
+      nist-csf: "PR.DS-06"
+      nist-800-53: "SI-7"
+    evidence_required:
+      - "Integrity verification mechanisms"
+      - "Integrity checking automation (boot, restart)"
+      - "Unauthorized change detection"
+      - "Response procedures for integrity violations"
+    scoring:
+      full: "Automated integrity checking, boot/restart verification, violation response"
+      partial: "Periodic integrity checks"
+      none: "No integrity verification"
+
+  # ============================================
+  # SECURITY ASSESSMENT (CA) - 3 Questions
+  # ============================================
+
+  - id: Q-FEDRAMP-CA-001
+    text: "How do you maintain the Plan of Action and Milestones (POA&M) for identified vulnerabilities?"
+    category: Security Assessment
+    phase: IDENTIFY
+    controls:
+      fedramp: "CA-5, CA-5(1)"
+      nist-csf: "ID.RA-06"
+      nist-800-53: "CA-5"
+    evidence_required:
+      - "Current POA&M document"
+      - "Automated POA&M tracking"
+      - "Remediation timelines and status"
+      - "Risk acceptance documentation"
+    scoring:
+      full: "Automated POA&M, tracked remediation, defined timelines, risk acceptance process"
+      partial: "Manual POA&M tracking"
+      none: "No POA&M"
+
+  - id: Q-FEDRAMP-CA-002
+    text: "How do you implement continuous monitoring for the FedRAMP authorization?"
+    category: Security Assessment
+    phase: DETECT
+    controls:
+      fedramp: "CA-7, CA-7(1)"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "CA-7"
+    evidence_required:
+      - "Continuous monitoring strategy"
+      - "Automated monitoring where possible"
+      - "Monthly/annual deliverable schedule"
+      - "Ongoing authorization evidence"
+    scoring:
+      full: "Automated ConMon, timely deliverables, ongoing authorization maintained"
+      partial: "Manual ConMon, occasional delays"
+      none: "No continuous monitoring"
+
+  - id: Q-FEDRAMP-CA-003
+    text: "When was your last 3PAO assessment and what is the authorization status?"
+    category: Security Assessment
+    phase: GOVERN
+    controls:
+      fedramp: "CA-2, CA-2(1), CA-2(2), CA-6"
+      nist-csf: "GV.OV-03"
+      nist-800-53: "CA-2, CA-6"
+    evidence_required:
+      - "3PAO Security Assessment Report (SAR)"
+      - "Authorization decision and date"
+      - "Independent assessor qualifications"
+      - "Specialized assessments for HIGH"
+    scoring:
+      full: "Current authorization, annual assessment, specialized assessments as needed"
+      partial: "Authorization >1 year old, pending reauthorization"
+      none: "No FedRAMP authorization"

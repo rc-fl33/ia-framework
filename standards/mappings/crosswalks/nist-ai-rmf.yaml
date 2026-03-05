@@ -1,0 +1,1594 @@
+framework: nist-ai-rmf
+version: "1.0"
+description: NIST AI Risk Management Framework 1.0 cross-framework mappings
+last_updated: 2026-02-25
+coverage_pct: 90
+mappings:
+
+  # ═══════════════════════════════════════════════════════════════════════
+  # GOVERN (GV) — Governance and policy controls
+  # Maps to: ISO 42001 clauses 4-6/9-10, EU AI Act Chapter V, NIST CSF GV
+  # ═══════════════════════════════════════════════════════════════════════
+
+  - control: "GOVERN 1.1"
+    title: Legal and regulatory requirements involving AI are understood, managed, and documented
+    external_mappings:
+      iso-42001:
+        - "4.1"
+        - "6.1.1"
+      eu-ai-act:
+        - "Art-1"
+        - "Art-2"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.OC-01
+        - GV.PO-01
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "A001"
+    confidence: high
+    evidence:
+      - Legal/regulatory compliance is a cross-framework universal requirement
+    notes: NIST AI RMF GOVERN 1 policies align with ISO 42001 governance clauses
+
+  - control: "GOVERN 1.2"
+    title: Trustworthy AI characteristics integrated into organizational policies and practices
+    external_mappings:
+      iso-42001:
+        - "4.4"
+        - "5.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+        - "Clause 6"
+      nist-csf:
+        - GV.PO-01
+        - GV.PO-02
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "A002"
+    confidence: high
+    evidence:
+      - Trustworthy AI characteristics are addressed across ISO 24028 and ISO 42001 policy requirements
+    notes: ISO 24028 Clause 6 enumerates the trustworthiness properties referenced here
+
+  - control: "GOVERN 1.3"
+    title: Processes to determine needed level of risk management based on risk tolerance
+    external_mappings:
+      iso-42001:
+        - "6.1.1"
+        - "6.1.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.9"
+      nist-csf:
+        - GV.RM-01
+        - GV.RM-02
+      iso-42005:
+        - "5.7"
+      aiuc-1:
+        - "B001"
+    confidence: high
+    evidence:
+      - Risk appetite and tolerance determination is required by ISO 42001 and NIST CSF GV.RM domain
+    notes: ISO 42005 clause 5.7 defines threshold determination matching risk tolerance application
+
+  - control: "GOVERN 1.4"
+    title: Risk management process established through transparent policies and controls
+    external_mappings:
+      iso-42001:
+        - "5.2"
+        - "6.1.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.PO-01
+        - GV.RM-02
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "A001"
+        - "B001"
+    confidence: high
+    evidence:
+      - Transparent risk management policies are foundational to ISO 42001 and NIST CSF governance
+
+  - control: "GOVERN 1.5"
+    title: Ongoing monitoring and periodic review of risk management process with defined roles
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "9.3"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - GV.RM-02
+        - GV.RR-01
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Monitoring and management review are ISO 42001 Clause 9 requirements
+
+  - control: "GOVERN 1.6"
+    title: Mechanisms to inventory AI systems resourced according to risk priorities
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "A.4.1"
+      eu-ai-act:
+        - "Art-51"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - ID.AM-07
+        - GV.RM-01
+      iso-42005:
+        - "5.4"
+      aiuc-1:
+        - "E012"
+    confidence: high
+    evidence:
+      - AI system inventory is required by ISO 42001 Annex A.4 and EU AI Act registration obligations
+
+  - control: "GOVERN 1.7"
+    title: Processes for decommissioning and phasing out AI systems safely
+    external_mappings:
+      iso-42001:
+        - "8.4"
+        - "10.1"
+      eu-ai-act:
+        - "Art-72"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - GV.RM-06
+        - RS.MI-03
+      iso-42005:
+        - "5.4"
+      aiuc-1:
+        - "E007"
+    confidence: high
+    evidence:
+      - AI lifecycle management including decommissioning is addressed in ISO 42001 Clause 8.4
+
+  - control: "GOVERN 2.1"
+    title: Roles, responsibilities, and lines of communication for AI risk management documented
+    external_mappings:
+      iso-42001:
+        - "5.3"
+        - "A.3.2"
+      eu-ai-act:
+        - "Art-26"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-02
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "E004"
+    confidence: high
+    evidence:
+      - Role and responsibility documentation is an ISO 42001 Clause 5.3 requirement
+
+  - control: "GOVERN 2.2"
+    title: Personnel and partners receive AI risk management training
+    external_mappings:
+      iso-42001:
+        - "7.2"
+        - "7.3"
+      eu-ai-act:
+        - "Art-26"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.RR-02
+        - GV.RR-04
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "E001"
+    confidence: high
+    evidence:
+      - Competence and awareness requirements are covered by ISO 42001 Clauses 7.2 and 7.3
+
+  - control: "GOVERN 2.3"
+    title: Executive leadership takes responsibility for AI risk decisions
+    external_mappings:
+      iso-42001:
+        - "5.1"
+        - "5.3"
+      eu-ai-act:
+        - "Art-26"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-03
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "A006"
+    confidence: high
+    evidence:
+      - Top management commitment is ISO 42001 Clause 5.1 requirement
+
+  - control: "GOVERN 3.1"
+    title: AI risk management decision-making informed by a diverse team
+    external_mappings:
+      iso-42001:
+        - "5.3"
+        - "A.2.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - GV.RR-02
+        - GV.OC-04
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "A003"
+    confidence: medium
+    evidence:
+      - Diverse team composition for AI governance aligns with ISO 42001 organizational context and EU AI Act Annex guidance
+
+  - control: "GOVERN 3.2"
+    title: Policies for human-AI configuration roles and oversight responsibilities
+    external_mappings:
+      iso-42001:
+        - "5.3"
+        - "A.6.2.6"
+      eu-ai-act:
+        - "Art-14"
+        - "Art-22"
+      iso-24028:
+        - "Clause 6.8"
+      nist-csf:
+        - GV.RR-01
+        - GV.RR-04
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "E003"
+    confidence: high
+    evidence:
+      - Human oversight requirements for AI systems are directly addressed in EU AI Act Art-14 and Art-22
+
+  - control: "GOVERN 4.1"
+    title: Policies fostering critical thinking and safety-first mindset for AI
+    external_mappings:
+      iso-42001:
+        - "5.1"
+        - "5.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.2"
+      nist-csf:
+        - GV.PO-01
+        - GV.PO-02
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "A004"
+    confidence: high
+    evidence:
+      - Safety-first culture requirements align with ISO 42001 leadership and policy requirements
+
+  - control: "GOVERN 4.2"
+    title: Teams document risks and potential impacts of AI technology
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "A.5.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - GV.RM-03
+        - ID.RA-01
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "B002"
+    confidence: high
+    evidence:
+      - AI risk documentation requirements are covered by ISO 42001 A.5.2 and ISO 42005 Clause 6.8
+
+  - control: "GOVERN 4.3"
+    title: Organizational practices enable AI testing, incident identification, and information sharing
+    external_mappings:
+      iso-42001:
+        - "10.1"
+        - "10.2"
+      eu-ai-act:
+        - "Art-72"
+      iso-24028:
+        - "Clause 6.2"
+      nist-csf:
+        - DE.CM-01
+        - RS.AN-01
+      iso-42005:
+        - "5.8"
+      aiuc-1:
+        - "E009"
+    confidence: high
+    evidence:
+      - Testing, incident identification, and information sharing align with ISO 42001 Clause 10 improvement requirements
+
+  - control: "GOVERN 5.1"
+    title: Policies to collect and integrate external feedback on societal impacts
+    external_mappings:
+      iso-42001:
+        - "4.2"
+        - "A.5.5"
+      eu-ai-act:
+        - "Art-27"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - GV.OC-04
+        - GV.OC-05
+      iso-42005:
+        - "5.8"
+      aiuc-1:
+        - "F001"
+    confidence: high
+    evidence:
+      - Interested party engagement and feedback is required by ISO 42001 Clause 4.2
+
+  - control: "GOVERN 5.2"
+    title: Mechanisms to incorporate feedback from AI actors into system design
+    external_mappings:
+      iso-42001:
+        - "4.2"
+        - "8.1"
+      eu-ai-act:
+        - "Art-27"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - GV.OC-05
+        - ID.IM-01
+      iso-42005:
+        - "5.8"
+      aiuc-1:
+        - "F002"
+    confidence: high
+    evidence:
+      - Feedback integration mechanisms align with ISO 42001 planning and operations requirements
+
+  - control: "GOVERN 6.1"
+    title: Policies addressing AI risks from third-party entities including infringement risks
+    external_mappings:
+      iso-42001:
+        - "8.4"
+        - "A.10.1"
+      eu-ai-act:
+        - "Art-25"
+        - "Art-26"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.SC-01
+        - GV.SC-04
+      iso-42005:
+        - "6.3"
+      aiuc-1:
+        - "B005"
+    confidence: high
+    evidence:
+      - Third-party AI risk management is addressed in ISO 42001 Clause 8.4 and EU AI Act supply chain obligations
+
+  - control: "GOVERN 6.2"
+    title: Contingency processes for third-party AI system failures and incidents
+    external_mappings:
+      iso-42001:
+        - "8.4"
+        - "10.1"
+      eu-ai-act:
+        - "Art-72"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - GV.SC-07
+        - RC.RP-01
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "B006"
+    confidence: high
+    evidence:
+      - Contingency and recovery requirements are covered by ISO 42001 Clause 10 and NIST CSF RC domain
+
+  # ═══════════════════════════════════════════════════════════════════════
+  # MAP (MP) — Context and categorization controls
+  # Maps to: ISO 42005 (impact assessment), ISO 24028 (trustworthiness),
+  #          ISO 42001 6.1.x (risk), EU AI Act Art-9 (risk management)
+  # ═══════════════════════════════════════════════════════════════════════
+
+  - control: "MAP 1.1"
+    title: Intended purposes, laws, norms, and deployment settings understood and documented
+    external_mappings:
+      iso-42001:
+        - "4.1"
+        - "6.1.4"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - ID.AM-07
+        - GV.OC-01
+      iso-42005:
+        - "5.1"
+        - "6.6"
+      aiuc-1:
+        - "E012"
+    confidence: high
+    evidence:
+      - AI system context and intended use documentation is required by ISO 42001 and ISO 42005
+
+  - control: "MAP 1.2"
+    title: Interdisciplinary AI actors reflecting demographic diversity establish context
+    external_mappings:
+      iso-42001:
+        - "5.3"
+        - "A.2.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - GV.OC-04
+        - GV.RR-02
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "A003"
+    confidence: medium
+    evidence:
+      - Diverse team requirements for AI governance align with ISO 42001 organizational requirements
+
+  - control: "MAP 1.3"
+    title: Organization's mission and AI goals understood and documented
+    external_mappings:
+      iso-42001:
+        - "4.1"
+        - "6.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.OC-01
+        - GV.OC-02
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "A001"
+    confidence: high
+    evidence:
+      - Mission and goals documentation is foundational to ISO 42001 context establishment
+
+  - control: "MAP 1.4"
+    title: Business value or context of AI use clearly defined or re-evaluated
+    external_mappings:
+      iso-42001:
+        - "4.1"
+        - "6.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.OC-02
+        - GV.OC-03
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "E012"
+    confidence: high
+    evidence:
+      - Business value definition aligns with ISO 42001 organizational context and objectives
+
+  - control: "MAP 1.5"
+    title: Organizational risk tolerances determined and documented
+    external_mappings:
+      iso-42001:
+        - "6.1.1"
+        - "6.1.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.9"
+      nist-csf:
+        - GV.RM-01
+        - GV.RM-03
+      iso-42005:
+        - "5.7"
+      aiuc-1:
+        - "B001"
+    confidence: high
+    evidence:
+      - Risk tolerance documentation is required by ISO 42001 Clause 6.1 and ISO 42005 Clause 5.7
+
+  - control: "MAP 1.6"
+    title: System requirements elicited from AI actors with socio-technical design consideration
+    external_mappings:
+      iso-42001:
+        - "8.1"
+        - "A.5.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - ID.AM-07
+        - GV.OC-04
+      iso-42005:
+        - "5.6"
+        - "6.7"
+      aiuc-1:
+        - "C001"
+    confidence: high
+    evidence:
+      - Stakeholder requirements and socio-technical design are addressed in ISO 42001 Clause 8 and ISO 42005
+
+  - control: "MAP 2.1"
+    title: Specific AI tasks and methods defined and documented
+    external_mappings:
+      iso-42001:
+        - "A.4.2"
+        - "A.4.3"
+      eu-ai-act:
+        - "Art-11"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.AM-07
+        - ID.AM-08
+      iso-42005:
+        - "6.3"
+        - "6.5"
+      aiuc-1:
+        - "D001"
+    confidence: high
+    evidence:
+      - AI system technical documentation is required by ISO 42001 Annex A.4 and EU AI Act Art-11
+
+  - control: "MAP 2.2"
+    title: AI system knowledge limits and human oversight of output documented
+    external_mappings:
+      iso-42001:
+        - "A.4.5"
+        - "A.6.2.6"
+      eu-ai-act:
+        - "Art-13"
+        - "Art-14"
+      iso-24028:
+        - "Clause 6.3"
+        - "Clause 6.8"
+      nist-csf:
+        - ID.AM-08
+        - GV.RR-04
+      iso-42005:
+        - "6.3"
+        - "6.5"
+      aiuc-1:
+        - "D002"
+    confidence: high
+    evidence:
+      - Knowledge limits and human oversight are EU AI Act transparency and human oversight requirements
+
+  - control: "MAP 2.3"
+    title: Scientific integrity and TEVV considerations identified and documented
+    external_mappings:
+      iso-42001:
+        - "A.6.2.3"
+        - "A.7.2"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-10"
+      iso-24028:
+        - "Clause 6.5"
+      nist-csf:
+        - ID.AM-08
+        - DE.CM-01
+      iso-42005:
+        - "6.4"
+        - "6.5"
+      aiuc-1:
+        - "C001"
+    confidence: high
+    evidence:
+      - TEVV documentation aligns with ISO 42001 Annex A.6.2 technical controls and ISO 42005 data/model documentation
+
+  - control: "MAP 3.1"
+    title: Potential benefits of AI system functionality examined and documented
+    external_mappings:
+      iso-42001:
+        - "6.2"
+        - "A.5.3"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.OC-03
+        - ID.RA-01
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "E012"
+    confidence: high
+    evidence:
+      - Benefits documentation is addressed in ISO 42001 objectives and ISO 42005 impact analysis
+
+  - control: "MAP 3.2"
+    title: Potential costs including non-monetary costs from AI errors examined and documented
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "A.5.4"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.9"
+      nist-csf:
+        - ID.RA-01
+        - ID.RA-04
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "B002"
+    confidence: high
+    evidence:
+      - Cost and harm identification is addressed in ISO 42001 risk management and ISO 42005 impact analysis
+
+  - control: "MAP 3.3"
+    title: Targeted application scope specified and documented
+    external_mappings:
+      iso-42001:
+        - "4.3"
+        - "A.4.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.OC-01
+        - ID.AM-07
+      iso-42005:
+        - "5.5"
+        - "6.2"
+      aiuc-1:
+        - "E012"
+    confidence: high
+    evidence:
+      - Application scope documentation is required by ISO 42001 Clause 4.3 and ISO 42005 Clauses 5.5 and 6.2
+
+  - control: "MAP 3.4"
+    title: Processes for operator and practitioner proficiency defined, assessed, documented
+    external_mappings:
+      iso-42001:
+        - "7.2"
+        - "A.6.2.6"
+      eu-ai-act:
+        - "Art-14"
+        - "Art-26"
+      iso-24028:
+        - "Clause 6.8"
+      nist-csf:
+        - GV.RR-02
+        - GV.RR-04
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "E001"
+    confidence: high
+    evidence:
+      - Operator competence requirements are addressed in ISO 42001 Clause 7.2 and EU AI Act Art-14
+
+  - control: "MAP 3.5"
+    title: Processes for human oversight defined, assessed, and documented
+    external_mappings:
+      iso-42001:
+        - "A.6.2.6"
+        - "8.1"
+      eu-ai-act:
+        - "Art-14"
+        - "Art-22"
+      iso-24028:
+        - "Clause 6.8"
+      nist-csf:
+        - GV.RR-04
+        - DE.CM-01
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "E003"
+    confidence: high
+    evidence:
+      - Human oversight is a direct EU AI Act Art-14 requirement and ISO 24028 trustworthiness property
+
+  - control: "MAP 4.1"
+    title: Approaches for mapping AI technology and legal risks of components in place
+    external_mappings:
+      iso-42001:
+        - "6.1.1"
+        - "8.4"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-25"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - ID.RA-01
+        - GV.SC-04
+      iso-42005:
+        - "6.3"
+        - "6.5"
+      aiuc-1:
+        - "B003"
+    confidence: high
+    evidence:
+      - Component risk mapping is addressed in ISO 42001 risk assessment and supplier management clauses
+
+  - control: "MAP 4.2"
+    title: Internal risk controls for AI system components identified and documented
+    external_mappings:
+      iso-42001:
+        - "6.1.3"
+        - "8.4"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.RA-01
+        - PR.PS-01
+      iso-42005:
+        - "6.5"
+        - "6.9"
+      aiuc-1:
+        - "B004"
+    confidence: high
+    evidence:
+      - Risk controls for components align with ISO 42001 Clause 6.1.3 treatment and Clause 8.4
+
+  - control: "MAP 5.1"
+    title: Likelihood and magnitude of identified AI impacts identified and documented
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "A.5.4"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-27"
+      iso-24028:
+        - "Clause 6.9"
+      nist-csf:
+        - ID.RA-04
+        - ID.RA-05
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "C003"
+    confidence: high
+    evidence:
+      - Impact likelihood and magnitude assessment is directly required by ISO 42005 Clause 6.8
+
+  - control: "MAP 5.2"
+    title: Practices for regular AI actor engagement to integrate impact feedback in place
+    external_mappings:
+      iso-42001:
+        - "4.2"
+        - "A.5.5"
+      eu-ai-act:
+        - "Art-27"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - GV.OC-04
+        - GV.OC-05
+      iso-42005:
+        - "5.8"
+        - "6.7"
+      aiuc-1:
+        - "F001"
+    confidence: high
+    evidence:
+      - AI actor engagement for impact feedback is addressed in ISO 42001 Clause 4.2 and ISO 42005 Clauses 5.8 and 6.7
+
+  # ═══════════════════════════════════════════════════════════════════════
+  # MEASURE (MR) — Risk analysis, assessment, and tracking controls
+  # Maps to: ISO 42001 9.1 (monitoring), ISO 24028 Clause 6 (metrics),
+  #          EU AI Act Art-9/17, NIST CSF DE domain, OWASP LLM (model metrics)
+  # ═══════════════════════════════════════════════════════════════════════
+
+  - control: "MEASURE 1.1"
+    title: Approaches and metrics for AI risk measurement selected starting with most significant risks
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "6.1.4"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - DE.CM-01
+        - ID.RA-05
+      iso-42005:
+        - "5.7"
+      aiuc-1:
+        - "B001"
+    confidence: high
+    evidence:
+      - Risk measurement approaches are required by ISO 42001 Clause 9.1 performance evaluation
+
+  - control: "MEASURE 1.2"
+    title: Appropriateness of AI metrics and control effectiveness regularly assessed and updated
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "10.1"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-17"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - DE.CM-01
+        - ID.IM-02
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Regular metric review and update align with ISO 42001 Clause 9.1 and 10.1 improvement processes
+
+  - control: "MEASURE 1.3"
+    title: Internal experts and independent assessors involved in AI system assessments
+    external_mappings:
+      iso-42001:
+        - "9.2"
+        - "9.3"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-17"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-02
+      iso-42005:
+        - "5.6"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Independent assessment requirements align with ISO 42001 Clause 9.2 internal audit
+
+  - control: "MEASURE 2.1"
+    title: Test sets, metrics, and TEVV tool details documented
+    external_mappings:
+      iso-42001:
+        - "A.6.2.3"
+        - "9.1"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-17"
+      iso-24028:
+        - "Clause 6.5"
+      nist-csf:
+        - DE.CM-01
+        - ID.IM-01
+      iso-42005:
+        - "6.5"
+      aiuc-1:
+        - "D003"
+    confidence: high
+    evidence:
+      - TEVV documentation requirements align with ISO 42001 Annex A.6.2.3 testing controls
+
+  - control: "MEASURE 2.2"
+    title: Evaluations involving human subjects meet requirements and represent relevant population
+    external_mappings:
+      iso-42001:
+        - "A.6.2.2"
+        - "A.7.2"
+      eu-ai-act:
+        - "Art-10"
+      iso-24028:
+        - "Clause 6.4"
+      nist-csf:
+        - ID.RA-02
+        - DE.CM-01
+      iso-42005:
+        - "6.4"
+      aiuc-1:
+        - "C002"
+    confidence: high
+    evidence:
+      - Human subject evaluation requirements align with ISO 42001 data governance and EU AI Act data requirements
+
+  - control: "MEASURE 2.3"
+    title: AI performance or assurance criteria measured for deployment-similar conditions
+    external_mappings:
+      iso-42001:
+        - "A.6.2.3"
+        - "9.1"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+      iso-24028:
+        - "Clause 6.5"
+        - "Clause 6.6"
+      nist-csf:
+        - DE.CM-01
+        - DE.CM-06
+      iso-42005:
+        - "6.5"
+      aiuc-1:
+        - "D004"
+    confidence: high
+    evidence:
+      - Performance assurance requirements align with ISO 42001 testing controls and EU AI Act Art-15 accuracy requirements
+
+  - control: "MEASURE 2.4"
+    title: AI system functionality and behavior monitored when in production
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "A.6.2.5"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-72"
+      iso-24028:
+        - "Clause 6.5"
+      nist-csf:
+        - DE.CM-01
+        - DE.CM-09
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Production monitoring is required by ISO 42001 Clause 9.1 and EU AI Act Art-9 post-market monitoring
+
+  - control: "MEASURE 2.5"
+    title: AI system demonstrated to be valid and reliable with documented generalizability limitations
+    external_mappings:
+      iso-42001:
+        - "A.6.2.3"
+        - "A.4.5"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+      iso-24028:
+        - "Clause 6.5"
+        - "Clause 6.6"
+      nist-csf:
+        - DE.CM-01
+        - ID.IM-02
+      iso-42005:
+        - "6.5"
+      aiuc-1:
+        - "D004"
+    confidence: high
+    evidence:
+      - Validity and reliability demonstration aligns with EU AI Act Art-15 accuracy and ISO 42001 testing requirements
+
+  - control: "MEASURE 2.6"
+    title: AI system regularly evaluated for safety risks with residual risk within tolerance
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "9.1"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-15"
+      iso-24028:
+        - "Clause 6.2"
+      nist-csf:
+        - DE.CM-01
+        - ID.RA-05
+      iso-42005:
+        - "5.7"
+        - "6.8"
+      aiuc-1:
+        - "B002"
+    confidence: high
+    evidence:
+      - Safety risk evaluation is required by EU AI Act Art-15 and ISO 24028 safety trustworthiness property
+
+  - control: "MEASURE 2.7"
+    title: AI system security and resilience evaluated and documented
+    external_mappings:
+      iso-42001:
+        - "A.6.2.4"
+        - "9.1"
+      eu-ai-act:
+        - "Art-15"
+      iso-24028:
+        - "Clause 6.7"
+      nist-csf:
+        - DE.CM-01
+        - ID.RA-05
+      iso-42005:
+        - "6.8"
+      owasp-llm:
+        - "LLM05"
+        - "LLM07"
+      aiuc-1:
+        - "D005"
+    confidence: high
+    evidence:
+      - Security evaluation is required by EU AI Act Art-15 and OWASP LLM Top 10 addresses model attack vectors
+
+  - control: "MEASURE 2.8"
+    title: Risks associated with transparency and accountability examined and documented
+    external_mappings:
+      iso-42001:
+        - "A.5.3"
+        - "9.1"
+      eu-ai-act:
+        - "Art-13"
+        - "Art-50"
+      iso-24028:
+        - "Clause 6.3"
+        - "Clause 6.11"
+      nist-csf:
+        - DE.CM-01
+        - GV.OC-05
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "E015"
+    confidence: high
+    evidence:
+      - Transparency risks align with EU AI Act Art-13 transparency requirements and ISO 24028 explainability property
+
+  - control: "MEASURE 2.9"
+    title: AI model explained, validated, documented with output interpreted in context
+    external_mappings:
+      iso-42001:
+        - "A.4.5"
+        - "A.6.2.3"
+      eu-ai-act:
+        - "Art-13"
+        - "Art-50"
+      iso-24028:
+        - "Clause 6.3"
+      nist-csf:
+        - DE.CM-01
+        - ID.AM-08
+      iso-42005:
+        - "6.5"
+      owasp-llm:
+        - "LLM04"
+    confidence: high
+    evidence:
+      - Model explainability and validation align with EU AI Act Art-13 and ISO 24028 explainability property
+
+  - control: "MEASURE 2.10"
+    title: Privacy risk of AI system examined and documented
+    external_mappings:
+      iso-42001:
+        - "A.7.4"
+        - "9.1"
+      eu-ai-act:
+        - "Art-10"
+      iso-24028:
+        - "Clause 6.4"
+      nist-csf:
+        - ID.RA-02
+        - DE.CM-01
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "C004"
+    confidence: high
+    evidence:
+      - Privacy risk assessment is required by ISO 42001 Annex A.7.4 and EU AI Act Art-10 data governance
+
+  - control: "MEASURE 2.11"
+    title: Fairness and bias evaluated and results documented
+    external_mappings:
+      iso-42001:
+        - "A.7.2"
+        - "9.1"
+      eu-ai-act:
+        - "Art-10"
+      iso-24028:
+        - "Clause 6.4"
+        - "Clause 6.9"
+      nist-csf:
+        - DE.CM-01
+        - ID.RA-02
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "C005"
+    confidence: high
+    evidence:
+      - Fairness and bias evaluation aligns with ISO 24028 fairness trustworthiness property and EU AI Act data requirements
+
+  - control: "MEASURE 2.12"
+    title: Environmental impact and sustainability of AI training assessed and documented
+    external_mappings:
+      iso-42001:
+        - "A.6.2.1"
+        - "9.1"
+      eu-ai-act:
+        - "Art-51"
+        - "Art-56"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - DE.CM-01
+        - GV.OC-03
+      iso-42005:
+        - "6.8"
+      aiuc-1:
+        - "E016"
+    confidence: medium
+    evidence:
+      - Environmental impact assessment is addressed in EU AI Act GPAI provisions and ISO 42001 resource management
+
+  - control: "MEASURE 2.13"
+    title: Effectiveness of TEVV metrics and processes evaluated and documented
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "10.1"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-17"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-02
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - TEVV effectiveness evaluation aligns with ISO 42001 continual improvement and management review
+
+  - control: "MEASURE 3.1"
+    title: Approaches and documentation to identify and track existing and emergent AI risks
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "9.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - DE.CM-01
+        - ID.RA-01
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "B003"
+    confidence: high
+    evidence:
+      - Risk tracking mechanisms align with ISO 42001 risk management monitoring requirements
+
+  - control: "MEASURE 3.2"
+    title: Risk tracking approaches considered for hard-to-measure AI risk settings
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "9.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.RA-09
+        - ID.RA-10
+      iso-42005:
+        - "5.8"
+      aiuc-1:
+        - "B003"
+    confidence: medium
+    evidence:
+      - Alternative risk tracking for novel AI risks aligns with ISO 42001 risk treatment for uncertain risks
+
+  - control: "MEASURE 3.3"
+    title: Feedback processes for end users and communities to report problems and appeal outcomes
+    external_mappings:
+      iso-42001:
+        - "A.5.5"
+        - "10.1"
+      eu-ai-act:
+        - "Art-27"
+      iso-24028:
+        - "Clause 6.10"
+      nist-csf:
+        - RS.AN-01
+        - GV.OC-05
+      iso-42005:
+        - "5.8"
+        - "6.7"
+      aiuc-1:
+        - "F001"
+    confidence: high
+    evidence:
+      - Feedback and appeal mechanisms align with ISO 42001 interested party requirements and EU AI Act Art-27
+
+  - control: "MEASURE 4.1"
+    title: Measurement approaches for AI risks connected to deployment context and informed by experts
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "4.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.RA-02
+        - DE.CM-01
+      iso-42005:
+        - "5.8"
+      aiuc-1:
+        - "B001"
+    confidence: high
+    evidence:
+      - Context-linked measurement aligns with ISO 42001 Clause 9.1 and deployment context requirements
+
+  - control: "MEASURE 4.2"
+    title: Measurement results on AI trustworthiness informed by domain experts and AI actors
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "4.2"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.RA-02
+        - ID.IM-02
+      iso-42005:
+        - "5.8"
+        - "6.7"
+      aiuc-1:
+        - "F002"
+    confidence: high
+    evidence:
+      - Expert input into measurement results aligns with ISO 42001 interested party engagement
+
+  - control: "MEASURE 4.3"
+    title: Measurable performance improvements or declines from AI actor consultations documented
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "10.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-04
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "F002"
+    confidence: high
+    evidence:
+      - Performance tracking from consultations aligns with ISO 42001 Clause 10 continual improvement
+
+  # ═══════════════════════════════════════════════════════════════════════
+  # MANAGE (MG) — Risk prioritization, response, and monitoring controls
+  # Maps to: ISO 42001 8.x (operations), EU AI Act Art-20/72,
+  #          NIST CSF RS/RC domains, ISO 24028 corrective measures
+  # ═══════════════════════════════════════════════════════════════════════
+
+  - control: "MANAGE 1.1"
+    title: Determination made on whether AI system achieves intended purposes and whether to proceed
+    external_mappings:
+      iso-42001:
+        - "8.1"
+        - "6.1.4"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - GV.RM-05
+        - RS.AN-01
+      iso-42005:
+        - "5.11"
+      aiuc-1:
+        - "E007"
+    confidence: high
+    evidence:
+      - Go/no-go deployment decisions align with ISO 42001 Clause 8.1 operational planning and ISO 42005 approval process
+
+  - control: "MANAGE 1.2"
+    title: Treatment of AI risks prioritized based on impact, likelihood, and available resources
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "6.1.3"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6.9"
+      nist-csf:
+        - GV.RM-04
+        - GV.RM-05
+      iso-42005:
+        - "6.9"
+      aiuc-1:
+        - "B001"
+    confidence: high
+    evidence:
+      - Risk prioritization and treatment selection align with ISO 42001 Clause 6.1.3 treatment options
+
+  - control: "MANAGE 1.3"
+    title: Responses to high-priority AI risks developed, planned, and documented
+    external_mappings:
+      iso-42001:
+        - "6.1.3"
+        - "8.1"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - RS.AN-01
+        - RS.MI-01
+      iso-42005:
+        - "6.9"
+      aiuc-1:
+        - "B004"
+    confidence: high
+    evidence:
+      - Risk response planning is directly required by ISO 42001 Clause 6.1.3 and ISO 42005 treatment documentation
+
+  - control: "MANAGE 1.4"
+    title: Negative residual risks to downstream acquirers and end users documented
+    external_mappings:
+      iso-42001:
+        - "6.1.4"
+        - "A.5.3"
+      eu-ai-act:
+        - "Art-9"
+        - "Art-13"
+      iso-24028:
+        - "Clause 6.9"
+      nist-csf:
+        - GV.SC-07
+        - RS.MI-01
+      iso-42005:
+        - "6.9"
+      aiuc-1:
+        - "B006"
+    confidence: high
+    evidence:
+      - Residual risk disclosure to downstream parties aligns with EU AI Act transparency and ISO 42001 risk documentation
+
+  - control: "MANAGE 2.1"
+    title: Resources for AI risk management assessed along with viable non-AI alternatives
+    external_mappings:
+      iso-42001:
+        - "7.1"
+        - "6.1.3"
+      eu-ai-act:
+        - "Art-9"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.RM-07
+        - GV.RM-05
+      iso-42005:
+        - "5.1"
+      aiuc-1:
+        - "E012"
+    confidence: high
+    evidence:
+      - Resource planning for risk management aligns with ISO 42001 Clause 7.1 resource provision
+
+  - control: "MANAGE 2.2"
+    title: Mechanisms in place to sustain the value of deployed AI systems
+    external_mappings:
+      iso-42001:
+        - "8.1"
+        - "9.1"
+      eu-ai-act:
+        - "Art-72"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.IM-01
+        - DE.CM-01
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Value sustainability mechanisms align with ISO 42001 operational management and monitoring requirements
+
+  - control: "MANAGE 2.3"
+    title: Procedures followed to respond to and recover from previously unknown AI risks
+    external_mappings:
+      iso-42001:
+        - "10.1"
+        - "10.2"
+      eu-ai-act:
+        - "Art-72"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - RS.AN-01
+        - RC.RP-01
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E009"
+    confidence: high
+    evidence:
+      - Unknown risk response aligns with ISO 42001 Clause 10 nonconformity and corrective action
+
+  - control: "MANAGE 2.4"
+    title: Mechanisms to supersede, disengage, or deactivate underperforming AI systems
+    external_mappings:
+      iso-42001:
+        - "8.1"
+        - "10.1"
+      eu-ai-act:
+        - "Art-20"
+        - "Art-72"
+      iso-24028:
+        - "Clause 6.2"
+      nist-csf:
+        - RS.MI-02
+        - RC.RP-01
+      iso-42005:
+        - "5.11"
+      aiuc-1:
+        - "E007"
+    confidence: high
+    evidence:
+      - AI system deactivation mechanisms align with EU AI Act Art-20 post-market monitoring and corrective action
+
+  - control: "MANAGE 3.1"
+    title: Third-party AI risks and benefits regularly monitored with controls applied
+    external_mappings:
+      iso-42001:
+        - "8.4"
+        - "9.1"
+      eu-ai-act:
+        - "Art-25"
+        - "Art-26"
+      iso-24028:
+        - "Clause 5"
+      nist-csf:
+        - GV.SC-04
+        - GV.SC-07
+      iso-42005:
+        - "6.3"
+      aiuc-1:
+        - "B005"
+    confidence: high
+    evidence:
+      - Third-party AI risk monitoring aligns with ISO 42001 Clause 8.4 supplier management
+
+  - control: "MANAGE 3.2"
+    title: Pre-trained models monitored as part of regular AI system monitoring and maintenance
+    external_mappings:
+      iso-42001:
+        - "8.4"
+        - "A.6.2.5"
+      eu-ai-act:
+        - "Art-53"
+        - "Art-55"
+      iso-24028:
+        - "Clause 6.5"
+      nist-csf:
+        - DE.CM-01
+        - GV.SC-04
+      iso-42005:
+        - "6.5"
+      owasp-llm:
+        - "LLM02"
+        - "LLM03"
+    confidence: high
+    evidence:
+      - Pre-trained model monitoring aligns with ISO 42001 supplier controls and EU AI Act GPAI monitoring provisions
+
+  - control: "MANAGE 4.1"
+    title: Post-deployment monitoring plans implemented with user input mechanisms
+    external_mappings:
+      iso-42001:
+        - "9.1"
+        - "A.6.2.5"
+      eu-ai-act:
+        - "Art-72"
+        - "Art-20"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - DE.CM-01
+        - RS.AN-01
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Post-deployment monitoring is required by EU AI Act Art-72 and ISO 42001 Clause 9.1
+
+  - control: "MANAGE 4.2"
+    title: Measurable continual improvement activities integrated into AI system updates
+    external_mappings:
+      iso-42001:
+        - "10.1"
+        - "9.3"
+      eu-ai-act:
+        - "Art-72"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - ID.IM-01
+        - ID.IM-04
+      iso-42005:
+        - "5.12"
+      aiuc-1:
+        - "E008"
+    confidence: high
+    evidence:
+      - Continual improvement requirements align with ISO 42001 Clause 10.1 and management review
+
+  - control: "MANAGE 4.3"
+    title: Incidents and errors communicated with tracking, response, and recovery followed
+    external_mappings:
+      iso-42001:
+        - "10.1"
+        - "10.2"
+      eu-ai-act:
+        - "Art-72"
+        - "Art-83"
+      iso-24028:
+        - "Clause 6"
+      nist-csf:
+        - RS.AN-01
+        - RC.CO-01
+      iso-42005:
+        - "5.10"
+      aiuc-1:
+        - "E009"
+    confidence: high
+    evidence:
+      - Incident communication and recovery aligns with EU AI Act Art-72 serious incident reporting and ISO 42001 Clause 10

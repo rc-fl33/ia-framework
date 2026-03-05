@@ -1,0 +1,49 @@
+{
+  "intent": "blog-writing",
+  "agent": "writer",
+  "skill": "write",
+  "triggers": [
+    "write",
+    "blog",
+    "post",
+    "article",
+    "content",
+    "publish",
+    "draft",
+    "create post"
+  ],
+  "required_context": [
+    "topic",
+    "target_audience",
+    "word_count_range",
+    "research_sources_minimum",
+    "qa_threshold",
+    "output_location"
+  ],
+  "optional_context": [
+    "specific_sources",
+    "writing_style",
+    "seo_keywords",
+    "publication_date",
+    "featured_image"
+  ],
+  "workflow_phases": [
+    "research",
+    "outline",
+    "draft",
+    "review",
+    "publish"
+  ],
+  "quality_gates": {
+    "research_sources_minimum": 10,
+    "qa_rating_minimum": 4.0,
+    "word_count_minimum": 1500,
+    "word_count_maximum": 3000,
+    "factual_accuracy_check": true,
+    "citation_verification": true
+  },
+  "default_output": "skills/ghost/output/posts/",
+  "cost_estimate": "haiku",
+  "typical_duration": "standard",
+  "enrichment_template": "User wants to write a blog post.\n\nEXPLICIT REQUIREMENTS:\n- Topic: {{topic_or_needs_clarification}}\n- Target audience: {{audience_or_general}}\n- Word count: 1500-2000 words\n- Research: Minimum 10 credible sources, verify accuracy\n- Workflow phases: research → outline → draft → QA review → publish\n- QA threshold: Rating ≥4.0 (iterate if needed)\n- Output: skills/ghost/output/posts/\n- Publication: Ghost CMS via API\n\nINSTRUCTION: Delegate to writer agent with complete workflow context.\n\nDelegation code:\nTask(subagent_type=\"writer\", prompt=\"Execute blog writing workflow with above requirements. Follow write/SKILL.md phases.\")"
+}

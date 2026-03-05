@@ -1,0 +1,1 @@
+../skills/ghost/commands/update-reference.md

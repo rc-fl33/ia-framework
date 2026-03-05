@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ia-framework.dev/schemas/intent-requirements.schema.json",
+  "title": "Intent Requirements",
+  "description": "Schema for intent requirements in the IA Framework intent enrichment layer",
+  "type": "object",
+  "required": [
+    "intent",
+    "agent",
+    "skill",
+    "triggers",
+    "required_context",
+    "workflow_phases",
+    "enrichment_template"
+  ],
+  "properties": {
+    "intent": {
+      "type": "string",
+      "description": "Unique identifier for this intent (kebab-case)",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "agent": {
+      "type": "string",
+      "description": "Which agent handles this intent",
+      "enum": ["security", "writer", "engineer", "advisor", "legal"]
+    },
+    "skill": {
+      "type": "string",
+      "description": "Which skill to use",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "triggers": {
+      "type": "array",
+      "description": "Keywords that match this intent",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "uniqueItems": true
+    },
+    "required_context": {
+      "type": "array",
+      "description": "Context that MUST be provided or clarified",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "optional_context": {
+      "type": "array",
+      "description": "Context that's nice to have but not required",
+      "items": {
+        "type": "string"
+      }
+    },
+    "workflow_phases": {
+      "type": "array",
+      "description": "Phases this workflow goes through",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "quality_gates": {
+      "type": "object",
+      "description": "Quality thresholds and checks",
+      "additionalProperties": true
+    },
+    "default_output": {
+      "type": "string",
+      "description": "Default output directory path",
+      "pattern": "^skills/[a-z-]+/output/"
+    },
+    "cost_estimate": {
+      "type": "string",
+      "description": "Recommended model tier",
+      "enum": ["haiku", "sonnet", "opus"]
+    },
+    "typical_duration": {
+      "type": "string",
+      "description": "Expected task duration",
+      "enum": ["quick", "standard", "extended", "long-term"]
+    },
+    "safety_requirements": {
+      "type": "object",
+      "description": "Safety requirements (especially for engineer agent)",
+      "properties": {
+        "plan_mode_mandatory": {
+          "type": "boolean"
+        },
+        "rollback_plan_required": {
+          "type": "boolean"
+        },
+        "backup_verification_required": {
+          "type": "boolean"
+        },
+        "testing_before_production": {
+          "type": "boolean"
+        },
+        "documentation_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "enrichment_template": {
+      "type": "string",
+      "description": "Template for Haiku enrichment (use {{variable}} syntax)",
+      "minLength": 100
+    }
+  },
+  "additionalProperties": false
+}

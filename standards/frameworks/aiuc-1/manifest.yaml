@@ -1,0 +1,29 @@
+name: AIUC-1 AI Unified Controls
+type: standard
+version: "1.0"
+full_name: "AI Use Case Standard for Enterprise AI Risk Management"
+provider: aiuc
+skills:
+  - compliance
+  - security
+industries:
+  - technology
+  - ai_ml
+  - all
+source_url: https://www.aiuc-1.com/
+published: 2026-02-13
+questions_count: 51
+control_families: 6
+total_controls: 51
+enrichment_status:
+  tier: 3
+  framework_category: ai_governance
+  controls: complete
+  questions: complete
+  questions_framework_count: 5
+  crosswalk: complete
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://www.aiuc-1.com/
+  next_check: 2027-02-25

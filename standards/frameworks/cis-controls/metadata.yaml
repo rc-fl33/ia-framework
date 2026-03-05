@@ -1,0 +1,122 @@
+# CIS Controls Metadata
+# Used for version tracking and currency checks
+
+framework:
+  name: "CIS Critical Security Controls"
+  short_name: "CIS Controls"
+  version: "8.1"
+  release_date: "2024-06-25"
+  official_url: "https://www.cisecurity.org/controls"
+  download_url: "https://www.cisecurity.org/controls/cis-controls-list"
+
+  # Source documents in reference/
+  source_documents:
+    - name: "CIS-Controls-v8"
+      description: "CIS Controls v8.1 document"
+
+  # Framework structure (18 Controls)
+  controls:
+    - id: "1"
+      name: "Inventory and Control of Enterprise Assets"
+      ig: [1, 2, 3]
+    - id: "2"
+      name: "Inventory and Control of Software Assets"
+      ig: [1, 2, 3]
+    - id: "3"
+      name: "Data Protection"
+      ig: [1, 2, 3]
+    - id: "4"
+      name: "Secure Configuration of Enterprise Assets and Software"
+      ig: [1, 2, 3]
+    - id: "5"
+      name: "Account Management"
+      ig: [1, 2, 3]
+    - id: "6"
+      name: "Access Control Management"
+      ig: [1, 2, 3]
+    - id: "7"
+      name: "Continuous Vulnerability Management"
+      ig: [2, 3]
+    - id: "8"
+      name: "Audit Log Management"
+      ig: [1, 2, 3]
+    - id: "9"
+      name: "Email and Web Browser Protections"
+      ig: [1, 2, 3]
+    - id: "10"
+      name: "Malware Defenses"
+      ig: [1, 2, 3]
+    - id: "11"
+      name: "Data Recovery"
+      ig: [1, 2, 3]
+    - id: "12"
+      name: "Network Infrastructure Management"
+      ig: [2, 3]
+    - id: "13"
+      name: "Network Monitoring and Defense"
+      ig: [2, 3]
+    - id: "14"
+      name: "Security Awareness and Skills Training"
+      ig: [1, 2, 3]
+    - id: "15"
+      name: "Service Provider Management"
+      ig: [2, 3]
+    - id: "16"
+      name: "Application Software Security"
+      ig: [2, 3]
+    - id: "17"
+      name: "Incident Response Management"
+      ig: [1, 2, 3]
+    - id: "18"
+      name: "Penetration Testing"
+      ig: [3]
+
+  # Implementation Groups
+  implementation_groups:
+    - id: "IG1"
+      name: "Basic Cyber Hygiene"
+      description: "Essential controls for all organizations"
+      safeguards: 56
+    - id: "IG2"
+      name: "Foundational"
+      description: "Additional controls for moderate risk"
+      safeguards: 74
+    - id: "IG3"
+      name: "Organizational"
+      description: "Full implementation for high-value assets"
+      safeguards: 23
+
+  safeguards_count: 153  # Total safeguards across all controls
+
+  # Verification
+  last_verified: "2026-01-14"
+  verified_by: "Local PDF comparison"
+  status: current
+
+  # Note: CIS Benchmarks are separate (go to security skill)
+  related_resources:
+    - name: "CIS Benchmarks"
+      location: "skills/pentest/reference/cis-benchmarks/"
+      description: "Platform-specific hardening guides (NOT in compliance skill)"
+
+# Acquisition instructions
+acquisition:
+  method: "manual"
+  requires_account: true  # Free account required
+  instructions: |
+    1. Create free account at https://www.cisecurity.org/
+    2. Navigate to CIS Controls
+    3. Download CIS Controls v8.1
+    4. Place in frameworks/cis-controls/reference/
+
+# GitHub OSCAL version
+oscal_source:
+  repo: "https://github.com/CISecurity/CISControls_OSCAL"
+  method: "gitingest"
+  command: 'gitingest https://github.com/CISecurity/CISControls_OSCAL -o frameworks/cis-controls/reference/oscal.txt'
+
+# Update schedule
+maintenance:
+  check_frequency: "quarterly"
+  last_check: "2026-01-14"
+  next_check: "2026-04-14"

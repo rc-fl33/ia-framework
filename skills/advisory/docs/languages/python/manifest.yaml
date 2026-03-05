@@ -1,0 +1,41 @@
+language:
+  name: "Python"
+  aliases: ["py", "python3", "python2"]
+  file_extensions: [".py", ".pyw"]
+  frameworks:
+    - Django
+    - Flask
+    - FastAPI
+    - Pyramid
+    - Tornado
+  version_current: "3.13"
+  version_minimum_secure: "3.8"  # 3.7 and below have known vulnerabilities
+
+detection:
+  file_patterns:
+    - "*.py"
+    - "requirements.txt"
+    - "setup.py"
+    - "pyproject.toml"
+    - "Pipfile"
+    - "setup.cfg"
+  shebang: "#!/usr/bin/env python"
+  package_files:
+    - "requirements.txt"
+    - "Pipfile"
+    - "pyproject.toml"
+
+resources:
+  official_security: "https://docs.python.org/3/library/security_warnings.html"
+  package_advisories: "https://pypi.org/security/"
+  style_guide: "https://peps.python.org/pep-0008/"
+  cert_standard: ""  # No official CERT standard for Python
+
+owasp_asvs_applicable: true
+cwe_top25_applicable: [20, 22, 78, 79, 89, 119, 200, 287, 327, 502, 798, 862]
+
+pattern_count: 17
+framework_coverage: ["django", "flask", "fastapi"]
+
+last_updated: "2026-01-17"
+status: "complete"

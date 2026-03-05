@@ -1,0 +1,1029 @@
+# CIS Critical Security Controls v8.1 Assessment Questions
+# Version: 1.0
+# Based on: CIS Controls v8.1.2 (March 2025)
+# Total Controls: 18 | Total Safeguards: 153
+# Implementation Groups: IG1 (Essential Cyber Hygiene), IG2 (+IG1), IG3 (+IG1+IG2)
+
+framework: cis-controls
+version: "8.1"
+total_questions: 36
+source: https://www.cisecurity.org/controls/v8-1/
+
+implementation_groups:
+  IG1:
+    name: Essential Cyber Hygiene
+    description: Small to medium-sized enterprises with limited IT/cybersecurity expertise
+    safeguard_count: 56
+  IG2:
+    name: Extended Security
+    description: Enterprises with IT staff managing infrastructure, may have regulatory compliance
+    safeguard_count: 74
+  IG3:
+    name: Advanced Security
+    description: Enterprises with security experts, subject to regulatory/compliance oversight
+    safeguard_count: 23
+
+categories:
+  - name: Asset Inventory (Controls 1-2)
+    phase: IDENTIFY
+    controls: [1, 2]
+    question_range: Q01-Q04
+
+  - name: Data Protection (Control 3)
+    phase: PROTECT
+    controls: [3]
+    question_range: Q05-Q06
+
+  - name: Secure Configuration (Control 4)
+    phase: PROTECT
+    controls: [4]
+    question_range: Q07-Q08
+
+  - name: Account & Access Management (Controls 5-6)
+    phase: PROTECT
+    controls: [5, 6]
+    question_range: Q09-Q12
+
+  - name: Vulnerability Management (Control 7)
+    phase: IDENTIFY
+    controls: [7]
+    question_range: Q13-Q14
+
+  - name: Audit Log Management (Control 8)
+    phase: DETECT
+    controls: [8]
+    question_range: Q15-Q16
+
+  - name: Email & Browser Protections (Control 9)
+    phase: PROTECT
+    controls: [9]
+    question_range: Q17-Q18
+
+  - name: Malware Defenses (Control 10)
+    phase: PROTECT
+    controls: [10]
+    question_range: Q19-Q20
+
+  - name: Data Recovery (Control 11)
+    phase: RECOVER
+    controls: [11]
+    question_range: Q21-Q22
+
+  - name: Network Management (Controls 12-13)
+    phase: PROTECT
+    controls: [12, 13]
+    question_range: Q23-Q26
+
+  - name: Security Awareness (Control 14)
+    phase: PROTECT
+    controls: [14]
+    question_range: Q27-Q28
+
+  - name: Service Provider Management (Control 15)
+    phase: IDENTIFY
+    controls: [15]
+    question_range: Q29-Q30
+
+  - name: Application Security (Control 16)
+    phase: PROTECT
+    controls: [16]
+    question_range: Q31-Q32
+
+  - name: Incident Response (Control 17)
+    phase: RESPOND
+    controls: [17]
+    question_range: Q33-Q34
+
+  - name: Penetration Testing (Control 18)
+    phase: IDENTIFY
+    controls: [18]
+    question_range: Q35-Q36
+
+questions:
+  # Control 1: Inventory and Control of Enterprise Assets (5 Safeguards)
+  - id: Q-CIS-01
+    text: "Do you maintain an accurate, detailed inventory of all enterprise assets including end-user devices, network devices, IoT devices, and servers?"
+    category: asset_management
+    phase: IDENTIFY
+    controls:
+      cis-v8: "1.1"
+      nist-csf: "ID.AM-01"
+      nist-800-53: "CM-8"
+      iso-27001: "A.5.9"
+    implementation_group: IG1
+    evidence_required:
+      - Asset inventory database or spreadsheet
+      - Network discovery scan results
+      - MDM device list (for mobile devices)
+    scoring:
+      full: "Complete asset inventory with all required fields (network address, hardware address, machine name, owner, department, approval status), reviewed bi-annually"
+      partial: "Asset inventory exists but incomplete fields or not regularly updated"
+      none: "No formal asset inventory maintained"
+    sub_questions:
+      - "Does inventory include cloud-based assets?"
+      - "Are unauthorized assets identified and addressed weekly?"
+      - "Is active discovery running daily (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-02
+    text: "What process exists to identify and address unauthorized assets connecting to your network?"
+    category: asset_management
+    phase: RESPOND
+    controls:
+      cis-v8: "1.2, 1.3, 1.4, 1.5"
+      nist-csf: "RS.AN-01"
+      nist-800-53: "CM-8(3)"
+      iso-27001: "A.8.1"
+    implementation_group: IG1
+    evidence_required:
+      - Unauthorized asset handling procedure
+      - Active discovery tool configuration
+      - DHCP logging configuration
+    scoring:
+      full: "Documented process with weekly reviews, active discovery tools (IG2), and passive discovery (IG3)"
+      partial: "Process exists but not consistently followed or lacks automation"
+      none: "No process to identify or address unauthorized assets"
+    sub_questions:
+      - "Are unauthorized assets removed, denied, or quarantined?"
+      - "Do you use DHCP logging to update inventory (IG2+)?"
+      - "Is passive discovery deployed (IG3)?"
+    risk_weight: HIGH
+
+  # Control 2: Inventory and Control of Software Assets (7 Safeguards)
+  - id: Q-CIS-03
+    text: "Do you maintain a detailed inventory of all licensed software installed on enterprise assets?"
+    category: software_management
+    phase: IDENTIFY
+    controls:
+      cis-v8: "2.1"
+      nist-csf: "ID.AM-02"
+      nist-800-53: "CM-8"
+      iso-27001: "A.5.9"
+    implementation_group: IG1
+    evidence_required:
+      - Software inventory with title, publisher, version, business purpose
+      - Software discovery tool reports
+      - License management records
+    scoring:
+      full: "Complete software inventory with all required fields, reviewed bi-annually"
+      partial: "Software inventory exists but incomplete or outdated"
+      none: "No formal software inventory maintained"
+    sub_questions:
+      - "Is unsupported software documented with exceptions?"
+      - "Are automated inventory tools deployed (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-04
+    text: "How do you ensure only authorized software can execute on enterprise assets?"
+    category: software_management
+    phase: PROTECT
+    controls:
+      cis-v8: "2.2, 2.3, 2.5, 2.6, 2.7"
+      nist-csf: "PR.DS-06"
+      nist-800-53: "CM-7(5)"
+      iso-27001: "A.8.19"
+    implementation_group: IG1
+    evidence_required:
+      - Allowlisting policy and configuration
+      - Unauthorized software removal process
+      - Library and script allowlisting (IG2/IG3)
+    scoring:
+      full: "Application allowlisting enforced (IG2), library allowlisting (IG2), script allowlisting (IG3)"
+      partial: "Unauthorized software addressed monthly but no allowlisting"
+      none: "No controls to prevent unauthorized software execution"
+    sub_questions:
+      - "Is unauthorized software removed or documented monthly?"
+      - "Are authorized libraries allowlisted (IG2+)?"
+      - "Are authorized scripts allowlisted (IG3)?"
+    risk_weight: HIGH
+
+  # Control 3: Data Protection (14 Safeguards)
+  - id: Q-CIS-05
+    text: "Do you have a documented data management process that addresses data sensitivity, handling, retention, and disposal?"
+    category: data_protection
+    phase: GOVERN
+    controls:
+      cis-v8: "3.1, 3.2"
+      nist-csf: "GV.PO-01"
+      nist-800-53: "MP-1"
+      iso-27001: "A.5.10"
+      hipaa: "§164.310(d)"
+      pci-dss: "3.1"
+    implementation_group: IG1
+    evidence_required:
+      - Data management policy
+      - Data classification scheme
+      - Sensitive data inventory
+    scoring:
+      full: "Documented data management process with classification, handling, retention, and disposal requirements, reviewed annually"
+      partial: "Data management process exists but incomplete or not documented"
+      none: "No formal data management process"
+    sub_questions:
+      - "Is a sensitive data inventory maintained?"
+      - "Are data owners identified?"
+      - "Are retention limits defined?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-06
+    text: "How is sensitive data protected through access controls, encryption, and secure disposal?"
+    category: data_protection
+    phase: PROTECT
+    controls:
+      cis-v8: "3.3, 3.4, 3.5, 3.6, 3.9, 3.10, 3.11, 3.12"
+      nist-csf: "PR.DS-01, PR.DS-02"
+      nist-800-53: "SC-28, SC-8"
+      iso-27001: "A.8.10, A.8.11"
+      hipaa: "§164.312(a)(2)(iv)"
+      pci-dss: "3.4, 4.1"
+    implementation_group: IG1
+    evidence_required:
+      - Data access control lists
+      - Encryption configuration (at rest and in transit)
+      - Secure disposal procedures
+      - DLP configuration (IG2+)
+    scoring:
+      full: "Access controls configured, encryption at rest and in transit, secure disposal, DLP deployed (IG2+)"
+      partial: "Some protections in place but not comprehensive"
+      none: "No formal data protection controls"
+    sub_questions:
+      - "Is data encrypted at rest on end-user devices (IG1+)?"
+      - "Is data encrypted in transit (IG1+)?"
+      - "Is DLP deployed to detect sensitive data (IG2+)?"
+      - "Are removable media encrypted (IG1+)?"
+    risk_weight: HIGH
+
+  # Control 4: Secure Configuration (12 Safeguards)
+  - id: Q-CIS-07
+    text: "Do you establish and maintain secure configuration standards for enterprise assets and software?"
+    category: secure_configuration
+    phase: PROTECT
+    controls:
+      cis-v8: "4.1, 4.2"
+      nist-csf: "PR.IP-01"
+      nist-800-53: "CM-2, CM-6"
+      iso-27001: "A.8.9"
+      pci-dss: "2.2"
+    implementation_group: IG1
+    evidence_required:
+      - Secure configuration standards/baselines
+      - CIS Benchmark implementation evidence
+      - Configuration review schedule
+    scoring:
+      full: "Documented secure configurations for all asset types, using industry standards (CIS Benchmarks), reviewed quarterly (IG2+)"
+      partial: "Some secure configurations documented but not comprehensive"
+      none: "No formal secure configuration standards"
+    sub_questions:
+      - "Are CIS Benchmarks or equivalent standards used?"
+      - "Are configurations reviewed and updated quarterly (IG2+)?"
+      - "Are network infrastructure configurations secured?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-08
+    text: "How do you enforce secure configurations and manage configuration changes?"
+    category: secure_configuration
+    phase: PROTECT
+    controls:
+      cis-v8: "4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 4.11, 4.12"
+      nist-csf: "PR.IP-01"
+      nist-800-53: "CM-3, CM-7"
+      iso-27001: "A.8.9"
+      pci-dss: "2.2.4"
+    implementation_group: IG1
+    evidence_required:
+      - Configuration management tool output
+      - Firewall/ACL rule documentation
+      - Administrative access restrictions
+    scoring:
+      full: "Automated configuration management, firewall rules with deny-all default, separate admin workstations (IG3)"
+      partial: "Manual configuration management with some automation"
+      none: "No formal configuration enforcement"
+    sub_questions:
+      - "Is automatic lockout configured for end-user devices?"
+      - "Are default credentials changed on all assets?"
+      - "Is DNS filtering implemented (IG1+)?"
+      - "Are administrative workstations separated (IG3)?"
+    risk_weight: MEDIUM
+
+  # Control 5: Account Management (6 Safeguards)
+  - id: Q-CIS-09
+    text: "Do you maintain an inventory of all accounts (user, administrator, service) with assigned owners?"
+    category: account_management
+    phase: IDENTIFY
+    controls:
+      cis-v8: "5.1"
+      nist-csf: "ID.AM-06"
+      nist-800-53: "AC-2"
+      iso-27001: "A.8.2"
+      hipaa: "§164.312(a)(2)(i)"
+      pci-dss: "8.1"
+    implementation_group: IG1
+    evidence_required:
+      - Account inventory with owners
+      - User access review documentation
+      - Privileged account list
+    scoring:
+      full: "Complete account inventory with owners, reviewed quarterly"
+      partial: "Account list exists but incomplete ownership or infrequent review"
+      none: "No formal account inventory"
+    sub_questions:
+      - "Are inactive accounts disabled after 45 days (IG1+)?"
+      - "Are accounts centrally managed (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-10
+    text: "What processes exist for account lifecycle management including onboarding, modification, and termination?"
+    category: account_management
+    phase: PROTECT
+    controls:
+      cis-v8: "5.2, 5.3, 5.4, 5.5, 5.6"
+      nist-csf: "PR.AA-01"
+      nist-800-53: "AC-2"
+      iso-27001: "A.8.2"
+      hipaa: "§164.308(a)(3)"
+      pci-dss: "8.1.4"
+    implementation_group: IG1
+    evidence_required:
+      - Account provisioning/deprovisioning procedures
+      - Unique administrator account evidence
+      - Service account restrictions
+    scoring:
+      full: "Documented lifecycle process, unique admin accounts, service account restrictions"
+      partial: "Some processes exist but not comprehensive"
+      none: "No formal account lifecycle management"
+    sub_questions:
+      - "Are shared accounts prohibited for administrator access?"
+      - "Is default administrator account disabled or renamed?"
+      - "Are service accounts restricted in privileges?"
+    risk_weight: HIGH
+
+  # Control 6: Access Control Management (8 Safeguards)
+  - id: Q-CIS-11
+    text: "Do you implement role-based access control (RBAC) with defined access granting and revoking processes?"
+    category: access_control
+    phase: PROTECT
+    controls:
+      cis-v8: "6.1, 6.2"
+      nist-csf: "PR.AA-05"
+      nist-800-53: "AC-2, AC-3"
+      iso-27001: "A.8.3"
+      hipaa: "§164.312(a)(1)"
+      pci-dss: "7.1"
+    implementation_group: IG1
+    evidence_required:
+      - RBAC policy and role definitions
+      - Access request/approval process
+      - Access revocation procedures
+    scoring:
+      full: "RBAC implemented with documented roles, access granting/revoking process"
+      partial: "Some access controls but not role-based or poorly documented"
+      none: "No formal access control management"
+    sub_questions:
+      - "Are access rights based on business need?"
+      - "Is access revoked immediately upon role change/termination?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-12
+    text: "How do you enforce strong authentication including MFA for remote access and sensitive applications?"
+    category: access_control
+    phase: PROTECT
+    controls:
+      cis-v8: "6.3, 6.4, 6.5, 6.6, 6.7, 6.8"
+      nist-csf: "PR.AA-03"
+      nist-800-53: "IA-2, IA-5"
+      iso-27001: "A.8.5"
+      hipaa: "§164.312(d)"
+      pci-dss: "8.3"
+    implementation_group: IG1
+    evidence_required:
+      - MFA configuration for remote access
+      - MFA configuration for administrative access
+      - Centralized authentication system (IG2+)
+    scoring:
+      full: "MFA for all remote access (IG1), externally-exposed apps (IG2), all admin access (IG2), centralized (IG2)"
+      partial: "MFA implemented but not comprehensive"
+      none: "No MFA implementation"
+    sub_questions:
+      - "Is MFA required for all remote network access?"
+      - "Is MFA required for administrative access (IG2+)?"
+      - "Is SSO implemented (IG3)?"
+    risk_weight: HIGH
+
+  # Control 7: Continuous Vulnerability Management (7 Safeguards)
+  - id: Q-CIS-13
+    text: "Do you have an established vulnerability management process including regular scanning and remediation?"
+    category: vulnerability_management
+    phase: IDENTIFY
+    controls:
+      cis-v8: "7.1, 7.2, 7.3"
+      nist-csf: "ID.RA-01"
+      nist-800-53: "RA-5"
+      iso-27001: "A.8.8"
+      pci-dss: "6.1, 11.3"
+    implementation_group: IG1
+    evidence_required:
+      - Vulnerability management policy
+      - Vulnerability scan reports
+      - Remediation tracking
+    scoring:
+      full: "Documented process, automated scanning monthly (IG2) or after updates, remediation tracked"
+      partial: "Scanning performed but not regular or remediation not tracked"
+      none: "No vulnerability management process"
+    sub_questions:
+      - "Are OS updates automated where possible (IG1+)?"
+      - "Are internal vulnerability scans performed (IG2+)?"
+      - "Is authenticated scanning used (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-14
+    text: "How do you manage application patching and remediate discovered vulnerabilities?"
+    category: vulnerability_management
+    phase: PROTECT
+    controls:
+      cis-v8: "7.4, 7.5, 7.6, 7.7"
+      nist-csf: "PR.IP-12"
+      nist-800-53: "SI-2"
+      iso-27001: "A.8.8"
+      pci-dss: "6.2"
+    implementation_group: IG1
+    evidence_required:
+      - Patch management process
+      - Application update automation
+      - Exception documentation for unpatched systems
+    scoring:
+      full: "Automated application updates, remediation within SLA, exceptions documented"
+      partial: "Manual patching with some delays"
+      none: "No formal patch management"
+    sub_questions:
+      - "Are application updates automated where possible (IG1+)?"
+      - "Are exceptions documented for unpatched vulnerabilities (IG2+)?"
+      - "Is a risk scoring method used for prioritization (IG3)?"
+    risk_weight: HIGH
+
+  # Control 8: Audit Log Management (12 Safeguards)
+  - id: Q-CIS-15
+    text: "Do you maintain an audit logging process that defines what events to log, log retention, and log review?"
+    category: audit_logging
+    phase: DETECT
+    controls:
+      cis-v8: "8.1, 8.2, 8.3"
+      nist-csf: "DE.CM-03"
+      nist-800-53: "AU-2, AU-4, AU-6"
+      iso-27001: "A.8.15"
+      hipaa: "§164.312(b)"
+      pci-dss: "10.1, 10.7"
+    implementation_group: IG1
+    evidence_required:
+      - Audit logging policy
+      - Log retention configuration
+      - Log review procedures
+    scoring:
+      full: "Documented logging process, 90-day minimum retention, regular log review"
+      partial: "Logging enabled but no formal process or review"
+      none: "No audit logging process"
+    sub_questions:
+      - "Is audit logging enabled on enterprise assets?"
+      - "Are logs retained for at least 90 days?"
+      - "Is log review performed weekly (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-16
+    text: "Do you centralize and protect audit logs with time synchronization and access controls?"
+    category: audit_logging
+    phase: DETECT
+    controls:
+      cis-v8: "8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 8.11, 8.12"
+      nist-csf: "DE.AE-03"
+      nist-800-53: "AU-9, AU-8"
+      iso-27001: "A.8.17"
+      pci-dss: "10.4, 10.5"
+    implementation_group: IG1
+    evidence_required:
+      - Centralized log management system (SIEM)
+      - Time synchronization configuration
+      - Log integrity controls
+    scoring:
+      full: "Centralized SIEM (IG2), time synchronized, log integrity protected, DNS/URL/command-line logging (IG2+)"
+      partial: "Some centralization but incomplete coverage"
+      none: "Logs not centralized or protected"
+    sub_questions:
+      - "Are logs standardized for consistent parsing?"
+      - "Is time synchronization configured (NTP)?"
+      - "Is DNS query logging enabled (IG2+)?"
+      - "Is command-line audit logging enabled (IG2+)?"
+    risk_weight: MEDIUM
+
+  # Control 9: Email and Web Browser Protections (7 Safeguards)
+  - id: Q-CIS-17
+    text: "What email security controls are implemented to protect against phishing and malicious attachments?"
+    category: email_protection
+    phase: PROTECT
+    controls:
+      cis-v8: "9.1, 9.2, 9.3, 9.4"
+      nist-csf: "PR.PT-04"
+      nist-800-53: "SI-8"
+      iso-27001: "A.8.23"
+      pci-dss: "5.1"
+    implementation_group: IG1
+    evidence_required:
+      - Email security gateway configuration
+      - DMARC/DKIM/SPF records
+      - Attachment filtering rules
+    scoring:
+      full: "Email filtering with URL scanning, DMARC/DKIM/SPF implemented, unnecessary file types blocked"
+      partial: "Basic email filtering without advanced protections"
+      none: "No email security controls"
+    sub_questions:
+      - "Is email filtering/gateway deployed?"
+      - "Are DMARC, DKIM, and SPF configured?"
+      - "Are unnecessary file types blocked?"
+      - "Is URL filtering enabled (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-18
+    text: "How are web browsers secured and managed across the enterprise?"
+    category: browser_protection
+    phase: PROTECT
+    controls:
+      cis-v8: "9.5, 9.6, 9.7"
+      nist-csf: "PR.PT-04"
+      nist-800-53: "SC-18"
+      iso-27001: "A.8.23"
+    implementation_group: IG1
+    evidence_required:
+      - Browser security configuration
+      - Approved browser list
+      - Browser extension policy
+    scoring:
+      full: "Only approved browsers supported, network-based URL filtering (IG2), DNS filtering for malicious domains"
+      partial: "Some browser controls but not enforced"
+      none: "No browser security controls"
+    sub_questions:
+      - "Are only latest supported browsers allowed?"
+      - "Is network-based URL filtering deployed (IG2+)?"
+      - "Are browser extensions restricted (IG2+)?"
+    risk_weight: MEDIUM
+
+  # Control 10: Malware Defenses (7 Safeguards)
+  - id: Q-CIS-19
+    text: "Do you deploy and maintain anti-malware software on all enterprise assets?"
+    category: malware_defense
+    phase: PROTECT
+    controls:
+      cis-v8: "10.1, 10.2, 10.3"
+      nist-csf: "PR.PT-03"
+      nist-800-53: "SI-3"
+      iso-27001: "A.8.7"
+      pci-dss: "5.1, 5.2"
+    implementation_group: IG1
+    evidence_required:
+      - Anti-malware deployment status
+      - Automatic update configuration
+      - Centralized management console
+    scoring:
+      full: "Anti-malware on all assets with automatic updates, behavior-based detection (IG2+)"
+      partial: "Anti-malware deployed but not comprehensive or automatic"
+      none: "No anti-malware deployment"
+    sub_questions:
+      - "Is anti-malware deployed on all workstations and servers?"
+      - "Are signatures automatically updated?"
+      - "Is centralized management configured (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-20
+    text: "What advanced malware prevention controls are implemented beyond signature-based detection?"
+    category: malware_defense
+    phase: PROTECT
+    controls:
+      cis-v8: "10.4, 10.5, 10.6, 10.7"
+      nist-csf: "PR.PT-03"
+      nist-800-53: "SI-3(7)"
+      iso-27001: "A.8.7"
+    implementation_group: IG2
+    evidence_required:
+      - EDR/XDR deployment
+      - Autorun configuration
+      - Removable media scanning
+    scoring:
+      full: "EDR deployed, autorun disabled, removable media scanned, sandboxing for email attachments (IG3)"
+      partial: "Some advanced controls but not comprehensive"
+      none: "Only basic signature-based detection"
+    sub_questions:
+      - "Is automatic execution disabled for removable media?"
+      - "Are removable media scanned on insert (IG2+)?"
+      - "Is EDR/XDR deployed (IG2+)?"
+      - "Is email attachment sandboxing used (IG3)?"
+    risk_weight: MEDIUM
+
+  # Control 11: Data Recovery (5 Safeguards)
+  - id: Q-CIS-21
+    text: "Do you perform regular automated backups of enterprise data and system images?"
+    category: data_recovery
+    phase: RECOVER
+    controls:
+      cis-v8: "11.1, 11.2"
+      nist-csf: "PR.DS-11"
+      nist-800-53: "CP-9"
+      iso-27001: "A.8.13"
+      hipaa: "§164.308(a)(7)"
+      pci-dss: "9.5.1"
+    implementation_group: IG1
+    evidence_required:
+      - Backup configuration documentation
+      - Backup completion logs
+      - System image backup schedule
+    scoring:
+      full: "Automated backups of in-scope data weekly, system images for critical assets (IG2)"
+      partial: "Manual or infrequent backups"
+      none: "No backup process"
+    sub_questions:
+      - "Are backups automated and weekly minimum?"
+      - "Are system images maintained for critical assets (IG2+)?"
+      - "Are backups encrypted?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-22
+    text: "How are backups protected, stored offsite, and tested for successful restoration?"
+    category: data_recovery
+    phase: RECOVER
+    controls:
+      cis-v8: "11.3, 11.4, 11.5"
+      nist-csf: "RC.RP-01"
+      nist-800-53: "CP-9, CP-10"
+      iso-27001: "A.8.13"
+      pci-dss: "9.5.1"
+    implementation_group: IG1
+    evidence_required:
+      - Offsite/cloud backup configuration
+      - Backup access controls
+      - Restoration test results
+    scoring:
+      full: "Protected backups with separate credentials, offsite/cloud storage, quarterly restoration tests"
+      partial: "Offsite backups but not regularly tested"
+      none: "Backups not protected or tested"
+    sub_questions:
+      - "Are backup storage credentials separate from production?"
+      - "Are backups stored offsite or in cloud?"
+      - "Are restoration tests performed quarterly?"
+    risk_weight: HIGH
+
+  # Control 12: Network Infrastructure Management (8 Safeguards)
+  - id: Q-CIS-23
+    text: "Do you maintain an up-to-date network infrastructure inventory with secure configurations?"
+    category: network_management
+    phase: PROTECT
+    controls:
+      cis-v8: "12.1, 12.2, 12.3"
+      nist-csf: "ID.AM-04"
+      nist-800-53: "CM-8"
+      iso-27001: "A.8.20"
+      pci-dss: "1.1.2"
+    implementation_group: IG1
+    evidence_required:
+      - Network infrastructure inventory
+      - Network diagrams
+      - Secure configuration standards
+    scoring:
+      full: "Complete infrastructure inventory, network diagrams updated, secure configurations applied"
+      partial: "Some documentation but outdated or incomplete"
+      none: "No network infrastructure inventory"
+    sub_questions:
+      - "Are network diagrams current?"
+      - "Are unused network services disabled?"
+      - "Are secure protocols used (SSH, HTTPS, TLS 1.2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-24
+    text: "How is remote access to network infrastructure secured and managed?"
+    category: network_management
+    phase: PROTECT
+    controls:
+      cis-v8: "12.4, 12.5, 12.6, 12.7, 12.8"
+      nist-csf: "PR.AC-05"
+      nist-800-53: "AC-17"
+      iso-27001: "A.8.20"
+      pci-dss: "1.3"
+    implementation_group: IG1
+    evidence_required:
+      - Remote management ACLs
+      - AAA server configuration
+      - Out-of-band management (IG3)
+    scoring:
+      full: "Management traffic restricted, AAA centralized (IG2), out-of-band management for critical (IG3)"
+      partial: "Some controls but not comprehensive"
+      none: "No remote access restrictions"
+    sub_questions:
+      - "Is management traffic restricted to specific IPs?"
+      - "Is centralized AAA used (IG2+)?"
+      - "Is out-of-band management deployed (IG3)?"
+    risk_weight: MEDIUM
+
+  # Control 13: Network Monitoring and Defense (11 Safeguards)
+  - id: Q-CIS-25
+    text: "Do you maintain network security architecture with monitoring at key points?"
+    category: network_defense
+    phase: DETECT
+    controls:
+      cis-v8: "13.1, 13.2, 13.3, 13.4"
+      nist-csf: "DE.CM-01"
+      nist-800-53: "SI-4"
+      iso-27001: "A.8.16"
+      pci-dss: "11.4"
+    implementation_group: IG1
+    evidence_required:
+      - Network security architecture documentation
+      - Monitoring tool deployment
+      - Alert configuration
+    scoring:
+      full: "Security architecture defined, traffic monitoring at boundaries (IG2), alerts for unauthorized connections"
+      partial: "Some monitoring but not comprehensive"
+      none: "No network monitoring architecture"
+    sub_questions:
+      - "Is network traffic monitored at boundaries (IG2+)?"
+      - "Are security tools deployed across infrastructure?"
+      - "Is remote device traffic filtered (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-26
+    text: "How is network segmentation implemented to isolate sensitive systems and detect lateral movement?"
+    category: network_defense
+    phase: PROTECT
+    controls:
+      cis-v8: "13.5, 13.6, 13.7, 13.8, 13.9, 13.10, 13.11"
+      nist-csf: "PR.AC-05"
+      nist-800-53: "SC-7"
+      iso-27001: "A.8.22"
+      pci-dss: "1.3"
+    implementation_group: IG2
+    evidence_required:
+      - Network segmentation documentation
+      - ACL configurations
+      - IDS/IPS deployment
+    scoring:
+      full: "Sensitive data isolated, application-aware firewall/IDS (IG3), SSL/TLS inspection (IG3)"
+      partial: "Basic segmentation without deep inspection"
+      none: "Flat network without segmentation"
+    sub_questions:
+      - "Are sensitive systems in separate VLANs (IG2+)?"
+      - "Is port-level access control deployed (IG2+)?"
+      - "Is IDS/IPS deployed (IG2+)?"
+      - "Is TLS inspection performed (IG3)?"
+    risk_weight: HIGH
+
+  # Control 14: Security Awareness and Skills Training (9 Safeguards)
+  - id: Q-CIS-27
+    text: "Do you have a security awareness training program that covers key security topics?"
+    category: security_awareness
+    phase: PROTECT
+    controls:
+      cis-v8: "14.1, 14.2, 14.3, 14.4, 14.5"
+      nist-csf: "PR.AT-01"
+      nist-800-53: "AT-2"
+      iso-27001: "A.6.3"
+      hipaa: "§164.308(a)(5)"
+      pci-dss: "12.6"
+    implementation_group: IG1
+    evidence_required:
+      - Security awareness program documentation
+      - Training completion records
+      - Training content/curriculum
+    scoring:
+      full: "Annual awareness training covering authentication, data handling, social engineering, secure work practices"
+      partial: "Training exists but not comprehensive or annual"
+      none: "No security awareness program"
+    sub_questions:
+      - "Is training provided at hire and annually?"
+      - "Does training cover social engineering risks?"
+      - "Is training updated for new threats?"
+    risk_weight: MEDIUM
+
+  - id: Q-CIS-28
+    text: "How do you assess and develop security skills for roles with privileged access or security responsibilities?"
+    category: security_training
+    phase: PROTECT
+    controls:
+      cis-v8: "14.6, 14.7, 14.8, 14.9"
+      nist-csf: "PR.AT-02"
+      nist-800-53: "AT-3"
+      iso-27001: "A.6.3"
+    implementation_group: IG2
+    evidence_required:
+      - Role-specific training curriculum
+      - Skills assessment results
+      - Phishing simulation results
+    scoring:
+      full: "Role-specific training, skills assessments (IG2), phishing exercises (IG2), app dev security training (IG2)"
+      partial: "Some specialized training but not comprehensive"
+      none: "No role-specific security training"
+    sub_questions:
+      - "Is role-specific training provided (IG2+)?"
+      - "Are security skills assessed (IG2+)?"
+      - "Are phishing simulations conducted (IG2+)?"
+      - "Are developers trained in secure coding (IG2+)?"
+    risk_weight: MEDIUM
+
+  # Control 15: Service Provider Management (7 Safeguards)
+  - id: Q-CIS-29
+    text: "Do you maintain an inventory of service providers with security assessments and contractual requirements?"
+    category: vendor_management
+    phase: IDENTIFY
+    controls:
+      cis-v8: "15.1, 15.2, 15.3"
+      nist-csf: "ID.SC-01"
+      nist-800-53: "SA-9"
+      iso-27001: "A.5.19"
+      pci-dss: "12.8"
+    implementation_group: IG1
+    evidence_required:
+      - Service provider inventory
+      - Security assessment records
+      - Contract security requirements
+    scoring:
+      full: "Complete SP inventory, classification by sensitivity, security requirements in contracts"
+      partial: "Some vendors tracked but not comprehensive"
+      none: "No service provider inventory"
+    sub_questions:
+      - "Are all service providers inventoried?"
+      - "Are SPs classified by data sensitivity handled?"
+      - "Do contracts include security requirements?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-30
+    text: "How do you monitor and manage service provider security compliance and incident response?"
+    category: vendor_management
+    phase: PROTECT
+    controls:
+      cis-v8: "15.4, 15.5, 15.6, 15.7"
+      nist-csf: "ID.SC-04"
+      nist-800-53: "SA-9"
+      iso-27001: "A.5.22"
+      pci-dss: "12.8.4"
+    implementation_group: IG2
+    evidence_required:
+      - SP compliance monitoring records
+      - Decommissioning procedures
+      - SP incident response requirements
+    scoring:
+      full: "Annual SP assessments (IG2), secure decommissioning, SP IR requirements (IG3)"
+      partial: "Some monitoring but not comprehensive"
+      none: "No SP compliance monitoring"
+    sub_questions:
+      - "Are SPs assessed annually (IG2+)?"
+      - "Are SPs securely decommissioned (IG2+)?"
+      - "Do SP contracts include IR requirements (IG3)?"
+    risk_weight: MEDIUM
+
+  # Control 16: Application Software Security (14 Safeguards)
+  - id: Q-CIS-31
+    text: "Do you have a secure software development lifecycle (SSDLC) for in-house developed applications?"
+    category: application_security
+    phase: PROTECT
+    controls:
+      cis-v8: "16.1, 16.2, 16.3, 16.4, 16.5, 16.6, 16.7"
+      nist-csf: "PR.DS-06"
+      nist-800-53: "SA-3, SA-11"
+      iso-27001: "A.8.25"
+      pci-dss: "6.3, 6.5"
+    implementation_group: IG2
+    evidence_required:
+      - SSDLC documentation
+      - Security requirements in development process
+      - Code review procedures
+    scoring:
+      full: "SSDLC established, security requirements at design, threat modeling (IG3), secure coding standards"
+      partial: "Some security in development but not formalized"
+      none: "No secure development process"
+    sub_questions:
+      - "Is security integrated into development lifecycle (IG2+)?"
+      - "Are third-party components inventoried (IG2+)?"
+      - "Is threat modeling performed (IG3)?"
+      - "Is code review conducted (IG2+)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-32
+    text: "How do you test applications for vulnerabilities through static/dynamic analysis and penetration testing?"
+    category: application_security
+    phase: IDENTIFY
+    controls:
+      cis-v8: "16.8, 16.9, 16.10, 16.11, 16.12, 16.13, 16.14"
+      nist-csf: "ID.RA-01"
+      nist-800-53: "SA-11"
+      iso-27001: "A.8.29"
+      pci-dss: "6.6, 11.3"
+    implementation_group: IG2
+    evidence_required:
+      - SAST/DAST tool reports
+      - Penetration test reports
+      - Vulnerability remediation tracking
+    scoring:
+      full: "SAST in CI/CD (IG2), DAST before production (IG2), root cause analysis (IG3), WAF (IG3)"
+      partial: "Some testing but not integrated into CI/CD"
+      none: "No application security testing"
+    sub_questions:
+      - "Is SAST performed in CI/CD pipeline (IG2+)?"
+      - "Is DAST performed before production release (IG2+)?"
+      - "Are vulnerability root causes analyzed (IG3)?"
+      - "Is WAF deployed for web applications (IG3)?"
+    risk_weight: HIGH
+
+  # Control 17: Incident Response Management (9 Safeguards)
+  - id: Q-CIS-33
+    text: "Do you have a documented incident response plan with defined roles, responsibilities, and contact information?"
+    category: incident_response
+    phase: RESPOND
+    controls:
+      cis-v8: "17.1, 17.2, 17.3"
+      nist-csf: "RS.MA-01"
+      nist-800-53: "IR-1, IR-8"
+      iso-27001: "A.5.24"
+      hipaa: "§164.308(a)(6)"
+      pci-dss: "12.10"
+    implementation_group: IG1
+    evidence_required:
+      - Incident response plan
+      - Contact/escalation lists
+      - Role definitions
+    scoring:
+      full: "Documented IR plan with roles, contact info, escalation procedures, reviewed annually"
+      partial: "IR plan exists but incomplete or outdated"
+      none: "No incident response plan"
+    sub_questions:
+      - "Are IR roles and responsibilities defined?"
+      - "Is contact information current and accessible?"
+      - "Does plan cover regulatory reporting requirements?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-34
+    text: "How do you test, improve, and automate incident response capabilities?"
+    category: incident_response
+    phase: RESPOND
+    controls:
+      cis-v8: "17.4, 17.5, 17.6, 17.7, 17.8, 17.9"
+      nist-csf: "RS.IM-01"
+      nist-800-53: "IR-3, IR-4"
+      iso-27001: "A.5.27"
+      pci-dss: "12.10.2"
+    implementation_group: IG2
+    evidence_required:
+      - IR exercise records
+      - Post-incident review documentation
+      - IR threshold definitions
+    scoring:
+      full: "Annual IR exercises (IG2), incident thresholds defined, post-incident reviews, automation (IG3)"
+      partial: "Some testing but not regular or comprehensive"
+      none: "No IR testing or improvement process"
+    sub_questions:
+      - "Are IR exercises conducted annually (IG2+)?"
+      - "Are incident thresholds/playbooks defined (IG2+)?"
+      - "Are post-incident reviews conducted (IG2+)?"
+      - "Is SOAR/automation deployed (IG3)?"
+    risk_weight: MEDIUM
+
+  # Control 18: Penetration Testing (5 Safeguards)
+  - id: Q-CIS-35
+    text: "Do you conduct regular penetration testing of external and internal infrastructure?"
+    category: penetration_testing
+    phase: IDENTIFY
+    controls:
+      cis-v8: "18.1, 18.2, 18.3"
+      nist-csf: "ID.RA-01"
+      nist-800-53: "CA-8"
+      iso-27001: "A.8.8"
+      pci-dss: "11.3"
+    implementation_group: IG2
+    evidence_required:
+      - Penetration test program documentation
+      - External pentest reports
+      - Internal pentest reports
+    scoring:
+      full: "Established pentest program, external testing annually (IG2), internal testing (IG3)"
+      partial: "Occasional testing but not programmatic"
+      none: "No penetration testing conducted"
+    sub_questions:
+      - "Is penetration testing conducted annually (IG2+)?"
+      - "Does testing cover external-facing assets (IG2+)?"
+      - "Does testing cover internal network (IG3)?"
+    risk_weight: HIGH
+
+  - id: Q-CIS-36
+    text: "How do you validate security controls through attack simulation and remediation verification?"
+    category: penetration_testing
+    phase: IDENTIFY
+    controls:
+      cis-v8: "18.4, 18.5"
+      nist-csf: "ID.RA-05"
+      nist-800-53: "CA-8"
+      iso-27001: "A.8.8"
+    implementation_group: IG3
+    evidence_required:
+      - Attack simulation reports
+      - Remediation validation records
+      - Red team exercise documentation
+    scoring:
+      full: "Regular attack simulation, pentest findings validated after remediation, red team exercises"
+      partial: "Remediation verified but no attack simulation"
+      none: "No validation of security controls"
+    sub_questions:
+      - "Are pentest findings verified after remediation (IG3)?"
+      - "Is attack simulation/BAS used (IG3)?"
+      - "Are red team exercises conducted?"
+    risk_weight: MEDIUM

@@ -1,0 +1,417 @@
+# Python Vulnerability Patterns
+# Pattern ID format: PY-{CWE}-{NUM}
+# Reference: OWASP ASVS v5, CWE Top 25, SEI CERT (no official Python standard)
+
+patterns:
+  # SQL Injection (CWE-89)
+  - id: PY-89-001
+    cwe: 89
+    category: SQL Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.4
+    description: String concatenation or f-strings used in SQL queries
+
+    vulnerable_pattern: |
+      query = f"SELECT * FROM users WHERE id = {user_id}"
+      cursor.execute(query)
+
+    secure_pattern: |
+      query = "SELECT * FROM users WHERE id = ?"
+      cursor.execute(query, (user_id,))
+
+    frameworks:
+      django: |
+        # Use Django ORM (parameterized by default)
+        User.objects.filter(id=user_id)
+
+      sqlalchemy: |
+        # Use SQLAlchemy text() with bound parameters
+        from sqlalchemy import text
+        stmt = text("SELECT * FROM users WHERE id = :id")
+        result = conn.execute(stmt, {"id": user_id})
+
+  - id: PY-89-002
+    cwe: 89
+    category: SQL Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.4
+    description: Raw SQL execution without parameterization
+
+    vulnerable_pattern: |
+      cursor.execute("SELECT * FROM users WHERE name = '%s'" % username)
+
+    secure_pattern: |
+      cursor.execute("SELECT * FROM users WHERE name = ?", (username,))
+
+  # Cross-Site Scripting (CWE-79)
+  - id: PY-79-001
+    cwe: 79
+    category: Cross-Site Scripting
+    severity: HIGH
+    owasp_asvs: V5.3.3
+    description: Unsafe rendering of user input in templates
+
+    vulnerable_pattern: |
+      # Flask with autoescape disabled
+      return render_template_string("<h1>Hello {{ name }}</h1>", name=user_input)
+
+    secure_pattern: |
+      # Flask with autoescape enabled (default)
+      return render_template("hello.html", name=user_input)
+      # Template uses {{ name }} - automatically escaped
+
+    frameworks:
+      django: |
+        # Django templates auto-escape by default
+        return render(request, 'hello.html', {'name': user_input})
+
+      flask: |
+        # Ensure autoescape is enabled in Jinja2
+        app.jinja_env.autoescape = True
+        return render_template("hello.html", name=user_input)
+
+  - id: PY-79-002
+    cwe: 79
+    category: Cross-Site Scripting
+    severity: HIGH
+    owasp_asvs: V5.3.3
+    description: Using safe/mark_safe incorrectly
+
+    vulnerable_pattern: |
+      from django.utils.safestring import mark_safe
+      return mark_safe(f"<div>{user_input}</div>")
+
+    secure_pattern: |
+      from django.utils.html import escape
+      return f"<div>{escape(user_input)}</div>"
+
+  # Command Injection (CWE-78)
+  - id: PY-78-001
+    cwe: 78
+    category: OS Command Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.8
+    description: Using shell=True with user input
+
+    vulnerable_pattern: |
+      import subprocess
+      subprocess.run(f"ls {user_directory}", shell=True)
+
+    secure_pattern: |
+      import subprocess
+      subprocess.run(["ls", user_directory], shell=False)
+
+  - id: PY-78-002
+    cwe: 78
+    category: OS Command Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.8
+    description: Using os.system with user input
+
+    vulnerable_pattern: |
+      import os
+      os.system(f"cat {filename}")
+
+    secure_pattern: |
+      import subprocess
+      subprocess.run(["cat", filename], shell=False)
+      # Or better: use Python file operations
+      with open(filename, 'r') as f:
+          content = f.read()
+
+  # Path Traversal (CWE-22)
+  - id: PY-22-001
+    cwe: 22
+    category: Path Traversal
+    severity: HIGH
+    owasp_asvs: V5.3.2
+    description: Unsafe file path construction
+
+    vulnerable_pattern: |
+      filepath = f"/uploads/{filename}"
+      with open(filepath, 'r') as f:
+          return f.read()
+
+    secure_pattern: |
+      from pathlib import Path
+      import os
+
+      base_dir = Path("/uploads")
+      filepath = (base_dir / filename).resolve()
+
+      # Ensure resolved path is within base_dir
+      if not filepath.is_relative_to(base_dir):
+          raise ValueError("Invalid file path")
+
+      with open(filepath, 'r') as f:
+          return f.read()
+
+  # Hardcoded Credentials (CWE-798)
+  - id: PY-798-001
+    cwe: 798
+    category: Hardcoded Credentials
+    severity: CRITICAL
+    owasp_asvs: V2.10.1
+    description: Hardcoded passwords or API keys
+
+    vulnerable_pattern: |
+      DATABASE_PASSWORD = "SuperSecret123!"
+      API_KEY = "sk-1234567890abcdef"
+
+    secure_pattern: |
+      import os
+      DATABASE_PASSWORD = os.environ["DATABASE_PASSWORD"]
+      API_KEY = os.environ["API_KEY"]
+
+  - id: PY-798-002
+    cwe: 798
+    category: Hardcoded Credentials
+    severity: CRITICAL
+    owasp_asvs: V2.10.1
+    description: Credentials in configuration files committed to git
+
+    vulnerable_pattern: |
+      # config.py (committed to git)
+      DB_HOST = "localhost"
+      DB_PASSWORD = "password123"
+
+    secure_pattern: |
+      # config.py (committed to git)
+      import os
+      from dotenv import load_dotenv
+
+      load_dotenv()
+      DB_HOST = os.getenv("DB_HOST")
+      DB_PASSWORD = os.getenv("DB_PASSWORD")
+
+      # .env (in .gitignore)
+      # DB_HOST=localhost
+      # DB_PASSWORD=actual_password
+
+  # Weak Cryptography (CWE-327)
+  - id: PY-327-001
+    cwe: 327
+    category: Weak Cryptography
+    severity: HIGH
+    owasp_asvs: V6.2.1
+    description: Using deprecated or weak cryptographic algorithms
+
+    vulnerable_pattern: |
+      import hashlib
+      password_hash = hashlib.md5(password.encode()).hexdigest()
+
+    secure_pattern: |
+      import bcrypt
+      password_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+
+  - id: PY-327-002
+    cwe: 327
+    category: Weak Cryptography
+    severity: HIGH
+    owasp_asvs: V6.2.2
+    description: Using ECB mode for encryption
+
+    vulnerable_pattern: |
+      from Crypto.Cipher import AES
+      cipher = AES.new(key, AES.MODE_ECB)
+
+    secure_pattern: |
+      from Crypto.Cipher import AES
+      from Crypto.Random import get_random_bytes
+
+      nonce = get_random_bytes(12)
+      cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)
+
+  # Insecure Deserialization (CWE-502)
+  - id: PY-502-001
+    cwe: 502
+    category: Insecure Deserialization
+    severity: CRITICAL
+    owasp_asvs: V5.5.3
+    description: Using pickle with untrusted data
+
+    vulnerable_pattern: |
+      import pickle
+      data = pickle.loads(user_input)
+
+    secure_pattern: |
+      import json
+      data = json.loads(user_input)
+      # Only use pickle with trusted, authenticated sources
+      # Consider signing pickled data with HMAC
+
+  # Information Exposure (CWE-200)
+  - id: PY-200-001
+    cwe: 200
+    category: Information Exposure
+    severity: MEDIUM
+    owasp_asvs: V7.4.1
+    description: Exposing sensitive information in error messages
+
+    vulnerable_pattern: |
+      try:
+          db.connect()
+      except Exception as e:
+          return f"Database error: {str(e)}", 500
+
+    secure_pattern: |
+      import logging
+
+      try:
+          db.connect()
+      except Exception as e:
+          logging.error(f"Database connection failed: {e}")
+          return "Internal server error", 500
+
+  - id: PY-200-002
+    cwe: 200
+    category: Information Exposure
+    severity: MEDIUM
+    owasp_asvs: V7.4.3
+    description: Debug mode enabled in production
+
+    vulnerable_pattern: |
+      # Django settings.py
+      DEBUG = True
+
+    secure_pattern: |
+      # Django settings.py
+      import os
+      DEBUG = os.getenv("DEBUG", "False") == "True"
+
+  # Missing Authorization (CWE-862)
+  - id: PY-862-001
+    cwe: 862
+    category: Missing Authorization
+    severity: HIGH
+    owasp_asvs: V4.1.2
+    description: Missing authorization checks on sensitive operations
+
+    vulnerable_pattern: |
+      @app.route('/user/<user_id>/delete', methods=['POST'])
+      def delete_user(user_id):
+          User.objects.filter(id=user_id).delete()
+          return "User deleted"
+
+    secure_pattern: |
+      @app.route('/user/<user_id>/delete', methods=['POST'])
+      @login_required
+      def delete_user(user_id):
+          user = User.objects.get(id=user_id)
+          # Check if current user has permission to delete this user
+          if not current_user.is_admin and current_user.id != user.id:
+              abort(403)
+          user.delete()
+          return "User deleted"
+
+  # CSRF (CWE-352)
+  - id: PY-352-001
+    cwe: 352
+    category: Cross-Site Request Forgery
+    severity: HIGH
+    owasp_asvs: V4.2.2
+    description: Missing CSRF protection on state-changing operations
+
+    vulnerable_pattern: |
+      # Flask without CSRF protection
+      @app.route('/transfer', methods=['POST'])
+      def transfer_money():
+          amount = request.form['amount']
+          recipient = request.form['recipient']
+          perform_transfer(amount, recipient)
+
+    secure_pattern: |
+      # Flask with Flask-WTF CSRF protection
+      from flask_wtf.csrf import CSRFProtect
+
+      csrf = CSRFProtect(app)
+
+      @app.route('/transfer', methods=['POST'])
+      def transfer_money():
+          # CSRF token automatically validated
+          amount = request.form['amount']
+          recipient = request.form['recipient']
+          perform_transfer(amount, recipient)
+
+    frameworks:
+      django: |
+        # Django CSRF protection enabled by default
+        # Use {% csrf_token %} in forms
+        from django.views.decorators.csrf import csrf_protect
+
+        @csrf_protect
+        def transfer_money(request):
+            if request.method == 'POST':
+                # CSRF token automatically validated
+                pass
+
+  # Server-Side Request Forgery (CWE-918)
+  - id: PY-918-001
+    cwe: 918
+    category: SSRF
+    severity: HIGH
+    owasp_asvs: V5.3.11
+    description: Unvalidated URL fetching
+
+    vulnerable_pattern: |
+      import requests
+      url = request.args.get('url')
+      response = requests.get(url)
+
+    secure_pattern: |
+      import requests
+      from urllib.parse import urlparse
+
+      url = request.args.get('url')
+      parsed = urlparse(url)
+
+      # Whitelist allowed schemes and hosts
+      if parsed.scheme not in ['http', 'https']:
+          raise ValueError("Invalid URL scheme")
+
+      # Block internal IPs
+      if parsed.hostname in ['localhost', '127.0.0.1', '0.0.0.0']:
+          raise ValueError("Access to internal resources not allowed")
+
+      response = requests.get(url, timeout=5)
+
+  # Random Number Generation (CWE-330)
+  - id: PY-330-001
+    cwe: 330
+    category: Weak Random
+    severity: MEDIUM
+    owasp_asvs: V6.3.1
+    description: Using random module for security-sensitive operations
+
+    vulnerable_pattern: |
+      import random
+      session_token = ''.join(random.choices('0123456789abcdef', k=32))
+
+    secure_pattern: |
+      import secrets
+      session_token = secrets.token_hex(16)  # 32 hex characters
+
+  # XML External Entity (CWE-611)
+  - id: PY-611-001
+    cwe: 611
+    category: XXE
+    severity: HIGH
+    owasp_asvs: V5.5.2
+    description: Unsafe XML parsing
+
+    vulnerable_pattern: |
+      import xml.etree.ElementTree as ET
+      tree = ET.parse(user_xml_file)
+
+    secure_pattern: |
+      import defusedxml.ElementTree as ET
+      tree = ET.parse(user_xml_file)
+
+metadata:
+  total_patterns: 17
+  coverage:
+    owasp_top_10: [A01, A02, A03, A04, A05, A06, A07, A08]
+    cwe_top_25: [22, 78, 79, 89, 200, 327, 352, 502, 798, 862, 918]
+  frameworks_covered: [django, flask, sqlalchemy]
+  last_updated: "2026-01-17"
+  status: "complete"

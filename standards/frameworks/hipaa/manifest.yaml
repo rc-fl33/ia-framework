@@ -1,0 +1,31 @@
+name: HIPAA Security Rule
+type: regulation
+version: 45 CFR 164
+provider: hhs
+skills:
+  - compliance
+  - risk-assessment
+industries:
+  - healthcare
+native_categories:
+  - 164.308   # Administrative Safeguards
+  - 164.310   # Physical Safeguards
+  - 164.312   # Technical Safeguards
+  - 164.314   # Organizational Requirements
+  - 164.316   # Policies and Procedures
+source_url: https://www.hhs.gov/hipaa/
+published: 2026-01-14
+pages: 115
+chunks: 12
+enrichment_status:
+  tier: 3
+  framework_category: regulatory
+  controls: complete
+  questions: complete
+  questions_framework_count: 5
+  crosswalk: pending
+  implementation_steps: pending
+  last_verified: 2026-02-25
+  verified_by:
+    - https://www.hhs.gov/hipaa/
+  next_check: 2027-02-25

@@ -1,0 +1,13 @@
+# Remediation Roadmap
+
+## Phase 1 (0-30 days)
+
+- [Critical remediation item]
+
+## Phase 2 (30-90 days)
+
+- [Moderate remediation item]
+
+## Phase 3 (90+ days)
+
+- [Low priority remediation item]

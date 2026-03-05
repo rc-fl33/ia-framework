@@ -1,0 +1,70 @@
+# Tool Manifest Template
+# Copy this file to tools/{category}/{tool-name}/manifest.yaml
+
+type: tool
+name: tool-name              # Must match directory name
+description: "Brief description of what this tool does"
+category: security           # security, media, git, research, content, etc.
+subcategory: reconnaissance  # Optional: specific subcategory
+version: 1.0
+
+# Executable configuration
+executable: tool-name.py     # Relative to this manifest
+language: python             # python, typescript, bash, etc.
+
+# Dependencies
+dependencies:
+  - package-name-1          # Python: pip packages, TS: npm packages
+  - package-name-2
+
+# Tool capabilities (for discovery)
+capabilities:
+  - capability_one          # e.g., subdomain_enumeration
+  - capability_two          # e.g., dns_reconnaissance
+
+# Keywords (for OSINT matching)
+keywords:
+  - keyword1               # e.g., subdomain
+  - keyword2               # e.g., dns
+  - keyword3               # e.g., enumerate
+
+# Usage information
+usage: |
+  python tool-name.py --target {target} --output {file}
+
+# Input/output specification
+inputs:
+  - name: target
+    type: string           # string, domain, url, filepath, ip, etc.
+    required: true
+    description: "Description of this input"
+
+  - name: output
+    type: filepath
+    required: true
+    description: "Output file path"
+
+output_format: json         # json, text, csv, xml, etc.
+output_schema: |
+  {
+    "field1": "value",
+    "field2": "value"
+  }
+
+# Deployment configuration
+vps_required: false         # true if needs VPS deployment
+estimated_runtime: "2-5 minutes"
+
+# Examples
+examples:
+  - command: "python tool-name.py --target example.com --output results.json"
+    description: "Example usage description"
+
+# Related tools
+related_tools:
+  - tools/category/related-tool-1
+  - tools/category/related-tool-2
+
+# Metadata
+author: "IA Framework"
+last_updated: "2025-12-12"

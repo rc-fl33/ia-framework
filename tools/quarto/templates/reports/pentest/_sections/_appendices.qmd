@@ -1,0 +1,13 @@
+# Appendices
+
+## Appendix A: Finding Status
+
+| ID | Title | Severity | Status |
+|----|-------|----------|--------|
+| F001 | Example Finding | Medium | Open |
+
+## Appendix B: Glossary
+
+| Term | Definition |
+|------|------------|
+| [Term] | [Definition] |

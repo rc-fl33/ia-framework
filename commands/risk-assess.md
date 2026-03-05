@@ -1,0 +1,1 @@
+../skills/risk-assess/commands/risk-assess.md

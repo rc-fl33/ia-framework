@@ -1,0 +1,488 @@
+# JavaScript/Node.js Vulnerability Patterns
+# Pattern ID format: JS-{CWE}-{NUM}
+# Reference: OWASP ASVS v5, CWE Top 25, Node.js Security Best Practices
+
+patterns:
+  # Cross-Site Scripting (CWE-79)
+  - id: JS-79-001
+    cwe: 79
+    category: Cross-Site Scripting
+    severity: CRITICAL
+    owasp_asvs: V5.3.3
+    description: Using innerHTML with user input
+
+    vulnerable_pattern: |
+      // DOM-based XSS
+      const userInput = document.getElementById('input').value;
+      document.getElementById('output').innerHTML = userInput;
+
+    secure_pattern: |
+      const userInput = document.getElementById('input').value;
+      document.getElementById('output').textContent = userInput;
+      // Or use DOMPurify for rich HTML
+      document.getElementById('output').innerHTML = DOMPurify.sanitize(userInput);
+
+  - id: JS-79-002
+    cwe: 79
+    category: Cross-Site Scripting
+    severity: CRITICAL
+    owasp_asvs: V5.3.3
+    description: React dangerouslySetInnerHTML without sanitization
+
+    vulnerable_pattern: |
+      function UserProfile({ bio }) {
+        return <div dangerouslySetInnerHTML={{ __html: bio }} />;
+      }
+
+    secure_pattern: |
+      import DOMPurify from 'dompurify';
+
+      function UserProfile({ bio }) {
+        const sanitized = DOMPurify.sanitize(bio);
+        return <div dangerouslySetInnerHTML={{ __html: sanitized }} />;
+      }
+      // Better: avoid dangerouslySetInnerHTML entirely
+      function UserProfile({ bio }) {
+        return <div>{bio}</div>;
+      }
+
+  - id: JS-79-003
+    cwe: 79
+    category: Cross-Site Scripting
+    severity: HIGH
+    owasp_asvs: V5.3.3
+    description: Unsafe event handler injection
+
+    vulnerable_pattern: |
+      // React
+      <div onClick={eval(userInput)}>Click me</div>
+
+    secure_pattern: |
+      // Use predefined functions, never eval user input
+      const handleClick = () => { /* safe logic */ };
+      <div onClick={handleClick}>Click me</div>
+
+  # NoSQL Injection (CWE-943)
+  - id: JS-943-001
+    cwe: 943
+    category: NoSQL Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.4
+    description: MongoDB query with unvalidated user input
+
+    vulnerable_pattern: |
+      // Express + MongoDB
+      app.post('/login', async (req, res) => {
+        const user = await User.findOne({
+          username: req.body.username,
+          password: req.body.password
+        });
+      });
+      // Attack: {"username": {"$ne": null}, "password": {"$ne": null}}
+
+    secure_pattern: |
+      app.post('/login', async (req, res) => {
+        const { username, password } = req.body;
+
+        // Validate types
+        if (typeof username !== 'string' || typeof password !== 'string') {
+          return res.status(400).json({ error: 'Invalid input' });
+        }
+
+        const user = await User.findOne({ username, password });
+      });
+
+  # Command Injection (CWE-78)
+  - id: JS-78-001
+    cwe: 78
+    category: OS Command Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.8
+    description: Using child_process.exec with user input
+
+    vulnerable_pattern: |
+      const { exec } = require('child_process');
+
+      app.get('/files', (req, res) => {
+        exec(`ls ${req.query.dir}`, (error, stdout) => {
+          res.send(stdout);
+        });
+      });
+
+    secure_pattern: |
+      const { execFile } = require('child_process');
+
+      app.get('/files', (req, res) => {
+        // Use execFile with arguments array
+        execFile('ls', [req.query.dir], (error, stdout) => {
+          if (error) return res.status(500).send('Error');
+          res.send(stdout);
+        });
+      });
+
+  # Path Traversal (CWE-22)
+  - id: JS-22-001
+    cwe: 22
+    category: Path Traversal
+    severity: HIGH
+    owasp_asvs: V5.3.2
+    description: Unsafe file path construction
+
+    vulnerable_pattern: |
+      const express = require('express');
+      const fs = require('fs');
+      const path = require('path');
+
+      app.get('/download', (req, res) => {
+        const file = path.join('/uploads', req.query.file);
+        res.sendFile(file);
+      });
+      // Attack: ?file=../../../etc/passwd
+
+    secure_pattern: |
+      const express = require('express');
+      const fs = require('fs');
+      const path = require('path');
+
+      app.get('/download', (req, res) => {
+        const baseDir = path.resolve('/uploads');
+        const filePath = path.resolve(baseDir, req.query.file);
+
+        // Ensure resolved path is within baseDir
+        if (!filePath.startsWith(baseDir)) {
+          return res.status(403).send('Forbidden');
+        }
+
+        res.sendFile(filePath);
+      });
+
+  # Prototype Pollution (CWE-1321)
+  - id: JS-1321-001
+    cwe: 1321
+    category: Prototype Pollution
+    severity: HIGH
+    owasp_asvs: V5.1.4
+    description: Unsafe object merge with user input
+
+    vulnerable_pattern: |
+      function merge(target, source) {
+        for (let key in source) {
+          target[key] = source[key];
+        }
+        return target;
+      }
+
+      const userInput = JSON.parse(req.body);
+      merge({}, userInput);
+      // Attack: {"__proto__": {"isAdmin": true}}
+
+    secure_pattern: |
+      function safeMerge(target, source) {
+        for (let key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key) &&
+              key !== '__proto__' &&
+              key !== 'constructor' &&
+              key !== 'prototype') {
+            target[key] = source[key];
+          }
+        }
+        return target;
+      }
+
+      // Or use Object.assign with Object.create(null)
+      const safeObj = Object.assign(Object.create(null), userInput);
+
+  # Regular Expression Denial of Service (CWE-1333)
+  - id: JS-1333-001
+    cwe: 1333
+    category: Regex DoS
+    severity: MEDIUM
+    owasp_asvs: V5.1.5
+    description: Catastrophic backtracking in regex
+
+    vulnerable_pattern: |
+      const emailRegex = /^([a-zA-Z0-9]+)+@[a-zA-Z0-9]+\.[a-z]+$/;
+      if (emailRegex.test(userInput)) {
+        // Vulnerable to ReDoS
+      }
+      // Attack: "aaaaaaaaaaaaaaaaaaaaaaaaa!"
+
+    secure_pattern: |
+      // Use simpler regex or timeout
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      // Or use validator library
+      const validator = require('validator');
+      if (validator.isEmail(userInput)) {
+        // Safe
+      }
+
+  # JWT Vulnerabilities (CWE-327)
+  - id: JS-327-001
+    cwe: 327
+    category: Weak Cryptography
+    severity: CRITICAL
+    owasp_asvs: V6.2.1
+    description: JWT with none algorithm
+
+    vulnerable_pattern: |
+      const jwt = require('jsonwebtoken');
+
+      // Vulnerable: accepts "none" algorithm
+      jwt.verify(token, secret);
+
+    secure_pattern: |
+      const jwt = require('jsonwebtoken');
+
+      // Specify allowed algorithms
+      jwt.verify(token, secret, { algorithms: ['HS256', 'RS256'] });
+
+  - id: JS-327-002
+    cwe: 327
+    category: Weak Cryptography
+    severity: CRITICAL
+    owasp_asvs: V6.2.1
+    description: Weak JWT secret
+
+    vulnerable_pattern: |
+      const jwt = require('jsonwebtoken');
+      const token = jwt.sign({ userId: 123 }, 'secret');
+
+    secure_pattern: |
+      const jwt = require('jsonwebtoken');
+      const crypto = require('crypto');
+
+      // Use strong secret (256+ bits)
+      const secret = process.env.JWT_SECRET; // From environment
+      // secret should be: crypto.randomBytes(32).toString('hex')
+
+      const token = jwt.sign(
+        { userId: 123 },
+        secret,
+        { expiresIn: '1h', algorithm: 'HS256' }
+      );
+
+  # Server-Side Request Forgery (CWE-918)
+  - id: JS-918-001
+    cwe: 918
+    category: SSRF
+    severity: HIGH
+    owasp_asvs: V5.3.11
+    description: Unvalidated URL fetching
+
+    vulnerable_pattern: |
+      const axios = require('axios');
+
+      app.get('/fetch', async (req, res) => {
+        const response = await axios.get(req.query.url);
+        res.send(response.data);
+      });
+
+    secure_pattern: |
+      const axios = require('axios');
+      const { URL } = require('url');
+
+      const ALLOWED_HOSTS = ['api.example.com'];
+
+      app.get('/fetch', async (req, res) => {
+        try {
+          const url = new URL(req.query.url);
+
+          // Validate scheme
+          if (!['http:', 'https:'].includes(url.protocol)) {
+            return res.status(400).send('Invalid protocol');
+          }
+
+          // Validate host
+          if (!ALLOWED_HOSTS.includes(url.hostname)) {
+            return res.status(403).send('Host not allowed');
+          }
+
+          const response = await axios.get(url.href, { timeout: 5000 });
+          res.send(response.data);
+        } catch (error) {
+          res.status(500).send('Error fetching URL');
+        }
+      });
+
+  # Open Redirect (CWE-601)
+  - id: JS-601-001
+    cwe: 601
+    category: Open Redirect
+    severity: MEDIUM
+    owasp_asvs: V5.1.5
+    description: Unvalidated redirect
+
+    vulnerable_pattern: |
+      app.get('/redirect', (req, res) => {
+        res.redirect(req.query.url);
+      });
+      // Attack: /redirect?url=https://evil.com
+
+    secure_pattern: |
+      const ALLOWED_DOMAINS = ['example.com', 'app.example.com'];
+
+      app.get('/redirect', (req, res) => {
+        try {
+          const url = new URL(req.query.url);
+
+          if (ALLOWED_DOMAINS.includes(url.hostname)) {
+            res.redirect(req.query.url);
+          } else {
+            res.status(400).send('Invalid redirect URL');
+          }
+        } catch (error) {
+          res.status(400).send('Invalid URL');
+        }
+      });
+
+  # Hardcoded Credentials (CWE-798)
+  - id: JS-798-001
+    cwe: 798
+    category: Hardcoded Credentials
+    severity: CRITICAL
+    owasp_asvs: V2.10.1
+    description: API keys or passwords in code
+
+    vulnerable_pattern: |
+      const AWS_ACCESS_KEY = '[insert key]';
+      const DB_PASSWORD = '[insert key]';
+      const STRIPE_KEY = '[insert key]';
+
+    secure_pattern: |
+      require('dotenv').config();
+
+      const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+      const DB_PASSWORD = process.env.DB_PASSWORD;
+      const STRIPE_KEY = process.env.STRIPE_KEY;
+
+      // .env file (in .gitignore)
+
+  # Insecure Randomness (CWE-330)
+  - id: JS-330-001
+    cwe: 330
+    category: Weak Random
+    severity: MEDIUM
+    owasp_asvs: V6.3.1
+    description: Using Math.random for security
+
+    vulnerable_pattern: |
+      function generateToken() {
+        return Math.random().toString(36).substring(2);
+      }
+
+    secure_pattern: |
+      const crypto = require('crypto');
+
+      function generateToken() {
+        return crypto.randomBytes(32).toString('hex');
+      }
+
+  # Missing Authentication (CWE-306)
+  - id: JS-306-001
+    cwe: 306
+    category: Missing Authentication
+    severity: CRITICAL
+    owasp_asvs: V2.1.1
+    description: No authentication on sensitive endpoints
+
+    vulnerable_pattern: |
+      app.delete('/user/:id', (req, res) => {
+        User.deleteOne({ _id: req.params.id });
+        res.send('User deleted');
+      });
+
+    secure_pattern: |
+      const authMiddleware = require('./auth');
+
+      app.delete('/user/:id', authMiddleware, async (req, res) => {
+        // Verify authorization
+        if (req.user.id !== req.params.id && !req.user.isAdmin) {
+          return res.status(403).send('Forbidden');
+        }
+
+        await User.deleteOne({ _id: req.params.id });
+        res.send('User deleted');
+      });
+
+  # CSRF (CWE-352)
+  - id: JS-352-001
+    cwe: 352
+    category: Cross-Site Request Forgery
+    severity: HIGH
+    owasp_asvs: V4.2.2
+    description: Missing CSRF protection
+
+    vulnerable_pattern: |
+      app.post('/transfer', (req, res) => {
+        performTransfer(req.user.id, req.body.recipient, req.body.amount);
+        res.send('Transfer complete');
+      });
+
+    secure_pattern: |
+      const csrf = require('csurf');
+      const csrfProtection = csrf({ cookie: true });
+
+      app.post('/transfer', csrfProtection, (req, res) => {
+        performTransfer(req.user.id, req.body.recipient, req.body.amount);
+        res.send('Transfer complete');
+      });
+      // Frontend must include CSRF token
+
+  # SQL Injection (CWE-89)
+  - id: JS-89-001
+    cwe: 89
+    category: SQL Injection
+    severity: CRITICAL
+    owasp_asvs: V5.3.4
+    description: String concatenation in SQL (PostgreSQL, MySQL)
+
+    vulnerable_pattern: |
+      const mysql = require('mysql');
+
+      app.get('/user', (req, res) => {
+        const query = `SELECT * FROM users WHERE id = ${req.query.id}`;
+        connection.query(query, (error, results) => {
+          res.json(results);
+        });
+      });
+
+    secure_pattern: |
+      const mysql = require('mysql');
+
+      app.get('/user', (req, res) => {
+        const query = 'SELECT * FROM users WHERE id = ?';
+        connection.query(query, [req.query.id], (error, results) => {
+          if (error) return res.status(500).send('Error');
+          res.json(results);
+        });
+      });
+
+  # Information Exposure (CWE-200)
+  - id: JS-200-001
+    cwe: 200
+    category: Information Exposure
+    severity: MEDIUM
+    owasp_asvs: V7.4.1
+    description: Exposing stack traces in errors
+
+    vulnerable_pattern: |
+      app.use((err, req, res, next) => {
+        res.status(500).json({ error: err.stack });
+      });
+
+    secure_pattern: |
+      app.use((err, req, res, next) => {
+        console.error(err.stack); // Log server-side
+        res.status(500).json({ error: 'Internal server error' });
+      });
+
+metadata:
+  total_patterns: 17
+  coverage:
+    owasp_top_10: [A01, A02, A03, A04, A05, A07, A08]
+    cwe_top_25: [22, 78, 79, 89, 200, 306, 327, 352, 601, 918, 943, 1321, 1333]
+  frameworks_covered: [react, express, nextjs, vue]
+  environments: [browser, nodejs]
+  last_updated: "2026-01-17"
+  status: "complete"
