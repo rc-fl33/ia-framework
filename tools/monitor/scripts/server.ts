@@ -26,7 +26,7 @@ import {
 } from './types';
 import { EventStore } from './events';
 import { FileWatcher } from './watcher';
-import { exportToHtml, exportToQuartoPdf } from './export-pdf';
+import { exportToHtml, exportToQuartoPdf, exportToQuartoPdfViaHtml } from './export-pdf';
 import { exportToDocx } from './export-docx';
 import { validatePath } from '@/tools/framework/security/input-validation';
 
@@ -512,6 +512,11 @@ function handleAPI(req: Request, url: URL): Response {
       return handlePdfDownload(req);
     }
 
+    // POST /api/download-pdf-via-html (returns branded PDF via HTML+Puppeteer)
+    if (path === '/api/download-pdf-via-html' && req.method === 'POST') {
+      return handlePdfViaHtmlDownload(req);
+    }
+
     // POST /api/download-html (returns branded HTML for browser Save As)
     if (path === '/api/download-html' && req.method === 'POST') {
       return handleHtmlDownload(req);
@@ -821,6 +826,53 @@ async function handlePdfDownload(req: Request): Promise<Response> {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+/**
+ * Handle PDF via HTML download request — uses Quarto HTML + Puppeteer for exact styling
+ */
+async function handlePdfViaHtmlDownload(req: Request): Promise<Response> {
+  try {
+    const body = await req.json() as { path: string };
+    const filePath = body.path;
+
+    if (!filePath || !isMarkdownFile(filePath)) {
+      return new Response(JSON.stringify({ error: 'Invalid file path - must be a markdown file (.md or .qmd)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (!isPathAllowedRead(filePath)) {
+      return new Response(JSON.stringify({ error: 'Path not allowed' }), {
+        status: 403,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    const result = await exportToQuartoPdfViaHtml({ filePath, claudeDir: config.claudeDir, returnBuffer: true });
+
+    if (!result.success || !result.buffer) {
+      return new Response(JSON.stringify({ error: result.error || 'Export failed' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    const filename = getBaseFilename(filePath.split('/').pop()!) + '.pdf';
+    return new Response(result.buffer, {
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename="${filename}"`,
+      },
+    });
+  } catch (err) {
+    console.error('PDF via HTML download error:', err);
+    return new Response(JSON.stringify({ error: 'Failed to generate PDF' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+}
 }
 
 /**

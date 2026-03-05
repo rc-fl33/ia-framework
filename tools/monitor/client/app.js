@@ -1271,6 +1271,40 @@ function exportPdf() {
       showToast('PDF ready — download started');
     })
     .catch(function(err) { showToast('PDF export failed: ' + err.message, 'error'); })
+
+function exportPdfViaHtml() {
+  closeExportMenu();
+  if (!currentFile) { showToast('No file open', 'error'); return; }
+  if (!isMarkdownFile(currentFile)) { showToast('Only markdown files (.md or .qmd) can be exported', 'error'); return; }
+
+  var btn = document.getElementById('btn-export-pdf-via-html');
+  var originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span style="display:inline-block;animation:spin 1s linear infinite;">⏳</span> Generating...';
+
+  fetch('/api/download-pdf-via-html', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ path: currentFile }),
+  })
+    .then(function(response) {
+      if (!response.ok) {
+        return response.json().then(function(d) { throw new Error(d.error || 'Export failed'); });
+      }
+      return response.blob();
+    })
+    .then(function(blob) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = getBaseFilename(currentFile.split('/').pop()) + '.pdf';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('PDF (HTML Style) ready — download started');
+    })
+    .catch(function(err) { showToast('PDF export failed: ' + err.message, 'error'); })
+    .finally(function() { btn.disabled = false; btn.innerHTML = originalText; });
+}
     .finally(function() { btn.disabled = false; btn.innerHTML = originalText; });
 }
 
@@ -1819,7 +1853,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn-toggle-mode').onclick = toggleEditMode;
   document.getElementById('btn-save').onclick = saveFile;
   document.getElementById('btn-export-toggle').onclick = toggleExportMenu;
-  document.getElementById('btn-export-pdf').onclick = exportPdf;
+  document.getElementById('"btn-export-pdf"').onclick = exportPdf;
+  document.getElementById('"btn-export-pdf-via-html"').onclick = exportPdfViaHtml;
   document.getElementById('btn-export-html').onclick = exportHtml;
   document.getElementById('btn-export-docx').onclick = exportDocx;
   document.getElementById('btn-export-svg').onclick = exportMermaidSvg;

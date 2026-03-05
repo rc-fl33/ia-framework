@@ -106,6 +106,43 @@ function stripFrontmatter(markdown: string): string {
  * Convert markdown to styled HTML
  */
 function markdownToHtml(markdown: string, fileName: string): string {
+
+/**
+ * Inject print-friendly CSS for PDF export via Puppeteer
+ */
+function prepareHtmlForPrint(html: string): string {
+  const printStyles = `
+    <style>
+    @media print {
+      /* Force page breaks before major sections */
+      h1, h2, h3 { page-break-after: avoid; }
+      h1 { page-break-before: always; }
+      h2, h3 { page-break-inside: avoid; }
+      
+      /* Keep code blocks together */
+      pre, code { page-break-inside: avoid; white-space: pre-wrap; }
+      
+      /* Tables and figures */
+      table, figure { page-break-inside: avoid; }
+      
+      /* Links - show URL in print */
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+      a[href^="#"]:after { content: ""; }
+    }
+    
+    /* TOC improvements for print */
+    #TOC, .toc {
+      page-break-after: always;
+    }
+    #TOC li, .toc li {
+      margin-bottom: 0.5em;
+    }
+    </style>
+  `;
+
+  return html.replace("</head>", `${printStyles}</head>`);
+}
+
   // Strip YAML frontmatter and Quarto-specific image attribute blocks
   const cleanMarkdown = stripFrontmatter(markdown)
     .replace(/!\[([^\]]*)\]\(([^)]+)\)\{[^}]+\}/g, '![$1]($2)');
@@ -740,4 +777,120 @@ async function exportToQuartoPdf(options: ExportOptions): Promise<ExportResult> 
   }
 }
 
-export { exportToPdf, exportToHtml, exportToQuartoPdf, type ExportOptions, type ExportResult };
+export { exportToPdf, exportToHtml, exportToQuartoPdf, exportToQuartoPdfViaHtml, type ExportOptions, type ExportResult };
+
+/**
+ * Export markdown file to PDF via Quarto HTML + Puppeteer
+ * This preserves exact HTML styling in the PDF output.
+ */
+async function exportToQuartoPdfViaHtml(options: ExportOptions): Promise<ExportResult> {
+  // Check dependencies first
+  const depCheck = checkChromeDependencies();
+  if (!depCheck.ok) {
+    printDependencyHelp(depCheck.missing);
+    return {
+      success: false,
+      error: `Missing system dependencies: ${depCheck.missing.join(', ')}`,
+    };
+  }
+
+  if (!existsSync(QUARTO_BIN)) {
+    return { success: false, error: 'Quarto not found at /opt/quarto/bin/quarto' };
+  }
+
+  try {
+    const fullPath = join(options.claudeDir, options.filePath);
+    let markdown: string;
+    try {
+      markdown = readFileSync(fullPath, 'utf-8');
+    } catch (err) {
+      return { success: false, error: `Failed to read file: ${err}` };
+    }
+
+    const fileName = basename(fullPath, extname(fullPath));
+    const tmpDir = mkdtempSync('/tmp/ia-quarto-html-');
+    const tmpQmd = join(tmpDir, `${fileName}.qmd`);
+    const tmpHtml = join(tmpDir, `${fileName}.html`);
+
+    // Build QMD with brand styling
+    const brandScss = join(options.claudeDir, 'private/brand/assets/theme-light.scss');
+    const brandCss = join(options.claudeDir, 'private/brand/assets/styles.css');
+
+    const themeBlock = existsSync(brandScss)
+      ? `    theme:\n      - cosmo\n      - ${brandScss}`
+      : `    theme: cosmo`;
+    const cssLine = existsSync(brandCss) ? `\n    css: ${brandCss}` : '';
+
+    const safeTitle = fileName.replace(/"/g, "'");
+    const qmdContent = [
+      '---',
+      `title: "${safeTitle}"`,
+      'format:',
+      '  html:',
+      '    self-contained: true',
+      '    toc: true',
+      '    toc-depth: 3',
+      themeBlock,
+      cssLine,
+      'execute:',
+      '  echo: false',
+      '  warning: false',
+      '---',
+      '',
+      stripFrontmatter(markdown),
+    ].join('\n');
+
+    try {
+      // Write temp QMD
+      writeFileSync(tmpQmd, qmdContent, 'utf-8');
+
+      // Render to HTML via Quarto
+      const env = { ...process.env, PATH: `${TYPST_DIR}:${process.env.PATH}` };
+      const result = spawnSync(QUARTO_BIN, ['render', tmpQmd, '--to', 'html'], {
+        env,
+        cwd: tmpDir,
+        encoding: 'utf-8',
+        timeout: 120_000,
+      });
+
+      if (result.status !== 0 || !existsSync(tmpHtml)) {
+        return { success: false, error: `Quarto HTML render failed: ${result.stderr}` };
+      }
+
+      // Read generated HTML
+      const htmlContent = prepareHtmlForPrint(readFileSync(tmpHtml, 'utf-8'));
+
+      // Convert to PDF via Puppeteer
+      const puppeteer = (await import('puppeteer')).default;
+      const browser = await puppeteer.launch({
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      });
+
+      try {
+        const page = await browser.newPage();
+        await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
+
+        const pdfBuffer = await page.pdf({
+          format: 'Letter',
+          margin: { top: '0.5in', right: '0.5in', bottom: '0.5in', left: '0.5in' },
+          printBackground: true,
+        });
+
+        if (options.returnBuffer) {
+          return { success: true, buffer: pdfBuffer };
+        }
+
+        const pdfPath = fullPath.replace(/\.md$/, '.pdf');
+        writeFileSync(pdfPath, pdfBuffer);
+        return { success: true, pdfPath: relative(options.claudeDir, pdfPath) };
+      } finally {
+        await browser.close();
+      }
+    } finally {
+      try { rmSync(tmpDir, { recursive: true, force: true }); } catch {}
+    }
+  } catch (err) {
+    return { success: false, error: `Export failed: ${err}` };
+  }
+}
