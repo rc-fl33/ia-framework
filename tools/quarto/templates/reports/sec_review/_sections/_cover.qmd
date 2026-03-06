@@ -1,19 +1,19 @@
 ::: {.report-header}
-![](../../../private/brand/assets/logo.{webp,png,jpg}){width=200}
+{{logo}}
 
 # {{title}} Report {.unnumbered .unlisted}
 
-<span class="report-target">[PROJECT NAME]</span>
+<span class="report-target">{{client_name}}</span>
 
 ::: {.report-header-meta}
-<span><span class="meta-label">Organization</span>[Organization Name]</span>
-<span><span class="meta-label">Report Date</span>\date{}</span>
-<span><span class="meta-label">Engagement ID</span>[ENG-001]</span>
+<span><span class="meta-label">Organization</span>{{client_name}}</span>
+<span><span class="meta-label">Report Date</span>{{report_date}}</span>
+<span><span class="meta-label">Engagement ID</span>{{engagement_id}}</span>
 :::
 :::
 
-::: {.classification-notice .confidential}
-CONFIDENTIAL — For Authorized Recipients Only
+::: {.classification-notice .{{classification}}}
+{{classification_upper}} — For Authorized Recipients Only
 :::
 
 ## Report Information {.unnumbered .unlisted}
@@ -21,11 +21,9 @@ CONFIDENTIAL — For Authorized Recipients Only
 ::: {.report-meta}
 | Field | Value |
 |-------|-------|
-| Project | [Project Name] |
-| Version | 1.0 |
-| Classification | [Confidential | Restricted | Internal | Public] |
-| Engagement ID | [ENG-001] |
-| Report Date | \date{} |
-| Report Version | 1.0 |
-| Prepared By | [Your Name], [Organization] |
+| Engagement | {{engagement_id}} |
+| Review Period | {{start_date}} — {{end_date}} |
+| Report Date | {{report_date}} |
+| Report Version | {{report_version}} |
+| Prepared By | {{reviewer_name}}, {{reviewer_org}} |
 :::

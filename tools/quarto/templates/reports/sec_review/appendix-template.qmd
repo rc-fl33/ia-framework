@@ -1,0 +1,22 @@
+---
+title: "{Org} — Appendix {Letter}: {Title}"
+author: "{Assessor}, {Company}"
+date: "{report_date}"
+format:
+  html:
+    theme: [cosmo, ../../../../private/brand/assets/theme-light.scss]
+    css: ../../../../private/brand/assets/styles.css
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: false
+    self-contained: true
+---
+
+# Appendix {Letter} — {Title} {.unnumbered .unlisted}
+
+::: {.classification-notice .restricted}
+{classification_notice}
+:::
+
+{{< include {SOURCE_FILE}.md >}}

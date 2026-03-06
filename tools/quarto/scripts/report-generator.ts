@@ -136,13 +136,31 @@ export function genFrontmatter(
   title: string,
   author: string,
   engDir: string,
-  footerInfo?: { companyName: string; assessmentType: string; clientName: string }
+  footerInfo?: { companyName: string; assessmentType: string; clientName: string },
+  draft?: boolean
 ): string {
   const prefix = relative(resolve(engDir), process.cwd());
   const footerInclude = footerInfo
     ? `
 includes:
   after-body: ${prefix}/_footer.html`
+    : "";
+
+  const draftInclude = draft
+    ? `
+include-in-header:
+  - text: |
+      <style>
+      body::before {
+        content: "DRAFT";
+        position: fixed; top: 50%; left: 50%;
+        transform: translate(-50%, -50%) rotate(-35deg);
+        font-size: 18vw; font-weight: 900;
+        color: rgba(180, 0, 0, 0.07);
+        pointer-events: none; z-index: 9999;
+        white-space: nowrap;
+      }
+      </style>`
     : "";
 
   return `---
@@ -160,7 +178,7 @@ format:
     toc-depth: 3
     toc-location: left
     number-sections: false
-    self-contained: true${footerInclude}
+    self-contained: true${footerInclude}${draftInclude}
   pdf:
     documentclass: report
     papersize: letter
@@ -209,7 +227,7 @@ ${logo}
 
 # ${title} {.unnumbered .unlisted}
 
-<span class="report-target">${str(e, "project_name")}</span>
+<span class="report-target">${str(e, "client_name")}</span>
 
 ::: {.report-header-meta}
 <span><span class="meta-label">Organization</span>${str(e, "client_name")}</span>
@@ -227,15 +245,8 @@ ${str(e, "classification").toUpperCase()} — For Authorized Recipients Only
 ::: {.report-meta}
 | Field | Value |
 |-------|-------|
-| Project | ${str(e, "project_name")} |
-| Version | ${str(e, "project_version")} |
-| Repository | ${str(e, "repo_url")} |
-| Language / Frameworks | ${str(e, "primary_language")} / ${str(e, "frameworks")} |
-| Organization | ${str(e, "client_name")} |
-| Assessment Type | ${str(e, "assessment_type")} |
-| Engagement ID | ${str(e, "engagement_id")} |
-| Classification | ${str(e, "classification")} |
-| Review Window | ${str(e, "start_date")} — ${str(e, "end_date")} |
+| Engagement | ${str(e, "engagement_id")} |
+| Review Period | ${str(e, "start_date")} — ${str(e, "end_date")} |
 | Report Date | ${str(e, "report_date")} |
 | Report Version | ${str(e, "report_version")} |
 | Prepared By | ${str(e, "reviewer_name")}, ${str(e, "reviewer_org")} |
@@ -300,8 +311,8 @@ The assessment identified **${total} finding(s)**.
 
 ## Risk Distribution
 
-| Priority | Severity | Count |
-|----------|----------|-------|
+| Priority | Risk Level | Count |
+|----------|------------|-------|
 ${riskRow("critical", "Critical", "P0")}
 ${riskRow("high", "High", "P1")}
 ${riskRow("medium", "Medium", "P2")}
@@ -505,25 +516,22 @@ export interface GenerateReportOptions {
   outputDir: string;
   reportType: ReportType;
   render?: boolean;
+  draft?: boolean;
 }
 
 /**
  * Main entry point - generates all report sections
  */
 export function generateReport(options: GenerateReportOptions): void {
-  const { engagementPath, findingsDir, outputDir, reportType, render = false } = options;
+  const { engagementPath, findingsDir, outputDir, reportType, render = false, draft = true } = options;
 
   const eng = loadEngagement(engagementPath);
   const engDir = dirname(engagementPath);
   const sectDir = join(engDir, "_sections");
 
-  // Load findings
   const findings = loadFindings(findingsDir);
-
-  // Get section includes from config
   const sectionIncludes = getSectionIncludes(reportType);
 
-  // Generate sections - map include paths to generator functions
   const sectionGenerators: Record<string, () => string> = {
     "_cover.qmd": () => genCover(eng, engDir, { reportType }),
     "_executive-summary.qmd": () => genExecutiveSummary(eng, findings, { reportType }),
@@ -533,7 +541,6 @@ export function generateReport(options: GenerateReportOptions): void {
     "_appendices.qmd": () => genAppendices(findings),
   };
 
-  // Generate and write sections
   for (const includePath of sectionIncludes) {
     const filename = includePath.replace("_sections/", "");
     const generator = sectionGenerators[filename];
@@ -541,10 +548,8 @@ export function generateReport(options: GenerateReportOptions): void {
     if (generator) {
       const content = generator();
       const fullPath = join(sectDir, filename);
-      // Ensure parent directory exists
       const parentDir = dirname(fullPath);
       if (!existsSync(parentDir)) {
-        // Handle nested paths like _findings/_f001-critical.qmd
         const parts = fullPath.split("/");
         let current = sectDir;
         for (let i = 0; i < parts.length - 1; i++) {
@@ -559,7 +564,6 @@ export function generateReport(options: GenerateReportOptions): void {
     }
   }
 
-  // Generate main QMD with all includes
   const typeTitles: Record<string, string> = {
     "pentest": "Penetration Test Report",
     "sec-review": "Security Architecture Review",
@@ -572,19 +576,16 @@ export function generateReport(options: GenerateReportOptions): void {
     "vuln-scan": "Vulnerability Scan Report",
     "seg-test": "Network Segmentation Test",
   };
-  const title = `${typeTitles[reportType]}: ${str(eng, "project_name")}`;
+  const title = `${typeTitles[reportType]}: ${str(eng, "client_name")}`;
 
-  // Build main QMD content with includes
   const includesContent = sectionIncludes.map(include => `{{< include ${include} >}}`).join("\n\n");
 
-  // Footer info: [COMPANY NAME] | [ASSESSMENT TYPE] | [CLIENT NAME]
   const footerInfo = {
     companyName: str(eng, "reviewer_org"),
     assessmentType: typeTitles[reportType] || "Security Assessment",
     clientName: str(eng, "client_name"),
   };
 
-  // Create footer file
   const footerContent = `<footer class="report-footer">
 <span>${footerInfo.companyName}</span> |
 <span>${footerInfo.assessmentType}</span> |
@@ -595,16 +596,27 @@ export function generateReport(options: GenerateReportOptions): void {
   writeFileSync(footerPath, footerContent, "utf-8");
   console.log(`  Wrote _footer.html`);
 
-  const mainQmd = `${genFrontmatter(title, str(eng, "reviewer_org"), engDir, footerInfo)}
+  const mainQmd = `${genFrontmatter(title, str(eng, "reviewer_org"), engDir, footerInfo, draft)}
 
 ${includesContent}
 `;
 
-  const mainPath = join(engDir, `${reportType}-report.qmd`);
+  const orgSlug = slugify(str(eng, "reviewer_org"));
+  const clientSlug = slugify(str(eng, "client_name"));
+  const typeSlug = reportType;
+  const draftSuffix = draft ? "_DRAFT" : "";
+  const mainFilename = `${orgSlug}_${clientSlug}_${typeSlug}-report${draftSuffix}.qmd`;
+  const mainPath = join(engDir, mainFilename);
   writeFileSync(mainPath, mainQmd, "utf-8");
-  console.log(`  Wrote ${mainPath.replace(engDir + "/", "")}`);
+  console.log(`  Wrote ${mainFilename}`);
 
-  // Render if requested
+  if (reportType === "sec-review") {
+    const classificationNotice = draft
+      ? "DRAFT — PRE-DECISIONAL | For Internal Review Only"
+      : "RESTRICTED — For Authorized Recipients Only";
+    genSecReviewAppendices(eng, engDir, draft, classificationNotice);
+  }
+
   if (render) {
     console.log("Rendering report...");
     const result = spawnSync("bun", [
@@ -618,6 +630,75 @@ ${includesContent}
   }
 
   console.log("Report generation complete.");
+}
+
+function slugify(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+const SEC_REVIEW_APPENDICES = [
+  { letter: "A", title: "Architecture Analysis",  source: "architecture-analysis" },
+  { letter: "B", title: "Threat Model",           source: "threat-model" },
+  { letter: "C", title: "Findings Detail",        source: "findings-detail" },
+  { letter: "D", title: "Security Practices",     source: "security-practices" },
+  { letter: "E", title: "Patch Assessment",       source: "patch-assessment" },
+  { letter: "F", title: "Supply Chain Review",    source: "supply-chain-review" },
+  { letter: "G", title: "Recommendations",        source: "recommendations" },
+  { letter: "H", title: "Gap Analysis",           source: "gap-analysis" },
+  { letter: "I", title: "Action Items",           source: "action-items" },
+];
+
+function genSecReviewAppendices(
+  eng: BaseEng,
+  engDir: string,
+  draft: boolean,
+  classificationNotice: string
+): void {
+  const appendicesDir = join(engDir, "_appendices");
+  mkdirSync(appendicesDir, { recursive: true });
+
+  const orgSlug = slugify(str(eng, "reviewer_org"));
+  const clientSlug = slugify(str(eng, "client_name"));
+  const draftSuffix = draft ? "_DRAFT" : "";
+  const prefix = relative(resolve(engDir), process.cwd());
+
+  for (const app of SEC_REVIEW_APPENDICES) {
+    const titleSlug = slugify(app.title);
+    const filename =
+      `${orgSlug}_${clientSlug}_Appendix-${app.letter}_${titleSlug}${draftSuffix}.qmd`;
+    const sourcePath = join(engDir, `${app.source}.md`);
+    const includeOrPlaceholder = existsSync(sourcePath)
+      ? `{{< include ../${app.source}.md >}}`
+      : `_${app.title} content not yet available._`;
+
+    const content = `---
+title: "${str(eng, "reviewer_org")} — Appendix ${app.letter}: ${app.title}"
+author: "${str(eng, "reviewer_name")}, ${str(eng, "reviewer_org")}"
+date: today
+format:
+  html:
+    theme:
+      - cosmo
+      - ${prefix}/private/brand/assets/theme-light.scss
+    css: ${prefix}/private/brand/assets/styles.css
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: false
+    self-contained: true
+---
+
+# Appendix ${app.letter} — ${app.title} {.unnumbered .unlisted}
+
+::: {.classification-notice .restricted}
+${classificationNotice}
+:::
+
+${includeOrPlaceholder}
+`;
+    writeFileSync(join(appendicesDir, filename), content, "utf-8");
+    console.log(`  Wrote _appendices/${filename}`);
+  }
 }
 
 function loadFindings(dir: string): Finding[] {

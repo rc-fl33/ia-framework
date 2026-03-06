@@ -103,7 +103,7 @@ owasp: ${JSON.stringify(f.owasp)}
 ::: {.${divClass}}
 #### ${id}: ${f.title}
 
-**Severity:** [${cap(sev)}]{.${badgeClass}} | **Priority:** ${f.priority} | **Domain:** ${f.domain}
+**Risk:** [${cap(sev)}]{.${badgeClass}} | **Priority:** ${f.priority} | **Domain:** ${f.domain}
 
 **Affected Component:** \`${f.component}\`
 
