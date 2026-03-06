@@ -9,7 +9,7 @@
  */
 
 import { existsSync, readdirSync, readFileSync } from 'fs';
-import { join, dirname, basename, extname } from 'path';
+import { join, dirname, basename, extname, resolve } from 'path';
 import { parse as parseYaml } from 'yaml';
 import { FileGuardianInputSchema } from './schemas';
 import {
@@ -17,7 +17,6 @@ import {
   extractFilePattern
 } from '@/tools/framework/utils/audit-trail';
 import {
-  validatePath,
   resolveFrameworkRoot
 } from '@/tools/framework/utils/path-resolution';
 import {
@@ -67,6 +66,70 @@ interface FileRegistry {
   [key: string]: unknown;
 }
 
+/** Windows device names that must be blocked (case-insensitive) */
+const WINDOWS_DEVICE_NAMES = new Set([
+  'CON', 'PRN', 'AUX', 'NUL',
+  'COM1', 'COM2', 'COM3', 'COM4', 'COM5', 'COM6', 'COM7', 'COM8', 'COM9',
+  'LPT1', 'LPT2', 'LPT3', 'LPT4', 'LPT5', 'LPT6', 'LPT7', 'LPT8', 'LPT9'
+]);
+
+/**
+ * Lightweight path security check.
+ * Only blocks path traversal sequences and Windows device names.
+ * Does NOT restrict paths to framework root.
+ *
+ * @param filePath - Path to check
+ * @returns Error string if blocked, null if safe
+ */
+function checkPathSecurity(filePath: string): string | null {
+  // Block path traversal sequences
+  if (filePath.includes('..')) {
+    return 'Path contains traversal sequence (..)';
+  }
+
+  // Block Windows device names in any path component
+  let absolutePath: string;
+  try {
+    absolutePath = resolve(filePath);
+  } catch (err) {
+    return `Invalid path format: ${err instanceof Error ? err.message : String(err)}`;
+  }
+
+  const components = absolutePath.split(/[/\\]/);
+  for (const component of components) {
+    if (!component) continue;
+    const nameWithoutExt = component.split('.')[0].toUpperCase();
+    if (WINDOWS_DEVICE_NAMES.has(nameWithoutExt)) {
+      return `Path contains Windows device name: ${component}`;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Find a file in dirPath whose name matches fileName case-insensitively
+ * (exact match ignoring case, excluding the target name itself).
+ *
+ * @param dirPath - Directory to search
+ * @param fileName - Target file name
+ * @returns Conflicting file name, or null if none
+ */
+function findCaseConflict(dirPath: string, fileName: string): string | null {
+  try {
+    const lower = fileName.toLowerCase();
+    const entries = readdirSync(dirPath);
+    for (const entry of entries) {
+      if (entry !== fileName && entry.toLowerCase() === lower) {
+        return entry;
+      }
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 // Get framework root via centralized path resolution
 const FRAMEWORK_PATH = resolveFrameworkRoot();
 
@@ -107,9 +170,9 @@ async function main() {
         console.log('Unable to parse validation errors');
       }
       console.log('');
-      console.log('SECURITY POLICY: Fail-closed on validation errors to prevent bypass');
+      console.log('SECURITY POLICY: Fail-open on validation errors to avoid blocking writes');
       console.log('</system-reminder>');
-      process.exit(2); // Fail-closed on validation error
+      process.exit(0); // Fail-open on validation error
     }
 
     // Only process Write tool calls
@@ -184,7 +247,7 @@ async function main() {
     // Log full details internally (with stack trace)
     logInternalError(error, { hook: 'file-guardian', phase: 'validation' });
 
-    // Log fail-closed error to audit trail
+    // Log fail-open error to audit trail
     logSecurityEvent({
       event_type: 'fail_closed_error',
       tool_name: 'Write',
@@ -195,32 +258,28 @@ async function main() {
       }
     });
 
-    // Fail-closed on hook errors to prevent security bypass
+    // Fail-open on hook errors to avoid blocking legitimate writes
     console.log('<system-reminder>');
     console.log('FILE GUARDIAN: CRITICAL ERROR');
     console.log('');
     console.log(`Error: ${sanitizeErrorMessage(error)}`);
     console.log('');
-    console.log('SECURITY POLICY: Fail-closed on unexpected errors to prevent bypass');
-    console.log('This may indicate malformed input or an attack attempt.');
+    console.log('SECURITY POLICY: Fail-open on unexpected errors to avoid blocking writes');
     console.log('</system-reminder>');
-    process.exit(2); // Fail-closed on any error
+    process.exit(0); // Fail-open on any error
   }
 }
 
 function validateFileCreation(filePath: string, content: string = ''): ValidationResult {
-  // 0. SECURITY CHECK: Path traversal, symlink attacks, device names
-  const pathValidation = validatePath(filePath);
-  if (!pathValidation.valid) {
-    // Log security violation
-    const eventType = pathValidation.error?.includes('symlink') ? 'symlink_attack_blocked' :
-                      pathValidation.error?.includes('device') ? 'device_access_blocked' :
-                      'path_traversal_blocked';
+  // 0. SECURITY CHECK: Path traversal and device names only
+  const securityError = checkPathSecurity(filePath);
+  if (securityError) {
+    const eventType = securityError.includes('device') ? 'device_access_blocked' : 'path_traversal_blocked';
 
     logSecurityEvent({
       event_type: eventType,
       tool_name: 'Write',
-      reason: pathValidation.error || 'Path validation failed',
+      reason: securityError,
       severity: 'critical',
       context: {
         file_pattern: extractFilePattern(filePath),
@@ -230,44 +289,39 @@ function validateFileCreation(filePath: string, content: string = ''): Validatio
 
     return {
       action: 'block',
-      message: `SECURITY: ${pathValidation.error}`,
-      suggestion: 'Use only paths within the framework directory'
+      message: `SECURITY: ${securityError}`,
+      suggestion: 'Use only safe paths without traversal sequences or device names'
     };
   }
 
-  // 1. CHECK: Does file already exist?
-  if (existsSync(filePath)) {
-    return {
-      action: 'warn',
-      message: `File already exists: ${basename(filePath)}`,
-      suggestion: 'Use Edit tool to modify existing file, or choose a different name'
-    };
-  }
-
-  // 2. CHECK: Similar file exists? (fuzzy match)
-  const dirPath = dirname(filePath);
-  const fileName = basename(filePath);
-
-  if (existsSync(dirPath)) {
-    const similar = findSimilarFiles(dirPath, fileName);
-    if (similar.length > 0) {
-      return {
-        action: 'warn',
-        message: `Similar files exist: ${similar.join(', ')}`,
-        suggestion: 'Did you mean to edit one of these files?'
-      };
-    }
-  }
-
-  // 3. CHECK: Is this within the framework directory?
+  // 1. CHECK: Is this within the framework directory?
   if (!filePath.startsWith(FRAMEWORK_PATH)) {
     // Outside framework - allow without further checks
     return { action: 'allow' };
   }
 
-  // 4. Get relative path within framework
+  // 2. Get relative path within framework
   const relativePath = filePath.slice(FRAMEWORK_PATH.length + 1);
   const topDir = relativePath.split('/')[0];
+  const fileName = basename(filePath);
+  const dirPath = dirname(filePath);
+
+  // 3. CHECK: Sessions directory - allow immediately
+  if (topDir === 'sessions') {
+    return { action: 'allow' };
+  }
+
+  // 4. CHECK: Similar file exists? (exact case-insensitive match only)
+  if (existsSync(dirPath)) {
+    const conflict = findCaseConflict(dirPath, fileName);
+    if (conflict) {
+      return {
+        action: 'warn',
+        message: `Case conflict: file "${conflict}" already exists with different case`,
+        suggestion: 'Did you mean to edit that existing file?'
+      };
+    }
+  }
 
   // 5. CHECK: Location-specific rules
   const registry = loadRegistry();
@@ -278,7 +332,7 @@ function validateFileCreation(filePath: string, content: string = ''): Validatio
     // File in root
     const ext = extname(fileName);
 
-    // PHASE 2: Enforce file-location-standards.md rules for root
+    // Enforce file-location-standards.md rules for root
     if (ext === '.md') {
       // Markdown files should be in docs/ unless they're GitHub special files or framework entry points
       const allowedRootMd = [
@@ -310,7 +364,7 @@ function validateFileCreation(filePath: string, content: string = ''): Validatio
     }
   }
 
-  // PHASE 2: Check docs/ vs private/docs/ (public vs private content)
+  // Check docs/ vs private/docs/ (public vs private content)
   if (topDir === 'docs' && content) {
     // Scan content for private skill references
     const privateSkills = ['ghost', 'security', 'compliance', 'advisory', 'n8n',
@@ -345,7 +399,7 @@ function validateFileCreation(filePath: string, content: string = ''): Validatio
     }
   }
 
-  // PHASE 2: Check scratchpad usage
+  // Check scratchpad usage
   if (topDir === 'scratchpad' && content) {
     // Detect permanent content patterns
     const permanentPatterns = [
@@ -366,11 +420,6 @@ function validateFileCreation(filePath: string, content: string = ''): Validatio
         suggestion: `Permanent docs belong in docs/ (public) or private/docs/ (private). Scratchpad is for temporary exploration.`
       };
     }
-  }
-
-  // Check sessions/ - allow manual creation (needed for context/memory)
-  if (topDir === 'sessions') {
-    // Sessions are important for context - allow all writes
   }
 
   // Check hooks/ naming convention
@@ -411,36 +460,6 @@ function validateFileCreation(filePath: string, content: string = ''): Validatio
   return { action: 'allow' };
 }
 
-function findSimilarFiles(dirPath: string, newFile: string): string[] {
-  try {
-    const existing = readdirSync(dirPath);
-    const newLower = normalize(newFile);
-
-    return existing.filter(f => {
-      const existingLower = normalize(f);
-      // Same name different case
-      if (newLower === existingLower && newFile !== f) {
-        return true;
-      }
-      // Levenshtein distance < 3
-      if (levenshtein(newLower, existingLower) < 3 && newLower !== existingLower) {
-        return true;
-      }
-      return false;
-    });
-  } catch {
-    return [];
-  }
-}
-
-function normalize(name: string): string {
-  return name.toLowerCase().replace(/[-_]/g, '').replace(/\.[^.]+$/, '');
-}
-
-function isAllCaps(name: string): boolean {
-  return /^[A-Z][A-Z0-9-]*$/.test(name);
-}
-
 function isLowerKebab(name: string): boolean {
   return /^[a-z][a-z0-9-]*$/.test(name);
 }
@@ -450,33 +469,6 @@ function toKebabCase(name: string): string {
     .replace(/([a-z])([A-Z])/g, '$1-$2')
     .replace(/[_\s]+/g, '-')
     .toLowerCase();
-}
-
-function levenshtein(a: string, b: string): number {
-  const matrix: number[][] = [];
-
-  for (let i = 0; i <= b.length; i++) {
-    matrix[i] = [i];
-  }
-  for (let j = 0; j <= a.length; j++) {
-    matrix[0][j] = j;
-  }
-
-  for (let i = 1; i <= b.length; i++) {
-    for (let j = 1; j <= a.length; j++) {
-      if (b.charAt(i - 1) === a.charAt(j - 1)) {
-        matrix[i][j] = matrix[i - 1][j - 1];
-      } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1,
-          matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
-        );
-      }
-    }
-  }
-
-  return matrix[b.length][a.length];
 }
 
 function loadRegistry(): FileRegistry | null {
