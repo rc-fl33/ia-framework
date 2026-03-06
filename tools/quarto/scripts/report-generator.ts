@@ -143,7 +143,7 @@ export function genFrontmatter(
   const footerInclude = footerInfo
     ? `
 includes:
-  after-body: ${prefix}/_footer.html`
+  after-body: _sections/_footer.html`
     : "";
 
   const draftInclude = draft
@@ -605,9 +605,9 @@ export function generateReport(options: GenerateReportOptions): void {
 <span>${footerInfo.clientName}</span>
 </footer>
 `;
-  const footerPath = join(engDir, "_footer.html");
+  const footerPath = join(sectDir, "_footer.html");
   writeFileSync(footerPath, footerContent, "utf-8");
-  console.log(`  Wrote _footer.html`);
+  console.log(`  Wrote _sections/_footer.html`);
 
   const mainQmd = `${genFrontmatter(title, str(eng, "reviewer_org"), engDir, footerInfo, draft)}
 
