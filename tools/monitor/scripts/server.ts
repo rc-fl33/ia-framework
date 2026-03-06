@@ -284,7 +284,7 @@ const server = Bun.serve({
   port: config.port,
   hostname: config.host,
 
-  fetch(req, server) {
+  async fetch(req, server) {
     const url = new URL(req.url);
     const path = url.pathname;
 
@@ -311,7 +311,7 @@ const server = Bun.serve({
 
     // API routes
     if (path.startsWith('/api/')) {
-      return handleAPI(req, url);
+      return await handleAPI(req, url);
     }
 
     // Static files (client)
@@ -344,7 +344,7 @@ const server = Bun.serve({
 /**
  * Handle API requests
  */
-function handleAPI(req: Request, url: URL): Response {
+async function handleAPI(req: Request, url: URL): Promise<Response> {
   const path = url.pathname;
 
   // CORS headers - SECURITY: Restrict to localhost only
