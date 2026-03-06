@@ -208,5 +208,6 @@
     "version": "1.2.0",
     "phase": "Skills-based architecture with TypeScript hooks",
     "description": "Building systems that work alongside human intelligence, not replace it"
-  }
+  },
+  "model": "sonnet"
 }

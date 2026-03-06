@@ -185,6 +185,14 @@ cve_research: ""
 `;
 }
 
+function normalizeHeadings(content: string): string {
+  return content
+    .replace(/^#### /gm, "##### ")
+    .replace(/^### /gm, "#### ")
+    .replace(/^## /gm, "### ")
+    .replace(/^# /gm, "## ");
+}
+
 function singleFindingMode(findingDir: string) {
   const findingPath = join(findingDir, "finding.md");
   if (!existsSync(findingPath)) {
@@ -288,11 +296,13 @@ function main() {
     console.log(`  Wrote ${filename} [${f.severity}] ${f.title.slice(0, 50)}`);
   });
 
-  // Write data-flow section (DATA-FLOW.md already has the header)
+  // Write data-flow section — normalize heading levels for section hierarchy
   const dataFlowRaw = read("DATA-FLOW.md");
-  const dataFlowContent = dataFlowRaw ? embedImages(dataFlowRaw, outDir) : "";
+  const dataFlowContent = dataFlowRaw
+    ? normalizeHeadings(embedImages(dataFlowRaw, outDir))
+    : "";
   const dataFlowQmd = dataFlowContent
-    ? `${dataFlowContent}`
+    ? dataFlowContent
     : "_No data flow analysis available._\n";
   writeFileSync(join(sectDir, "_data-flow.qmd"), dataFlowQmd, "utf-8");
   console.log("  Wrote _sections/_data-flow.qmd");

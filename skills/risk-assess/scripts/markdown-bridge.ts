@@ -48,6 +48,8 @@ function main() {
 
   const project = meta.project_name ?? meta.org ?? basename(outDir);
   const date = meta.date ?? meta.start_date ?? new Date().toISOString().slice(0, 10);
+  const today = new Date().toISOString().split("T")[0]!;
+  const year = today.split("-")[0]!;
 
   // Read report files
   const fullReport = read("FULL-REPORT.md");
@@ -107,11 +109,11 @@ Risk assessment conducted using [Methodology Name].
 project_name: "${project}"
 project_version: "1.0.0"
 client_name: "${meta.client || meta.org || "Client Name"}"
-engagement_id: "RISK-$(date +%Y)-001"
+engagement_id: "RISK-${year}-001"
 assessment_type: "Risk Assessment"
 classification: "Confidential"
-start_date: "$(date +%Y-%m-%d)"
-end_date: "$(date +%Y-%m-%d)"
+start_date: "${today}"
+end_date: "${today}"
 report_date: "${date}"
 report_version: "1.0"
 reviewer_name: "${meta.reviewer || "[Reviewer Name]"}"

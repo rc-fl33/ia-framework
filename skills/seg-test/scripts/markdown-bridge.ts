@@ -48,6 +48,8 @@ function main() {
 
   const project = meta.target ?? meta.client ?? basename(outDir);
   const date = meta.date ?? new Date().toISOString().slice(0, 10);
+  const today = new Date().toISOString().split("T")[0]!;
+  const year = today.split("-")[0]!;
 
   // Read reporting files
   const reportingDir = join(outDir, "07-reporting");
@@ -98,11 +100,11 @@ Network segmentation testing using TCP/UDP connectivity probes.
 project_name: "${project}"
 project_version: "1.0.0"
 client_name: "${meta.client || "Client Name"}"
-engagement_id: "SEG-$(date +%Y)-001"
+engagement_id: "SEG-${year}-001"
 assessment_type: "Segmentation Test"
 classification: "Confidential"
-start_date: "$(date +%Y-%m-%d)"
-end_date: "$(date +%Y-%m-%d)"
+start_date: "${today}"
+end_date: "${today}"
 report_date: "${date}"
 report_version: "1.0"
 reviewer_name: "${meta.tester || "[Tester Name]"}"

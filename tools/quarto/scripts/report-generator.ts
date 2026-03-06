@@ -178,7 +178,7 @@ format:
     toc-depth: 3
     toc-location: left
     number-sections: false
-    self-contained: true${footerInclude}${draftInclude}
+    self-contained: true
   pdf:
     documentclass: report
     papersize: letter
@@ -186,7 +186,7 @@ format:
       - margin=1in
     fontsize: 11pt
     pdf-engine: typst
-    toc: true
+    toc: true${footerInclude}${draftInclude}
 execute:
   echo: false
   warning: false
@@ -477,7 +477,7 @@ ${findings.map(f => `| ${f.id} | ${f.title} | ${cap(f.severity)} | ${cap(f.statu
  */
 export function getSectionIncludes(reportType: ReportType): string[] {
   const config = loadTemplatesConfig();
-  const skillConfig = config.skills[reportType];
+  const skillConfig = config.skills[reportType.replace(/-/g, "_")];
 
   if (!skillConfig) {
     // Fallback to default sections if skill not found

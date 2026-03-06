@@ -48,6 +48,8 @@ function main() {
 
   const project = meta.incident_id ?? meta.incident ?? basename(outDir);
   const date = meta.date ?? new Date().toISOString().slice(0, 10);
+  const today = new Date().toISOString().split("T")[0]!;
+  const year = today.split("-")[0]!;
 
   // Read incident report
   const incidentReport = read("INCIDENT-REPORT.md");
@@ -101,11 +103,11 @@ ${incidentReport ? "See incident report for details." : "[Investigation details]
 project_name: "${project}"
 project_version: "1.0.0"
 client_name: "${meta.client || "Client Name"}"
-engagement_id: "INC-$(date +%Y)-001"
+engagement_id: "INC-${year}-001"
 assessment_type: "Incident Response"
 classification: "Confidential"
-start_date: "${date}"
-end_date: "$(date +%Y-%m-%d)"
+start_date: "${today}"
+end_date: "${today}"
 report_date: "${date}"
 report_version: "1.0"
 reviewer_name: "${meta.analyst || "[Analyst Name]"}"
