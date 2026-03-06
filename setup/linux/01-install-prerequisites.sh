@@ -238,10 +238,10 @@ else
             ;;
         *)
             # Generic install
-            curl -fsSL "https://github.com/cli/cli/releases/download/v2.67.1/gh_${2}_${ARCH}.tar.gz" -o /tmp/gh.tar.gz
+            curl -fsSL "https://github.com/cli/cli/releases/download/v2.67.1/gh_2.67.1_linux_${ARCH}.tar.gz" -o /tmp/gh.tar.gz
             tar xzf /tmp/gh.tar.gz -C /tmp
-            sudo mv /tmp/gh-2.67.1/bin/gh /usr/local/bin/
-            rm -rf /tmp/gh.tar.gz /tmp/gh-2.67.1
+            sudo mv /tmp/gh_2.67.1_linux_${ARCH}/bin/gh /usr/local/bin/
+            rm -rf /tmp/gh.tar.gz /tmp/gh_2.67.1_linux_${ARCH}
             ;;
     esac
 
@@ -291,11 +291,11 @@ else
         if command_exists brew; then
             brew install anthropic/homebrew-tap/claude
         else
-            curl -fsSL https://claude.ai/install.sh | sh
+            curl -fsSL https://claude.ai/install.sh | bash
         fi
     else
         # Linux
-        curl -fsSL https://claude.ai/install.sh | sh
+        curl -fsSL https://claude.ai/install.sh | bash
     fi
 
     print_success "Claude Code CLI installed"

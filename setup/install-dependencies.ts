@@ -8,7 +8,6 @@
 
 import { spawnSync } from "child_process";
 import { existsSync } from "fs";
-import { mkdir, chmod } from "fs/prompts";
 import { resolve, dirname } from "path";
 
 const QUARTO_VERSION = "1.8.27";

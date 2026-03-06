@@ -21,10 +21,8 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { CredentialGuardianInputSchema, safeValidate, formatValidationErrors } from './schemas';
-import { validatePath } from '@/tools/framework/utils/path-resolution';
 import { logSecurityEvent, extractFilePattern } from '@/tools/framework/utils/audit-trail';
 import {
-  sanitizeFilePath,
   sanitizeErrorMessage,
   logInternalError,
   formatSecurityError,
@@ -179,46 +177,6 @@ async function main() {
     }
 
     const filePath = validation.data.tool_input.file_path;
-
-    // SECURITY: Validate path to prevent symlink attacks and path traversal
-    // This must be done before credential checks to block attacks like:
-    // - Symlinks to /etc/passwd
-    // - Path traversal with ../ sequences
-    // - Windows device name attacks (CON, PRN, etc.)
-    const pathValidation = validatePath(filePath);
-    if (!pathValidation.valid) {
-      // Determine attack type for logging
-      const attackType = pathValidation.error?.includes('symlink')
-        ? 'symlink_attack_blocked'
-        : pathValidation.error?.includes('device')
-        ? 'device_access_blocked'
-        : 'path_traversal_blocked';
-
-      logSecurityEvent({
-        event_type: attackType as 'symlink_attack_blocked' | 'device_access_blocked' | 'path_traversal_blocked',
-        tool_name: 'Read',
-        severity: 'critical',
-        reason: pathValidation.error || 'Path validation failed',
-        context: {
-          file_pattern: extractFilePattern(filePath),
-          original_path: filePath
-        }
-      });
-
-      console.log(formatSecurityError({
-        title: '🛡️  CREDENTIAL GUARDIAN: PATH SECURITY VIOLATION',
-        filePath: filePath,
-        reason: pathValidation.error || 'Path validation failed',
-        policy: [
-          'This prevents attacks via:',
-          '- Symlinks pointing to sensitive files',
-          '- Path traversal (../) sequences',
-          '- Windows device names (CON, PRN, AUX, etc.)'
-        ]
-      }));
-
-      process.exit(2); // Hard block
-    }
 
     // Check if it's a template file (always allowed if content is safe)
     const isTemplate = TEMPLATE_PATTERNS.some(pattern => pattern.test(filePath));
