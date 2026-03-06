@@ -5,7 +5,10 @@
  *         POST /save | POST /render-preview | POST /generate-css
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, realpathSync, readdirSync } from "fs";
+import {
+  readFileSync, writeFileSync, mkdirSync, existsSync,
+  realpathSync, readdirSync, statSync,
+} from "fs";
 import { spawnSync } from "child_process";
 import { join } from "path";
 import { parseBrand, parseCss, writeBrand, type BrandConfig } from "./brand-writer.ts";
@@ -745,6 +748,61 @@ tools:
       }
 
       return json({ ok: true, skillId, skillName });
+    }
+
+    // GET /list-engagements — list engagement directories in private/output/
+    if (pathname === "/list-engagements" && req.method === "GET") {
+      const outputDir = join(FRAMEWORK_ROOT, "private/output");
+      if (!existsSync(outputDir)) return json({ ok: true, engagements: [] });
+      const entries: { path: string; name: string; modified: string }[] = [];
+      try {
+        for (const dir of readdirSync(outputDir)) {
+          const engYaml = join(outputDir, dir, "engagement.yaml");
+          if (existsSync(engYaml)) {
+            const stat = statSync(join(outputDir, dir));
+            entries.push({
+              path: dir,
+              name: dir,
+              modified: stat.mtime.toISOString(),
+            });
+          }
+        }
+      } catch { /* ignore */ }
+      return json({ ok: true, engagements: entries });
+    }
+
+    // POST /generate — run report-generator for an engagement
+    if (pathname === "/generate" && req.method === "POST") {
+      const { engagementPath, formats = ["html"], draft = true } =
+        (await req.json()) as {
+          engagementPath: string;
+          formats?: string[];
+          draft?: boolean;
+        };
+      if (!engagementPath) {
+        return json({ ok: false, error: "Missing engagementPath" }, 400);
+      }
+      const engYaml = join(
+        FRAMEWORK_ROOT, "private/output", engagementPath, "engagement.yaml"
+      );
+      if (!existsSync(engYaml)) {
+        return json({ ok: false, error: "engagement.yaml not found" }, 404);
+      }
+      const assembler = join(
+        FRAMEWORK_ROOT, "skills/sec-review/scripts/assemble-report.ts"
+      );
+      const draftArg = draft ? "--draft" : "--no-draft";
+      const result = spawnSync(
+        "bun",
+        [assembler, "--engagement", engYaml, "--render", draftArg],
+        { cwd: FRAMEWORK_ROOT, encoding: "utf-8", timeout: 120000 }
+      );
+      if (result.status !== 0) {
+        return json(
+          { ok: false, error: result.stderr || "generation failed" }, 500
+        );
+      }
+      return json({ ok: true, output: result.stdout });
     }
 
     return new Response("Not found", { status: 404 });

@@ -124,6 +124,7 @@
       <div class="panel-tab" data-ptab="typography">Typography</div>
       <div class="panel-tab" data-ptab="quarto">Quarto</div>
       <div class="panel-tab" data-ptab="report">Report</div>
+      <div class="panel-tab" data-ptab="generate">Templates</div>
     </div>
     <div class="panel-body">
 
@@ -336,8 +337,71 @@
 
       </div>
 
+      <!-- Generate Tab — engagement report generation -->
+      <div class="panel-pane" id="ptab-generate">
+
+        <div class="section">
+          <div class="section-title">Report Type</div>
+          <select id="tpl-skill-select" class="select" style="width:100%;">
+            <option value="">Select report type...</option>
+          </select>
+        </div>
+
+        <div class="section" id="tpl-sections-container" style="display:none;">
+          <div class="section-title">Sections</div>
+          <div id="tpl-section-list"
+               style="display:flex;flex-direction:column;gap:0.5rem;"></div>
+          <button class="btn btn-secondary btn-sm"
+                  id="btn-tpl-add-section"
+                  style="margin-top:0.5rem;width:100%;">
+            + Add Section
+          </button>
+        </div>
+
+        <div class="section" id="tpl-editor-container" style="display:none;">
+          <div style="display:flex;align-items:center;
+                      justify-content:space-between;margin-bottom:0.5rem;">
+            <div class="section-title" id="tpl-editor-label"
+                 style="margin:0;border:0;padding:0;">Section Content</div>
+            <button class="btn btn-primary btn-sm"
+                    id="btn-tpl-save-section">Save</button>
+          </div>
+          <textarea id="tpl-section-editor"
+            style="width:100%;height:300px;font-family:monospace;
+                   font-size:0.8rem;
+                   background:var(--bg);color:var(--text);
+                   border:1px solid var(--border);border-radius:4px;
+                   padding:0.5rem;resize:vertical;"
+            spellcheck="false"></textarea>
+        </div>
+
+        <div class="section"
+             style="border-top:1px solid var(--border);
+                    padding-top:1rem;margin-top:0.5rem;">
+          <div class="section-title">Generate Report</div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <select id="tpl-engagement-select" style="width:100%;">
+              <option value="">Select engagement...</option>
+            </select>
+            <label style="display:flex;align-items:center;
+                          gap:0.5rem;font-size:0.8rem;">
+              <input type="checkbox" id="tpl-draft-toggle" checked>
+              Draft mode
+            </label>
+            <button class="btn btn-primary" id="btn-tpl-generate"
+                    style="width:100%;" disabled>
+              Generate Report
+            </button>
+            <div id="tpl-generate-status"
+                 style="font-size:0.75rem;color:var(--text-muted);
+                        display:none;"></div>
+          </div>
+        </div>
+
+      </div>
+
       <!-- Templates Tab (left pane - just selectors) -->
-      <div class="panel-pane active" id="ptab-templates">
+      <div class="panel-pane" id="ptab-templates">
 
         <!-- Skill & Section Selectors -->
         <div class="section">
@@ -631,6 +695,9 @@
       tab.classList.add('active');
       const pane = document.getElementById(`ptab-${target}`);
       if (pane) pane.classList.add('active');
+      if (target === 'generate' && typeof window.initTemplatesTab === 'function') {
+        window.initTemplatesTab();
+      }
     });
   });
 
@@ -1432,6 +1499,193 @@
   }).catch(err => {
     console.error('[MAIN] loadBrand error:', err);
   });
+})();
+</script>
+
+<script>
+// ── Templates Tab Logic ────────────────────────────────────────────
+(function() {
+  let tplCurrentSkill = null;
+  let tplCurrentSection = null;
+
+  async function loadTemplatesConfig() {
+    const res = await fetch('/builder-config');
+    const { config } = await res.json();
+    // Parse skill list from YAML (simple regex)
+    const skills = {};
+    const skillsMatch = config.match(
+      /^skills:\s*\n([\s\S]*?)(?=^content_templates:|^[a-z])/m
+    );
+    if (skillsMatch) {
+      const skillsBlock = skillsMatch[1];
+      const skillNames = skillsBlock.match(/^  ([a-z_]+):/gm) || [];
+      for (const s of skillNames) {
+        const id = s.trim().replace(':', '');
+        skills[id] = id.replace(/_/g, ' ')
+          .replace(/\b\w/g, c => c.toUpperCase());
+      }
+    }
+    return skills;
+  }
+
+  async function loadSkillSections(skillId) {
+    const res = await fetch('/builder-config');
+    const { config } = await res.json();
+    const sections = [];
+    const match = config.match(
+      new RegExp(
+        `  ${skillId}:[\\s\\S]*?(?=  [a-z]|^content_templates)`, 'm'
+      )
+    );
+    if (match) {
+      const block = match[0];
+      const baseSections = (block.match(/      - (\w+)/g) || [])
+        .map(l => l.trim().replace('- ', ''));
+      const uniqueSections = (block.match(/        name: ([^\n]+)/g) || [])
+        .map(l => l.trim().replace('name: ', ''));
+      sections.push(...baseSections, ...uniqueSections);
+    }
+    return sections;
+  }
+
+  function renderSectionCards(sections) {
+    const list = document.getElementById('tpl-section-list');
+    list.innerHTML = '';
+    sections.forEach((sec, idx) => {
+      const card = document.createElement('div');
+      card.style.cssText = [
+        'display:flex;align-items:center;gap:0.5rem;padding:0.5rem;',
+        'background:var(--bg);border:1px solid var(--border);',
+        'border-radius:4px;cursor:pointer;',
+      ].join('');
+      card.innerHTML =
+        `<span style="cursor:grab;color:var(--text-muted)">⠿</span>` +
+        `<span style="flex:1;font-size:0.85rem;">${sec}</span>`;
+      card.addEventListener('click', () => loadSectionContent(sec));
+      card.setAttribute('draggable', 'true');
+      card.dataset.idx = idx;
+      list.appendChild(card);
+    });
+  }
+
+  async function loadSectionContent(sectionId) {
+    tplCurrentSection = sectionId;
+    document.getElementById('tpl-editor-label').textContent = sectionId;
+    document.getElementById('tpl-editor-container').style.display = '';
+    try {
+      const res = await fetch(
+        `/section?skill=${tplCurrentSkill}` +
+        `&sectionType=base&sectionId=${sectionId}`
+      );
+      const { ok, content } = await res.json();
+      document.getElementById('tpl-section-editor').value =
+        ok ? content : '';
+    } catch {
+      document.getElementById('tpl-section-editor').value = '';
+    }
+  }
+
+  document.getElementById('tpl-skill-select')
+    ?.addEventListener('change', async (e) => {
+      tplCurrentSkill = e.target.value;
+      const container =
+        document.getElementById('tpl-sections-container');
+      if (!tplCurrentSkill) {
+        container.style.display = 'none';
+        return;
+      }
+      container.style.display = '';
+      document.getElementById('tpl-editor-container').style.display =
+        'none';
+      const sections = await loadSkillSections(tplCurrentSkill);
+      renderSectionCards(sections);
+    });
+
+  document.getElementById('btn-tpl-save-section')
+    ?.addEventListener('click', async () => {
+      const content =
+        document.getElementById('tpl-section-editor').value;
+      if (!tplCurrentSkill || !tplCurrentSection) return;
+      await fetch('/section', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          skill: tplCurrentSkill,
+          sectionType: 'base',
+          sectionId: tplCurrentSection,
+          content,
+        }),
+      });
+    });
+
+  async function loadEngagements() {
+    try {
+      const res = await fetch('/list-engagements');
+      const { engagements } = await res.json();
+      const sel = document.getElementById('tpl-engagement-select');
+      sel.innerHTML = '<option value="">Select engagement...</option>';
+      for (const eng of (engagements || [])) {
+        const opt = document.createElement('option');
+        opt.value = eng.path;
+        opt.textContent = eng.name;
+        sel.appendChild(opt);
+      }
+    } catch { /* ignore */ }
+  }
+
+  document.getElementById('tpl-engagement-select')
+    ?.addEventListener('change', (e) => {
+      document.getElementById('btn-tpl-generate').disabled =
+        !e.target.value;
+    });
+
+  document.getElementById('btn-tpl-generate')
+    ?.addEventListener('click', async () => {
+      const engPath =
+        document.getElementById('tpl-engagement-select').value;
+      const draft =
+        document.getElementById('tpl-draft-toggle').checked;
+      const statusEl =
+        document.getElementById('tpl-generate-status');
+      if (!engPath) return;
+      statusEl.style.display = '';
+      statusEl.textContent = 'Generating...';
+      document.getElementById('btn-tpl-generate').disabled = true;
+      try {
+        const res = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            engagementPath: engPath,
+            formats: ['html'],
+            draft,
+          }),
+        });
+        const data = await res.json();
+        statusEl.textContent = data.ok
+          ? 'Done!'
+          : ('Error: ' + (data.error || 'unknown'));
+      } catch (err) {
+        statusEl.textContent = 'Error: ' + err.message;
+      } finally {
+        document.getElementById('btn-tpl-generate').disabled = false;
+      }
+    });
+
+  // Initialize when Templates tab activated
+  window.initTemplatesTab = async function() {
+    const sel = document.getElementById('tpl-skill-select');
+    if (sel.options.length <= 1) {
+      const skills = await loadTemplatesConfig();
+      for (const [id, name] of Object.entries(skills)) {
+        const opt = document.createElement('option');
+        opt.value = id;
+        opt.textContent = name;
+        sel.appendChild(opt);
+      }
+    }
+    await loadEngagements();
+  };
 })();
 </script>
 </body>
