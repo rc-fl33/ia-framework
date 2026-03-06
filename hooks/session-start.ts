@@ -11,7 +11,7 @@
 
 import { mkdirSync, writeFileSync, existsSync, readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
-import { resolveFrameworkRoot } from '@/tools/framework/utils/path-resolution';
+import { resolveFrameworkRoot, resolvePlansDir } from '@/tools/framework/utils/path-resolution';
 import { findRecentSessionByCwd, loadIndex, rebuildIndex } from '@/tools/framework/sessions/session-index';
 import { parseSessionYaml, toSessionYaml } from '@/tools/framework/sessions/yaml-parser';
 
@@ -320,7 +320,7 @@ async function generateFrameworkStats(): Promise<void> {
     const skills = countDirs(join(frameworkPath, 'skills'));
     const agents = countFiles(join(frameworkPath, 'agents'), '.md');
     const hooks = countFiles(join(frameworkPath, 'hooks'), '.ts');
-    const plans = countFiles(join(frameworkPath, 'plans'), '.md');
+    const plans = countFiles(resolvePlansDir(), '.md');
     const docs = countFiles(join(frameworkPath, 'docs'), '.md');
 
     console.log('<system-reminder>');

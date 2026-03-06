@@ -20,6 +20,7 @@
 import { existsSync, readdirSync, readFileSync } from 'fs';
 import { join, basename, extname } from 'path';
 import { parse as parseYaml } from 'yaml';
+import { resolvePlansDir } from '@/tools/framework/utils/path-resolution';
 
 // Framework paths - self-discover from script location
 const FRAMEWORK_ROOT = process.env.IA_FRAMEWORK_ROOT || join(import.meta.dir, '..', '..');
@@ -260,7 +261,7 @@ function validateDocsStructure(): void {
  * Check plans directory structure
  */
 function validatePlansStructure(): void {
-  const plansDir = join(FRAMEWORK_ROOT, 'plans');
+  const plansDir = resolvePlansDir();
   if (!existsSync(plansDir)) return;
 
   try {

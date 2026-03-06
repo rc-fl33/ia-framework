@@ -143,7 +143,7 @@ export function resolveSessionsDir(): string {
  * @returns Absolute path to plans directory
  */
 export function resolvePlansDir(): string {
-  return resolvePath('plans');
+  return resolvePath('private', 'plans');
 }
 
 /**
