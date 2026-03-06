@@ -273,15 +273,16 @@ export async function searchCVEsWithFallback(
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
 
-    // Determine failure type
+    // Determine failure type (case-insensitive)
+    const lowerErrorMessage = errorMessage.toLowerCase();
     let failureType = NVDFailureType.UNKNOWN;
-    if (errorMessage.includes('429') || errorMessage.toLowerCase().includes('rate limit')) {
+    if (errorMessage.includes('429') || lowerErrorMessage.includes('rate limit')) {
       failureType = NVDFailureType.RATE_LIMIT;
-    } else if (errorMessage.includes('503') || errorMessage.toLowerCase().includes('unavailable')) {
+    } else if (errorMessage.includes('503') || lowerErrorMessage.includes('unavailable')) {
       failureType = NVDFailureType.SERVICE_UNAVAILABLE;
-    } else if (errorMessage.includes('timeout')) {
+    } else if (lowerErrorMessage.includes('timeout')) {
       failureType = NVDFailureType.TIMEOUT;
-    } else if (errorMessage.includes('network') || errorMessage.includes('fetch')) {
+    } else if (lowerErrorMessage.includes('network') || lowerErrorMessage.includes('fetch')) {
       failureType = NVDFailureType.NETWORK_ERROR;
     }
 
