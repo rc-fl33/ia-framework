@@ -1481,6 +1481,9 @@ function activateTab(tab) {
   const tabType = tab.dataset.tab;
   document.getElementById('panel-timeline').classList.toggle('hidden', tabType !== 'timeline');
   document.getElementById('panel-editor').classList.toggle('hidden', tabType !== 'editor');
+  const studioPanel = document.getElementById('panel-studio');
+  if (studioPanel) studioPanel.classList.toggle('hidden', tabType !== 'studio');
+  if (tabType === 'studio' && typeof Studio !== 'undefined') Studio.init();
 }
 
 function closeTab(path) {
@@ -1853,8 +1856,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn-toggle-mode').onclick = toggleEditMode;
   document.getElementById('btn-save').onclick = saveFile;
   document.getElementById('btn-export-toggle').onclick = toggleExportMenu;
-  document.getElementById('"btn-export-pdf"').onclick = exportPdf;
-  document.getElementById('"btn-export-pdf-via-html"').onclick = exportPdfViaHtml;
+  const btnPdf = document.getElementById('btn-export-pdf');
+  if (btnPdf) btnPdf.onclick = exportPdf;
+  const btnPdfHtml = document.getElementById('btn-export-pdf-via-html');
+  if (btnPdfHtml) btnPdfHtml.onclick = exportPdfViaHtml;
   document.getElementById('btn-export-html').onclick = exportHtml;
   document.getElementById('btn-export-docx').onclick = exportDocx;
   document.getElementById('btn-export-svg').onclick = exportMermaidSvg;
@@ -2238,13 +2243,6 @@ const Studio = (() => {
 document.addEventListener('DOMContentLoaded', () => {
   const tabStudio = document.getElementById('tab-studio');
   if (tabStudio) {
-    tabStudio.addEventListener('click', () => {
-      // Hide all panels, show studio
-      document.querySelectorAll('.editor-container').forEach(p => p.classList.add('hidden'));
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tabStudio.classList.add('active');
-      document.getElementById('panel-studio')?.classList.remove('hidden');
-      Studio.init();
-    });
+    tabStudio.addEventListener('click', () => activateTab(tabStudio));
   }
 });
