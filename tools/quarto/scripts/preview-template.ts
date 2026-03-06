@@ -39,11 +39,27 @@ function findLogo(frameworkRoot: string): string | null {
   return null;
 }
 
-function frontmatter(theme: string, frameworkRoot: string, title: string): string {
+const DRAFT_CSS = `
+        <style>
+        body::before {
+          content: "DRAFT";
+          position: fixed; top: 50%; left: 50%;
+          transform: translate(-50%, -50%) rotate(-35deg);
+          font-size: 18vw; font-weight: 900;
+          color: rgba(180, 0, 0, 0.07);
+          pointer-events: none; z-index: 9999;
+          white-space: nowrap; letter-spacing: 0.15em; user-select: none;
+        }
+        </style>`;
+
+function frontmatter(theme: string, frameworkRoot: string, title: string, draft = false): string {
   const styles = `${frameworkRoot}/private/brand/assets/styles.css`;
   const scss   = `${frameworkRoot}/private/brand/assets/theme-light.scss`;
+  const draftBlock = draft
+    ? `\n    include-in-header:\n      text: |${DRAFT_CSS}`
+    : "";
   return `---
-title: "${title}"
+title: "${title}"${draft ? '\nsubtitle: "DRAFT — Pre-Decisional | Not for Distribution"' : ""}
 format:
   html:
     theme:
@@ -54,7 +70,7 @@ format:
     toc: true
     toc-depth: 2
     toc-location: left
-    number-sections: false
+    number-sections: false${draftBlock}
 execute:
   echo: false
 ---`;
@@ -1401,11 +1417,11 @@ db.execute(query, [\`%\${req.body.query}%\`]);
 }
 
 export function previewQmd(
-  theme: string, type: PreviewType, frameworkRoot: string, defaults: ReportDefaults = {}
+  theme: string, type: PreviewType, frameworkRoot: string, defaults: ReportDefaults = {}, draft = false
 ): string {
   const title = TYPE_TITLES[type];
   const logo  = findLogo(frameworkRoot);
-  const fm    = frontmatter(theme, frameworkRoot, title);
+  const fm    = frontmatter(theme, frameworkRoot, title, draft);
   switch (type) {
     case "sec-review": return fm + secReviewBody(logo, defaults);
     case "pentest":    return fm + pentestBody(logo, defaults);

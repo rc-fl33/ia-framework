@@ -394,6 +394,7 @@
         <button class="preview-type-btn" data-ptype="scoping">Scoping</button>
         <button class="preview-type-btn" data-ptype="testplan">Test Plan</button>
         <button class="preview-type-btn" data-ptype="finding">Finding</button>
+        <button class="preview-type-btn" id="btn-draft-toggle" data-draft="0" style="margin-left:8px;border-left:1px solid var(--border);padding-left:12px;">Draft</button>
         <button class="btn-render" id="btn-render-preview">Render</button>
       </div>
       <iframe class="full" id="report-preview-frame"></iframe>
@@ -481,6 +482,7 @@
     codeColors: {},
     typography: {},
     htmlTheme: 'cosmo',
+    draftMode: false,
     reportDefaults: {
       reviewerOrg: '',
       reviewerContact: '',
@@ -1000,24 +1002,33 @@
     });
   });
 
+  // ─── Draft toggle ───
+  document.getElementById('btn-draft-toggle')?.addEventListener('click', () => {
+    const btn = document.getElementById('btn-draft-toggle');
+    const isDraft = btn.dataset.draft === '1';
+    btn.dataset.draft = isDraft ? '0' : '1';
+    btn.classList.toggle('active', !isDraft);
+    state.draftMode = !isDraft;
+  });
+
   document.getElementById('btn-render-preview')?.addEventListener('click', async () => {
     const btn = document.getElementById('btn-render-preview');
     btn.disabled = true;
     btn.textContent = 'Rendering...';
     const theme = state.htmlTheme || 'cosmo';
-    const types = [
-      'code-review', 'sec-review', 'pentest',
-      'scoping', 'testplan', 'finding'
-    ];
+    const draft = !!state.draftMode;
+    const types = draft
+      ? [selectedPreviewType]
+      : ['code-review', 'sec-review', 'pentest', 'scoping', 'testplan', 'finding'];
     let errors = [];
     for (let i = 0; i < types.length; i++) {
       const t = types[i];
-      setStatus(`Rendering ${i + 1}/${types.length}: ${t}...`, 'loading');
+      setStatus(`Rendering${draft ? ' draft' : ''} ${i + 1}/${types.length}: ${t}...`, 'loading');
       try {
         const res = await fetch('/render-preview', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ theme, previewType: t }),
+          body: JSON.stringify({ theme, previewType: t, draft }),
         });
         const data = await res.json();
         if (!data.ok) errors.push(`${t}: ${data.error || 'failed'}`);
@@ -1026,15 +1037,16 @@
       }
     }
     const frame = document.getElementById('report-preview-frame');
-    if (frame) frame.src = `/preview?type=${selectedPreviewType}&t=${Date.now()}`;
+    const draftParam = draft ? '&draft=1' : '';
+    if (frame) frame.src = `/preview?type=${selectedPreviewType}${draftParam}&t=${Date.now()}`;
     reportPreviewInitialized = true;
     if (errors.length) {
       setStatus(`Render errors: ${errors.join('; ')}`, 'err');
     } else {
-      setStatus('All previews rendered', 'ok');
+      setStatus(draft ? 'Draft preview rendered' : 'All previews rendered', 'ok');
     }
     btn.disabled = false;
-    btn.textContent = 'Render Preview';
+    btn.textContent = 'Render';
   });
 
   // ─── Dynamic font loader (fallback for any font not pre-loaded) ───
@@ -1247,6 +1259,12 @@
         setVal('report-contact',        rd.reviewerContact);
         setVal('report-email',          rd.reviewerEmail);
         setVal('report-classification', rd.classification);
+      }
+
+      // Auto-detect existing logo — show controls without requiring re-upload
+      if (data.logoPath) {
+        setGalleryLogo('/logo/' + data.logoPath + '?' + Date.now());
+        document.getElementById('logo-controls').style.display = '';
       }
 
       injectAllToGallery();

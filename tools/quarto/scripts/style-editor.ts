@@ -270,9 +270,10 @@ const VALID_THEMES = new Set([
   "vapor", "yeti", "zephyr",
 ]);
 
-function renderPreview(theme: string, type: string): { ok: boolean; error?: string } {
+function renderPreview(theme: string, type: string, draft = false): { ok: boolean; error?: string } {
   const safeType = PREVIEW_TYPES.has(type) ? type : "code-review";
-  const tmpQmd = join(TMP_DIR, `preview-${safeType}.qmd`);
+  const suffix = draft ? `-draft` : "";
+  const tmpQmd = join(TMP_DIR, `preview-${safeType}${suffix}.qmd`);
   mkdirSync(TMP_DIR, { recursive: true });
   const defaults: ReportDefaults = {};
   if (existsSync(BRAND_PATH)) {
@@ -285,7 +286,7 @@ function renderPreview(theme: string, type: string): { ok: boolean; error?: stri
       low:      brand.securityColors?.low,
     };
   }
-  writeFileSync(tmpQmd, previewQmd(theme, safeType as PreviewType, FRAMEWORK_ROOT, defaults), "utf-8");
+  writeFileSync(tmpQmd, previewQmd(theme, safeType as PreviewType, FRAMEWORK_ROOT, defaults, draft), "utf-8");
   const env = { ...process.env, PATH: `${TYPST_PATH}:${process.env.PATH}` };
   const result = spawnSync(QUARTO_BIN, ["render", tmpQmd, "--to", "html"], {
     env, cwd: TMP_DIR, encoding: "utf-8",
@@ -332,8 +333,10 @@ Bun.serve({
 
     if (pathname === "/preview") {
       const type = url.searchParams.get("type") ?? "code-review";
+      const isDraft = url.searchParams.get("draft") === "1";
       const safeType = PREVIEW_TYPES.has(type) ? type : "code-review";
-      const htmlPath = join(TMP_DIR, `preview-${safeType}.html`);
+      const suffix = isDraft ? "-draft" : "";
+      const htmlPath = join(TMP_DIR, `preview-${safeType}${suffix}.html`);
       if (!existsSync(htmlPath)) {
         return new Response(
           "<html><body style='font-family:sans-serif;padding:2rem;color:#6b7280'>" +
@@ -355,7 +358,13 @@ Bun.serve({
       brand.codeColors = cssColors.codeColors;
       // Merge CSS typography (size, line-height, weight) into the brand typography block
       Object.assign(brand.typography, cssColors.typography);
-      return json(brand);
+      // Detect existing logo so the UI can show it without requiring a re-upload
+      const assetsDir = join(BRAND_DIR, "assets");
+      let logoPath: string | null = null;
+      for (const ext of ["png", "jpg", "jpeg", "svg", "webp"]) {
+        if (existsSync(join(assetsDir, `logo.${ext}`))) { logoPath = `logo.${ext}`; break; }
+      }
+      return json({ ...brand, logoPath });
     }
 
     if (pathname === "/save" && req.method === "POST") {
@@ -364,13 +373,13 @@ Bun.serve({
     }
 
     if (pathname === "/render-preview" && req.method === "POST") {
-      const { theme = "cosmo", previewType = "code-review" } =
-        (await req.json()) as { theme?: string; previewType?: string };
+      const { theme = "cosmo", previewType = "code-review", draft = false } =
+        (await req.json()) as { theme?: string; previewType?: string; draft?: boolean };
       if (!VALID_THEMES.has(theme)) return json({ ok: false, error: "Invalid theme name" }, 400);
       const safeType = PREVIEW_TYPES.has(previewType) ? previewType : "code-review";
-      const result = renderPreview(theme, safeType);
+      const result = renderPreview(theme, safeType, draft);
       if (!result.ok) return json({ ok: false, error: result.error }, 500);
-      return json({ ok: true, path: `/preview?type=${safeType}` });
+      return json({ ok: true, path: `/preview?type=${safeType}${draft ? "&draft=1" : ""}` });
     }
 
     // Serve template files from tools/quarto/templates/
