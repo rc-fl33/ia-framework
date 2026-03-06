@@ -552,6 +552,65 @@ await searchCVEsByKeyword('nginx', {
 
 ---
 
+## Fallback to WebSearch
+
+When the NVD API fails (rate limit, service unavailable, timeout, network error), the client provides a fallback mechanism to use web search as an alternative source for CVE information.
+
+### Using `searchCVEsWithFallback`
+
+```typescript
+import { searchCVEsWithFallback } from '@/tools/nvd';
+
+const result = await searchCVEsWithFallback('GraphQL', {
+  severity: 'HIGH',
+  limit: 20
+});
+
+if (result.success && result.data) {
+  // Use NVD data
+  console.log(`Found ${result.data.totalResults} CVEs`);
+} else if (result.fallbackRecommended) {
+  // NVD failed, use websearch instead
+  console.error(`NVD failed: ${result.errorMessage}`);
+  console.error('Use websearch to find CVE information for this topic');
+
+  // Example websearch query:
+  // const websearchResults = await websearch(
+  //   "GraphQL security vulnerabilities CVE 2024 2025"
+  // );
+}
+```
+
+### Fallback Decision Matrix
+
+| NVD Failure Type | Fallback Recommended | WebSearch Query Strategy |
+|-----------------|---------------------|-------------------------|
+| RATE_LIMIT (429) | Yes | Retry with websearch for recent CVEs |
+| SERVICE_UNAVAILABLE (503) | Yes | Use websearch as primary source |
+| TIMEOUT | Yes | Use websearch with broader terms |
+| NETWORK_ERROR | Yes | Check connectivity, then websearch |
+| INVALID_QUERY (400) | No | Fix query parameters first |
+
+### Retry Configuration
+
+The default retry behavior:
+- **Max retries:** 3
+- **Initial backoff:** 1000ms (exponential: 1s, 2s, 4s)
+- **Total attempts:** 4 (1 initial + 3 retries)
+
+Customize retry behavior:
+
+```typescript
+const result = await searchCVEsByKeyword('nginx', {
+  severity: 'HIGH'
+}, {
+  maxRetries: 5,
+  initialBackoffMs: 2000
+});
+```
+
+---
+
 ## Consumers
 
 > Which skills, hooks, tools, and workflows USE this tool.
@@ -580,6 +639,14 @@ await searchCVEsByKeyword('nginx', {
 ---
 
 ## Version History
+
+### 1.1.0 (2026-03-05)
+- ✅ Added retry logic with exponential backoff for transient errors
+- ✅ Added `searchCVEsWithFallback()` function for automatic fallback handling
+- ✅ Added `NVDFailureType` enum for error classification
+- ✅ Added `NVDSearchResult` interface for structured fallback results
+- ✅ Updated `getCVEById()` with retry support
+- ✅ Added websearch fallback documentation
 
 ### 1.0.0 (2026-01-29)
 - ✅ Migrated from `skills/pentest/scripts/nvd-api/nvd-client.ts`
