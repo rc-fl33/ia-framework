@@ -29,6 +29,13 @@ Dashboard: http://localhost:4747
 - **Multi-Format Support** - Markdown, code, text, PDF, images
 - **File Operations** - Read, write, delete with conflict detection
 
+### Quarto Studio
+- **Engagement Browser** — lists all engagements in `private/output/` by skill type
+- **Section Cards** — navigate report sections in canonical order with drag-to-reorder
+- **Full-Pane Editor** — click any section card to edit raw QMD content
+- **Generate** — run full report assembly pipeline (respects `narrative:` overrides in `engagement.yaml`)
+- **Live Preview** — rendered HTML in an embedded iframe with open-in-tab link
+
 ### Terminal (New)
 - **Integrated Shell** - Full bash terminal in browser
 - **Split View** - Resizable horizontal panels
@@ -62,6 +69,11 @@ The monitor dashboard includes comprehensive security protections:
 - `docs/ops-diagnose.md` - Troubleshooting guide
 - `docs/ops-stop.md` - Graceful shutdown procedure
 - `docs/ops-workflow.md` - Lifecycle overview
+
+## Studio Guide
+
+- `docs/studio.md` - Quarto Studio panel reference
+- `docs/guides/report-generation.md` (framework) - Full report generation pipeline
 
 ## Data Storage
 

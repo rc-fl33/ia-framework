@@ -156,6 +156,13 @@ env | grep -i key
 
 ---
 
+### Quarto Studio
+
+- `studio.md` — Studio panel reference: engagement browser, section editing, report generation
+- [`docs/guides/report-generation.md`](../../../docs/guides/report-generation.md) — Full report generation pipeline, engagement.yaml reference, narrative overrides
+
+---
+
 ## Related Documentation
 
 - **Main README**: `../README.md` - Quick start and feature overview
