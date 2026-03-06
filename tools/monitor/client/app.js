@@ -1842,7 +1842,9 @@ const Studio = (() => {
       for (const eng of engagements) {
         const item = document.createElement('div');
         item.className = 'studio-engagement-item';
-        item.textContent = eng.name;
+        item.innerHTML = eng.skill
+          ? `<span style="font-size:0.7rem;color:var(--text-muted);display:block;">${eng.skill}</span>${eng.name}`
+          : eng.name;
         item.title = eng.path;
         item.addEventListener('click', () => selectEngagement(eng));
         engList.appendChild(item);

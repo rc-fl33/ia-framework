@@ -500,21 +500,40 @@ async function handleAPI(req: Request, url: URL): Promise<Response> {
       return handleDirectoryDelete(req, url, headers);
     }
 
-    // GET /api/studio/engagements — list private/output/* dirs with engagement.yaml
+    // GET /api/studio/engagements — list private/output/**/* dirs with engagement.yaml
+    // Structure: private/output/{skill}/{engagement}/ or private/output/{engagement}/
     if (path === '/api/studio/engagements' && req.method === 'GET') {
       const outputDir = join(config.claudeDir, 'private/output');
-      const engagements: { path: string; name: string; modified: string }[] = [];
+      const engagements: { path: string; name: string; skill: string; modified: string }[] = [];
       if (existsSync(outputDir)) {
         try {
-          for (const dir of readdirSync(outputDir)) {
-            const engYaml = join(outputDir, dir, 'engagement.yaml');
-            if (existsSync(engYaml)) {
-              const stat = statSync(join(outputDir, dir));
-              engagements.push({ path: dir, name: dir, modified: stat.mtime.toISOString() });
+          for (const entry of readdirSync(outputDir)) {
+            const entryPath = join(outputDir, entry);
+            if (!statSync(entryPath).isDirectory()) continue;
+            // Check direct child first (flat layout)
+            if (existsSync(join(entryPath, 'engagement.yaml'))) {
+              const stat = statSync(entryPath);
+              engagements.push({ path: entry, name: entry, skill: '', modified: stat.mtime.toISOString() });
+              continue;
+            }
+            // Walk one level deeper (skill/engagement layout)
+            for (const sub of readdirSync(entryPath)) {
+              const subPath = join(entryPath, sub);
+              if (!statSync(subPath).isDirectory()) continue;
+              if (existsSync(join(subPath, 'engagement.yaml'))) {
+                const stat = statSync(subPath);
+                engagements.push({
+                  path: `${entry}/${sub}`,
+                  name: sub,
+                  skill: entry,
+                  modified: stat.mtime.toISOString(),
+                });
+              }
             }
           }
         } catch { /* ignore */ }
       }
+      engagements.sort((a, b) => b.modified.localeCompare(a.modified));
       return new Response(JSON.stringify({ engagements }), { headers });
     }
 
