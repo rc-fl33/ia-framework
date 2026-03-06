@@ -2,16 +2,16 @@ framework: iso/13485
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/iso/13485/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/iso/13485/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/iso/13485/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/iso/13485/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/iso/13485/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/iso/13485/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/iso-13485.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/iso-13485.yaml
   - name: question_count
     status: pass
     detail: 23 questions (need ≥20 for T2)

@@ -2,16 +2,16 @@ framework: hipaa
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/hipaa/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/hipaa/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/hipaa/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/hipaa/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/hipaa/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/hipaa/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/hipaa.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/hipaa.yaml
   - name: question_count
     status: warn
     detail: 18 questions (need ≥20 for T2)

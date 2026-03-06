@@ -2,16 +2,16 @@ framework: eu-ai-act
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/eu-ai-act/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/eu-ai-act/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/eu-ai-act/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/eu-ai-act/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/eu-ai-act/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/eu-ai-act/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/eu-ai-act.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/eu-ai-act.yaml
   - name: question_count
     status: pass
     detail: 36 questions (need ≥20 for T2)

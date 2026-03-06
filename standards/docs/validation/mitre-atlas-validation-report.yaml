@@ -2,16 +2,16 @@ framework: mitre-atlas
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/mitre-atlas/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/mitre-atlas/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/mitre-atlas/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/mitre-atlas/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/mitre-atlas/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/mitre-atlas/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/mitre-atlas.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/mitre-atlas.yaml
   - name: question_count
     status: pass
     detail: 44 questions (need ≥20 for T2)

@@ -153,5 +153,5 @@ Verified obligations from official source:
 
 - [Regulation (EU) 2024/1689 — EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)
 - [EU AI Act Explorer](https://artificialintelligenceact.eu/ai-act-explorer/)
-- [Official Journal PDF — Local Copy](/home/groves/ia-framework-private/standards/frameworks/eu-ai-act/docs/OJ_L_202401689_EN_TXT.pdf)
-- [EU AI Act README — Framework Documentation](/home/groves/ia-framework-private/standards/frameworks/eu-ai-act/docs/README.md)
+- [Official Journal PDF — Local Copy](~/ia-framework/standards/frameworks/eu-ai-act/docs/OJ_L_202401689_EN_TXT.pdf)
+- [EU AI Act README — Framework Documentation](~/ia-framework/standards/frameworks/eu-ai-act/docs/README.md)

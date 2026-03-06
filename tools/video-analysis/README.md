@@ -16,7 +16,7 @@ Extract insights from YouTube videos and other video sources by:
 **All dependencies installed via bun - no sudo required:**
 
 ```bash
-cd /home/groves/ia-framework-private
+cd ~/ia-framework
 bun install
 ```
 

@@ -2,7 +2,7 @@
 
 ## Completion Status: ✅ COMPLETE
 
-**File Location:** `/home/groves/ia-framework-private/standards/frameworks/pci-dss/docs/requirement-9-handbook.md`
+**File Location:** `~/ia-framework/standards/frameworks/pci-dss/docs/requirement-9-handbook.md`
 
 **File Size:** 84 KB
 **Line Count:** 1,323 lines
@@ -264,4 +264,4 @@
 
 **COMPLETE - Ready for use by practitioners, compliance teams, and auditors**
 
-**File Location:** `/home/groves/ia-framework-private/standards/frameworks/pci-dss/docs/requirement-9-handbook.md`
+**File Location:** `~/ia-framework/standards/frameworks/pci-dss/docs/requirement-9-handbook.md`

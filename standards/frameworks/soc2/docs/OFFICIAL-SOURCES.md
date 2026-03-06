@@ -162,7 +162,7 @@
 
 ### Status: VERIFIED - No Discrepancies Found
 
-All 61 controls in `/home/groves/ia-framework-private/standards/frameworks/soc2/controls.yaml` match the official AICPA Trust Services Criteria (2017 with 2022 Points of Focus Update):
+All 61 controls in `~/ia-framework/standards/frameworks/soc2/controls.yaml` match the official AICPA Trust Services Criteria (2017 with 2022 Points of Focus Update):
 
 - **Category Structure:** All 17 categories (CC1-CC9, A1, PI1, C1, P1-P8) present
 - **Control Count:** 61 total controls verified
@@ -188,10 +188,10 @@ All 61 controls in `/home/groves/ia-framework-private/standards/frameworks/soc2/
 
 ## Related Documentation
 
-- `/home/groves/ia-framework-private/standards/frameworks/soc2/controls.yaml` - Complete TSC control definitions
-- `/home/groves/ia-framework-private/standards/frameworks/soc2/metadata.yaml` - Framework metadata and acquisition instructions
-- `/home/groves/ia-framework-private/standards/frameworks/soc2/questions.yaml` - Assessment questions for each control
-- `/home/groves/ia-framework-private/standards/frameworks/soc2/manifest.yaml` - Framework manifest
+- `~/ia-framework/standards/frameworks/soc2/controls.yaml` - Complete TSC control definitions
+- `~/ia-framework/standards/frameworks/soc2/metadata.yaml` - Framework metadata and acquisition instructions
+- `~/ia-framework/standards/frameworks/soc2/questions.yaml` - Assessment questions for each control
+- `~/ia-framework/standards/frameworks/soc2/manifest.yaml` - Framework manifest
 
 ---
 

@@ -582,7 +582,7 @@ tools/api/openrouter/
 **Fix:**
 ```bash
 # Verify .env exists in framework root
-ls -la /home/groves/ia-framework-private/.env
+ls -la ~/ia-framework/.env
 
 # Add key if missing
 echo 'OPENROUTER_API_KEY=[your key]' >> .env

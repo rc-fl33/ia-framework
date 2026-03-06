@@ -36,7 +36,7 @@
    GITHUB_TOKEN=[insert your github token here]
 
    # Private repository configuration
-   GIT_PUSH_REPO_PATH=/home/groves/ia-framework-private
+   GIT_PUSH_REPO_PATH=~/ia-framework
    GIT_PUSH_REMOTE=origin
    GIT_PUSH_BRANCH=main
 

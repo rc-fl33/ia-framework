@@ -46,7 +46,7 @@ The write skill requires API credentials for AI image generation capability. Thi
 
 1. **Open .env file:**
    ```bash
-   cd ~/ia-framework-private
+   cd ~/ia-framework
    nano .env  # or use your preferred editor
    ```
 

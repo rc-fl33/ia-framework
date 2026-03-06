@@ -281,7 +281,7 @@ bun run -e 'import Anthropic from "@anthropic-ai/sdk"; const c = new Anthropic({
 
 **All JavaScript - no system dependencies:**
 ```bash
-cd /home/groves/ia-framework-private
+cd ~/ia-framework
 bun install
 
 # Installs:

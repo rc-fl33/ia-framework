@@ -2,16 +2,16 @@ framework: nist-800-53
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/nist-800-53/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/nist-800-53/manifest.yaml
   - name: controls_exists
     status: fail
-    detail: /home/groves/ia-framework-private/standards/frameworks/nist-800-53/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/nist-800-53/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/nist-800-53/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/nist-800-53/questions.yaml
   - name: crosswalk_exists
     status: fail
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/nist-800-53.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/nist-800-53.yaml
   - name: question_count
     status: pass
     detail: 37 questions (need ≥20 for T2)

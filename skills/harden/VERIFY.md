@@ -64,7 +64,7 @@ ls private/output/harden/{target}-{YYYY-MM}/CHANGE-LOG.md
 
 ```bash
 ls -la ~/.claude/commands/harden.md
-# Expected: lrwxrwxrwx ... -> /home/groves/ia-framework-private/skills/harden/commands/harden.md
+# Expected: lrwxrwxrwx ... -> ~/ia-framework/skills/harden/commands/harden.md
 ```
 
 ## File Inventory

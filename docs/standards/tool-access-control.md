@@ -47,7 +47,7 @@ tools:
   blocked:
     - WebFetch  # Use approved APIs only
   restrictions:
-    - pattern: "^/home/groves/ia-framework-private/hooks/"
+    - pattern: "^~/ia-framework/hooks/"
       reason: "Cannot modify framework hooks"
 ---
 ```
@@ -159,19 +159,19 @@ Prevent agents from modifying critical framework files:
 ```yaml
 tools:
   path_restrictions:
-    - pattern: "^/home/groves/ia-framework-private/hooks/"
+    - pattern: "^~/ia-framework/hooks/"
       access: read-only
       reason: "Framework hooks are security-critical"
 
-    - pattern: "^/home/groves/ia-framework-private/agents/"
+    - pattern: "^~/ia-framework/agents/"
       access: read-only
       reason: "Agent definitions should not be modified by agents"
 
-    - pattern: "^/home/groves/ia-framework-private/\.env$"
+    - pattern: "^~/ia-framework/\.env$"
       access: blocked
       reason: "Credentials file - no agent access"
 
-    - pattern: "^/home/groves/ia-framework-private/tools/api/"
+    - pattern: "^~/ia-framework/tools/api/"
       access: read-only
       reason: "API clients should not be modified by agents"
 ```
@@ -210,7 +210,7 @@ describe('Tool Access Control', () => {
       tool: 'Write',
       agent: 'engineer',
       skill: 'test',
-      path: '/home/groves/ia-framework-private/hooks/pre-commit.ts'
+      path: '~/ia-framework/hooks/pre-commit.ts'
     });
     expect(result.allowed).toBe(false);
     expect(result.reason).toContain('security-critical');

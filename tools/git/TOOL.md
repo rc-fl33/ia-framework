@@ -115,7 +115,7 @@ Automates git operations while enforcing security and quality:
 ```bash
 # Required for /git-push
 GITHUB_TOKEN=[insert key]                                    # GitHub personal access token
-GIT_PUSH_REPO_PATH=~/ia-framework-private   # Path to private repo
+GIT_PUSH_REPO_PATH=~/ia-framework   # Path to private repo
 GIT_PUSH_REMOTE=origin                                  # Remote name (default: origin)
 GIT_PUSH_BRANCH=main                                    # Branch (default: main)
 

@@ -18,7 +18,7 @@
 - **Direct PDF Download:** Requires account registration (https://www.pcisecuritystandards.org/register/)
 
 ### Local Reference Documents
-- **Framework Files:** `/home/groves/ia-framework-private/standards/frameworks/pci-dss/`
+- **Framework Files:** `~/ia-framework/standards/frameworks/pci-dss/`
 - **Split PDFs:** `docs/PCI-DSS-v4.0.1/` (397 pages, 10-page increments)
 - **Source PDF Hash:** `5e6b9093b84007b973097d20126a3768ea2f0a1d4200255c849b0fb3bf04ebc7`
 

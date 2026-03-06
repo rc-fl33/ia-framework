@@ -31,7 +31,7 @@
 
 ```bash
 # Start Caido on VPS
-cd /home/groves/ia-framework-private/skills/bug-bounty/containers/caido/deploy
+cd ~/ia-framework/skills/bug-bounty/containers/caido/deploy
 docker-compose up -d
 
 # Access via Twingate (connect to security network first)

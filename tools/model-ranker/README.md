@@ -49,7 +49,7 @@ Rankings are cached for 7 days at `tools/model-ranker/cache/zdr-rankings.json` (
 
 **Recommended:** Set up weekly cron refresh
 ```bash
-0 2 * * 0 cd /home/groves/ia-framework-private && bun tools/model-ranker/scripts/refresh.ts --quiet
+0 2 * * 0 cd ~/ia-framework && bun tools/model-ranker/scripts/refresh.ts --quiet
 ```
 
 ## Programmatic Usage

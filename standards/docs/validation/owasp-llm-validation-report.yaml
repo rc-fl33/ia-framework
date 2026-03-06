@@ -2,16 +2,16 @@ framework: owasp-llm
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/owasp-llm/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/owasp-llm/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/owasp-llm/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/owasp-llm/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/owasp-llm/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/owasp-llm/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/owasp-llm.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/owasp-llm.yaml
   - name: question_count
     status: pass
     detail: 23 questions (need ≥20 for T2)

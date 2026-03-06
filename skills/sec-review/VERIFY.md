@@ -26,7 +26,7 @@ Expected: Zero matches.
 
 ```bash
 ls -la ~/.claude/commands/sec-review.md
-# Expected: lrwxrwxrwx ... -> /home/groves/ia-framework-private/skills/sec-review/commands/sec-review.md
+# Expected: lrwxrwxrwx ... -> ~/ia-framework/skills/sec-review/commands/sec-review.md
 ```
 
 ## File Inventory

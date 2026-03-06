@@ -200,7 +200,7 @@ All models must pass these filters before scoring:
 
 ```bash
 # Weekly refresh on Sunday at 2 AM
-0 2 * * 0 cd /home/groves/ia-framework-private && bun tools/model-ranker/scripts/refresh.ts --quiet
+0 2 * * 0 cd ~/ia-framework && bun tools/model-ranker/scripts/refresh.ts --quiet
 ```
 
 ---

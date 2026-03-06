@@ -18,7 +18,7 @@ import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
 // Use IA_FRAMEWORK_ROOT env var if set, otherwise self-discover from script location
-// import.meta.dir for hooks/pre-command/ is: /path/to/ia-framework-private/hooks/pre-command
+// import.meta.dir for hooks/pre-command/ is: /path/to/ia-framework/hooks/pre-command
 // We need to go up 3 levels to get to framework root
 const CLAUDE_DIR = process.env.IA_FRAMEWORK_ROOT || join(import.meta.dir, '..', '..', '..');
 const SETTINGS_FILE = join(CLAUDE_DIR, '.claude', 'settings.json');

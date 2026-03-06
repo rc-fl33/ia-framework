@@ -988,7 +988,7 @@ echo "# 👻 GHOST SKILL" >> /home/groves/.claude/.env
 **Fix:**
 ```bash
 # Check file exists in framework root
-ls -la /home/groves/ia-framework-private/.env.structure.yaml
+ls -la ~/ia-framework/.env.structure.yaml
 
 # If missing, restore from framework update
 # Or create based on template

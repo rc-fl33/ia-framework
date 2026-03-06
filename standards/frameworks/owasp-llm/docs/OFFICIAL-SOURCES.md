@@ -32,7 +32,7 @@
 
 ### Status: MAJOR DISCREPANCIES FOUND
 
-The local controls.yaml (`/home/groves/ia-framework-private/standards/frameworks/owasp-llm/controls.yaml`) does NOT match the official OWASP Top 10 for LLM Applications 2025.
+The local controls.yaml (`~/ia-framework/standards/frameworks/owasp-llm/controls.yaml`) does NOT match the official OWASP Top 10 for LLM Applications 2025.
 
 ### Detailed Comparison
 

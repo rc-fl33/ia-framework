@@ -133,7 +133,7 @@ import { resolveFrameworkRoot } from '@/tools/framework/utils/path-resolution';
 - Prevents hardcoded paths that break portability
 
 **Real-World Impact:**
-- User installs framework at `~/ia-framework-private/`
+- User installs framework at `~/ia-framework/`
 - Scripts self-discover their framework root via `import.meta.dir` or `SCRIPT_DIR`
 - All tools automatically resolve to the correct root
 - No code changes needed for custom installations
@@ -190,7 +190,7 @@ DISCOVERY: ~/.claude/commands/*.md (for Claude Code)
 - **Location:** `~/.claude/commands/[command-name].md`
 - **Purpose:** Claude Code command discovery mechanism
 - **Format:** Symlinks WITH `.md` extension
-- **Target:** Absolute path: `~/ia-framework-private/commands/[cmd].md`
+- **Target:** Absolute path: `~/ia-framework/commands/[cmd].md`
 - **Created:** Automatically by setup script
 
 ### Critical Rules
@@ -218,7 +218,7 @@ ln -s ../skills/ghost/commands/ghost-research.md commands/ghost-research.md
 
 # 3. Create discovery symlink (via setup script)
 # The setup script will create:
-# ln -sf ~/ia-framework-private/commands/ghost-research.md ~/.claude/commands/ghost-research.md
+# ln -sf ~/ia-framework/commands/ghost-research.md ~/.claude/commands/ghost-research.md
 ```
 
 ### Why This Architecture?

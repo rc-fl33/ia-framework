@@ -2,16 +2,16 @@ framework: nist-csf
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/nist-csf/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/nist-csf/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/nist-csf/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/nist-csf/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/nist-csf/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/nist-csf/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/nist-csf.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/nist-csf.yaml
   - name: question_count
     status: pass
     detail: 22 questions (need ≥20 for T2)

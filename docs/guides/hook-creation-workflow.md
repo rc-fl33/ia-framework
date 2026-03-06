@@ -99,7 +99,7 @@ bun run tools/utils/sync-hooks.ts
 ```
 Framework Hook Flow:
 ┌─────────────────────────────────────┐
-│ ~/ia-framework-private/hooks/       │ ← Source files (git tracked)
+│ ~/ia-framework/hooks/       │ ← Source files (git tracked)
 │   ├── anti-rationalization.ts       │
 │   ├── bash-command-validator.ts     │
 │   └── my-new-hook.ts                │

@@ -76,13 +76,13 @@ Capture each file placement decision for compliance analysis:
 
 ```yaml
 file_placements:
-  - path: /home/groves/ia-framework-private/docs/new-standard.md
+  - path: ~/ia-framework/docs/new-standard.md
     expected_location: /docs/standards/
     actual_location: /docs/
     compliant: false
     corrected: true  # Was corrected before commit
 
-  - path: /home/groves/ia-framework-private/private/input/pentest/targets.md
+  - path: ~/ia-framework/private/input/pentest/targets.md
     expected_location: /private/input/pentest/
     actual_location: /private/input/pentest/
     compliant: true

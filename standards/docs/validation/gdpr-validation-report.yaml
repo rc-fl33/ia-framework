@@ -2,16 +2,16 @@ framework: gdpr
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/gdpr/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/gdpr/manifest.yaml
   - name: controls_exists
     status: fail
-    detail: /home/groves/ia-framework-private/standards/frameworks/gdpr/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/gdpr/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/gdpr/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/gdpr/questions.yaml
   - name: crosswalk_exists
     status: fail
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/gdpr.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/gdpr.yaml
   - name: question_count
     status: pass
     detail: 28 questions (need ≥20 for T2)

@@ -2,16 +2,16 @@ framework: soc2
 checks:
   - name: manifest_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/soc2/manifest.yaml
+    detail: ~/ia-framework/standards/frameworks/soc2/manifest.yaml
   - name: controls_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/soc2/controls.yaml
+    detail: ~/ia-framework/standards/frameworks/soc2/controls.yaml
   - name: questions_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/frameworks/soc2/questions.yaml
+    detail: ~/ia-framework/standards/frameworks/soc2/questions.yaml
   - name: crosswalk_exists
     status: pass
-    detail: /home/groves/ia-framework-private/standards/mappings/crosswalks/soc2.yaml
+    detail: ~/ia-framework/standards/mappings/crosswalks/soc2.yaml
   - name: question_count
     status: pass
     detail: 33 questions (need ≥20 for T2)
