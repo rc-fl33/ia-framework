@@ -1865,10 +1865,12 @@ const Studio = (() => {
       el.classList.toggle('active', el.title === eng.path);
     });
 
-    // Load sections
+    // Load sections — always show card list when switching engagement
+    sectionCards.style.display = '';
+    sectionEditorWrap.style.display = 'none';
+    editingSection = null;
     sectionCards.innerHTML =
       '<div style="padding:0.5rem;font-size:0.75rem;color:var(--text-muted)">Loading sections...</div>';
-    sectionEditorWrap.style.display = 'none';
     try {
       const res = await fetch(`/api/studio/sections?eng=${encodeURIComponent(eng.path)}`);
       const { sections } = await res.json();
@@ -1939,15 +1941,27 @@ const Studio = (() => {
     }).catch(() => {});
   }
 
+  function showCardList() {
+    sectionCards.style.display = '';
+    sectionEditorWrap.style.display = 'none';
+    editingSection = null;
+  }
+
+  function showEditorPane() {
+    sectionCards.style.display = 'none';
+    sectionEditorWrap.style.display = 'flex';
+  }
+
   async function openSectionEditor(sec, idx) {
     editingSection = sec;
     editingLabel.textContent = sec.name;
     sectionTextarea.value = sec.content || '';
-    sectionEditorWrap.style.display = '';
+    showEditorPane();
     sectionTextarea.focus();
 
-    // Load latest content if not already loaded
+    // Load latest content if not already cached
     if (!sec.content) {
+      sectionTextarea.value = 'Loading...';
       try {
         const res = await fetch(
           `/api/studio/sections?eng=${encodeURIComponent(currentEngagement.path)}&file=${encodeURIComponent(sec.file)}`
@@ -1955,13 +1969,14 @@ const Studio = (() => {
         const { content } = await res.json();
         sectionTextarea.value = content || '';
         sec.content = content;
-      } catch { /* ignore */ }
+      } catch {
+        sectionTextarea.value = '';
+      }
     }
   }
 
   document.getElementById('btn-studio-cancel-edit')?.addEventListener('click', () => {
-    sectionEditorWrap.style.display = 'none';
-    editingSection = null;
+    showCardList();
   });
 
   document.getElementById('btn-studio-save-section')?.addEventListener('click', async () => {
@@ -1979,6 +1994,7 @@ const Studio = (() => {
       });
       editingSection.content = content;
       editingSection.excerpt = content.slice(0, 100);
+      showCardList();
       renderSectionCards();
     } catch { /* ignore */ }
   });

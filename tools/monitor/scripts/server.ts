@@ -557,13 +557,25 @@ async function handleAPI(req: Request, url: URL): Promise<Response> {
         return new Response(JSON.stringify({ content }), { headers });
       }
 
-      // List _sections/*.qmd files
+      // List _sections/*.qmd files, sorted by canonical report order
+      const SECTION_ORDER = [
+        '_cover', '_executive-summary', '_scope', '_findings',
+        '_recommendations', '_appendices',
+      ];
       const sectDir = join(engDir, '_sections');
       const sections: { name: string; file: string; excerpt: string }[] = [];
       if (existsSync(sectDir)) {
-        for (const f of readdirSync(sectDir).filter(
+        const files = readdirSync(sectDir).filter(
           f => f.endsWith('.qmd') && f.startsWith('_')
-        )) {
+        );
+        files.sort((a, b) => {
+          const aKey = a.replace(/\.qmd$/, '');
+          const bKey = b.replace(/\.qmd$/, '');
+          const ai = SECTION_ORDER.indexOf(aKey);
+          const bi = SECTION_ORDER.indexOf(bKey);
+          return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+        });
+        for (const f of files) {
           const content = readFileSync(join(sectDir, f), 'utf-8');
           sections.push({
             name: f.replace(/^_/, '').replace(/\.qmd$/, '').replace(/-/g, ' '),

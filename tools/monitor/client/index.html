@@ -148,19 +148,20 @@
               </div>
               <div id="studio-section-cards" class="studio-section-list"></div>
               <div id="studio-section-editor-wrap"
-                style="display:none;border-top:1px solid var(--border-color);padding:0.75rem;flex-shrink:0;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+                style="display:none;flex:1;flex-direction:column;overflow:hidden;border-top:1px solid var(--border-color);">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.75rem;flex-shrink:0;">
                   <span id="studio-editing-label"
-                    style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);"></span>
-                  <div style="display:flex;gap:0.5rem;">
-                    <button class="btn btn-sm btn-secondary" id="btn-studio-cancel-edit">Cancel</button>
+                    style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+                  <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+                    <button class="btn btn-sm btn-secondary" id="btn-studio-cancel-edit">&#8592; Sections</button>
                     <button class="btn btn-sm btn-primary" id="btn-studio-save-section">Save</button>
                   </div>
                 </div>
                 <textarea id="studio-section-textarea"
-                  style="width:100%;height:240px;font-family:Menlo,Monaco,monospace;font-size:0.8rem;
-                    resize:vertical;background:var(--bg-tertiary);color:var(--text-primary);
-                    border:1px solid var(--border-color);border-radius:4px;padding:0.5rem;"
+                  style="flex:1;min-height:0;width:100%;box-sizing:border-box;
+                    font-family:Menlo,Monaco,monospace;font-size:0.8rem;
+                    resize:none;background:var(--bg-tertiary);color:var(--text-primary);
+                    border:none;border-top:1px solid var(--border-color);padding:0.75rem;outline:none;"
                   spellcheck="false"></textarea>
               </div>
             </div>
