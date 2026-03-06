@@ -263,6 +263,157 @@ Everything below the closing `-->` is free-form Quarto markdown. Edit freely —
 
 ---
 
+## Rich Content in Findings
+
+Finding body content is free-form Quarto markdown. The following content types all work within `_sections/_findings/_F-NNN.qmd` files and are fully embedded in the `self-contained: true` HTML output.
+
+---
+
+### Images and Screenshots
+
+Store evidence images in `_sections/_findings/screenshots/` relative to the engagement root. Image paths within finding QMDs are resolved relative to **the finding file's own directory** (`_sections/_findings/`), not the engagement root.
+
+```
+private/output/sec-review/{engagement}/
+└── _sections/
+    └── _findings/
+        ├── _f001-high.qmd
+        └── screenshots/
+            ├── f001-evidence.png
+            └── f001-architecture.png
+```
+
+Embed in the finding body:
+
+```markdown
+![Branch protection disabled — no required reviewers](screenshots/f001-evidence.png)
+```
+
+Add a caption and optional width constraint:
+
+```markdown
+![GitHub repository settings showing branch protection disabled](screenshots/f001-evidence.png){width=80%}
+```
+
+Because reports are rendered with `self-contained: true`, all local images are base64-encoded and embedded in the HTML output. The delivered `.html` file is fully portable — no external assets required.
+
+> **Path rule:** Paths in finding QMDs are relative to `_sections/_findings/`, not the engagement root. A path of `screenshots/f001.png` resolves to `_sections/_findings/screenshots/f001.png`.
+
+---
+
+### Code Blocks
+
+Use standard fenced code blocks with a language identifier. Quarto/Pandoc applies syntax highlighting at render time.
+
+````markdown
+**Evidence — unprotected merge configuration:**
+
+```yaml
+# .github/branch-protection.yml — file does not exist
+# No branch protection rules configured
+```
+
+**Recommended configuration:**
+
+```yaml
+branch_protection:
+  main:
+    required_pull_request_reviews:
+      required_approving_review_count: 1
+    required_status_checks:
+      strict: true
+      contexts: ["snyk/security-scan"]
+    enforce_admins: true
+```
+````
+
+Supported language identifiers include: `bash`, `python`, `javascript`, `typescript`, `yaml`, `json`, `sql`, `hcl`, `dockerfile`, `go`, `rust`, and all other languages supported by Pandoc's syntax highlighter.
+
+For terminal output or generic text with no highlighting:
+
+````markdown
+```
+$ git push origin main
+remote: Bypassed required status checks
+To github.com:org/repo.git
+   abc1234..def5678  main -> main
+```
+````
+
+---
+
+### Mermaid Diagrams
+
+Quarto has native Mermaid support. Use a fenced code block with `{mermaid}` (curly braces = Quarto executable block).
+
+````markdown
+```{mermaid}
+flowchart LR
+    Dev[Developer] -->|direct push| Main[main branch]
+    Main -->|auto-deploy| Prod[Production]
+    style Main fill:#ff4444,color:#fff
+    style Prod fill:#ff4444,color:#fff
+```
+````
+
+For architecture diagrams showing a trust boundary violation:
+
+````markdown
+```{mermaid}
+graph TD
+    Internet -->|unauthenticated| API[API Gateway]
+    API -->|no mTLS| Service[Internal Service]
+    Service -->|plaintext| DB[(Database)]
+
+    classDef vuln fill:#ff4444,color:#fff,stroke:#cc0000
+    class API,Service vuln
+```
+````
+
+Pre-rendered `.svg` files (e.g. from the Mermaid editor at `/mermaid-editor-start`) can also be embedded as standard images:
+
+```markdown
+![Attack path diagram](screenshots/DRT-attack-path.svg){width=100%}
+```
+
+---
+
+### Tables
+
+Standard Quarto/Pandoc pipe tables work in finding body content:
+
+```markdown
+| Vector | Description | Exploitability |
+|--------|-------------|----------------|
+| Direct push to main | No branch protection | Trivial |
+| PR merge without review | No required reviewers | Trivial |
+| Snyk bypass | No hard merge gate | Easy |
+```
+
+---
+
+### Callout Blocks
+
+Quarto callout blocks render as styled notices in HTML output:
+
+```markdown
+::: {.callout-warning}
+**Verified During Assessment**
+This finding was confirmed by direct observation of the GitHub repository settings
+on 2026-02-28. Screenshots are attached above.
+:::
+
+::: {.callout-note}
+**Client Response**
+Client confirmed during intake that branch protection was intentionally disabled
+to reduce developer friction during a migration period.
+:::
+```
+
+Available callout types: `callout-note`, `callout-warning`, `callout-important`, `callout-tip`, `callout-caution`.
+
+---
+
 ## Triggering Generation
 
 ### CLI
