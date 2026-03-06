@@ -12,9 +12,6 @@
   <!-- Syntax highlighting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-  <style>
-    #export-menu button:hover { background: var(--bg-hover, rgba(255,255,255,0.08)) !important; }
-  </style>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
@@ -219,22 +216,6 @@
                 </svg>
                 Editor
               </button>
-              <div id="export-dropdown" style="position:relative; display:none;">
-                <button class="btn btn-secondary" id="btn-export-toggle" style="display:flex;align-items:center;gap:0.3rem;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                  </svg>
-                  Export ▾
-                </button>
-                <div id="export-menu" style="display:none;position:absolute;right:0;top:calc(100% + 4px);background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:4px;min-width:130px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,0.25);">
-                  <button id="btn-export-pdf" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">PDF (Quarto)</button>
-                  <button id="btn-export-pdf-via-html" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">PDF (HTML Style)</button>
-                  <button id="btn-export-html" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">HTML</button>
-                  <button id="btn-export-docx" style="width:100%;text-align:left;padding:0.5rem 0.85rem;background:none;border:none;color:var(--text-primary);font-size:0.8rem;cursor:pointer;display:block;white-space:nowrap;">Word</button>
-                </div>
-              </div>
               <button class="btn btn-danger" id="btn-delete" title="Delete file">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
                   <polyline points="3 6 5 6 21 6"></polyline>

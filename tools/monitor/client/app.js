@@ -801,7 +801,6 @@ function openMermaidEditor() {
 function updateToolbar(fileType) {
   const btnEdit = document.getElementById('btn-toggle-mode');
   const btnSave = document.getElementById('btn-save');
-  const exportDropdown = document.getElementById('export-dropdown');
   const btnExportSvg = document.getElementById('btn-export-svg');
   const btnOpenMermaid = document.getElementById('btn-open-mermaid');
   const btnDelete = document.getElementById('btn-delete');
@@ -809,15 +808,12 @@ function updateToolbar(fileType) {
   // Reset all
   btnEdit.style.display = 'none';
   btnSave.style.display = 'none';
-  exportDropdown.style.display = 'none';
   btnExportSvg.style.display = 'none';
   btnOpenMermaid.style.display = 'none';
-  closeExportMenu();
 
   if (fileType === 'markdown') {
     btnEdit.style.display = 'inline-flex';
     btnSave.style.display = 'inline-flex';
-    exportDropdown.style.display = 'inline-block';
   } else if (fileType === 'mermaid') {
     // Mermaid: always in split edit mode, save + export SVG + open in editor
     btnSave.style.display = 'inline-flex';
@@ -834,17 +830,6 @@ function updateToolbar(fileType) {
 
   // Delete button is always visible for all file types
   btnDelete.style.display = 'inline-flex';
-}
-
-function closeExportMenu() {
-  var menu = document.getElementById('export-menu');
-  if (menu) menu.style.display = 'none';
-}
-
-function toggleExportMenu(e) {
-  e.stopPropagation();
-  var menu = document.getElementById('export-menu');
-  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1240,159 +1225,6 @@ function deletePathItem(path, type) {
   });
 }
 
-function exportPdf() {
-  closeExportMenu();
-  if (!currentFile) { showToast('No file open', 'error'); return; }
-  if (!isMarkdownFile(currentFile)) { showToast('Only markdown files (.md or .qmd) can be exported', 'error'); return; }
-
-  var btn = document.getElementById('btn-export-pdf');
-  var originalText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span style="display:inline-block;animation:spin 1s linear infinite;">⏳</span> Generating...';
-
-  fetch('/api/download-pdf', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path: currentFile }),
-  })
-    .then(function(response) {
-      if (!response.ok) {
-        return response.json().then(function(d) { throw new Error(d.error || 'Export failed'); });
-      }
-      return response.blob();
-    })
-    .then(function(blob) {
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = getBaseFilename(currentFile.split('/').pop()) + '.pdf';
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('PDF ready — download started');
-    })
-    .catch(function(err) { showToast('PDF export failed: ' + err.message, 'error'); })
-
-function exportPdfViaHtml() {
-  closeExportMenu();
-  if (!currentFile) { showToast('No file open', 'error'); return; }
-  if (!isMarkdownFile(currentFile)) { showToast('Only markdown files (.md or .qmd) can be exported', 'error'); return; }
-
-  var btn = document.getElementById('btn-export-pdf-via-html');
-  var originalText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span style="display:inline-block;animation:spin 1s linear infinite;">⏳</span> Generating...';
-
-  fetch('/api/download-pdf-via-html', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path: currentFile }),
-  })
-    .then(function(response) {
-      if (!response.ok) {
-        return response.json().then(function(d) { throw new Error(d.error || 'Export failed'); });
-      }
-      return response.blob();
-    })
-    .then(function(blob) {
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = getBaseFilename(currentFile.split('/').pop()) + '.pdf';
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('PDF (HTML Style) ready — download started');
-    })
-    .catch(function(err) { showToast('PDF export failed: ' + err.message, 'error'); })
-    .finally(function() { btn.disabled = false; btn.innerHTML = originalText; });
-}
-    .finally(function() { btn.disabled = false; btn.innerHTML = originalText; });
-}
-
-function exportHtml() {
-  closeExportMenu();
-  if (!currentFile) {
-    showToast('No file open', 'error');
-    return;
-  }
-
-  if (!isMarkdownFile(currentFile)) {
-    showToast('Only markdown files can be exported to HTML', 'error');
-    return;
-  }
-
-  var btn = document.getElementById('btn-export-html');
-  var originalText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span style="display: inline-block; animation: spin 1s linear infinite;">⏳</span> Exporting...';
-
-  fetch('/api/download-html', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path: currentFile })
-  })
-  .then(function(response) {
-    if (!response.ok) {
-      return response.json().then(function(d) { throw new Error(d.error || 'Export failed'); });
-    }
-    return response.blob();
-  })
-  .then(function(blob) {
-    btn.disabled = false;
-    btn.innerHTML = originalText;
-    var filename = getBaseFilename(currentFile.split('/').pop()) + '.html';
-    triggerDownload(blob, filename, 'text/html');
-    showToast('HTML ready — open in browser, print to PDF if needed', 'success');
-  })
-  .catch(function(err) {
-    btn.disabled = false;
-    btn.innerHTML = originalText;
-    console.error('Export error:', err);
-    showToast('Failed to export HTML: ' + err.message, 'error');
-  });
-}
-
-function exportDocx() {
-  closeExportMenu();
-  if (!currentFile) {
-    showToast('No file open', 'error');
-    return;
-  }
-
-  if (!isMarkdownFile(currentFile)) {
-    showToast('Only markdown files can be exported to Word', 'error');
-    return;
-  }
-
-  var btn = document.getElementById('btn-export-docx');
-  var originalText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span style="display: inline-block; animation: spin 1s linear infinite;">⏳</span> Exporting...';
-
-  fetch('/api/download-docx', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path: currentFile })
-  })
-  .then(function(response) {
-    if (!response.ok) {
-      return response.json().then(function(d) { throw new Error(d.error || 'Export failed'); });
-    }
-    return response.blob();
-  })
-  .then(function(blob) {
-    btn.disabled = false;
-    btn.innerHTML = originalText;
-    var filename = getBaseFilename(currentFile.split('/').pop()) + '.docx';
-    triggerDownload(blob, filename, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-    showToast('Word document ready — saving...', 'success');
-  })
-  .catch(function(err) {
-    btn.disabled = false;
-    btn.innerHTML = originalText;
-    console.error('Export error:', err);
-    showToast('Failed to export Word document: ' + err.message, 'error');
-  });
-}
 
 function triggerDownload(blob, filename, mimeType) {
   // Use File System Access API for a real "Save As" dialog when available
@@ -1855,17 +1687,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('btn-toggle-mode').onclick = toggleEditMode;
   document.getElementById('btn-save').onclick = saveFile;
-  document.getElementById('btn-export-toggle').onclick = toggleExportMenu;
-  const btnPdf = document.getElementById('btn-export-pdf');
-  if (btnPdf) btnPdf.onclick = exportPdf;
-  const btnPdfHtml = document.getElementById('btn-export-pdf-via-html');
-  if (btnPdfHtml) btnPdfHtml.onclick = exportPdfViaHtml;
-  document.getElementById('btn-export-html').onclick = exportHtml;
-  document.getElementById('btn-export-docx').onclick = exportDocx;
   document.getElementById('btn-export-svg').onclick = exportMermaidSvg;
   document.getElementById('btn-open-mermaid').onclick = openMermaidEditor;
   document.getElementById('btn-delete').onclick = deleteFile;
-  document.addEventListener('click', closeExportMenu);
   document.getElementById('btn-copy-path').onclick = function() {
     if (currentFile) {
       copyToClipboard(currentFile);
