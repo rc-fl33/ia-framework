@@ -527,6 +527,135 @@ function handleAPI(req: Request, url: URL): Response {
       return handleDocxDownload(req);
     }
 
+    // GET /api/studio/engagements — list private/output/* dirs with engagement.yaml
+    if (path === '/api/studio/engagements' && req.method === 'GET') {
+      const outputDir = join(config.claudeDir, 'private/output');
+      const engagements: { path: string; name: string; modified: string }[] = [];
+      if (existsSync(outputDir)) {
+        try {
+          for (const dir of readdirSync(outputDir)) {
+            const engYaml = join(outputDir, dir, 'engagement.yaml');
+            if (existsSync(engYaml)) {
+              const stat = statSync(join(outputDir, dir));
+              engagements.push({ path: dir, name: dir, modified: stat.mtime.toISOString() });
+            }
+          }
+        } catch { /* ignore */ }
+      }
+      return new Response(JSON.stringify({ engagements }), { headers });
+    }
+
+    // GET /api/studio/sections — list sections for an engagement (or single file content)
+    if (path === '/api/studio/sections' && req.method === 'GET') {
+      const engPath = url.searchParams.get('eng');
+      const file = url.searchParams.get('file');
+      if (!engPath) {
+        return new Response(JSON.stringify({ error: 'Missing eng' }), { status: 400, headers });
+      }
+      const engDir = join(config.claudeDir, 'private/output', engPath);
+
+      // If file param: return single file content
+      if (file) {
+        const filePath = join(engDir, file);
+        const resolved = resolve(filePath);
+        if (!resolved.startsWith(resolve(config.claudeDir))) {
+          return new Response(JSON.stringify({ error: 'Forbidden' }), { status: 403, headers });
+        }
+        const content = existsSync(resolved) ? readFileSync(resolved, 'utf-8') : '';
+        return new Response(JSON.stringify({ content }), { headers });
+      }
+
+      // List _sections/*.qmd files
+      const sectDir = join(engDir, '_sections');
+      const sections: { name: string; file: string; excerpt: string }[] = [];
+      if (existsSync(sectDir)) {
+        for (const f of readdirSync(sectDir).filter(
+          f => f.endsWith('.qmd') && f.startsWith('_')
+        )) {
+          const content = readFileSync(join(sectDir, f), 'utf-8');
+          sections.push({
+            name: f.replace(/^_/, '').replace(/\.qmd$/, '').replace(/-/g, ' '),
+            file: `_sections/${f}`,
+            excerpt: content.slice(0, 100).replace(/\n/g, ' '),
+          });
+        }
+      }
+      return new Response(JSON.stringify({ sections }), { headers });
+    }
+
+    // POST /api/studio/sections/reorder — save section order (advisory)
+    if (path === '/api/studio/sections/reorder' && req.method === 'POST') {
+      return new Response(JSON.stringify({ ok: true }), { headers });
+    }
+
+    // POST /api/studio/sections/write — write a section file
+    if (path === '/api/studio/sections/write' && req.method === 'POST') {
+      const { engagement, file, content } =
+        (await req.json()) as { engagement: string; file: string; content: string };
+      if (!engagement || !file) {
+        return new Response(JSON.stringify({ error: 'Missing params' }), { status: 400, headers });
+      }
+      const filePath = join(config.claudeDir, 'private/output', engagement, file);
+      const resolved = resolve(filePath);
+      if (!resolved.startsWith(resolve(config.claudeDir) + '/')) {
+        return new Response(JSON.stringify({ error: 'Forbidden' }), { status: 403, headers });
+      }
+      mkdirSync(dirname(resolved), { recursive: true });
+      writeFileSync(resolved, content, 'utf-8');
+      return new Response(JSON.stringify({ ok: true }), { headers });
+    }
+
+    // POST /api/studio/render — spawn report generator
+    if (path === '/api/studio/render' && req.method === 'POST') {
+      const { engagement, format = 'html', draft = true } =
+        (await req.json()) as { engagement: string; format?: string; draft?: boolean };
+      if (!engagement) {
+        return new Response(JSON.stringify({ error: 'Missing engagement' }), { status: 400, headers });
+      }
+      const engYaml = join(config.claudeDir, 'private/output', engagement, 'engagement.yaml');
+      if (!existsSync(engYaml)) {
+        return new Response(
+          JSON.stringify({ error: 'engagement.yaml not found' }), { status: 404, headers }
+        );
+      }
+      const assembler = join(config.claudeDir, 'skills/sec-review/scripts/assemble-report.ts');
+      const draftArg = draft ? '--draft' : '--no-draft';
+      const result = spawnSync('bun', [assembler, '--engagement', engYaml, '--render', draftArg], {
+        cwd: config.claudeDir,
+        encoding: 'utf-8',
+        timeout: 120000,
+      });
+      if (result.status !== 0) {
+        return new Response(
+          JSON.stringify({ ok: false, error: result.stderr }), { status: 500, headers }
+        );
+      }
+      const previewUrl = `/api/studio/preview?eng=${encodeURIComponent(engagement)}`;
+      return new Response(JSON.stringify({ ok: true, previewUrl }), { headers });
+    }
+
+    // GET /api/studio/preview — serve last rendered HTML
+    if (path === '/api/studio/preview' && req.method === 'GET') {
+      const engPath = url.searchParams.get('eng');
+      if (!engPath) return new Response('Missing eng', { status: 400 });
+      const engDir = join(config.claudeDir, 'private/output', engPath);
+      let htmlFile: string | null = null;
+      if (existsSync(engDir)) {
+        for (const f of readdirSync(engDir)) {
+          if (f.endsWith('.html') && !f.includes('finding-report')) { htmlFile = f; break; }
+        }
+      }
+      if (!htmlFile) {
+        return new Response(
+          '<html><body style="font-family:sans-serif;padding:2rem;color:#888">' +
+          '<p>No rendered report found. Click Render to generate.</p></body></html>',
+          { headers: { 'Content-Type': 'text/html' } }
+        );
+      }
+      const content = readFileSync(join(engDir, htmlFile));
+      return new Response(content, { headers: { 'Content-Type': 'text/html' } });
+    }
+
     // 404 for unknown API routes
     return new Response(JSON.stringify({ error: 'Not found' }), {
       status: 404,

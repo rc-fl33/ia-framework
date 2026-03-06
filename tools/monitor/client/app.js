@@ -1976,3 +1976,275 @@ function initMermaidResizer() {
 
   resizer.addEventListener('mousedown', initResize, false);
 }
+
+// ── Quarto Studio Panel ────────────────────────────────────────────────────
+
+const Studio = (() => {
+  let currentEngagement = null;
+  let currentSections = [];
+  let dragSrcIdx = null;
+
+  const engList = document.getElementById('studio-engagement-list');
+  const sectionCards = document.getElementById('studio-section-cards');
+  const sectionEditorWrap = document.getElementById('studio-section-editor-wrap');
+  const sectionTextarea = document.getElementById('studio-section-textarea');
+  const editingLabel = document.getElementById('studio-editing-label');
+  const engNameEl = document.getElementById('studio-engagement-name');
+  const previewIframe = document.getElementById('studio-preview-iframe');
+  const previewPlaceholder = document.getElementById('studio-preview-placeholder');
+  const previewLink = document.getElementById('studio-preview-link');
+  const generateBtn = document.getElementById('btn-studio-generate');
+  const draftToggle = document.getElementById('studio-draft-toggle');
+  let editingSection = null;
+
+  async function loadEngagements() {
+    if (!engList) return;
+    engList.innerHTML =
+      '<div style="padding:0.5rem;font-size:0.75rem;color:var(--text-muted)">Loading...</div>';
+    try {
+      const res = await fetch('/api/studio/engagements');
+      const { engagements } = await res.json();
+      engList.innerHTML = '';
+      if (!engagements?.length) {
+        engList.innerHTML =
+          '<div style="padding:0.5rem;font-size:0.75rem;color:var(--text-muted)">No engagements found</div>';
+        return;
+      }
+      for (const eng of engagements) {
+        const item = document.createElement('div');
+        item.className = 'studio-engagement-item';
+        item.textContent = eng.name;
+        item.title = eng.path;
+        item.addEventListener('click', () => selectEngagement(eng));
+        engList.appendChild(item);
+      }
+    } catch {
+      engList.innerHTML =
+        '<div style="padding:0.5rem;font-size:0.75rem;color:var(--accent-error,#ef4444)">Failed to load</div>';
+    }
+  }
+
+  async function selectEngagement(eng) {
+    currentEngagement = eng;
+    engNameEl.textContent = eng.name;
+    generateBtn.disabled = false;
+
+    // Highlight selected
+    engList.querySelectorAll('.studio-engagement-item').forEach(el => {
+      el.classList.toggle('active', el.title === eng.path);
+    });
+
+    // Load sections
+    sectionCards.innerHTML =
+      '<div style="padding:0.5rem;font-size:0.75rem;color:var(--text-muted)">Loading sections...</div>';
+    sectionEditorWrap.style.display = 'none';
+    try {
+      const res = await fetch(`/api/studio/sections?eng=${encodeURIComponent(eng.path)}`);
+      const { sections } = await res.json();
+      currentSections = sections || [];
+      renderSectionCards();
+      showPreview(eng.path);
+    } catch {
+      sectionCards.innerHTML =
+        '<div style="padding:0.5rem;font-size:0.75rem;color:var(--accent-error,#ef4444)">Failed to load sections</div>';
+    }
+  }
+
+  function renderSectionCards() {
+    sectionCards.innerHTML = '';
+    currentSections.forEach((sec, idx) => {
+      const card = document.createElement('div');
+      card.className = 'studio-section-card';
+      card.draggable = true;
+      card.dataset.idx = idx;
+      card.innerHTML = `
+        <span class="studio-drag-handle" title="Drag to reorder">\u2807</span>
+        <span class="studio-card-name">${sec.name}</span>
+        <span class="studio-card-excerpt">${(sec.excerpt || '').slice(0, 60)}</span>
+      `;
+      card.addEventListener('click', () => openSectionEditor(sec, idx));
+      card.addEventListener('dragstart', onDragStart);
+      card.addEventListener('dragover', onDragOver);
+      card.addEventListener('dragleave', onDragLeave);
+      card.addEventListener('drop', onDrop);
+      card.addEventListener('dragend', onDragEnd);
+      sectionCards.appendChild(card);
+    });
+  }
+
+  function onDragStart(e) {
+    dragSrcIdx = parseInt(this.dataset.idx, 10);
+    e.dataTransfer.effectAllowed = 'move';
+  }
+
+  function onDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    this.classList.add('drag-over');
+  }
+
+  function onDragLeave() { this.classList.remove('drag-over'); }
+
+  function onDrop(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+    const destIdx = parseInt(this.dataset.idx, 10);
+    if (dragSrcIdx === null || dragSrcIdx === destIdx) return;
+    const moved = currentSections.splice(dragSrcIdx, 1)[0];
+    currentSections.splice(destIdx, 0, moved);
+    renderSectionCards();
+    saveOrder();
+  }
+
+  function onDragEnd() { dragSrcIdx = null; }
+
+  async function saveOrder() {
+    if (!currentEngagement) return;
+    const order = currentSections.map(s => s.file);
+    await fetch('/api/studio/sections/reorder', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ engagement: currentEngagement.path, order }),
+    }).catch(() => {});
+  }
+
+  async function openSectionEditor(sec, idx) {
+    editingSection = sec;
+    editingLabel.textContent = sec.name;
+    sectionTextarea.value = sec.content || '';
+    sectionEditorWrap.style.display = '';
+    sectionTextarea.focus();
+
+    // Load latest content if not already loaded
+    if (!sec.content) {
+      try {
+        const res = await fetch(
+          `/api/studio/sections?eng=${encodeURIComponent(currentEngagement.path)}&file=${encodeURIComponent(sec.file)}`
+        );
+        const { content } = await res.json();
+        sectionTextarea.value = content || '';
+        sec.content = content;
+      } catch { /* ignore */ }
+    }
+  }
+
+  document.getElementById('btn-studio-cancel-edit')?.addEventListener('click', () => {
+    sectionEditorWrap.style.display = 'none';
+    editingSection = null;
+  });
+
+  document.getElementById('btn-studio-save-section')?.addEventListener('click', async () => {
+    if (!editingSection || !currentEngagement) return;
+    const content = sectionTextarea.value;
+    try {
+      await fetch('/api/studio/sections/write', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          engagement: currentEngagement.path,
+          file: editingSection.file,
+          content,
+        }),
+      });
+      editingSection.content = content;
+      editingSection.excerpt = content.slice(0, 100);
+      renderSectionCards();
+    } catch { /* ignore */ }
+  });
+
+  document.getElementById('btn-studio-render')?.addEventListener('click', async () => {
+    if (!currentEngagement) return;
+    previewPlaceholder.style.display = 'flex';
+    previewIframe.style.display = 'none';
+    previewPlaceholder.querySelector('p').textContent = 'Rendering...';
+    const draft = draftToggle?.checked ?? true;
+    try {
+      const res = await fetch('/api/studio/render', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ engagement: currentEngagement.path, format: 'html', draft }),
+      });
+      const { ok, previewUrl } = await res.json();
+      if (ok && previewUrl) {
+        previewIframe.src = previewUrl;
+        previewIframe.style.display = '';
+        previewPlaceholder.style.display = 'none';
+        previewLink.href = previewUrl;
+        previewLink.style.display = '';
+      } else {
+        previewPlaceholder.querySelector('p').textContent = 'Render failed.';
+      }
+    } catch {
+      previewPlaceholder.querySelector('p').textContent = 'Render error.';
+    }
+  });
+
+  generateBtn?.addEventListener('click', async () => {
+    if (!currentEngagement) return;
+    const draft = draftToggle?.checked ?? true;
+    generateBtn.disabled = true;
+    generateBtn.textContent = 'Generating...';
+    try {
+      await fetch('/api/studio/render', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ engagement: currentEngagement.path, format: 'html', draft }),
+      });
+    } finally {
+      generateBtn.disabled = false;
+      generateBtn.textContent = 'Generate';
+    }
+  });
+
+  document.getElementById('btn-studio-refresh')?.addEventListener('click', loadEngagements);
+
+  function showPreview(engPath) {
+    const url = `/api/studio/preview?eng=${encodeURIComponent(engPath)}`;
+    previewIframe.src = url;
+    previewIframe.style.display = '';
+    previewPlaceholder.style.display = 'none';
+    previewLink.href = url;
+    previewLink.style.display = '';
+  }
+
+  // Studio pane resizer
+  function initStudioResizer(resizerId, paneEl, side) {
+    const resizer = document.getElementById(resizerId);
+    if (!resizer || !paneEl) return;
+    let startX, startW;
+    resizer.addEventListener('mousedown', e => {
+      startX = e.clientX;
+      startW = paneEl.offsetWidth;
+      const onMove = mv => {
+        const delta = side === 'left' ? mv.clientX - startX : startX - mv.clientX;
+        paneEl.style.width = Math.max(150, startW + delta) + 'px';
+      };
+      const onUp = () => {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+      };
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+  }
+
+  initStudioResizer('studio-resizer-left', document.querySelector('.studio-pane-left'), 'left');
+  initStudioResizer('studio-resizer-right', document.querySelector('.studio-pane-right'), 'right');
+
+  return { init: loadEngagements };
+})();
+
+// Wire Studio tab
+document.addEventListener('DOMContentLoaded', () => {
+  const tabStudio = document.getElementById('tab-studio');
+  if (tabStudio) {
+    tabStudio.addEventListener('click', () => {
+      // Hide all panels, show studio
+      document.querySelectorAll('.editor-container').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tabStudio.classList.add('active');
+      document.getElementById('panel-studio')?.classList.remove('hidden');
+      Studio.init();
+    });
+  }
+});

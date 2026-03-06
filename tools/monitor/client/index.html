@@ -89,6 +89,9 @@
           <div class="tab active" data-tab="timeline">
             <span>Activity</span>
           </div>
+          <div class="tab" data-tab="studio" id="tab-studio">
+            <span>Studio</span>
+          </div>
           <div class="tab-actions" style="margin-left: auto; display: flex; gap: 0.5rem; padding: 0.5rem; border-left: 1px solid var(--border-color);">
             <button class="btn-icon" id="btn-close-other-tabs" title="Close other tabs" style="display: none;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -112,6 +115,78 @@
         <div class="editor-container" id="panel-timeline">
           <div class="timeline" id="timeline">
             <div class="timeline-empty">Waiting for events...</div>
+          </div>
+        </div>
+
+        <div class="editor-container hidden" id="panel-studio">
+          <!-- Studio 3-pane layout -->
+          <div class="studio-layout">
+            <!-- Left: Engagement Browser -->
+            <div class="studio-pane studio-pane-left" id="studio-engagements">
+              <div class="studio-pane-header">
+                <span>Engagements</span>
+                <button class="btn btn-sm btn-secondary" id="btn-studio-refresh" title="Refresh">&#x21BA;</button>
+              </div>
+              <div id="studio-engagement-list" class="studio-list"></div>
+              <div class="studio-pane-footer">
+                <button class="btn btn-sm btn-secondary" id="btn-studio-new-engagement" style="width:100%;">
+                  + New Engagement
+                </button>
+              </div>
+            </div>
+
+            <!-- Resizer -->
+            <div class="studio-resizer" id="studio-resizer-left"></div>
+
+            <!-- Center: Section Editor -->
+            <div class="studio-pane studio-pane-center" id="studio-sections">
+              <div class="studio-pane-header" id="studio-sections-header">
+                <span id="studio-engagement-name">Select an engagement</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <label style="display:flex;align-items:center;gap:0.25rem;font-size:0.75rem;">
+                    <input type="checkbox" id="studio-draft-toggle" checked> Draft
+                  </label>
+                  <button class="btn btn-sm btn-primary" id="btn-studio-generate" disabled>Generate</button>
+                </div>
+              </div>
+              <div id="studio-section-cards" class="studio-section-list"></div>
+              <div id="studio-section-editor-wrap"
+                style="display:none;border-top:1px solid var(--border-color);padding:0.75rem;flex-shrink:0;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+                  <span id="studio-editing-label"
+                    style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);"></span>
+                  <div style="display:flex;gap:0.5rem;">
+                    <button class="btn btn-sm btn-secondary" id="btn-studio-cancel-edit">Cancel</button>
+                    <button class="btn btn-sm btn-primary" id="btn-studio-save-section">Save</button>
+                  </div>
+                </div>
+                <textarea id="studio-section-textarea"
+                  style="width:100%;height:240px;font-family:Menlo,Monaco,monospace;font-size:0.8rem;
+                    resize:vertical;background:var(--bg-tertiary);color:var(--text-primary);
+                    border:1px solid var(--border-color);border-radius:4px;padding:0.5rem;"
+                  spellcheck="false"></textarea>
+              </div>
+            </div>
+
+            <!-- Resizer -->
+            <div class="studio-resizer" id="studio-resizer-right"></div>
+
+            <!-- Right: Preview -->
+            <div class="studio-pane studio-pane-right" id="studio-preview">
+              <div class="studio-pane-header">
+                <span>Preview</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <button class="btn btn-sm btn-secondary" id="btn-studio-render">Render</button>
+                  <a id="studio-preview-link" href="#" target="_blank"
+                    class="btn btn-sm btn-secondary" style="display:none;">&#x2197;</a>
+                </div>
+              </div>
+              <div id="studio-preview-placeholder" class="studio-placeholder">
+                <p>Select an engagement and click Render to preview.</p>
+              </div>
+              <iframe id="studio-preview-iframe"
+                style="display:none;flex:1;width:100%;border:none;" src="about:blank"></iframe>
+            </div>
           </div>
         </div>
 
