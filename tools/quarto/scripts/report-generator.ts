@@ -532,6 +532,17 @@ export function generateReport(options: GenerateReportOptions): void {
   const findings = loadFindings(findingsDir);
   const sectionIncludes = getSectionIncludes(reportType);
 
+  // Narrative overrides — keyed by section filename stem
+  const narrative = (eng.narrative as Record<string, string> | undefined) ?? {};
+  const SECTION_NARRATIVE_KEYS: Record<string, string> = {
+    "_cover.qmd":              "cover",
+    "_executive-summary.qmd":  "executive_summary",
+    "_scope.qmd":              "scope",
+    "_findings.qmd":           "findings",
+    "_recommendations.qmd":    "recommendations",
+    "_appendices.qmd":         "appendices",
+  };
+
   const sectionGenerators: Record<string, () => string> = {
     "_cover.qmd": () => genCover(eng, engDir, { reportType }),
     "_executive-summary.qmd": () => genExecutiveSummary(eng, findings, { reportType }),
@@ -546,7 +557,9 @@ export function generateReport(options: GenerateReportOptions): void {
     const generator = sectionGenerators[filename];
 
     if (generator) {
-      const content = generator();
+      const raw = generator();
+      const narrativeKey = SECTION_NARRATIVE_KEYS[filename];
+      const content = narrativeKey ? applyNarrative(raw, narrative, narrativeKey) : raw;
       const fullPath = join(sectDir, filename);
       const parentDir = dirname(fullPath);
       if (!existsSync(parentDir)) {
@@ -630,6 +643,32 @@ ${includesContent}
   }
 
   console.log("Report generation complete.");
+}
+
+// ── Narrative overrides ───────────────────────────────────────────────────────
+
+/**
+ * Applies narrative overrides from engagement.yaml to a generated section.
+ *
+ * Supported keys (where {key} is the section name, e.g. "executive_summary"):
+ *   narrative.{key}_prefix   — injected before generated content
+ *   narrative.{key}_suffix   — injected after generated content
+ *   narrative.{key}_override — replaces generated content entirely
+ */
+function applyNarrative(
+  generated: string,
+  narrative: Record<string, string>,
+  key: string
+): string {
+  const override = narrative[`${key}_override`];
+  if (override !== undefined) return override;
+
+  const prefix = narrative[`${key}_prefix`];
+  const suffix = narrative[`${key}_suffix`];
+  let result = generated;
+  if (prefix) result = `${prefix.trim()}\n\n${result}`;
+  if (suffix) result = `${result.trimEnd()}\n\n${suffix.trim()}\n`;
+  return result;
 }
 
 function slugify(s: string): string {

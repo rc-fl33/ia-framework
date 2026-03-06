@@ -28,3 +28,21 @@ scope_in:
 
 scope_out:
   - "[Out of scope item]"
+
+# ── Narrative Overrides (optional) ───────────────────────────────────────────
+# Customize generated section content without modifying templates or skill code.
+# Applies after report generation — survives repeated Generate runs.
+#
+# Supported sections: cover, executive_summary, scope, findings,
+#                     recommendations, appendices
+#
+# Each section supports three variants:
+#   {section}_prefix   — injected before generated content
+#   {section}_suffix   — injected after generated content
+#   {section}_override — replaces generated content entirely
+#
+# narrative:
+#   executive_summary_suffix: |
+#     [Add engagement-specific context, key themes, or observations here.]
+#   findings_suffix: |
+#     [Add findings interpretation or analyst notes here.]
